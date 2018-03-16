@@ -1,4 +1,7 @@
-import { ASIDE_MENU_SHOW_CLASS_NAMES, SIDEBAR_SHOW_CLASS_NAMES } from './config'
+import {
+  ASIDE_MENU_SHOW_CLASS_NAMES,
+  SIDEBAR_SHOW_CLASS_NAMES
+} from './config'
 import $ from 'jquery'
 import NavigationScrollbar from './navigation-scrollbar'
 import ResizeBroadcast from './resize-broadcast'

@@ -1,5 +1,7 @@
-import { NAVIGATION } from './config'
 import $ from 'jquery'
+import {
+  NAVIGATION
+} from './config'
 import NavigationScrollbar from './navigation-scrollbar'
 
 /**
@@ -30,7 +32,6 @@ const Navigation = (($) => {
 
   // Dropdown Menu
   NAVIGATION.on('click', 'a', function (e) {
-
     if ($(this).hasClass('nav-dropdown-toggle')) {
       e.preventDefault()
       $(this).parent().toggleClass('open')

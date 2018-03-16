@@ -1,4 +1,6 @@
-import { NAVIGATION_CONTAINER } from './config'
+import {
+  NAVIGATION_CONTAINER
+} from './config'
 import PerfectScrollbar from 'perfect-scrollbar'
 
 /**

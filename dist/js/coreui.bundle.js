@@ -213,4 +213,4 @@ exports.Navigation = Navigation;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=coreui.js.map
+//# sourceMappingURL=coreui.bundle.js.map
