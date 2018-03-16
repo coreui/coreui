@@ -29,16 +29,28 @@ CoreUI is an Open Source Bootstrap Admin Template. But CoreUI is not just anothe
 
 Several options are available:
 
+### Clone repo
+
+``` bash
+$ git clone https://github.com/coreui/coreui.git
+```
+
 ### NPM
 
-``` sh
-npm install @coreui/core --save
+``` bash
+$ npm install @coreui/core --save
 ```
 
 ### Yarn
 
-``` sh
-yarn add @coreui/core@4.0.0
+``` bash
+yarn add @coreui/core@2.0.0
+```
+
+### Composer
+
+``` bash
+composer require coreui/coreui:2.0.0
 ```
 
 ## Usage
