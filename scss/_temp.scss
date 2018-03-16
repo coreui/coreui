@@ -1,0 +1,11 @@
+// stylelint-disable
+
+.pagination-datatables, .pagination {
+  li {
+    @extend .page-item;
+
+    a {
+      @extend .page-link;
+    }
+  }
+}
