@@ -20,13 +20,7 @@ restrictions:
   Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
   instead.
 
-* Please **do not** open issues or pull requests regarding the code in  [`@coreui/static`](https://github.com/coreui/static) and [`@coreui/styles`](https://github.com/coreui/styles) (open them in their respective repositories).
-
-<!-- * Please **do not** open issues regarding the official themes offered on <http://themes.getbootstrap.com/>.
-  Instead, please email any questions or feedback regarding those themes to `themes AT getbootstrap DOT com`. -->
-
-
-## Issues and labels
+<!-- ## Issues and labels
 
 Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
 
@@ -42,7 +36,7 @@ Our bug tracker utilizes several labels to help organize and identify issues. He
 - `js` - Issues stemming from our compiled or source JavaScript files.
 - `meta` - Issues with the project itself or our GitHub repository.
 
-For a complete look at our labels, see the [project labels page](https://github.com/twbs/bootstrap/labels).
+For a complete look at our labels, see the [project labels page](https://github.com/twbs/bootstrap/labels). -->
 
 
 ## Bug reports
@@ -191,5 +185,3 @@ includes code changes) and under the terms of the
 
 By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
 By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
-
-Prior to v3.1.0, Bootstrap's code was released under the Apache License v2.0.
