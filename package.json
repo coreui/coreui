@@ -2,11 +2,26 @@
   "name": "@coreui/core",
   "version": "2.0.0-alpha.1",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
-  "main": "index.js",
+  "keywords": [
+    "bootstrap"
+    "css",
+    "dashboard",
+    "framework",
+    "front-end",
+    "responsive",
+    "sass",
+    "ui kit",
+    "webapp"
+  ],
   "homepage": "https://coreui.io",
+  "bugs": {
+    "url": "https://github.com/coreui/coreui/issues",
+    "email" : "support@coreui.io"
+  },
+  "license": "MIT",
   "author": {
     "name": "Łukasz Holeczek",
-    "github": "https://github.com/mrholek"
+    "url": "https://github.com/mrholek"
   },
   "contributors": [
     {
@@ -14,30 +29,34 @@
       "github": "https://github.com/xidedix"
     }
   ],
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/js/coreui.js",
+  "sass": "scss/coreui.scss",
+  "style": "dist/css/coreui.css",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/coreui/coreui.git"
+  },
   "scripts": {
-    "css": "npm-run-all --parallel css-lint* css-compile* --sequential css-prefix* css-minify*",
-    "css-main": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
+    "css": "npm-run-all --parallel css-lint css-compile --sequential css-prefix css-minify",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui.scss dist/css/coreui.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"scss/**/*.scss\"",
     "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
-    "js": "npm-run-all js-lint js-compile js-minify",
+    "dist": "npm-run-all --parallel css js",
+    "js": "npm-run-all js-lint js-compile* js-minify*",
     "js-lint": "eslint js/",
     "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
+    "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",
+    "js-minify-bundle": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.bundle.js.map,includeSources,url=coreui.bundle.min.js.map\" --output dist/js/coreui.bundle.min.js dist/js/coreui.bundle.js",
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 coreui-$npm_package_version-dist.zip * && shx mv coreui-$npm_package_version-dist.zip ..",
     "watch": "npm-run-all --parallel watch-css watch-js",
     "watch-js": "nodemon --ignore dist/ -e js -x \"npm run js-compile && npm run js-minify\"",
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
-  },
-  "license": "MIT",
-  "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
-  "peerDependencies": {
-    "bootstrap": "^4.0.0",
-    "jquery": "1.9.1 - 3",
-    "perfect-scrollbar": "^1.3.0",
-    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0-beta.38",
@@ -65,12 +84,15 @@
     "stylelint-scss": "^2.1.0",
     "uglify-js": "^3.3.8"
   },
+  "peerDependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "1.9.1 - 3",
+    "perfect-scrollbar": "^1.3.0",
+    "popper.js": "^1.12.9"
+  },
   "engines": {
     "node": ">=6"
   },
-  "files": [
-    "dist/"
-  ],
   "browserslist": [
     "last 1 major version",
     ">= 1%",
