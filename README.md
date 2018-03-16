@@ -4,7 +4,7 @@ Please help us on [Product Hunt](https://www.producthunt.com/posts/coreui-open-s
 
 Curious why I decided to create CoreUI? Please read this article: [Jack of all trades, master of none. Why Bootstrap Admin Templates suck.](https://medium.com/@lukaszholeczek/jack-of-all-trades-master-of-none-5ea53ef8a1f#.7eqx1bcd8)
 
-CoreUI is an Open Source Bootstrap Admin Template. But CoreUI is not just another Admin Template. It goes way beyond hitherto admin templates thanks to transparent code and file structure. And if that's not enough, let’s just add that CoreUI consists bunch of unique features and over 1000 high quality icons.
+CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the fastest way to build modern dashboard for any platforms, browser or device. A complete Dashboard and WebApp UI Kit that allows you to quickly build eye-catching, high-quality, high-performance responsive applications using your framework of choice.
 
 ## Table of Contents
 
@@ -44,13 +44,13 @@ $ npm install @coreui/core --save
 ### Yarn
 
 ``` bash
-yarn add @coreui/core@2.0.0
+$ yarn add @coreui/core@2.0.0
 ```
 
 ### Composer
 
 ``` bash
-composer require coreui/coreui:2.0.0
+$ composer require coreui/coreui:2.0.0
 ```
 
 ## Usage
