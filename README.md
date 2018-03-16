@@ -27,9 +27,18 @@ CoreUI is an Open Source Bootstrap Admin Template. But CoreUI is not just anothe
 
 ## Installation
 
-``` bash
-# install CoreUI styles & scripts
-$ npm install @coreui/core
+Several options are available:
+
+### NPM
+
+``` sh
+npm install @coreui/core --save
+```
+
+### Yarn
+
+``` sh
+yarn add @coreui/core@4.0.0
 ```
 
 ## Usage
