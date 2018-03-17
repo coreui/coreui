@@ -55,14 +55,6 @@ $ composer require coreui/coreui:2.0.0
 
 ## Usage
 
-``` bash
-# serve with hot reload at localhost:3000.
-$ npm run watch
-
-# build for production with minification
-$ npm run dist
-```
-
 ### CSS
 
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
