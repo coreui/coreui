@@ -30,7 +30,9 @@
     }
   ],
   "files": [
-    "dist/"
+    "dist/",
+    "js/",
+    "scss/"
   ],
   "main": "dist/js/coreui.js",
   "sass": "scss/coreui.scss",
