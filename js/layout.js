@@ -4,7 +4,6 @@ import {
 } from './config'
 import $ from 'jquery'
 import NavigationScrollbar from './navigation-scrollbar'
-import ResizeBroadcast from './resize-broadcast'
 import ToggleClasses from './toggle-classes'
 
 /**
@@ -18,15 +17,12 @@ const Layout = (($) => {
   $('.sidebar-toggler').click(function () {
     const Toggle = $(this).data('toggle')
     const ClassNames = SIDEBAR_SHOW_CLASS_NAMES
-
     ToggleClasses(Toggle, ClassNames)
-    ResizeBroadcast()
   })
 
   $('.sidebar-minimizer').click(() => {
     $('body').toggleClass('sidebar-minimized')
     NavigationScrollbar('toggle')
-    ResizeBroadcast()
   })
 
   $('.brand-minimizer').click(() => {
@@ -36,9 +32,7 @@ const Layout = (($) => {
   $('.aside-menu-toggler').click(function () {
     const Toggle = $(this).data('toggle')
     const ClassNames = ASIDE_MENU_SHOW_CLASS_NAMES
-
     ToggleClasses(Toggle, ClassNames)
-    ResizeBroadcast()
   })
 
   $('.sidebar-close').click(() => {

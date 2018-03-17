@@ -68,32 +68,6 @@ var NavigationScrollbar = function NavigationScrollbar(event) {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-alpha.1): resize-broadcast.js
- * Licensed under MIT (https://coreui.io/license)
- * --------------------------------------------------------------------------
- */
-var ResizeBroadcast = function ResizeBroadcast() {
-  var timesRun = 5;
-  var milliseconds = 62.5;
-  var interval = setInterval(function () {
-    timesRun--;
-
-    if (timesRun === 0) {
-      clearInterval(interval);
-    }
-
-    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > 0) {
-      var evt = document.createEvent('UIEvents');
-      evt.initUIEvent('resize', true, false, window, 0);
-      window.dispatchEvent(evt);
-    } else {
-      window.dispatchEvent(new Event('resize'));
-    }
-  }, milliseconds);
-};
-
-/**
- * --------------------------------------------------------------------------
  * CoreUI (v2.0.0-alpha.1): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
@@ -130,12 +104,10 @@ var Layout = function ($$$1) {
     var Toggle = $$$1(this).data('toggle');
     var ClassNames = SIDEBAR_SHOW_CLASS_NAMES;
     ToggleClasses(Toggle, ClassNames);
-    ResizeBroadcast();
   });
   $$$1('.sidebar-minimizer').click(function () {
     $$$1('body').toggleClass('sidebar-minimized');
     NavigationScrollbar('toggle');
-    ResizeBroadcast();
   });
   $$$1('.brand-minimizer').click(function () {
     $$$1('body').toggleClass('brand-minimized');
@@ -144,7 +116,6 @@ var Layout = function ($$$1) {
     var Toggle = $$$1(this).data('toggle');
     var ClassNames = ASIDE_MENU_SHOW_CLASS_NAMES;
     ToggleClasses(Toggle, ClassNames);
-    ResizeBroadcast();
   });
   $$$1('.sidebar-close').click(function () {
     $$$1('body').toggleClass('sidebar-opened').parent().toggleClass('sidebar-opened');
