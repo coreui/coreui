@@ -20,3 +20,13 @@ button {
 .btn-pill {
   border-radius: 50em;
 }
+
+.btn-square {
+  border-radius: 0;
+}
+
+@each $color, $value in $theme-colors {
+  .btn-ghost-#{$color} {
+    @include button-ghost-variant($value);
+  }
+}
