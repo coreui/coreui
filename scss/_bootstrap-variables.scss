@@ -35,7 +35,7 @@ $info:           $light-blue !default;
 // Quickly modify global styling by enabling or disabling optional features.
 
 $enable-transitions:              true !default;
-$enable-rounded:                  false !default;
+// $enable-rounded:                  false !default;
 
 // Body
 //
@@ -59,6 +59,7 @@ $font-size-base:                  .875rem !default;
 
 $breadcrumb-bg:                   #fff !default;
 $breadcrumb-margin-bottom:        1.5rem !default;
+$breadcrumb-border-radius:        0 !default;
 
 // Cards
 
