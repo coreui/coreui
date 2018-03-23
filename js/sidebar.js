@@ -81,15 +81,6 @@ const Sidebar = (($) => {
       this._addEventListeners()
     }
 
-    // getBreakpoints() {
-    //   const styles = getComputedStyle(document.body)
-    //   const xs = style.getPropertyValue('--breakpoint-xs')
-    //   const sm = style.getPropertyValue('--breakpoint-sm')
-    //   const md = style.getPropertyValue('--breakpoint-md')
-    //   const lg = style.getPropertyValue('--breakpoint-lg')
-    //   const xl = style.getPropertyValue('--breakpoint-xl')
-    // }
-
     perfectScrollbar(event) {
       let ps
 
