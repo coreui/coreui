@@ -1,6 +1,6 @@
 import $ from 'jquery'
-import Layout from './layout'
-import Navigation from './navigation'
+import AsideMenu from './aside-menu'
+import Sidebar from './sidebar'
 
 /**
  * --------------------------------------------------------------------------
@@ -27,6 +27,6 @@ import Navigation from './navigation'
 })($)
 
 export {
-  Layout,
-  Navigation
+  AsideMenu,
+  Sidebar
 }
