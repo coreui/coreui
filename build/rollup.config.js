@@ -9,7 +9,7 @@ const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
 let fileDest  = 'coreui.js'
-const external = ['jquery', 'popper.js', 'bootstrap', 'perfect-scrollbar']
+const external = ['jquery']
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
@@ -17,27 +17,23 @@ const plugins = [
       'defineProperties',
       'createClass',
       'inheritsLoose',
-      'extends'
+      'objectSpread'
     ]
   })
 ]
 const globals = {
-  bootstrap: 'Bootstrap',
-  jquery: 'jQuery',
-  'perfect-scrollbar': 'PerfectScrollbar',
-  'popper.js': 'Popper'
+  jquery: 'jQuery'
 }
 
 if (BUNDLE) {
   fileDest = 'coreui.bundle.js'
   // Remove last entry in external array to bundle Popper
   external.pop()
-  delete globals['popper.js']
   plugins.push(resolve())
 }
 
 module.exports = {
-  input: path.resolve(__dirname, '../js/index.js'),
+  input: path.resolve(__dirname, '../js/src/index.js'),
   output: {
     banner: `/*!
   * CoreUI v${pkg.version} (${pkg.homepage})

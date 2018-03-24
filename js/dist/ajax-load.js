@@ -14,25 +14,39 @@ var AjaxLoad = function ($) {
    * Constants
    * ------------------------------------------------------------------------
    */
-  var NAME = 'ajaxload';
+  var NAME = 'ajaxLoad';
   var VERSION = '2.0.0-alpha.1';
-  var DATA_KEY = 'coreui.ajaxload';
-  var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
+  var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
-  var DEFAULT_PAGE = 'main.html';
-  var SUBPAGES_DIRECTORY = 'views/';
-  var PAGE_404 = '404.html';
-  var MAIN_CONTENT = '#ui-view';
-  var PAGE_LOAD_TRANSITION_SPEED = 250;
+  var ClassName = {
+    ACTIVE: 'active',
+    NAV_PILLS: 'nav-pills',
+    NAV_TABS: 'nav-tabs',
+    OPEN: 'open'
+  };
+  var Event = {
+    CLICK: 'click'
+  };
+  var Selector = {
+    NAV_DROPDOWN: '.sidebar-nav .nav-dropdown',
+    NAV_LINK: '.sidebar-nav .nav-link',
+    NAV_ITEM: '.sidebar-nav .nav-item'
+  };
+  var Default = {
+    defaultPage: 'main.html',
+    errorPage: '404.html',
+    subpagesDirectory: 'views/',
+    transitionsSpeed: 250
+  };
 
   var AjaxLoad =
   /*#__PURE__*/
   function () {
-    function AjaxLoad(element) {
+    function AjaxLoad(element, config) {
+      this._config = this._getConfig(config);
       this._element = element;
       var url = location.hash.replace(/^#/, '');
-      url !== '' ? this.setUpUrl(url) : setUpUrl(DEFAULT_PAGE);
+      url !== '' ? this.setUpUrl(url) : this.setUpUrl(this._config.defaultPage);
 
       this._addEventListeners();
     } // Getters
@@ -42,14 +56,16 @@ var AjaxLoad = function ($) {
 
     // Public
     _proto.loadPage = function loadPage(url) {
+      var element = this._element;
+      var config = this._config;
       $.ajax({
         type: 'GET',
-        url: SUBPAGES_DIRECTORY + url,
+        url: config.subpagesDirectory + url,
         dataType: 'html',
         cache: false,
-        async: true,
+        async: false,
         beforeSend: function beforeSend() {
-          MAIN_CONTENT.css({
+          $(element).css({
             opacity: 0
           });
         },
@@ -63,56 +79,70 @@ var AjaxLoad = function ($) {
           $('html, body').animate({
             scrollTop: 0
           }, 0);
-          MAIN_CONTENT.load(SUBPAGES_DIRECTORY + url, null, function (response, status, xhr) {
-            // console.log(response.getElementsByTagName("script"))
+          $(element).load(config.subpagesDirectory + url, null, function () {
             window.location.hash = url;
-          }).delay(PAGE_LOAD_TRANSITION_SPEED).animate({
+          }).delay(config.transitionsSpeed).animate({
             opacity: 1
           }, 0);
         },
         error: function error() {
-          window.location.href = PAGE_404;
+          window.location.href = config.errorPage;
         }
       });
     };
 
     _proto.setUpUrl = function setUpUrl(url) {
-      $('nav .nav li .nav-link').removeClass('active');
-      $('nav .nav li.nav-dropdown').removeClass('open'); // eslint-disable-next-line prefer-template
+      $(Selector.NAV_LINK).removeClass(ClassName.ACTIVE);
+      $(Selector.NAV_DROPDOWN).removeClass(ClassName.OPEN); // eslint-disable-next-line prefer-template
 
-      $('nav .nav li:has(a[href="' + url.split('?')[0] + '"])').addClass('open'); // eslint-disable-next-line prefer-template
+      $(Selector.NAV_DROPDOWN + ':has(a[href="' + url.replace(/^\//, '').split('?')[0] + '"])').addClass(ClassName.OPEN); // eslint-disable-next-line prefer-template
 
-      $('nav .nav a[href="' + url.split('?')[0] + '"]').addClass('active');
+      $(Selector.NAV_ITEM + ' a[href="' + url.replace(/^\//, '').split('?')[0] + '"]').addClass(ClassName.ACTIVE);
       this.loadPage(url);
+    };
+
+    _proto.loadBlank = function loadBlank(url) {
+      window.open(url);
+    };
+
+    _proto.loadTop = function loadTop(url) {
+      window.location = url;
     }; // Private
 
 
+    _proto._getConfig = function _getConfig(config) {
+      config = Object.assign({}, Default, config);
+      return config;
+    };
+
     _proto._addEventListeners = function _addEventListeners() {
-      $(document).on('click', '.nav a[href!="#"]', function (event) {
-        var thisNav = $(this).parent().parent();
+      var _this = this;
 
-        if (thisNav.hasClass('nav-tabs') || thisNav.hasClass('nav-pills')) {
-          event.preventDefault();
-        } else if ($(this).attr('target') === '_top') {
-          event.preventDefault();
-          var target = $(event.currentTarget);
-          window.location = target.attr('href');
-        } else if ($(this).attr('target') === '_blank') {
-          event.preventDefault();
+      $(document).on(Event.CLICK, Selector.NAV_LINK + '[href!="#"]', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
 
-          var _target = $(event.currentTarget);
-
-          window.open(_target.attr('href'));
+        if (event.currentTarget.target === '_top') {
+          _this.loadTop(event.currentTarget.href);
+        } else if (event.currentTarget.target === '_blank') {
+          _this.loadBlank(event.currentTarget.href);
         } else {
-          event.preventDefault();
-
-          var _target2 = $(event.currentTarget);
-
-          SetUpUrl(_target2.attr('href'));
+          _this.setUpUrl(event.currentTarget.pathname);
         }
       });
-      $(document).on('click', 'a[href="#"]', function (event) {
-        event.preventDefault();
+    }; // Static
+
+
+    AjaxLoad._jQueryInterface = function _jQueryInterface(config) {
+      return this.each(function () {
+        var data = $(this).data(DATA_KEY);
+
+        var _config = typeof config === 'object' && config;
+
+        if (!data) {
+          data = new AjaxLoad(this, _config);
+          $(this).data(DATA_KEY, data);
+        }
       });
     };
 
@@ -121,10 +151,29 @@ var AjaxLoad = function ($) {
       get: function get() {
         return VERSION;
       }
+    }, {
+      key: "Default",
+      get: function get() {
+        return Default;
+      }
     }]);
 
     return AjaxLoad;
   }();
+  /**
+   * ------------------------------------------------------------------------
+   * jQuery
+   * ------------------------------------------------------------------------
+   */
+
+
+  $.fn[NAME] = AjaxLoad._jQueryInterface;
+  $.fn[NAME].Constructor = AjaxLoad;
+
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return AjaxLoad._jQueryInterface;
+  };
 
   return AjaxLoad;
 }($);

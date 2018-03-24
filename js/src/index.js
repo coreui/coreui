@@ -1,4 +1,5 @@
 import $ from 'jquery'
+import AjaxLoad from './ajax-load'
 import AsideMenu from './aside-menu'
 import Sidebar from './sidebar'
 
@@ -27,6 +28,7 @@ import Sidebar from './sidebar'
 })($)
 
 export {
+  AjaxLoad,
   AsideMenu,
   Sidebar
 }

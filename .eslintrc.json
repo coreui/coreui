@@ -133,7 +133,7 @@
     "func-call-spacing": "error",
     "func-name-matching": "error",
     "func-names": "off",
-    "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+    "func-style": ["error", "declaration"],
     "id-blacklist": "error",
     "id-length": "off",
     "id-match": "error",

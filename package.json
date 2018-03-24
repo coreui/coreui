@@ -16,7 +16,7 @@
   "homepage": "https://coreui.io",
   "bugs": {
     "url": "https://github.com/coreui/coreui/issues",
-    "email" : "support@coreui.io"
+    "email": "support@coreui.io"
   },
   "license": "MIT",
   "author": {
@@ -37,9 +37,9 @@
   "main": "dist/js/coreui.js",
   "sass": "scss/coreui.scss",
   "style": "dist/css/coreui.css",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/coreui/coreui.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/coreui/coreui.git"
   },
   "scripts": {
     "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix css-minify*",
@@ -57,30 +57,39 @@
     "js-lint": "eslint js/",
     "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
     "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",
+    "js-compile-plugins": "cross-env PLUGINS=true babel js/src/ --out-dir js/dist/ --source-maps",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",
     "js-minify-bundle": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.bundle.js.map,includeSources,url=coreui.bundle.min.js.map\" --output dist/js/coreui.bundle.min.js dist/js/coreui.bundle.js",
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 coreui-$npm_package_version-dist.zip * && shx mv coreui-$npm_package_version-dist.zip ..",
     "watch": "npm-run-all --parallel watch-css watch-js",
-    "watch-js": "nodemon --ignore dist/ -e js -x \"npm run js-compile && npm run js-minify\"",
+    "watch-js": "nodemon --ignore js/dist/ --ignore dist/ -e js -x \"npm-run-all js-compile* js-minify*\"",
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
   },
+  "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
+    "bootstrap": "^4.0.0"
+  },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.38",
-    "@babel/core": "^7.0.0-beta.38",
-    "@babel/preset-env": "^7.0.0-beta.38",
+    "@babel/cli": "7.0.0-beta.42",
+    "@babel/core": "7.0.0-beta.42",
+    "@babel/preset-env": "7.0.0-beta.42",
     "autoprefixer": "^7.1.6",
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "clean-css-cli": "^4.1.10",
+    "cross-env": "^5.1.4",
     "eslint": "^4.16.0",
     "eslint-plugin-compat": "^2.1.0",
     "node-sass": "^4.7.1",
     "nodemon": "^1.12.1",
     "npm-run-all": "^4.1.2",
     "postcss-cli": "^4.1.1",
-    "rollup": "^0.54.1",
-    "rollup-plugin-babel": "4.0.0-beta.0",
-    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup": "^0.57.1",
+    "rollup-plugin-babel": "4.0.0-beta.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
     "shx": "^0.2.2",
@@ -92,7 +101,6 @@
     "uglify-js": "^3.3.8"
   },
   "peerDependencies": {
-    "bootstrap": "^4.0.0",
     "jquery": "1.9.1 - 3",
     "perfect-scrollbar": "^1.3.0",
     "popper.js": "^1.12.9"
