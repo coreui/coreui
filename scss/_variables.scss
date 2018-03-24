@@ -75,14 +75,8 @@ $navbar-border: (
   )
 )  !default;
 $navbar-brand-width:                  155px !default;
-$navbar-brand-bg:                     #fff !default;
-$navbar-brand-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
-) !default;
+$navbar-brand-bg:                     transparent !default;
+$navbar-brand-border:                 0 !default;
 
 $navbar-brand-minimized-width:        50px !default;
 $navbar-brand-minimized-bg:           $navbar-brand-bg !default;
