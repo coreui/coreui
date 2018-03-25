@@ -1350,6 +1350,7 @@ button {
 .btn-ghost-primary.disabled, .btn-ghost-primary:disabled {
   color: #20a8d8;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-primary:not(:disabled):not(.disabled):active, .btn-ghost-primary:not(:disabled):not(.disabled).active,
@@ -1384,6 +1385,7 @@ button {
 .btn-ghost-secondary.disabled, .btn-ghost-secondary:disabled {
   color: #a4b7c1;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-secondary:not(:disabled):not(.disabled):active, .btn-ghost-secondary:not(:disabled):not(.disabled).active,
@@ -1418,6 +1420,7 @@ button {
 .btn-ghost-success.disabled, .btn-ghost-success:disabled {
   color: #4dbd74;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-success:not(:disabled):not(.disabled):active, .btn-ghost-success:not(:disabled):not(.disabled).active,
@@ -1452,6 +1455,7 @@ button {
 .btn-ghost-info.disabled, .btn-ghost-info:disabled {
   color: #63c2de;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-info:not(:disabled):not(.disabled):active, .btn-ghost-info:not(:disabled):not(.disabled).active,
@@ -1486,6 +1490,7 @@ button {
 .btn-ghost-warning.disabled, .btn-ghost-warning:disabled {
   color: #ffc107;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-warning:not(:disabled):not(.disabled):active, .btn-ghost-warning:not(:disabled):not(.disabled).active,
@@ -1520,6 +1525,7 @@ button {
 .btn-ghost-danger.disabled, .btn-ghost-danger:disabled {
   color: #f86c6b;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-danger:not(:disabled):not(.disabled):active, .btn-ghost-danger:not(:disabled):not(.disabled).active,
@@ -1554,6 +1560,7 @@ button {
 .btn-ghost-light.disabled, .btn-ghost-light:disabled {
   color: #f0f3f5;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-light:not(:disabled):not(.disabled):active, .btn-ghost-light:not(:disabled):not(.disabled).active,
@@ -1588,6 +1595,7 @@ button {
 .btn-ghost-dark.disabled, .btn-ghost-dark:disabled {
   color: #29363d;
   background-color: transparent;
+  border-color: transparent;
 }
 
 .btn-ghost-dark:not(:disabled):not(.disabled):active, .btn-ghost-dark:not(:disabled):not(.disabled).active,

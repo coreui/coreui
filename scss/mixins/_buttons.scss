@@ -19,6 +19,7 @@
   &:disabled {
     color: $color;
     background-color: transparent;
+    border-color: transparent;
   }
 
   &:not(:disabled):not(.disabled):active,
