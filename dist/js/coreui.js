@@ -62,8 +62,7 @@
     var Default = {
       defaultPage: 'main.html',
       errorPage: '404.html',
-      subpagesDirectory: 'views/',
-      transitionsSpeed: 250
+      subpagesDirectory: 'views/'
     };
 
     var AjaxLoad =
@@ -91,26 +90,17 @@
           dataType: 'html',
           cache: false,
           async: false,
-          beforeSend: function beforeSend() {
-            $$$1(element).css({
-              opacity: 0
-            });
-          },
           success: function success() {
-            // eslint-disable-next-line no-undef
             if (typeof Pace !== 'undefined') {
-              // eslint-disable-next-line no-undef
               Pace.restart();
             }
 
-            $$$1('html, body').animate({
+            $$$1('body').animate({
               scrollTop: 0
             }, 0);
             $$$1(element).load(config.subpagesDirectory + url, null, function () {
               window.location.hash = url;
-            }).delay(config.transitionsSpeed).animate({
-              opacity: 1
-            }, 0);
+            });
           },
           error: function error() {
             window.location.href = config.errorPage;

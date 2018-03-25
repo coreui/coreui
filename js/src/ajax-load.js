@@ -40,8 +40,7 @@ const AjaxLoad = (($) => {
   const Default = {
     defaultPage       : 'main.html',
     errorPage         : '404.html',
-    subpagesDirectory : 'views/',
-    transitionsSpeed  : 250
+    subpagesDirectory : 'views/'
   }
 
   class AjaxLoad {
@@ -76,25 +75,16 @@ const AjaxLoad = (($) => {
         dataType : 'html',
         cache : false,
         async: false,
-        beforeSend: function beforeSend() {
-          $(element).css({
-            opacity: 0
-          })
-        },
         success: function success() {
-          // eslint-disable-next-line no-undef
           if (typeof Pace !== 'undefined') {
-            // eslint-disable-next-line no-undef
             Pace.restart()
           }
-          $('html, body').animate({
+          $('body').animate({
             scrollTop: 0
           }, 0)
           $(element).load(config.subpagesDirectory + url, null, () => {
             window.location.hash = url
-          }).delay(config.transitionsSpeed).animate({
-            opacity : 1
-          }, 0)
+          })
         },
         error: function error() {
           window.location.href = config.errorPage
