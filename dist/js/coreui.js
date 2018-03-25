@@ -369,6 +369,8 @@
       BODY: 'body',
       BRAND_MINIMIZER: '.brand-minimizer',
       NAV_DROPDOWN_TOGGLE: '.nav-dropdown-toggle',
+      NAV_DROPDOWN_ITEMS: '.nav-dropdown-items',
+      NAV_LINK: '.nav-link',
       NAVIGATION_CONTAINER: '.sidebar-nav',
       NAVIGATION: '.sidebar-nav > .nav',
       SIDEBAR: '.sidebar',
@@ -432,7 +434,7 @@
       };
 
       _proto.setActiveLink = function setActiveLink() {
-        $$$1(Selector.NAVIGATION).find('a').each(function (key, value) {
+        $$$1(Selector.NAVIGATION).find(Selector.NAV_LINK).each(function (key, value) {
           var link = value;
           var cUrl = String(window.location).split('?')[0];
 
@@ -441,7 +443,7 @@
           }
 
           if ($$$1($$$1(link))[0].href === cUrl) {
-            $$$1(link).addClass(ClassName.ACTIVE).parents('ul').add(link).each(function (key, value) {
+            $$$1(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each(function (key, value) {
               link = value;
               $$$1(link).parent().addClass(ClassName.OPEN);
             });

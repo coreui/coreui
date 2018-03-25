@@ -45,6 +45,8 @@ const Sidebar = (($) => {
     BODY                 : 'body',
     BRAND_MINIMIZER      : '.brand-minimizer',
     NAV_DROPDOWN_TOGGLE  : '.nav-dropdown-toggle',
+    NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
+    NAV_LINK             : '.nav-link',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
@@ -117,7 +119,7 @@ const Sidebar = (($) => {
     }
 
     setActiveLink() {
-      $(Selector.NAVIGATION).find('a').each((key, value) => {
+      $(Selector.NAVIGATION).find(Selector.NAV_LINK).each((key, value) => {
         let link = value
         let cUrl = String(window.location).split('?')[0]
 
@@ -126,7 +128,7 @@ const Sidebar = (($) => {
         }
 
         if ($($(link))[0].href === cUrl) {
-          $(link).addClass(ClassName.ACTIVE).parents('ul').add(link).each((key, value) => {
+          $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each((key, value) => {
             link = value
             $(link).parent().addClass(ClassName.OPEN)
           })

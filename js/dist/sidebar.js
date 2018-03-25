@@ -40,6 +40,8 @@ var Sidebar = function ($) {
     BODY: 'body',
     BRAND_MINIMIZER: '.brand-minimizer',
     NAV_DROPDOWN_TOGGLE: '.nav-dropdown-toggle',
+    NAV_DROPDOWN_ITEMS: '.nav-dropdown-items',
+    NAV_LINK: '.nav-link',
     NAVIGATION_CONTAINER: '.sidebar-nav',
     NAVIGATION: '.sidebar-nav > .nav',
     SIDEBAR: '.sidebar',
@@ -103,7 +105,7 @@ var Sidebar = function ($) {
     };
 
     _proto.setActiveLink = function setActiveLink() {
-      $(Selector.NAVIGATION).find('a').each(function (key, value) {
+      $(Selector.NAVIGATION).find(Selector.NAV_LINK).each(function (key, value) {
         var link = value;
         var cUrl = String(window.location).split('?')[0];
 
@@ -112,7 +114,7 @@ var Sidebar = function ($) {
         }
 
         if ($($(link))[0].href === cUrl) {
-          $(link).addClass(ClassName.ACTIVE).parents('ul').add(link).each(function (key, value) {
+          $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each(function (key, value) {
             link = value;
             $(link).parent().addClass(ClassName.OPEN);
           });
