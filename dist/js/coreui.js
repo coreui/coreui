@@ -389,7 +389,7 @@
     function () {
       function Sidebar(element) {
         this._element = element;
-        this.perfectScrollbar('init');
+        this.perfectScrollbar(Selector.INIT);
         this.setActiveLink();
 
         this._addEventListeners();
