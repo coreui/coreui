@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.0-alpha.2 (https://coreui.io)
+  * CoreUI v2.0.0-beta.0 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -30,7 +30,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-alpha.2): ajax-load.js
+   * CoreUI (v2.0.0-beta.0): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -42,7 +42,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.0.0-alpha.2';
+    var VERSION = '2.0.0-beta.0';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -197,7 +197,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-alpha.2): toggle-classes.js
+   * CoreUI (v2.0.0-beta.0): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -223,7 +223,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-alpha.2): aside-menu.js
+   * CoreUI (v2.0.0-beta.0): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -235,7 +235,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.0.0-alpha.2';
+    var VERSION = '2.0.0-beta.0';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -332,7 +332,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-alpha.2): sidebar.js
+   * CoreUI (v2.0.0-beta.0): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -344,7 +344,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.0.0-alpha.2';
+    var VERSION = '2.0.0-beta.0';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -534,7 +534,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-alpha.2): index.js
+   * CoreUI (v2.0.0-beta.0): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
