@@ -67,12 +67,12 @@
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
   },
   "dependencies": {
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
     "bootstrap": "^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.42",
     "@babel/core": "7.0.0-beta.42",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
     "@babel/preset-env": "7.0.0-beta.42",
     "autoprefixer": "^7.1.6",
     "babel-eslint": "^8.2.2",
