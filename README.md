@@ -38,13 +38,13 @@ $ git clone https://github.com/coreui/coreui.git
 ### NPM
 
 ``` bash
-$ npm install @coreui/core --save
+$ npm install @coreui/coreui --save
 ```
 
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/core@2.0.0
+$ yarn add @coreui/coreui@2.0.0
 ```
 
 ### Composer
@@ -60,7 +60,7 @@ $ composer require coreui/coreui:2.0.0
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 ``` html
-<link rel="stylesheet" href="node_modules/@coreui/core/dist/css/coreui.min.css">
+<link rel="stylesheet" href="node_modules/@coreui/coreui/dist/css/coreui.min.css">
 ```
 
 ### JS
@@ -71,7 +71,7 @@ Many of our components require the use of JavaScript to function. Specifically, 
 <script src="node_modules/jquery/dist/jquery.min.js"></script>
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="node_modules/@coreui/core/dist/js/coreui.min.js"></script>
+<script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
 ```
 
 ## What's included
@@ -117,7 +117,7 @@ See [the Releases section of our project](https://github.com/coreui/coreui/relea
 
 Get updates on CoreUI's development and chat with the project maintainers and community members.
 
-- Follow [@coreuikit on Twitter](https://twitter.com/coreuikit).
+- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
 - Read and subscribe to [CoreUI Blog](https://coreui.io/blog/).
 
 ## Copyright and license
