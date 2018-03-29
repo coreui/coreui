@@ -22,7 +22,7 @@ CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the faste
 
 ## Templates
 
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/free-bootstrap-admin-template)
+* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
 * 💪  [CoreUI Pro Bootstrap Admin Template](https://coreui.io/pro/)
 
 ## Installation
@@ -118,7 +118,7 @@ See [the Releases section of our project](https://github.com/coreui/coreui/relea
 Get updates on CoreUI's development and chat with the project maintainers and community members.
 
 - Follow [@coreuikit on Twitter](https://twitter.com/coreuikit).
-- Read and subscribe to [CoreUI Blog](https://coreui.ui/blog/).
+- Read and subscribe to [CoreUI Blog](https://coreui.io/blog/).
 
 ## Copyright and license
 

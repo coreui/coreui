@@ -20,25 +20,6 @@ restrictions:
   Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
   instead.
 
-<!-- ## Issues and labels
-
-Our bug tracker utilizes several labels to help organize and identify issues. Here's what they represent and how we use them:
-
-- `browser bug` - Issues that are reported to us, but actually are the result of a browser-specific bug. These are diagnosed with reduced test cases and result in an issue opened on that browser's own bug tracker.
-- `confirmed` - Issues that have been confirmed with a reduced test case and identify a bug in Bootstrap.
-- `css` - Issues stemming from our compiled CSS or source Less/Sass files.
-- `customizer` - Issues with our web-based Customizer.
-- `docs` - Issues for improving or updating our documentation.
-- `examples` - Issues involving the example templates included in our docs.
-- `feature` - Issues asking for a new feature to be added, or an existing one to be extended or modified. New features require a minor version bump (e.g., `v3.0.0` to `v3.1.0`).
-- `grunt` - Issues with our included JavaScript-based Gruntfile, which is used to run all our tests, concatenate and compile source files, and more.
-- `help wanted` - Issues we need or would love help from the community to resolve.
-- `js` - Issues stemming from our compiled or source JavaScript files.
-- `meta` - Issues with the project itself or our GitHub repository.
-
-For a complete look at our labels, see the [project labels page](https://github.com/twbs/bootstrap/labels). -->
-
-
 ## Bug reports
 
 A bug is a _demonstrable problem_ that is caused by the code in the repository.
@@ -82,10 +63,11 @@ Example:
 
 ## Feature requests
 
-Feature requests are welcome. Before opening a feature request, please take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
-case to convince the project's developers of the merits of this feature. Please
-provide as much detail and context as possible.
+Feature requests are welcome. Before opening a feature request, please take a
+moment to find out whether your idea fits with the scope and aims of the
+project. It's up to *you* to make a strong case to convince the project's
+developers of the merits of this feature. Please provide as much detail
+and context as possible.
 
 
 ## Pull requests
@@ -150,14 +132,13 @@ included in the project:
     with a clear title and description against the `master` branch.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owners to
-license your work under the terms of the [MIT License](LICENSE) (if it
-includes code changes) and under the terms of the
-[Creative Commons Attribution 3.0 Unported License](docs/LICENSE)
-(if it includes documentation changes).
+license your work under the terms of the [MIT License](LICENSE).
 
 ### Semantic Git commit messages
 
-Inspired by Sparkbox's awesome article on [semantic commit messages](http://seesparkbox.com/foundry/semantic_commit_messages). Please use following commit message format.
+Inspired by Sparkbox's awesome article on
+[semantic commit messages](http://seesparkbox.com/foundry/semantic_commit_messages).
+Please use following commit message format.
 
 * chore (updating npm tasks etc; no production code change) -> ```git test -m 'chore: commit-message-here'```
 * docs (changes to documentation) -> ```git commit -m 'docs: commit-message-here'```
@@ -195,4 +176,3 @@ Inspired by Sparkbox's awesome article on [semantic commit messages](http://sees
 ## License
 
 By contributing your code, you agree to license your contribution under the [MIT License](LICENSE).
-By contributing to the documentation, you agree to license your contribution under the [Creative Commons Attribution 3.0 Unported License](docs/LICENSE).
