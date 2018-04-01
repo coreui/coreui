@@ -5,15 +5,16 @@
 // Color system
 //
 
-$gray-100:       #f0f3f5 !default;
-$gray-200:       #c2cfd6 !default;
-$gray-300:       #a4b7c1 !default;
-$gray-400:       #869fac !default;
-$gray-500:       #678898 !default;
-$gray-600:       #536c79 !default;
-$gray-700:       #3e515b !default;
-$gray-800:       #29363d !default;
-$gray-900:       #151b1e !default;
+$gray-base:      #181b1e !default;
+$gray-100:       #f0f3f5 !default; // lighten($gray-base, 85%);
+$gray-200:       #e4e7ea !default; // lighten($gray-base, 80%);
+$gray-300:       #c8ced3 !default; // lighten($gray-base, 70%);
+$gray-400:       #acb4bc !default; // lighten($gray-base, 60%);
+$gray-500:       #8f9ba6 !default; // lighten($gray-base, 50%);
+$gray-600:       #73818f !default; // lighten($gray-base, 40%);
+$gray-700:       #5c6873 !default; // lighten($gray-base, 30%);
+$gray-800:       #2f353a !default; // lighten($gray-base, 10%);
+$gray-900:       #23282c !default; // lighten($gray-base, 5%);
 
 $blue:           #20a8d8 !default;
 $red:            #f86c6b !default;
@@ -47,7 +48,7 @@ $body-bg:                         #e4e5e6 !default;
 //
 // Define common padding and border radius sizes and more.
 
-$border-color:                    $gray-200 !default;
+$border-color:                    $gray-300 !default;
 
 // Typography
 //
@@ -63,7 +64,7 @@ $breadcrumb-border-radius:        0 !default;
 
 // Cards
 
-$card-border-color:               $gray-200 !default;
+$card-border-color:               $gray-300 !default;
 $card-cap-bg:                     $gray-100 !default;
 
 // Dropdowns
