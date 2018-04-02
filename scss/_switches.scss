@@ -254,20 +254,36 @@ $switch-icon-xs-width: 32px;
 $switch-icon-xs-height: 16px;
 $switch-icon-xs-font-size: 7px;
 
-.switch.switch-default {
+.switch-default {
   @include switch("default", $switch-width, $switch-height, $switch-font-size, $handle-margin);
 }
 
-.switch.switch-text {
+.switch-text {
   @include switch("text", $switch-text-width, $switch-text-height, $switch-text-font-size, $handle-margin);
 }
 
-.switch.switch-icon {
+.switch-icon {
   @include switch("icon", $switch-icon-width, $switch-icon-height, $switch-icon-font-size, $handle-margin);
 }
 
-.switch.switch-3d {
+.switch-3d {
   @include switch("ddd", $switch-width, $switch-height, $switch-font-size, 0);
+}
+
+
+@each $color, $value in $theme-colors {
+  //normal style
+  .switch-#{$color} {
+    @include switch-variant($value);
+  }
+  //outline style
+  .switch-#{$color}-outline {
+    @include switch-outline-variant($value);
+  }
+  //outline alternative style
+  .switch-#{$color}-outline-alt {
+    @include switch-outline-alt-variant($value);
+  }
 }
 
 //pills style
@@ -282,20 +298,5 @@ $switch-icon-xs-font-size: 7px;
   }
   .switch-label::after {
     left: 2px;
-  }
-}
-
-@each $color, $value in $theme-colors {
-  //normal style
-  .switch-#{$color} {
-    @include switch-variant($value);
-  }
-  //outline style
-  .switch-#{$color}-outline {
-    @include switch-outline-variant($value);
-  }
-  //outline alternative style
-  .switch-#{$color}-outline-alt {
-    @include switch-outline-alt-variant($value);
   }
 }
