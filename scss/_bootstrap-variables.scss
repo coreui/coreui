@@ -5,23 +5,23 @@
 // Color system
 //
 
-$gray-base:      #181b1e !default;
-$gray-100:       #f0f3f5 !default; // lighten($gray-base, 85%);
-$gray-200:       #e4e7ea !default; // lighten($gray-base, 80%);
-$gray-300:       #c8ced3 !default; // lighten($gray-base, 70%);
-$gray-400:       #acb4bc !default; // lighten($gray-base, 60%);
-$gray-500:       #8f9ba6 !default; // lighten($gray-base, 50%);
-$gray-600:       #73818f !default; // lighten($gray-base, 40%);
-$gray-700:       #5c6873 !default; // lighten($gray-base, 30%);
-$gray-800:       #2f353a !default; // lighten($gray-base, 10%);
-$gray-900:       #23282c !default; // lighten($gray-base, 5%);
+$gray-base:  #181b1e !default;
+$gray-100:   #f0f3f5 !default; // lighten($gray-base, 85%);
+$gray-200:   #e4e7ea !default; // lighten($gray-base, 80%);
+$gray-300:   #c8ced3 !default; // lighten($gray-base, 70%);
+$gray-400:   #acb4bc !default; // lighten($gray-base, 60%);
+$gray-500:   #8f9ba6 !default; // lighten($gray-base, 50%);
+$gray-600:   #73818f !default; // lighten($gray-base, 40%);
+$gray-700:   #5c6873 !default; // lighten($gray-base, 30%);
+$gray-800:   #2f353a !default; // lighten($gray-base, 10%);
+$gray-900:   #23282c !default; // lighten($gray-base, 5%);
 
-$blue:           #20a8d8 !default;
-$red:            #f86c6b !default;
-$orange:         #f8cb00 !default;
-$yellow:         #ffc107 !default;
-$green:          #4dbd74 !default;
-$light-blue:     #63c2de !default;
+$blue:       #20a8d8 !default;
+$red:        #f86c6b !default;
+$orange:     #f8cb00 !default;
+$yellow:     #ffc107 !default;
+$green:      #4dbd74 !default;
+$light-blue: #63c2de !default;
 
 $colors: () !default;
 $colors: map-merge((
