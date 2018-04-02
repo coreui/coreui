@@ -11,6 +11,7 @@
       padding: $aside-menu-nav-padding-y $aside-menu-nav-padding-x;
       color: $body-color;
       border-top: 0;
+      @include border-radius(0);
       &.active {
         color: theme-color("primary");
         border-right-color: $border-color;
