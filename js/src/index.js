@@ -32,3 +32,16 @@ export {
   AsideMenu,
   Sidebar
 }
+
+// Global functions
+import GetStyle from './utilities/get-style'
+window.GetStyle = GetStyle
+
+import HexToRgb from './utilities/hex-to-rgb'
+window.HexToRgb = HexToRgb
+
+import HexToRgba from './utilities/hex-to-rgba'
+window.HexToRgba = HexToRgba
+
+import RgbToHex from './utilities/rgb-to-hex'
+window.RgbToHex = RgbToHex

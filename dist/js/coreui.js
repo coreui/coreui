@@ -534,6 +534,75 @@
 
   /**
    * --------------------------------------------------------------------------
+   * CoreUI Utilities (v1.0.0): get-style.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+  var GetStyle = function GetStyle(property, element) {
+    if (element === void 0) {
+      element = document.body;
+    }
+
+    var style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+    return style;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.0-beta.0): hex-to-rgb.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+
+  /* eslint-disable no-magic-numbers */
+  var HexToRgb = function HexToRgb(color) {
+    var hex = color.replace('#', '');
+    var r = parseInt(hex.substring(0, 2), 16);
+    var g = parseInt(hex.substring(2, 4), 16);
+    var b = parseInt(hex.substring(4, 6), 16);
+    var result = "rgba(" + r + ", " + g + ", " + b;
+    return result;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.0-beta.0): hex-to-rgba.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+
+  /* eslint-disable no-magic-numbers */
+  var HexToRgba = function HexToRgba(color, opacity) {
+    if (opacity === void 0) {
+      opacity = 100;
+    }
+
+    var hex = color.replace('#', '');
+    var r = parseInt(hex.substring(0, 2), 16);
+    var g = parseInt(hex.substring(2, 4), 16);
+    var b = parseInt(hex.substring(4, 6), 16);
+    var result = "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100;
+    return result;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v2.0.0-beta.0): rgb-to-hex.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+
+  /* eslint-disable no-magic-numbers */
+  var RgbToHex = function RgbToHex(color) {
+    var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
+    var r = "0" + parseInt(rgb[1], 10).toString(16);
+    var g = "0" + parseInt(rgb[2], 10).toString(16);
+    var b = "0" + parseInt(rgb[3], 10).toString(16);
+    return rgb && rgb.length === 4 ? "#" + r.slice(-2) + g.slice(-2) + b.slice(-2) : ''; // return (rgb && rgb.length === 4) ? '#' + ('0' + parseInt(rgb[1], 10).toString(16)).slice(-2) + ('0' + parseInt(rgb[2], 10).toString(16)).slice(-2) + ('0' + parseInt(rgb[3], 10).toString(16)).slice(-2) : '';
+  };
+
+  /**
+   * --------------------------------------------------------------------------
    * CoreUI (v2.0.0-beta.0): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
@@ -555,6 +624,10 @@
       throw new Error('CoreUI\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
     }
   })($);
+  window.GetStyle = GetStyle;
+  window.HexToRgb = HexToRgb;
+  window.HexToRgba = HexToRgba;
+  window.RgbToHex = RgbToHex;
 
   exports.AjaxLoad = AjaxLoad;
   exports.AsideMenu = AsideMenu;

@@ -20,4 +20,9 @@
     throw new Error('CoreUI\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
   }
 })($);
+
+window.GetStyle = GetStyle;
+window.HexToRgb = HexToRgb;
+window.HexToRgba = HexToRgba;
+window.RgbToHex = RgbToHex;
 //# sourceMappingURL=index.js.map
