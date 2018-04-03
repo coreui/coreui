@@ -63,20 +63,17 @@
 }
 
 .card-header-actions {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: inline-flex;
+  display: inline-block;
+  float: right;
+  margin-right: - ($spacer / 4);
 }
 
 .card-header-action {
-  width: ($card-spacer-y * 2) + ($font-size-base * $line-height-base);
-  padding: $card-spacer-y 0;
-  color: $body-color;
-  text-align: center;
-  border-left: 1px solid $border-color;
+  padding: 0 ($spacer / 4);
+  color: $gray-600;
 
   &:hover {
+    color: $body-color;
     text-decoration: none;
   }
 }
