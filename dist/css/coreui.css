@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.0-beta.0
+ * @version v2.0.0-beta.1
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -8755,6 +8755,7 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 0.75rem 1rem;
   color: #23282c;
   border-top: 0;
+  border-radius: 0;
 }
 
 .aside-menu .nav-tabs .nav-link.active {
@@ -10827,6 +10828,60 @@ canvas {
   background: #20a8d8;
 }
 
+.list-group-accent .list-group-item {
+  margin-bottom: 1px;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-radius: 0;
+}
+
+.list-group-accent .list-group-item.list-group-item-divider {
+  position: relative;
+}
+
+.list-group-accent .list-group-item.list-group-item-divider::before {
+  position: absolute;
+  bottom: -1px;
+  left: 5%;
+  width: 90%;
+  height: 1px;
+  content: "";
+  background-color: #e4e7ea;
+}
+
+.list-group-item-accent-primary {
+  border-left: 4px solid #20a8d8;
+}
+
+.list-group-item-accent-secondary {
+  border-left: 4px solid #c8ced3;
+}
+
+.list-group-item-accent-success {
+  border-left: 4px solid #4dbd74;
+}
+
+.list-group-item-accent-info {
+  border-left: 4px solid #63c2de;
+}
+
+.list-group-item-accent-warning {
+  border-left: 4px solid #ffc107;
+}
+
+.list-group-item-accent-danger {
+  border-left: 4px solid #f86c6b;
+}
+
+.list-group-item-accent-light {
+  border-left: 4px solid #f0f3f5;
+}
+
+.list-group-item-accent-dark {
+  border-left: 4px solid #2f353a;
+}
+
 .modal-primary .modal-content {
   border-color: #20a8d8;
 }
@@ -11697,7 +11752,7 @@ canvas {
   left: 0;
 }
 
-.switch.switch-default {
+.switch-default {
   position: relative;
   display: inline-block;
   width: 40px;
@@ -11707,14 +11762,14 @@ canvas {
   background-color: transparent;
 }
 
-.switch.switch-default .switch-input {
+.switch-default .switch-input {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
 }
 
-.switch.switch-default .switch-label {
+.switch-default .switch-label {
   position: relative;
   display: block;
   height: inherit;
@@ -11727,15 +11782,15 @@ canvas {
   transition: opacity background .15s ease-out;
 }
 
-.switch.switch-default .switch-input:checked ~ .switch-label::before {
+.switch-default .switch-input:checked ~ .switch-label::before {
   opacity: 0;
 }
 
-.switch.switch-default .switch-input:checked ~ .switch-label::after {
+.switch-default .switch-input:checked ~ .switch-label::after {
   opacity: 1;
 }
 
-.switch.switch-default .switch-handle {
+.switch-default .switch-handle {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -11747,65 +11802,65 @@ canvas {
   transition: left .15s ease-out;
 }
 
-.switch.switch-default .switch-input:checked ~ .switch-handle {
+.switch-default .switch-input:checked ~ .switch-handle {
   left: 18px;
 }
 
-.switch.switch-default.switch-lg {
+.switch-default.switch-lg {
   width: 48px;
   height: 28px;
 }
 
-.switch.switch-default.switch-lg .switch-label {
+.switch-default.switch-lg .switch-label {
   font-size: 12px;
 }
 
-.switch.switch-default.switch-lg .switch-handle {
+.switch-default.switch-lg .switch-handle {
   width: 24px;
   height: 24px;
 }
 
-.switch.switch-default.switch-lg .switch-input:checked ~ .switch-handle {
+.switch-default.switch-lg .switch-input:checked ~ .switch-handle {
   left: 22px;
 }
 
-.switch.switch-default.switch-sm {
+.switch-default.switch-sm {
   width: 32px;
   height: 20px;
 }
 
-.switch.switch-default.switch-sm .switch-label {
+.switch-default.switch-sm .switch-label {
   font-size: 8px;
 }
 
-.switch.switch-default.switch-sm .switch-handle {
+.switch-default.switch-sm .switch-handle {
   width: 16px;
   height: 16px;
 }
 
-.switch.switch-default.switch-sm .switch-input:checked ~ .switch-handle {
+.switch-default.switch-sm .switch-input:checked ~ .switch-handle {
   left: 14px;
 }
 
-.switch.switch-default.switch-xs {
+.switch-default.switch-xs {
   width: 24px;
   height: 16px;
 }
 
-.switch.switch-default.switch-xs .switch-label {
+.switch-default.switch-xs .switch-label {
   font-size: 7px;
 }
 
-.switch.switch-default.switch-xs .switch-handle {
+.switch-default.switch-xs .switch-handle {
   width: 12px;
   height: 12px;
 }
 
-.switch.switch-default.switch-xs .switch-input:checked ~ .switch-handle {
+.switch-default.switch-xs .switch-input:checked ~ .switch-handle {
   left: 10px;
 }
 
-.switch.switch-text {
+.switch-text {
   position: relative;
   display: inline-block;
   width: 48px;
@@ -11815,14 +11870,14 @@ canvas {
   background-color: transparent;
 }
 
-.switch.switch-text .switch-input {
+.switch-text .switch-input {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
 }
 
-.switch.switch-text .switch-label {
+.switch-text .switch-label {
   position: relative;
   display: block;
   height: inherit;
@@ -11835,8 +11890,8 @@ canvas {
   transition: opacity background .15s ease-out;
 }
 
-.switch.switch-text .switch-label::before,
-.switch.switch-text .switch-label::after {
+.switch-text .switch-label::before,
+.switch-text .switch-label::after {
   position: absolute;
   top: 50%;
   width: 50%;
@@ -11846,28 +11901,28 @@ canvas {
   transition: inherit;
 }
 
-.switch.switch-text .switch-label::before {
+.switch-text .switch-label::before {
   right: 1px;
   color: #e4e7ea;
   content: attr(data-off);
 }
 
-.switch.switch-text .switch-label::after {
+.switch-text .switch-label::after {
   left: 1px;
   color: #fff;
   content: attr(data-on);
   opacity: 0;
 }
 
-.switch.switch-text .switch-input:checked ~ .switch-label::before {
+.switch-text .switch-input:checked ~ .switch-label::before {
   opacity: 0;
 }
 
-.switch.switch-text .switch-input:checked ~ .switch-label::after {
+.switch-text .switch-input:checked ~ .switch-label::after {
   opacity: 1;
 }
 
-.switch.switch-text .switch-handle {
+.switch-text .switch-handle {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -11879,65 +11934,65 @@ canvas {
   transition: left .15s ease-out;
 }
 
-.switch.switch-text .switch-input:checked ~ .switch-handle {
+.switch-text .switch-input:checked ~ .switch-handle {
   left: 26px;
 }
 
-.switch.switch-text.switch-lg {
+.switch-text.switch-lg {
   width: 56px;
   height: 28px;
 }
 
-.switch.switch-text.switch-lg .switch-label {
+.switch-text.switch-lg .switch-label {
   font-size: 12px;
 }
 
-.switch.switch-text.switch-lg .switch-handle {
+.switch-text.switch-lg .switch-handle {
   width: 24px;
   height: 24px;
 }
 
-.switch.switch-text.switch-lg .switch-input:checked ~ .switch-handle {
+.switch-text.switch-lg .switch-input:checked ~ .switch-handle {
   left: 30px;
 }
 
-.switch.switch-text.switch-sm {
+.switch-text.switch-sm {
   width: 40px;
   height: 20px;
 }
 
-.switch.switch-text.switch-sm .switch-label {
+.switch-text.switch-sm .switch-label {
   font-size: 8px;
 }
 
-.switch.switch-text.switch-sm .switch-handle {
+.switch-text.switch-sm .switch-handle {
   width: 16px;
   height: 16px;
 }
 
-.switch.switch-text.switch-sm .switch-input:checked ~ .switch-handle {
+.switch-text.switch-sm .switch-input:checked ~ .switch-handle {
   left: 22px;
 }
 
-.switch.switch-text.switch-xs {
+.switch-text.switch-xs {
   width: 32px;
   height: 16px;
 }
 
-.switch.switch-text.switch-xs .switch-label {
+.switch-text.switch-xs .switch-label {
   font-size: 7px;
 }
 
-.switch.switch-text.switch-xs .switch-handle {
+.switch-text.switch-xs .switch-handle {
   width: 12px;
   height: 12px;
 }
 
-.switch.switch-text.switch-xs .switch-input:checked ~ .switch-handle {
+.switch-text.switch-xs .switch-input:checked ~ .switch-handle {
   left: 18px;
 }
 
-.switch.switch-icon {
+.switch-icon {
   position: relative;
   display: inline-block;
   width: 48px;
@@ -11947,14 +12002,14 @@ canvas {
   background-color: transparent;
 }
 
-.switch.switch-icon .switch-input {
+.switch-icon .switch-input {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
 }
 
-.switch.switch-icon .switch-label {
+.switch-icon .switch-label {
   position: relative;
   display: block;
   height: inherit;
@@ -11968,8 +12023,8 @@ canvas {
   transition: opacity background .15s ease-out;
 }
 
-.switch.switch-icon .switch-label::before,
-.switch.switch-icon .switch-label::after {
+.switch-icon .switch-label::before,
+.switch-icon .switch-label::after {
   position: absolute;
   top: 50%;
   width: 50%;
@@ -11979,28 +12034,28 @@ canvas {
   transition: inherit;
 }
 
-.switch.switch-icon .switch-label::before {
+.switch-icon .switch-label::before {
   right: 1px;
   color: #e4e7ea;
   content: attr(data-off);
 }
 
-.switch.switch-icon .switch-label::after {
+.switch-icon .switch-label::after {
   left: 1px;
   color: #fff;
   content: attr(data-on);
   opacity: 0;
 }
 
-.switch.switch-icon .switch-input:checked ~ .switch-label::before {
+.switch-icon .switch-input:checked ~ .switch-label::before {
   opacity: 0;
 }
 
-.switch.switch-icon .switch-input:checked ~ .switch-label::after {
+.switch-icon .switch-input:checked ~ .switch-label::after {
   opacity: 1;
 }
 
-.switch.switch-icon .switch-handle {
+.switch-icon .switch-handle {
   position: absolute;
   top: 2px;
   left: 2px;
@@ -12012,65 +12067,65 @@ canvas {
   transition: left .15s ease-out;
 }
 
-.switch.switch-icon .switch-input:checked ~ .switch-handle {
+.switch-icon .switch-input:checked ~ .switch-handle {
   left: 26px;
 }
 
-.switch.switch-icon.switch-lg {
+.switch-icon.switch-lg {
   width: 56px;
   height: 28px;
 }
 
-.switch.switch-icon.switch-lg .switch-label {
+.switch-icon.switch-lg .switch-label {
   font-size: 12px;
 }
 
-.switch.switch-icon.switch-lg .switch-handle {
+.switch-icon.switch-lg .switch-handle {
   width: 24px;
   height: 24px;
 }
 
-.switch.switch-icon.switch-lg .switch-input:checked ~ .switch-handle {
+.switch-icon.switch-lg .switch-input:checked ~ .switch-handle {
   left: 30px;
 }
 
-.switch.switch-icon.switch-sm {
+.switch-icon.switch-sm {
   width: 40px;
   height: 20px;
 }
 
-.switch.switch-icon.switch-sm .switch-label {
+.switch-icon.switch-sm .switch-label {
   font-size: 8px;
 }
 
-.switch.switch-icon.switch-sm .switch-handle {
+.switch-icon.switch-sm .switch-handle {
   width: 16px;
   height: 16px;
 }
 
-.switch.switch-icon.switch-sm .switch-input:checked ~ .switch-handle {
+.switch-icon.switch-sm .switch-input:checked ~ .switch-handle {
   left: 22px;
 }
 
-.switch.switch-icon.switch-xs {
+.switch-icon.switch-xs {
   width: 32px;
   height: 16px;
 }
 
-.switch.switch-icon.switch-xs .switch-label {
+.switch-icon.switch-xs .switch-label {
   font-size: 7px;
 }
 
-.switch.switch-icon.switch-xs .switch-handle {
+.switch-icon.switch-xs .switch-handle {
   width: 12px;
   height: 12px;
 }
 
-.switch.switch-icon.switch-xs .switch-input:checked ~ .switch-handle {
+.switch-icon.switch-xs .switch-input:checked ~ .switch-handle {
   left: 18px;
 }
 
-.switch.switch-3d {
+.switch-3d {
   position: relative;
   display: inline-block;
   width: 40px;
@@ -12080,14 +12135,14 @@ canvas {
   background-color: transparent;
 }
 
-.switch.switch-3d .switch-input {
+.switch-3d .switch-input {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
 }
 
-.switch.switch-3d .switch-label {
+.switch-3d .switch-label {
   position: relative;
   display: block;
   height: inherit;
@@ -12100,15 +12155,15 @@ canvas {
   transition: opacity background .15s ease-out;
 }
 
-.switch.switch-3d .switch-input:checked ~ .switch-label::before {
+.switch-3d .switch-input:checked ~ .switch-label::before {
   opacity: 0;
 }
 
-.switch.switch-3d .switch-input:checked ~ .switch-label::after {
+.switch-3d .switch-input:checked ~ .switch-label::after {
   opacity: 1;
 }
 
-.switch.switch-3d .switch-handle {
+.switch-3d .switch-handle {
   position: absolute;
   top: 0;
   left: 0;
@@ -12122,75 +12177,62 @@ canvas {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-.switch.switch-3d .switch-input:checked ~ .switch-handle {
+.switch-3d .switch-input:checked ~ .switch-handle {
   left: 16px;
 }
 
-.switch.switch-3d.switch-lg {
+.switch-3d.switch-lg {
   width: 48px;
   height: 28px;
 }
 
-.switch.switch-3d.switch-lg .switch-label {
+.switch-3d.switch-lg .switch-label {
   font-size: 12px;
 }
 
-.switch.switch-3d.switch-lg .switch-handle {
+.switch-3d.switch-lg .switch-handle {
   width: 28px;
   height: 28px;
 }
 
-.switch.switch-3d.switch-lg .switch-input:checked ~ .switch-handle {
+.switch-3d.switch-lg .switch-input:checked ~ .switch-handle {
   left: 20px;
 }
 
-.switch.switch-3d.switch-sm {
+.switch-3d.switch-sm {
   width: 32px;
   height: 20px;
 }
 
-.switch.switch-3d.switch-sm .switch-label {
+.switch-3d.switch-sm .switch-label {
   font-size: 8px;
 }
 
-.switch.switch-3d.switch-sm .switch-handle {
+.switch-3d.switch-sm .switch-handle {
   width: 20px;
   height: 20px;
 }
 
-.switch.switch-3d.switch-sm .switch-input:checked ~ .switch-handle {
+.switch-3d.switch-sm .switch-input:checked ~ .switch-handle {
   left: 12px;
 }
 
-.switch.switch-3d.switch-xs {
+.switch-3d.switch-xs {
   width: 24px;
   height: 16px;
 }
 
-.switch.switch-3d.switch-xs .switch-label {
+.switch-3d.switch-xs .switch-label {
   font-size: 7px;
 }
 
-.switch.switch-3d.switch-xs .switch-handle {
+.switch-3d.switch-xs .switch-handle {
   width: 16px;
   height: 16px;
 }
 
-.switch.switch-3d.switch-xs .switch-input:checked ~ .switch-handle {
+.switch-3d.switch-xs .switch-input:checked ~ .switch-handle {
   left: 8px;
-}
-
-.switch-pill .switch-label, .switch.switch-3d .switch-label,
-.switch-pill .switch-handle, .switch.switch-3d .switch-handle {
-  border-radius: 50em;
-}
-
-.switch-pill .switch-label::before, .switch.switch-3d .switch-label::before {
-  right: 2px;
-}
-
-.switch-pill .switch-label::after, .switch.switch-3d .switch-label::after {
-  left: 2px;
 }
 
 .switch-primary > .switch-input:checked ~ .switch-label {
@@ -12479,6 +12521,19 @@ canvas {
 .switch-dark-outline-alt > .switch-input:checked ~ .switch-handle {
   background: #2f353a;
   border-color: #2f353a;
+}
+
+.switch-pill .switch-label, .switch-3d .switch-label,
+.switch-pill .switch-handle, .switch-3d .switch-handle {
+  border-radius: 50em;
+}
+
+.switch-pill .switch-label::before, .switch-3d .switch-label::before {
+  right: 2px;
+}
+
+.switch-pill .switch-label::after, .switch-3d .switch-label::after {
+  left: 2px;
 }
 
 .table-outline {
