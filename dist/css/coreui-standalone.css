@@ -1879,22 +1879,18 @@ button {
 }
 
 .card-header-actions {
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
+  display: inline-block;
+  float: right;
+  margin-right: -0.25rem;
 }
 
 .card-header-action {
-  width: 2.8125rem;
-  padding: 0.75rem 0;
-  color: #23282c;
-  text-align: center;
-  border-left: 1px solid #c8ced3;
+  padding: 0 0.25rem;
+  color: #73818f;
 }
 
 .card-header-action:hover {
+  color: #23282c;
   text-decoration: none;
 }
 
@@ -2021,7 +2017,7 @@ canvas {
 .dropdown-item {
   position: relative;
   padding: 10px 20px;
-  border-bottom: 1px solid #e4e7ea;
+  border-bottom: 1px solid #c8ced3;
 }
 
 .dropdown-item:last-child {
@@ -2033,7 +2029,7 @@ canvas {
   width: 20px;
   margin-right: 10px;
   margin-left: -10px;
-  color: #e4e7ea;
+  color: #c8ced3;
   text-align: center;
 }
 
@@ -2045,8 +2041,8 @@ canvas {
 
 .dropdown-header {
   padding: 8px 20px;
-  background: #f0f3f5;
-  border-bottom: 1px solid #e4e7ea;
+  background: #e4e7ea;
+  border-bottom: 1px solid #c8ced3;
 }
 
 .dropdown-header .btn {
@@ -4747,7 +4743,7 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
     z-index: 1020;
     width: 100%;
     text-align: center;
-    background-color: transparent;
+    background-color: #fff;
   }
   .app-header .navbar-toggler {
     color: #fff;
@@ -5174,6 +5170,96 @@ a.bg-light-blue:hover, a.bg-light-blue:focus,
 button.bg-light-blue:hover,
 button.bg-light-blue:focus {
   background-color: #39b2d5 !important;
+}
+
+.bg-gray-100 {
+  background-color: #f0f3f5 !important;
+}
+
+a.bg-gray-100:hover, a.bg-gray-100:focus,
+button.bg-gray-100:hover,
+button.bg-gray-100:focus {
+  background-color: #d1dbe1 !important;
+}
+
+.bg-gray-200 {
+  background-color: #e4e7ea !important;
+}
+
+a.bg-gray-200:hover, a.bg-gray-200:focus,
+button.bg-gray-200:hover,
+button.bg-gray-200:focus {
+  background-color: #c7ced4 !important;
+}
+
+.bg-gray-300 {
+  background-color: #c8ced3 !important;
+}
+
+a.bg-gray-300:hover, a.bg-gray-300:focus,
+button.bg-gray-300:hover,
+button.bg-gray-300:focus {
+  background-color: #acb5bc !important;
+}
+
+.bg-gray-400 {
+  background-color: #acb4bc !important;
+}
+
+a.bg-gray-400:hover, a.bg-gray-400:focus,
+button.bg-gray-400:hover,
+button.bg-gray-400:focus {
+  background-color: #909ba5 !important;
+}
+
+.bg-gray-500 {
+  background-color: #8f9ba6 !important;
+}
+
+a.bg-gray-500:hover, a.bg-gray-500:focus,
+button.bg-gray-500:hover,
+button.bg-gray-500:focus {
+  background-color: #73828f !important;
+}
+
+.bg-gray-600 {
+  background-color: #73818f !important;
+}
+
+a.bg-gray-600:hover, a.bg-gray-600:focus,
+button.bg-gray-600:hover,
+button.bg-gray-600:focus {
+  background-color: #5c6873 !important;
+}
+
+.bg-gray-700 {
+  background-color: #5c6873 !important;
+}
+
+a.bg-gray-700:hover, a.bg-gray-700:focus,
+button.bg-gray-700:hover,
+button.bg-gray-700:focus {
+  background-color: #454e57 !important;
+}
+
+.bg-gray-800 {
+  background-color: #2f353a !important;
+}
+
+a.bg-gray-800:hover, a.bg-gray-800:focus,
+button.bg-gray-800:hover,
+button.bg-gray-800:focus {
+  background-color: #181b1e !important;
+}
+
+.bg-gray-900 {
+  background-color: #23282c !important;
+}
+
+a.bg-gray-900:hover, a.bg-gray-900:focus,
+button.bg-gray-900:hover,
+button.bg-gray-900:focus {
+  background-color: #0c0e10 !important;
 }
 
 .bg-gray-100 {

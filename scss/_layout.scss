@@ -431,7 +431,11 @@ html[dir="rtl"] {
     z-index: $zindex-sticky;
     width: 100%;
     text-align: center;
-    background-color: $navbar-brand-bg;
+    @if $navbar-brand-bg == transparent {
+      background-color: $navbar-bg;
+    } @else {
+      background-color: $navbar-brand-bg;
+    }
     @include borders($navbar-brand-border);
 
     .navbar-toggler {
@@ -458,6 +462,10 @@ html[dir="rtl"] {
     z-index: $zindex-sticky - 1;
     width: $sidebar-width;
     height: calc(100vh - #{$navbar-height});
+  }
+
+  .sidebar-minimizer {
+    display: none;
   }
 
   .aside-menu {

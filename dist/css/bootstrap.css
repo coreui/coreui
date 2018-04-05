@@ -19,6 +19,15 @@
   --gray: #73818f;
   --gray-dark: #2f353a;
   --light-blue: #63c2de;
+  --gray-100: #f0f3f5;
+  --gray-200: #e4e7ea;
+  --gray-300: #c8ced3;
+  --gray-400: #acb4bc;
+  --gray-500: #8f9ba6;
+  --gray-600: #73818f;
+  --gray-700: #5c6873;
+  --gray-800: #2f353a;
+  --gray-900: #23282c;
   --primary: #20a8d8;
   --secondary: #c8ced3;
   --success: #4dbd74;
@@ -3002,7 +3011,7 @@ tbody.collapse.show {
   list-style: none;
   background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid #e4e7ea;
+  border: 1px solid #c8ced3;
   border-radius: 0.25rem;
 }
 
@@ -3095,7 +3104,7 @@ tbody.collapse.show {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #f0f3f5;
+  border-top: 1px solid #e4e7ea;
 }
 
 .dropdown-item {
