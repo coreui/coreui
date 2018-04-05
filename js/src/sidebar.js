@@ -71,7 +71,7 @@ const Sidebar = (($) => {
   class Sidebar {
     constructor(element) {
       this._element = element
-      this.perfectScrollbar(Selector.INIT)
+      this.perfectScrollbar(Event.INIT)
       this.setActiveLink()
       this._addEventListeners()
     }
