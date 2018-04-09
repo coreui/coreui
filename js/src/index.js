@@ -5,7 +5,7 @@ import Sidebar from './sidebar'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.2): index.js
+ * CoreUI (v2.0.0-beta.4): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -34,14 +34,14 @@ export {
 }
 
 // Global functions
-import GetStyle from './utilities/get-style'
-window.GetStyle = GetStyle
+import getStyle from './utilities/get-style'
+window.getStyle = getStyle
 
-import HexToRgb from './utilities/hex-to-rgb'
-window.HexToRgb = HexToRgb
+import hexToRgb from './utilities/hex-to-rgb'
+window.hexToRgb = hexToRgb
 
-import HexToRgba from './utilities/hex-to-rgba'
-window.HexToRgba = HexToRgba
+import hexToRgba from './utilities/hex-to-rgba'
+window.hexToRgba = hexToRgba
 
-import RgbToHex from './utilities/rgb-to-hex'
-window.RgbToHex = RgbToHex
+import rgbToHex from './utilities/rgb-to-hex'
+window.rgbToHex = rgbToHex

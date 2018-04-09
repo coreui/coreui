@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.2): index.js
+ * CoreUI (v2.0.0-beta.4): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -21,8 +21,8 @@
   }
 })($);
 
-window.GetStyle = GetStyle;
-window.HexToRgb = HexToRgb;
-window.HexToRgba = HexToRgba;
-window.RgbToHex = RgbToHex;
+window.getStyle = getStyle;
+window.hexToRgb = hexToRgb;
+window.hexToRgba = hexToRgba;
+window.rgbToHex = rgbToHex;
 //# sourceMappingURL=index.js.map
