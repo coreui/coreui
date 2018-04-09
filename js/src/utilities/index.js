@@ -1,11 +1,11 @@
-import GetStyle from './get-style'
-import HexToRgb from './hex-to-rgb'
-import HexToRgba from './hex-to-rgba'
-import RgbToHex from './rgb-to-hex'
+import getStyle from './get-style'
+import hexToRgb from './hex-to-rgb'
+import hexToRgba from './hex-to-rgba'
+import rgbToHex from './rgb-to-hex'
 
 export {
-  GetStyle,
-  HexToRgb,
-  HexToRgba,
-  RgbToHex
+  getStyle,
+  hexToRgb,
+  hexToRgba,
+  rgbToHex
 }

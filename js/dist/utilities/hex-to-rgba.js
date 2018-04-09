@@ -6,7 +6,7 @@
  */
 
 /* eslint-disable no-magic-numbers */
-var HexToRgba = function HexToRgba(color, opacity) {
+var hexToRgba = function hexToRgba(color, opacity) {
   if (opacity === void 0) {
     opacity = 100;
   }

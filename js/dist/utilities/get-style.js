@@ -4,7 +4,7 @@
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
-var GetStyle = function GetStyle(property, element) {
+var getStyle = function getStyle(property, element) {
   if (element === void 0) {
     element = document.body;
   }

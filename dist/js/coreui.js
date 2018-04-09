@@ -389,7 +389,7 @@
     function () {
       function Sidebar(element) {
         this._element = element;
-        this.perfectScrollbar(Selector.INIT);
+        this.perfectScrollbar(Event.INIT);
         this.setActiveLink();
 
         this._addEventListeners();
@@ -538,7 +538,7 @@
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
-  var GetStyle = function GetStyle(property, element) {
+  var getStyle = function getStyle(property, element) {
     if (element === void 0) {
       element = document.body;
     }
@@ -555,7 +555,7 @@
    */
 
   /* eslint-disable no-magic-numbers */
-  var HexToRgb = function HexToRgb(color) {
+  var hexToRgb = function hexToRgb(color) {
     var hex = color.replace('#', '');
     var r = parseInt(hex.substring(0, 2), 16);
     var g = parseInt(hex.substring(2, 4), 16);
@@ -572,7 +572,7 @@
    */
 
   /* eslint-disable no-magic-numbers */
-  var HexToRgba = function HexToRgba(color, opacity) {
+  var hexToRgba = function hexToRgba(color, opacity) {
     if (opacity === void 0) {
       opacity = 100;
     }
@@ -593,12 +593,12 @@
    */
 
   /* eslint-disable no-magic-numbers */
-  var RgbToHex = function RgbToHex(color) {
+  var rgbToHex = function rgbToHex(color) {
     var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
     var r = "0" + parseInt(rgb[1], 10).toString(16);
     var g = "0" + parseInt(rgb[2], 10).toString(16);
     var b = "0" + parseInt(rgb[3], 10).toString(16);
-    return rgb && rgb.length === 4 ? "#" + r.slice(-2) + g.slice(-2) + b.slice(-2) : ''; // return (rgb && rgb.length === 4) ? '#' + ('0' + parseInt(rgb[1], 10).toString(16)).slice(-2) + ('0' + parseInt(rgb[2], 10).toString(16)).slice(-2) + ('0' + parseInt(rgb[3], 10).toString(16)).slice(-2) : '';
+    return rgb && rgb.length === 4 ? "#" + r.slice(-2) + g.slice(-2) + b.slice(-2) : '';
   };
 
   /**
@@ -624,10 +624,10 @@
       throw new Error('CoreUI\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0');
     }
   })($);
-  window.GetStyle = GetStyle;
-  window.HexToRgb = HexToRgb;
-  window.HexToRgba = HexToRgba;
-  window.RgbToHex = RgbToHex;
+  window.GetStyle = getStyle;
+  window.HexToRgb = hexToRgb;
+  window.HexToRgba = hexToRgba;
+  window.RgbToHex = rgbToHex;
 
   exports.AjaxLoad = AjaxLoad;
   exports.AsideMenu = AsideMenu;

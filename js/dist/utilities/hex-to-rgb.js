@@ -6,7 +6,7 @@
  */
 
 /* eslint-disable no-magic-numbers */
-var HexToRgb = function HexToRgb(color) {
+var hexToRgb = function hexToRgb(color) {
   var hex = color.replace('#', '');
   var r = parseInt(hex.substring(0, 2), 16);
   var g = parseInt(hex.substring(2, 4), 16);
