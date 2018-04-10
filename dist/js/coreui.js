@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.0-beta.4 (https://coreui.io)
+  * CoreUI v2.0.0-beta.5 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -30,7 +30,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): ajax-load.js
+   * CoreUI (v2.0.0-beta.5): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -42,7 +42,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.0.0-beta.4';
+    var VERSION = '2.0.0-beta.5';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -197,7 +197,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): toggle-classes.js
+   * CoreUI (v2.0.0-beta.5): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -223,7 +223,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): aside-menu.js
+   * CoreUI (v2.0.0-beta.5): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -235,7 +235,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.0.0-beta.4';
+    var VERSION = '2.0.0-beta.5';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -332,7 +332,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): sidebar.js
+   * CoreUI (v2.0.0-beta.5): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -344,7 +344,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.0.0-beta.4';
+    var VERSION = '2.0.0-beta.5';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -534,7 +534,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v1.0.0): get-style.js
+   * CoreUI Utilities (v2.0.0-beta.5): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -549,7 +549,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0-beta.4): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.0-beta.5): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -566,7 +566,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0-beta.4): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.0-beta.5): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -587,7 +587,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): rgb-to-hex.js
+   * CoreUI (v2.0.0-beta.5): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -603,7 +603,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.4): index.js
+   * CoreUI (v2.0.0-beta.5): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

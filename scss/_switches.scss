@@ -1,3 +1,4 @@
+// stylelint-disable font-family-no-missing-generic-family-keyword
 @mixin switch-size($width, $height, $font-size, $handle-margin) {
   width: $width;
   height: $height;

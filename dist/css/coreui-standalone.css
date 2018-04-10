@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.0-beta.4
+ * @version v2.0.0-beta.5
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -3865,7 +3865,8 @@ canvas {
 }
 
 .switch-pill .switch-label, .switch-3d .switch-label,
-.switch-pill .switch-handle, .switch-3d .switch-handle {
+.switch-pill .switch-handle,
+.switch-3d .switch-handle {
   border-radius: 50em;
 }
 
@@ -4761,6 +4762,9 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
     z-index: 1019;
     width: 200px;
     height: calc(100vh - 55px);
+  }
+  .sidebar-minimizer {
+    display: none;
   }
   .aside-menu {
     position: fixed;

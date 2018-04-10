@@ -7,7 +7,7 @@ Before opening an issue:
 When asking general "how to" questions:
 
 - Please do not open an issue here
-- Instead, ask for help on [StackOverflow, IRC, or Slack](https://github.com/coreui/coreui/bootstrap/blob/master/README.md#community)
+- Instead, ask for help on [StackOverflow, IRC, or Slack](https://github.com/coreui/coreui/blob/master/README.md#community)
 
 When reporting a bug, include:
 
