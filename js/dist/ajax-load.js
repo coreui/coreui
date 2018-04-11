@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.5): ajax-load.js
+ * CoreUI (v2.0.0-beta.6): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.0.0-beta.5';
+  var VERSION = '2.0.0-beta.6';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
@@ -44,7 +44,8 @@ var AjaxLoad = function ($) {
     function AjaxLoad(element, config) {
       this._config = this._getConfig(config);
       this._element = element;
-      var url = location.hash.replace(/^#/, '');
+      var url = location.hash.replace(/^#/, ''); // eslint-disable-next-line no-unused-expressions
+
       url !== '' ? this.setUpUrl(url) : this.setUpUrl(this._config.defaultPage);
 
       this._addEventListeners();
@@ -65,6 +66,7 @@ var AjaxLoad = function ($) {
         async: false,
         success: function success() {
           if (typeof Pace !== 'undefined') {
+            // eslint-disable-next-line no-undef
             Pace.restart();
           }
 
@@ -108,6 +110,7 @@ var AjaxLoad = function ($) {
     _proto._addEventListeners = function _addEventListeners() {
       var _this = this;
 
+      // eslint-disable-next-line prefer-template
       $(document).on(Event.CLICK, Selector.NAV_LINK + '[href!="#"]', function (event) {
         event.preventDefault();
         event.stopPropagation();

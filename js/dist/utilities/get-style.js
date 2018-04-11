@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.0.0-beta.5): get-style.js
+ * CoreUI Utilities (v2.0.0-beta.6): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -9,7 +9,6 @@ var getStyle = function getStyle(property, element) {
     element = document.body;
   }
 
-  var style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
-  return style;
+  return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
 };
 //# sourceMappingURL=get-style.js.map
