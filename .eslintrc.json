@@ -141,7 +141,7 @@
     "jsx-quotes": "error",
     "key-spacing": "off",
     "keyword-spacing": "error",
-    "linebreak-style": ["error", "unix"],
+    "linebreak-style": 0,
     "line-comment-position": "off",
     "lines-around-comment": "off",
     "lines-around-directive": "error",
