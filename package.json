@@ -88,7 +88,7 @@
     "npm-run-all": "^4.1.2",
     "postcss-cli": "^5.0.0",
     "rollup": "^0.57.1",
-    "rollup-plugin-babel": "4.0.0-beta.2",
+    "rollup-plugin-babel": "^4.0.0-beta.4",
     "rollup-plugin-node-resolve": "^3.3.0",
     "semver": "^5.5.0",
     "shelljs": "^0.8.1",
@@ -98,7 +98,7 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^3.0.0",
-    "uglify-js": "^3.3.20"
+    "uglify-js": "^3.3.21"
   },
   "peerDependencies": {
     "jquery": "1.9.1 - 3",
