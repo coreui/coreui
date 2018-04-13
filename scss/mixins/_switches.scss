@@ -1,0 +1,59 @@
+@mixin switch-size($width, $height, $font-size, $handle-margin) {
+  width: $width;
+  height: $height;
+
+  .switch-label {
+    font-size: $font-size;
+  }
+
+  .switch-handle {
+    width: $height - $handle-margin * 2;
+    height: $height - $handle-margin * 2;
+  }
+
+  .switch-input:checked ~ .switch-handle {
+    left: $width - $height + $handle-margin;
+  }
+}
+
+@mixin switch-variant($color) {
+  > .switch-input:checked ~ .switch-label {
+    background: $color;
+    border-color: darken($color, 10%);
+  }
+
+  > .switch-input:checked ~ .switch-handle {
+    border-color: darken($color, 10%);
+  }
+}
+
+@mixin switch-outline-variant($color) {
+  > .switch-input:checked ~ .switch-label {
+    background: #fff;
+    border-color: $color;
+
+    &::after {
+      color: $color;
+    }
+  }
+
+  > .switch-input:checked ~ .switch-handle {
+    border-color: $color;
+  }
+}
+
+@mixin switch-outline-alt-variant($color) {
+  > .switch-input:checked ~ .switch-label {
+    background: #fff;
+    border-color: $color;
+
+    &::after {
+      color: $color;
+    }
+  }
+
+  > .switch-input:checked ~ .switch-handle {
+    background: $color;
+    border-color: $color;
+  }
+}

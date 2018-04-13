@@ -209,3 +209,23 @@ $footer-borders: (
 
 $card-icon-bg:                        transparent !default;
 $card-icon-color:                     $body-color !default;
+
+// Switches
+
+$switch-width:                        40px !default;
+$switch-height:                       24px !default;
+$switch-font-size:                    10px !default;
+
+$switch-lg-width:                     48px !default;
+$switch-lg-height:                    28px !default;
+$switch-lg-font-size:                 12px !default;
+
+$switch-sm-width:                     32px !default;
+$switch-sm-height:                    20px !default;
+$switch-sm-font-size:                 8px !default;
+
+$switch-text-width:                   48px !default;
+$switch-text-lg-width:                56px !default;
+$switch-text-sm-width:                40px !default;
+
+$switch-handle-margin:                2px !default;
