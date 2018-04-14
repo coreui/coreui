@@ -1,4 +1,6 @@
-// Brands Buttons
+//
+// Base styles
+//
 
 .btn-brand {
   border: 0;
@@ -39,6 +41,10 @@
     }
   }
 }
+
+//
+// Variants
+//
 
 @each $color, $value in $brands-colors {
   .btn-#{$color} {
