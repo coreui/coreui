@@ -1,3 +1,7 @@
+//
+// Base styles
+//
+
 .callout {
   position: relative;
   padding: 0 $spacer;
@@ -34,6 +38,10 @@
 .callout + .callout {
   margin-top: - .25rem;
 }
+
+//
+// Variants
+//
 
 @each $color, $value in $theme-colors {
   .callout-#{$color} {
