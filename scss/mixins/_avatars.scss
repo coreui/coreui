@@ -2,11 +2,7 @@
   position: relative;
   display: inline-block;
   width: $width;
-
-  .img-avatar {
-    width: $width;
-    height: $width;
-  }
+  height: $width;
 
   .avatar-status {
     position: absolute;
