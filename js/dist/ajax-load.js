@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.7): ajax-load.js
+ * CoreUI (v2.0.0-beta.8): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.0.0-beta.7';
+  var VERSION = '2.0.0-beta.8';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
@@ -44,9 +44,13 @@ var AjaxLoad = function ($) {
     function AjaxLoad(element, config) {
       this._config = this._getConfig(config);
       this._element = element;
-      var url = location.hash.replace(/^#/, ''); // eslint-disable-next-line no-unused-expressions
+      var url = location.hash.replace(/^#/, '');
 
-      url !== '' ? this.setUpUrl(url) : this.setUpUrl(this._config.defaultPage);
+      if (url !== '') {
+        this.setUpUrl(url);
+      } else {
+        this.setUpUrl(this._config.defaultPage);
+      }
 
       this._addEventListeners();
     } // Getters
@@ -65,11 +69,6 @@ var AjaxLoad = function ($) {
         cache: false,
         async: false,
         success: function success() {
-          if (typeof Pace !== 'undefined') {
-            // eslint-disable-next-line no-undef
-            Pace.restart();
-          }
-
           $('body').animate({
             scrollTop: 0
           }, 0);
@@ -85,11 +84,9 @@ var AjaxLoad = function ($) {
 
     _proto.setUpUrl = function setUpUrl(url) {
       $(Selector.NAV_LINK).removeClass(ClassName.ACTIVE);
-      $(Selector.NAV_DROPDOWN).removeClass(ClassName.OPEN); // eslint-disable-next-line prefer-template
-
-      $(Selector.NAV_DROPDOWN + ':has(a[href="' + url.replace(/^\//, '').split('?')[0] + '"])').addClass(ClassName.OPEN); // eslint-disable-next-line prefer-template
-
-      $(Selector.NAV_ITEM + ' a[href="' + url.replace(/^\//, '').split('?')[0] + '"]').addClass(ClassName.ACTIVE);
+      $(Selector.NAV_DROPDOWN).removeClass(ClassName.OPEN);
+      $(Selector.NAV_DROPDOWN + ":has(a[href=\"" + url.replace(/^\//, '').split('?')[0] + "\"])").addClass(ClassName.OPEN);
+      $(Selector.NAV_ITEM + " a[href=\"" + url.replace(/^\//, '').split('?')[0] + "\"]").addClass(ClassName.ACTIVE);
       this.loadPage(url);
     };
 
@@ -110,8 +107,7 @@ var AjaxLoad = function ($) {
     _proto._addEventListeners = function _addEventListeners() {
       var _this = this;
 
-      // eslint-disable-next-line prefer-template
-      $(document).on(Event.CLICK, Selector.NAV_LINK + '[href!="#"]', function (event) {
+      $(document).on(Event.CLICK, Selector.NAV_LINK + "[href!=\"#\"]", function (event) {
         event.preventDefault();
         event.stopPropagation();
 

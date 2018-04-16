@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.0.0-beta.7): hex-to-rgba.js
+ * CoreUI Utilities (v2.0.0-beta.8): hex-to-rgba.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -11,11 +11,30 @@ var hexToRgba = function hexToRgba(color, opacity) {
     opacity = 100;
   }
 
-  var hex = color.replace('#', '');
-  var r = parseInt(hex.substring(0, 2), 16);
-  var g = parseInt(hex.substring(2, 4), 16);
-  var b = parseInt(hex.substring(4, 6), 16);
-  var result = "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100;
-  return result;
+  if (typeof color === 'undefined') {
+    throw new Error('Hex color is not defined');
+  }
+
+  var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
+
+  if (!hex) {
+    throw new Error(color + " is not a valid hex color");
+  }
+
+  var r;
+  var g;
+  var b;
+
+  if (color.length === 7) {
+    r = parseInt(color.substring(1, 3), 16);
+    g = parseInt(color.substring(3, 5), 16);
+    b = parseInt(color.substring(5, 7), 16);
+  } else {
+    r = parseInt(color.substring(1, 2), 16);
+    g = parseInt(color.substring(2, 3), 16);
+    b = parseInt(color.substring(3, 5), 16);
+  }
+
+  return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100;
 };
 //# sourceMappingURL=hex-to-rgba.js.map
