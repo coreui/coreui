@@ -49,8 +49,12 @@ const AjaxLoad = (($) => {
       this._element = element
 
       const url = location.hash.replace(/^#/, '')
-      // eslint-disable-next-line no-unused-expressions
-      url !== '' ? this.setUpUrl(url) : this.setUpUrl(this._config.defaultPage)
+
+      if (url !== '') {
+        this.setUpUrl(url)
+      } else {
+        this.setUpUrl(this._config.defaultPage)
+      }
       this._addEventListeners()
     }
 
@@ -77,10 +81,6 @@ const AjaxLoad = (($) => {
         cache : false,
         async: false,
         success: function success() {
-          if (typeof Pace !== 'undefined') {
-            // eslint-disable-next-line no-undef
-            Pace.restart()
-          }
           $('body').animate({
             scrollTop: 0
           }, 0)
@@ -97,10 +97,9 @@ const AjaxLoad = (($) => {
     setUpUrl(url) {
       $(Selector.NAV_LINK).removeClass(ClassName.ACTIVE)
       $(Selector.NAV_DROPDOWN).removeClass(ClassName.OPEN)
-      // eslint-disable-next-line prefer-template
-      $(Selector.NAV_DROPDOWN + ':has(a[href="' + url.replace(/^\//, '').split('?')[0] + '"])').addClass(ClassName.OPEN)
-      // eslint-disable-next-line prefer-template
-      $(Selector.NAV_ITEM + ' a[href="' + url.replace(/^\//, '').split('?')[0] + '"]').addClass(ClassName.ACTIVE)
+
+      $(`${Selector.NAV_DROPDOWN}:has(a[href="${url.replace(/^\//, '').split('?')[0]}"])`).addClass(ClassName.OPEN)
+      $(`${Selector.NAV_ITEM} a[href="${url.replace(/^\//, '').split('?')[0]}"]`).addClass(ClassName.ACTIVE)
 
       this.loadPage(url)
     }
@@ -124,8 +123,7 @@ const AjaxLoad = (($) => {
     }
 
     _addEventListeners() {
-      // eslint-disable-next-line prefer-template
-      $(document).on(Event.CLICK, Selector.NAV_LINK + '[href!="#"]', (event) => {
+      $(document).on(Event.CLICK, `${Selector.NAV_LINK}[href!="#"]`, (event) => {
         event.preventDefault()
         event.stopPropagation()
 
