@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.0.0-beta.7",
+  "version": "2.0.0-beta.8",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -73,6 +73,7 @@
     "@babel/cli": "7.0.0-beta.44",
     "@babel/core": "7.0.0-beta.44",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0-beta.44",
     "@babel/preset-env": "7.0.0-beta.44",
     "autoprefixer": "^8.2.0",
     "babel-eslint": "^8.2.2",

@@ -1,26 +1,25 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.7): toggle-classes.js
+ * CoreUI (v2.0.0-beta.8): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
-var RemoveClasses = function RemoveClasses(NewClassNames) {
-  var MatchClasses = NewClassNames.map(function (Class) {
-    return document.body.classList.contains(Class);
-  });
-  return MatchClasses.indexOf(true) !== -1;
+var removeClasses = function removeClasses(classNames) {
+  return classNames.map(function (className) {
+    return document.body.classList.contains(className);
+  }).indexOf(true) !== -1;
 };
 
-var ToggleClasses = function ToggleClasses(Toggle, ClassNames) {
-  var Level = ClassNames.indexOf(Toggle);
-  var NewClassNames = ClassNames.slice(0, Level + 1);
+var toggleClasses = function toggleClasses(toggleClass, classNames) {
+  var breakpoint = classNames.indexOf(toggleClass);
+  var newClassNames = classNames.slice(0, breakpoint + 1);
 
-  if (RemoveClasses(NewClassNames)) {
-    NewClassNames.map(function (Class) {
-      return document.body.classList.remove(Class);
+  if (removeClasses(newClassNames)) {
+    newClassNames.map(function (className) {
+      return document.body.classList.remove(className);
     });
   } else {
-    document.body.classList.add(Toggle);
+    document.body.classList.add(toggleClass);
   }
 };
 //# sourceMappingURL=toggle-classes.js.map

@@ -1,10 +1,10 @@
 import $ from 'jquery'
 import PerfectScrollbar from 'perfect-scrollbar'
-import ToggleClasses from './toggle-classes'
+import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.7): sidebar.js
+ * CoreUI (v2.0.0-beta.8): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +17,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.0-beta.7'
+  const VERSION             = '2.0.0-beta.8'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -163,7 +163,7 @@ const Sidebar = (($) => {
         event.preventDefault()
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle
-        ToggleClasses(toggle, ShowClassNames)
+        toggleClasses(toggle, ShowClassNames)
       })
     }
 

@@ -1,24 +1,21 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.7): toggle-classes.js
+ * CoreUI (v2.0.0-beta.8): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
-const RemoveClasses = (NewClassNames) => {
-  const MatchClasses = NewClassNames.map((Class) => document.body.classList.contains(Class))
-  return MatchClasses.indexOf(true) !== -1
-}
+const removeClasses = (classNames) => classNames.map((className) => document.body.classList.contains(className)).indexOf(true) !== -1
 
-const ToggleClasses = (Toggle, ClassNames) => {
-  const Level = ClassNames.indexOf(Toggle)
-  const NewClassNames = ClassNames.slice(0, Level + 1)
+const toggleClasses = (toggleClass, classNames) => {
+  const breakpoint = classNames.indexOf(toggleClass)
+  const newClassNames = classNames.slice(0, breakpoint + 1)
 
-  if (RemoveClasses(NewClassNames)) {
-    NewClassNames.map((Class) => document.body.classList.remove(Class))
+  if (removeClasses(newClassNames)) {
+    newClassNames.map((className) => document.body.classList.remove(className))
   } else {
-    document.body.classList.add(Toggle)
+    document.body.classList.add(toggleClass)
   }
 }
 
-export default ToggleClasses
+export default toggleClasses

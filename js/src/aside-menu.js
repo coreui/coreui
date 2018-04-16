@@ -1,9 +1,9 @@
 import $ from 'jquery'
-import ToggleClasses from './toggle-classes'
+import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.7): aside-menu.js
+ * CoreUI (v2.0.0-beta.8): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -16,7 +16,7 @@ const AsideMenu = (($) => {
    */
 
   const NAME                = 'aside-menu'
-  const VERSION             = '2.0.0-beta.7'
+  const VERSION             = '2.0.0-beta.8'
   const DATA_KEY            = 'coreui.aside-menu'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -67,7 +67,7 @@ const AsideMenu = (($) => {
         event.preventDefault()
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle
-        ToggleClasses(toggle, ShowClassNames)
+        toggleClasses(toggle, ShowClassNames)
       })
     }
 
