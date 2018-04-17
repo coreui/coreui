@@ -3,102 +3,49 @@
 //
 
 .switch {
-  position: relative;
   display: inline-block;
   width: $switch-width;
   height: $switch-height;
-  vertical-align: top;
-  cursor: pointer;
-  background-color: transparent;
 }
 
 .switch-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+  display: none;
 }
 
-.switch-label {
+.switch-slider {
   position: relative;
   display: block;
   height: inherit;
-  font-size: $switch-font-size;
-  font-weight: 600;
-  text-transform: uppercase;
+  cursor: pointer;
   background-color: #fff;
-  border: 1px solid $border-color;
-  border-radius: 2px;
-  transition: opacity background .15s ease-out;
-
-  &::before,
-  &::after {
-    position: absolute;
-    top: 50%;
-    width: 50%;
-    margin-top: -.5em;
-    line-height: 1;
-    text-align: center;
-    transition: inherit;
-  }
+  border: $border-width solid $border-color;
+  transition: .15s ease-out;
+  @include border-radius($border-radius);
 
   &::before {
-    right: 1px;
-    color: $gray-200;
-    content: attr(data-off);
-  }
-
-  &::after {
-    left: 1px;
-    color: #fff;
-    content: attr(data-on);
-    opacity: 0;
-  }
-}
-
-.switch-handle {
-  position: absolute;
-  top: $switch-handle-margin;
-  left: $switch-handle-margin;
-  width: $switch-height - $switch-handle-margin * 2;
-  height: $switch-height - $switch-handle-margin * 2;
-  background: #fff;
-  border: 1px solid $border-color;
-  border-radius: 1px;
-  transition: left .15s ease-out;
-}
-
-.switch-input:checked {
-  ~ .switch-label {
-    //background: $gray-lightest;
-  }
-
-  ~ .switch-label::before {
-    opacity: 0;
-  }
-
-  ~ .switch-label::after {
-    opacity: 1;
-  }
-
-  ~ .switch-handle {
-    left: $switch-width - $switch-height + $switch-handle-margin;
+    position: absolute;
+    top: $switch-handle-margin;
+    left: $switch-handle-margin;
+    box-sizing: border-box;
+    width: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
+    height: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
+    content: "";
+    background-color: #fff;
+    border: 1px solid $border-color;
+    transition: .15s ease-out;
+    @include border-radius($border-radius / 2);
   }
 }
 
-@each $color, $value in $theme-colors {
-  //normal style
-  .switch-#{$color} {
-    @include switch-variant($value);
+.switch-input:checked ~ .switch-slider {
+  &::before {
+    transform: translateX($switch-width - $switch-height);
   }
-  //outline style
-  .switch-#{$color}-outline {
-    @include switch-outline-variant($value);
-  }
-  //outline alternative style
-  .switch-#{$color}-outline-alt {
-    @include switch-outline-alt-variant($value);
-  }
+}
+
+.switch-input:disabled ~ .switch-slider {
+  cursor: not-allowed;
+  opacity: .5;
 }
 
 //
@@ -114,19 +61,51 @@
 }
 
 //
-// Switch with text
+// Switch with label
 //
+.switch-label {
+  width: $switch-label-width;
 
-.switch-text {
-  @include switch-size($switch-text-width, $switch-height, $switch-font-size, $switch-handle-margin);
+  .switch-slider {
+    &::before {
+      z-index: 2;
+    }
+    &::after {
+      position: absolute;
+      top: 50%;
+      right: 1px;
+      z-index: 1;
+      width: 50%;
+      margin-top: -.5em;
+      font-size: $switch-font-size;
+      font-weight: 600;
+      line-height: 1;
+      color: $gray-300;
+      text-align: center;
+      text-transform: uppercase;
+      content: attr(data-unchecked);
+      transition: inherit;
+    }
+  }
+
+  .switch-input:checked ~ .switch-slider {
+    &::before {
+      transform: translateX($switch-label-width - $switch-height);
+    }
+    &::after {
+      left: 1px;
+      color: #fff;
+      content: attr(data-checked);
+    }
+  }
 
   // Sizes
   &.switch-lg {
-    @include switch-size($switch-text-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
+    @include switch-size($switch-label-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
   }
 
   &.switch-sm {
-    @include switch-size($switch-text-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
+    @include switch-size($switch-label-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
   }
 }
 
@@ -135,27 +114,47 @@
 //
 
 .switch-3d {
-  .switch-label {
+  .switch-slider {
     background-color: $gray-100;
     border-radius: 50em;
-  }
-  .switch-handle {
-    top: 0;
-    left: 0;
-    width: $switch-height;
-    height: $switch-height;
-    border: 0;
-    border-radius: 50em;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+
+    &::before {
+      top: -1px;
+      left: -1px;
+      width: $switch-height;
+      height: $switch-height;
+      border: 0;
+      border-radius: 50em;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+    }
   }
 
   // Sizes
   &.switch-lg {
-    @include switch-size($switch-text-lg-width, $switch-lg-height, $switch-lg-font-size, 0);
+    @include switch-3d-size($switch-lg-width, $switch-lg-height);
   }
 
   &.switch-sm {
-    @include switch-size($switch-text-sm-width, $switch-sm-height, $switch-sm-font-size, 0);
+    @include switch-3d-size($switch-sm-width, $switch-sm-height);
+  }
+}
+
+//
+// Switch Variants
+//
+
+@each $color, $value in $theme-colors {
+  //normal style
+  .switch-#{$color} {
+    @include switch-variant($value);
+  }
+  //outline style
+  .switch-outline-#{$color} {
+    @include switch-outline-variant($value);
+  }
+  //outline alternative style
+  .switch-outline-#{$color}-alt {
+    @include switch-outline-variant-alt($value);
   }
 }
 
@@ -164,17 +163,11 @@
 //
 
 .switch-pill {
-  .switch-label,
-  .switch-handle {
+  .switch-slider {
     border-radius: 50em;
-  }
 
-  .switch-label {
     &::before {
-      right: 2px;
-    }
-    &::after {
-      left: 2px;
+      border-radius: 50em;
     }
   }
 }
