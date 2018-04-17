@@ -2,58 +2,77 @@
   width: $width;
   height: $height;
 
-  .switch-label {
+  .switch-slider {
     font-size: $font-size;
+
+    &::before {
+      width: $height - ($handle-margin * 2) - ($border-width * 2);
+      height: $height - ($handle-margin * 2) - ($border-width * 2);
+    }
+    &::after {
+      font-size: $font-size;
+    }
   }
 
-  .switch-handle {
-    width: $height - $handle-margin * 2;
-    height: $height - $handle-margin * 2;
+  .switch-input:checked ~ .switch-slider {
+    &::before {
+      transform: translateX($width - $height);
+    }
+  }
+}
+
+@mixin switch-3d-size($width, $height) {
+  width: $width;
+  height: $height;
+
+  .switch-slider::before {
+    width: $height;
+    height: $height;
   }
 
-  .switch-input:checked ~ .switch-handle {
-    left: $width - $height + $handle-margin;
+  .switch-input:checked ~ .switch-slider {
+    &::before {
+      transform: translateX($width - $height);
+    }
   }
 }
 
 @mixin switch-variant($color) {
-  > .switch-input:checked ~ .switch-label {
-    background: $color;
+  .switch-input:checked + .switch-slider {
+    background-color: $color;
     border-color: darken($color, 10%);
-  }
 
-  > .switch-input:checked ~ .switch-handle {
-    border-color: darken($color, 10%);
+    &::before {
+      border-color: darken($color, 10%);
+    }
   }
 }
 
 @mixin switch-outline-variant($color) {
-  > .switch-input:checked ~ .switch-label {
-    background: #fff;
+  .switch-input:checked + .switch-slider {
+    background-color: #fff;
     border-color: $color;
 
+    &::before {
+      border-color: $color;
+    }
     &::after {
       color: $color;
     }
-  }
-
-  > .switch-input:checked ~ .switch-handle {
-    border-color: $color;
   }
 }
 
-@mixin switch-outline-alt-variant($color) {
-  > .switch-input:checked ~ .switch-label {
-    background: #fff;
+@mixin switch-outline-variant-alt($color) {
+  .switch-input:checked + .switch-slider {
+    background-color: #fff;
     border-color: $color;
 
+    &::before {
+      background-color: $color;
+      border-color: $color;
+    }
     &::after {
       color: $color;
     }
-  }
-
-  > .switch-input:checked ~ .switch-handle {
-    background: $color;
-    border-color: $color;
   }
 }
