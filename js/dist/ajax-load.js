@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.0-beta.9): ajax-load.js
+ * CoreUI (v2.0.0-beta.10): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,22 +15,25 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.0.0-beta.9';
+  var VERSION = '2.0.0-beta.10';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
     ACTIVE: 'active',
     NAV_PILLS: 'nav-pills',
     NAV_TABS: 'nav-tabs',
-    OPEN: 'open'
+    OPEN: 'open',
+    VIEW_SCRIPT: 'view-script'
   };
   var Event = {
     CLICK: 'click'
   };
   var Selector = {
+    HEAD: 'head',
     NAV_DROPDOWN: '.sidebar-nav .nav-dropdown',
     NAV_LINK: '.sidebar-nav .nav-link',
-    NAV_ITEM: '.sidebar-nav .nav-item'
+    NAV_ITEM: '.sidebar-nav .nav-item',
+    VIEW_SCRIPT: '.view-script'
   };
   var Default = {
     defaultPage: 'main.html',
@@ -62,19 +65,55 @@ var AjaxLoad = function ($) {
     _proto.loadPage = function loadPage(url) {
       var element = this._element;
       var config = this._config;
+
+      var loadScripts = function loadScripts(src, element) {
+        if (element === void 0) {
+          element = 0;
+        }
+
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = src[element];
+        script.className = ClassName.VIEW_SCRIPT; // eslint-disable-next-line no-multi-assign
+
+        script.onload = script.onreadystatechange = function () {
+          if (!this.readyState || this.readyState === 'complete') {
+            if (src.length > element + 1) {
+              loadScripts(src, element + 1);
+            }
+          }
+        };
+
+        var body = document.getElementsByTagName('body')[0];
+        body.appendChild(script);
+      };
+
       $.ajax({
         type: 'GET',
         url: config.subpagesDirectory + url,
         dataType: 'html',
-        cache: false,
-        async: false,
-        success: function success() {
+        beforeSend: function beforeSend() {
+          $(Selector.VIEW_SCRIPT).remove();
+        },
+        success: function success(result) {
+          var wrapper = document.createElement('div');
+          wrapper.innerHTML = result;
+          var scripts = Array.from(wrapper.querySelectorAll('script')).map(function (script) {
+            return script.attributes.getNamedItem('src').nodeValue;
+          });
+          wrapper.querySelectorAll('script').forEach(function (script) {
+            return script.parentNode.removeChild(script);
+          });
           $('body').animate({
             scrollTop: 0
           }, 0);
-          $(element).load(config.subpagesDirectory + url, null, function () {
-            window.location.hash = url;
-          });
+          $(element).html(wrapper);
+
+          if (scripts.length) {
+            loadScripts(scripts);
+          }
+
+          window.location.hash = url;
         },
         error: function error() {
           window.location.href = config.errorPage;
