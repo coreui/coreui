@@ -21,10 +21,11 @@ const AjaxLoad = (($) => {
   const JQUERY_NO_CONFLICT         = $.fn[NAME]
 
   const ClassName = {
-    ACTIVE    : 'active',
-    NAV_PILLS : 'nav-pills',
-    NAV_TABS  : 'nav-tabs',
-    OPEN      : 'open'
+    ACTIVE      : 'active',
+    NAV_PILLS   : 'nav-pills',
+    NAV_TABS    : 'nav-tabs',
+    OPEN        : 'open',
+    VIEW_SCRIPT : 'view-script'
   }
 
   const Event = {
@@ -32,9 +33,11 @@ const AjaxLoad = (($) => {
   }
 
   const Selector = {
+    HEAD         : 'head',
     NAV_DROPDOWN : '.sidebar-nav .nav-dropdown',
     NAV_LINK     : '.sidebar-nav .nav-link',
-    NAV_ITEM     : '.sidebar-nav .nav-item'
+    NAV_ITEM     : '.sidebar-nav .nav-item',
+    VIEW_SCRIPT  : '.view-script'
   }
 
   const Default = {
@@ -74,21 +77,48 @@ const AjaxLoad = (($) => {
       const element = this._element
       const config = this._config
 
+      const loadScripts = (src, element = 0) => {
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.src = src[element]
+        script.className = ClassName.VIEW_SCRIPT
+        // eslint-disable-next-line no-multi-assign
+        script.onload = script.onreadystatechange = function () {
+          if (!this.readyState || this.readyState === 'complete') {
+            if (src.length > element + 1) {
+              loadScripts(src, element + 1)
+            }
+          }
+        }
+        const body = document.getElementsByTagName('body')[0]
+        body.appendChild(script)
+      }
+
       $.ajax({
         type : 'GET',
         url : config.subpagesDirectory + url,
         dataType : 'html',
-        cache : false,
-        async: false,
-        success: function success() {
+        beforeSend() {
+          $(Selector.VIEW_SCRIPT).remove()
+        },
+        success(result) {
+          const wrapper = document.createElement('div')
+          wrapper.innerHTML = result
+
+          const scripts = Array.from(wrapper.querySelectorAll('script')).map((script) => script.attributes.getNamedItem('src').nodeValue)
+
+          wrapper.querySelectorAll('script').forEach((script) => script.parentNode.removeChild(script))
+
           $('body').animate({
             scrollTop: 0
           }, 0)
-          $(element).load(config.subpagesDirectory + url, null, () => {
-            window.location.hash = url
-          })
+          $(element).html(wrapper)
+          if (scripts.length) {
+            loadScripts(scripts)
+          }
+          window.location.hash = url
         },
-        error: function error() {
+        error() {
           window.location.href = config.errorPage
         }
       })
