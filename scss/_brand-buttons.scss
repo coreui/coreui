@@ -11,6 +11,7 @@
     line-height: (($btn-padding-y * 2) + ($font-size-base * $btn-line-height));
     text-align: center;
     background-color: rgba(0, 0, 0, .2);
+    @include border-radius($btn-border-radius);
   }
 
   i + span {
@@ -22,6 +23,7 @@
       width: (($btn-padding-y-lg * 2) + ($font-size-lg * $btn-line-height-lg));
       margin: (- $btn-padding-y-lg) (- $btn-padding-x-lg);
       line-height: (($btn-padding-y-lg * 2) + ($font-size-lg * $btn-line-height-lg));
+      @include border-radius($btn-border-radius-lg);
     }
 
     i + span {
@@ -34,11 +36,16 @@
       width: (($btn-padding-y-sm * 2) + ($font-size-sm * $btn-line-height-sm));
       margin: (- $btn-padding-y-sm) (- $btn-padding-x-sm);
       line-height: (($btn-padding-y-sm * 2) + ($font-size-sm * $btn-line-height-sm));
+      @include border-radius($btn-border-radius-sm);
     }
 
     i + span {
       margin-left: ($btn-padding-x-sm * 2);
     }
+  }
+
+  &.btn-square i {
+    border-radius: 0;
   }
 }
 
