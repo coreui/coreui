@@ -27,7 +27,7 @@ const hexToRgba = (color, opacity = 100) => {
     b = parseInt(color.substring(3, 5), 16)
   }
 
-  return `rgba(${r}, ${g}, ${b}, ${opacity / 100}`
+  return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`
 }
 
 export default hexToRgba
