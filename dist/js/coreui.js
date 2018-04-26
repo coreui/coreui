@@ -577,7 +577,7 @@
    */
   var getStyle = function getStyle(property, element) {
     if (element === void 0) {
-      element = document.body;
+      element = !!window.MSInputMethodContext && !!document.documentMode ? document.getElementsByClassName('.app')[0] : document.body;
     }
 
     return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');

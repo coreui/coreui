@@ -5,6 +5,6 @@
  * --------------------------------------------------------------------------
  */
 
-const getStyle = (property, element = document.body) => window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
+const getStyle = (property, element = !!window.MSInputMethodContext && !!document.documentMode ? document.getElementsByClassName('.app')[0] : document.body) => window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
 
 export default getStyle
