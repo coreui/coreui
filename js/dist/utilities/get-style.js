@@ -4,8 +4,6 @@
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
-
-/* eslint-disable no-unused-vars */
 var getCssCustomProperties = function getCssCustomProperties() {
   var cssCustomProperties = {};
   var stylesheets = new Map(Object.entries(document.styleSheets));
@@ -37,6 +35,11 @@ var getStyle = function getStyle(property, element) {
     element = document.body;
   }
 
-  return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+  if (isCustomProperty(property) && isIE11) {
+    var cssCustomProperties = getCssCustomProperties();
+    return cssCustomProperties[property];
+  } else {
+    return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+  }
 };
 //# sourceMappingURL=get-style.js.map

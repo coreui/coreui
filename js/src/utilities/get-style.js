@@ -5,7 +5,6 @@
  * --------------------------------------------------------------------------
  */
 
-/* eslint-disable no-unused-vars */
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
   const stylesheets = new Map(Object.entries(document.styleSheets))
@@ -27,6 +26,13 @@ const getCssCustomProperties = () => {
 const isIE11 = () => Boolean(window.MSInputMethodContext) && Boolean(document.documentMode)
 const isCustomProperty = (property) => property.match(/^--.*/i)
 
-const getStyle = (property, element = document.body) => window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
+const getStyle = (property, element = document.body) => {
+  if (isCustomProperty(property) && isIE11) {
+    const cssCustomProperties = getCssCustomProperties()
+    return cssCustomProperties[property]
+  } else {
+    return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
+  }
+}
 
 export default getStyle
