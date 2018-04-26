@@ -422,6 +422,7 @@
   line-height: 2.0625rem;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
 }
 
 .btn-brand i + span {
@@ -432,6 +433,7 @@
   width: 2.640625rem;
   margin: -0.5rem -1rem;
   line-height: 2.640625rem;
+  border-radius: 0.3rem;
 }
 
 .btn-brand.btn-lg i + span {
@@ -442,10 +444,15 @@
   width: 1.648438rem;
   margin: -0.25rem -0.5rem;
   line-height: 1.648438rem;
+  border-radius: 0.2rem;
 }
 
 .btn-brand.btn-sm i + span {
   margin-left: 1rem;
+}
+
+.btn-brand.btn-square i {
+  border-radius: 0;
 }
 
 .btn-facebook {
@@ -2097,6 +2104,134 @@ canvas {
   padding: 0 30px;
 }
 
+.app-header {
+  position: relative;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  height: 55px;
+  padding: 0;
+  margin: 0;
+  background-color: #fff;
+  border-bottom: 1px solid #c8ced3;
+}
+
+.app-header .navbar-brand {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 155px;
+  height: 55px;
+  padding: 0;
+  margin-right: 0;
+  background-color: transparent;
+}
+
+.app-header .navbar-brand .navbar-brand-minimized {
+  display: none;
+}
+
+.app-header .navbar-toggler {
+  min-width: 50px;
+  padding: 0.25rem 0;
+}
+
+.app-header .navbar-toggler:hover .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232f353a' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.app-header .navbar-toggler-icon {
+  height: 23px;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2373818f' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.app-header .navbar-nav {
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.app-header .nav-item {
+  position: relative;
+  min-width: 50px;
+  margin: 0;
+  text-align: center;
+}
+
+.app-header .nav-item button {
+  margin: 0 auto;
+}
+
+.app-header .nav-item .nav-link {
+  padding-top: 0;
+  padding-bottom: 0;
+  background: 0;
+  border: 0;
+}
+
+.app-header .nav-item .nav-link .badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: 0;
+}
+
+.app-header .nav-item .nav-link > .img-avatar, .app-header .nav-item .avatar.nav-link > img {
+  height: 35px;
+  margin: 0 10px;
+}
+
+.app-header .dropdown-menu {
+  padding-bottom: 0;
+  line-height: 1.5;
+}
+
+.app-header .dropdown-item {
+  min-width: 180px;
+}
+
+.navbar-nav .nav-link {
+  color: #73818f;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+  color: #2f353a;
+}
+
+.navbar-nav .open > .nav-link, .navbar-nav .open > .nav-link:hover, .navbar-nav .open > .nav-link:focus,
+.navbar-nav .active > .nav-link,
+.navbar-nav .active > .nav-link:hover,
+.navbar-nav .active > .nav-link:focus,
+.navbar-nav .nav-link.open,
+.navbar-nav .nav-link.open:hover,
+.navbar-nav .nav-link.open:focus,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.active:hover,
+.navbar-nav .nav-link.active:focus {
+  color: #2f353a;
+}
+
+.navbar-divider {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+@media (min-width: 992px) {
+  .brand-minimized .app-header .navbar-brand {
+    width: 50px;
+    background-color: transparent;
+  }
+  .brand-minimized .app-header .navbar-brand .navbar-brand-full {
+    display: none;
+  }
+  .brand-minimized .app-header .navbar-brand .navbar-brand-minimized {
+    display: block;
+  }
+}
+
 .img-avatar, .avatar > img,
 .img-circle {
   max-width: 100%;
@@ -2234,134 +2369,6 @@ canvas {
 
 *[dir="rtl"] .nav {
   padding-right: 0;
-}
-
-.app-header {
-  position: relative;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  height: 55px;
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-  border-bottom: 1px solid #c8ced3;
-}
-
-.app-header .navbar-brand {
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 155px;
-  height: 55px;
-  padding: 0;
-  margin-right: 0;
-  background-color: transparent;
-}
-
-.app-header .navbar-brand .navbar-brand-minimized {
-  display: none;
-}
-
-.app-header .navbar-toggler {
-  min-width: 50px;
-  padding: 0.25rem 0;
-}
-
-.app-header .navbar-toggler:hover .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232f353a' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.app-header .navbar-toggler-icon {
-  height: 23px;
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2373818f' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-
-.app-header .navbar-nav {
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.app-header .nav-item {
-  position: relative;
-  min-width: 50px;
-  margin: 0;
-  text-align: center;
-}
-
-.app-header .nav-item button {
-  margin: 0 auto;
-}
-
-.app-header .nav-item .nav-link {
-  padding-top: 0;
-  padding-bottom: 0;
-  background: 0;
-  border: 0;
-}
-
-.app-header .nav-item .nav-link .badge {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-top: -16px;
-  margin-left: 0;
-}
-
-.app-header .nav-item .nav-link > .img-avatar, .app-header .nav-item .avatar.nav-link > img {
-  height: 35px;
-  margin: 0 10px;
-}
-
-.app-header .dropdown-menu {
-  padding-bottom: 0;
-  line-height: 1.5;
-}
-
-.app-header .dropdown-item {
-  min-width: 180px;
-}
-
-.navbar-nav .nav-link {
-  color: #73818f;
-}
-
-.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
-  color: #2f353a;
-}
-
-.navbar-nav .open > .nav-link, .navbar-nav .open > .nav-link:hover, .navbar-nav .open > .nav-link:focus,
-.navbar-nav .active > .nav-link,
-.navbar-nav .active > .nav-link:hover,
-.navbar-nav .active > .nav-link:focus,
-.navbar-nav .nav-link.open,
-.navbar-nav .nav-link.open:hover,
-.navbar-nav .nav-link.open:focus,
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.active:hover,
-.navbar-nav .nav-link.active:focus {
-  color: #2f353a;
-}
-
-.navbar-divider {
-  background-color: rgba(0, 0, 0, 0.075);
-}
-
-@media (min-width: 992px) {
-  .brand-minimized .app-header .navbar-brand {
-    width: 50px;
-    background-color: transparent;
-  }
-  .brand-minimized .app-header .navbar-brand .navbar-brand-full {
-    display: none;
-  }
-  .brand-minimized .app-header .navbar-brand .navbar-brand-minimized {
-    display: block;
-  }
 }
 
 .progress-xs {
@@ -5149,5 +5156,46 @@ body {
 *[dir="rtl"] .dropdown-item .badge {
   right: auto;
   left: 10px;
+}
+
+.ie-custom-properties {
+  blue: #20a8d8;
+  indigo: #6610f2;
+  purple: #6f42c1;
+  pink: #e83e8c;
+  red: #f86c6b;
+  orange: #f8cb00;
+  yellow: #ffc107;
+  green: #4dbd74;
+  teal: #20c997;
+  cyan: #17a2b8;
+  white: #fff;
+  gray: #73818f;
+  gray-dark: #2f353a;
+  light-blue: #63c2de;
+  gray-100: #f0f3f5;
+  gray-200: #e4e7ea;
+  gray-300: #c8ced3;
+  gray-400: #acb4bc;
+  gray-500: #8f9ba6;
+  gray-600: #73818f;
+  gray-700: #5c6873;
+  gray-800: #2f353a;
+  gray-900: #23282c;
+  primary: #20a8d8;
+  secondary: #c8ced3;
+  success: #4dbd74;
+  info: #63c2de;
+  warning: #ffc107;
+  danger: #f86c6b;
+  light: #f0f3f5;
+  dark: #2f353a;
+  breakpoint-xs: 0;
+  breakpoint-sm: 576px;
+  breakpoint-md: 768px;
+  breakpoint-lg: 992px;
+  breakpoint-xl: 1200px;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 /*# sourceMappingURL=coreui-standalone.css.map */
