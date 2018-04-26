@@ -5,17 +5,18 @@
  * --------------------------------------------------------------------------
  */
 
+/* eslint-disable no-unused-vars */
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
   const stylesheets = new Map(Object.entries(document.styleSheets))
   stylesheets.forEach((stylesheet) => {
     const rules = new Map(Object.entries(stylesheet.cssRules))
     rules.forEach((rule) => {
-      if (rule.selectorText === ':root') {
+      if (rule.selectorText === '.ie-custom-properties') {
         rule.style.cssText.split('; ').forEach((property) => {
           const name = property.split(': ')[0]
           const value = property.split(': ')[1]
-          cssCustomProperties[name] = value
+          cssCustomProperties[`--${name}`] = value
         })
       }
     })
@@ -24,6 +25,7 @@ const getCssCustomProperties = () => {
 }
 
 const isIE11 = () => Boolean(window.MSInputMethodContext) && Boolean(document.documentMode)
+const isCustomProperty = (property) => property.match(/^--.*/i)
 
 const getStyle = (property, element = document.body) => window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
 
