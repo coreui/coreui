@@ -27,7 +27,7 @@ const hexToRgb = (color) => {
     b = parseInt(color.substring(3, 5), 16)
   }
 
-  return `rgba(${r}, ${g}, ${b}`
+  return `rgba(${r}, ${g}, ${b})`
 }
 
 export default hexToRgb
