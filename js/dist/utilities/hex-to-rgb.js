@@ -31,6 +31,6 @@ var hexToRgb = function hexToRgb(color) {
     b = parseInt(color.substring(3, 5), 16);
   }
 
-  return "rgba(" + r + ", " + g + ", " + b;
+  return "rgba(" + r + ", " + g + ", " + b + ")";
 };
 //# sourceMappingURL=hex-to-rgb.js.map

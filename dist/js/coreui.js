@@ -6,7 +6,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('jquery'), require('perfect-scrollbar')) :
   typeof define === 'function' && define.amd ? define(['exports', 'jquery', 'perfect-scrollbar'], factory) :
-  (factory((global.coreui = {}),global.jQuery,global.PerfectScrollbar));
+  (factory((global.coreui = {}),global.jQuery,null));
 }(this, (function (exports,$,PerfectScrollbar) { 'use strict';
 
   $ = $ && $.hasOwnProperty('default') ? $['default'] : $;
@@ -575,24 +575,21 @@
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
-
-  /* eslint-disable */
   var getCssCustomProperties = function getCssCustomProperties() {
     var cssCustomProperties = {};
-    var stylesheets = new Map(Object.entries(document.styleSheets));
-    stylesheets.forEach(function (stylesheet) {
-      console.log(property);
-      var rules = new Map(Object.entries(stylesheet.cssRules));
-      rules.forEach(function (rule) {
-        if (rule.selectorText === '.ie-custom-properties') {
-          rule.style.cssText.split('; ').forEach(function (property) {
-            console.log(property);
-            var name = property.split(': ')[0];
-            var value = property.split(': ')[1];
-            cssCustomProperties["--" + name] = value;
-          });
-        }
-      });
+    var root = Object.entries(document.styleSheets).filter(function (value) {
+      return value[1].cssText.substring(0, ':root'.length) === ':root';
+    });
+    var rule = Object.entries(root[0][1].cssRules).filter(function (value) {
+      return value[1].selectorText === '.ie-custom-properties';
+    });
+    var cssText = rule[0][1].style.cssText;
+    cssText.split(';').forEach(function (property) {
+      if (property) {
+        var name = property.split(': ')[0];
+        var value = property.split(': ')[1];
+        cssCustomProperties["--" + name.trim()] = value.trim();
+      }
     });
     return cssCustomProperties;
   };
@@ -614,31 +611,27 @@
 
     if (isCustomProperty(property) && isIE11()) {
       var cssCustomProperties = getCssCustomProperties();
-      style = cssCustomProperties[property]; // console.log(cssCustomProperties)
+      style = cssCustomProperties[property];
     } else {
       style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
-    } // eslint-disable-next-line no-console
-    // console.log(isIE11())
-    // eslint-disable-next-line no-console
-    // console.log(property)
-    // eslint-disable-next-line no-console
-    // console.log(isCustomProperty(property))
-
+    }
 
     return style;
   };
 
-  if (!Object.entries) Object.entries = function (obj) {
-    var ownProps = Object.keys(obj),
-        i = ownProps.length,
-        resArray = new Array(i); // preallocate the Array
+  if (!Object.entries) {
+    Object.entries = function (obj) {
+      var ownProps = Object.keys(obj);
+      var i = ownProps.length;
+      var resArray = new Array(i);
 
-    while (i--) {
-      resArray[i] = [ownProps[i], obj[ownProps[i]]];
-    }
+      while (i--) {
+        resArray[i] = [ownProps[i], obj[ownProps[i]]];
+      }
 
-    return resArray;
-  };
+      return resArray;
+    };
+  }
 
   /**
    * --------------------------------------------------------------------------
@@ -673,7 +666,7 @@
       b = parseInt(color.substring(3, 5), 16);
     }
 
-    return "rgba(" + r + ", " + g + ", " + b;
+    return "rgba(" + r + ", " + g + ", " + b + ")";
   };
 
   /**
@@ -713,7 +706,7 @@
       b = parseInt(color.substring(3, 5), 16);
     }
 
-    return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100;
+    return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100 + ")";
   };
 
   /**
