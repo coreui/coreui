@@ -59,6 +59,7 @@
     "js-lint": "eslint js/",
     "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
     "js-compile-plugins": "cross-env PLUGINS=true babel js/src/ --out-dir js/dist/ --source-maps",
+    "js-compile-utils": "rollup --environment BUNDLE:false --config build/rollup.config.utilities.js --sourcemap",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 coreui-$npm_package_version-dist.zip * && shx mv coreui-$npm_package_version-dist.zip ..",
