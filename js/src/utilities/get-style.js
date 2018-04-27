@@ -5,23 +5,17 @@
  * --------------------------------------------------------------------------
  */
 
-/* eslint-disable */
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
-  const stylesheets = new Map(Object.entries(document.styleSheets))
-  stylesheets.forEach((stylesheet) => {
-    console.log(property)
-    const rules = new Map(Object.entries(stylesheet.cssRules))
-    rules.forEach((rule) => {
-      if (rule.selectorText === '.ie-custom-properties') {
-        rule.style.cssText.split('; ').forEach((property) => {
-          console.log(property)
-          const name = property.split(': ')[0]
-          const value = property.split(': ')[1]
-          cssCustomProperties[`--${name}`] = value
-        })
-      }
-    })
+  const root = Object.entries(document.styleSheets).filter((value) => value[1].cssText.substring(0, ':root'.length) === ':root')
+  const rule = Object.entries(root[0][1].cssRules).filter((value) => value[1].selectorText === '.ie-custom-properties')
+  const cssText = rule[0][1].style.cssText
+  cssText.split(';').forEach((property) => {
+    if (property) {
+      const name = property.split(': ')[0]
+      const value = property.split(': ')[1]
+      cssCustomProperties[`--${name.trim()}`] = value.trim()
+    }
   })
   return cssCustomProperties
 }
@@ -34,28 +28,22 @@ const getStyle = (property, element = document.body) => {
   if (isCustomProperty(property) && isIE11()) {
     const cssCustomProperties = getCssCustomProperties()
     style = cssCustomProperties[property]
-    // console.log(cssCustomProperties)
   } else {
     style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
   }
-  // eslint-disable-next-line no-console
-  // console.log(isIE11())
-  // eslint-disable-next-line no-console
-  // console.log(property)
-  // eslint-disable-next-line no-console
-  // console.log(isCustomProperty(property))
   return style
 }
 
-if (!Object.entries)
-Object.entries = function(obj){
-  var ownProps = Object.keys(obj),
-  i = ownProps.length,
-  resArray = new Array(i); // preallocate the Array
-  while (i--)
-  resArray[i] = [ownProps[i], obj[ownProps[i]]]
-
-  return resArray
-};
+if (!Object.entries) {
+  Object.entries = function (obj) {
+    const ownProps = Object.keys(obj)
+    let i = ownProps.length
+    const resArray = new Array(i)
+    while (i--) {
+      resArray[i] = [ownProps[i], obj[ownProps[i]]]
+    }
+    return resArray
+  }
+}
 
 export default getStyle
