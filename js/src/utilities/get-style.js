@@ -5,14 +5,17 @@
  * --------------------------------------------------------------------------
  */
 
+/* eslint-disable */
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
   const stylesheets = new Map(Object.entries(document.styleSheets))
   stylesheets.forEach((stylesheet) => {
+    console.log(property)
     const rules = new Map(Object.entries(stylesheet.cssRules))
     rules.forEach((rule) => {
       if (rule.selectorText === '.ie-custom-properties') {
         rule.style.cssText.split('; ').forEach((property) => {
+          console.log(property)
           const name = property.split(': ')[0]
           const value = property.split(': ')[1]
           cssCustomProperties[`--${name}`] = value
@@ -27,12 +30,32 @@ const isIE11 = () => Boolean(window.MSInputMethodContext) && Boolean(document.do
 const isCustomProperty = (property) => property.match(/^--.*/i)
 
 const getStyle = (property, element = document.body) => {
-  if (isCustomProperty(property) && isIE11) {
+  let style
+  if (isCustomProperty(property) && isIE11()) {
     const cssCustomProperties = getCssCustomProperties()
-    return cssCustomProperties[property]
+    style = cssCustomProperties[property]
+    // console.log(cssCustomProperties)
   } else {
-    return window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
+    style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
   }
+  // eslint-disable-next-line no-console
+  // console.log(isIE11())
+  // eslint-disable-next-line no-console
+  // console.log(property)
+  // eslint-disable-next-line no-console
+  // console.log(isCustomProperty(property))
+  return style
 }
+
+if (!Object.entries)
+Object.entries = function(obj){
+  var ownProps = Object.keys(obj),
+  i = ownProps.length,
+  resArray = new Array(i); // preallocate the Array
+  while (i--)
+  resArray[i] = [ownProps[i], obj[ownProps[i]]]
+
+  return resArray
+};
 
 export default getStyle
