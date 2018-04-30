@@ -594,8 +594,10 @@
     return cssCustomProperties;
   };
 
-  var isIE11 = function isIE11() {
-    return Boolean(window.MSInputMethodContext) && Boolean(document.documentMode);
+  var minIEVersion = 10;
+
+  var isIE1x = function isIE1x() {
+    return Boolean(document.documentMode) && document.documentMode >= minIEVersion;
   };
 
   var isCustomProperty = function isCustomProperty(property) {
@@ -609,7 +611,7 @@
 
     var style;
 
-    if (isCustomProperty(property) && isIE11()) {
+    if (isCustomProperty(property) && isIE1x()) {
       var cssCustomProperties = getCssCustomProperties();
       style = cssCustomProperties[property];
     } else {

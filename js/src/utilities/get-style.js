@@ -20,12 +20,13 @@ const getCssCustomProperties = () => {
   return cssCustomProperties
 }
 
-const isIE11 = () => Boolean(window.MSInputMethodContext) && Boolean(document.documentMode)
+const minIEVersion = 10
+const isIE1x = () => Boolean(document.documentMode) && document.documentMode >= minIEVersion
 const isCustomProperty = (property) => property.match(/^--.*/i)
 
 const getStyle = (property, element = document.body) => {
   let style
-  if (isCustomProperty(property) && isIE11()) {
+  if (isCustomProperty(property) && isIE1x()) {
     const cssCustomProperties = getCssCustomProperties()
     style = cssCustomProperties[property]
   } else {
