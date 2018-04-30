@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.0-beta.10 (https://coreui.io)
+  * CoreUI v2.0.0-rc.0 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0-beta.10): get-style.js
+   * CoreUI Utilities (v2.0.0-rc.0): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -75,7 +75,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0-beta.10): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.0-rc.0): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -111,7 +111,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0-beta.10): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.0-rc.0): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -151,7 +151,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0-beta.10): rgb-to-hex.js
+   * CoreUI (v2.0.0-rc.0): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -182,4 +182,4 @@
   Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
-//# sourceMappingURL=utilities.js.map
+//# sourceMappingURL=coreui-utilities.js.map

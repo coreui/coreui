@@ -8,7 +8,7 @@ const pkg     = require(path.resolve(__dirname, '../package.json'))
 const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
-let fileDest  = 'utilities.js'
+let fileDest  = 'coreui-utilities.js'
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
