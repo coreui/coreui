@@ -279,6 +279,10 @@
         @include sidebar-width($sidebar-borders, $sidebar-compact-width);
       }
 
+      .d-compact-none {
+        display: none;
+      }
+
       .nav-title {
         text-align: center;
       }
@@ -328,6 +332,7 @@
         @include sidebar-width($sidebar-borders, $sidebar-minimized-width);
       }
 
+      .d-minimized-none,
       .nav-divider,
       .nav-label,
       .nav-title,
