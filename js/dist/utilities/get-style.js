@@ -5,8 +5,7 @@
  * --------------------------------------------------------------------------
  */
 var getCssCustomProperties = function getCssCustomProperties() {
-  var cssCustomProperties = {}; // Object.entries(Object.entries(document.styleSheets)[0][1].rules).filter(function(value){ return value[1].selectorText === '.ie-custom-properties'})
-
+  var cssCustomProperties = {};
   var root = Object.entries(document.styleSheets).filter(function (value) {
     return value[1].cssText.substring(0, ':root'.length) === ':root';
   });
