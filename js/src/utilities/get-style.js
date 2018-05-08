@@ -7,7 +7,13 @@
 
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
-  const root = Object.entries(document.styleSheets).filter((value) => value[1].cssText.substring(0, ':root'.length) === ':root')
+
+  // Object.entries(Object.entries(document.styleSheets)[0][1].rules).filter(function(value){ return value[1].selectorText === '.ie-custom-properties'})
+
+  let root = Object.entries(document.styleSheets).filter((value) => value[1].cssText.substring(0, ':root'.length) === ':root')
+  if (root.length === 0) {
+    root = Object.entries(document.styleSheets)
+  }
   const rule = Object.entries(root[0][1].cssRules).filter((value) => value[1].selectorText === '.ie-custom-properties')
   const cssText = rule[0][1].style.cssText
   cssText.split(';').forEach((property) => {
