@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.0 (https://coreui.io)
+  * CoreUI v2.0.1 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0): get-style.js
+   * CoreUI Utilities (v2.0.1): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -82,7 +82,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.1): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -118,7 +118,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.0): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.1): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -158,7 +158,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.0): rgb-to-hex.js
+   * CoreUI (v2.0.1): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
