@@ -162,7 +162,7 @@ const AjaxLoad = (($) => {
         } else if (event.currentTarget.target === '_blank') {
           this.loadBlank(event.currentTarget.href)
         } else {
-          this.setUpUrl(event.currentTarget.pathname)
+          this.setUpUrl(event.currentTarget.getAttribute('href'))
         }
       })
     }
