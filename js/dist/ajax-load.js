@@ -155,7 +155,7 @@ var AjaxLoad = function ($) {
         } else if (event.currentTarget.target === '_blank') {
           _this.loadBlank(event.currentTarget.href);
         } else {
-          _this.setUpUrl(event.currentTarget.pathname);
+          _this.setUpUrl(event.currentTarget.getAttribute('href'));
         }
       });
     }; // Static
