@@ -63,7 +63,7 @@ const AsideMenu = (($) => {
     // Private
 
     _addEventListeners() {
-      $(Selector.ASIDE_MENU_TOGGLER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.ASIDE_MENU_TOGGLER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle

@@ -139,27 +139,27 @@ const Sidebar = (($) => {
     // Private
 
     _addEventListeners() {
-      $(Selector.BRAND_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED)
       })
 
-      $(Selector.NAV_DROPDOWN_TOGGLE).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const dropdown = event.target
         $(dropdown).parent().toggleClass(ClassName.OPEN)
       })
 
-      $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED)
         this.perfectScrollbar(Event.TOGGLE)
       })
 
-      $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle
