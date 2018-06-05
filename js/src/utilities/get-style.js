@@ -1,23 +1,39 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.0.1): get-style.js
+ * CoreUI Utilities (v2.0.2): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 const getCssCustomProperties = () => {
   const cssCustomProperties = {}
-  let root = Object.entries(document.styleSheets).filter((value) => value[1].cssText.substring(0, ':root'.length) === ':root')
-  if (root.length === 0) {
-    root = Object.entries(document.styleSheets)
+  const sheets = document.styleSheets
+  let cssText = ''
+  for (let i = sheets.length - 1; i > -1; i--) {
+    const rules = sheets[i].cssRules
+    for (let j = rules.length - 1; j > -1; j--) {
+      if (rules[j].selectorText === '.ie-custom-properties') {
+        cssText = rules[j].cssText
+        break
+      }
+    }
+    if (cssText) {
+      break
+    }
   }
-  const rule = Object.entries(root[0][1].cssRules).filter((value) => value[1].selectorText === '.ie-custom-properties')
-  const cssText = rule[0][1].style.cssText
+
+  cssText = cssText.substring(
+    cssText.lastIndexOf('{') + 1,
+    cssText.lastIndexOf('}')
+  )
+
   cssText.split(';').forEach((property) => {
     if (property) {
       const name = property.split(': ')[0]
       const value = property.split(': ')[1]
-      cssCustomProperties[`--${name.trim()}`] = value.trim()
+      if (name && value) {
+        cssCustomProperties[`--${name.trim()}`] = value.trim()
+      }
     }
   })
   return cssCustomProperties
@@ -36,18 +52,6 @@ const getStyle = (property, element = document.body) => {
     style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '')
   }
   return style
-}
-
-if (!Object.entries) {
-  Object.entries = function (obj) {
-    const ownProps = Object.keys(obj)
-    let i = ownProps.length
-    const resArray = new Array(i)
-    while (i--) {
-      resArray[i] = [ownProps[i], obj[ownProps[i]]]
-    }
-    return resArray
-  }
 }
 
 export default getStyle
