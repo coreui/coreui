@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -71,41 +71,41 @@
   },
   "dependencies": {
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
-    "bootstrap": "^4.1.0"
+    "bootstrap": "^4.1.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.0.0-beta.46",
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.46",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0-beta.46",
-    "@babel/plugin-transform-runtime": "^7.0.0-beta.46",
-    "@babel/preset-env": "^7.0.0-beta.46",
-    "autoprefixer": "^8.3.0",
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.49",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0-beta.49",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "autoprefixer": "^8.6.0",
     "babel-eslint": "^8.2.3",
-    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-external-helpers": "^7.0.0-beta.3",
     "babel-plugin-istanbul": "^4.1.6",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "clean-css-cli": "^4.1.10",
-    "cross-env": "^5.1.4",
+    "babel-plugin-transform-object-rest-spread": "^7.0.0-beta.3",
+    "clean-css-cli": "^4.1.11",
+    "cross-env": "^5.1.6",
     "eslint": "^4.19.1",
-    "eslint-plugin-compat": "^2.2.0",
+    "eslint-plugin-compat": "^2.3.0",
     "node-sass": "^4.9.0",
-    "nodemon": "^1.17.3",
-    "npm-run-all": "^4.1.2",
+    "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
     "postcss-cli": "^5.0.0",
-    "rollup": "^0.57.1",
+    "rollup": "^0.59.4",
     "rollup-plugin-babel": "^4.0.0-beta.4",
     "rollup-plugin-node-resolve": "^3.3.0",
     "semver": "^5.5.0",
-    "shelljs": "^0.8.1",
+    "shelljs": "^0.8.2",
     "shx": "^0.2.2",
-    "stylelint": "^9.2.0",
+    "stylelint": "^9.2.1",
     "stylelint-config-recommended-scss": "^3.2.0",
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1",
     "stylelint-scss": "^3.1.0",
-    "uglify-js": "^3.3.22"
+    "uglify-js": "^3.4.0"
   },
   "peerDependencies": {
     "jquery": "1.9.1 - 3",
@@ -113,7 +113,8 @@
     "popper.js": "^1.14.3"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">= 8",
+    "npm": ">= 5"
   },
   "browserslist": [
     "last 1 major version",
