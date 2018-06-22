@@ -9,7 +9,7 @@ const BUNDLE  = process.env.BUNDLE === 'true'
 const year    = new Date().getFullYear()
 
 let fileDest  = 'coreui.js'
-const external = ['jquery']
+const external = ['jquery', 'perfect-scrollbar']
 const plugins = [
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
@@ -22,7 +22,8 @@ const plugins = [
   })
 ]
 const globals = {
-  jquery: 'jQuery'
+  jquery: 'jQuery',
+  'perfect-scrollbar': 'PerfectScrollbar'
 }
 
 if (BUNDLE) {
