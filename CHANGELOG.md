@@ -1,0 +1,24 @@
+## v2.0.4
+
+- **Refactor: SCSS Variables**
+- Update: @babel/cli to 7.0.0-beta.53
+- Update: @babel/core to 7.0.0-beta.53
+- Update: @babel/plugin-proposal-object-rest-spread to 7.0.0-beta.53
+- Update: @babel/plugin-proposal-throw-expressions to 7.0.0-beta.53
+- Update: @babel/plugin-transform-runtime to 7.0.0-beta.53
+- Update: @babel/preset-env to 7.0.0-beta.53
+- Update: autoprefixer to 8.6.5
+- Update: babel-eslint to 8.2.6
+- Update: bootstrap to 4.1.2
+- Update: cross-env to 5.2.0
+- Update: eslint to 5.1.0
+- Update: eslint-plugin-compat to 2.5.0
+- Update: node-sass to 4.9.2
+- Update: nodemon to 1.18.1
+- Update: postcss-cli to 5.0.1
+- Update: rollup to 0.62.0
+- Update: rollup-plugin-babel to 3.0.7
+- Update: shx to 0.3.2
+- Update: stylelint to 9.3.0
+- Update: stylelint-scss to 3.1.3
+- Update: uglify-js to 3.4.4
