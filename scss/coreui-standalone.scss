@@ -1,13 +1,13 @@
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.3
+ * @version v2.0.4
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
  */
 
 // Override Boostrap variables
-@import "bootstrap-variables";
+@import "variables";
 
 // Import Bootstrap source files
 @import "node_modules/bootstrap/scss/functions";
@@ -15,7 +15,6 @@
 @import "node_modules/bootstrap/scss/mixins";
 
 // Import core styles
-@import "variables";
 @import "mixins";
 
 // Animations
