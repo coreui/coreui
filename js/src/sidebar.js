@@ -47,6 +47,7 @@ const Sidebar = (($) => {
     NAV_DROPDOWN_TOGGLE  : '.nav-dropdown-toggle',
     NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
     NAV_LINK             : '.nav-link',
+    NAV_LINK_QUERIED     : '.nav-link-queried',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
@@ -121,7 +122,13 @@ const Sidebar = (($) => {
     setActiveLink() {
       $(Selector.NAVIGATION).find(Selector.NAV_LINK).each((key, value) => {
         let link = value
-        let cUrl = String(window.location).split('?')[0]
+
+        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+          var cUrl = String(window.location);
+        }
+        else {
+          var cUrl = String(window.location).split('?')[0];
+        }
 
         if (cUrl.substr(cUrl.length - 1) === '#') {
           cUrl = cUrl.slice(0, -1)
