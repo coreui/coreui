@@ -1,5 +1,31 @@
-## v2.0.4
+## v2.0.5
+- fix(sidebar) mobile sidebar not dismissed on link click #409
+- chore: update `bootstrap` to `4.1.3`
+- chore: update `@babel/cli` to `7.0.0`
+- chore: update `@babel/core` to `7.0.0`
+- chore: update `@babel/plugin-proposal-object-rest-spread` to `7.0.0`
+- chore: update `@babel/plugin-proposal-throw-expressions` to `7.0.0`
+- chore: update `@babel/plugin-transform-runtime` to `7.0.0`
+- chore: update `@babel/preset-env` to `7.0.0`
+- chore: update `autoprefixer` to `9.1.5`
+- chore: update `babel-eslint` to `9.0.0`
+- chore: update `babel-plugin-istanbul` to `5.0.1`
+- chore: update `clean-css-cli` to `4.2.1`
+- chore: update `eslint` to `5.5.0`
+- chore: update `eslint-plugin-compat` to `2.5.1`
+- chore: update `node-sass` to `4.9.3`
+- chore: update `nodemon` to `1.18.4`
+- chore: update `postcss-cli` to `6.0.0`
+- chore: update `rollup` to `0.65.0`
+- chore: update `rollup-plugin-babel` to `4.0.3`
+- chore: update `rollup-plugin-node-resolve` to `3.4.0`
+- chore: update `semver` to `5.5.1`
+- chore: update `stylelint` to `9.5.0`
+- chore: update `stylelint-order` to `1.0.0`
+- chore: update `stylelint-scss` to `3.3.0`
+- chore: update `uglify-js` to `3.4.9`
 
+## v2.0.4
 - **Refactor: SCSS Variables**
 - Update: @babel/cli to 7.0.0-beta.53
 - Update: @babel/core to 7.0.0-beta.53
