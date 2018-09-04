@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.5): sidebar.js
+ * CoreUI (v2.0.6): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.5';
+  var VERSION = '2.0.6';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -151,8 +151,7 @@ var Sidebar = function ($) {
         var toggle = event.currentTarget.dataset.toggle;
         toggleClasses(toggle, ShowClassNames);
       });
-      $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK, function (event) {
-        event.preventDefault();
+      $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK, function () {
         document.body.classList.remove('sidebar-show');
       });
     }; // Static
