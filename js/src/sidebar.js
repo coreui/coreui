@@ -4,7 +4,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.4): sidebar.js
+ * CoreUI (v2.0.5): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +17,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.4'
+  const VERSION             = '2.0.5'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -46,6 +46,7 @@ const Sidebar = (($) => {
     BRAND_MINIMIZER      : '.brand-minimizer',
     NAV_DROPDOWN_TOGGLE  : '.nav-dropdown-toggle',
     NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
+    NAV_ITEM             : '.nav-item',
     NAV_LINK             : '.nav-link',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
@@ -164,6 +165,11 @@ const Sidebar = (($) => {
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle
         toggleClasses(toggle, ShowClassNames)
+      })
+
+      $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK, (event) => {
+        event.preventDefault()
+        document.body.classList.remove('sidebar-show')
       })
     }
 
