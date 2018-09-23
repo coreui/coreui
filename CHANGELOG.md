@@ -1,3 +1,7 @@
+## v2.0.8
+- fix(sidebar) minimizing sidebar with bottom chevron does not allow to maximize it again #404
+- fix(sidebar) show scrollbar after height change #419
+
 ## v2.0.6
 - fix(sidebar) static mobile sidebar not dismissed on link click
 
