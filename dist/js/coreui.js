@@ -386,6 +386,9 @@
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
+    var Default = {
+      transition: 400
+    };
     var ClassName = {
       ACTIVE: 'active',
       BRAND_MINIMIZED: 'brand-minimized',
@@ -400,7 +403,8 @@
       DESTROY: 'destroy',
       INIT: 'init',
       LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
-      TOGGLE: 'toggle'
+      TOGGLE: 'toggle',
+      UPDATE: 'update'
     };
     var Selector = {
       BODY: 'body',
@@ -468,6 +472,15 @@
               });
             }
           }
+
+          if (event === Event.UPDATE) {
+            // ToDo: Add smooth transition
+            setTimeout(function () {
+              ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
+                suppressScrollX: true
+              });
+            }, Default.transition);
+          }
         }
       };
 
@@ -503,6 +516,8 @@
           event.stopPropagation();
           var dropdown = event.target;
           $$$1(dropdown).parent().toggleClass(ClassName.OPEN);
+
+          _this.perfectScrollbar(Event.UPDATE);
         });
         $$$1(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, function (event) {
           event.preventDefault();

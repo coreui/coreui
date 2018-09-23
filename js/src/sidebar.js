@@ -23,6 +23,10 @@ const Sidebar = (($) => {
   const DATA_API_KEY        = '.data-api'
   const JQUERY_NO_CONFLICT  = $.fn[NAME]
 
+  const Default = {
+    transition : 400
+  }
+
   const ClassName = {
     ACTIVE              : 'active',
     BRAND_MINIMIZED     : 'brand-minimized',
@@ -38,7 +42,8 @@ const Sidebar = (($) => {
     DESTROY       : 'destroy',
     INIT          : 'init',
     LOAD_DATA_API : `load${EVENT_KEY}${DATA_API_KEY}`,
-    TOGGLE        : 'toggle'
+    TOGGLE        : 'toggle',
+    UPDATE        : 'update'
   }
 
   const Selector = {
@@ -116,6 +121,15 @@ const Sidebar = (($) => {
             })
           }
         }
+
+        if (event === Event.UPDATE) {
+          // ToDo: Add smooth transition
+          setTimeout(() => {
+            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
+              suppressScrollX: true
+            })
+          }, Default.transition)
+        }
       }
     }
 
@@ -151,6 +165,7 @@ const Sidebar = (($) => {
         event.stopPropagation()
         const dropdown = event.target
         $(dropdown).parent().toggleClass(ClassName.OPEN)
+        this.perfectScrollbar(Event.UPDATE)
       })
 
       $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, (event) => {
