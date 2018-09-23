@@ -5,7 +5,7 @@
 ## v2.0.6
 - fix(sidebar) static mobile sidebar not dismissed on link click
 
-## v2.0.6
+## v2.0.8
 - fix(sidebar) mobile sidebar not dismissed on link click #409
 - chore: update `bootstrap` to `4.1.3`
 - chore: update `@babel/cli` to `7.0.0`
