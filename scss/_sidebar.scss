@@ -342,6 +342,21 @@
         display: none;
       }
 
+      // Temporary fix for thsi issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
+      // ToDo: find better solution
+      .sidebar-minimizer {
+        position: fixed;
+        bottom: 0;
+        width: $sidebar-minimized-width;
+        height: $sidebar-minimizer-height;
+        background-color: darken($sidebar-bg, 5%);
+      }
+      // stylelint-disable no-duplicate-selectors
+      .sidebar-nav {
+        padding-bottom: $sidebar-minimizer-height;
+      }
+      // Temporary fix end
+
       .sidebar-minimizer::before {
         width: 100%;
         transform: rotate(-180deg);
