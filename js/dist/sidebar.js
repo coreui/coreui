@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.8): sidebar.js
+ * CoreUI (v2.0.9): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.8';
+  var VERSION = '2.0.9';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -65,6 +65,7 @@ var Sidebar = function ($) {
   function () {
     function Sidebar(element) {
       this._element = element;
+      this.ps = null;
       this.perfectScrollbar(Event.INIT);
       this.setActiveLink();
 
@@ -76,45 +77,50 @@ var Sidebar = function ($) {
 
     // Public
     _proto.perfectScrollbar = function perfectScrollbar(event) {
-      if (typeof PerfectScrollbar !== 'undefined') {
-        var ps;
+      var _this = this;
 
+      if (typeof PerfectScrollbar !== 'undefined') {
         if (event === Event.INIT && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-          ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-            suppressScrollX: true
-          });
+          this.ps = this.makeScrollbar();
         }
 
         if (event === Event.DESTROY) {
-          ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-            suppressScrollX: true
-          });
-          ps.destroy();
-          ps = null;
+          this.destroyScrollbar();
         }
 
         if (event === Event.TOGGLE) {
           if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            });
-            ps.destroy();
-            ps = null;
+            this.destroyScrollbar();
           } else {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            });
+            this.ps = this.makeScrollbar();
           }
         }
 
-        if (event === Event.UPDATE) {
+        if (event === Event.UPDATE && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
           // ToDo: Add smooth transition
           setTimeout(function () {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            });
+            _this.destroyScrollbar();
+
+            _this.ps = _this.makeScrollbar();
           }, Default.transition);
         }
+      }
+    };
+
+    _proto.makeScrollbar = function makeScrollbar(container) {
+      if (container === void 0) {
+        container = Selector.NAVIGATION_CONTAINER;
+      }
+
+      return new PerfectScrollbar(document.querySelector(container), {
+        suppressScrollX: true
+      });
+    };
+
+    _proto.destroyScrollbar = function destroyScrollbar() {
+      if (this.ps) {
+        this.ps.destroy();
+        this.ps = null;
       }
     };
 
@@ -138,7 +144,7 @@ var Sidebar = function ($) {
 
 
     _proto._addEventListeners = function _addEventListeners() {
-      var _this = this;
+      var _this2 = this;
 
       $(Selector.BRAND_MINIMIZER).on(Event.CLICK, function (event) {
         event.preventDefault();
@@ -151,14 +157,14 @@ var Sidebar = function ($) {
         var dropdown = event.target;
         $(dropdown).parent().toggleClass(ClassName.OPEN);
 
-        _this.perfectScrollbar(Event.UPDATE);
+        _this2.perfectScrollbar(Event.UPDATE);
       });
       $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, function (event) {
         event.preventDefault();
         event.stopPropagation();
         $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED);
 
-        _this.perfectScrollbar(Event.TOGGLE);
+        _this2.perfectScrollbar(Event.TOGGLE);
       });
       $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, function (event) {
         event.preventDefault();
