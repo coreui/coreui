@@ -31,6 +31,7 @@
     "guard-for-in": "error",
     "no-alert": "error",
     "no-caller": "error",
+    "no-console": "error",
     "no-div-regex": "error",
     "no-else-return": "error",
     "no-empty-function": "error",
