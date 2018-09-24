@@ -77,6 +77,7 @@ const Sidebar = (($) => {
   class Sidebar {
     constructor(element) {
       this._element = element
+      this.ps = null
       this.perfectScrollbar(Event.INIT)
       this.setActiveLink()
       this._addEventListeners()
@@ -92,44 +93,42 @@ const Sidebar = (($) => {
 
     perfectScrollbar(event) {
       if (typeof PerfectScrollbar !== 'undefined') {
-        let ps
-
         if (event === Event.INIT && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-          ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-            suppressScrollX: true
-          })
+          this.ps = this.makeScrollbar()
         }
 
         if (event === Event.DESTROY) {
-          ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-            suppressScrollX: true
-          })
-          ps.destroy()
-          ps = null
+          this.destroyScrollbar()
         }
 
         if (event === Event.TOGGLE) {
           if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            })
-            ps.destroy()
-            ps = null
+            this.destroyScrollbar()
           } else {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            })
+            this.ps = this.makeScrollbar()
           }
         }
 
-        if (event === Event.UPDATE) {
+        if (event === Event.UPDATE && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
           // ToDo: Add smooth transition
           setTimeout(() => {
-            ps = new PerfectScrollbar(document.querySelector(Selector.NAVIGATION_CONTAINER), {
-              suppressScrollX: true
-            })
+            this.destroyScrollbar()
+            this.ps = this.makeScrollbar()
           }, Default.transition)
         }
+      }
+    }
+
+    makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
+      return new PerfectScrollbar(document.querySelector(container), {
+        suppressScrollX: true
+      })
+    }
+
+    destroyScrollbar() {
+      if (this.ps) {
+        this.ps.destroy()
+        this.ps = null
       }
     }
 
