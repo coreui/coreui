@@ -13474,6 +13474,7 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   }
   .app-header .navbar-brand {
     position: absolute;
+    top: 0;
     left: 50%;
     margin-left: -77.5px;
   }
