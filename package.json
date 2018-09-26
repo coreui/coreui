@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -82,7 +82,7 @@
     "@babel/plugin-transform-runtime": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
     "autoprefixer": "^9.1.5",
-    "babel-eslint": "^9.0.0",
+    "babel-eslint": "^10.0.0",
     "babel-plugin-external-helpers": "^7.0.0-beta.3",
     "babel-plugin-istanbul": "^5.0.1",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
