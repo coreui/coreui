@@ -448,6 +448,7 @@ html[dir="rtl"] {
 
     .navbar-brand {
       position: absolute;
+      top: 0;
       left: 50%;
       margin-left: - ($navbar-brand-width / 2);
     }
