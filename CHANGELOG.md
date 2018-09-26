@@ -1,3 +1,7 @@
+## v2.0.10
+- fix(_layout.scss) `navbar-brand` top position IE issue
+- chore: update `babel-eslint` to `10.0.0`
+
 ## v2.0.9
 - fix(sidebar) remove scrollbar when `sidebar-minimized`
 - refactor(sidebar) extract `makeScrollbar()` and `destroyScrollbar()`
