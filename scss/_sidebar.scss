@@ -342,7 +342,7 @@
         display: none;
       }
 
-      // Temporary fix for thsi issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
+      // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
       // ToDo: find better solution
       .sidebar-minimizer {
         position: fixed;
@@ -489,5 +489,11 @@
         }
       }
     }
+  }
+
+  // Temp fix for rtl sidebar-toggler
+  // ToDo: find better solution
+  .sidebar-toggler {
+    margin-right: 0 !important;
   }
 }

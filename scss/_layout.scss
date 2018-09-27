@@ -53,6 +53,7 @@ html:not([dir="rtl"]) {
     margin-left: - $sidebar-width;
   }
   .aside-menu {
+    right: 0;
     margin-right: - $aside-menu-width;
   }
 }
@@ -61,6 +62,7 @@ html[dir="rtl"] {
     margin-right: - $sidebar-width;
   }
   .aside-menu {
+    left: 0;
     margin-left: - $aside-menu-width;
   }
 }
@@ -471,7 +473,6 @@ html[dir="rtl"] {
 
   .aside-menu {
     position: fixed;
-    right: 0;
     height: 100%;
   }
 }
