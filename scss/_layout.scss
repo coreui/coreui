@@ -241,7 +241,7 @@ html[dir="rtl"] {
         .sidebar {
           margin-left: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if media-breakpoint-up(sm) {
           &.sidebar-fixed {
             .main,
             .app-footer {
@@ -303,7 +303,7 @@ html[dir="rtl"] {
         .sidebar {
           margin-right: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if media-breakpoint-up(sm) {
           &.sidebar-fixed {
             .main,
             .app-footer {
