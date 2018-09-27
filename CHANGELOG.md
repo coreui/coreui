@@ -1,3 +1,9 @@
+## v2.0.11
+- fix(_layout.scss) `sidebar-fixed` IE issue with `.main` margin on mobile
+- fix(_sidebar.scss) `sidebar-toggler` issue for `rtl`
+- chore: update `babel-eslint` to `10.0.1`
+- chore: update `stylelint` to `9.6.0`
+
 ## v2.0.10
 - fix(_layout.scss) `navbar-brand` top position IE issue
 - chore: update `babel-eslint` to `10.0.0`
