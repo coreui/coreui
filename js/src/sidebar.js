@@ -106,6 +106,8 @@ const Sidebar = (($) => {
             this.destroyScrollbar()
           } else {
             this.ps = this.makeScrollbar()
+            // ToDo: find real fix for ps rtl
+            this.ps.isRtl = false
           }
         }
 
@@ -114,6 +116,8 @@ const Sidebar = (($) => {
           setTimeout(() => {
             this.destroyScrollbar()
             this.ps = this.makeScrollbar()
+            // ToDo: find real fix for ps rtl
+            this.ps.isRtl = false
           }, Default.transition)
         }
       }
