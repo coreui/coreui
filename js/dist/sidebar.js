@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.11): sidebar.js
+ * CoreUI (v2.0.12): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.11';
+  var VERSION = '2.0.12';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -92,7 +92,9 @@ var Sidebar = function ($) {
           if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
             this.destroyScrollbar();
           } else {
-            this.ps = this.makeScrollbar();
+            this.ps = this.makeScrollbar(); // ToDo: find real fix for ps rtl
+
+            this.ps.isRtl = false;
           }
         }
 
@@ -101,7 +103,9 @@ var Sidebar = function ($) {
           setTimeout(function () {
             _this.destroyScrollbar();
 
-            _this.ps = _this.makeScrollbar();
+            _this.ps = _this.makeScrollbar(); // ToDo: find real fix for ps rtl
+
+            _this.ps.isRtl = false;
           }, Default.transition);
         }
       }

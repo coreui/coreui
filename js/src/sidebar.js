@@ -4,7 +4,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.11): sidebar.js
+ * CoreUI (v2.0.12): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +17,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.11'
+  const VERSION             = '2.0.12'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -106,6 +106,8 @@ const Sidebar = (($) => {
             this.destroyScrollbar()
           } else {
             this.ps = this.makeScrollbar()
+            // ToDo: find real fix for ps rtl
+            this.ps.isRtl = false
           }
         }
 
@@ -114,6 +116,8 @@ const Sidebar = (($) => {
           setTimeout(() => {
             this.destroyScrollbar()
             this.ps = this.makeScrollbar()
+            // ToDo: find real fix for ps rtl
+            this.ps.isRtl = false
           }, Default.transition)
         }
       }

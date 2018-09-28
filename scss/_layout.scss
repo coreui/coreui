@@ -284,7 +284,7 @@ html[dir="rtl"] {
         .aside-menu {
           margin-right: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if media-breakpoint-up(sm) {
           &.aside-menu-fixed {
             .main,
             .app-footer {
@@ -346,7 +346,7 @@ html[dir="rtl"] {
         .aside-menu {
           margin-left: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if media-breakpoint-up(sm) {
           &.aside-menu-fixed {
             .main,
             .app-footer {
