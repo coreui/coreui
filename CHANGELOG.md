@@ -1,6 +1,11 @@
+## v2.0.12
+- fix(layout) `aside` IE issue with `.main` margin on mobile
+- fix(sidebar) `rtl` IE issue with `sidebar-minimized` captions
+- fix(sidebar) `rtl` ps scrollbar issue temp fix
+
 ## v2.0.11
-- fix(_layout.scss) `sidebar-fixed` IE issue with `.main` margin on mobile
-- fix(_sidebar.scss) `sidebar-toggler` issue for `rtl`
+- fix(layout) `sidebar-fixed` IE issue with `.main` margin on mobile
+- fix(sidebar) `sidebar-toggler` issue for `rtl`
 - chore: update `babel-eslint` to `10.0.1`
 - chore: update `stylelint` to `9.6.0`
 
