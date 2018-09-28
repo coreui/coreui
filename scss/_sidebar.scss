@@ -470,6 +470,9 @@
 
   .sidebar-minimized {
     .sidebar {
+      .nav {
+        list-style-type: disc;
+      }
       .nav-link {
         padding-right: 0;
         .nav-icon {
