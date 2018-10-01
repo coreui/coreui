@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.13
+ * @version v2.0.14
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -26,6 +26,7 @@
   --white: #fff;
   --gray: #73818f;
   --gray-dark: #2f353a;
+  --light-blue: #63c2de;
   --primary: #20a8d8;
   --secondary: #c8ced3;
   --success: #4dbd74;
@@ -13807,6 +13808,16 @@ button.bg-gray-dark:focus {
   background-color: #181b1e !important;
 }
 
+.bg-light-blue {
+  background-color: #63c2de !important;
+}
+
+a.bg-light-blue:hover, a.bg-light-blue:focus,
+button.bg-light-blue:hover,
+button.bg-light-blue:focus {
+  background-color: #39b2d5 !important;
+}
+
 .bg-gray-100 {
   background-color: #f0f3f5 !important;
 }
@@ -14089,6 +14100,7 @@ body {
   white: #fff;
   gray: #73818f;
   gray-dark: #2f353a;
+  light-blue: #63c2de;
   primary: #20a8d8;
   secondary: #c8ced3;
   success: #4dbd74;
