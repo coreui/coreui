@@ -1,3 +1,6 @@
+## v2.0.14
+- fix(scss): add missing `light-blue` color variable
+
 ## v2.0.13
 - chore: update @babel/core to 7.1.2
 - chore: update @babel/cli to 7.1.2
