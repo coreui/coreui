@@ -1,10 +1,15 @@
+## v2.0.15
+- feat(sidebar) `badge` margins for `nav-dropdown-toggle`
+- chore: update `eslint-plugin-compat` to `2.6.2`
+- chore: update `rollup` to `0.66.4`
+
 ## v2.0.14
 - fix(scss): add missing `light-blue` color variable
 
 ## v2.0.13
-- chore: update @babel/core to 7.1.2
-- chore: update @babel/cli to 7.1.2
-- chore: update eslint to 5.6.1
+- chore: update `@babel/core` to `7.1.2`
+- chore: update `@babel/cli` to `7.1.2`
+- chore: update `eslint` to `5.6.1`
 
 ## v2.0.12
 - fix(layout) `aside` IE issue with `.main` margin on mobile
