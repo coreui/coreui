@@ -174,6 +174,10 @@
       background-position: center;
       transition: transform .3s;
     }
+
+    .badge {
+      margin-right: 16px;
+    }
   }
 
   .nav-dropdown.open {
@@ -452,18 +456,28 @@
       left: $sidebar-nav-link-padding-x;
       transform: rotate(180deg);
     }
+
     .nav-dropdown.open {
       > .nav-dropdown-toggle::before {
         transform: rotate(270deg);
       }
     }
+
     .nav-link {
       .nav-icon {
         margin: 0 0 0 ($sidebar-nav-link-padding-x / 2);
       }
+
       .badge {
         float: left;
         margin-top: 2px;
+      }
+    }
+
+    .nav-link.nav-dropdown-toggle {
+      .badge  {
+        margin-right: auto;
+        margin-left: 16px;
       }
     }
   }
@@ -473,6 +487,7 @@
       .nav {
         list-style-type: disc;
       }
+
       .nav-link {
         padding-right: 0;
         .nav-icon {
@@ -480,6 +495,7 @@
           padding: 0;
           margin: 0;
         }
+
         .badge {
           right: auto;
           left: 15px;
