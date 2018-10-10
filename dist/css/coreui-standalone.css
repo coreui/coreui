@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.15
+ * @version v2.0.16
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -346,6 +346,16 @@
   position: relative;
   border-radius: 0;
   border-bottom: 1px solid #c8ced3;
+}
+
+*[dir="rtl"] .breadcrumb-item::before {
+  padding-right: 0;
+  padding-left: 0.5rem;
+}
+
+*[dir="rtl"] .breadcrumb-item {
+  padding-right: 0.5rem;
+  padding-left: 0;
 }
 
 .brand-card {
@@ -1882,6 +1892,12 @@ button {
   display: inline-block;
   float: right;
   margin-right: -0.25rem;
+}
+
+*[dir="rtl"] .card-header-actions {
+  float: left;
+  margin-right: auto;
+  margin-left: -0.25rem;
 }
 
 .card-header-action {

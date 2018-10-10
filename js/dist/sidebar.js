@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.15): sidebar.js
+ * CoreUI (v2.0.16): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.15';
+  var VERSION = '2.0.16';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -92,9 +92,7 @@ var Sidebar = function ($) {
           if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
             this.destroyScrollbar();
           } else {
-            this.ps = this.makeScrollbar(); // ToDo: find real fix for ps rtl
-
-            this.ps.isRtl = false;
+            this.ps = this.makeScrollbar();
           }
         }
 
@@ -103,9 +101,7 @@ var Sidebar = function ($) {
           setTimeout(function () {
             _this.destroyScrollbar();
 
-            _this.ps = _this.makeScrollbar(); // ToDo: find real fix for ps rtl
-
-            _this.ps.isRtl = false;
+            _this.ps = _this.makeScrollbar();
           }, Default.transition);
         }
       }
@@ -116,9 +112,12 @@ var Sidebar = function ($) {
         container = Selector.NAVIGATION_CONTAINER;
       }
 
-      return new PerfectScrollbar(document.querySelector(container), {
+      var ps = new PerfectScrollbar(document.querySelector(container), {
         suppressScrollX: true
-      });
+      }); // ToDo: find real fix for ps rtl
+
+      ps.isRtl = false;
+      return ps;
     };
 
     _proto.destroyScrollbar = function destroyScrollbar() {
