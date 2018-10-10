@@ -68,6 +68,14 @@
   margin-right: - ($spacer / 4);
 }
 
+*[dir="rtl"] {
+  .card-header-actions {
+    float: left;
+    margin-right: auto;
+    margin-left: - ($spacer / 4);
+  }
+}
+
 .card-header-action {
   padding: 0 ($spacer / 4);
   color: $gray-600;

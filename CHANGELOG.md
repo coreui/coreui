@@ -1,5 +1,11 @@
+## v2.0.16
+- fix(breadcrumb): `rtl` padding  
+- fix(card): `rtl` float for `card-header-actions`
+- fix(sidebar): `rtl` ps scrollbar issue temp fix/refactor
+- chore: update `rollup` to `0.66.5`
+
 ## v2.0.15
-- feat(sidebar) `badge` margins for `nav-dropdown-toggle`
+- feat(sidebar): `badge` margins for `nav-dropdown-toggle`
 - chore: update `eslint-plugin-compat` to `2.6.2`
 - chore: update `rollup` to `0.66.4`
 
