@@ -480,6 +480,12 @@
         margin-left: 16px;
       }
     }
+
+    .sidebar-minimizer::before {
+      right: unset;
+      left: 0;
+      transform: rotate(180deg);
+    }
   }
 
   .sidebar-minimized {
@@ -501,11 +507,16 @@
           left: 15px;
         }
       }
+
       .nav-dropdown:hover {
         > .nav-dropdown-items {
           right: $sidebar-minimized-width;
           left: 0;
         }
+      }
+
+      .sidebar-minimizer::before {
+        transform: rotate(0deg);
       }
     }
   }
