@@ -1,3 +1,9 @@
+## v2.0.17
+- fix(card): `rtl` for `card-header` icon margins
+- fix(sidebar): `rtl` for `sidebar-minimizer` icon 
+- chore: update `rollup` to `0.66.6`
+- thanks @MrDevIr
+
 ## v2.0.16
 - fix(breadcrumb): `rtl` padding  
 - fix(card): `rtl` float for `card-header-actions`
