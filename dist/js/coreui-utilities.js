@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.17 (https://coreui.io)
+  * CoreUI v2.0.18 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,9 +9,26 @@
   (factory((global.utilities = {})));
 }(this, (function (exports) { 'use strict';
 
+  var deepObjectsMerge = function deepObjectsMerge(target, source) {
+    // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
+    var _arr = Object.keys(source);
+
+    for (var _i = 0; _i < _arr.length; _i++) {
+      var key = _arr[_i];
+
+      if (source[key] instanceof Object) {
+        Object.assign(source[key], deepObjectsMerge(target[key], source[key]));
+      }
+    } // Join `target` and modified `source`
+
+
+    Object.assign(target || {}, source);
+    return target;
+  };
+
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): get-style.js
+   * CoreUI Utilities (v2.0.18): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -78,7 +95,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.18): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -114,7 +131,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.18): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -154,7 +171,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): rgb-to-hex.js
+   * CoreUI (v2.0.18): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -163,6 +180,10 @@
   var rgbToHex = function rgbToHex(color) {
     if (typeof color === 'undefined') {
       throw new Error('Hex color is not defined');
+    }
+
+    if (color === 'transparent') {
+      return '#00000000';
     }
 
     var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -177,6 +198,7 @@
     return "#" + r.slice(-2) + g.slice(-2) + b.slice(-2);
   };
 
+  exports.deepObjectsMerge = deepObjectsMerge;
   exports.getStyle = getStyle;
   exports.hexToRgb = hexToRgb;
   exports.hexToRgba = hexToRgba;
