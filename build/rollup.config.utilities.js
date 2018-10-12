@@ -23,8 +23,6 @@ const plugins = [
 
 if (BUNDLE) {
   fileDest = 'utilities.bundle.js'
-  // Remove last entry in external array to bundle Popper
-  external.pop()
   plugins.push(resolve())
 }
 

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.17 (https://coreui.io)
+  * CoreUI v2.0.18 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -30,7 +30,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): ajax-load.js
+   * CoreUI (v2.0.18): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -42,7 +42,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.0.17';
+    var VERSION = '2.0.18';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -235,7 +235,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): toggle-classes.js
+   * CoreUI (v2.0.18): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -260,7 +260,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): aside-menu.js
+   * CoreUI (v2.0.18): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -272,7 +272,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.0.17';
+    var VERSION = '2.0.18';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -369,7 +369,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): sidebar.js
+   * CoreUI (v2.0.18): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -381,7 +381,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.0.17';
+    var VERSION = '2.0.18';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -599,7 +599,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): get-style.js
+   * CoreUI Utilities (v2.0.18): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -666,7 +666,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.18): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -702,7 +702,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.17): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.18): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -742,7 +742,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): rgb-to-hex.js
+   * CoreUI (v2.0.18): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -751,6 +751,10 @@
   var rgbToHex = function rgbToHex(color) {
     if (typeof color === 'undefined') {
       throw new Error('Hex color is not defined');
+    }
+
+    if (color === 'transparent') {
+      return '#00000000';
     }
 
     var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
@@ -767,7 +771,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.17): index.js
+   * CoreUI (v2.0.18): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

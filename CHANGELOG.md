@@ -1,3 +1,8 @@
+## v2.0.18
+- feat: add deep objects merge utility
+- chore: build rollup utilities script cleanup
+- fix(rgbToHex): transparent is not a valid rgb color ie issue
+
 ## v2.0.17
 - fix(card): `rtl` for `card-header` icon margins
 - fix(sidebar): `rtl` for `sidebar-minimizer` icon 
