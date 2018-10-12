@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.17): rgb-to-hex.js
+ * CoreUI (v2.0.18): rgb-to-hex.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -9,6 +9,10 @@
 var rgbToHex = function rgbToHex(color) {
   if (typeof color === 'undefined') {
     throw new Error('Hex color is not defined');
+  }
+
+  if (color === 'transparent') {
+    return '#00000000';
   }
 
   var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
