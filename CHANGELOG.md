@@ -1,5 +1,7 @@
 ## v2.0.19
-- feat: sidebar set active using query string
+- refactor: extract getCssCustomProperties function
+- feat: add getColor function
+- feat: sidebar set active using query string PR #21
 - chore: update `node-sass` to `4.9.4`
 - chore: update `eslint` to `5.7.0`
 - chore: update `babel-plugin-istanbul` to `5.1.0`
