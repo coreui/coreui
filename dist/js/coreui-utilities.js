@@ -9,12 +9,6 @@
   (factory((global.utilities = {})));
 }(this, (function (exports) { 'use strict';
 
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.14): get-style.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
   var getCssCustomProperties = function getCssCustomProperties() {
     var cssCustomProperties = {};
     var sheets = document.styleSheets;
@@ -49,6 +43,12 @@
     return cssCustomProperties;
   };
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.14): get-style.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
   var minIEVersion = 10;
 
   var isIE1x = function isIE1x() {
@@ -197,40 +197,6 @@
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
-  var getCssCustomProperties$1 = function getCssCustomProperties() {
-    var cssCustomProperties = {};
-    var sheets = document.styleSheets;
-    var cssText = '';
-
-    for (var i = sheets.length - 1; i > -1; i--) {
-      var rules = sheets[i].cssRules;
-
-      for (var j = rules.length - 1; j > -1; j--) {
-        if (rules[j].selectorText === '.ie-custom-properties') {
-          cssText = rules[j].cssText;
-          break;
-        }
-      }
-
-      if (cssText) {
-        break;
-      }
-    }
-
-    cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
-    cssText.split(';').forEach(function (property) {
-      if (property) {
-        var name = property.split(': ')[0];
-        var value = property.split(': ')[1];
-
-        if (name && value) {
-          cssCustomProperties["--" + name.trim()] = value.trim();
-        }
-      }
-    });
-    return cssCustomProperties;
-  };
-
   var minIEVersion$1 = 10;
 
   var isIE1x$1 = function isIE1x() {
@@ -250,7 +216,7 @@
     var style;
 
     if (isCustomProperty$1(property) && isIE1x$1()) {
-      var cssCustomProperties = getCssCustomProperties$1();
+      var cssCustomProperties = getCssCustomProperties();
       style = cssCustomProperties[property];
     } else {
       style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
