@@ -53,6 +53,7 @@ const Sidebar = (($) => {
     NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
     NAV_ITEM             : '.nav-item',
     NAV_LINK             : '.nav-link',
+    NAV_LINK_QUERIED     : '.nav-link-queried',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
@@ -138,12 +139,17 @@ const Sidebar = (($) => {
     setActiveLink() {
       $(Selector.NAVIGATION).find(Selector.NAV_LINK).each((key, value) => {
         let link = value
-        let cUrl = String(window.location).split('?')[0]
+        let cUrl
+
+        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+          cUrl = String(window.location)
+        } else {
+          cUrl = String(window.location).split('?')[0]
+        }
 
         if (cUrl.substr(cUrl.length - 1) === '#') {
           cUrl = cUrl.slice(0, -1)
         }
-
         if ($($(link))[0].href === cUrl) {
           $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each((key, value) => {
             link = value

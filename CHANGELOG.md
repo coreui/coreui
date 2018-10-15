@@ -1,4 +1,5 @@
 ## v2.0.19
+- feat: sidebar set active using query string
 - chore: update `node-sass` to `4.9.4`
 - chore: update `eslint` to `5.7.0`
 - chore: update `babel-plugin-istanbul` to `5.1.0`
