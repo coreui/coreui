@@ -4,7 +4,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.18): sidebar.js
+ * CoreUI (v2.0.19): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +17,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.18'
+  const VERSION             = '2.0.19'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -53,6 +53,7 @@ const Sidebar = (($) => {
     NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
     NAV_ITEM             : '.nav-item',
     NAV_LINK             : '.nav-link',
+    NAV_LINK_QUERIED     : '.nav-link-queried',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
@@ -138,12 +139,17 @@ const Sidebar = (($) => {
     setActiveLink() {
       $(Selector.NAVIGATION).find(Selector.NAV_LINK).each((key, value) => {
         let link = value
-        let cUrl = String(window.location).split('?')[0]
+        let cUrl
+
+        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+          cUrl = String(window.location)
+        } else {
+          cUrl = String(window.location).split('?')[0]
+        }
 
         if (cUrl.substr(cUrl.length - 1) === '#') {
           cUrl = cUrl.slice(0, -1)
         }
-
         if ($($(link))[0].href === cUrl) {
           $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each((key, value) => {
             link = value
