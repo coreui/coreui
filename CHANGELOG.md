@@ -1,3 +1,13 @@
+## v2.0.19
+- refactor: extract getCssCustomProperties function
+- feat: add getColor function
+- feat: sidebar set active using query string PR #21
+- chore: update `node-sass` to `4.9.4`
+- chore: update `eslint` to `5.7.0`
+- chore: update `babel-plugin-istanbul` to `5.1.0`
+- chore: update `semver` to `5.6.0`
+- chore: update `autoprefixer` to `9.2.0`
+
 ## v2.0.18
 - feat: add deep objects merge utility
 - chore: build rollup utilities script cleanup
