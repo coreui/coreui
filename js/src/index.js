@@ -32,7 +32,6 @@ export {
   AsideMenu,
   Sidebar
 }
-
 // Global functions
 import getStyle from './utilities/get-style'
 window.getStyle = getStyle
@@ -45,9 +44,3 @@ window.hexToRgba = hexToRgba
 
 import rgbToHex from './utilities/rgb-to-hex'
 window.rgbToHex = rgbToHex
-
-import deepObjectsMerge from './utilities/deep-objects-merge'
-window.deepObjectsMerge = deepObjectsMerge
-
-import getColor from './utilities/get-color'
-window.getColor = getColor
