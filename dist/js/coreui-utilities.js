@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.18 (https://coreui.io)
+  * CoreUI v2.0.19 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -28,8 +28,9 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.18): get-style.js
+   * CoreUI Utilities (v2.0.19): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
+   * @returns {string} css custom property name
    * --------------------------------------------------------------------------
    */
   var getCssCustomProperties = function getCssCustomProperties() {
@@ -66,6 +67,12 @@
     return cssCustomProperties;
   };
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.19): get-color.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
   var minIEVersion = 10;
 
   var isIE1x = function isIE1x() {
@@ -76,6 +83,40 @@
     return property.match(/^--.*/i);
   };
 
+  var getColor = function getColor(rawProperty, element) {
+    if (element === void 0) {
+      element = document.body;
+    }
+
+    var property = "--" + rawProperty;
+    var style;
+
+    if (isCustomProperty(property) && isIE1x()) {
+      var cssCustomProperties = getCssCustomProperties();
+      style = cssCustomProperties[property];
+    } else {
+      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+    }
+
+    return style ? style : rawProperty;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.19): get-style.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+  var minIEVersion$1 = 10;
+
+  var isIE1x$1 = function isIE1x() {
+    return Boolean(document.documentMode) && document.documentMode >= minIEVersion$1;
+  };
+
+  var isCustomProperty$1 = function isCustomProperty(property) {
+    return property.match(/^--.*/i);
+  };
+
   var getStyle = function getStyle(property, element) {
     if (element === void 0) {
       element = document.body;
@@ -83,7 +124,7 @@
 
     var style;
 
-    if (isCustomProperty(property) && isIE1x()) {
+    if (isCustomProperty$1(property) && isIE1x$1()) {
       var cssCustomProperties = getCssCustomProperties();
       style = cssCustomProperties[property];
     } else {
@@ -95,7 +136,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.18): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.19): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -131,7 +172,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.18): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.19): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -171,7 +212,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.18): rgb-to-hex.js
+   * CoreUI (v2.0.19): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -199,6 +240,7 @@
   };
 
   exports.deepObjectsMerge = deepObjectsMerge;
+  exports.getColor = getColor;
   exports.getStyle = getStyle;
   exports.hexToRgb = hexToRgb;
   exports.hexToRgba = hexToRgba;

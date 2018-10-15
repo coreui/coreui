@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.0.19): get-style.js
+ * CoreUI Utilities (v2.0.19): get-color.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -14,11 +14,12 @@ var isCustomProperty = function isCustomProperty(property) {
   return property.match(/^--.*/i);
 };
 
-var getStyle = function getStyle(property, element) {
+var getColor = function getColor(rawProperty, element) {
   if (element === void 0) {
     element = document.body;
   }
 
+  var property = "--" + rawProperty;
   var style;
 
   if (isCustomProperty(property) && isIE1x()) {
@@ -28,6 +29,6 @@ var getStyle = function getStyle(property, element) {
     style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
   }
 
-  return style;
+  return style ? style : rawProperty;
 };
-//# sourceMappingURL=get-style.js.map
+//# sourceMappingURL=get-color.js.map
