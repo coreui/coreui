@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.19 (https://coreui.io)
+  * CoreUI v2.0.20 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -30,7 +30,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): ajax-load.js
+   * CoreUI (v2.0.20): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -42,7 +42,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.0.19';
+    var VERSION = '2.0.20';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -235,7 +235,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): toggle-classes.js
+   * CoreUI (v2.0.20): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -260,7 +260,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): aside-menu.js
+   * CoreUI (v2.0.20): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -272,7 +272,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.0.19';
+    var VERSION = '2.0.20';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -369,7 +369,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): sidebar.js
+   * CoreUI (v2.0.20): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -381,7 +381,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.0.19';
+    var VERSION = '2.0.20';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -447,7 +447,9 @@
         var _this = this;
 
         if (typeof PerfectScrollbar !== 'undefined') {
-          if (event === Event.INIT && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+          var classList = document.body.classList;
+
+          if (event === Event.INIT && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
             this.ps = this.makeScrollbar();
           }
 
@@ -456,14 +458,15 @@
           }
 
           if (event === Event.TOGGLE) {
-            if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+            if (classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
               this.destroyScrollbar();
             } else {
+              this.destroyScrollbar();
               this.ps = this.makeScrollbar();
             }
           }
 
-          if (event === Event.UPDATE && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+          if (event === Event.UPDATE && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
             // ToDo: Add smooth transition
             setTimeout(function () {
               _this.destroyScrollbar();
@@ -606,7 +609,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.19): get-css-custom-properties.js
+   * CoreUI Utilities (v2.0.20): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -647,7 +650,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.19): get-style.js
+   * CoreUI Utilities (v2.0.20): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -680,7 +683,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.19): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.20): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -716,7 +719,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.19): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.20): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -756,7 +759,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): rgb-to-hex.js
+   * CoreUI (v2.0.20): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -785,7 +788,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.19): index.js
+   * CoreUI (v2.0.20): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
