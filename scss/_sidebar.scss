@@ -1,4 +1,4 @@
-// stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors
+// stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -446,6 +446,70 @@
       }
     }
   }
+
+  *[dir="rtl"] {
+    .sidebar-minimized {
+      .sidebar {
+        .nav {
+          list-style-image: url("data:,");
+          .divider {
+            height: 0;
+          }
+        }
+
+        //.d-minimized-none,
+        //.nav-divider,
+        //.nav-label,
+        //.nav-title,
+        //.sidebar-footer,
+        //.sidebar-form,
+        //.sidebar-header {
+        //  display: none;
+        //}
+
+        .sidebar-minimizer::before {
+          width: 100%;
+          transform: rotate(0deg);
+        }
+
+        .nav-link {
+          padding-right: 0;
+
+          .nav-icon {
+            float: right;
+          }
+
+          .badge {
+            right: auto;
+            left: 15px;
+          }
+
+          &:hover {
+            .badge {
+              display: inline;
+            }
+          }
+        }
+
+        .nav > .nav-dropdown {
+          > .nav-dropdown-items {
+            display: none;
+            max-height: 1000px;
+            background: $sidebar-bg;
+          }
+
+          &:hover {
+            background: $sidebar-nav-link-hover-bg;
+            > .nav-dropdown-items {
+              position: absolute;
+              left: 0;
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 *[dir="rtl"] {
@@ -482,42 +546,9 @@
     }
 
     .sidebar-minimizer::before {
-      right: unset;
+      right: auto;
       left: 0;
       transform: rotate(180deg);
-    }
-  }
-
-  .sidebar-minimized {
-    .sidebar {
-      .nav {
-        list-style-type: disc;
-      }
-
-      .nav-link {
-        padding-right: 0;
-        .nav-icon {
-          float: right;
-          padding: 0;
-          margin: 0;
-        }
-
-        .badge {
-          right: auto;
-          left: 15px;
-        }
-      }
-
-      .nav-dropdown:hover {
-        > .nav-dropdown-items {
-          right: $sidebar-minimized-width;
-          left: 0;
-        }
-      }
-
-      .sidebar-minimizer::before {
-        transform: rotate(0deg);
-      }
     }
   }
 
