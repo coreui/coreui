@@ -785,6 +785,57 @@
 
   /**
    * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.19): get-color.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+  var minIEVersion$1 = 10;
+
+  var isIE1x$1 = function isIE1x() {
+    return Boolean(document.documentMode) && document.documentMode >= minIEVersion$1;
+  };
+
+  var isCustomProperty$1 = function isCustomProperty(property) {
+    return property.match(/^--.*/i);
+  };
+
+  var getColor = function getColor(rawProperty, element) {
+    if (element === void 0) {
+      element = document.body;
+    }
+
+    var property = "--" + rawProperty;
+    var style;
+
+    if (isCustomProperty$1(property) && isIE1x$1()) {
+      var cssCustomProperties = getCssCustomProperties();
+      style = cssCustomProperties[property];
+    } else {
+      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+    }
+
+    return style ? style : rawProperty;
+  };
+
+  var deepObjectsMerge = function deepObjectsMerge(target, source) {
+    // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
+    var _arr = Object.keys(source);
+
+    for (var _i = 0; _i < _arr.length; _i++) {
+      var key = _arr[_i];
+
+      if (source[key] instanceof Object) {
+        Object.assign(source[key], deepObjectsMerge(target[key], source[key]));
+      }
+    } // Join `target` and modified `source`
+
+
+    Object.assign(target || {}, source);
+    return target;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
    * CoreUI (v2.0.19): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
@@ -810,6 +861,8 @@
   window.hexToRgb = hexToRgb;
   window.hexToRgba = hexToRgba;
   window.rgbToHex = rgbToHex;
+  window.getColor = getColor;
+  window.deepObjectsMerge = deepObjectsMerge;
 
   exports.AjaxLoad = AjaxLoad;
   exports.AsideMenu = AsideMenu;

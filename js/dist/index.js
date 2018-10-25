@@ -25,4 +25,6 @@ window.getStyle = getStyle;
 window.hexToRgb = hexToRgb;
 window.hexToRgba = hexToRgba;
 window.rgbToHex = rgbToHex;
+window.getColor = getColor;
+window.deepObjectsMerge = deepObjectsMerge;
 //# sourceMappingURL=index.js.map
