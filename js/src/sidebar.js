@@ -1,10 +1,11 @@
 import $ from 'jquery'
 import PerfectScrollbar from 'perfect-scrollbar'
+import getStyle from './utilities/get-style'
 import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.20): sidebar.js
+ * CoreUI (v2.0.21): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +18,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.20'
+  const VERSION             = '2.0.21'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -78,10 +79,14 @@ const Sidebar = (($) => {
   class Sidebar {
     constructor(element) {
       this._element = element
+      this.mobile = false
       this.ps = null
       this.perfectScrollbar(Event.INIT)
       this.setActiveLink()
+      this._breakpointTest = this._breakpointTest.bind(this)
+      this._clickOutListener = this._clickOutListener.bind(this)
       this._addEventListeners()
+      this._addMediaQuery()
     }
 
     // Getters
@@ -163,6 +168,50 @@ const Sidebar = (($) => {
 
     // Private
 
+    _addMediaQuery() {
+      const sm = getStyle('--breakpoint-sm')
+      if (!sm) {
+        return
+      }
+      const smVal = parseInt(sm, 10) - 1
+      const mediaQueryList = window.matchMedia(`(max-width: ${smVal}px)`)
+
+      this._breakpointTest(mediaQueryList)
+
+      mediaQueryList.addListener(this._breakpointTest)
+    }
+
+    _breakpointTest(e) {
+      this.mobile = Boolean(e.matches)
+      this._toggleClickOut()
+    }
+
+    _clickOutListener(event) {
+      if (!this._element.contains(event.target)) { // or use: event.target.closest(Selector.SIDEBAR) === null
+        event.preventDefault()
+        event.stopPropagation()
+        this._removeClickOut()
+        document.body.classList.remove('sidebar-show')
+      }
+    }
+
+    _addClickOut() {
+      document.addEventListener(Event.CLICK, this._clickOutListener, true)
+    }
+
+    _removeClickOut() {
+      document.removeEventListener(Event.CLICK, this._clickOutListener, true)
+    }
+
+    _toggleClickOut() {
+      if (this.mobile && document.body.classList.contains('sidebar-show')) {
+        document.body.classList.remove('aside-menu-show')
+        this._addClickOut()
+      } else {
+        this._removeClickOut()
+      }
+    }
+
     _addEventListeners() {
       $(Selector.BRAND_MINIMIZER).on(Event.CLICK, (event) => {
         event.preventDefault()
@@ -190,9 +239,11 @@ const Sidebar = (($) => {
         event.stopPropagation()
         const toggle = event.currentTarget.dataset.toggle
         toggleClasses(toggle, ShowClassNames)
+        this._toggleClickOut()
       })
 
       $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK, () => {
+        this._removeClickOut()
         document.body.classList.remove('sidebar-show')
       })
     }

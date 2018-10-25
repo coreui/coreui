@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.20 (https://coreui.io)
+  * CoreUI v2.0.21 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -8,6 +8,19 @@
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
   (factory((global.utilities = {})));
 }(this, (function (exports) { 'use strict';
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.21): classes.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+  var sidebarCssClasses = ['sidebar-show', 'sidebar-sm-show', 'sidebar-md-show', 'sidebar-lg-show', 'sidebar-xl-show'];
+  var asideMenuCssClasses = ['aside-menu-show', 'aside-menu-sm-show', 'aside-menu-md-show', 'aside-menu-lg-show', 'aside-menu-xl-show'];
+  var validBreakpoints = ['sm', 'md', 'lg', 'xl'];
+  function checkBreakpoint(breakpoint, list) {
+    return list.indexOf(breakpoint) > -1;
+  }
 
   var deepObjectsMerge = function deepObjectsMerge(target, source) {
     // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
@@ -28,7 +41,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.20): get-css-custom-properties.js
+   * CoreUI Utilities (v2.0.21): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -69,7 +82,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.20): get-color.js
+   * CoreUI Utilities (v2.0.21): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -83,40 +96,6 @@
     return property.match(/^--.*/i);
   };
 
-  var getColor = function getColor(rawProperty, element) {
-    if (element === void 0) {
-      element = document.body;
-    }
-
-    var property = "--" + rawProperty;
-    var style;
-
-    if (isCustomProperty(property) && isIE1x()) {
-      var cssCustomProperties = getCssCustomProperties();
-      style = cssCustomProperties[property];
-    } else {
-      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
-    }
-
-    return style ? style : rawProperty;
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.20): get-style.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-  var minIEVersion$1 = 10;
-
-  var isIE1x$1 = function isIE1x() {
-    return Boolean(document.documentMode) && document.documentMode >= minIEVersion$1;
-  };
-
-  var isCustomProperty$1 = function isCustomProperty(property) {
-    return property.match(/^--.*/i);
-  };
-
   var getStyle = function getStyle(property, element) {
     if (element === void 0) {
       element = document.body;
@@ -124,7 +103,7 @@
 
     var style;
 
-    if (isCustomProperty$1(property) && isIE1x$1()) {
+    if (isCustomProperty(property) && isIE1x()) {
       var cssCustomProperties = getCssCustomProperties();
       style = cssCustomProperties[property];
     } else {
@@ -136,7 +115,24 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.20): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.21): get-color.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+
+  var getColor = function getColor(rawProperty, element) {
+    if (element === void 0) {
+      element = document.body;
+    }
+
+    var property = "--" + rawProperty;
+    var style = getStyle(property, element);
+    return style ? style : rawProperty;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.21): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -172,7 +168,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.20): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.21): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -212,7 +208,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.20): rgb-to-hex.js
+   * CoreUI (v2.0.21): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -239,6 +235,10 @@
     return "#" + r.slice(-2) + g.slice(-2) + b.slice(-2);
   };
 
+  exports.asideMenuCssClasses = asideMenuCssClasses;
+  exports.checkBreakpoint = checkBreakpoint;
+  exports.sidebarCssClasses = sidebarCssClasses;
+  exports.validBreakpoints = validBreakpoints;
   exports.deepObjectsMerge = deepObjectsMerge;
   exports.getColor = getColor;
   exports.getStyle = getStyle;
