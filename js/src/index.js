@@ -45,3 +45,9 @@ window.hexToRgba = hexToRgba
 
 import rgbToHex from './utilities/rgb-to-hex'
 window.rgbToHex = rgbToHex
+
+import getColor from './utilities/get-color'
+window.getColor = getColor
+
+import deepObjectsMerge from './utilities/deep-objects-merge'
+window.deepObjectsMerge = deepObjectsMerge
