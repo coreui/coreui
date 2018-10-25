@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.20): sidebar.js
+ * CoreUI (v2.0.21): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.20';
+  var VERSION = '2.0.21';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -66,11 +66,16 @@ var Sidebar = function ($) {
   function () {
     function Sidebar(element) {
       this._element = element;
+      this.mobile = false;
       this.ps = null;
       this.perfectScrollbar(Event.INIT);
       this.setActiveLink();
+      this._breakpointTest = this._breakpointTest.bind(this);
+      this._clickOutListener = this._clickOutListener.bind(this);
 
       this._addEventListeners();
+
+      this._addMediaQuery();
     } // Getters
 
 
@@ -156,6 +161,57 @@ var Sidebar = function ($) {
     }; // Private
 
 
+    _proto._addMediaQuery = function _addMediaQuery() {
+      var sm = getStyle('--breakpoint-sm');
+
+      if (!sm) {
+        return;
+      }
+
+      var smVal = parseInt(sm, 10) - 1;
+      var mediaQueryList = window.matchMedia("(max-width: " + smVal + "px)");
+
+      this._breakpointTest(mediaQueryList);
+
+      mediaQueryList.addListener(this._breakpointTest);
+    };
+
+    _proto._breakpointTest = function _breakpointTest(e) {
+      this.mobile = Boolean(e.matches);
+
+      this._toggleClickOut();
+    };
+
+    _proto._clickOutListener = function _clickOutListener(event) {
+      if (!this._element.contains(event.target)) {
+        // or use: event.target.closest(Selector.SIDEBAR) === null
+        event.preventDefault();
+        event.stopPropagation();
+
+        this._removeClickOut();
+
+        document.body.classList.remove('sidebar-show');
+      }
+    };
+
+    _proto._addClickOut = function _addClickOut() {
+      document.addEventListener(Event.CLICK, this._clickOutListener, true);
+    };
+
+    _proto._removeClickOut = function _removeClickOut() {
+      document.removeEventListener(Event.CLICK, this._clickOutListener, true);
+    };
+
+    _proto._toggleClickOut = function _toggleClickOut() {
+      if (this.mobile && document.body.classList.contains('sidebar-show')) {
+        document.body.classList.remove('aside-menu-show');
+
+        this._addClickOut();
+      } else {
+        this._removeClickOut();
+      }
+    };
+
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
@@ -184,8 +240,12 @@ var Sidebar = function ($) {
         event.stopPropagation();
         var toggle = event.currentTarget.dataset.toggle;
         toggleClasses(toggle, ShowClassNames);
+
+        _this2._toggleClickOut();
       });
       $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK, function () {
+        _this2._removeClickOut();
+
         document.body.classList.remove('sidebar-show');
       });
     }; // Static

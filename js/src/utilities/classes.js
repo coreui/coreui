@@ -1,3 +1,9 @@
+/**
+ * --------------------------------------------------------------------------
+ * CoreUI Utilities (v2.0.21): classes.js
+ * Licensed under MIT (https://coreui.io/license)
+ * --------------------------------------------------------------------------
+ */
 export const sidebarCssClasses = [
   'sidebar-show',
   'sidebar-sm-show',

@@ -1,3 +1,10 @@
+## v2.0.21
+- feat(sidebar): mobile clickout behaviour 
+- chore: update `@babel/plugin-external-helpers` to `7.0.0`
+- chore: update `autoprefixer` to `9.3.1`
+- chore: update `postcss-cli` to `6.0.1`
+- chore: update `stylelint-scss` to `3.3.2`
+
 ## v2.0.20
 - fix(layout): sidebar on mobile issue [#23](https://github.com/coreui/coreui-angular/issues/23) 
 - fix: sidebar, sidebar-minimizer `rtl` ie issues, tweaks
