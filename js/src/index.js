@@ -33,14 +33,14 @@ export {
   Sidebar
 }
 // Global functions
-import getStyle from './utilities/get-style'
+import { getStyle } from './utilities/get-style'
 window.getStyle = getStyle
 
-import hexToRgb from './utilities/hex-to-rgb'
+import { hexToRgb } from './utilities/hex-to-rgb'
 window.hexToRgb = hexToRgb
 
-import hexToRgba from './utilities/hex-to-rgba'
+import { hexToRgba } from './utilities/hex-to-rgba'
 window.hexToRgba = hexToRgba
 
-import rgbToHex from './utilities/rgb-to-hex'
+import { rgbToHex } from './utilities/rgb-to-hex'
 window.rgbToHex = rgbToHex

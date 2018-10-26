@@ -30,4 +30,4 @@ const hexToRgb = (color) => {
   return `rgba(${r}, ${g}, ${b})`
 }
 
-export default hexToRgb
+export { hexToRgb }

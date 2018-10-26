@@ -30,4 +30,4 @@ const hexToRgba = (color, opacity = 100) => {
   return `rgba(${r}, ${g}, ${b}, ${opacity / 100})`
 }
 
-export default hexToRgba
+export { hexToRgba }
