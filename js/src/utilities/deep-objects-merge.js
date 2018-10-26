@@ -9,4 +9,4 @@ const deepObjectsMerge = (target, source) => {
   return target
 }
 
-export default deepObjectsMerge;
+export { deepObjectsMerge };

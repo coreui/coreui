@@ -21,4 +21,4 @@ const getStyle = (property, element = document.body) => {
   return style
 }
 
-export default getStyle
+export { getStyle }

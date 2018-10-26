@@ -598,12 +598,6 @@
     return Sidebar;
   }($);
 
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.14): get-style.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
   var getCssCustomProperties = function getCssCustomProperties() {
     var cssCustomProperties = {};
     var sheets = document.styleSheets;
@@ -638,6 +632,12 @@
     return cssCustomProperties;
   };
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v2.0.14): get-style.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
   var minIEVersion = 10;
 
   var isIE1x = function isIE1x() {

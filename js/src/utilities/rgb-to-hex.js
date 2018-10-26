@@ -21,4 +21,4 @@ const rgbToHex = (color) => {
   return `#${r.slice(-2)}${g.slice(-2)}${b.slice(-2)}`
 }
 
-export default rgbToHex
+export { rgbToHex }
