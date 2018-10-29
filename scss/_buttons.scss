@@ -1,5 +1,5 @@
 button {
-  cursor: pointer;
+  @extend .btn;
 }
 
 .btn-transparent {
