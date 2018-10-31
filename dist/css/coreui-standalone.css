@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.0.21
+ * @version v2.0.22
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -315,19 +315,19 @@
   vertical-align: top;
 }
 
-.breadcrumb-menu .btn {
+.breadcrumb-menu .btn, .breadcrumb-menu button {
   padding: 0 0.75rem;
   color: #73818f;
   vertical-align: top;
   border: 0;
 }
 
-.breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {
+.breadcrumb-menu .btn:hover, .breadcrumb-menu button:hover, .breadcrumb-menu .btn.active, .breadcrumb-menu button.active {
   color: #23282c;
   background: transparent;
 }
 
-.breadcrumb-menu .open .btn {
+.breadcrumb-menu .open .btn, .breadcrumb-menu .open button {
   color: #23282c;
   background: transparent;
 }
@@ -1316,18 +1316,15 @@
   box-shadow: 0 0 0 0.2rem rgba(170, 212, 80, 0.5);
 }
 
-button {
-  cursor: pointer;
-}
-
 .btn-transparent {
   color: #fff;
   background-color: transparent;
   border-color: transparent;
 }
 
-.btn [class^="icon-"],
-.btn [class*=" icon-"] {
+.btn [class^="icon-"], button [class^="icon-"],
+.btn [class*=" icon-"],
+button [class*=" icon-"] {
   display: inline-block;
   margin-top: -2px;
   vertical-align: middle;
@@ -2066,16 +2063,16 @@ canvas {
   border-bottom: 1px solid #c8ced3;
 }
 
-.dropdown-header .btn {
+.dropdown-header .btn, .dropdown-header button {
   margin-top: -7px;
   color: #73818f;
 }
 
-.dropdown-header .btn:hover {
+.dropdown-header .btn:hover, .dropdown-header button:hover {
   color: #23282c;
 }
 
-.dropdown-header .btn.pull-right {
+.dropdown-header .btn.pull-right, .dropdown-header button.pull-right {
   margin-right: -20px;
 }
 
