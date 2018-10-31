@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.21 (https://coreui.io)
+  * CoreUI v2.0.22 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */

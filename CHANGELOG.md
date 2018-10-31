@@ -1,3 +1,9 @@
+## v2.0.22
+- fix(buttons.scss): wrong cursor for disabled state
+- chore: update `eslint` to `5.8.0`
+- chore: update `nodemon` to `1.18.5`
+- chore: update `stylelint` to `9.7.1`
+
 ## v2.0.21
 - feat(sidebar): mobile clickout behaviour 
 - chore: update `@babel/plugin-external-helpers` to `7.0.0`
