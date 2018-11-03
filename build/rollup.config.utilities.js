@@ -10,6 +10,7 @@ const year    = new Date().getFullYear()
 
 let fileDest  = 'coreui-utilities.js'
 const plugins = [
+  resolve(),
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
     externalHelpersWhitelist: [ // Include only required helpers
