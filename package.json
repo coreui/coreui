@@ -71,6 +71,7 @@
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
     "bootstrap": "^4.1.3"
   },
