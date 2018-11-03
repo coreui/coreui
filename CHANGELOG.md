@@ -1,3 +1,6 @@
+## v2.0.25
+- fix(buttons.scss): remove `button { @extend .btn; }`
+
 ## v2.0.24
 - fix(build): add missing `commonjs` for utilities
 - chore: add `@babel/polyfill`

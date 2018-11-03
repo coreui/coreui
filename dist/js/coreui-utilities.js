@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.24 (https://coreui.io)
+  * CoreUI v2.0.25 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.24): classes.js
+   * CoreUI Utilities (v2.0.25): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -827,7 +827,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.24): get-css-custom-properties.js
+   * CoreUI Utilities (v2.0.25): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -895,7 +895,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.24): get-color.js
+   * CoreUI Utilities (v2.0.25): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -912,7 +912,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.24): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.25): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -948,7 +948,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.24): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.25): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1028,7 +1028,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.24): rgb-to-hex.js
+   * CoreUI (v2.0.25): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

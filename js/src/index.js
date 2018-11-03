@@ -6,7 +6,7 @@ import Sidebar from './sidebar'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.24): index.js
+ * CoreUI (v2.0.25): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
