@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.22): sidebar.js
+ * CoreUI (v2.0.23): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.22';
+  var VERSION = '2.0.23';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -238,7 +238,7 @@ var Sidebar = function ($) {
       $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, function (event) {
         event.preventDefault();
         event.stopPropagation();
-        var toggle = event.currentTarget.dataset.toggle;
+        var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
         toggleClasses(toggle, ShowClassNames);
 
         _this2._toggleClickOut();

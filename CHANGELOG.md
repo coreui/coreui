@@ -1,3 +1,10 @@
+## v2.0.23
+- chore: add `@babel/polyfill`
+- fix(ie): add `NodeList` `forEach` polyfill 
+- fix(sidebar): add `dataset.toggle` ie10 fix  
+- fix(aside-menu): add `dataset.toggle` ie10 fix 
+- chore(build): add `rollup-plugin-commonjs`
+
 ## v2.0.22
 - fix(buttons.scss): wrong cursor for disabled state
 - chore: update `eslint` to `5.8.0`
