@@ -3,6 +3,7 @@
 const path    = require('path')
 const babel   = require('rollup-plugin-babel')
 const resolve = require('rollup-plugin-node-resolve')
+const commonjs = require('rollup-plugin-commonjs')
 
 const pkg     = require(path.resolve(__dirname, '../package.json'))
 const BUNDLE  = process.env.BUNDLE === 'true'
@@ -11,6 +12,7 @@ const year    = new Date().getFullYear()
 let fileDest  = 'coreui-utilities.js'
 const plugins = [
   resolve(),
+  commonjs(),
   babel({
     exclude: 'node_modules/**', // Only transpile our source code
     externalHelpersWhitelist: [ // Include only required helpers
