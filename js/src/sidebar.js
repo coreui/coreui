@@ -237,7 +237,7 @@ const Sidebar = (($) => {
       $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, (event) => {
         event.preventDefault()
         event.stopPropagation()
-        const toggle = event.currentTarget.dataset.toggle
+        const toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle')
         toggleClasses(toggle, ShowClassNames)
         this._toggleClickOut()
       })
