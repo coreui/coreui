@@ -1,3 +1,4 @@
+import './polyfill'
 import $ from 'jquery'
 import AjaxLoad from './ajax-load'
 import AsideMenu from './aside-menu'
