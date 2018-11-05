@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.25): sidebar.js
+ * CoreUI (v2.0.26): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.0.25';
+  var VERSION = '2.0.26';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -215,12 +215,12 @@ var Sidebar = function ($) {
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
-      $(Selector.BRAND_MINIMIZER).on(Event.CLICK, function (event) {
+      $(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, function (event) {
         event.preventDefault();
         event.stopPropagation();
         $(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED);
       });
-      $(Selector.NAV_DROPDOWN_TOGGLE).on(Event.CLICK, function (event) {
+      $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
         event.preventDefault();
         event.stopPropagation();
         var dropdown = event.target;
@@ -228,14 +228,14 @@ var Sidebar = function ($) {
 
         _this2.perfectScrollbar(Event.UPDATE);
       });
-      $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, function (event) {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, function (event) {
         event.preventDefault();
         event.stopPropagation();
         $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED);
 
         _this2.perfectScrollbar(Event.TOGGLE);
       });
-      $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, function (event) {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, function (event) {
         event.preventDefault();
         event.stopPropagation();
         var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');

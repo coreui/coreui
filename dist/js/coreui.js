@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.0.25 (https://coreui.io)
+  * CoreUI v2.0.26 (https://coreui.io)
   * Copyright 2018 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -977,7 +977,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): ajax-load.js
+   * CoreUI (v2.0.26): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -989,7 +989,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.0.25';
+    var VERSION = '2.0.26';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var ClassName = {
@@ -1182,7 +1182,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): toggle-classes.js
+   * CoreUI (v2.0.26): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1207,7 +1207,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): aside-menu.js
+   * CoreUI (v2.0.26): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1219,7 +1219,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.0.25';
+    var VERSION = '2.0.26';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -1255,7 +1255,7 @@
 
       // Private
       _proto._addEventListeners = function _addEventListeners() {
-        $$$1(Selector.ASIDE_MENU_TOGGLER).on(Event.CLICK, function (event) {
+        $$$1(document).on(Event.CLICK, Selector.ASIDE_MENU_TOGGLER, function (event) {
           event.preventDefault();
           event.stopPropagation();
           var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $$$1(event.currentTarget).data('toggle');
@@ -1413,7 +1413,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.25): get-css-custom-properties.js
+   * CoreUI Utilities (v2.0.26): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -1481,7 +1481,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): sidebar.js
+   * CoreUI (v2.0.26): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1493,7 +1493,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.0.25';
+    var VERSION = '2.0.26';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -1693,12 +1693,12 @@
       _proto._addEventListeners = function _addEventListeners() {
         var _this2 = this;
 
-        $$$1(Selector.BRAND_MINIMIZER).on(Event.CLICK, function (event) {
+        $$$1(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, function (event) {
           event.preventDefault();
           event.stopPropagation();
           $$$1(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED);
         });
-        $$$1(Selector.NAV_DROPDOWN_TOGGLE).on(Event.CLICK, function (event) {
+        $$$1(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
           event.preventDefault();
           event.stopPropagation();
           var dropdown = event.target;
@@ -1706,14 +1706,14 @@
 
           _this2.perfectScrollbar(Event.UPDATE);
         });
-        $$$1(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, function (event) {
+        $$$1(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, function (event) {
           event.preventDefault();
           event.stopPropagation();
           $$$1(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED);
 
           _this2.perfectScrollbar(Event.TOGGLE);
         });
-        $$$1(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, function (event) {
+        $$$1(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, function (event) {
           event.preventDefault();
           event.stopPropagation();
           var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $$$1(event.currentTarget).data('toggle');
@@ -1781,7 +1781,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.25): hex-to-rgb.js
+   * CoreUI Utilities (v2.0.26): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1817,7 +1817,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.0.25): hex-to-rgba.js
+   * CoreUI Utilities (v2.0.26): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1897,7 +1897,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): rgb-to-hex.js
+   * CoreUI (v2.0.26): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1926,7 +1926,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.0.25): index.js
+   * CoreUI (v2.0.26): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

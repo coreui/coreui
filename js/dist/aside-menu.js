@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.25): aside-menu.js
+ * CoreUI (v2.0.26): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var AsideMenu = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'aside-menu';
-  var VERSION = '2.0.25';
+  var VERSION = '2.0.26';
   var DATA_KEY = 'coreui.aside-menu';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -51,7 +51,7 @@ var AsideMenu = function ($) {
 
     // Private
     _proto._addEventListeners = function _addEventListeners() {
-      $(Selector.ASIDE_MENU_TOGGLER).on(Event.CLICK, function (event) {
+      $(document).on(Event.CLICK, Selector.ASIDE_MENU_TOGGLER, function (event) {
         event.preventDefault();
         event.stopPropagation();
         var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
