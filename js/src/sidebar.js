@@ -5,7 +5,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.25): sidebar.js
+ * CoreUI (v2.0.26): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.25'
+  const VERSION             = '2.0.26'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -213,13 +213,13 @@ const Sidebar = (($) => {
     }
 
     _addEventListeners() {
-      $(Selector.BRAND_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED)
       })
 
-      $(Selector.NAV_DROPDOWN_TOGGLE).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const dropdown = event.target
@@ -227,14 +227,14 @@ const Sidebar = (($) => {
         this.perfectScrollbar(Event.UPDATE)
       })
 
-      $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED)
         this.perfectScrollbar(Event.TOGGLE)
       })
 
-      $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle')

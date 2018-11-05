@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.0.25): classes.js
+ * CoreUI Utilities (v2.0.26): classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

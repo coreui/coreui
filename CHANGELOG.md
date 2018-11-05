@@ -1,3 +1,9 @@
+## v2.0.26
+- fix(.sidebar-minimizer): add `cursor: pointer` 
+- feat: delegated event handlers to support turbolinks (sidebar, aside-menu)- thanks @RyanVasichko
+- chore: update `node-sass` to `4.10.0`
+- chore: update `rollup` to `0.67.0`
+
 ## v2.0.25
 - fix(buttons.scss): remove `button { @extend .btn; }`
 
