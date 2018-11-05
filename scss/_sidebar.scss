@@ -240,6 +240,7 @@
   .sidebar-minimizer {
     position: relative;
     flex: 0 0 $sidebar-minimizer-height;
+    cursor: pointer;
     background-color: $sidebar-minimizer-bg;
     border: 0;
     @include borders($sidebar-minimizer-borders);
