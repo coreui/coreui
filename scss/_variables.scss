@@ -91,6 +91,11 @@ $sidebar-nav-link-active-bg:          lighten($sidebar-bg, 5%) !default;
 $sidebar-nav-link-active-icon-color:  theme-color("primary") !default;
 $sidebar-nav-link-active-borders:     0 !default;
 
+$sidebar-nav-link-disabled-color:       darken(#fff, 30%) !default;
+$sidebar-nav-link-disabled-bg:          $sidebar-bg !default;
+$sidebar-nav-link-disabled-icon-color:  $sidebar-nav-link-icon-color !default;
+$sidebar-nav-link-disabled-borders:     0 !default;
+
 $sidebar-nav-dropdown-color:          #fff !default;
 $sidebar-nav-dropdown-bg:             rgba(0,0,0,.2) !default;
 $sidebar-nav-dropdown-borders:        0 !default;
@@ -194,3 +199,6 @@ $switch-label-lg-width:               56px !default;
 $switch-label-sm-width:               40px !default;
 
 $switch-handle-margin:                2px !default;
+
+// Cursor
+$cursor-disabled: default !default;
