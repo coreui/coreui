@@ -1,3 +1,7 @@
+## v2.1.0
+- feat(scss): sidebar-nav-link-disabled
+- chore: update `nodemon` to `1.18.6`
+
 ## v2.0.26
 - fix(.sidebar-minimizer): add `cursor: pointer` 
 - feat: delegated event handlers to support turbolinks (sidebar, aside-menu)- thanks @RyanVasichko
