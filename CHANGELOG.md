@@ -1,3 +1,18 @@
+## v2.1.1
+- fix(sidebar): `url("data:,")` turns into `url("'data:,'")`  
+  now replaced with Base64 Encode of 1x1px Transparent gif, closes #49
+  1. `ie11` ignores `list-style:none` (ie11 rtl sidebar minimized issue)
+  2. `url("data:,")` turns into `url("'data:,'")` after minification
+  3. angular 7 cli build complains on `url("'data:,'")`
+- chore: update `@babel/cli` to `7.1.5`
+- chore: update `stylelint` to `9.8.0`
+- chore: update `stylelint-scss` to `3.4.0`
+- chore: update `shelljs` to `0.8.3`
+- chore: update `@babel/preset-env` to `7.1.6`
+- chore: update `@babel/core` to `7.1.6`
+- chore: update `eslint` to `5.9.0`
+- chore: update `rollup` to `0.67.3`
+
 ## v2.1.0
 - feat(scss): sidebar-nav-link-disabled
 - chore: update `nodemon` to `1.18.6`
