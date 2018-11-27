@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.1): get-css-custom-properties.js
+ * CoreUI Utilities (v2.1.2): get-css-custom-properties.js
  * Licensed under MIT (https://coreui.io/license)
  * @returns {string} css custom property name
  * --------------------------------------------------------------------------
