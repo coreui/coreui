@@ -1,3 +1,6 @@
+## v2.1.3
+- chore: update `nodemon` to `1.18.7` (remove vulnerability)
+
 ## v2.1.2
 - fix: devDependencies security issues (event-stream, flatmap-stream)
 - chore: dependencies update

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.2): get-style.js
+ * CoreUI Utilities (v2.1.3): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
