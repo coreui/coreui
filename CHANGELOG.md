@@ -1,3 +1,13 @@
+## v2.1.2
+- fix: devDependencies security issues (event-stream, flatmap-stream)
+- chore: dependencies update
+  - update `npm-run-all` to `^4.1.5`
+  - reinstall `nodemon`
+  ```bash
+  npm uninstall nodemon
+  npm install --save-dev nodemon
+  ```
+
 ## v2.1.1
 - fix(sidebar): `url("data:,")` turns into `url("'data:,'")`  
   now replaced with Base64 Encode of 1x1px Transparent gif, closes #49
