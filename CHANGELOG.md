@@ -1,5 +1,17 @@
 ## v2.1.4
 - fix(scss): .sidebar .nav-link.disabled
+- chore: update `@babel/cli` to `^7.2.0`
+- chore: update `@babel/core` to `^7.2.0`
+- chore: update `@babel/plugin-external-helpers` to `^7.2.0`
+- chore: update `@babel/plugin-proposal-object-rest-spread` to `^7.2.0`
+- chore: update `@babel/plugin-proposal-throw-expressions` to `^7.2.0`
+- chore: update `@babel/plugin-transform-runtime` to `^7.2.0`
+- chore: update `@babel/preset-env` to `^7.2.0`
+- chore: update `autoprefixer` to `^9.4.2`
+- chore: update `rollup` to `^0.67.4`
+- chore: update `stylelint` to `^9.9.0`
+- chore: update `stylelint-order` to `^2.0.0`
+- chore: update `stylelint-scss` to `^3.4.1`
 
 ## v2.1.3
 - chore: update `nodemon` to `1.18.7` (remove vulnerability)
