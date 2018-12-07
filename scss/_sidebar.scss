@@ -418,8 +418,11 @@
             .nav-icon {
               color: $sidebar-nav-link-hover-color;
             }
+          }
+          .nav-link {
 
-            &.disabled {
+            &.disabled,
+            :disabled {
               background: $sidebar-nav-link-disabled-bg;
 
               .nav-icon {
@@ -429,6 +432,17 @@
           }
         }
       }
+      // temp fix for vue version
+      section {
+        :not(.nav-dropdown-items) > {
+          .nav-item:last-child::after {
+            display: block;
+            margin-bottom: $sidebar-minimizer-height;
+            content: "";
+          }
+        }
+      }
+      // temp fix end
 
       .nav-link {
         position: relative;
