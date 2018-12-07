@@ -1,3 +1,6 @@
+## v2.1.4
+- fix(scss): .sidebar .nav-link.disabled
+
 ## v2.1.3
 - chore: update `nodemon` to `1.18.7` (remove vulnerability)
 
