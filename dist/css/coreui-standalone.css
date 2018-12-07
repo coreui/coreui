@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.3
+ * @version v2.1.4
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -2969,11 +2969,18 @@ canvas {
   .sidebar-minimized .sidebar .nav-item:hover > .nav-link .nav-icon {
     color: #fff;
   }
-  .sidebar-minimized .sidebar .nav-item:hover > .nav-link.disabled {
+  .sidebar-minimized .sidebar .nav-item:hover .nav-link.disabled,
+  .sidebar-minimized .sidebar .nav-item:hover .nav-link :disabled {
     background: #2f353a;
   }
-  .sidebar-minimized .sidebar .nav-item:hover > .nav-link.disabled .nav-icon {
+  .sidebar-minimized .sidebar .nav-item:hover .nav-link.disabled .nav-icon,
+  .sidebar-minimized .sidebar .nav-item:hover .nav-link :disabled .nav-icon {
     color: #73818f;
+  }
+  .sidebar-minimized .sidebar section :not(.nav-dropdown-items) > .nav-item:last-child::after {
+    display: block;
+    margin-bottom: 50px;
+    content: "";
   }
   .sidebar-minimized .sidebar .nav-link {
     position: relative;

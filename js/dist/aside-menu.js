@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): aside-menu.js
+ * CoreUI (v2.1.4): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var AsideMenu = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'aside-menu';
-  var VERSION = '2.1.3';
+  var VERSION = '2.1.4';
   var DATA_KEY = 'coreui.aside-menu';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
