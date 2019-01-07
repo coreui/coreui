@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.4): aside-menu.js
+ * CoreUI (v2.1.5): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var AsideMenu = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'aside-menu';
-  var VERSION = '2.1.4';
+  var VERSION = '2.1.5';
   var DATA_KEY = 'coreui.aside-menu';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -57,8 +57,8 @@ var AsideMenu = function ($) {
         var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
         toggleClasses(toggle, ShowClassNames);
       });
-    }; // Static
-
+    } // Static
+    ;
 
     AsideMenu._jQueryInterface = function _jQueryInterface() {
       return this.each(function () {

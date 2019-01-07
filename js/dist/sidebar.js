@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.4): sidebar.js
+ * CoreUI (v2.1.5): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +15,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.1.4';
+  var VERSION = '2.1.5';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -158,8 +158,8 @@ var Sidebar = function ($) {
           });
         }
       });
-    }; // Private
-
+    } // Private
+    ;
 
     _proto._addMediaQuery = function _addMediaQuery() {
       var sm = getStyle('--breakpoint-sm');
@@ -248,8 +248,8 @@ var Sidebar = function ($) {
 
         document.body.classList.remove('sidebar-show');
       });
-    }; // Static
-
+    } // Static
+    ;
 
     Sidebar._jQueryInterface = function _jQueryInterface() {
       return this.each(function () {

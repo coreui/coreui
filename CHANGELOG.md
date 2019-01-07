@@ -1,4 +1,4 @@
-## v2.1.next
+## v2.1.5
 ###### Dependencies update:
 - chore: update `bootstrap` to `^4.2.1`
 - chore: update `@babel/polyfill` to `^7.2.5`
@@ -14,7 +14,7 @@
 - chore: update `rollup` to `^0.68.2`
 - chore: update `rollup-plugin-babel` to `^4.2.0`
 - chore: update `stylelint-scss` to `^3.4.4`
-###### Pull Requiests:
+###### Pull Requests:
 - Re-added composer file #35
   - Re-added composer file so new versions can be downloaded via composer
   - Replaced relative paths in .scss files so files can be generated correctly
