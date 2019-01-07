@@ -14,7 +14,11 @@
 - chore: update `rollup` to `^0.68.2`
 - chore: update `rollup-plugin-babel` to `^4.2.0`
 - chore: update `stylelint-scss` to `^3.4.4`
-
+###### Pull Requiests:
+- Re-added composer file #35
+  - Re-added composer file so new versions can be downloaded via composer
+  - Replaced relative paths in .scss files so files can be generated correctly
+  
 ## v2.1.4
 - fix(scss): .sidebar .nav-link.disabled
 - chore: update `@babel/cli` to `^7.2.0`
