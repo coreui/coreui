@@ -1,3 +1,24 @@
+## v2.1.5
+###### Dependencies update:
+- chore: update `bootstrap` to `^4.2.1`
+- chore: update `@babel/polyfill` to `^7.2.5`
+- chore: update `@babel/cli` to `^7.2.3`
+- chore: update `@babel/core` to `^7.2.2`
+- chore: update `@babel/preset-env` to `^7.2.3`
+- chore: update `autoprefixer` to `^9.4.4`
+- chore: update `eslint` to `^5.12.0`
+- chore: update `node-sass` to `^4.11.0`
+- chore: update `nodemon` to `^1.18.9`
+- chore: update `postcss-cli` to `^6.1.1`
+- chore: update `rimraf` to `^2.6.3`
+- chore: update `rollup` to `^0.68.2`
+- chore: update `rollup-plugin-babel` to `^4.2.0`
+- chore: update `stylelint-scss` to `^3.4.4`
+###### Pull Requests:
+- Re-added composer file #35
+  - Re-added composer file so new versions can be downloaded via composer
+  - Replaced relative paths in .scss files so files can be generated correctly
+  
 ## v2.1.4
 - fix(scss): .sidebar .nav-link.disabled
 - chore: update `@babel/cli` to `^7.2.0`
