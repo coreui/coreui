@@ -1,0 +1,31 @@
+{
+  "name": "coreui/coreui",
+  "description": "Open Source UI Kit built on top of Bootstrap 4",
+  "keywords": [
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://coreui.io",
+  "authors": [
+    {
+      "name": "Łukasz Holeczek",
+      "email": "lukasz@coreui.io"
+    }
+  ],
+  "contributors": [
+    {
+      "name": "Andrzej Kopański",
+      "email": "andrzej@coreui.io"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/coreui/coreui/issues"
+  },
+  "license": "MIT"
+}
