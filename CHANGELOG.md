@@ -1,3 +1,7 @@
+## v2.1.6
+- fix: clean exit on postinstall dependency missing #25
+- chore: update `rollup-plugin-babel` to `^4.3.0`
+
 ## v2.1.5
 ###### Dependencies update:
 - chore: update `bootstrap` to `^4.2.1`
