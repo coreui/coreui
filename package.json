@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -46,6 +46,7 @@
   "scripts": {
     "copy-bootstrap": "rimraf scss/bootstrap && copyfiles -a \"node_modules/bootstrap/scss/**/*\" -u 3 scss/bootstrap",
     "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix css-minify*",
+    "css2": "npm-run-all --parallel css-compile* --sequential css-prefix css-minify*",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui.scss dist/css/coreui.css",
     "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"scss/**/*.scss\"",
     "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
