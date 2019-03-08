@@ -1,6 +1,6 @@
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.7
+ * @version v2.1.8
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -63,3 +63,6 @@
 
 // Custom Properties support for Internet Explorer
 @import "ie-custom-properties";
+
+// temp fixes
+@import "fixes";
