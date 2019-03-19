@@ -1268,12 +1268,12 @@ $breadcrumb-item-padding:           .5rem !default;
 
 $breadcrumb-margin-bottom:          1.5rem !default; // was: 1rem
 
-$breadcrumb-bg:                     $gray-200 !default;
+$breadcrumb-bg:                     $white !default; // was: $gray-200
 $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
 $breadcrumb-divider:                quote("/") !default;
 
-$breadcrumb-border-radius:          $border-radius !default;
+$breadcrumb-border-radius:          0 !default; // was: $border-radius
 
 // CoreUI specific changes start
 $breadcrumb-borders: (
