@@ -1,8 +1,21 @@
 import './polyfill'
 import $ from 'jquery'
+
 import AjaxLoad from './ajax-load'
+import Alert from './alert'
 import AsideMenu from './aside-menu'
+import Button from './button'
+import Carousel from './carousel'
+import Collapse from './collapse'
+import Dropdown from './dropdown'
+import Modal from './modal'
+import Popover from './popover'
+import Scrollspy from './scrollspy'
 import Sidebar from './sidebar'
+import Tab from './tab'
+import Toast from './toast'
+import Tooltip from './tooltip'
+import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
@@ -11,7 +24,7 @@ import Sidebar from './sidebar'
  * --------------------------------------------------------------------------
  */
 
-(($) => {
+(() => {
   if (typeof $ === 'undefined') {
     throw new TypeError('CoreUI\'s JavaScript requires jQuery. jQuery must be included before CoreUI\'s JavaScript.')
   }
@@ -24,16 +37,27 @@ import Sidebar from './sidebar'
   const maxMajor = 4
 
   if (version[0] < ltMajor && version[1] < minMinor || version[0] === minMajor && version[1] === minMinor && version[2] < minPatch || version[0] >= maxMajor) {
-    throw new Error('CoreUI\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
+    throw new Error('Bootstrap\'s JavaScript requires at least jQuery v1.9.1 but less than v4.0.0')
   }
-})($)
+})()
 
 export {
+  Util,
   AjaxLoad,
+  Alert,
   AsideMenu,
+  Button,
+  Carousel,
+  Collapse,
+  Dropdown,
+  Modal,
+  Popover,
+  Scrollspy,
   Sidebar
+  Tab,
+  Toast,
+  Tooltip
 }
-
 // Global functions
 import getStyle from './utilities/get-style'
 window.getStyle = getStyle
