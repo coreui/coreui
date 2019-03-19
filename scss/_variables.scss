@@ -177,6 +177,9 @@ $enable-print-styles:                         true !default;
 $enable-responsive-font-sizes:                false !default;
 $enable-validation-icons:                     true !default;
 $enable-deprecation-messages:                 true !default;
+// CoreUI
+$enable-sidebar-nav-rounded:                  false !default;
+$layout-transition-speed:                     .25s !default;
 
 
 // Spacing
@@ -219,7 +222,7 @@ $sizes: map-merge(
 //
 // Settings for the `<body>` element.
 
-$body-bg:                   $white !default;
+$body-bg:                   #e4e5e6 !default; // was: $white
 $body-color:                $gray-900 !default;
 
 
@@ -333,7 +336,7 @@ $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberati
 $font-family-base:            $font-family-sans-serif !default;
 // stylelint-enable value-keyword-case
 
-$font-size-base:              1rem !default; // Assumes the browser default, typically `16px`
+$font-size-base:              .875rem !default; // was: 1rem
 $font-size-lg:                $font-size-base * 1.25 !default;
 $font-size-sm:                $font-size-base * .875 !default;
 
@@ -527,7 +530,7 @@ $input-bg:                              $white !default;
 $input-disabled-bg:                     $gray-200 !default;
 
 $input-color:                           $gray-700 !default;
-$input-border-color:                    $gray-400 !default;
+$input-border-color:                    $gray-200 !default; //was: $gray-400 !default;
 $input-border-width:                    $input-btn-border-width !default;
 $input-box-shadow:                      inset 0 1px 1px rgba($black, .075) !default;
 
@@ -569,7 +572,7 @@ $form-grid-gutter-width:                10px !default;
 $form-group-margin-bottom:              1rem !default;
 
 $input-group-addon-color:               $input-color !default;
-$input-group-addon-bg:                  $gray-200 !default;
+$input-group-addon-bg:                  $gray-100 !default; // was: $gray-200 !default;
 $input-group-addon-border-color:        $input-border-color !default;
 
 $custom-forms-transition:               background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
@@ -801,18 +804,169 @@ $navbar-light-brand-hover-color:          $navbar-light-active-color !default;
 $navbar-dark-brand-color:                 $navbar-dark-active-color !default;
 $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 
+// CoreUI specific changes start
+
+$navbar-height:                       55px !default;
+$navbar-bg:                           #fff !default;
+$navbar-border: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+)  !default;
+$navbar-brand-width:                  155px !default;
+$navbar-brand-bg:                     transparent !default;
+$navbar-brand-border:                 0 !default;
+
+$navbar-brand-minimized-width:        50px !default;
+$navbar-brand-minimized-bg:           $navbar-brand-bg !default;
+$navbar-brand-minimized-border:       $navbar-brand-border !default;
+
+$navbar-color:                        $gray-600 !default;
+$navbar-hover-color:                  $gray-800 !default;
+$navbar-active-color:                 $gray-800 !default;
+// ToDo: Variable is not being used!
+// $navbar-disabled-color:               $gray-300 !default;
+
+$navbar-toggler-icon:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$navbar-toggler-icon-hover:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// CoreUI specific changes end
+
+// CoreUI specific changes start
+// Sidebar
+
+$sidebar-width:                       200px !default;
+$sidebar-padding:                     0 !default;
+$sidebar-minimized-width:             50px !default;
+$sidebar-minimized-height:            $sidebar-minimized-width !default;
+$sidebar-compact-width:               150px !default;
+// ToDo: Variable is not being used!
+// $sidebar-compact-height:              $sidebar-compact-width !default;
+$sidebar-color:                       #fff !default;
+$sidebar-bg:                          $gray-800 !default;
+$sidebar-borders:                     none !default;
+// ToDo: Variable is not being used!
+// $mobile-sidebar-width:                220px !default;
+
+// Sidebar Header
+
+$sidebar-header-height:               auto !default;
+$sidebar-header-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-header-padding-y:            .75rem !default;
+$sidebar-header-padding-x:            1rem !default;
+
+// Sidebar Form
+
+$sidebar-form-border:                 0 !default;
+$sidebar-form-bg:                     darken($sidebar-bg,10%) !default;
+$sidebar-form-color:                  #fff !default;
+$sidebar-form-placeholder-color:      rgba(255,255,255,.7) !default;
+
+// Sidebar Navigation
+
+// ToDo: Variable is not being used!
+// $sidebar-nav-color:                   #fff !default;
+$sidebar-nav-title-padding-y:         .75rem !default;
+$sidebar-nav-title-padding-x:         1rem !default;
+$sidebar-nav-title-color:             $gray-200 !default;
+$sidebar-nav-link-padding-y:          .75rem !default;
+$sidebar-nav-link-padding-x:          1rem !default;
+$sidebar-nav-link-color:              #fff !default;
+$sidebar-nav-link-bg:                 transparent !default;
+$sidebar-nav-link-icon-color:         $gray-600 !default;
+$sidebar-nav-link-borders:            0 !default;
+
+$sidebar-nav-link-hover-color:        #fff !default;
+$sidebar-nav-link-hover-bg:           theme-color("primary") !default;
+$sidebar-nav-link-hover-icon-color:   #fff !default;
+$sidebar-nav-link-hover-borders:      0 !default;
+
+$sidebar-nav-link-active-color:       #fff !default;
+$sidebar-nav-link-active-bg:          lighten($sidebar-bg, 5%) !default;
+$sidebar-nav-link-active-icon-color:  theme-color("primary") !default;
+$sidebar-nav-link-active-borders:     0 !default;
+
+$sidebar-nav-link-disabled-color:       darken(#fff, 30%) !default;
+$sidebar-nav-link-disabled-bg:          $sidebar-bg !default;
+$sidebar-nav-link-disabled-icon-color:  $sidebar-nav-link-icon-color !default;
+$sidebar-nav-link-disabled-borders:     0 !default;
+
+$sidebar-nav-dropdown-color:          #fff !default;
+$sidebar-nav-dropdown-bg:             rgba(0,0,0,.2) !default;
+$sidebar-nav-dropdown-borders:        0 !default;
+$sidebar-nav-dropdown-indicator-color:$gray-600 !default;
+$sidebar-nav-dropdown-indicator:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-nav-dropdown-indicator-hover-color:$sidebar-nav-link-hover-color;
+$sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// Sidebar Footer
+
+$sidebar-footer-height:               auto !default;
+$sidebar-footer-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-footer-padding-y:            .75rem !default;
+$sidebar-footer-padding-x:            1rem !default;
+$sidebar-footer-borders:              0 !default;
+
+// Sidebar Minimizer
+
+$sidebar-minimizer-height:            50px !default;
+$sidebar-minimizer-bg:                rgba(0,0,0,.2) !default;
+$sidebar-minimizer-borders:           0 !default;
+$sidebar-minimizer-indicator-color:   $gray-600 !default;
+$sidebar-minimizer-indicator:         str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-minimizer-hover-bg:          rgba(0,0,0,.3) !default;
+$sidebar-minimizer-hover-indicator-color:$sidebar-nav-link-hover-color !default;
+$sidebar-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// CoreUI specific changes end
+
+
+// CoreUI specific changes start
+// Aside
+
+$aside-menu-width:                    250px !default;
+$aside-menu-color:                    $gray-800 !default;
+$aside-menu-bg:                       #fff !default;
+$aside-menu-borders: (
+  left: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+
+$aside-menu-nav-padding-y:            .75rem !default;
+$aside-menu-nav-padding-x:            1rem !default;
+// CoreUI specific changes end
+
+// CoreUI specific changes start
+// Footer
+$footer-height:                       50px !default;
+$footer-bg:                           $gray-100 !default;
+$footer-color:                        $body-color !default;
+$footer-borders: (
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+// CoreUI specific changes end
+
 
 // Dropdowns
 //
 // Dropdown menu container and contents.
 
 $dropdown-min-width:                10rem !default;
-$dropdown-padding-y:                .5rem !default;
+$dropdown-padding-y:                0 !default; // was: .5rem !default;
 $dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                $font-size-base !default;
 $dropdown-color:                    $body-color !default;
 $dropdown-bg:                       $white !default;
-$dropdown-border-color:             rgba($black, .15) !default;
+$dropdown-border-color:             $gray-300 !default; // was: rgba($black, .15) !default;
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
 $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
@@ -879,9 +1033,10 @@ $card-spacer-y:                     .75rem !default;
 $card-spacer-x:                     1.25rem !default;
 $card-border-width:                 $border-width !default;
 $card-border-radius:                $border-radius !default;
-$card-border-color:                 rgba($black, .125) !default;
+$card-border-color:                 $gray-300 !default; // was: rgba($black, .125) !default;
 $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
-$card-cap-bg:                       rgba($black, .03) !default;
+$card-margin-bottom:                $spacer * 1.5 !default; // CoreUI
+$card-cap-bg:                       $gray-100 !default; // was: rgba($black, .03) !default;
 $card-cap-color:                    null !default;
 $card-color:                        null !default;
 $card-bg:                           $white !default;
@@ -894,6 +1049,11 @@ $card-deck-margin:                  $card-group-margin !default;
 $card-columns-count:                3 !default;
 $card-columns-gap:                  1.25rem !default;
 $card-columns-margin:               $card-spacer-y !default;
+
+// CoreUI specific changes start
+$card-icon-bg:                        transparent !default;
+$card-icon-color:                     $body-color !default;
+// CoreUI specific changes end
 
 
 // Tooltips
@@ -1040,7 +1200,7 @@ $alert-color-level:                 6 !default;
 
 $progress-height:                   1rem !default;
 $progress-font-size:                $font-size-base * .75 !default;
-$progress-bg:                       $gray-200 !default;
+$progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1) !default;
 $progress-bar-color:                $white !default;
@@ -1097,7 +1257,7 @@ $breadcrumb-padding-y:              .75rem !default;
 $breadcrumb-padding-x:              1rem !default;
 $breadcrumb-item-padding:           .5rem !default;
 
-$breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-margin-bottom:          1.5rem !default; // was: 1rem
 
 $breadcrumb-bg:                     $gray-200 !default;
 $breadcrumb-divider-color:          $gray-600 !default;
@@ -1105,6 +1265,16 @@ $breadcrumb-active-color:           $gray-600 !default;
 $breadcrumb-divider:                quote("/") !default;
 
 $breadcrumb-border-radius:          $border-radius !default;
+
+// CoreUI specific changes start
+$breadcrumb-borders: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+// CoreUI specific changes end
 
 
 // Carousel
@@ -1143,6 +1313,44 @@ $spinner-border-width:  .25em !default;
 $spinner-width-sm:        1rem !default;
 $spinner-height-sm:       $spinner-width-sm !default;
 $spinner-border-width-sm: .2em !default;
+
+
+// CoreUI specific changes start
+// Avatars
+
+$avatar-width:                        36px !default;
+$avatar-status-width:                 10px !default;
+
+$avatar-lg-width:                     72px !default;
+$avatar-lg-status-width:              12px !default;
+
+$avatar-sm-width:                     24px !default;
+$avatar-sm-status-width:              8px !default;
+
+$avatar-xs-width:                     20px !default;
+$avatar-xs-status-width:              8px !default;
+
+
+// Switches
+
+$switch-width:                        40px !default;
+$switch-height:                       26px !default;
+$switch-font-size:                    10px !default;
+
+$switch-lg-width:                     48px !default;
+$switch-lg-height:                    30px !default;
+$switch-lg-font-size:                 12px !default;
+
+$switch-sm-width:                     32px !default;
+$switch-sm-height:                    22px !default;
+$switch-sm-font-size:                 8px !default;
+
+$switch-label-width:                  48px !default;
+$switch-label-lg-width:               56px !default;
+$switch-label-sm-width:               40px !default;
+
+$switch-handle-margin:                2px !default;
+// CoreUI specific changes end
 
 
 // Close

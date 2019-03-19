@@ -6,59 +6,75 @@
  * Licensed under MIT (https://coreui.io/license)
  */
 
-// Override Boostrap variables
-@import "variables";
 
-// Import Bootstrap source files
-@import "node_modules/bootstrap/scss/bootstrap"; // from bootstrap node_modules
+ @import "functions";
+ @import "variables";
+ @import "mixins";
+ @import "root";
+ @import "reboot";
 
-// Mixins
-@import "mixins";
+ // Vendors
+ @import "vendors";
 
-// Animations
-@import "animate";
+ // Components
+ @import "alert";
+ @import "aside";
+ @import "avatars";
+ @import "badge";
+ @import "breadcrumb-menu";
+ @import "breadcrumb";
+ @import "brand-card";
+ @import "brand-buttons";
+ @import "button-group";
+ @import "buttons";
+ @import "callout";
+ @import "card";
+ @import "carousel";
+ @import "charts";
+ @import "close";
+ @import "code";
+ @import "custom-forms";
+ @import "dropdown";
+ @import "footer";
+ @import "forms";
+ @import "grid";
+ @import "header";
+ @import "input-group";
+ @import "images";
+ @import "jumbotron";
+ @import "list-group";
+ @import "media";
+ @import "modal";
+ @import "nav";
+ @import "navbar";
+ @import "pagination";
+ @import "popover";
+ @import "progress";
+ @import "progress-group";
+ @import "sidebar";
+ @import "spinners";
+ @import "switches";
+ @import "tables";
+ @import "toasts";
+ @import "tooltip";
+ @import "transitions";
+ @import "type";
+ @import "widgets";
 
-// Vendors
-@import "vendors";
+ @import "animate";
 
-// Components
-@import "aside";
-@import "avatars";
-@import "badge";
-@import "breadcrumb-menu";
-@import "breadcrumb";
-@import "brand-card";
-@import "brand-buttons";
-@import "buttons";
-@import "callout";
-@import "card";
-@import "charts";
-@import "dropdown";
-@import "footer";
-@import "grid";
-@import "header";
-@import "input-group";
-@import "images";
-@import "list-group";
-@import "modal";
-@import "nav";
-@import "progress";
-@import "progress-group";
-@import "sidebar";
-@import "switches";
-@import "tables";
-@import "widgets";
+ // Layout Options
+ @import "layout";
 
-// Layout Options
-@import "layout";
+ @import "others";
 
-@import "others";
+ // Utility classes
+ @import "utilities";
 
-// Utility classes
-@import "utilities";
+ // Right-to-left
+ @import "rtl";
 
-// Right-to-left
-@import "rtl";
+ // Custom Properties support for Internet Explorer
+ @import "ie-custom-properties";
 
-// Custom Properties support for Internet Explorer
-@import "ie-custom-properties";
+ @import "print";
