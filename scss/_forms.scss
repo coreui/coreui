@@ -9,8 +9,7 @@
   width: 100%;
   height: $input-height;
   padding: $input-padding-y $input-padding-x;
-  font-family: $input-font-family;
-  @include font-size($input-font-size);
+  font-size: $input-font-size;
   font-weight: $input-font-weight;
   line-height: $input-line-height;
   color: $input-color;
@@ -19,7 +18,13 @@
   border: $input-border-width solid $input-border-color;
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
-  @include border-radius($input-border-radius, 0);
+  @if $enable-rounded {
+    // Manually use the if/else instead of the mixin to account for iOS override
+    border-radius: $input-border-radius;
+  } @else {
+    // Otherwise undo the iOS default
+    border-radius: 0;
+  }
 
   @include box-shadow($input-box-shadow);
   @include transition($input-transition);
@@ -83,21 +88,21 @@ select.form-control {
   padding-top: calc(#{$input-padding-y} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
   margin-bottom: 0; // Override the `<label>/<legend>` default
-  @include font-size(inherit); // Override the `<legend>` default
+  font-size: inherit; // Override the `<legend>` default
   line-height: $input-line-height;
 }
 
 .col-form-label-lg {
   padding-top: calc(#{$input-padding-y-lg} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y-lg} + #{$input-border-width});
-  @include font-size($input-font-size-lg);
+  font-size: $input-font-size-lg;
   line-height: $input-line-height-lg;
 }
 
 .col-form-label-sm {
   padding-top: calc(#{$input-padding-y-sm} + #{$input-border-width});
   padding-bottom: calc(#{$input-padding-y-sm} + #{$input-border-width});
-  @include font-size($input-font-size-sm);
+  font-size: $input-font-size-sm;
   line-height: $input-line-height-sm;
 }
 
@@ -137,7 +142,7 @@ select.form-control {
 .form-control-sm {
   height: $input-height-sm;
   padding: $input-padding-y-sm $input-padding-x-sm;
-  @include font-size($input-font-size-sm);
+  font-size: $input-font-size-sm;
   line-height: $input-line-height-sm;
   @include border-radius($input-border-radius-sm);
 }
@@ -145,7 +150,7 @@ select.form-control {
 .form-control-lg {
   height: $input-height-lg;
   padding: $input-padding-y-lg $input-padding-x-lg;
-  @include font-size($input-font-size-lg);
+  font-size: $input-font-size-lg;
   line-height: $input-line-height-lg;
   @include border-radius($input-border-radius-lg);
 }
@@ -158,6 +163,7 @@ select.form-control {
   }
 }
 
+// stylelint-disable-next-line no-duplicate-selectors
 textarea.form-control {
   height: auto;
 }
@@ -242,9 +248,8 @@ textarea.form-control {
 // pseudo-classes but also includes `.is-invalid` and `.is-valid` classes for
 // server side validation.
 
-@each $state, $data in $form-validation-states {
-  @include form-validation-state($state, map-get($data, color), map-get($data, icon));
-}
+@include form-validation-state("valid", $form-feedback-valid-color);
+@include form-validation-state("invalid", $form-feedback-invalid-color);
 
 // Inline forms
 //
@@ -313,7 +318,6 @@ textarea.form-control {
     }
     .form-check-input {
       position: relative;
-      flex-shrink: 0;
       margin-top: 0;
       margin-right: $form-check-input-margin-x;
       margin-left: 0;

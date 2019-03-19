@@ -26,12 +26,12 @@
 }
 
 
-@mixin form-validation-state($state, $color, $icon) {
+@mixin form-validation-state($state, $color) {
   .#{$state}-feedback {
     display: none;
     width: 100%;
     margin-top: $form-feedback-margin-top;
-    @include font-size($form-feedback-font-size);
+    font-size: $form-feedback-font-size;
     color: $color;
   }
 
@@ -43,7 +43,7 @@
     max-width: 100%; // Contain to parent when possible
     padding: $form-feedback-tooltip-padding-y $form-feedback-tooltip-padding-x;
     margin-top: .1rem;
-    @include font-size($form-feedback-tooltip-font-size);
+    font-size: $form-feedback-tooltip-font-size;
     line-height: $form-feedback-tooltip-line-height;
     color: color-yiq($color);
     background-color: rgba($color, $form-feedback-tooltip-opacity);
@@ -57,10 +57,15 @@
 
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
-        background-image: $icon;
         background-repeat: no-repeat;
-        background-position: center right $input-height-inner-quarter;
-        background-size: $input-height-inner-half $input-height-inner-half;
+        background-position: center right calc(#{$input-height-inner} / 4);
+        background-size: calc(#{$input-height-inner} / 2) calc(#{$input-height-inner} / 2);
+
+        @if $state == "valid" {
+          background-image: $form-feedback-icon-valid;
+        } @else {
+          background-image: $form-feedback-icon-invalid;
+        }
       }
 
       &:focus {
@@ -81,7 +86,7 @@
     &.is-#{$state} {
       @if $enable-validation-icons {
         padding-right: $input-height-inner;
-        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+        background-position: top calc(#{$input-height-inner} / 4) right calc(#{$input-height-inner} / 4);
       }
     }
   }
@@ -92,8 +97,9 @@
       border-color: $color;
 
       @if $enable-validation-icons {
+        $form-feedback-icon: if($state == "valid", $form-feedback-icon-valid, $form-feedback-icon-invalid);
         padding-right: $custom-select-feedback-icon-padding-right;
-        background: $custom-select-background, $icon $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
+        background: $custom-select-background, $form-feedback-icon no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
       }
 
       &:focus {
