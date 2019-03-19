@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): rgb-to-hex.js
+ * CoreUI (v3.0.0-next): rgb-to-hex.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -26,4 +26,6 @@ var rgbToHex = function rgbToHex(color) {
   var b = "0" + parseInt(rgb[3], 10).toString(16);
   return "#" + r.slice(-2) + g.slice(-2) + b.slice(-2);
 };
+
+export default rgbToHex;
 //# sourceMappingURL=rgb-to-hex.js.map

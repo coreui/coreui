@@ -59,8 +59,6 @@
     "css-prefix-partials": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "css-minify": "cleancss --level 2 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
     "css-minify-partials": "foreach -g \"css/*.css\" -x \"cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output css/#{name}.min.css css/#{name}.css\"",
-    "css-compile-templates": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/themes/dark/coreui-dark.scss dist/css/themes/coreui-dark.css",
-    "css-minify-templates": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/themes/coreui-dark.min.css dist/css/themes/coreui-dark.css",
     "dist": "npm-run-all copy-bootstrap --parallel css js",
     "increment-version": "node build/increment-version.js",
     "js": "npm-run-all js-lint js-compile* js-minify*",

@@ -5,7 +5,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): sidebar.js
+ * CoreUI (v3.0.0-next): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

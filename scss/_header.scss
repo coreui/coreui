@@ -1,62 +1,81 @@
+.#{$prefix}header,
 .app-header {
   position: relative;
+  display: flex;
   flex-direction: row;
   height: $navbar-height;
-  padding: 0;
-  margin: 0;
   background-color: $navbar-bg;
   @include borders($navbar-border);
 
-  .navbar-brand {
+  &-brand {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: $navbar-brand-width;
     height: $navbar-height;
-    padding: 0;
-    margin-right: 0;
     background-color: $navbar-brand-bg;
     @include borders($navbar-brand-border);
 
-    .navbar-brand-minimized {
+    &-minimized {
       display: none;
     }
   }
 
-  .navbar-toggler {
+  &-toggler {
     min-width: 50px;
     padding: $navbar-toggler-padding-y 0;
+    font-size: $navbar-toggler-font-size;
+    line-height: 1;
+    background-color: transparent; // remove default button style
+    border: $border-width solid transparent; // remove default button style
+    @include border-radius($navbar-toggler-border-radius);
 
-    &:hover .navbar-toggler-icon {
+    @include hover-focus {
+      text-decoration: none;
+    }
+
+    // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+    &:not(:disabled):not(.disabled) {
+      cursor: pointer;
+    }
+
+    &:hover &-icon {
       background-image: $navbar-toggler-icon-hover;
     }
   }
 
-  .navbar-toggler-icon {
+  &-toggler-icon {
+    display: inline-block;
+    width: 1.5em;
     height: 23px;
+    vertical-align: middle;
+    content: "";
     background-image: $navbar-toggler-icon;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
   }
 
-  .navbar-nav {
+  .nav {
     flex-direction: row;
     align-items: center;
   }
 
   .nav-item {
-    position: relative;
-    min-width: 50px;
-    margin: 0;
-    text-align: center;
+    // position: relative;
+    // min-width: 50px;
+    // margin: 0;
+    // text-align: center;
 
     button {
       margin: 0 auto;
     }
 
     .nav-link {
-      padding-top: 0;
-      padding-bottom: 0;
-      background: 0;
-      border: 0;
+      // padding-top: 0;
+      // padding-bottom: 0;
+      // background: 0;
+      // border: 0;
 
       .badge {
         position: absolute;
@@ -83,15 +102,7 @@
   }
 }
 
-// .navbar-brand {
-//   color: $navbar-active-color;
-//
-//   @include hover-focus {
-//     color: $navbar-active-color;
-//   }
-// }
-
-.navbar-nav {
+.nav {
   .nav-link {
     color: $navbar-color;
 

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): toggle-classes.js
+ * CoreUI (v3.0.0-next): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -22,4 +22,6 @@ var toggleClasses = function toggleClasses(toggleClass, classNames) {
     document.body.classList.add(toggleClass);
   }
 };
+
+export default toggleClasses;
 //# sourceMappingURL=toggle-classes.js.map

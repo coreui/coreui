@@ -19,7 +19,7 @@ import Util from './util'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): index.js
+ * CoreUI (v3.0.0-next): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -53,7 +53,7 @@ export {
   Modal,
   Popover,
   Scrollspy,
-  Sidebar
+  Sidebar,
   Tab,
   Toast,
   Tooltip

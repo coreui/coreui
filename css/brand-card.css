@@ -1,0 +1,57 @@
+.brand-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  margin-bottom: 1.5rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid #c8ced3;
+  border-radius: 0.25rem;
+}
+
+.brand-card-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 6rem;
+  border-radius: 0.25rem 0.25rem 0 0;
+}
+
+.brand-card-header i {
+  font-size: 2rem;
+  color: #fff;
+}
+
+.brand-card-header .chart-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-card-body {
+  display: flex;
+  flex-direction: row;
+  padding: 0.75rem 0;
+  text-align: center;
+}
+
+.brand-card-body > * {
+  flex: 1;
+  padding: 0.1875rem 0;
+}
+
+.brand-card-body > *:not(:last-child) {
+  border-right: 1px solid #c8ced3;
+}
+
+*[dir="rtl"] .brand-card-body > *:not(:last-child) {
+  border-right: 0;
+  border-left: 1px solid #c8ced3;
+}
+
+/*# sourceMappingURL=brand-card.css.map */

@@ -3,7 +3,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): aside-menu.js
+ * CoreUI (v3.0.0-next): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

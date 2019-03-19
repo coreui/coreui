@@ -1,0 +1,144 @@
+.c-header,
+.app-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  height: 55px;
+  background-color: #fff;
+  border-bottom: 1px solid #c8ced3;
+}
+
+.c-header-brand,
+.app-header-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 155px;
+  height: 55px;
+  background-color: transparent;
+}
+
+.c-header-brand-minimized,
+.app-header-brand-minimized {
+  display: none;
+}
+
+.c-header-toggler,
+.app-header-toggler {
+  min-width: 50px;
+  padding: 0.25rem 0;
+  font-size: 1.09375rem;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.c-header-toggler:hover, .c-header-toggler:focus,
+.app-header-toggler:hover,
+.app-header-toggler:focus {
+  text-decoration: none;
+}
+
+.c-header-toggler:not(:disabled):not(.disabled),
+.app-header-toggler:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
+
+.c-header-toggler:hover .c-header-toggler-icon,
+.app-header-toggler:hover .c-header-toggler-icon, .c-header-toggler:hover
+.app-header-toggler-icon,
+.app-header-toggler:hover
+.app-header-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%232f353a' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.c-header-toggler-icon,
+.app-header-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 23px;
+  vertical-align: middle;
+  content: "";
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%2373818f' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.c-header .nav,
+.app-header .nav {
+  flex-direction: row;
+  align-items: center;
+}
+
+.c-header .nav-item button,
+.app-header .nav-item button {
+  margin: 0 auto;
+}
+
+.c-header .nav-item .nav-link .badge,
+.app-header .nav-item .nav-link .badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -16px;
+  margin-left: 0;
+}
+
+.c-header .nav-item .nav-link > .img-avatar,
+.app-header .nav-item .nav-link > .img-avatar {
+  height: 35px;
+  margin: 0 10px;
+}
+
+.c-header .dropdown-menu,
+.app-header .dropdown-menu {
+  padding-bottom: 0;
+  line-height: 1.5;
+}
+
+.c-header .dropdown-item,
+.app-header .dropdown-item {
+  min-width: 180px;
+}
+
+.nav .nav-link {
+  color: #73818f;
+}
+
+.nav .nav-link:hover, .nav .nav-link:focus {
+  color: #2f353a;
+}
+
+.nav .open > .nav-link, .nav .open > .nav-link:hover, .nav .open > .nav-link:focus,
+.nav .active > .nav-link,
+.nav .active > .nav-link:hover,
+.nav .active > .nav-link:focus,
+.nav .nav-link.open,
+.nav .nav-link.open:hover,
+.nav .nav-link.open:focus,
+.nav .nav-link.active,
+.nav .nav-link.active:hover,
+.nav .nav-link.active:focus {
+  color: #2f353a;
+}
+
+.navbar-divider {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+@media (min-width: 992px) {
+  .brand-minimized .app-header .navbar-brand {
+    width: 50px;
+    background-color: transparent;
+  }
+  .brand-minimized .app-header .navbar-brand .navbar-brand-full {
+    display: none;
+  }
+  .brand-minimized .app-header .navbar-brand .navbar-brand-minimized {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=header.css.map */

@@ -1,0 +1,57 @@
+.chart-wrapper canvas {
+  width: 100%;
+}
+
+base-chart.chart {
+  display: block;
+}
+
+canvas {
+  user-select: none;
+}
+
+.chartjs-tooltip {
+  position: absolute;
+  z-index: 1021;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0.5rem;
+  color: #fff;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  transition: all 0.25s ease;
+  transform: translate(-50%, 0);
+  border-radius: 0.25rem;
+}
+
+.chartjs-tooltip .tooltip-header {
+  margin-bottom: 0.5rem;
+}
+
+.chartjs-tooltip .tooltip-header-item {
+  font-size: 0.765625rem;
+  font-weight: 700;
+}
+
+.chartjs-tooltip .tooltip-body-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.765625rem;
+  white-space: nowrap;
+}
+
+.chartjs-tooltip .tooltip-body-item-color {
+  display: inline-block;
+  width: 0.875rem;
+  height: 0.875rem;
+  margin-right: 0.875rem;
+}
+
+.chartjs-tooltip .tooltip-body-item-value {
+  padding-left: 1rem;
+  margin-left: auto;
+  font-weight: 700;
+}
+
+/*# sourceMappingURL=charts.css.map */

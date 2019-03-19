@@ -10,6 +10,7 @@
 
 // Utilities
 @import "mixins/breakpoints";
+@import "mixins/borders"; // CoreUI specific changes start
 @import "mixins/hover";
 @import "mixins/image";
 @import "mixins/badge";

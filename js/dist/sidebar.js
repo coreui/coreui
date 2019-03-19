@@ -2,12 +2,17 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+import $ from 'jquery';
+import PerfectScrollbar from 'perfect-scrollbar';
+import getStyle from './utilities/get-style';
+import toggleClasses from './toggle-classes';
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): sidebar.js
+ * CoreUI (v3.0.0-next): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
+
 var Sidebar = function ($) {
   /**
    * ------------------------------------------------------------------------
@@ -158,8 +163,8 @@ var Sidebar = function ($) {
           });
         }
       });
-    }; // Private
-
+    } // Private
+    ;
 
     _proto._addMediaQuery = function _addMediaQuery() {
       var sm = getStyle('--breakpoint-sm');
@@ -248,8 +253,8 @@ var Sidebar = function ($) {
 
         document.body.classList.remove('sidebar-show');
       });
-    }; // Static
-
+    } // Static
+    ;
 
     Sidebar._jQueryInterface = function _jQueryInterface() {
       return this.each(function () {
@@ -300,4 +305,6 @@ var Sidebar = function ($) {
 
   return Sidebar;
 }($);
+
+export default Sidebar;
 //# sourceMappingURL=sidebar.js.map

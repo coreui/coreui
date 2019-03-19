@@ -1,13 +1,19 @@
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+import $ from 'jquery';
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): ajax-load.js
+ * CoreUI (v3.0.0-next): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
+
 var AjaxLoad = function ($) {
   /**
    * ------------------------------------------------------------------------
@@ -135,11 +141,11 @@ var AjaxLoad = function ($) {
 
     _proto.loadTop = function loadTop(url) {
       window.location = url;
-    }; // Private
-
+    } // Private
+    ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = Object.assign({}, Default, config);
+      config = _objectSpread({}, Default, config);
       return config;
     };
 
@@ -158,8 +164,8 @@ var AjaxLoad = function ($) {
           _this.setUpUrl(event.currentTarget.getAttribute('href'));
         }
       });
-    }; // Static
-
+    } // Static
+    ;
 
     AjaxLoad._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
@@ -205,4 +211,6 @@ var AjaxLoad = function ($) {
 
   return AjaxLoad;
 }($);
+
+export default AjaxLoad;
 //# sourceMappingURL=ajax-load.js.map

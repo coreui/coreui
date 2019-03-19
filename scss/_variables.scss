@@ -19,6 +19,7 @@ $gray-900:  #23282c !default; // lighten($gray-base, 5%);
 $black:     #000 !default;
 
 $grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $grays: map-merge(
   (
     "100": $gray-100,
@@ -47,6 +48,7 @@ $cyan:       #17a2b8 !default;
 $light-blue: #63c2de !default;
 
 $colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $colors: map-merge(
   (
     "blue":       $blue,
@@ -77,6 +79,7 @@ $light:         $gray-100 !default;
 $dark:          $gray-800 !default;
 
 $theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
     "primary":    $primary,
@@ -121,33 +124,37 @@ $foursquare:     #1073af !default;
 $vimeo:          #aad450 !default;
 
 $brands-colors: () !default;
-$brands-colors: map-merge((
-  "facebook":       $facebook,
-  "twitter":        $twitter,
-  "linkedin":       $linkedin,
-  "google-plus":    $google-plus,
-  "flickr":         $flickr,
-  "tumblr":         $tumblr,
-  "xing":           $xing,
-  "github":         $github,
-  "html5":          $html5,
-  "openid":         $openid,
-  "stack-overflow": $stack-overflow,
-  "youtube":        $youtube,
-  "css3":           $css3,
-  "dribbble":       $dribbble,
-  "instagram":      $instagram,
-  "pinterest":      $pinterest,
-  "vk":             $vk,
-  "yahoo":          $yahoo,
-  "behance":        $behance,
-  "dropbox":        $dropbox,
-  "reddit":         $reddit,
-  "spotify":        $spotify,
-  "vine":           $vine,
-  "foursquare":     $foursquare,
-  "vimeo":          $vimeo
-), $brands-colors);
+// stylelint-disable-next-line scss/dollar-variable-default
+$brands-colors: map-merge(
+  (
+    "facebook":       $facebook,
+    "twitter":        $twitter,
+    "linkedin":       $linkedin,
+    "google-plus":    $google-plus,
+    "flickr":         $flickr,
+    "tumblr":         $tumblr,
+    "xing":           $xing,
+    "github":         $github,
+    "html5":          $html5,
+    "openid":         $openid,
+    "stack-overflow": $stack-overflow,
+    "youtube":        $youtube,
+    "css3":           $css3,
+    "dribbble":       $dribbble,
+    "instagram":      $instagram,
+    "pinterest":      $pinterest,
+    "vk":             $vk,
+    "yahoo":          $yahoo,
+    "behance":        $behance,
+    "dropbox":        $dropbox,
+    "reddit":         $reddit,
+    "spotify":        $spotify,
+    "vine":           $vine,
+    "foursquare":     $foursquare,
+    "vimeo":          $vimeo
+  ),
+  $brands-colors
+);
 
 // Set a specific jump point for requesting color jumps
 $theme-color-interval:      8% !default;
@@ -164,6 +171,8 @@ $yiq-text-light:            $white !default;
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
+$prefix:                                      c- !default; // CoreUI
+$enable-rtl:                                  true !default; // CoreUI
 $enable-caret:                                true !default;
 $enable-rounded:                              true !default;
 $enable-shadows:                              false !default;
@@ -814,7 +823,7 @@ $navbar-border: (
     style:                            solid,
     color:                            $border-color
   )
-)  !default;
+) !default;
 $navbar-brand-width:                  155px !default;
 $navbar-brand-bg:                     transparent !default;
 $navbar-brand-border:                 0 !default;
@@ -853,16 +862,16 @@ $sidebar-borders:                     none !default;
 // Sidebar Header
 
 $sidebar-header-height:               auto !default;
-$sidebar-header-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-header-bg:                   rgba(0, 0, 0, .2) !default;
 $sidebar-header-padding-y:            .75rem !default;
 $sidebar-header-padding-x:            1rem !default;
 
 // Sidebar Form
 
 $sidebar-form-border:                 0 !default;
-$sidebar-form-bg:                     darken($sidebar-bg,10%) !default;
+$sidebar-form-bg:                     darken($sidebar-bg, 10%) !default;
 $sidebar-form-color:                  #fff !default;
-$sidebar-form-placeholder-color:      rgba(255,255,255,.7) !default;
+$sidebar-form-placeholder-color:      rgba(255, 255, 255, .7) !default;
 
 // Sidebar Navigation
 
@@ -894,17 +903,17 @@ $sidebar-nav-link-disabled-icon-color:  $sidebar-nav-link-icon-color !default;
 $sidebar-nav-link-disabled-borders:     0 !default;
 
 $sidebar-nav-dropdown-color:          #fff !default;
-$sidebar-nav-dropdown-bg:             rgba(0,0,0,.2) !default;
+$sidebar-nav-dropdown-bg:             rgba(0, 0, 0, .2) !default;
 $sidebar-nav-dropdown-borders:        0 !default;
-$sidebar-nav-dropdown-indicator-color:$gray-600 !default;
+$sidebar-nav-dropdown-indicator-color: $gray-600 !default;
 $sidebar-nav-dropdown-indicator:      str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-nav-dropdown-indicator-hover-color:$sidebar-nav-link-hover-color;
-$sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-nav-dropdown-indicator-hover-color: $sidebar-nav-link-hover-color !default;
+$sidebar-nav-dropdown-indicator-hover: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // Sidebar Footer
 
 $sidebar-footer-height:               auto !default;
-$sidebar-footer-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-footer-bg:                   rgba(0, 0, 0, .2) !default;
 $sidebar-footer-padding-y:            .75rem !default;
 $sidebar-footer-padding-x:            1rem !default;
 $sidebar-footer-borders:              0 !default;
@@ -912,12 +921,12 @@ $sidebar-footer-borders:              0 !default;
 // Sidebar Minimizer
 
 $sidebar-minimizer-height:            50px !default;
-$sidebar-minimizer-bg:                rgba(0,0,0,.2) !default;
+$sidebar-minimizer-bg:                rgba(0, 0, 0, .2) !default;
 $sidebar-minimizer-borders:           0 !default;
 $sidebar-minimizer-indicator-color:   $gray-600 !default;
 $sidebar-minimizer-indicator:         str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-minimizer-hover-bg:          rgba(0,0,0,.3) !default;
-$sidebar-minimizer-hover-indicator-color:$sidebar-nav-link-hover-color !default;
+$sidebar-minimizer-hover-bg:          rgba(0, 0, 0, .3) !default;
+$sidebar-minimizer-hover-indicator-color: $sidebar-nav-link-hover-color !default;
 $sidebar-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // CoreUI specific changes end
@@ -1387,3 +1396,6 @@ $positions: static, relative, absolute, fixed, sticky !default;
 
 $print-page-size:                   a3 !default;
 $print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+
+// Cursor
+$cursor-disabled: default !default;

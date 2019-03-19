@@ -2,12 +2,15 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+import $ from 'jquery';
+import toggleClasses from './toggle-classes';
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.3): aside-menu.js
+ * CoreUI (v3.0.0-next): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
+
 var AsideMenu = function ($) {
   /**
    * ------------------------------------------------------------------------
@@ -57,8 +60,8 @@ var AsideMenu = function ($) {
         var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
         toggleClasses(toggle, ShowClassNames);
       });
-    }; // Static
-
+    } // Static
+    ;
 
     AsideMenu._jQueryInterface = function _jQueryInterface() {
       return this.each(function () {
@@ -109,4 +112,6 @@ var AsideMenu = function ($) {
 
   return AsideMenu;
 }($);
+
+export default AsideMenu;
 //# sourceMappingURL=aside-menu.js.map

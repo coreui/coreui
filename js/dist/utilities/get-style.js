@@ -1,9 +1,10 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.3): get-style.js
+ * CoreUI Utilities (v3.0.0-next): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
+import getCssCustomProperties from './get-css-custom-properties';
 var minIEVersion = 10;
 
 var isIE1x = function isIE1x() {
@@ -30,4 +31,6 @@ var getStyle = function getStyle(property, element) {
 
   return style;
 };
+
+export default getStyle;
 //# sourceMappingURL=get-style.js.map

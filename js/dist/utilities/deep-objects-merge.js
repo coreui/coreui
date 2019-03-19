@@ -14,4 +14,6 @@ var deepObjectsMerge = function deepObjectsMerge(target, source) {
   Object.assign(target || {}, source);
   return target;
 };
+
+export default deepObjectsMerge;
 //# sourceMappingURL=deep-objects-merge.js.map

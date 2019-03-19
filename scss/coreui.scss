@@ -1,80 +1,79 @@
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.3
+ * @version v3.0.0-next
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
  */
 
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "root";
+@import "reboot";
 
- @import "functions";
- @import "variables";
- @import "mixins";
- @import "root";
- @import "reboot";
+// Vendors
+@import "vendors";
 
- // Vendors
- @import "vendors";
+// Components
+@import "alert";
+@import "aside";
+@import "avatars";
+@import "badge";
+@import "breadcrumb-menu";
+@import "breadcrumb";
+@import "brand-card";
+@import "brand-buttons";
+@import "button-group";
+@import "buttons";
+@import "callout";
+@import "card";
+@import "carousel";
+@import "charts";
+@import "close";
+@import "code";
+@import "custom-forms";
+@import "dropdown";
+@import "footer";
+@import "forms";
+@import "grid";
+@import "header";
+@import "input-group";
+@import "images";
+@import "jumbotron";
+@import "list-group";
+@import "media";
+@import "modal";
+@import "nav";
+@import "navbar";
+@import "pagination";
+@import "popover";
+@import "progress";
+@import "progress-group";
+@import "sidebar";
+@import "spinners";
+@import "switches";
+@import "tables";
+@import "toasts";
+@import "tooltip";
+@import "transitions";
+@import "type";
+@import "widgets";
 
- // Components
- @import "alert";
- @import "aside";
- @import "avatars";
- @import "badge";
- @import "breadcrumb-menu";
- @import "breadcrumb";
- @import "brand-card";
- @import "brand-buttons";
- @import "button-group";
- @import "buttons";
- @import "callout";
- @import "card";
- @import "carousel";
- @import "charts";
- @import "close";
- @import "code";
- @import "custom-forms";
- @import "dropdown";
- @import "footer";
- @import "forms";
- @import "grid";
- @import "header";
- @import "input-group";
- @import "images";
- @import "jumbotron";
- @import "list-group";
- @import "media";
- @import "modal";
- @import "nav";
- @import "navbar";
- @import "pagination";
- @import "popover";
- @import "progress";
- @import "progress-group";
- @import "sidebar";
- @import "spinners";
- @import "switches";
- @import "tables";
- @import "toasts";
- @import "tooltip";
- @import "transitions";
- @import "type";
- @import "widgets";
+@import "animate";
 
- @import "animate";
+// Layout Options
+@import "layout";
 
- // Layout Options
- @import "layout";
+@import "others";
 
- @import "others";
+// Utility classes
+@import "utilities";
 
- // Utility classes
- @import "utilities";
+// Right-to-left
+@import "rtl";
 
- // Right-to-left
- @import "rtl";
+// Custom Properties support for Internet Explorer
+@import "ie-custom-properties";
 
- // Custom Properties support for Internet Explorer
- @import "ie-custom-properties";
-
- @import "print";
+@import "print";
