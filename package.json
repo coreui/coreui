@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "3.0.0",
+  "version": "3.0.0-next",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -44,28 +44,39 @@
     "url": "https://github.com/coreui/coreui.git"
   },
   "scripts": {
-    "copy-bootstrap": "rimraf scss/bootstrap && copyfiles -a \"node_modules/bootstrap/scss/**/*\" -u 3 scss/bootstrap",
-    "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix css-minify*",
+    "bundlesize": "bundlesize",
+    "copy-bootstrap-scss": "rimraf scss/bootstrap && copyfiles -a \"node_modules/bootstrap/scss/**/*\" -u 3 diff/bootstrap",
+    "copy-bootstrap-js": "rimraf js/src/bootstrap && copyfiles -a \"node_modules/bootstrap/js/src/**/*\" -u 4 js/src/bootstrap",
+    "copy-bootstrap": "npm-run-all copy-bootstrap-*",
+    "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix* css-minify*",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui.scss dist/css/coreui.css",
-    "css-lint": "stylelint --config build/.stylelintrc --syntax scss \"scss/**/*.scss\"",
+    "css-compile-partials": "node build/scss-partials.js && rimraf css && foreach -g \"scss/partials/*.scss\" -x \"node-sass --include-path scss --output-style expanded --source-map true --source-map-contents true --precision 6 scss/partials/#{name}.scss css/#{name}.css\"",
+    "css-diff": "css-ast-diff dist/css/coreui.css dist/css/themes/coreui-dark.css",
+    "css-lint": "npm-run-all --parallel css-lint-*",
+    "css-lint-styles": "stylelint --syntax scss \"scss/**/*.scss\"",
+    "css-lint-vars": "fusv scss/",
     "css-prefix": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
-    "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
-    "css-compile-bootstrap": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/bootstrap.scss dist/css/bootstrap.css",
-    "css-minify-bootstrap": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/bootstrap.min.css dist/css/bootstrap.css",
-    "css-compile-standalone": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui-standalone.scss dist/css/coreui-standalone.css",
-    "css-minify-standalone": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/coreui-standalone.min.css dist/css/coreui-standalone.css",
+    "css-prefix-partials": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
+    "css-minify": "cleancss --level 2 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
+    "css-minify-partials": "foreach -g \"css/*.css\" -x \"cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output css/#{name}.min.css css/#{name}.css\"",
+    "css-compile-templates": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/themes/dark/coreui-dark.scss dist/css/themes/coreui-dark.css",
+    "css-minify-templates": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/themes/coreui-dark.min.css dist/css/themes/coreui-dark.css",
     "dist": "npm-run-all copy-bootstrap --parallel css js",
     "increment-version": "node build/increment-version.js",
     "js": "npm-run-all js-lint js-compile* js-minify*",
     "js-lint": "eslint js/",
+    "js-lint-build": "eslint build/",
     "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
+    "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",
     "js-compile-plugins": "cross-env PLUGINS=true babel js/src/ --out-dir js/dist/ --source-maps",
     "js-compile-utilities": "rollup --environment BUNDLE:false --config build/rollup.config.utilities.js --sourcemap",
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",
+    "js-minify-bundle": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.bundle.js.map,includeSources,url=coreui.bundle.min.js.map\" --output dist/js/coreui.bundle.min.js dist/js/coreui.bundle.js",
     "js-minify-utilities": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui-utilities.js.map,includeSources,url=coreui-utilities.min.js.map\" --output dist/js/coreui-utilities.min.js dist/js/coreui-utilities.js",
     "postinstall": "coreui-plugin-npm-postinstall",
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 coreui-$npm_package_version-dist.zip * && shx mv coreui-$npm_package_version-dist.zip ..",
+    "test": "npm-run-all css-lint js-lint dist bundlesize",
     "watch": "npm-run-all --parallel watch-css watch-js",
     "watch-js": "nodemon --ignore js/dist/ --ignore dist/ -e js -x \"npm-run-all js-compile* js-minify*\"",
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
@@ -73,51 +84,85 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
-    "bootstrap": "^4.1.3"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.1.5",
-    "@babel/core": "^7.1.6",
-    "@babel/plugin-external-helpers": "^7.0.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.0.0",
-    "@babel/plugin-transform-runtime": "^7.1.0",
-    "@babel/preset-env": "^7.1.6",
-    "autoprefixer": "^9.3.1",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-istanbul": "^5.1.0",
-    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "clean-css-cli": "^4.2.1",
-    "copyfiles": "^2.1.0",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.9.0",
-    "eslint-plugin-compat": "^2.6.2",
-    "node-sass": "^4.10.0",
-    "nodemon": "^1.18.7",
-    "npm-run-all": "^4.1.5",
-    "postcss-cli": "^6.0.1",
-    "rimraf": "^2.6.2",
-    "rollup": "^0.67.3",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^3.4.0",
-    "semver": "^5.6.0",
-    "shelljs": "^0.8.3",
-    "shx": "^0.3.2",
-    "stylelint": "^9.8.0",
-    "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^1.0.0",
-    "stylelint-scss": "^3.4.0",
-    "uglify-js": "^3.4.9"
+    "bootstrap": "^4.2.1",
+    "css-ast-diff": "^1.1.0",
+    "get-sass-vars": "^2.0.0",
+    "scss-to-json": "^2.0.0"
   },
   "peerDependencies": {
     "jquery": "1.9.1 - 3",
     "perfect-scrollbar": "^1.3.0",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.6"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "autoprefixer": "^9.4.2",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
+    "bundlesize": "^0.17.0",
+    "clean-css-cli": "^4.2.1",
+    "copyfiles": "^2.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.10.0",
+    "eslint-plugin-compat": "^2.6.2",
+    "find-unused-sass-variables": "^0.3.1",
+    "foreach-cli": "^1.8.1",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.8",
+    "npm-run-all": "^4.1.5",
+    "perfect-scrollbar": "^1.3.0",
+    "popper.js": "^1.14.6",
+    "postcss-cli": "^6.0.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.67.4",
+    "rollup-plugin-babel": "^4.1.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "semver": "^5.6.0",
+    "shelljs": "^0.8.3",
+    "shx": "^0.3.2",
+    "stylelint": "^9.9.0",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-order": "^2.0.0",
+    "stylelint-scss": "^3.4.1",
+    "uglify-js": "^3.4.9"
   },
   "engines": {
     "node": ">= 8",
     "npm": ">= 5"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/css/coreui.css",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./dist/css/coreui.min.css",
+      "maxSize": "22.5 kB"
+    },
+    {
+      "path": "./dist/js/coreui.bundle.js",
+      "maxSize": "45 kB"
+    },
+    {
+      "path": "./dist/js/coreui.bundle.min.js",
+      "maxSize": "25 kB"
+    },
+    {
+      "path": "./dist/js/coreui.js",
+      "maxSize": "23 kB"
+    },
+    {
+      "path": "./dist/js/coreui.min.js",
+      "maxSize": "15 kB"
+    }
+  ]
 }

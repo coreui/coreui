@@ -1,17 +1,8 @@
 module.exports = {
   presets: [
     [
-      '@babel/preset-env',
+      '@babel/env',
       {
-        'targets': {
-          ie: 11,
-          ie: 10,
-          'browsers': [
-            "> 1%",
-            "IE 10"
-          ]
-        },
-        useBuiltIns: 'usage',
         loose: true,
         modules: false,
         exclude: ['transform-typeof-symbol']
@@ -19,13 +10,8 @@ module.exports = {
     ]
   ],
   plugins: [
-    process.env.PLUGINS && 'transform-es2015-modules-strip',
-    ['@babel/proposal-object-rest-spread', {
-      loose: true,
-      useBuiltIns: true
-    }],
-    '@babel/plugin-proposal-throw-expressions'
-  ].filter(Boolean),
+    '@babel/plugin-proposal-object-rest-spread'
+  ],
   env: {
     test: {
       plugins: [ 'istanbul' ]
