@@ -18,13 +18,17 @@
 
 // // Components
 @import "mixins/alert";
+@import "mixins/avatars"; // CoreUI specific changes start
 @import "mixins/buttons";
+@import "mixins/card-accent"; // CoreUI specific changes start
 @import "mixins/caret";
 @import "mixins/pagination";
 @import "mixins/lists";
 @import "mixins/list-group";
 @import "mixins/nav-divider";
 @import "mixins/forms";
+@import "mixins/sidebar-width"; // CoreUI specific changes start, ToDo: refactor
+@import "mixins/switches";  // CoreUI specific changes start
 @import "mixins/table-row";
 
 // // Skins

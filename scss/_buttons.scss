@@ -47,6 +47,15 @@
       @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
     }
   }
+
+  // CoreUI start
+  [class^="icon-"],
+  [class*=" icon-"] {
+    display: inline-block;
+    margin-top: -2px;
+    vertical-align: middle;
+  }
+  // CoreUI end
 }
 
 // Future-proof disabling of clicks on `<a>` elements

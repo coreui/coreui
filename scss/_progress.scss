@@ -32,3 +32,21 @@
 .progress-bar-animated {
   animation: progress-bar-stripes $progress-bar-animation-timing;
 }
+
+// CoreUI specific changes start
+.progress-xs {
+  height: 4px;
+}
+
+.progress-sm {
+  height: 8px;
+}
+
+// White progress bar
+.progress-white {
+  background-color: rgba(255, 255, 255, .2);
+  .progress-bar {
+    background-color: #fff;
+  }
+}
+// CoreUI specific changes end

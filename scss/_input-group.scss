@@ -90,8 +90,20 @@
   }
 }
 
-.input-group-prepend { margin-right: -$input-border-width; }
-.input-group-append { margin-left: -$input-border-width; }
+.input-group-prepend {
+  margin-right: -$input-border-width;
+  // CoreUI start
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+  // CoreUI end
+}
+.input-group-append {
+  margin-left: -$input-border-width;
+  // CoreUI start
+  white-space: nowrap;
+  vertical-align: middle; // Match the inputs
+  // CoreUI end
+}
 
 
 // Textual addons

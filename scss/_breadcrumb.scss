@@ -6,6 +6,8 @@
   list-style: none;
   background-color: $breadcrumb-bg;
   @include border-radius($breadcrumb-border-radius);
+  @include borders($breadcrumb-borders); // CoreUI
+
 }
 
 .breadcrumb-item {
@@ -39,3 +41,16 @@
     color: $breadcrumb-active-color;
   }
 }
+
+// CoreUI start
+*[dir="rtl"] {
+  .breadcrumb-item::before {
+    padding-right: 0;
+    padding-left: $breadcrumb-item-padding;
+  }
+  .breadcrumb-item {
+    padding-right: $breadcrumb-item-padding;
+    padding-left: 0;
+  }
+}
+// CoreUI end
