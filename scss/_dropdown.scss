@@ -67,3 +67,17 @@
     }
   }
 }
+
+*[dir="rtl"] {
+  .dropdown-toggle {
+    &::before {
+      margin-right: 0;
+      margin-left: $caret-spacing;
+    }
+
+    &::after {
+      margin-right: $caret-spacing;
+      margin-left: 0;
+    }
+  }
+}
