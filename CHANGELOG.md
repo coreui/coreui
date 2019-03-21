@@ -1,3 +1,18 @@
+## v2.1.9
+- fix(dropdown): rtl caret spacing
+- fix(input-group): rtl append, prepend border radius and margins
+- fix(rtl): rtl float, margin and padding
+- fix(button-group): rtl margin and border-radius
+###### Dependencies update:
+- update `@babel/core` to `^7.4.0`
+- update `@babel/plugin-proposal-object-rest-spread` to `^7.4.0`
+- update `@babel/plugin-transform-runtime` to `^7.4.0`
+- update `@babel/preset-env` to `^7.4.2`
+- update `autoprefixer` to `^9.5.0`
+- update `eslint` to `^5.15.3`
+- update `rollup` to `^1.7.0`
+- update `uglify-js` to `^3.5.1`
+
 ## v2.1.8
 - fix(scss): `cssnano` mangles `background-position` temp fix (re: BS4 misplaced validation feedback icons)
 ###### Dependencies update:

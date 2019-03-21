@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.1.8 (https://coreui.io)
+  * CoreUI v2.1.9 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -27,7 +27,7 @@
   }
 
   var _core = createCommonjsModule(function (module) {
-  var core = module.exports = { version: '2.6.1' };
+  var core = module.exports = { version: '2.6.5' };
   if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
   });
   var _core_1 = _core.version;
@@ -41,8 +41,6 @@
   if (typeof __g == 'number') __g = global; // eslint-disable-line no-undef
   });
 
-  var _library = false;
-
   var _shared = createCommonjsModule(function (module) {
   var SHARED = '__core-js_shared__';
   var store = _global[SHARED] || (_global[SHARED] = {});
@@ -51,8 +49,8 @@
     return store[key] || (store[key] = value !== undefined ? value : {});
   })('versions', []).push({
     version: _core.version,
-    mode: _library ? 'pure' : 'global',
-    copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
+    mode: 'global',
+    copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
   });
   });
 
@@ -336,14 +334,16 @@
     return hasOwnProperty.call(it, key);
   };
 
+  var _functionToString = _shared('native-function-to-string', Function.toString);
+
   var _redefine = createCommonjsModule(function (module) {
   var SRC = _uid('src');
+
   var TO_STRING = 'toString';
-  var $toString = Function[TO_STRING];
-  var TPL = ('' + $toString).split(TO_STRING);
+  var TPL = ('' + _functionToString).split(TO_STRING);
 
   _core.inspectSource = function (it) {
-    return $toString.call(it);
+    return _functionToString.call(it);
   };
 
   (module.exports = function (O, key, val, safe) {
@@ -363,7 +363,7 @@
     }
   // add fake Function#toString for correct work wrapped methods / constructors with methods like LoDash isNative
   })(Function.prototype, TO_STRING, function toString() {
-    return typeof this == 'function' && this[SRC] || $toString.call(this);
+    return typeof this == 'function' && this[SRC] || _functionToString.call(this);
   });
   });
 
@@ -528,9 +528,10 @@
   var $SPLIT = 'split';
   var LENGTH = 'length';
   var LAST_INDEX$1 = 'lastIndex';
+  var MAX_UINT32 = 0xffffffff;
 
-  // eslint-disable-next-line no-empty
-  var SUPPORTS_Y = !!(function () { try { return new RegExp('x', 'y'); } catch (e) {} })();
+  // babel-minify transpiles RegExp('x', 'y') -> /x/y and it causes SyntaxError
+  var SUPPORTS_Y = !_fails(function () { });
 
   // @@split logic
   _fixReWks('split', 2, function (defined, SPLIT, $split, maybeCallNative) {
@@ -555,7 +556,7 @@
                     (separator.unicode ? 'u' : '') +
                     (separator.sticky ? 'y' : '');
         var lastLastIndex = 0;
-        var splitLimit = limit === undefined ? 4294967295 : limit >>> 0;
+        var splitLimit = limit === undefined ? MAX_UINT32 : limit >>> 0;
         // Make `global` and avoid `lastIndex` issues by working with a copy
         var separatorCopy = new RegExp(separator.source, flags + 'g');
         var match, lastIndex, lastLength;
@@ -609,14 +610,14 @@
 
         var unicodeMatching = rx.unicode;
         var flags = (rx.ignoreCase ? 'i' : '') +
-                      (rx.multiline ? 'm' : '') +
-                      (rx.unicode ? 'u' : '') +
-                      (SUPPORTS_Y ? 'y' : 'g');
+                    (rx.multiline ? 'm' : '') +
+                    (rx.unicode ? 'u' : '') +
+                    (SUPPORTS_Y ? 'y' : 'g');
 
         // ^(? + rx + ) is needed, in combination with some S slicing, to
         // simulate the 'y' flag.
         var splitter = new C(SUPPORTS_Y ? rx : '^(?:' + rx.source + ')', flags);
-        var lim = limit === undefined ? 0xffffffff : limit >>> 0;
+        var lim = limit === undefined ? MAX_UINT32 : limit >>> 0;
         if (lim === 0) return [];
         if (S.length === 0) return _regexpExecAbstract(splitter, S) === null ? [S] : [];
         var p = 0;
@@ -647,19 +648,56 @@
     ];
   });
 
-  // 22.1.3.31 Array.prototype[@@unscopables]
-  var UNSCOPABLES = _wks('unscopables');
-  var ArrayProto = Array.prototype;
-  if (ArrayProto[UNSCOPABLES] == undefined) _hide(ArrayProto, UNSCOPABLES, {});
-  var _addToUnscopables = function (key) {
-    ArrayProto[UNSCOPABLES][key] = true;
-  };
+  /*
+  * required polyfills
+  */
+  // eslint-disable-next-line consistent-return
+  (function () {
+    if (typeof NodeList.prototype.forEach === 'function') {
+      return false;
+    }
 
-  var _iterStep = function (done, value) {
-    return { value: value, done: !!done };
-  };
+    NodeList.prototype.forEach = Array.prototype.forEach;
+  })();
+  /** IE9, IE10 and IE11 requires all of the following polyfills. **/
+  // import 'core-js/es6/symbol'
+  // import 'core-js/es6/object'
+  // import 'core-js/es6/function'
+  // import 'core-js/es6/parse-int'
+  // import 'core-js/es6/parse-float'
+  // import 'core-js/es6/number'
+  // import 'core-js/es6/math'
+  // import 'core-js/es6/string'
+  // import 'core-js/es6/date'
+  // import 'core-js/es6/array'
+  // import 'core-js/es6/regexp'
+  // import 'core-js/es6/map'
+  // import 'core-js/es6/weak-map'
+  // import 'core-js/es6/set'
+  // import 'core-js/es7/object'
 
-  var _iterators = {};
+  /** IE10 and IE11 requires the following for the Reflect API. */
+  // import 'core-js/es6/reflect'
+
+  /** Evergreen browsers require these. **/
+  // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
+  // import 'core-js/es7/reflect'
+  // CustomEvent() constructor functionality in IE9, IE10, IE11
+  // (function () {
+  //
+  //   if ( typeof window.CustomEvent === "function" ) return false
+  //
+  //   function CustomEvent ( event, params ) {
+  //     params = params || { bubbles: false, cancelable: false, detail: undefined }
+  //     var evt = document.createEvent( 'CustomEvent' )
+  //     evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail )
+  //     return evt
+  //   }
+  //
+  //   CustomEvent.prototype = window.Event.prototype
+  //
+  //   window.CustomEvent = CustomEvent
+  // })()
 
   // fallback for non-array-like ES3 and non-enumerable old V8 strings
 
@@ -741,6 +779,65 @@
     return _objectKeysInternal(O, _enumBugKeys);
   };
 
+  var f$1 = Object.getOwnPropertySymbols;
+
+  var _objectGops = {
+  	f: f$1
+  };
+
+  var f$2 = {}.propertyIsEnumerable;
+
+  var _objectPie = {
+  	f: f$2
+  };
+
+  // 7.1.13 ToObject(argument)
+
+  var _toObject = function (it) {
+    return Object(_defined(it));
+  };
+
+  // 19.1.2.1 Object.assign(target, source, ...)
+
+
+
+
+
+  var $assign = Object.assign;
+
+  // should work with symbols and should have deterministic property order (V8 bug)
+  var _objectAssign = !$assign || _fails(function () {
+    var A = {};
+    var B = {};
+    // eslint-disable-next-line no-undef
+    var S = Symbol();
+    var K = 'abcdefghijklmnopqrst';
+    A[S] = 7;
+    K.split('').forEach(function (k) { B[k] = k; });
+    return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
+  }) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+    var T = _toObject(target);
+    var aLen = arguments.length;
+    var index = 1;
+    var getSymbols = _objectGops.f;
+    var isEnum = _objectPie.f;
+    while (aLen > index) {
+      var S = _iobject(arguments[index++]);
+      var keys = getSymbols ? _objectKeys(S).concat(getSymbols(S)) : _objectKeys(S);
+      var length = keys.length;
+      var j = 0;
+      var key;
+      while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
+    } return T;
+  } : $assign;
+
+  // 19.1.3.1 Object.assign(target, source)
+
+
+  _export(_export.S + _export.F, 'Object', { assign: _objectAssign });
+
+  var _iterators = {};
+
   var _objectDps = _descriptors ? Object.defineProperties : function defineProperties(O, Properties) {
     _anObject(O);
     var keys = _objectKeys(Properties);
@@ -814,12 +911,6 @@
     _setToStringTag(Constructor, NAME + ' Iterator');
   };
 
-  // 7.1.13 ToObject(argument)
-
-  var _toObject = function (it) {
-    return Object(_defined(it));
-  };
-
   // 19.1.2.9 / 15.2.3.2 Object.getPrototypeOf(O)
 
 
@@ -867,7 +958,7 @@
         // Set @@toStringTag to native iterators
         _setToStringTag(IteratorPrototype, TAG, true);
         // fix for some old engines
-        if (!_library && typeof IteratorPrototype[ITERATOR] != 'function') _hide(IteratorPrototype, ITERATOR, returnThis);
+        if (typeof IteratorPrototype[ITERATOR] != 'function') _hide(IteratorPrototype, ITERATOR, returnThis);
       }
     }
     // fix Array#{values, @@iterator}.name in V8 / FF
@@ -876,7 +967,7 @@
       $default = function values() { return $native.call(this); };
     }
     // Define iterator
-    if ((!_library || FORCED) && (BUGGY || VALUES_BUG || !proto[ITERATOR])) {
+    if (BUGGY || VALUES_BUG || !proto[ITERATOR]) {
       _hide(proto, ITERATOR, $default);
     }
     // Plug for library
@@ -894,189 +985,6 @@
     }
     return methods;
   };
-
-  // 22.1.3.4 Array.prototype.entries()
-  // 22.1.3.13 Array.prototype.keys()
-  // 22.1.3.29 Array.prototype.values()
-  // 22.1.3.30 Array.prototype[@@iterator]()
-  var es6_array_iterator = _iterDefine(Array, 'Array', function (iterated, kind) {
-    this._t = _toIobject(iterated); // target
-    this._i = 0;                   // next index
-    this._k = kind;                // kind
-  // 22.1.5.2.1 %ArrayIteratorPrototype%.next()
-  }, function () {
-    var O = this._t;
-    var kind = this._k;
-    var index = this._i++;
-    if (!O || index >= O.length) {
-      this._t = undefined;
-      return _iterStep(1);
-    }
-    if (kind == 'keys') return _iterStep(0, index);
-    if (kind == 'values') return _iterStep(0, O[index]);
-    return _iterStep(0, [index, O[index]]);
-  }, 'values');
-
-  // argumentsList[@@iterator] is %ArrayProto_values% (9.4.4.6, 9.4.4.7)
-  _iterators.Arguments = _iterators.Array;
-
-  _addToUnscopables('keys');
-  _addToUnscopables('values');
-  _addToUnscopables('entries');
-
-  var ITERATOR$1 = _wks('iterator');
-  var TO_STRING_TAG = _wks('toStringTag');
-  var ArrayValues = _iterators.Array;
-
-  var DOMIterables = {
-    CSSRuleList: true, // TODO: Not spec compliant, should be false.
-    CSSStyleDeclaration: false,
-    CSSValueList: false,
-    ClientRectList: false,
-    DOMRectList: false,
-    DOMStringList: false,
-    DOMTokenList: true,
-    DataTransferItemList: false,
-    FileList: false,
-    HTMLAllCollection: false,
-    HTMLCollection: false,
-    HTMLFormElement: false,
-    HTMLSelectElement: false,
-    MediaList: true, // TODO: Not spec compliant, should be false.
-    MimeTypeArray: false,
-    NamedNodeMap: false,
-    NodeList: true,
-    PaintRequestList: false,
-    Plugin: false,
-    PluginArray: false,
-    SVGLengthList: false,
-    SVGNumberList: false,
-    SVGPathSegList: false,
-    SVGPointList: false,
-    SVGStringList: false,
-    SVGTransformList: false,
-    SourceBufferList: false,
-    StyleSheetList: true, // TODO: Not spec compliant, should be false.
-    TextTrackCueList: false,
-    TextTrackList: false,
-    TouchList: false
-  };
-
-  for (var collections = _objectKeys(DOMIterables), i = 0; i < collections.length; i++) {
-    var NAME = collections[i];
-    var explicit = DOMIterables[NAME];
-    var Collection = _global[NAME];
-    var proto = Collection && Collection.prototype;
-    var key;
-    if (proto) {
-      if (!proto[ITERATOR$1]) _hide(proto, ITERATOR$1, ArrayValues);
-      if (!proto[TO_STRING_TAG]) _hide(proto, TO_STRING_TAG, NAME);
-      _iterators[NAME] = ArrayValues;
-      if (explicit) for (key in es6_array_iterator) if (!proto[key]) _redefine(proto, key, es6_array_iterator[key], true);
-    }
-  }
-
-  /*
-  * required polyfills
-  */
-  // eslint-disable-next-line consistent-return
-  (function () {
-    if (typeof NodeList.prototype.forEach === 'function') {
-      return false;
-    }
-
-    NodeList.prototype.forEach = Array.prototype.forEach;
-  })();
-  /** IE9, IE10 and IE11 requires all of the following polyfills. **/
-  // import 'core-js/es6/symbol'
-  // import 'core-js/es6/object'
-  // import 'core-js/es6/function'
-  // import 'core-js/es6/parse-int'
-  // import 'core-js/es6/parse-float'
-  // import 'core-js/es6/number'
-  // import 'core-js/es6/math'
-  // import 'core-js/es6/string'
-  // import 'core-js/es6/date'
-  // import 'core-js/es6/array'
-  // import 'core-js/es6/regexp'
-  // import 'core-js/es6/map'
-  // import 'core-js/es6/weak-map'
-  // import 'core-js/es6/set'
-  // import 'core-js/es7/object'
-
-  /** IE10 and IE11 requires the following for the Reflect API. */
-  // import 'core-js/es6/reflect'
-
-  /** Evergreen browsers require these. **/
-  // Used for reflect-metadata in JIT. If you use AOT (and only Angular decorators), you can remove.
-  // import 'core-js/es7/reflect'
-  // CustomEvent() constructor functionality in IE9, IE10, IE11
-  // (function () {
-  //
-  //   if ( typeof window.CustomEvent === "function" ) return false
-  //
-  //   function CustomEvent ( event, params ) {
-  //     params = params || { bubbles: false, cancelable: false, detail: undefined }
-  //     var evt = document.createEvent( 'CustomEvent' )
-  //     evt.initCustomEvent( event, params.bubbles, params.cancelable, params.detail )
-  //     return evt
-  //   }
-  //
-  //   CustomEvent.prototype = window.Event.prototype
-  //
-  //   window.CustomEvent = CustomEvent
-  // })()
-
-  var f$1 = Object.getOwnPropertySymbols;
-
-  var _objectGops = {
-  	f: f$1
-  };
-
-  var f$2 = {}.propertyIsEnumerable;
-
-  var _objectPie = {
-  	f: f$2
-  };
-
-  // 19.1.2.1 Object.assign(target, source, ...)
-
-
-
-
-
-  var $assign = Object.assign;
-
-  // should work with symbols and should have deterministic property order (V8 bug)
-  var _objectAssign = !$assign || _fails(function () {
-    var A = {};
-    var B = {};
-    // eslint-disable-next-line no-undef
-    var S = Symbol();
-    var K = 'abcdefghijklmnopqrst';
-    A[S] = 7;
-    K.split('').forEach(function (k) { B[k] = k; });
-    return $assign({}, A)[S] != 7 || Object.keys($assign({}, B)).join('') != K;
-  }) ? function assign(target, source) { // eslint-disable-line no-unused-vars
-    var T = _toObject(target);
-    var aLen = arguments.length;
-    var index = 1;
-    var getSymbols = _objectGops.f;
-    var isEnum = _objectPie.f;
-    while (aLen > index) {
-      var S = _iobject(arguments[index++]);
-      var keys = getSymbols ? _objectKeys(S).concat(getSymbols(S)) : _objectKeys(S);
-      var length = keys.length;
-      var j = 0;
-      var key;
-      while (length > j) if (isEnum.call(S, key = keys[j++])) T[key] = S[key];
-    } return T;
-  } : $assign;
-
-  // 19.1.3.1 Object.assign(target, source)
-
-
-  _export(_export.S + _export.F, 'Object', { assign: _objectAssign });
 
   var $at = _stringAt(true);
 
@@ -1110,11 +1018,11 @@
 
   // check on default Array iterator
 
-  var ITERATOR$2 = _wks('iterator');
-  var ArrayProto$1 = Array.prototype;
+  var ITERATOR$1 = _wks('iterator');
+  var ArrayProto = Array.prototype;
 
   var _isArrayIter = function (it) {
-    return it !== undefined && (_iterators.Array === it || ArrayProto$1[ITERATOR$2] === it);
+    return it !== undefined && (_iterators.Array === it || ArrayProto[ITERATOR$1] === it);
   };
 
   var _createProperty = function (object, index, value) {
@@ -1122,19 +1030,19 @@
     else object[index] = value;
   };
 
-  var ITERATOR$3 = _wks('iterator');
+  var ITERATOR$2 = _wks('iterator');
 
   var core_getIteratorMethod = _core.getIteratorMethod = function (it) {
-    if (it != undefined) return it[ITERATOR$3]
+    if (it != undefined) return it[ITERATOR$2]
       || it['@@iterator']
       || _iterators[_classof(it)];
   };
 
-  var ITERATOR$4 = _wks('iterator');
+  var ITERATOR$3 = _wks('iterator');
   var SAFE_CLOSING = false;
 
   try {
-    var riter = [7][ITERATOR$4]();
+    var riter = [7][ITERATOR$3]();
     riter['return'] = function () { SAFE_CLOSING = true; };
   } catch (e) { /* empty */ }
 
@@ -1143,9 +1051,9 @@
     var safe = false;
     try {
       var arr = [7];
-      var iter = arr[ITERATOR$4]();
+      var iter = arr[ITERATOR$3]();
       iter.next = function () { return { done: safe = true }; };
-      arr[ITERATOR$4] = function () { return iter; };
+      arr[ITERATOR$3] = function () { return iter; };
       exec(arr);
     } catch (e) { /* empty */ }
     return safe;
@@ -1276,12 +1184,12 @@
             break;
           default: // \d\d?
             var n = +ch;
-            if (n === 0) return ch;
+            if (n === 0) return match;
             if (n > m) {
               var f = floor$1(n / 10);
-              if (f === 0) return ch;
+              if (f === 0) return match;
               if (f <= m) return captures[f - 1] === undefined ? ch.charAt(1) : captures[f - 1] + ch.charAt(1);
-              return ch;
+              return match;
             }
             capture = captures[n - 1];
         }
@@ -1308,7 +1216,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): ajax-load.js
+   * CoreUI (v2.1.9): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1320,7 +1228,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.1.8';
+    var VERSION = '2.1.9';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $.fn[NAME];
     var ClassName = {
@@ -1513,7 +1421,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): toggle-classes.js
+   * CoreUI (v2.1.9): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1538,7 +1446,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): aside-menu.js
+   * CoreUI (v2.1.9): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1550,7 +1458,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.1.8';
+    var VERSION = '2.1.9';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -1718,6 +1626,14 @@
     };
   };
 
+  // 22.1.3.31 Array.prototype[@@unscopables]
+  var UNSCOPABLES = _wks('unscopables');
+  var ArrayProto$1 = Array.prototype;
+  if (ArrayProto$1[UNSCOPABLES] == undefined) _hide(ArrayProto$1, UNSCOPABLES, {});
+  var _addToUnscopables = function (key) {
+    ArrayProto$1[UNSCOPABLES][key] = true;
+  };
+
   // 22.1.3.8 Array.prototype.find(predicate, thisArg = undefined)
 
   var $find = _arrayMethods(5);
@@ -1768,7 +1684,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.8): get-css-custom-properties.js
+   * CoreUI Utilities (v2.1.9): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -1836,7 +1752,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): sidebar.js
+   * CoreUI (v2.1.9): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1848,7 +1764,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.1.8';
+    var VERSION = '2.1.9';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -2136,7 +2052,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.8): hex-to-rgb.js
+   * CoreUI Utilities (v2.1.9): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2172,7 +2088,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.8): hex-to-rgba.js
+   * CoreUI Utilities (v2.1.9): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2237,9 +2153,19 @@
     });
   }
 
+  // 19.1.3.6 Object.prototype.toString()
+
+  var test = {};
+  test[_wks('toStringTag')] = 'z';
+  if (test + '' != '[object z]') {
+    _redefine(Object.prototype, 'toString', function toString() {
+      return '[object ' + _classof(this) + ']';
+    }, true);
+  }
+
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): rgb-to-hex.js
+   * CoreUI (v2.1.9): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2268,7 +2194,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.8): index.js
+   * CoreUI (v2.1.9): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
