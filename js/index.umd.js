@@ -10,6 +10,7 @@ import Alert from './src/alert'
 import AsideMenu from './src/aside-menu'
 import Button from './src/button'
 import Carousel from './src/carousel'
+import ClassToggler from './src/class-toggler'
 import Collapse from './src/collapse'
 import Dropdown from './src/dropdown'
 import Modal from './src/modal'
@@ -28,6 +29,7 @@ export default {
   AsideMenu,
   Button,
   Carousel,
+  ClassToggler,
   Collapse,
   Dropdown,
   Modal,
