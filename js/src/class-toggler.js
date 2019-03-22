@@ -27,10 +27,14 @@ const Default = {
   target : 'body'
 }
 
+const ClassName = {
+  CLASS_TOGGLER : 'c-class-toggler'
+}
+
 const Event = {
-  CLICK         : 'click',
-  LOAD_DATA_API : `load${EVENT_KEY}${DATA_API_KEY}`,
-  TOGGLE        : 'toggle'
+  CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`,
+  LOAD_DATA_API  : `load${EVENT_KEY}${DATA_API_KEY}`,
+  TOGGLE         : 'toggle'
 }
 
 const Selector = {
@@ -47,7 +51,6 @@ const Selector = {
 class ClassToggler {
   constructor(element) {
     this._element = element
-    this._addEventListeners()
   }
 
   // Getters
@@ -56,8 +59,9 @@ class ClassToggler {
     return VERSION
   }
 
-  // Private
-  _toggle(data) {
+  // Public
+  toggle() {
+    const data = this._element.dataset
     let breakpoints = (data.breakpoints ? data.breakpoints : Default.breakpoints).replace(/ /g, '').split(',')
     const classNames = data.classes.replace(/ /g, '').split(',')
     const postfix = data.postfix ? data.postfix : Default.postfix
@@ -105,26 +109,20 @@ class ClassToggler {
     })
   }
 
-  _addEventListeners() {
-    $(document).on(Event.CLICK, Selector.CLASS_TOGGLER, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-
-      const data = event.currentTarget.dataset
-      this._toggle(data)
-    })
-  }
-
   // Static
 
-  static _jQueryInterface() {
+  static _jQueryInterface(config) {
     return this.each(function () {
       const $element = $(this)
       let data = $element.data(DATA_KEY)
 
       if (!data) {
         data = new ClassToggler(this)
-        $element.data(DATA_KEY, data)
+        $(this).data(DATA_KEY, data)
+      }
+
+      if (config === 'toggle') {
+        data[config]()
       }
     })
   }
@@ -136,10 +134,17 @@ class ClassToggler {
  * ------------------------------------------------------------------------
  */
 
-$(window).on(Event.LOAD_DATA_API, () => {
-  const classToggler = $(Selector.CLASS_TOGGLER)
-  ClassToggler._jQueryInterface.call(classToggler)
-})
+$(document)
+  .on(Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, (event) => {
+    event.preventDefault()
+
+    let toggler = event.target
+
+    if (!$(toggler).hasClass(ClassName.CLASS_TOGGLER)) {
+      toggler = $(toggler).closest(Selector.CLASS_TOGGLER)
+    }
+    ClassToggler._jQueryInterface.call($(toggler), 'toggle')
+  })
 
 /**
  * ------------------------------------------------------------------------
@@ -153,5 +158,6 @@ $.fn[NAME].noConflict = () => {
   $.fn[NAME] = JQUERY_NO_CONFLICT
   return ClassToggler._jQueryInterface
 }
+
 
 export default ClassToggler

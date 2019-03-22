@@ -8,7 +8,6 @@
 import $ from 'jquery'
 import PerfectScrollbar from 'perfect-scrollbar'
 import getStyle from './utilities/get-style'
-import toggleClasses from './toggle-classes'
 
 /**
  * ------------------------------------------------------------------------
@@ -29,12 +28,8 @@ const Default = {
 
 const ClassName = {
   ACTIVE              : 'active',
-  BRAND_MINIMIZED     : 'brand-minimized',
   NAV_DROPDOWN_TOGGLE : 'nav-dropdown-toggle',
-  OPEN                : 'open',
-  SIDEBAR_FIXED       : 'sidebar-fixed',
-  SIDEBAR_MINIMIZED   : 'sidebar-minimized',
-  SIDEBAR_OFF_CANVAS  : 'sidebar-off-canvas'
+  OPEN                : 'open'
 }
 
 const Event = {
@@ -48,7 +43,6 @@ const Event = {
 
 const Selector = {
   BODY                 : 'body',
-  BRAND_MINIMIZER      : '.c-brand-minimizer, .brand-minimizer',
   NAV_DROPDOWN_TOGGLE  : '.nav-dropdown-toggle',
   NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
   NAV_ITEM             : '.nav-item',
@@ -56,18 +50,8 @@ const Selector = {
   NAV_LINK_QUERIED     : '.nav-link-queried',
   NAVIGATION_CONTAINER : '.c-sidebar-nav, .sidebar-nav',
   NAVIGATION           : '.c-sidebar-nav > .nav, .sidebar-nav > .nav',
-  SIDEBAR              : '.c-sidebar, .sidebar',
-  SIDEBAR_MINIMIZER    : '.c-sidebar-minimizer, .sidebar-minimizer',
-  SIDEBAR_TOGGLER      : '.c-sidebar-toggler, .sidebar-toggler'
+  SIDEBAR              : '.c-sidebar, .sidebar'
 }
-
-const ShowClassNames = [
-  'sidebar-show',
-  'sidebar-sm-show',
-  'sidebar-md-show',
-  'sidebar-lg-show',
-  'sidebar-xl-show'
-]
 
 /**
  * ------------------------------------------------------------------------
@@ -212,11 +196,6 @@ class Sidebar {
   }
 
   _addEventListeners() {
-    $(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-      $(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED)
-    })
 
     $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
       event.preventDefault()
@@ -224,21 +203,6 @@ class Sidebar {
       const dropdown = event.target
       $(dropdown).parent().toggleClass(ClassName.OPEN)
       this.perfectScrollbar(Event.UPDATE)
-    })
-
-    $(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-      $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED)
-      this.perfectScrollbar(Event.TOGGLE)
-    })
-
-    $(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-      const toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle')
-      toggleClasses(toggle, ShowClassNames)
-      this._toggleClickOut()
     })
 
     $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK, () => {
