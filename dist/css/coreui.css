@@ -5743,13 +5743,16 @@ textarea.form-control {
 }
 
 @media (min-width: 992px) {
+  .brand-minimized .c-header .navbar-brand,
   .brand-minimized .app-header .navbar-brand {
     width: 50px;
     background-color: transparent;
   }
+  .brand-minimized .c-header .navbar-brand .navbar-brand-full,
   .brand-minimized .app-header .navbar-brand .navbar-brand-full {
     display: none;
   }
+  .brand-minimized .c-header .navbar-brand .navbar-brand-minimized,
   .brand-minimized .app-header .navbar-brand .navbar-brand-minimized {
     display: block;
   }
@@ -9545,154 +9548,182 @@ mark,
   animation-name: fadeIn;
 }
 
-@media all and (-ms-high-contrast: none) {
-  html {
-    display: flex;
-    flex-direction: column;
-  }
-}
-
-.app,
-app-dashboard,
-app-root {
+.c-default-layout .c-app,
+.c-default-layout .app,
+.c-default-layout c-app,
+.c-default-layout app-dashboard {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.app-header {
+.c-default-layout .c-header,
+.c-default-layout .app-header {
   flex: 0 0 55px;
 }
 
-.app-footer {
+.c-default-layout .c-footer,
+.c-default-layout .app-footer {
   flex: 0 0 50px;
 }
 
-.app-body {
+.c-default-layout .app-body,
+.c-default-layout .c-body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   overflow-x: hidden;
 }
 
-.app-body .main {
+.c-default-layout .app-body .c-main,
+.c-default-layout .app-body .main,
+.c-default-layout .c-body .c-main,
+.c-default-layout .c-body .main {
   flex: 1;
   min-width: 0;
 }
 
-.app-body .sidebar {
+.c-default-layout .app-body .c-sidebar,
+.c-default-layout .app-body .sidebar,
+.c-default-layout .c-body .c-sidebar,
+.c-default-layout .c-body .sidebar {
   flex: 0 0 200px;
   order: -1;
 }
 
-.app-body .aside-menu {
+.c-default-layout .app-body .aside-menu,
+.c-default-layout .c-body .aside-menu {
   flex: 0 0 250px;
 }
 
-html:not([dir="rtl"]) .sidebar {
+.c-default-layout html:not([dir="rtl"]) .c-sidebar,
+.c-default-layout html:not([dir="rtl"]) .sidebar {
   margin-left: -200px;
 }
 
-html:not([dir="rtl"]) .aside-menu {
+.c-default-layout html:not([dir="rtl"]) .aside-menu {
   right: 0;
   margin-right: -250px;
 }
 
-html[dir="rtl"] .sidebar {
+.c-default-layout html[dir="rtl"] .c-sidebar,
+.c-default-layout html[dir="rtl"] .sidebar {
   margin-right: -200px;
 }
 
-html[dir="rtl"] .aside-menu {
+.c-default-layout html[dir="rtl"] .aside-menu {
   left: 0;
   margin-left: -250px;
 }
 
 @media (min-width: 992px) {
-  .header-fixed .app-header {
+  .c-default-layout .header-fixed .c-header,
+  .c-default-layout .header-fixed .app-header,
+  .c-default-layout .c-header-fixed .c-header,
+  .c-default-layout .c-header-fixed .app-header {
     position: fixed;
     z-index: 1020;
     width: 100%;
   }
-  .header-fixed .app-body {
+  .c-default-layout .header-fixed .app-body,
+  .c-default-layout .header-fixed .c-body,
+  .c-default-layout .c-header-fixed .app-body,
+  .c-default-layout .c-header-fixed .c-body {
     margin-top: 55px;
   }
-  .sidebar-fixed .sidebar {
+  .c-default-layout .sidebar-fixed .c-sidebar,
+  .c-default-layout .sidebar-fixed .sidebar {
     position: fixed;
     z-index: 1019;
     width: 200px;
     height: 100vh;
   }
-  .sidebar-fixed .app-header + .app-body .sidebar {
+  .c-default-layout .sidebar-fixed .c-header + .c-body .c-sidebar,
+  .c-default-layout .sidebar-fixed .app-header + .app-body .sidebar {
     height: calc(100vh - 55px);
   }
-  .sidebar-compact .sidebar {
+  .c-default-layout .sidebar-compact .c-sidebar,
+  .c-default-layout .sidebar-compact .sidebar {
     flex: 0 0 150px;
   }
-  .sidebar-compact.sidebar-fixed .sidebar {
+  .c-default-layout .sidebar-compact.sidebar-fixed .c-sidebar,
+  .c-default-layout .sidebar-compact.sidebar-fixed .sidebar {
     width: 150px;
   }
-  .sidebar-compact .sidebar-minimizer {
+  .c-default-layout .sidebar-compact .c-sidebar-minimizer,
+  .c-default-layout .sidebar-compact .sidebar-minimizer {
     display: none;
   }
-  .sidebar-minimized .sidebar {
+  .c-default-layout .sidebar-minimized .c-sidebar,
+  .c-default-layout .sidebar-minimized .sidebar {
     flex: 0 0 50px;
   }
-  .sidebar-minimized.sidebar-fixed .sidebar {
+  .c-default-layout .sidebar-minimized.sidebar-fixed .c-sidebar,
+  .c-default-layout .sidebar-minimized.sidebar-fixed .sidebar {
     width: 50px;
   }
-  .sidebar-off-canvas .sidebar {
+  .c-default-layout .sidebar-off-canvas .c-sidebar,
+  .c-default-layout .sidebar-off-canvas .sidebar {
     position: fixed;
     z-index: 1019;
     height: 100%;
   }
-  .sidebar-off-canvas .app-header + .app-body .sidebar {
+  .c-default-layout .sidebar-off-canvas .c-header + .c-body .c-sidebar,
+  .c-default-layout .sidebar-off-canvas .app-header + .app-body .sidebar {
     height: calc(100vh - 55px);
   }
-  html:not([dir="rtl"]) .sidebar-compact .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-compact .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-compact .sidebar {
     margin-left: -150px;
   }
-  html:not([dir="rtl"]) .sidebar-minimized .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-minimized .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-minimized .sidebar {
     margin-left: -50px;
   }
-  html[dir="rtl"] .sidebar-compact .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-compact .c-sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-compact .sidebar {
     margin-right: -150px;
   }
-  html[dir="rtl"] .sidebar-minimized .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-minimized .c-sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-minimized .sidebar {
     margin-right: -50px;
   }
-  .aside-menu-fixed .aside-menu {
+  .c-default-layout .aside-menu-fixed .aside-menu {
     position: fixed;
     height: 100%;
   }
-  .aside-menu-fixed .aside-menu .tab-content {
+  .c-default-layout .aside-menu-fixed .aside-menu .tab-content {
     height: calc(100vh - 2.375rem - 55px);
   }
-  .aside-menu-fixed .app-header + .app-body .aside-menu {
+  .c-default-layout .aside-menu-fixed .c-header + .c-body .aside-menu,
+  .c-default-layout .aside-menu-fixed .app-header + .app-body .aside-menu {
     height: calc(100vh - 55px);
   }
-  .aside-menu-off-canvas .aside-menu {
+  .c-default-layout .aside-menu-off-canvas .aside-menu {
     position: fixed;
     z-index: 1019;
     height: 100%;
   }
-  .aside-menu-off-canvas .app-header + .app-body .aside-menu {
+  .c-default-layout .aside-menu-off-canvas .c-header + .c-body .aside-menu,
+  .c-default-layout .aside-menu-off-canvas .app-header + .app-body .aside-menu {
     height: calc(100vh - 55px);
   }
-  html:not([dir="rtl"]) .aside-menu-fixed .aside-menu,
-  html:not([dir="rtl"]) .aside-menu-off-canvas .aside-menu {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-fixed .aside-menu,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-off-canvas .aside-menu {
     right: 0;
   }
-  html[dir="rtl"] .aside-menu-fixed .aside-menu,
-  html[dir="rtl"] .aside-menu-off-canvas .aside-menu {
+  .c-default-layout html[dir="rtl"] .aside-menu-fixed .aside-menu,
+  .c-default-layout html[dir="rtl"] .aside-menu-off-canvas .aside-menu {
     left: 0;
   }
 }
 
-.breadcrumb-fixed .main {
+.c-default-layout .breadcrumb-fixed .c-main,
+.c-default-layout .breadcrumb-fixed .main {
   padding-top: 3.875rem;
 }
 
-.breadcrumb-fixed .breadcrumb {
+.c-default-layout .breadcrumb-fixed .breadcrumb {
   position: fixed;
   top: 55px;
   right: 0;
@@ -9700,23 +9731,25 @@ html[dir="rtl"] .aside-menu {
   z-index: 1017;
 }
 
-html:not([dir="rtl"]) .sidebar-show .sidebar,
-html:not([dir="rtl"]) .sidebar-show .sidebar {
+.c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+.c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar,
+.c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+.c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar {
   margin-left: 0;
 }
 
-html:not([dir="rtl"]) .aside-menu-show .aside-menu,
-html:not([dir="rtl"]) .aside-menu-show .aside-menu {
+.c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu,
+.c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu {
   margin-right: 0;
 }
 
-html[dir="rtl"] .sidebar-show .sidebar,
-html[dir="rtl"] .sidebar-show .sidebar {
+.c-default-layout html[dir="rtl"] .sidebar-show .sidebar,
+.c-default-layout html[dir="rtl"] .sidebar-show .sidebar {
   margin-right: 0;
 }
 
-html[dir="rtl"] .aside-menu-show .aside-menu,
-html[dir="rtl"] .aside-menu-show .aside-menu {
+.c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu,
+.c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu {
   margin-left: 0;
 }
 
@@ -9730,12 +9763,16 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
 }
 
 @media (max-width: 575.98px) {
-  .sidebar-show .main,
-  .aside-menu-show .main {
+  .c-default-layout .sidebar-show .c-main,
+  .c-default-layout .sidebar-show .main,
+  .c-default-layout .aside-menu-show .c-main,
+  .c-default-layout .aside-menu-show .main {
     position: relative;
   }
-  .sidebar-show .main::before,
-  .aside-menu-show .main::before {
+  .c-default-layout .sidebar-show .c-main::before,
+  .c-default-layout .sidebar-show .main::before,
+  .c-default-layout .aside-menu-show .c-main::before,
+  .c-default-layout .aside-menu-show .main::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -9749,100 +9786,134 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
 }
 
 @media (min-width: 576px) {
-  html:not([dir="rtl"]) .sidebar-sm-show .sidebar,
-  html:not([dir="rtl"]) .sidebar-show .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show .sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar {
     margin-left: 0;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     left: 50px;
   }
-  html:not([dir="rtl"]) .aside-menu-show .aside-menu,
-  html:not([dir="rtl"]) .aside-menu-sm-show .aside-menu {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show .aside-menu {
     margin-right: 0;
   }
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
-  html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show.aside-menu-fixed .app-footer {
     margin-right: 250px;
   }
-  html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .aside-menu-sm-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-sm-show.breadcrumb-fixed .breadcrumb {
     right: 250px;
   }
-  html[dir="rtl"] .sidebar-sm-show .sidebar,
-  html[dir="rtl"] .sidebar-show .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show .sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-show .sidebar {
     margin-right: 0;
   }
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
   }
-  html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     right: 150px;
   }
-  html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     right: 50px;
   }
-  html[dir="rtl"] .aside-menu-show .aside-menu,
-  html[dir="rtl"] .aside-menu-sm-show .aside-menu {
+  .c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show .aside-menu {
     margin-left: 0;
   }
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
-  html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show.aside-menu-fixed .app-footer {
     margin-left: 250px;
   }
-  html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .aside-menu-sm-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .aside-menu-sm-show.breadcrumb-fixed .breadcrumb {
     left: 250px;
   }
   @keyframes opacity {
@@ -9856,100 +9927,134 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
 }
 
 @media (min-width: 768px) {
-  html:not([dir="rtl"]) .sidebar-md-show .sidebar,
-  html:not([dir="rtl"]) .sidebar-show .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show .sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar {
     margin-left: 0;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     left: 50px;
   }
-  html:not([dir="rtl"]) .aside-menu-show .aside-menu,
-  html:not([dir="rtl"]) .aside-menu-md-show .aside-menu {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show .aside-menu {
     margin-right: 0;
   }
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
-  html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show.aside-menu-fixed .app-footer {
     margin-right: 250px;
   }
-  html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .aside-menu-md-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-md-show.breadcrumb-fixed .breadcrumb {
     right: 250px;
   }
-  html[dir="rtl"] .sidebar-md-show .sidebar,
-  html[dir="rtl"] .sidebar-show .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show .sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-show .sidebar {
     margin-right: 0;
   }
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
   }
-  html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     right: 150px;
   }
-  html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     right: 50px;
   }
-  html[dir="rtl"] .aside-menu-show .aside-menu,
-  html[dir="rtl"] .aside-menu-md-show .aside-menu {
+  .c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show .aside-menu {
     margin-left: 0;
   }
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
-  html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show.aside-menu-fixed .app-footer {
     margin-left: 250px;
   }
-  html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .aside-menu-md-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .aside-menu-md-show.breadcrumb-fixed .breadcrumb {
     left: 250px;
   }
   @keyframes opacity {
@@ -9963,100 +10068,134 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
 }
 
 @media (min-width: 992px) {
-  html:not([dir="rtl"]) .sidebar-lg-show .sidebar,
-  html:not([dir="rtl"]) .sidebar-show .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show .sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar {
     margin-left: 0;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 50px;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     left: 50px;
   }
-  html:not([dir="rtl"]) .aside-menu-show .aside-menu,
-  html:not([dir="rtl"]) .aside-menu-lg-show .aside-menu {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show .aside-menu {
     margin-right: 0;
   }
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
-  html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show.aside-menu-fixed .app-footer {
     margin-right: 250px;
   }
-  html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .aside-menu-lg-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-lg-show.breadcrumb-fixed .breadcrumb {
     right: 250px;
   }
-  html[dir="rtl"] .sidebar-lg-show .sidebar,
-  html[dir="rtl"] .sidebar-show .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show .sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-show .sidebar {
     margin-right: 0;
   }
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 50px;
   }
-  html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
   }
-  html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     right: 150px;
   }
-  html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     right: 50px;
   }
-  html[dir="rtl"] .aside-menu-show .aside-menu,
-  html[dir="rtl"] .aside-menu-lg-show .aside-menu {
+  .c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show .aside-menu {
     margin-left: 0;
   }
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
-  html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show.aside-menu-fixed .app-footer {
     margin-left: 250px;
   }
-  html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .aside-menu-lg-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .aside-menu-lg-show.breadcrumb-fixed .breadcrumb {
     left: 250px;
   }
   @keyframes opacity {
@@ -10070,100 +10209,134 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
 }
 
 @media (min-width: 1200px) {
-  html:not([dir="rtl"]) .sidebar-xl-show .sidebar,
-  html:not([dir="rtl"]) .sidebar-show .sidebar {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show .sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .c-sidebar,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show .sidebar {
     margin-left: 0;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
     margin-left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 50px;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     left: 150px;
   }
-  html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     left: 50px;
   }
-  html:not([dir="rtl"]) .aside-menu-show .aside-menu,
-  html:not([dir="rtl"]) .aside-menu-xl-show .aside-menu {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show .aside-menu,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show .aside-menu {
     margin-right: 0;
   }
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
-  html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .main,
-  html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .app-footer {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .c-main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .main,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .c-footer,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show.aside-menu-fixed .app-footer {
     margin-right: 250px;
   }
-  html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html:not([dir="rtl"]) .aside-menu-xl-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html:not([dir="rtl"]) .aside-menu-xl-show.breadcrumb-fixed .breadcrumb {
     right: 250px;
   }
-  html[dir="rtl"] .sidebar-xl-show .sidebar,
-  html[dir="rtl"] .sidebar-show .sidebar {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show .sidebar,
+  .c-default-layout html[dir="rtl"] .sidebar-show .sidebar {
     margin-right: 0;
   }
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed .app-footer {
     margin-right: 200px;
   }
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-compact .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
-  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .c-footer,
+  .c-default-layout html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 50px;
   }
-  html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
   }
-  html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed.sidebar-compact .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-compact .breadcrumb {
     right: 150px;
   }
-  html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
-  html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
+  .c-default-layout html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed.sidebar-minimized .breadcrumb,
+  .c-default-layout html[dir="rtl"] .sidebar-show.breadcrumb-fixed.sidebar-minimized .breadcrumb {
     right: 50px;
   }
-  html[dir="rtl"] .aside-menu-show .aside-menu,
-  html[dir="rtl"] .aside-menu-xl-show .aside-menu {
+  .c-default-layout html[dir="rtl"] .aside-menu-show .aside-menu,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show .aside-menu {
     margin-left: 0;
   }
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
-  html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .main,
-  html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .app-footer {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-show.aside-menu-fixed .app-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .c-main,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .main,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .c-footer,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show.aside-menu-fixed .app-footer {
     margin-left: 250px;
   }
-  html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
-  html[dir="rtl"] .aside-menu-xl-show.breadcrumb-fixed .breadcrumb {
+  .c-default-layout html[dir="rtl"] .aside-menu-show.breadcrumb-fixed .breadcrumb,
+  .c-default-layout html[dir="rtl"] .aside-menu-xl-show.breadcrumb-fixed .breadcrumb {
     left: 250px;
   }
   @keyframes opacity {
@@ -10176,7 +10349,8 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   }
 }
 
-.footer-fixed .app-footer {
+.c-default-layout .footer-fixed .c-footer,
+.c-default-layout .footer-fixed .app-footer {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -10185,58 +10359,76 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   height: 50px;
 }
 
-.footer-fixed .app-body {
+.c-default-layout .footer-fixed .app-body,
+.c-default-layout .footer-fixed .c-body {
   margin-bottom: 50px;
 }
 
-.app-header,
-.app-footer,
-.sidebar,
-.main,
-.aside-menu {
+.c-default-layout .c-header,
+.c-default-layout .app-header,
+.c-default-layout .c-footer,
+.c-default-layout .app-footer,
+.c-default-layout .c-sidebar,
+.c-default-layout .sidebar,
+.c-default-layout .c-main,
+.c-default-layout .main,
+.c-default-layout .aside-menu {
   transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
 }
 
-.sidebar-nav {
+.c-default-layout .sidebar-nav {
   transition: width 0.25s;
 }
 
-.breadcrumb {
+.c-default-layout .breadcrumb {
   transition: left 0.25s, right 0.25s, width 0.25s;
 }
 
 @media (max-width: 991.98px) {
-  .app-header {
+  .c-default-layout .c-header,
+  .c-default-layout .app-header {
     position: fixed;
     z-index: 1020;
     width: 100%;
     text-align: center;
     background-color: #fff;
   }
-  .app-header .navbar-toggler {
+  .c-default-layout .c-header .navbar-toggler,
+  .c-default-layout .app-header .navbar-toggler {
     color: #fff;
   }
-  .app-header .navbar-brand {
+  .c-default-layout .c-header .navbar-brand,
+  .c-default-layout .app-header .navbar-brand {
     position: absolute;
     top: 0;
     left: 50%;
     margin-left: -77.5px;
   }
-  .app-body {
+  .c-default-layout .app-body,
+  .c-default-layout .c-body {
     margin-top: 55px;
   }
-  .sidebar {
+  .c-default-layout .c-sidebar,
+  .c-default-layout .sidebar {
     position: fixed;
     z-index: 1019;
     width: 200px;
     height: calc(100vh - 55px);
   }
-  .sidebar-minimizer {
+  .c-default-layout .c-sidebar-minimizer,
+  .c-default-layout .sidebar-minimizer {
     display: none;
   }
-  .aside-menu {
+  .c-default-layout .aside-menu {
     position: fixed;
     height: 100%;
+  }
+}
+
+@media all and (-ms-high-contrast: none) {
+  html {
+    display: flex;
+    flex-direction: column;
   }
 }
 

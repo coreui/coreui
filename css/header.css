@@ -129,13 +129,16 @@
 }
 
 @media (min-width: 992px) {
+  .brand-minimized .c-header .navbar-brand,
   .brand-minimized .app-header .navbar-brand {
     width: 50px;
     background-color: transparent;
   }
+  .brand-minimized .c-header .navbar-brand .navbar-brand-full,
   .brand-minimized .app-header .navbar-brand .navbar-brand-full {
     display: none;
   }
+  .brand-minimized .c-header .navbar-brand .navbar-brand-minimized,
   .brand-minimized .app-header .navbar-brand .navbar-brand-minimized {
     display: block;
   }
