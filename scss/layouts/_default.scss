@@ -5,8 +5,8 @@
 .#{$prefix}default-layout {
   // stylelint-disable selector-type-no-unknown, no-duplicate-selectors, selector-no-qualifying-type, selector-max-combinators
 
-  .#{$prefix}app,
-  .app,
+  &.#{$prefix}app,
+  &.app,
   // app-dashboard and c-app are Angular selectors. You can add here your own selectors if you need.
   #{$prefix}app,
   app-dashboard {
