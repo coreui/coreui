@@ -127,6 +127,7 @@
 
 @include media-breakpoint-up(lg) {
   .brand-minimized {
+    .#{$prefix}header,
     .app-header {
       .navbar-brand {
         width: $navbar-brand-minimized-width;
