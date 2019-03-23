@@ -196,7 +196,6 @@ class Sidebar {
   }
 
   _addEventListeners() {
-
     $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
       event.preventDefault()
       event.stopPropagation()

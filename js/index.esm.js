@@ -7,7 +7,6 @@
 
 import AjaxLoad from './src/ajax-load'
 import Alert from './src/alert'
-import AsideMenu from './src/aside-menu'
 import Button from './src/button'
 import Carousel from './src/carousel'
 import ClassToggler from './src/class-toggler'
@@ -26,7 +25,6 @@ export {
   Util,
   AjaxLoad,
   Alert,
-  AsideMenu,
   Button,
   Carousel,
   ClassToggler,
