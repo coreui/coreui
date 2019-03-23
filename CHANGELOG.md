@@ -1,3 +1,10 @@
+## v3.0.0
+- refactor: merge CoreUI and Bootstrap
+- feat: new class toggler component, use instead of: `.sidebar-toggler`, `.aside-menu-toggler`, `.sidebar-minizer`, `.brand-minimizer`
+- refactor(sidebar, aside-menu): removed togglers
+- ref
+- deprac
+
 ## v2.1.3
 - chore: update `nodemon` to `1.18.7` (remove vulnerability)
 
