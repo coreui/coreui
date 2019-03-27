@@ -69,9 +69,15 @@ class ClassToggler {
     const responsive = data.responsive ? data.responsive : Default.responsive
 
     targets.forEach((target) => {
+      let el
+      if (target === '_parent' || target === 'parent') {
+        el = this._element.parentNode
+      } else {
+        el = document.querySelector(target)
+      }
       classNames.forEach((className) => {
         if (!responsive) {
-          document.querySelector(target).classList.toggle(className)
+          el.classList.toggle(className)
         } else {
           let currentBreakpoint
           breakpoints.forEach((breakpoint) => {
@@ -92,17 +98,17 @@ class ClassToggler {
 
           let addResponsiveClasses = false
           responsiveClasses.forEach((responsiveClass) => {
-            if (document.querySelector(target).classList.contains(responsiveClass)) {
+            if (el.classList.contains(responsiveClass)) {
               addResponsiveClasses = true
             }
           })
 
           if (addResponsiveClasses) {
             responsiveClasses.forEach((responsiveClass) => {
-              document.querySelector(target).classList.remove(responsiveClass)
+              el.classList.remove(responsiveClass)
             })
           } else {
-            document.querySelector(target).classList.add(className)
+            el.classList.add(className)
           }
         }
       })
