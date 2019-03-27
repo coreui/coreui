@@ -32,7 +32,7 @@ var ClassName = {
   OPEN: 'open'
 };
 var Event = {
-  CLICK: 'click',
+  CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
   DESTROY: 'destroy',
   INIT: 'init',
   LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
@@ -67,9 +67,7 @@ function () {
     this.perfectScrollbar(Event.INIT);
     this.setActiveLink();
     this._breakpointTest = this._breakpointTest.bind(this);
-    this._clickOutListener = this._clickOutListener.bind(this);
-
-    this._addEventListeners();
+    this._clickOutListener = this._clickOutListener.bind(this); // this._addEventListeners()
 
     this._addMediaQuery();
   } // Getters
@@ -78,8 +76,20 @@ function () {
   var _proto = Sidebar.prototype;
 
   // Public
-  _proto.perfectScrollbar = function perfectScrollbar(event) {
+  _proto.toggle = function toggle() {
     var _this = this;
+
+    $(this._element).parent().toggleClass(ClassName.OPEN);
+    this.perfectScrollbar(Event.UPDATE);
+    $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK_DATA_API, function () {
+      _this._removeClickOut();
+
+      document.body.classList.remove('sidebar-show');
+    });
+  };
+
+  _proto.perfectScrollbar = function perfectScrollbar(event) {
+    var _this2 = this;
 
     if (typeof PerfectScrollbar !== 'undefined') {
       var classList = document.body.classList;
@@ -104,9 +114,9 @@ function () {
       if (event === Event.UPDATE && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
         // ToDo: Add smooth transition
         setTimeout(function () {
-          _this.destroyScrollbar();
+          _this2.destroyScrollbar();
 
-          _this.ps = _this.makeScrollbar();
+          _this2.ps = _this2.makeScrollbar();
         }, Default.transition);
       }
     }
@@ -191,11 +201,11 @@ function () {
   };
 
   _proto._addClickOut = function _addClickOut() {
-    document.addEventListener(Event.CLICK, this._clickOutListener, true);
+    document.addEventListener(Event.CLICK_DATA_API, this._clickOutListener, true);
   };
 
   _proto._removeClickOut = function _removeClickOut() {
-    document.removeEventListener(Event.CLICK, this._clickOutListener, true);
+    document.removeEventListener(Event.CLICK_DATA_API, this._clickOutListener, true);
   };
 
   _proto._toggleClickOut = function _toggleClickOut() {
@@ -206,28 +216,10 @@ function () {
     } else {
       this._removeClickOut();
     }
-  };
-
-  _proto._addEventListeners = function _addEventListeners() {
-    var _this2 = this;
-
-    $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
-      event.preventDefault();
-      event.stopPropagation();
-      var dropdown = event.target;
-      $(dropdown).parent().toggleClass(ClassName.OPEN);
-
-      _this2.perfectScrollbar(Event.UPDATE);
-    });
-    $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK, function () {
-      _this2._removeClickOut();
-
-      document.body.classList.remove('sidebar-show');
-    });
   } // Static
   ;
 
-  Sidebar._jQueryInterface = function _jQueryInterface() {
+  Sidebar._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
       var $element = $(this);
       var data = $element.data(DATA_KEY);
@@ -235,6 +227,10 @@ function () {
       if (!data) {
         data = new Sidebar(this);
         $element.data(DATA_KEY, data);
+      }
+
+      if (config === 'toggle') {
+        data[config]();
       }
     });
   };
@@ -256,9 +252,23 @@ function () {
 
 
 $(window).on(Event.LOAD_DATA_API, function () {
-  var sidebar = $(Selector.SIDEBAR);
+  var sidebars = [].slice.call(document.querySelectorAll(Selector.SIDEBAR));
 
-  Sidebar._jQueryInterface.call(sidebar);
+  for (var i = 0, len = sidebars.length; i < len; i++) {
+    var $sidebar = $(sidebars[i]);
+
+    Sidebar._jQueryInterface.call($sidebar);
+  }
+});
+$(document).on(Event.CLICK_DATA_API, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
+  event.preventDefault();
+  var toggler = event.target;
+
+  if (!$(toggler).hasClass(ClassName.NAV_DROPDOWN_TOGGLE)) {
+    toggler = $(toggler).closest(Selector.NAV_DROPDOWN_TOGGLE);
+  }
+
+  Sidebar._jQueryInterface.call($(toggler), 'toggle');
 });
 /**
  * ------------------------------------------------------------------------

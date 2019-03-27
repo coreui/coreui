@@ -33,12 +33,12 @@ const ClassName = {
 }
 
 const Event = {
-  CLICK         : 'click',
-  DESTROY       : 'destroy',
-  INIT          : 'init',
-  LOAD_DATA_API : `load${EVENT_KEY}${DATA_API_KEY}`,
-  TOGGLE        : 'toggle',
-  UPDATE        : 'update'
+  CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`,
+  DESTROY        : 'destroy',
+  INIT           : 'init',
+  LOAD_DATA_API  : `load${EVENT_KEY}${DATA_API_KEY}`,
+  TOGGLE         : 'toggle',
+  UPDATE         : 'update'
 }
 
 const Selector = {
@@ -68,7 +68,7 @@ class Sidebar {
     this.setActiveLink()
     this._breakpointTest = this._breakpointTest.bind(this)
     this._clickOutListener = this._clickOutListener.bind(this)
-    this._addEventListeners()
+    // this._addEventListeners()
     this._addMediaQuery()
   }
 
@@ -79,6 +79,15 @@ class Sidebar {
   }
 
   // Public
+  toggle() {
+    $(this._element).parent().toggleClass(ClassName.OPEN)
+    this.perfectScrollbar(Event.UPDATE)
+
+    $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK_DATA_API, () => {
+      this._removeClickOut()
+      document.body.classList.remove('sidebar-show')
+    })
+  }
 
   perfectScrollbar(event) {
     if (typeof PerfectScrollbar !== 'undefined') {
@@ -179,11 +188,11 @@ class Sidebar {
   }
 
   _addClickOut() {
-    document.addEventListener(Event.CLICK, this._clickOutListener, true)
+    document.addEventListener(Event.CLICK_DATA_API, this._clickOutListener, true)
   }
 
   _removeClickOut() {
-    document.removeEventListener(Event.CLICK, this._clickOutListener, true)
+    document.removeEventListener(Event.CLICK_DATA_API, this._clickOutListener, true)
   }
 
   _toggleClickOut() {
@@ -195,24 +204,9 @@ class Sidebar {
     }
   }
 
-  _addEventListeners() {
-    $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
-      event.preventDefault()
-      event.stopPropagation()
-      const dropdown = event.target
-      $(dropdown).parent().toggleClass(ClassName.OPEN)
-      this.perfectScrollbar(Event.UPDATE)
-    })
-
-    $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK, () => {
-      this._removeClickOut()
-      document.body.classList.remove('sidebar-show')
-    })
-  }
-
   // Static
 
-  static _jQueryInterface() {
+  static _jQueryInterface(config) {
     return this.each(function () {
       const $element = $(this)
       let data = $element.data(DATA_KEY)
@@ -220,6 +214,10 @@ class Sidebar {
       if (!data) {
         data = new Sidebar(this)
         $element.data(DATA_KEY, data)
+      }
+
+      if (config === 'toggle') {
+        data[config]()
       }
     })
   }
@@ -231,9 +229,23 @@ class Sidebar {
  * ------------------------------------------------------------------------
  */
 
+
 $(window).on(Event.LOAD_DATA_API, () => {
-  const sidebar = $(Selector.SIDEBAR)
-  Sidebar._jQueryInterface.call(sidebar)
+  const sidebars = [].slice.call(document.querySelectorAll(Selector.SIDEBAR))
+  for (let i = 0, len = sidebars.length; i < len; i++) {
+    const $sidebar = $(sidebars[i])
+    Sidebar._jQueryInterface.call($sidebar)
+  }
+})
+
+$(document).on(Event.CLICK_DATA_API, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
+  event.preventDefault()
+
+  let toggler = event.target
+  if (!$(toggler).hasClass(ClassName.NAV_DROPDOWN_TOGGLE)) {
+    toggler = $(toggler).closest(Selector.NAV_DROPDOWN_TOGGLE)
+  }
+  Sidebar._jQueryInterface.call($(toggler), 'toggle')
 })
 
 /**
