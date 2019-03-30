@@ -9,7 +9,7 @@ const BUNDLE = process.env.BUNDLE === 'true'
 const ESM = process.env.ESM === 'true'
 
 let fileDest  = `coreui${ESM ? '.esm' : ''}`
-const external = ['jquery', 'perfect-scrollbar', 'popper.js']
+const external = ['perfect-scrollbar', 'popper.js']
 const plugins = [
   babel(ESM ? {
     // Only transpile our source code
@@ -47,14 +47,13 @@ const plugins = [
   })
 ]
 const globals = {
-  jquery: 'jQuery', // Ensure we use jQuery which is always available even in noConflict mode
   'perfect-scrollbar': 'PerfectScrollbar',
   'popper.js': 'Popper'
 }
 
 if (BUNDLE) {
   fileDest += '.bundle'
-  // Remove last entry in external array to bundle Popper and
+  // Remove last entry in external array to bundle Popper and Perfect Scrollbar
   external.pop()
   external.pop()
   delete globals['popper.js']
