@@ -29,7 +29,9 @@ const Default = {
 const ClassName = {
   ACTIVE              : 'active',
   NAV_DROPDOWN_TOGGLE : 'nav-dropdown-toggle',
-  OPEN                : 'open'
+  OPEN                : 'open',
+  SIDEBAR_MINIMIZED   : 'c-sidebar-minimized',
+  SIDEBAR_SHOW        : 'c-sidebar-show'
 }
 
 const Event = {
@@ -68,7 +70,7 @@ class Sidebar {
     this.setActiveLink()
     this._breakpointTest = this._breakpointTest.bind(this)
     this._clickOutListener = this._clickOutListener.bind(this)
-    // this._addEventListeners()
+    this._addEventListeners()
     this._addMediaQuery()
   }
 
@@ -83,7 +85,7 @@ class Sidebar {
     $(this._element).parent().toggleClass(ClassName.OPEN)
     this.perfectScrollbar(Event.UPDATE)
 
-    $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK_DATA_API, () => {
+    $(`${this._element} > ${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK_DATA_API, () => {
       this._removeClickOut()
       document.body.classList.remove('sidebar-show')
     })
@@ -91,7 +93,7 @@ class Sidebar {
 
   perfectScrollbar(event) {
     if (typeof PerfectScrollbar !== 'undefined') {
-      const classList = document.body.classList
+      const classList = this._element.classList
       if (event === Event.INIT && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
         this.ps = this.makeScrollbar()
       }
@@ -202,6 +204,27 @@ class Sidebar {
     } else {
       this._removeClickOut()
     }
+  }
+
+  _addEventListeners() {
+    this._element.addEventListener('classtoggle', (event) => {
+      if (event.detail.class === ClassName.SIDEBAR_MINIMIZED) {
+        this.perfectScrollbar(Event.TOGGLE)
+      }
+    })
+
+    // const observer = new MutationObserver((mutations) => {
+    //   mutations.forEach((mutation) => {
+    //     console.log(mutation)
+    //   })
+    // })
+
+    // observer.observe(this._element, {
+    //   attributes: true,
+    //   attributeFilter: ['class'],
+    //   childList: false,
+    //   characterData: false
+    // })
   }
 
   // Static
