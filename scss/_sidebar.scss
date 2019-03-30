@@ -24,6 +24,7 @@
   }
 
   &.#{$prefix}sidebar-fixed {
+    z-index: $zindex-sticky - 1;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -505,38 +506,42 @@
       &.#{$prefix}sidebar-show {
         &:not(.#{$prefix}sidebar-right){
           margin-left: 0;
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-            margin-left: $sidebar-width;
-          }
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-            margin-left: $sidebar-compact-width;
-          }
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-            margin-left: $sidebar-minimized-width;
+          @if $breakpoint != "xs" {
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
+              margin-left: $sidebar-width;
+            }
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
+              margin-left: $sidebar-compact-width;
+            }
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
+              margin-left: $sidebar-minimized-width;
+            }
           }
         }
         &.#{$prefix}sidebar-right {
           margin-right: 0;
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-            margin-right: $sidebar-width;
-          }
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-            margin-right: $sidebar-compact-width;
-          }
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-          &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-            margin-right: $sidebar-minimized-width;
+          @if $breakpoint != "xs" {
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
+              margin-right: $sidebar-width;
+            }
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
+              margin-right: $sidebar-compact-width;
+            }
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
+            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
+              margin-right: $sidebar-minimized-width;
+            }
           }
         }
       }
@@ -684,46 +689,42 @@
           &.#{$prefix}sidebar-show {
             &:not(.#{$prefix}sidebar-right){
               margin-right: 0;
-              // margin-left: initial;
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-                margin-right: $sidebar-width;
-                // margin-left: initial;
-              }
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-                margin-right: $sidebar-compact-width;
-                // margin-left: initial;
-              }
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-                margin-right: $sidebar-minimized-width;
-                // margin-left: initial;
+              @if $breakpoint != "xs" {
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
+                  margin-right: $sidebar-width;
+                }
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
+                  margin-right: $sidebar-compact-width;
+                }
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
+                  margin-right: $sidebar-minimized-width;
+                }
               }
             }
             &.#{$prefix}sidebar-right {
-              // margin-right: initial;
               margin-left: 0;
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-                // margin-right: initial;
-                margin-left: $sidebar-width;
-              }
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-                // margin-right: initial;
-                margin-left: $sidebar-compact-width;
-              }
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-              &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-                // margin-right: initial;
-                margin-left: $sidebar-minimized-width;
+              @if $breakpoint != "xs" {
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
+                  margin-left: $sidebar-width;
+                }
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
+                  margin-left: $sidebar-compact-width;
+                }
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
+                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
+                  margin-left: $sidebar-minimized-width;
+                }
               }
             }
           }
