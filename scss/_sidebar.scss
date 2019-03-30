@@ -261,8 +261,8 @@
   // Minimized Sidebar
 
   &.#{$prefix}sidebar-minimized {
-    flex: 0 0 $sidebar-minimized-width;
     z-index: $zindex-sticky - 1;
+    flex: 0 0 $sidebar-minimized-width;
 
     &.#{$prefix}sidebar-fixed {
       width: $sidebar-minimized-width;
