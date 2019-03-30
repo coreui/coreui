@@ -78,6 +78,13 @@ class ClassToggler {
       classNames.forEach((className) => {
         if (!responsive) {
           el.classList.toggle(className)
+          const event = new CustomEvent('classtoggle', {
+            detail: {
+              target,
+              class: className
+            }
+          })
+          el.dispatchEvent(event)
         } else {
           let currentBreakpoint
           breakpoints.forEach((breakpoint) => {
@@ -106,9 +113,23 @@ class ClassToggler {
           if (addResponsiveClasses) {
             responsiveClasses.forEach((responsiveClass) => {
               el.classList.remove(responsiveClass)
+              const event = new CustomEvent('classtoggle', {
+                detail: {
+                  target,
+                  class: responsiveClass
+                }
+              })
+              el.dispatchEvent(event)
             })
           } else {
             el.classList.add(className)
+            const event = new CustomEvent('classtoggle', {
+              detail: {
+                target,
+                class: className
+              }
+            })
+            el.dispatchEvent(event)
           }
         }
       })
