@@ -77,7 +77,7 @@
     "test": "npm-run-all css-lint js-lint dist bundlesize",
     "watch": "npm-run-all --parallel watch-css watch-js",
     "watch-js": "nodemon --ignore js/dist/ --ignore dist/ -e js -x \"npm-run-all js-compile* js-minify*\"",
-    "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
+    "watch-css": "nodemon --ignore dist/ --ignore css/ --ignore scss/partials/ -e scss -x \"npm run css\""
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
