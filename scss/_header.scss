@@ -56,6 +56,16 @@
     background-size: 100% 100%;
   }
 
+  &-fixed {
+    position: fixed;
+    z-index: $zindex-sticky;
+    width: 100%;
+
+    & ~ .#{$prefix}body {
+      padding-top: $navbar-height;
+    }
+  }
+
   .nav {
     flex-direction: row;
     align-items: center;
