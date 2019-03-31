@@ -5,7 +5,11 @@
  * --------------------------------------------------------------------------
  */
 
-import $ from 'jquery'
+import {
+  jQuery as $
+} from './util/index'
+import Data from './dom/data'
+import EventHandler from './dom/eventHandler'
 
 /**
  * ------------------------------------------------------------------------
@@ -13,33 +17,29 @@ import $ from 'jquery'
  * ------------------------------------------------------------------------
  */
 
-const NAME                = 'class-toggler'
-const VERSION             = '3.0.0'
-const DATA_KEY            = 'coreui.class-toggler'
-const EVENT_KEY           = `.${DATA_KEY}`
-const DATA_API_KEY        = '.data-api'
-const JQUERY_NO_CONFLICT  = $.fn[NAME]
+const NAME = 'class-toggler'
+const VERSION = '3.0.0'
+const DATA_KEY = 'coreui.class-toggler'
+const EVENT_KEY = `.${DATA_KEY}`
+const DATA_API_KEY = '.data-api'
 
 const Default = {
   breakpoints: '-sm,-md,-lg,-xl',
   postfix: '-show',
   responsive: false,
-  target : 'body'
+  target: 'body'
 }
 
 const ClassName = {
-  CLASS_TOGGLER : 'c-class-toggler'
+  CLASS_TOGGLER: 'c-class-toggler'
 }
 
 const Event = {
-  CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`,
-  LOAD_DATA_API  : `load${EVENT_KEY}${DATA_API_KEY}`,
-  TOGGLE         : 'toggle'
+  CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
 }
 
 const Selector = {
-  BODY               : 'body',
-  CLASS_TOGGLER     : '.c-class-toggler'
+  CLASS_TOGGLER: '.c-class-toggler'
 }
 
 /**
@@ -68,14 +68,16 @@ class ClassToggler {
     const targets = (data.target ? data.target : Default.target).replace(/ /g, '').split(',')
     const responsive = data.responsive ? data.responsive : Default.responsive
 
-    targets.forEach((target) => {
+    targets.forEach(target => {
       let el
       if (target === '_parent' || target === 'parent') {
         el = this._element.parentNode
       } else {
         el = document.querySelector(target)
       }
-      classNames.forEach((className) => {
+
+      classNames.forEach(className => {
+        // eslint-disable-next-line no-negated-condition
         if (!responsive) {
           el.classList.toggle(className)
           const event = new CustomEvent('classtoggle', {
@@ -87,7 +89,7 @@ class ClassToggler {
           el.dispatchEvent(event)
         } else {
           let currentBreakpoint
-          breakpoints.forEach((breakpoint) => {
+          breakpoints.forEach(breakpoint => {
             if (className.includes(breakpoint)) {
               currentBreakpoint = breakpoint
             }
@@ -98,20 +100,20 @@ class ClassToggler {
           } else {
             responsiveClasses.push(className.replace(`${currentBreakpoint}${postfix}`, postfix))
             breakpoints = breakpoints.splice(0, breakpoints.indexOf(currentBreakpoint) + 1)
-            breakpoints.forEach((breakpoint) => {
+            breakpoints.forEach(breakpoint => {
               responsiveClasses.push(className.replace(`${currentBreakpoint}${postfix}`, `${breakpoint}${postfix}`))
             })
           }
 
           let addResponsiveClasses = false
-          responsiveClasses.forEach((responsiveClass) => {
+          responsiveClasses.forEach(responsiveClass => {
             if (el.classList.contains(responsiveClass)) {
               addResponsiveClasses = true
             }
           })
 
           if (addResponsiveClasses) {
-            responsiveClasses.forEach((responsiveClass) => {
+            responsiveClasses.forEach(responsiveClass => {
               el.classList.remove(responsiveClass)
               const event = new CustomEvent('classtoggle', {
                 detail: {
@@ -138,19 +140,26 @@ class ClassToggler {
 
   // Static
 
+  static _classTogglerInterface(element, config) {
+    let data = Data.getData(element, DATA_KEY)
+    const _config = typeof config === 'object' && config
+
+    if (!data) {
+      data = new ClassToggler(element, _config)
+    }
+
+    if (typeof config === 'string') {
+      if (typeof data[config] === 'undefined') {
+        throw new TypeError(`No method named "${config}"`)
+      }
+
+      data[config]()
+    }
+  }
+
   static _jQueryInterface(config) {
     return this.each(function () {
-      const $element = $(this)
-      let data = $element.data(DATA_KEY)
-
-      if (!data) {
-        data = new ClassToggler(this)
-        $(this).data(DATA_KEY, data)
-      }
-
-      if (config === 'toggle') {
-        data[config]()
-      }
+      ClassToggler._classTogglerInterface(this, config)
     })
   }
 }
@@ -161,30 +170,31 @@ class ClassToggler {
  * ------------------------------------------------------------------------
  */
 
-$(document)
-  .on(Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, (event) => {
-    event.preventDefault()
+EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, event => {
+  event.preventDefault()
+  let toggler = event.target
+  if (!toggler.classList.contains(ClassName.CLASS_TOGGLER)) {
+    toggler = toggler.closest(Selector.CLASS_TOGGLER)
+  }
 
-    let toggler = event.target
-
-    if (!$(toggler).hasClass(ClassName.CLASS_TOGGLER)) {
-      toggler = $(toggler).closest(Selector.CLASS_TOGGLER)
-    }
-    ClassToggler._jQueryInterface.call($(toggler), 'toggle')
-  })
+  ClassToggler._classTogglerInterface(toggler, 'toggle')
+})
 
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ * add .c-class-toggler to jQuery only if jQuery is present
  */
 
-$.fn[NAME] = ClassToggler._jQueryInterface
-$.fn[NAME].Constructor = ClassToggler
-$.fn[NAME].noConflict = () => {
-  $.fn[NAME] = JQUERY_NO_CONFLICT
-  return ClassToggler._jQueryInterface
+if (typeof $ !== 'undefined') {
+  const JQUERY_NO_CONFLICT = $.fn[NAME]
+  $.fn[NAME] = ClassToggler._jQueryInterface
+  $.fn[NAME].Constructor = ClassToggler
+  $.fn[NAME].noConflict = () => {
+    $.fn[NAME] = JQUERY_NO_CONFLICT
+    return ClassToggler._jQueryInterface
+  }
 }
-
 
 export default ClassToggler
