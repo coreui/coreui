@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-import AjaxLoad from './src/ajax-load'
+import AsyncLoad from './src/async-load'
 import Alert from './src/alert'
 import Button from './src/button'
 import Carousel from './src/carousel'
@@ -23,7 +23,7 @@ import Util from './src/util'
 
 export default {
   Util,
-  AjaxLoad,
+  AsyncLoad,
   Alert,
   Button,
   Carousel,
