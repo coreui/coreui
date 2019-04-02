@@ -14,7 +14,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-import $ from 'jquery';
+import { jQuery as $ } from './util/index';
+import Data from './dom/data';
+import SelectorEngine from './dom/selectorEngine';
 import Tooltip from './tooltip';
 /**
  * ------------------------------------------------------------------------
@@ -26,7 +28,6 @@ var NAME = 'popover';
 var VERSION = '4.3.1';
 var DATA_KEY = 'bs.popover';
 var EVENT_KEY = "." + DATA_KEY;
-var JQUERY_NO_CONFLICT = $.fn[NAME];
 var CLASS_PREFIX = 'bs-popover';
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
@@ -34,7 +35,7 @@ var Default = _objectSpread({}, Tooltip.Default, {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+  template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
 });
 
 var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
@@ -85,18 +86,13 @@ function (_Tooltip) {
   };
 
   _proto.addAttachmentClass = function addAttachmentClass(attachment) {
-    $(this.getTipElement()).addClass(CLASS_PREFIX + "-" + attachment);
-  };
-
-  _proto.getTipElement = function getTipElement() {
-    this.tip = this.tip || $(this.config.template)[0];
-    return this.tip;
+    this.getTipElement().classList.add(CLASS_PREFIX + "-" + attachment);
   };
 
   _proto.setContent = function setContent() {
-    var $tip = $(this.getTipElement()); // We use append for html objects to maintain js events
+    var tip = this.getTipElement(); // we use append for html objects to maintain js events
 
-    this.setElementContent($tip.find(Selector.TITLE), this.getTitle());
+    this.setElementContent(SelectorEngine.findOne(Selector.TITLE, tip), this.getTitle());
 
     var content = this._getContent();
 
@@ -104,8 +100,9 @@ function (_Tooltip) {
       content = content.call(this.element);
     }
 
-    this.setElementContent($tip.find(Selector.CONTENT), content);
-    $tip.removeClass(ClassName.FADE + " " + ClassName.SHOW);
+    this.setElementContent(SelectorEngine.findOne(Selector.CONTENT, tip), content);
+    tip.classList.remove(ClassName.FADE);
+    tip.classList.remove(ClassName.SHOW);
   } // Private
   ;
 
@@ -114,18 +111,22 @@ function (_Tooltip) {
   };
 
   _proto._cleanTipClass = function _cleanTipClass() {
-    var $tip = $(this.getTipElement());
-    var tabClass = $tip.attr('class').match(BSCLS_PREFIX_REGEX);
+    var tip = this.getTipElement();
+    var tabClass = tip.getAttribute('class').match(BSCLS_PREFIX_REGEX);
 
     if (tabClass !== null && tabClass.length > 0) {
-      $tip.removeClass(tabClass.join(''));
+      tabClass.map(function (token) {
+        return token.trim();
+      }).forEach(function (tClass) {
+        return tip.classList.remove(tClass);
+      });
     }
   } // Static
   ;
 
   Popover._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
-      var data = $(this).data(DATA_KEY);
+      var data = Data.getData(this, DATA_KEY);
 
       var _config = typeof config === 'object' ? config : null;
 
@@ -135,7 +136,7 @@ function (_Tooltip) {
 
       if (!data) {
         data = new Popover(this, _config);
-        $(this).data(DATA_KEY, data);
+        Data.setData(this, DATA_KEY, data);
       }
 
       if (typeof config === 'string') {
@@ -146,6 +147,10 @@ function (_Tooltip) {
         data[config]();
       }
     });
+  };
+
+  Popover._getInstance = function _getInstance(element) {
+    return Data.getData(element, DATA_KEY);
   };
 
   _createClass(Popover, null, [{
@@ -195,13 +200,16 @@ function (_Tooltip) {
  */
 
 
-$.fn[NAME] = Popover._jQueryInterface;
-$.fn[NAME].Constructor = Popover;
+if (typeof $ !== 'undefined') {
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Popover._jQueryInterface;
+  $.fn[NAME].Constructor = Popover;
 
-$.fn[NAME].noConflict = function () {
-  $.fn[NAME] = JQUERY_NO_CONFLICT;
-  return Popover._jQueryInterface;
-};
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Popover._jQueryInterface;
+  };
+}
 
 export default Popover;
 //# sourceMappingURL=popover.js.map

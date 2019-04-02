@@ -12,8 +12,10 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
-import $ from 'jquery';
-import Util from './util';
+import { jQuery as $, TRANSITION_END, emulateTransitionEnd, getTransitionDurationFromElement, typeCheckConfig } from './util/index';
+import Data from './dom/data';
+import EventHandler from './dom/eventHandler';
+import Manipulator from './dom/manipulator';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -24,7 +26,6 @@ var NAME = 'toast';
 var VERSION = '4.3.1';
 var DATA_KEY = 'bs.toast';
 var EVENT_KEY = "." + DATA_KEY;
-var JQUERY_NO_CONFLICT = $.fn[NAME];
 var Event = {
   CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
   HIDE: "hide" + EVENT_KEY,
@@ -67,6 +68,8 @@ function () {
     this._timeout = null;
 
     this._setListeners();
+
+    Data.setData(element, DATA_KEY, this);
   } // Getters
 
 
@@ -76,7 +79,7 @@ function () {
   _proto.show = function show() {
     var _this = this;
 
-    $(this._element).trigger(Event.SHOW);
+    EventHandler.trigger(this._element, Event.SHOW);
 
     if (this._config.animation) {
       this._element.classList.add(ClassName.FADE);
@@ -87,7 +90,7 @@ function () {
 
       _this._element.classList.add(ClassName.SHOW);
 
-      $(_this._element).trigger(Event.SHOWN);
+      EventHandler.trigger(_this._element, Event.SHOWN);
 
       if (_this._config.autohide) {
         _this.hide();
@@ -99,8 +102,9 @@ function () {
     this._element.classList.add(ClassName.SHOWING);
 
     if (this._config.animation) {
-      var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-      $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      var transitionDuration = getTransitionDurationFromElement(this._element);
+      EventHandler.one(this._element, TRANSITION_END, complete);
+      emulateTransitionEnd(this._element, transitionDuration);
     } else {
       complete();
     }
@@ -113,7 +117,7 @@ function () {
       return;
     }
 
-    $(this._element).trigger(Event.HIDE);
+    EventHandler.trigger(this._element, Event.HIDE);
 
     if (withoutTimeout) {
       this._close();
@@ -132,23 +136,23 @@ function () {
       this._element.classList.remove(ClassName.SHOW);
     }
 
-    $(this._element).off(Event.CLICK_DISMISS);
-    $.removeData(this._element, DATA_KEY);
+    EventHandler.off(this._element, Event.CLICK_DISMISS);
+    Data.removeData(this._element, DATA_KEY);
     this._element = null;
     this._config = null;
   } // Private
   ;
 
   _proto._getConfig = function _getConfig(config) {
-    config = _objectSpread({}, Default, $(this._element).data(), typeof config === 'object' && config ? config : {});
-    Util.typeCheckConfig(NAME, config, this.constructor.DefaultType);
+    config = _objectSpread({}, Default, Manipulator.getDataAttributes(this._element), typeof config === 'object' && config ? config : {});
+    typeCheckConfig(NAME, config, this.constructor.DefaultType);
     return config;
   };
 
   _proto._setListeners = function _setListeners() {
     var _this3 = this;
 
-    $(this._element).on(Event.CLICK_DISMISS, Selector.DATA_DISMISS, function () {
+    EventHandler.on(this._element, Event.CLICK_DISMISS, Selector.DATA_DISMISS, function () {
       return _this3.hide(true);
     });
   };
@@ -159,14 +163,15 @@ function () {
     var complete = function complete() {
       _this4._element.classList.add(ClassName.HIDE);
 
-      $(_this4._element).trigger(Event.HIDDEN);
+      EventHandler.trigger(_this4._element, Event.HIDDEN);
     };
 
     this._element.classList.remove(ClassName.SHOW);
 
     if (this._config.animation) {
-      var transitionDuration = Util.getTransitionDurationFromElement(this._element);
-      $(this._element).one(Util.TRANSITION_END, complete).emulateTransitionEnd(transitionDuration);
+      var transitionDuration = getTransitionDurationFromElement(this._element);
+      EventHandler.one(this._element, TRANSITION_END, complete);
+      emulateTransitionEnd(this._element, transitionDuration);
     } else {
       complete();
     }
@@ -175,14 +180,12 @@ function () {
 
   Toast._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
-      var $element = $(this);
-      var data = $element.data(DATA_KEY);
+      var data = Data.getData(this, DATA_KEY);
 
       var _config = typeof config === 'object' && config;
 
       if (!data) {
         data = new Toast(this, _config);
-        $element.data(DATA_KEY, data);
       }
 
       if (typeof config === 'string') {
@@ -193,6 +196,10 @@ function () {
         data[config](this);
       }
     });
+  };
+
+  Toast._getInstance = function _getInstance(element) {
+    return Data.getData(element, DATA_KEY);
   };
 
   _createClass(Toast, null, [{
@@ -218,16 +225,20 @@ function () {
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ *  add .toast to jQuery only if jQuery is present
  */
 
 
-$.fn[NAME] = Toast._jQueryInterface;
-$.fn[NAME].Constructor = Toast;
+if (typeof $ !== 'undefined') {
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Toast._jQueryInterface;
+  $.fn[NAME].Constructor = Toast;
 
-$.fn[NAME].noConflict = function () {
-  $.fn[NAME] = JQUERY_NO_CONFLICT;
-  return Toast._jQueryInterface;
-};
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Toast._jQueryInterface;
+  };
+}
 
 export default Toast;
 //# sourceMappingURL=toast.js.map

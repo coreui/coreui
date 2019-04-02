@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-next): ajax-load.js
+ * CoreUI (v3.0.0-next): async-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -21,12 +21,11 @@ import EventHandler from './dom/eventHandler';
  * ------------------------------------------------------------------------
  */
 
-var NAME = 'ajaxLoad';
+var NAME = 'asyncLoad';
 var VERSION = '3.0.0';
-var DATA_KEY = 'coreui.ajaxLoad';
+var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var JQUERY_NO_CONFLICT = $.fn[NAME];
 var ClassName = {
   ACTIVE: 'active',
   NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
@@ -53,28 +52,33 @@ var Default = {
   subpagesDirectory: 'views/'
 };
 
-var AjaxLoad =
+var AsyncLoad =
 /*#__PURE__*/
 function () {
-  function AjaxLoad(element, config) {
+  function AsyncLoad(element, config) {
     this._config = this._getConfig(config);
     this._element = element;
     var url = location.hash.replace(/^#/, '');
 
     if (url !== '') {
-      this.setUpUrl(url);
+      this._setUpUrl(url);
     } else {
-      this.setUpUrl(this._config.defaultPage);
+      this._setUpUrl(this._config.defaultPage);
     }
 
     this._addEventListeners();
   } // Getters
 
 
-  var _proto = AjaxLoad.prototype;
+  var _proto = AsyncLoad.prototype;
 
-  // Public
-  _proto.loadPage = function loadPage(url) {
+  // Private
+  _proto._getConfig = function _getConfig(config) {
+    config = _objectSpread({}, Default, config);
+    return config;
+  };
+
+  _proto._loadPage = function _loadPage(url) {
     var _this = this;
 
     var element = this._element;
@@ -117,7 +121,8 @@ function () {
           return script.remove(script);
         });
         window.scrollTo(0, 0);
-        $(element).html(wrapper);
+        element.innerHTML = '';
+        element.appendChild(wrapper);
 
         if (scripts.length) {
           loadScripts(scripts);
@@ -132,7 +137,7 @@ function () {
     xhr.send();
   };
 
-  _proto.setUpUrl = function setUpUrl(url) {
+  _proto._setUpUrl = function _setUpUrl(url) {
     url = url.replace(/^\//, '').split('?')[0]; // eslint-disable-next-line unicorn/prefer-spread
 
     Array.from(document.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
@@ -157,35 +162,30 @@ function () {
     Array.from(document.querySelectorAll(Selector.NAV_ITEM + " a[href*=\"" + url + "\"]")).forEach(function (element) {
       element.classList.add(ClassName.ACTIVE);
     });
-    this.loadPage(url);
+
+    this._loadPage(url);
   };
 
-  _proto.loadBlank = function loadBlank(url) {
+  _proto._loadBlank = function _loadBlank(url) {
     window.open(url);
   };
 
-  _proto.loadTop = function loadTop(url) {
+  _proto._loadTop = function _loadTop(url) {
     window.location = url;
   };
 
-  _proto.update = function update(link) {
+  _proto._update = function _update(link) {
     if (link.href !== '#') {
       if (typeof link.dataset.toggle === 'undefined' || link.dataset.toggle === 'null') {
         if (link.target === '_top') {
-          this.loadTop(link.href);
+          this._loadTop(link.href);
         } else if (link.target === '_blank') {
-          this.loadBlank(link.href);
+          this._loadBlank(link.href);
         } else {
-          this.setUpUrl(link.getAttribute('href'));
+          this._setUpUrl(link.getAttribute('href'));
         }
       }
     }
-  } // Private
-  ;
-
-  _proto._getConfig = function _getConfig(config) {
-    config = _objectSpread({}, Default, config);
-    return config;
   };
 
   _proto._addEventListeners = function _addEventListeners() {
@@ -200,19 +200,19 @@ function () {
       }
 
       if (!link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
-        _this2.update(link);
+        _this2._update(link);
       }
     });
   } // Static
   ;
 
-  AjaxLoad._ajaxLoadInterface = function _ajaxLoadInterface(element, config) {
+  AsyncLoad._asyncLoadInterface = function _asyncLoadInterface(element, config) {
     var data = Data.getData(element, DATA_KEY);
 
     var _config = typeof config === 'object' && config;
 
     if (!data) {
-      data = new AjaxLoad(element, _config);
+      data = new AsyncLoad(element, _config);
     }
 
     if (typeof config === 'string') {
@@ -224,13 +224,13 @@ function () {
     }
   };
 
-  AjaxLoad._jQueryInterface = function _jQueryInterface(config) {
+  AsyncLoad._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
-      AjaxLoad._ajaxLoadInterface(this, config);
+      AsyncLoad._asyncLoadInterface(this, config);
     });
   };
 
-  _createClass(AjaxLoad, null, [{
+  _createClass(AsyncLoad, null, [{
     key: "VERSION",
     get: function get() {
       return VERSION;
@@ -242,39 +242,26 @@ function () {
     }
   }]);
 
-  return AjaxLoad;
+  return AsyncLoad;
 }();
-/**
- * ------------------------------------------------------------------------
- * Data Api implementation
- * ------------------------------------------------------------------------
- */
-// EventHandler.on(window, Event.LOAD_DATA_API, event => {
-//   console.log(event)
-//   // const ajax = Array.from(SelectorEngine)
-//   // makeArray(SelectorEngine.find(Selector.DATA_RIDE))
-//   console.log('Event Loooooooad')
-//   // AjaxLoad._ajaxLoadInterface()
-// })
-
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- *  * add .ajaxLoad to jQuery only if jQuery is present
+ * add .asyncLoad to jQuery only if jQuery is present
  */
 
 
 if (typeof $ !== 'undefined') {
-  var _JQUERY_NO_CONFLICT = $.fn[NAME];
-  $.fn[NAME] = AjaxLoad._jQueryInterface;
-  $.fn[NAME].Constructor = AjaxLoad;
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = AsyncLoad._jQueryInterface;
+  $.fn[NAME].Constructor = AsyncLoad;
 
   $.fn[NAME].noConflict = function () {
-    $.fn[NAME] = _JQUERY_NO_CONFLICT;
-    return AjaxLoad._jQueryInterface;
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return AsyncLoad._jQueryInterface;
   };
 }
 
-export default AjaxLoad;
-//# sourceMappingURL=ajax-load.js.map
+export default AsyncLoad;
+//# sourceMappingURL=async-load.js.map

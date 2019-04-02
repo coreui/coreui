@@ -19,10 +19,8 @@ import Sidebar from './src/sidebar'
 import Tab from './src/tab'
 import Toast from './src/toast'
 import Tooltip from './src/tooltip'
-import Util from './src/util'
 
 export default {
-  Util,
   AsyncLoad,
   Alert,
   Button,

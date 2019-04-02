@@ -8,7 +8,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
-import $ from 'jquery';
+import { jQuery as $ } from './util/index';
+import Data from './dom/data';
+import EventHandler from './dom/eventHandler';
 import PerfectScrollbar from 'perfect-scrollbar';
 import getStyle from './utilities/get-style';
 /**
@@ -22,16 +24,19 @@ var VERSION = '3.0.0';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var JQUERY_NO_CONFLICT = $.fn[NAME];
 var Default = {
   transition: 400
 };
 var ClassName = {
   ACTIVE: 'active',
   NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
-  OPEN: 'open'
+  OPEN: 'open',
+  SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
+  SIDEBAR_SHOW: 'c-sidebar-show'
 };
 var Event = {
+  CLASS_TOGGLE: 'classtoggle',
+  CLICK: 'click',
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
   DESTROY: 'destroy',
   INIT: 'init',
@@ -40,14 +45,11 @@ var Event = {
   UPDATE: 'update'
 };
 var Selector = {
-  BODY: 'body',
   NAV_DROPDOWN_TOGGLE: '.nav-dropdown-toggle',
-  NAV_DROPDOWN_ITEMS: '.nav-dropdown-items',
-  NAV_ITEM: '.nav-item',
+  NAV_DROPDOWN: '.nav-dropdown',
   NAV_LINK: '.nav-link',
   NAV_LINK_QUERIED: '.nav-link-queried',
   NAVIGATION_CONTAINER: '.c-sidebar-nav, .sidebar-nav',
-  NAVIGATION: '.c-sidebar-nav > .nav, .sidebar-nav > .nav',
   SIDEBAR: '.c-sidebar, .sidebar'
   /**
    * ------------------------------------------------------------------------
@@ -64,10 +66,15 @@ function () {
     this._element = element;
     this.mobile = false;
     this.ps = null;
-    this.perfectScrollbar(Event.INIT);
-    this.setActiveLink();
+
+    this._perfectScrollbar(Event.INIT);
+
+    this._setActiveLink();
+
     this._breakpointTest = this._breakpointTest.bind(this);
-    this._clickOutListener = this._clickOutListener.bind(this); // this._addEventListeners()
+    this._clickOutListener = this._clickOutListener.bind(this);
+
+    this._addEventListeners();
 
     this._addMediaQuery();
   } // Getters
@@ -75,54 +82,67 @@ function () {
 
   var _proto = Sidebar.prototype;
 
-  // Public
-  _proto.toggle = function toggle() {
-    var _this = this;
+  // Private
+  _proto._toggleDropdown = function _toggleDropdown(event) {
+    var toggler = event.target;
 
-    $(this._element).parent().toggleClass(ClassName.OPEN);
-    this.perfectScrollbar(Event.UPDATE);
-    $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").on(Event.CLICK_DATA_API, function () {
-      _this._removeClickOut();
+    if (!toggler.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE)) {
+      toggler = toggler.closest(Selector.NAV_DROPDOWN_TOGGLE);
+    }
 
-      document.body.classList.remove('sidebar-show');
-    });
+    toggler.parentNode.classList.toggle(ClassName.OPEN);
+
+    this._perfectScrollbar(Event.UPDATE);
   };
 
-  _proto.perfectScrollbar = function perfectScrollbar(event) {
-    var _this2 = this;
+  _proto._closeSidebar = function _closeSidebar(event) {
+    var link = event.target;
+
+    if (!link.classList.contains(ClassName.NAV_LINK)) {
+      link = link.closest(Selector.NAV_LINK);
+    }
+
+    if (this.mobile && !link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE)) {
+      this._removeClickOut();
+
+      this._element.classList.remove(ClassName.SIDEBAR_SHOW);
+    }
+  };
+
+  _proto._perfectScrollbar = function _perfectScrollbar(event) {
+    var _this = this;
 
     if (typeof PerfectScrollbar !== 'undefined') {
-      var classList = document.body.classList;
-
-      if (event === Event.INIT && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-        this.ps = this.makeScrollbar();
+      if (event === Event.INIT && !this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+        this.ps = this._makeScrollbar();
       }
 
       if (event === Event.DESTROY) {
-        this.destroyScrollbar();
+        this._destroyScrollbar();
       }
 
       if (event === Event.TOGGLE) {
-        if (classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-          this.destroyScrollbar();
+        if (this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+          this._destroyScrollbar();
         } else {
-          this.destroyScrollbar();
-          this.ps = this.makeScrollbar();
+          this._destroyScrollbar();
+
+          this.ps = this._makeScrollbar();
         }
       }
 
-      if (event === Event.UPDATE && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+      if (event === Event.UPDATE && !this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
         // ToDo: Add smooth transition
         setTimeout(function () {
-          _this2.destroyScrollbar();
+          _this._destroyScrollbar();
 
-          _this2.ps = _this2.makeScrollbar();
+          _this.ps = _this._makeScrollbar();
         }, Default.transition);
       }
     }
   };
 
-  _proto.makeScrollbar = function makeScrollbar(container) {
+  _proto._makeScrollbar = function _makeScrollbar(container) {
     if (container === void 0) {
       container = Selector.NAVIGATION_CONTAINER;
     }
@@ -135,37 +155,72 @@ function () {
     return ps;
   };
 
-  _proto.destroyScrollbar = function destroyScrollbar() {
+  _proto._destroyScrollbar = function _destroyScrollbar() {
     if (this.ps) {
       this.ps.destroy();
       this.ps = null;
     }
   };
 
-  _proto.setActiveLink = function setActiveLink() {
-    $(Selector.NAVIGATION).find(Selector.NAV_LINK).each(function (key, value) {
-      var link = value;
-      var cUrl;
+  _proto._getParents = function _getParents(element, selector) {
+    // Element.matches() polyfill
+    // if (!Element.prototype.matches) {
+    //   Element.prototype.matches =
+    //     Element.prototype.matchesSelector ||
+    //     Element.prototype.mozMatchesSelector ||
+    //     Element.prototype.msMatchesSelector ||
+    //     Element.prototype.oMatchesSelector ||
+    //     Element.prototype.webkitMatchesSelector ||
+    //     function(s) {
+    //       var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+    //         i = matches.length;
+    //       while (--i >= 0 && matches.item(i) !== this) {}
+    //       return i > -1;
+    //     };
+    // }
+    // Setup parents array
+    var parents = []; // Get matching parent elements
 
-      if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
-        cUrl = String(window.location);
+    for (; element && element !== document; element = element.parentNode) {
+      // Add matching parents to array
+      if (selector) {
+        if (element.matches(selector)) {
+          parents.push(element);
+        }
       } else {
-        cUrl = String(window.location).split('?')[0];
+        parents.push(element);
+      }
+    }
+
+    return parents;
+  };
+
+  _proto._setActiveLink = function _setActiveLink() {
+    var _this2 = this;
+
+    // eslint-disable-next-line unicorn/prefer-spread
+    Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
+      var currentUrl;
+
+      if (element.classList.contains(Selector.NAV_LINK_QUERIED)) {
+        currentUrl = String(window.location);
+      } else {
+        currentUrl = String(window.location).split('?')[0];
       }
 
-      if (cUrl.substr(cUrl.length - 1) === '#') {
-        cUrl = cUrl.slice(0, -1);
+      if (currentUrl.substr(currentUrl.length - 1) === '#') {
+        currentUrl = currentUrl.slice(0, -1);
       }
 
-      if ($($(link))[0].href === cUrl) {
-        $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each(function (key, value) {
-          link = value;
-          $(link).parent().addClass(ClassName.OPEN);
+      if (element.href === currentUrl) {
+        element.classList.add(ClassName.ACTIVE); // eslint-disable-next-line unicorn/prefer-spread
+
+        Array.from(_this2._getParents(element, Selector.NAV_DROPDOWN)).forEach(function (element) {
+          element.classList.add(ClassName.OPEN);
         });
       }
     });
-  } // Private
-  ;
+  };
 
   _proto._addMediaQuery = function _addMediaQuery() {
     var sm = getStyle('--breakpoint-sm');
@@ -174,16 +229,16 @@ function () {
       return;
     }
 
-    var smVal = parseInt(sm, 10) - 1;
-    var mediaQueryList = window.matchMedia("(max-width: " + smVal + "px)");
+    var smValue = parseInt(sm, 10) - 1;
+    var mediaQueryList = window.matchMedia("(max-width: " + smValue + "px)");
 
     this._breakpointTest(mediaQueryList);
 
     mediaQueryList.addListener(this._breakpointTest);
   };
 
-  _proto._breakpointTest = function _breakpointTest(e) {
-    this.mobile = Boolean(e.matches);
+  _proto._breakpointTest = function _breakpointTest(event) {
+    this.mobile = Boolean(event.matches);
 
     this._toggleClickOut();
   };
@@ -196,42 +251,72 @@ function () {
 
       this._removeClickOut();
 
-      document.body.classList.remove('sidebar-show');
+      this._element.classList.remove(ClassName.SIDEBAR_SHOW);
     }
   };
 
   _proto._addClickOut = function _addClickOut() {
-    document.addEventListener(Event.CLICK_DATA_API, this._clickOutListener, true);
+    document.addEventListener(Event.CLICK, this._clickOutListener, true);
   };
 
   _proto._removeClickOut = function _removeClickOut() {
-    document.removeEventListener(Event.CLICK_DATA_API, this._clickOutListener, true);
+    document.removeEventListener(Event.CLICK, this._clickOutListener, true);
   };
 
   _proto._toggleClickOut = function _toggleClickOut() {
-    if (this.mobile && document.body.classList.contains('sidebar-show')) {
-      document.body.classList.remove('aside-menu-show');
-
+    if (this.mobile && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
       this._addClickOut();
     } else {
       this._removeClickOut();
     }
+  };
+
+  _proto._addEventListeners = function _addEventListeners() {
+    var _this3 = this;
+
+    EventHandler.on(this._element, Event.CLASS_TOGGLE, function (event) {
+      if (event.detail.class === ClassName.SIDEBAR_MINIMIZED) {
+        _this3._perfectScrollbar(Event.TOGGLE);
+      }
+
+      if (event.detail.class === ClassName.SIDEBAR_SHOW) {
+        _this3._toggleClickOut();
+      }
+    });
+    EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
+      event.preventDefault();
+
+      _this3._toggleDropdown(event);
+    });
+    EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_LINK, function (event) {
+      event.preventDefault();
+
+      _this3._closeSidebar(event);
+    });
   } // Static
   ;
 
+  Sidebar._sidebarInterface = function _sidebarInterface(element, config) {
+    var data = Data.getData(element, DATA_KEY);
+
+    var _config = typeof config === 'object' && config;
+
+    if (!data) {
+      data = new Sidebar(element, _config);
+    }
+
+    if (typeof config === 'string') {
+      if (typeof data[config] === 'undefined') {
+        throw new TypeError("No method named \"" + config + "\"");
+      }
+
+      data[config]();
+    }
+  };
+
   Sidebar._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
-      var $element = $(this);
-      var data = $element.data(DATA_KEY);
-
-      if (!data) {
-        data = new Sidebar(this);
-        $element.data(DATA_KEY, data);
-      }
-
-      if (config === 'toggle') {
-        data[config]();
-      }
+      Sidebar._sidebarInterface(this, config);
     });
   };
 
@@ -251,38 +336,29 @@ function () {
  */
 
 
-$(window).on(Event.LOAD_DATA_API, function () {
-  var sidebars = [].slice.call(document.querySelectorAll(Selector.SIDEBAR));
-
-  for (var i = 0, len = sidebars.length; i < len; i++) {
-    var $sidebar = $(sidebars[i]);
-
-    Sidebar._jQueryInterface.call($sidebar);
-  }
-});
-$(document).on(Event.CLICK_DATA_API, Selector.NAV_DROPDOWN_TOGGLE, function (event) {
-  event.preventDefault();
-  var toggler = event.target;
-
-  if (!$(toggler).hasClass(ClassName.NAV_DROPDOWN_TOGGLE)) {
-    toggler = $(toggler).closest(Selector.NAV_DROPDOWN_TOGGLE);
-  }
-
-  Sidebar._jQueryInterface.call($(toggler), 'toggle');
+EventHandler.on(window, Event.LOAD_DATA_API, function () {
+  // eslint-disable-next-line unicorn/prefer-spread
+  Array.from(document.querySelectorAll(Selector.SIDEBAR)).forEach(function (element) {
+    Sidebar._sidebarInterface(element);
+  });
 });
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+* add .asyncLoad to jQuery only if jQuery is present
  */
 
-$.fn[NAME] = Sidebar._jQueryInterface;
-$.fn[NAME].Constructor = Sidebar;
+if (typeof $ !== 'undefined') {
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = Sidebar._jQueryInterface;
+  $.fn[NAME].Constructor = Sidebar;
 
-$.fn[NAME].noConflict = function () {
-  $.fn[NAME] = JQUERY_NO_CONFLICT;
-  return Sidebar._jQueryInterface;
-};
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return Sidebar._jQueryInterface;
+  };
+}
 
 export default Sidebar;
 //# sourceMappingURL=sidebar.js.map

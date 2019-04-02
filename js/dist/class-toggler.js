@@ -8,7 +8,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
-import $ from 'jquery';
+import { jQuery as $ } from './util/index';
+import Data from './dom/data';
+import EventHandler from './dom/eventHandler';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -20,7 +22,6 @@ var VERSION = '3.0.0';
 var DATA_KEY = 'coreui.class-toggler';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var JQUERY_NO_CONFLICT = $.fn[NAME];
 var Default = {
   breakpoints: '-sm,-md,-lg,-xl',
   postfix: '-show',
@@ -31,12 +32,10 @@ var ClassName = {
   CLASS_TOGGLER: 'c-class-toggler'
 };
 var Event = {
-  CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
-  LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
-  TOGGLE: 'toggle'
+  CLASS_TOGGLE: 'classtoggle',
+  CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var Selector = {
-  BODY: 'body',
   CLASS_TOGGLER: '.c-class-toggler'
   /**
    * ------------------------------------------------------------------------
@@ -76,8 +75,16 @@ function () {
       }
 
       classNames.forEach(function (className) {
+        // eslint-disable-next-line no-negated-condition
         if (!responsive) {
           el.classList.toggle(className);
+          var event = new CustomEvent(Event.CLASS_TOGGLE, {
+            detail: {
+              target: target,
+              class: className
+            }
+          });
+          el.dispatchEvent(event);
         } else {
           var currentBreakpoint;
           breakpoints.forEach(function (breakpoint) {
@@ -107,9 +114,25 @@ function () {
           if (addResponsiveClasses) {
             responsiveClasses.forEach(function (responsiveClass) {
               el.classList.remove(responsiveClass);
+              var event = new CustomEvent(Event.CLASS_TOGGLE, {
+                detail: {
+                  target: target,
+                  class: responsiveClass
+                }
+              });
+              el.dispatchEvent(event);
             });
           } else {
             el.classList.add(className);
+
+            var _event = new CustomEvent(Event.CLASS_TOGGLE, {
+              detail: {
+                target: target,
+                class: className
+              }
+            });
+
+            el.dispatchEvent(_event);
           }
         }
       });
@@ -117,19 +140,27 @@ function () {
   } // Static
   ;
 
+  ClassToggler._classTogglerInterface = function _classTogglerInterface(element, config) {
+    var data = Data.getData(element, DATA_KEY);
+
+    var _config = typeof config === 'object' && config;
+
+    if (!data) {
+      data = new ClassToggler(element, _config);
+    }
+
+    if (typeof config === 'string') {
+      if (typeof data[config] === 'undefined') {
+        throw new TypeError("No method named \"" + config + "\"");
+      }
+
+      data[config]();
+    }
+  };
+
   ClassToggler._jQueryInterface = function _jQueryInterface(config) {
     return this.each(function () {
-      var $element = $(this);
-      var data = $element.data(DATA_KEY);
-
-      if (!data) {
-        data = new ClassToggler(this);
-        $(this).data(DATA_KEY, data);
-      }
-
-      if (config === 'toggle') {
-        data[config]();
-      }
+      ClassToggler._classTogglerInterface(this, config);
     });
   };
 
@@ -149,29 +180,33 @@ function () {
  */
 
 
-$(document).on(Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, function (event) {
+EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, function (event) {
   event.preventDefault();
   var toggler = event.target;
 
-  if (!$(toggler).hasClass(ClassName.CLASS_TOGGLER)) {
-    toggler = $(toggler).closest(Selector.CLASS_TOGGLER);
+  if (!toggler.classList.contains(ClassName.CLASS_TOGGLER)) {
+    toggler = toggler.closest(Selector.CLASS_TOGGLER);
   }
 
-  ClassToggler._jQueryInterface.call($(toggler), 'toggle');
+  ClassToggler._classTogglerInterface(toggler, 'toggle');
 });
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ * add .c-class-toggler to jQuery only if jQuery is present
  */
 
-$.fn[NAME] = ClassToggler._jQueryInterface;
-$.fn[NAME].Constructor = ClassToggler;
+if (typeof $ !== 'undefined') {
+  var JQUERY_NO_CONFLICT = $.fn[NAME];
+  $.fn[NAME] = ClassToggler._jQueryInterface;
+  $.fn[NAME].Constructor = ClassToggler;
 
-$.fn[NAME].noConflict = function () {
-  $.fn[NAME] = JQUERY_NO_CONFLICT;
-  return ClassToggler._jQueryInterface;
-};
+  $.fn[NAME].noConflict = function () {
+    $.fn[NAME] = JQUERY_NO_CONFLICT;
+    return ClassToggler._jQueryInterface;
+  };
+}
 
 export default ClassToggler;
 //# sourceMappingURL=class-toggler.js.map

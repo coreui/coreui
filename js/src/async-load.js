@@ -17,40 +17,39 @@ import EventHandler from './dom/eventHandler'
  * ------------------------------------------------------------------------
  */
 
-const NAME                = 'asyncLoad'
-const VERSION             = '3.0.0'
-const DATA_KEY            = 'coreui.asyncLoad'
-const EVENT_KEY           = `.${DATA_KEY}`
-const DATA_API_KEY        = '.data-api'
-const JQUERY_NO_CONFLICT  = $.fn[NAME]
+const NAME = 'asyncLoad'
+const VERSION = '3.0.0'
+const DATA_KEY = 'coreui.asyncLoad'
+const EVENT_KEY = `.${DATA_KEY}`
+const DATA_API_KEY = '.data-api'
 
 const ClassName = {
-  ACTIVE      : 'active',
-  NAV_DROPDOWN_TOGGLE : 'nav-dropdown-toggle',
-  NAV_PILLS   : 'nav-pills',
-  NAV_TABS    : 'nav-tabs',
-  OPEN        : 'open',
-  VIEW_SCRIPT : 'view-script'
+  ACTIVE: 'active',
+  NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
+  NAV_PILLS: 'nav-pills',
+  NAV_TABS: 'nav-tabs',
+  OPEN: 'open',
+  VIEW_SCRIPT: 'view-script'
 }
 
 const Event = {
-  CLICK_DATA_API : `click${EVENT_KEY}${DATA_API_KEY}`,
-  LOAD_DATA_API  : `load${EVENT_KEY}${DATA_API_KEY}`
+  CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
+  LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`
 }
 
 const Selector = {
-  HEAD         : 'head',
-  NAV_DROPDOWN : '.nav .nav-dropdown',
-  NAV_LINK     : '.dropdown-nav-link, .nav .nav-link',
-  NAV_ITEM     : '.nav .nav-item',
-  SIDEBAT_NAV  : '.c-sidebar-nav, .sidebar-nav',
-  VIEW_SCRIPT  : '.view-script'
+  HEAD: 'head',
+  NAV_DROPDOWN: '.nav .nav-dropdown',
+  NAV_LINK: '.dropdown-nav-link, .nav .nav-link',
+  NAV_ITEM: '.nav .nav-item',
+  SIDEBAT_NAV: '.c-sidebar-nav, .sidebar-nav',
+  VIEW_SCRIPT: '.view-script'
 }
 
 const Default = {
-  defaultPage       : 'main.html',
-  errorPage         : '404.html',
-  subpagesDirectory : 'views/'
+  defaultPage: 'main.html',
+  errorPage: '404.html',
+  subpagesDirectory: 'views/'
 }
 
 class AsyncLoad {
@@ -60,9 +59,9 @@ class AsyncLoad {
     const url = location.hash.replace(/^#/, '')
 
     if (url !== '') {
-      this.setUpUrl(url)
+      this._setUpUrl(url)
     } else {
-      this.setUpUrl(this._config.defaultPage)
+      this._setUpUrl(this._config.defaultPage)
     }
 
     this._addEventListeners()
@@ -78,9 +77,17 @@ class AsyncLoad {
     return Default
   }
 
-  // Public
+  // Private
 
-  loadPage(url) {
+  _getConfig(config) {
+    config = {
+      ...Default,
+      ...config
+    }
+    return config
+  }
+
+  _loadPage(url) {
     const element = this._element
     const config = this._config
 
@@ -116,7 +123,8 @@ class AsyncLoad {
         wrapper.querySelectorAll('script').forEach(script => script.remove(script))
 
         window.scrollTo(0, 0)
-        $(element).html(wrapper)
+        element.innerHTML = ''
+        element.appendChild(wrapper)
         if (scripts.length) {
           loadScripts(scripts)
         }
@@ -130,7 +138,7 @@ class AsyncLoad {
     xhr.send()
   }
 
-  setUpUrl(url) {
+  _setUpUrl(url) {
     url = url.replace(/^\//, '').split('?')[0]
 
     // eslint-disable-next-line unicorn/prefer-spread
@@ -161,39 +169,29 @@ class AsyncLoad {
       element.classList.add(ClassName.ACTIVE)
     })
 
-    this.loadPage(url)
+    this._loadPage(url)
   }
 
-  loadBlank(url) {
+  _loadBlank(url) {
     window.open(url)
   }
 
-  loadTop(url) {
+  _loadTop(url) {
     window.location = url
   }
 
-  update(link) {
+  _update(link) {
     if (link.href !== '#') {
       if (typeof link.dataset.toggle === 'undefined' || link.dataset.toggle === 'null') {
         if (link.target === '_top') {
-          this.loadTop(link.href)
+          this._loadTop(link.href)
         } else if (link.target === '_blank') {
-          this.loadBlank(link.href)
+          this._loadBlank(link.href)
         } else {
-          this.setUpUrl(link.getAttribute('href'))
+          this._setUpUrl(link.getAttribute('href'))
         }
       }
     }
-  }
-
-  // Private
-
-  _getConfig(config) {
-    config = {
-      ...Default,
-      ...config
-    }
-    return config
   }
 
   _addEventListeners() {
@@ -205,7 +203,7 @@ class AsyncLoad {
       }
 
       if (!link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
-        this.update(link)
+        this._update(link)
       }
     })
   }
@@ -240,7 +238,7 @@ class AsyncLoad {
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- *  * add .asyncLoad to jQuery only if jQuery is present
+ * add .asyncLoad to jQuery only if jQuery is present
  */
 
 if (typeof $ !== 'undefined') {

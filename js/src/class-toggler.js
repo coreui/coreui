@@ -35,6 +35,7 @@ const ClassName = {
 }
 
 const Event = {
+  CLASS_TOGGLE: 'classtoggle',
   CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
 }
 
@@ -80,7 +81,7 @@ class ClassToggler {
         // eslint-disable-next-line no-negated-condition
         if (!responsive) {
           el.classList.toggle(className)
-          const event = new CustomEvent('classtoggle', {
+          const event = new CustomEvent(Event.CLASS_TOGGLE, {
             detail: {
               target,
               class: className
@@ -115,7 +116,7 @@ class ClassToggler {
           if (addResponsiveClasses) {
             responsiveClasses.forEach(responsiveClass => {
               el.classList.remove(responsiveClass)
-              const event = new CustomEvent('classtoggle', {
+              const event = new CustomEvent(Event.CLASS_TOGGLE, {
                 detail: {
                   target,
                   class: responsiveClass
@@ -125,7 +126,7 @@ class ClassToggler {
             })
           } else {
             el.classList.add(className)
-            const event = new CustomEvent('classtoggle', {
+            const event = new CustomEvent(Event.CLASS_TOGGLE, {
               detail: {
                 target,
                 class: className
