@@ -1,104 +1,124 @@
-.#{$prefix}header,
-.app-header {
+.#{$prefix}header {
   position: relative;
   display: flex;
   flex-direction: row;
-  height: $navbar-height;
-  background-color: $navbar-bg;
-  @include borders($navbar-border);
+  height: $header-height;
 
-  &-brand {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $navbar-brand-width;
-    height: $navbar-height;
-    background-color: $navbar-brand-bg;
-    @include borders($navbar-brand-border);
-
-    &-minimized {
-      display: none;
-    }
+  &.#{$prefix}header-dark[class*="bg-"],
+  &.#{$prefix}header-light[class*="bg-"]  {
+    border-color: rgba($black, .1);
   }
 
-  &-toggler {
-    min-width: 50px;
-    padding: $navbar-toggler-padding-y 0;
-    font-size: $navbar-toggler-font-size;
-    line-height: 1;
-    background-color: transparent; // remove default button style
-    border: $border-width solid transparent; // remove default button style
-    @include border-radius($navbar-toggler-border-radius);
-
-    @include hover-focus {
-      text-decoration: none;
-    }
-
-    // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
-    &:not(:disabled):not(.disabled) {
-      cursor: pointer;
-    }
-
-    &:hover &-icon {
-      background-image: $navbar-toggler-icon-hover;
-    }
-  }
-
-  &-toggler-icon {
-    display: inline-block;
-    width: 1.5em;
-    height: 23px;
-    vertical-align: middle;
-    content: "";
-    background-image: $navbar-toggler-icon;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
-  }
-
-  &-fixed {
+  &.#{$prefix}header-fixed {
     position: fixed;
     z-index: $zindex-sticky;
     width: 100%;
 
     & ~ .#{$prefix}body {
-      padding-top: $navbar-height;
+      padding-top: $header-height;
     }
   }
+}
 
-  .nav {
-    flex-direction: row;
-    align-items: center;
+.#{$prefix}header-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $header-brand-width;
+  height: $header-height;
+
+  .#{$prefix}header-brand-minimized {
+    display: none;
   }
 
-  .nav-item {
-    // position: relative;
-    // min-width: 50px;
-    // margin: 0;
-    // text-align: center;
+  &.#{$prefix}header-brand-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 
-    button {
-      margin: 0 auto;
-    }
-
-    .nav-link {
-      // padding-top: 0;
-      // padding-bottom: 0;
-      // background: 0;
-      // border: 0;
-
-      .badge {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-down($breakpoint) {
+      &.#{$prefix}header-brand-#{$breakpoint}-down-centered {
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-top: -16px;
-        margin-left: 0;
+        transform: translate(-50%, -50%);
       }
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    &.#{$prefix}header-brand-minimized {
+      width: $header-brand-minimized-width;
 
-      > .img-avatar {
-        height: $navbar-height - 20px;
-        margin: 0 10px;
+      .#{$prefix}header-brand-full {
+        display: none;
       }
+      .#{$prefix}header-brand-minimized {
+        display: block;
+      }
+    }
+  }
+}
+
+.#{$prefix}header-toggler {
+  min-width: 50px;
+  font-size: $header-toggler-font-size;
+  background-color: $header-toggler-bg;
+  border: 0; // remove default button style
+  @include borders($header-toggler-border);
+  @include border-radius($header-toggler-border-radius);
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+  &:not(:disabled):not(.disabled) {
+    cursor: pointer;
+  }
+}
+
+.#{$prefix}header-toggler-icon {
+  display: block;
+  height: $header-toggler-font-size * 1.25;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.#{$prefix}header-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  .nav-item {
+    position: relative;
+  }
+
+  button {
+    margin: 0 auto;
+  }
+
+  .nav-link {
+    padding-right: $header-nav-link-padding-x;
+    padding-left: $header-nav-link-padding-x;
+
+    .badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -16px;
+      margin-left: 0;
+    }
+
+    > .img-avatar {
+      height: $header-height - 20px;
+      margin: 0 10px;
     }
   }
 
@@ -112,45 +132,141 @@
   }
 }
 
-.nav {
-  .nav-link {
-    color: $navbar-color;
+// Navbar themes
+//
+// Styles for switching between navbars with light or dark background.
+
+// Dark links against a light background
+&.#{$prefix}header-light {
+  background: $header-light-bg;
+  @include borders($header-light-border);
+
+  .#{$prefix}header-brand {
+    color: $header-light-brand-color;
+    background-color: $header-light-brand-bg;
+    @include borders($header-light-brand-border);
 
     @include hover-focus {
-      color: $navbar-hover-color;
+      color: $header-light-brand-hover-color;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &.#{$prefix}header-brand-minimized {
+        background-color: $header-light-brand-minimized-bg;
+        @include borders($header-light-brand-minimized-border);
+      }
     }
   }
 
-  .open > .nav-link,
-  .active > .nav-link,
-  .nav-link.open,
-  .nav-link.active {
-    @include plain-hover-focus {
-      color: $navbar-active-color;
+  .#{$prefix}header-nav {
+    .nav-link {
+      color: $header-light-color;
+
+      @include hover-focus {
+        color: $header-light-hover-color;
+      }
+
+      &.disabled {
+        color: $header-light-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $header-light-active-color;
+    }
+  }
+
+  .#{$prefix}header-toggler {
+    color: $header-light-color;
+    border-color: $header-light-toggler-border-color;
+  }
+
+  .#{$prefix}header-toggler-icon {
+    background-image: $header-light-toggler-icon-bg;
+
+    &:hover {
+      background-image: $header-light-toggler-hover-icon-bg;
+    }
+  }
+
+  .#{$prefix}header-text {
+    color: $header-light-color;
+    a {
+      color: $header-light-active-color;
+
+      @include hover-focus {
+        color: $header-light-active-color;
+      }
     }
   }
 }
 
-.navbar-divider {
-  background-color: rgba(0, 0, 0, .075);
-}
+// White links against a dark background
+&.#{$prefix}header-dark {
+  background: $header-dark-bg;
+  @include borders($header-dark-border);
 
-@include media-breakpoint-up(lg) {
-  .brand-minimized {
-    .#{$prefix}header,
-    .app-header {
-      .navbar-brand {
-        width: $navbar-brand-minimized-width;
-        background-color: $navbar-brand-minimized-bg;
-        @include borders($navbar-brand-minimized-border);
+  .#{$prefix}header-brand {
+    color: $header-dark-brand-color;
+    background-color: $header-dark-brand-bg;
+    @include borders($header-dark-brand-border);
 
-        .navbar-brand-full {
-          display: none;
-        }
+    @include hover-focus {
+      color: $header-dark-brand-hover-color;
+    }
 
-        .navbar-brand-minimized {
-          display: block;
-        }
+    @include media-breakpoint-up(lg) {
+      &.#{$prefix}header-brand-minimized {
+        background-color: $header-light-brand-minimized-bg;
+        @include borders($header-light-brand-minimized-border);
+      }
+    }
+  }
+
+  .#{$prefix}header-nav {
+    .nav-link {
+      color: $header-dark-color;
+
+      @include hover-focus {
+        color: $header-dark-hover-color;
+      }
+
+      &.disabled {
+        color: $header-dark-disabled-color;
+      }
+    }
+
+    .show > .nav-link,
+    .active > .nav-link,
+    .nav-link.show,
+    .nav-link.active {
+      color: $header-dark-active-color;
+    }
+  }
+
+  .#{$prefix}header-toggler {
+    color: $header-dark-color;
+    border-color: $header-dark-toggler-border-color;
+  }
+
+  .#{$prefix}header-toggler-icon {
+    background-image: $header-dark-toggler-icon-bg;
+
+    &:hover {
+      background-image: $header-dark-toggler-hover-icon-bg;
+    }
+  }
+
+  .#{$prefix}header-text {
+    color: $header-dark-color;
+    a {
+      color: $header-dark-active-color;
+
+      @include hover-focus {
+        color: $header-dark-active-color;
       }
     }
   }

@@ -815,35 +815,92 @@ $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 
 // CoreUI specific changes start
 
-$navbar-height:                       55px !default;
-$navbar-bg:                           $white !default;
-$navbar-border: (
+// Header
+
+$header-height:                       55px !default;
+$header-bg:                           $white !default;
+$header-border: (
   bottom: (
     size:                             1px,
     style:                            solid,
     color:                            $border-color
   )
 ) !default;
-$navbar-brand-width:                  155px !default;
-$navbar-brand-bg:                     transparent !default;
-$navbar-brand-border:                 0 !default;
+$header-brand-width:                  155px !default;
+$header-brand-minimized-width:        50px !default;
 
-$navbar-brand-minimized-width:        50px !default;
-$navbar-brand-minimized-bg:           $navbar-brand-bg !default;
-$navbar-brand-minimized-border:       $navbar-brand-border !default;
+$header-padding-y:                  $spacer / 2 !default;
+$header-padding-x:                  $spacer !default;
 
-$navbar-color:                        $gray-600 !default;
-$navbar-hover-color:                  $gray-800 !default;
-$navbar-active-color:                 $gray-800 !default;
+$header-nav-link-padding-x:         .5rem !default;
+
+$header-brand-font-size:            $font-size-lg !default;
+$header-brand-height:               $header-brand-font-size * $line-height-base !default;
+$header-brand-padding-y:            ($nav-link-height - $header-brand-height) / 2 !default;
+
+$header-toggler-bg:                 transparent !default;
+$header-toggler-padding-y:          .25rem !default;
+$header-toggler-padding-x:          .75rem !default;
+$header-toggler-font-size:          $font-size-lg !default;
+$header-toggler-border:             0 !default;
+$header-toggler-border-radius:      $btn-border-radius !default;
+
+$header-dark-bg:                    $gray-800 !default;
+$header-dark-color:                 rgba($white, .75) !default;
+$header-dark-border: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $gray-800
+  )
+) !default;
+$header-dark-hover-color:           rgba($white, .9) !default;
+$header-dark-active-color:          $white !default;
+$header-dark-disabled-color:        rgba($white, .25) !default;
+$header-dark-toggler-icon-bg:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-toggler-hover-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-toggler-border-color:  rgba($white, .1) !default;
+
+$header-light-bg:                   $white !default;
+$header-light-color:                rgba($black, .5) !default;
+$header-light-border: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+$header-light-hover-color:           rgba($black, .7) !default;
+$header-light-active-color:          rgba($black, .9) !default;
+$header-light-disabled-color:        rgba($black, .3) !default;
+$header-light-toggler-icon-bg:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-light-toggler-hover-icon-bg: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-light-toggler-border-color:  rgba($black, .1) !default;
+
+$header-light-brand-bg:                   transparent !default;
+$header-light-brand-border:               0 !default;
+$header-light-brand-color:                $header-light-active-color !default;
+$header-light-brand-hover-color:          $header-light-active-color !default;
+$header-light-brand-minimized-bg:         transparent !default;
+$header-light-brand-minimized-border:     0 !default;
+
+$header-dark-brand-bg:                    transparent !default;
+$header-dark-brand-border:                0 !default;
+$header-dark-brand-color:                 $header-dark-active-color !default;
+$header-dark-brand-hover-color:           $header-dark-active-color !default;
+$header-dark-brand-minimized-bg:          transparent !default;
+$header-dark-brand-minimized-border:      0 !default;
+
+
+// $header-color:                        $gray-600 !default;
+// $header-hover-color:                  $gray-800 !default;
+// $header-active-color:                 $gray-800 !default;
 // ToDo: Variable is not being used!
-// $navbar-disabled-color:               $gray-300 !default;
+// $header-disabled-color:               $gray-300 !default;
 
-$navbar-toggler-icon:                 str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
-$navbar-toggler-icon-hover:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$navbar-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 // CoreUI specific changes end
 
-// CoreUI specific changes start
 // Sidebar
 
 $sidebar-width:                       200px !default;
@@ -851,8 +908,6 @@ $sidebar-padding:                     0 !default;
 $sidebar-minimized-width:             50px !default;
 $sidebar-minimized-height:            $sidebar-minimized-width !default;
 $sidebar-compact-width:               150px !default;
-
-$sidebar-themes: dark light !default;
 
 $sidebar-dark-color:                  $white !default;
 $sidebar-dark-bg:                     $gray-800 !default;
@@ -905,7 +960,7 @@ $sidebar-nav-link-padding-y:          .75rem !default;
 $sidebar-nav-link-padding-x:          1rem !default;
 
 $sidebar-dark-nav-title-color:             rgba($white, .6) !default;
-$sidebar-dark-nav-link-color:              $white !default;
+$sidebar-dark-nav-link-color:              rgba($white, .8) !default;
 $sidebar-dark-nav-link-bg:                 transparent !default;
 $sidebar-dark-nav-link-icon-color:         $gray-600 !default;
 $sidebar-dark-nav-link-borders:            0 !default;

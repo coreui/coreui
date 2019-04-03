@@ -17,7 +17,7 @@
     margin-right: - $sidebar-width;
   }
 
-  // ToDo: refactor
+  // TODO: refactor
   &.#{$prefix}sidebar-dark[class*="bg-"],
   &.#{$prefix}sidebar-light[class*="bg-"]  {
     border-color: rgba($black, .1);
@@ -39,7 +39,7 @@
     }
 
     &.#{$prefix}sidebar-under-header {
-      top: $navbar-height;
+      top: $header-height;
     }
   }
 
@@ -211,7 +211,7 @@
     }
   }
 
-  // ToDO: refactor
+  // TODO: refactor
   // @if (lightness( $sidebar-bg ) < 40) {
   //   .progress {
   //     background-color: lighten($sidebar-bg, 15%) !important;
@@ -305,7 +305,7 @@
     }
 
     // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
-    // ToDo: find better solution
+    // TODO: find better solution
     .#{$prefix}sidebar-minimizer {
       position: fixed;
       bottom: 0;

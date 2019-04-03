@@ -9,7 +9,7 @@
 
   .#{$prefix}header,
   .app-header {
-    flex: 0 0 $navbar-height;
+    flex: 0 0 $header-height;
   }
 
   .#{$prefix}footer,
@@ -39,7 +39,7 @@
     // }
   }
   .#{$prefix}sidebar.#{$prefix}sidebar-fixed {
-    top: $navbar-height;
+    top: $header-height;
   }
 }
 
@@ -86,7 +86,7 @@
 //       }
 //       .app-body,
 //       .#{$prefix}body {
-//         margin-top: $navbar-height;
+//         margin-top: $header-height;
 //       }
 //     }
 //     //
@@ -103,7 +103,7 @@
 //       }
 //       .#{$prefix}header + .#{$prefix}body .#{$prefix}sidebar,
 //       .app-header + .app-body .sidebar {
-//         height: calc(100vh - #{$navbar-height});
+//         height: calc(100vh - #{$header-height});
 //       }
 //     }
 
@@ -154,7 +154,7 @@
 //     // .sidebar-off-canvas {
 //     //   .#{$prefix}header + .#{$prefix}body .#{$prefix}sidebar,
 //     //   .app-header + .app-body .sidebar {
-//     //     height: calc(100vh - #{$navbar-height});
+//     //     height: calc(100vh - #{$header-height});
 //     //   }
 //     // }
 
@@ -172,7 +172,7 @@
 //       .#{$prefix}breadcrumb,
 //       .breadcrumb {
 //         position: fixed;
-//         top: $navbar-height;
+//         top: $header-height;
 //         right: 0;
 //         left: 0;
 //         z-index: $zindex-sticky - 3;
@@ -396,16 +396,16 @@
 //     z-index: $zindex-sticky;
 //     width: 100%;
 //     text-align: center;
-//     @if $navbar-brand-bg == transparent {
-//       background-color: $navbar-bg;
+//     @if $header-brand-bg == transparent {
+//       background-color: $header-bg;
 //     } @else {
-//       background-color: $navbar-brand-bg;
+//       background-color: $header-brand-bg;
 //     }
-//     @include borders($navbar-brand-border);
+//     @include borders($header-brand-border);
 
 //     .navbar-toggler {
-//       @if (lightness( $navbar-brand-bg ) > 40) {
-//         color: $navbar-color;
+//       @if (lightness( $header-brand-bg ) > 40) {
+//         color: $header-color;
 //       } @else {
 //         color: #fff;
 //       }
@@ -415,13 +415,13 @@
 //       position: absolute;
 //       top: 0;
 //       left: 50%;
-//       margin-left: - ($navbar-brand-width / 2);
+//       margin-left: - ($header-brand-width / 2);
 //     }
 //   }
 
 //   .app-body,
 //   .#{$prefix}body {
-//     margin-top: $navbar-height;
+//     margin-top: $header-height;
 //   }
 
 //   .#{$prefix}sidebar,
@@ -429,7 +429,7 @@
 //     position: fixed;
 //     z-index: $zindex-sticky - 1;
 //     width: $sidebar-width;
-//     height: calc(100vh - #{$navbar-height});
+//     height: calc(100vh - #{$header-height});
 //   }
 
 //   .#{$prefix}sidebar-minimizer,

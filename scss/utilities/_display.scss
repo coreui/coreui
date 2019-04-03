@@ -7,11 +7,15 @@
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-
-    .d#{$infix}-down-none { display: none !important; } // CoreUI s, ToDo: check
     @each $value in $displays {
       .d#{$infix}-#{$value} { display: $value !important; }
     }
+  }
+}
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-down($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .d#{$infix}-down-none { display: none !important; } // CoreUI s, ToDo: check
   }
 }
 
