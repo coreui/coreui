@@ -132,7 +132,7 @@ function () {
       }
 
       if (event === Event.UPDATE && !this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-        // ToDo: Add smooth transition
+        // TODO: Add smooth transition
         setTimeout(function () {
           _this._destroyScrollbar();
 
@@ -149,7 +149,7 @@ function () {
 
     var ps = new PerfectScrollbar(document.querySelector(container), {
       suppressScrollX: true
-    }); // ToDo: find real fix for ps rtl
+    }); // TODO: find real fix for ps rtl
 
     ps.isRtl = false;
     return ps;
