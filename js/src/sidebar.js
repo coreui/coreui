@@ -256,11 +256,11 @@ class Sidebar {
 
   _addEventListeners() {
     EventHandler.on(this._element, Event.CLASS_TOGGLE, event => {
-      if (event.detail.class === ClassName.SIDEBAR_MINIMIZED) {
+      if (event.detail.className === ClassName.SIDEBAR_MINIMIZED) {
         this._perfectScrollbar(Event.TOGGLE)
       }
 
-      if (event.detail.class === ClassName.SIDEBAR_SHOW) {
+      if (event.detail.className === ClassName.SIDEBAR_SHOW) {
         this._toggleClickOut()
       }
     })
