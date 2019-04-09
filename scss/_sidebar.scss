@@ -637,6 +637,18 @@
   background: $sidebar-dark-bg;
   @include borders($sidebar-dark-borders);
 
+  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+    @include borders($sidebar-dark-borders,true);
+  }
+
+  *[dir="rtl"] & {
+    @include borders($sidebar-dark-borders,true);
+    &.#{$prefix}sidebar-right {
+      border: 0;
+      @include borders($sidebar-dark-borders);
+    }
+  }
+
   .#{$prefix}sidebar-close,
   .sidebar-close {
     color: $sidebar-dark-color;
@@ -846,6 +858,18 @@
   color: $sidebar-light-color;
   background: $sidebar-light-bg;
   @include borders($sidebar-light-borders);
+
+  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+    @include borders($sidebar-light-borders,true);
+  }
+
+  *[dir="rtl"] & {
+    @include borders($sidebar-light-borders,true);
+    &.#{$prefix}sidebar-right {
+      border: 0;
+      @include borders($sidebar-light-borders);
+    }
+  }
 
   .#{$prefix}sidebar-close,
   .sidebar-close {

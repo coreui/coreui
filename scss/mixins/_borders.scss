@@ -1,4 +1,4 @@
-@mixin borders($borders) {
+@mixin borders($borders, $reverse: false) {
   @each $border in $borders {
     $direction: nth($border, 1);
     @if $direction == "all" {
@@ -15,7 +15,12 @@
       $size: map-get(map-get($borders, $direction), size);
       $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border-right: $size $style $color;
+      @if $reverse {
+        border-right: 0;
+        border-left: $size $style $color;
+      } @else {
+        border-right: $size $style $color;
+      }
     } @else if $direction == "bottom" {
       $size: map-get(map-get($borders, $direction), size);
       $style: map-get(map-get($borders, $direction), style);
@@ -26,6 +31,12 @@
       $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
       border-left: $size $style $color;
+      @if $reverse {
+        border-right: $size $style $color;
+        border-left: 0;
+      } @else {
+        border-left: $size $style $color;
+      }
     }
   }
 }
