@@ -63,7 +63,7 @@
     } @else if $direction == "bottom" {
       $size: map-get(map-get($borders, $direction), size);
       $color: map-get(map-get($borders, $direction), color);
-      box-shadow: 0 $size $size - $size $color inset ;
+      box-shadow: 0 $size $size - $size $color inset;
     } @else if $direction == "left" {
       $size: map-get(map-get($borders, $direction), size);
       $color: map-get(map-get($borders, $direction), color);
