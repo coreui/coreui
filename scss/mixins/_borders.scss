@@ -41,7 +41,7 @@
   }
 }
 
-@mixin borders-shadow($borders) {
+@mixin borders-shadow($borders, $reverse: false) {
   @each $border in $borders {
     $direction: nth($border, 1);
     @if $direction == "all" {
@@ -55,7 +55,11 @@
     } @else if $direction == "right" {
       $size: map-get(map-get($borders, $direction), size);
       $color: map-get(map-get($borders, $direction), color);
-      box-shadow: - $size 0 $size - $size $color inset;
+      @if $reverse {
+        box-shadow: $size 0 $size - $size $color inset;
+      } @else {
+        box-shadow: - $size 0 $size - $size $color inset;
+      }
     } @else if $direction == "bottom" {
       $size: map-get(map-get($borders, $direction), size);
       $color: map-get(map-get($borders, $direction), color);
@@ -64,6 +68,11 @@
       $size: map-get(map-get($borders, $direction), size);
       $color: map-get(map-get($borders, $direction), color);
       box-shadow: $size 0 $size - $size $color inset;
+      @if $reverse {
+        box-shadow: - $size 0 $size - $size $color inset;
+      } @else {
+        box-shadow: $size 0 $size - $size $color inset;
+      }
     }
   }
 }
