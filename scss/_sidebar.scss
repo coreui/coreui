@@ -216,8 +216,8 @@
   .sidebar-minimizer {
     display: flex;
     flex: 0 0 $sidebar-minimizer-height;
-    width: inherit;
     justify-content: flex-end;
+    width: inherit;
     padding: 0;
     cursor: pointer;
     border: 0;
@@ -242,8 +242,8 @@
   &.#{$prefix}sidebar-right {
     .#{$prefix}sidebar-minimizer,
     .sidebar-minimizer {
+      justify-content: flex-start;
       &::before {
-        left: 0;
         transform: rotate(-180deg);
       }
     }
