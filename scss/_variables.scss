@@ -1021,6 +1021,37 @@ $sidebar-light-nav-dropdown-indicator:      str-replace(url("data:image/svg+xml;
 $sidebar-light-nav-dropdown-indicator-hover-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-light-nav-dropdown-indicator-hover: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
+// Sidebar Tabs
+
+$sidebar-nav-tabs-link-padding-y:          .75rem !default;
+$sidebar-nav-tabs-link-padding-x:          1rem !default;
+
+$sidebar-dark-nav-tabs-border-color:             rgba($black, .2) !default;
+$sidebar-dark-nav-tabs-link-active-bg:           rgba($white, .05) !default;
+$sidebar-dark-nav-tabs-link-active-border-color: rgba($black, .2) rgba($black, .2) theme-color("primary") !default;
+$sidebar-dark-nav-tabs-link-hover-bg:            rgba($black, .2) !default;
+$sidebar-dark-nav-tabs-link-hover-border-color:  rgba($black, .2) rgba($black, .2) $gray-200 !default;
+$sidebar-dark-tab-content-borders: (
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            rgba($black, .2)
+  )
+) !default;
+
+$sidebar-light-nav-tabs-border-color:             rgba(darken($border-color, 20%), .5) !default;
+$sidebar-light-nav-tabs-link-active-bg:            $white !default;
+$sidebar-light-nav-tabs-link-active-border-color: rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
+$sidebar-light-nav-tabs-link-hover-bg:            $white !default;
+$sidebar-light-nav-tabs-link-hover-border-color: rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
+$sidebar-light-tab-content-borders: (
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            rgba(darken($border-color, 20%), .5)
+  )
+) !default;
+
 // Sidebar Footer
 
 $sidebar-footer-height:               auto !default;
@@ -1051,25 +1082,6 @@ $sidebar-light-minimizer-hover-bg:          rgba(0, 0, 0, .3) !default;
 $sidebar-light-minimizer-hover-indicator-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-light-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-// CoreUI specific changes end
-
-
-// CoreUI specific changes start
-// Aside
-
-$aside-menu-width:                    250px !default;
-$aside-menu-color:                    $gray-800 !default;
-$aside-menu-bg:                       $white !default;
-$aside-menu-borders: (
-  left: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
-) !default;
-
-$aside-menu-nav-padding-y:            .75rem !default;
-$aside-menu-nav-padding-x:            1rem !default;
 // CoreUI specific changes end
 
 // CoreUI specific changes start

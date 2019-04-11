@@ -72,7 +72,7 @@
     overflow-y: auto;
   }
 
-  .nav {
+  .nav:not(.nav-tabs) {
     flex-direction: column;
     min-height: 100%;
   }
@@ -204,6 +204,39 @@
   //     background-color: lighten($sidebar-bg, 15%) !important;
   //   }
   // }
+
+  // Tabs
+
+  .nav-tabs {
+    // border-color: $border-color;
+    .nav-link {
+      display: block;
+      padding: $sidebar-nav-tabs-link-padding-y $sidebar-nav-tabs-link-padding-x;
+      // color: $body-color;
+      border-top: 0;
+      @include border-radius(0);
+      &.active {
+        // color: theme-color("primary");
+      }
+    }
+    .nav-item:first-child {
+      .nav-link {
+        border-left: 0;
+      }
+    }
+  }
+
+  .tab-content {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: transparent;
+    border: 0;
+
+    .tab-pane {
+      padding: 0;
+    }
+  }
 
   .#{$prefix}sidebar-footer,
   .sidebar-footer {
@@ -780,6 +813,22 @@
     }
   }
 
+  .nav-tabs {
+    border-color: $sidebar-dark-nav-tabs-border-color;
+
+    .nav-link {
+      &:hover,
+      &:focus {
+        background: $sidebar-dark-nav-tabs-link-hover-bg;
+        border-color: $sidebar-dark-nav-tabs-link-hover-border-color;
+      }
+      &.active {
+        background: $sidebar-dark-nav-tabs-link-active-bg;
+        border-color: $sidebar-dark-nav-tabs-link-active-border-color;
+      }
+    }
+  }
+
   @if (lightness( $sidebar-dark-bg ) < 40) {
     .progress {
       background-color: lighten($sidebar-dark-bg, 15%) !important;
@@ -1001,6 +1050,32 @@
       color: $sidebar-light-nav-link-icon-color;
     }
   }
+
+  @if (lightness( $sidebar-light-bg ) < 40) {
+    .progress {
+      background-color: lighten($sidebar-light-bg, 15%) !important;
+    }
+  }
+
+  .nav-tabs {
+    border-color: $sidebar-light-nav-tabs-border-color;
+
+    .nav-link {
+      &:hover,
+      &:focus {
+        background: $sidebar-light-nav-tabs-link-hover-bg;
+        border-color: $sidebar-light-nav-tabs-link-hover-border-color;
+      }
+      &.active {
+        background: $sidebar-light-nav-tabs-link-active-bg;
+        border-color: $sidebar-light-nav-tabs-link-active-border-color;
+      }
+    }
+  }
+
+  // .tab-content {
+  //   @include borders($sidebar-light-tab-content-borders);
+  // }
 
   @if (lightness( $sidebar-light-bg ) < 40) {
     .progress {
