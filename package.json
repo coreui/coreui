@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "3.0.0-next",
+  "version": "3.0.0-alpha.0",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -59,10 +59,11 @@
     "css-prefix-partials": "postcss --config build/postcss.config.js --replace \"dist/css/*.css\" \"!dist/css/*.min.css\"",
     "css-minify": "cleancss --level 2 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
     "css-minify-partials": "foreach -g \"css/*.css\" -x \"cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output css/#{name}.min.css css/#{name}.css\"",
-    "dist": "npm-run-all copy-bootstrap --parallel css js",
+    "dist": "npm-run-all --parallel css js",
+    "dist-without-lint": "npm-run-all --parallel css-compile* js-compile* --sequential css-prefix* css-minify* js-compile* js-minify*",
     "increment-version": "node build/increment-version.js",
     "js": "npm-run-all js-lint js-compile* js-minify*",
-    "js-lint": "eslint js/",
+    "js-lint": "eslint js/ --quiet",
     "js-lint-build": "eslint build/",
     "js-compile": "rollup --environment BUNDLE:false --config build/rollup.config.js --sourcemap",
     "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.js --sourcemap",

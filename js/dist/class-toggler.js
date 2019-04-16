@@ -4,13 +4,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-next): class-toggler.js
+ * CoreUI (v3.0.0-alpha.0): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
 import EventHandler from './dom/eventHandler';
+import { isArray } from 'util';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -59,32 +60,32 @@ function () {
   _proto.toggle = function toggle() {
     var _this = this;
 
-    var data = this._element.dataset;
-    var breakpoints = (data.breakpoints ? data.breakpoints : Default.breakpoints).replace(/ /g, '').split(',');
-    var classNames = data.classes.replace(/ /g, '').split(',');
-    var postfix = data.postfix ? data.postfix : Default.postfix;
-    var targets = (data.target ? data.target : Default.target).replace(/ /g, '').split(',');
-    var responsive = data.responsive ? data.responsive : Default.responsive;
-    targets.forEach(function (target) {
-      var el;
+    this._getElementDataAttributes(this._element).forEach(function (dataAttributes) {
+      var element;
+      var target = dataAttributes.target,
+          toggle = dataAttributes.toggle;
 
       if (target === '_parent' || target === 'parent') {
-        el = _this._element.parentNode;
+        element = _this._element.parentNode;
       } else {
-        el = document.querySelector(target);
+        element = document.querySelector(target);
       }
 
-      classNames.forEach(function (className) {
-        // eslint-disable-next-line no-negated-condition
+      toggle.forEach(function (object) {
+        var className = object.className,
+            responsive = object.responsive,
+            postfix = object.postfix;
+        var breakpoints = typeof object.breakpoints === 'undefined' || object.breakpoints === null ? null : _this._arrayFromString(object.breakpoints); // eslint-disable-next-line no-negated-condition
+
         if (!responsive) {
-          el.classList.toggle(className);
+          element.classList.toggle(className);
           var event = new CustomEvent(Event.CLASS_TOGGLE, {
             detail: {
               target: target,
-              class: className
+              className: className
             }
           });
-          el.dispatchEvent(event);
+          element.dispatchEvent(event);
         } else {
           var currentBreakpoint;
           breakpoints.forEach(function (breakpoint) {
@@ -92,51 +93,134 @@ function () {
               currentBreakpoint = breakpoint;
             }
           });
-          var responsiveClasses = [];
+          var responsiveClassNames = [];
 
           if (typeof currentBreakpoint === 'undefined') {
-            responsiveClasses.push(className);
+            responsiveClassNames.push(className);
           } else {
-            responsiveClasses.push(className.replace("" + currentBreakpoint + postfix, postfix));
-            breakpoints = breakpoints.splice(0, breakpoints.indexOf(currentBreakpoint) + 1);
-            breakpoints.forEach(function (breakpoint) {
-              responsiveClasses.push(className.replace("" + currentBreakpoint + postfix, "" + breakpoint + postfix));
+            responsiveClassNames.push(className.replace("" + currentBreakpoint + postfix, postfix));
+            breakpoints.splice(0, breakpoints.indexOf(currentBreakpoint) + 1).forEach(function (breakpoint) {
+              responsiveClassNames.push(className.replace("" + currentBreakpoint + postfix, "" + breakpoint + postfix));
             });
           }
 
           var addResponsiveClasses = false;
-          responsiveClasses.forEach(function (responsiveClass) {
-            if (el.classList.contains(responsiveClass)) {
+          responsiveClassNames.forEach(function (responsiveClassName) {
+            if (element.classList.contains(responsiveClassName)) {
               addResponsiveClasses = true;
             }
           });
 
           if (addResponsiveClasses) {
-            responsiveClasses.forEach(function (responsiveClass) {
-              el.classList.remove(responsiveClass);
+            responsiveClassNames.forEach(function (responsiveClassName) {
+              element.classList.remove(responsiveClassName);
               var event = new CustomEvent(Event.CLASS_TOGGLE, {
                 detail: {
                   target: target,
-                  class: responsiveClass
+                  className: responsiveClassName
                 }
               });
-              el.dispatchEvent(event);
+              element.dispatchEvent(event);
             });
           } else {
-            el.classList.add(className);
+            element.classList.add(className);
 
             var _event = new CustomEvent(Event.CLASS_TOGGLE, {
               detail: {
                 target: target,
-                class: className
+                className: className
               }
             });
 
-            el.dispatchEvent(_event);
+            element.dispatchEvent(_event);
           }
         }
       });
     });
+  } // Private
+  ;
+
+  _proto._arrayFromString = function _arrayFromString(string) {
+    return string.replace(/ /g, '').split(',');
+  };
+
+  _proto._isArray = function _isArray(array) {
+    try {
+      JSON.parse(array.replace(/'/g, '"'));
+      return true;
+    } catch (_unused) {
+      return false;
+    }
+  };
+
+  _proto._convertToArray = function _convertToArray(array) {
+    return JSON.parse(array.replace(/'/g, '"'));
+  };
+
+  _proto._getDataAttributes = function _getDataAttributes(data, attribute) {
+    var dataAttribute = data[attribute];
+    return this._isArray(dataAttribute) ? this._convertToArray(dataAttribute) : dataAttribute;
+  };
+
+  _proto._getToggleDetails = function _getToggleDetails(classNames, responsive, breakpoints, postfix) {
+    var ToggleDetails = function ToggleDetails(className, responsive, breakpoints, postfix) {
+      if (responsive === void 0) {
+        responsive = Default.responsive;
+      }
+
+      this.className = className;
+      this.responsive = responsive;
+      this.breakpoints = breakpoints;
+      this.postfix = postfix;
+    };
+
+    var toggle = [];
+
+    if (Array.isArray(classNames)) {
+      classNames.forEach(function (className, index) {
+        responsive = Array.isArray(responsive) ? responsive[index] : responsive;
+        breakpoints = responsive ? Array.isArray(breakpoints) ? breakpoints[index] : breakpoints : null;
+        postfix = responsive ? Array.isArray(postfix) ? postfix[index] : postfix : null;
+        toggle.push(new ToggleDetails(className, responsive, breakpoints, postfix));
+      });
+    } else {
+      breakpoints = responsive ? breakpoints : null;
+      postfix = responsive ? postfix : null;
+      toggle.push(new ToggleDetails(classNames, responsive, breakpoints, postfix));
+    }
+
+    return toggle;
+  };
+
+  _proto._ifArray = function _ifArray(array, index) {
+    return Array.isArray(array) ? array[index] : array;
+  };
+
+  _proto._getElementDataAttributes = function _getElementDataAttributes(element) {
+    var _this2 = this;
+
+    var data = element.dataset;
+    var targets = typeof data.target === 'undefined' ? Default.target : this._getDataAttributes(data, 'target');
+    var classNames = typeof data.class === 'undefined' ? 'undefined' : this._getDataAttributes(data, 'class');
+    var responsive = typeof data.responsive === 'undefined' ? Default.responsive : this._getDataAttributes(data, 'responsive');
+    var breakpoints = typeof data.breakpoints === 'undefined' ? Default.breakpoints : this._getDataAttributes(data, 'breakpoints');
+    var postfix = typeof data.postfix === 'undefined' ? Default.postfix : this._getDataAttributes(data, 'postfix');
+    var toggle = [];
+
+    var TargetDetails = function TargetDetails(target, toggle) {
+      this.target = target;
+      this.toggle = toggle;
+    };
+
+    if (Array.isArray(targets)) {
+      targets.forEach(function (target, index) {
+        toggle.push(new TargetDetails(target, _this2._getToggleDetails(_this2._ifArray(classNames, index), _this2._ifArray(responsive, index), _this2._ifArray(breakpoints, index), _this2._ifArray(postfix, index))));
+      });
+    } else {
+      toggle.push(new TargetDetails(targets, this._getToggleDetails(classNames, responsive, breakpoints, postfix)));
+    }
+
+    return toggle;
   } // Static
   ;
 

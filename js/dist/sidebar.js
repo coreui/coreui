@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-next): sidebar.js
+ * CoreUI (v3.0.0-alpha.0): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -275,11 +275,11 @@ function () {
     var _this3 = this;
 
     EventHandler.on(this._element, Event.CLASS_TOGGLE, function (event) {
-      if (event.detail.class === ClassName.SIDEBAR_MINIMIZED) {
+      if (event.detail.className === ClassName.SIDEBAR_MINIMIZED) {
         _this3._perfectScrollbar(Event.TOGGLE);
       }
 
-      if (event.detail.class === ClassName.SIDEBAR_SHOW) {
+      if (event.detail.className === ClassName.SIDEBAR_SHOW) {
         _this3._toggleClickOut();
       }
     });
