@@ -34,7 +34,8 @@ const ClassName = {
 
 const Event = {
   CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-  LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`
+  LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
+  XHR_STATUS: 'xhr'
 }
 
 const Selector = {
@@ -91,6 +92,7 @@ class AsyncLoad {
     const element = this._element
     const config = this._config
 
+    // TODO: remove old scripts before load new
     const loadScripts = (src, element = 0) => {
       const script = document.createElement('script')
       script.type = 'text/javascript'
@@ -111,9 +113,23 @@ class AsyncLoad {
 
     const xhr = new XMLHttpRequest()
     xhr.open('GET', config.subpagesDirectory + url)
+    let event = new CustomEvent(Event.XHR_STATUS, {
+      detail: {
+        url,
+        status: xhr.status
+      }
+    })
+    element.dispatchEvent(event)
     // eslint-disable-next-line unicorn/prefer-add-event-listener
     xhr.onload = result => {
       if (xhr.status === 200) {
+        event = new CustomEvent(Event.XHR_STATUS, {
+          detail: {
+            url,
+            status: xhr.status
+          }
+        })
+        element.dispatchEvent(event)
         const wrapper = document.createElement('div')
         wrapper.innerHTML = result.target.response
 

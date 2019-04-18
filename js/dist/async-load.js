@@ -36,7 +36,8 @@ var ClassName = {
 };
 var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
-  LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
+  LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
+  XHR_STATUS: 'xhr'
 };
 var Selector = {
   HEAD: 'head',
@@ -82,7 +83,7 @@ function () {
     var _this = this;
 
     var element = this._element;
-    var config = this._config;
+    var config = this._config; // TODO: remove old scripts before load new
 
     var loadScripts = function loadScripts(src, element) {
       if (element === void 0) {
@@ -107,10 +108,24 @@ function () {
     };
 
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', config.subpagesDirectory + url); // eslint-disable-next-line unicorn/prefer-add-event-listener
+    xhr.open('GET', config.subpagesDirectory + url);
+    var event = new CustomEvent(Event.XHR_STATUS, {
+      detail: {
+        url: url,
+        status: xhr.status
+      }
+    });
+    element.dispatchEvent(event); // eslint-disable-next-line unicorn/prefer-add-event-listener
 
     xhr.onload = function (result) {
       if (xhr.status === 200) {
+        event = new CustomEvent(Event.XHR_STATUS, {
+          detail: {
+            url: url,
+            status: xhr.status
+          }
+        });
+        element.dispatchEvent(event);
         var wrapper = document.createElement('div');
         wrapper.innerHTML = result.target.response; // eslint-disable-next-line unicorn/prefer-spread
 
