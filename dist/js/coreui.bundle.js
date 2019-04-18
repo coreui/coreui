@@ -817,6 +817,16 @@
         body.appendChild(script);
       };
 
+      var removeScripts = function removeScripts() {
+        var oldScripts = document.querySelectorAll(Selector.VIEW_SCRIPT);
+
+        if (oldScripts.length) {
+          oldScripts.forEach(function (oldScript) {
+            oldScript.remove();
+          });
+        }
+      };
+
       var xhr = new XMLHttpRequest();
       xhr.open('GET', config.subpagesDirectory + url);
       var event = new CustomEvent(Event$1.XHR_STATUS, {
@@ -848,6 +858,7 @@
           window.scrollTo(0, 0);
           element.innerHTML = '';
           element.appendChild(wrapper);
+          removeScripts();
 
           if (scripts.length) {
             loadScripts(scripts);

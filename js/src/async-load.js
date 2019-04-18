@@ -111,6 +111,15 @@ class AsyncLoad {
       body.appendChild(script)
     }
 
+    const removeScripts = () => {
+      const oldScripts = document.querySelectorAll(Selector.VIEW_SCRIPT)
+      if (oldScripts.length) {
+        oldScripts.forEach(oldScript => {
+          oldScript.remove()
+        })
+      }
+    }
+
     const xhr = new XMLHttpRequest()
     xhr.open('GET', config.subpagesDirectory + url)
     let event = new CustomEvent(Event.XHR_STATUS, {
@@ -141,6 +150,7 @@ class AsyncLoad {
         window.scrollTo(0, 0)
         element.innerHTML = ''
         element.appendChild(wrapper)
+        removeScripts()
         if (scripts.length) {
           loadScripts(scripts)
         }
