@@ -51,7 +51,6 @@
     "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix* css-minify*",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui.scss dist/css/coreui.css",
     "css-compile-partials": "node build/scss-partials.js && rimraf css && foreach -g \"scss/partials/*.scss\" -x \"node-sass --include-path scss --output-style expanded --source-map true --source-map-contents true --precision 6 scss/partials/#{name}.scss css/#{name}.css\"",
-    "css-diff": "css-ast-diff dist/css/coreui.css dist/css/themes/coreui-dark.css",
     "css-lint": "npm-run-all --parallel css-lint-*",
     "css-lint-styles": "stylelint --syntax scss \"scss/**/*.scss\"",
     "css-lint-vars": "fusv scss/",
@@ -83,7 +82,6 @@
   "dependencies": {
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
     "bootstrap": "^4.2.1",
-    "css-ast-diff": "^1.1.0",
     "get-sass-vars": "^2.0.0",
     "scss-to-json": "^2.0.0"
   },
