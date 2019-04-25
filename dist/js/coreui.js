@@ -1,13 +1,13 @@
 /*!
-  * CoreUI v3.0.0-alpha.0 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.1 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('util'), require('popper.js'), require('perfect-scrollbar')) :
   typeof define === 'function' && define.amd ? define(['util', 'popper.js', 'perfect-scrollbar'], factory) :
-  (global.coreui = factory(global.util,global.Popper,global.PerfectScrollbar));
-}(this, (function (util,Popper,PerfectScrollbar) { 'use strict';
+  (global = global || self, global.coreui = factory(global.util, global.Popper, global.PerfectScrollbar));
+}(this, function (util, Popper, PerfectScrollbar) { 'use strict';
 
   Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
   PerfectScrollbar = PerfectScrollbar && PerfectScrollbar.hasOwnProperty('default') ? PerfectScrollbar['default'] : PerfectScrollbar;
@@ -796,7 +796,7 @@
       var _this = this;
 
       var element = this._element;
-      var config = this._config; // TODO: remove old scripts before load new
+      var config = this._config;
 
       var loadScripts = function loadScripts(src, element) {
         if (element === void 0) {
@@ -1016,10 +1016,10 @@
 
   var NODE_TEXT = 3;
   var SelectorEngine = {
-    matches: function matches$$1(element, selector) {
+    matches: function matches$1(element, selector) {
       return matches.call(element, selector);
     },
-    find: function find$$1(selector, element) {
+    find: function find$1(selector, element) {
       if (element === void 0) {
         element = document.documentElement;
       }
@@ -1030,7 +1030,7 @@
 
       return find.call(element, selector);
     },
-    findOne: function findOne$$1(selector, element) {
+    findOne: function findOne$1(selector, element) {
       if (element === void 0) {
         element = document.documentElement;
       }
@@ -1071,7 +1071,7 @@
 
       return parents;
     },
-    closest: function closest$$1(element, selector) {
+    closest: function closest$1(element, selector) {
       if (typeof selector !== 'string') {
         return null;
       }
@@ -5390,7 +5390,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.1): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -5431,7 +5431,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.1): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6272,7 +6272,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6308,7 +6308,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6348,7 +6348,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.0): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.1): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6377,7 +6377,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.0): index.umd.js
+   * CoreUI (v3.0.0-alpha.1): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6405,5 +6405,5 @@
 
   return index_umd;
 
-})));
+}));
 //# sourceMappingURL=coreui.js.map

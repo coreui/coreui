@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.0): async-load.js
+ * CoreUI (v3.0.0-alpha.1): async-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -92,7 +92,6 @@ class AsyncLoad {
     const element = this._element
     const config = this._config
 
-    // TODO: remove old scripts before load new
     const loadScripts = (src, element = 0) => {
       const script = document.createElement('script')
       script.type = 'text/javascript'

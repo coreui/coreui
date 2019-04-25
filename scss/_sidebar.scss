@@ -87,7 +87,7 @@
 
   .nav-divider {
     height: 10px;
-    transition: $layout-transition-speed;
+    transition: height $layout-transition-speed;
   }
 
   .nav-link {

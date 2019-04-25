@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.0): async-load.js
+ * CoreUI (v3.0.0-alpha.1): async-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -83,7 +83,7 @@ function () {
     var _this = this;
 
     var element = this._element;
-    var config = this._config; // TODO: remove old scripts before load new
+    var config = this._config;
 
     var loadScripts = function loadScripts(src, element) {
       if (element === void 0) {

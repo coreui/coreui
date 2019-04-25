@@ -82,7 +82,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-fixed.c-sidebar-right {
 
 .c-sidebar .nav-divider {
   height: 10px;
-  transition: 0.25s;
+  transition: height 0.25s;
 }
 
 .c-sidebar .nav-link {

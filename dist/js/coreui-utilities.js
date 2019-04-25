@@ -1,17 +1,17 @@
 /*!
-  * CoreUI v3.0.0-alpha.0 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.1 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.utilities = {})));
-}(this, (function (exports) { 'use strict';
+  (global = global || self, factory(global.utilities = {}));
+}(this, function (exports) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): classes.js
+   * CoreUI Utilities (v3.0.0-alpha.1): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -24,10 +24,8 @@
 
   var deepObjectsMerge = function deepObjectsMerge(target, source) {
     // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
-    var _arr = Object.keys(source);
-
-    for (var _i = 0; _i < _arr.length; _i++) {
-      var key = _arr[_i];
+    for (var _i = 0, _Object$keys = Object.keys(source); _i < _Object$keys.length; _i++) {
+      var key = _Object$keys[_i];
 
       if (source[key] instanceof Object) {
         Object.assign(source[key], deepObjectsMerge(target[key], source[key]));
@@ -41,7 +39,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.1): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -82,7 +80,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.1): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -115,7 +113,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): get-color.js
+   * CoreUI Utilities (v3.0.0-alpha.1): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -132,7 +130,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -168,7 +166,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.0): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -208,7 +206,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.0): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.1): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -237,16 +235,16 @@
 
   exports.asideMenuCssClasses = asideMenuCssClasses;
   exports.checkBreakpoint = checkBreakpoint;
-  exports.sidebarCssClasses = sidebarCssClasses;
-  exports.validBreakpoints = validBreakpoints;
   exports.deepObjectsMerge = deepObjectsMerge;
   exports.getColor = getColor;
   exports.getStyle = getStyle;
   exports.hexToRgb = hexToRgb;
   exports.hexToRgba = hexToRgba;
   exports.rgbToHex = rgbToHex;
+  exports.sidebarCssClasses = sidebarCssClasses;
+  exports.validBreakpoints = validBreakpoints;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
 //# sourceMappingURL=coreui-utilities.js.map
