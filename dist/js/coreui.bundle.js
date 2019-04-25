@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.1 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.2 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -9281,7 +9281,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.1): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.2): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -9322,7 +9322,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.1): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.2): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10163,7 +10163,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.2): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10199,7 +10199,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.1): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.2): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10239,7 +10239,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.1): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.2): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10268,7 +10268,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.1): index.umd.js
+   * CoreUI (v3.0.0-alpha.2): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
