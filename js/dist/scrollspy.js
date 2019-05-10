@@ -25,7 +25,7 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'scrollspy';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.scrollspy';
+var DATA_KEY = 'coreui.scrollspy';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var Default = {
@@ -44,17 +44,17 @@ var Event = {
   LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_ITEM: 'dropdown-item',
+  DROPDOWN_ITEM: 'c-dropdown-item',
   ACTIVE: 'active'
 };
 var Selector = {
-  DATA_SPY: '[data-spy="scroll"]',
-  NAV_LIST_GROUP: '.nav, .list-group',
-  NAV_LINKS: '.nav-link',
-  NAV_ITEMS: '.nav-item',
-  LIST_ITEMS: '.list-group-item',
-  DROPDOWN: '.dropdown',
-  DROPDOWN_TOGGLE: '.dropdown-toggle'
+  DATA_SPY: '[data-spy="c-scroll"]',
+  NAV_LIST_GROUP: '.c-nav, .c-list-group',
+  NAV_LINKS: '.c-nav-link',
+  NAV_ITEMS: '.c-nav-item',
+  LIST_ITEMS: '.c-list-group-item',
+  DROPDOWN: '.c-dropdown',
+  DROPDOWN_TOGGLE: '.c-dropdown-toggle'
 };
 var OffsetMethod = {
   OFFSET: 'offset',

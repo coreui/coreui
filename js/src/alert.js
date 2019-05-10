@@ -24,7 +24,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'alert'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.alert'
+const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -39,7 +39,7 @@ const Event = {
 }
 
 const ClassName = {
-  ALERT: 'alert',
+  ALERT: 'c-alert',
   FADE: 'fade',
   SHOW: 'show'
 }

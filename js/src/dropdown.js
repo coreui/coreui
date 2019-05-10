@@ -27,7 +27,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'dropdown'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.dropdown'
+const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
@@ -52,19 +52,19 @@ const Event = {
 const ClassName = {
   DISABLED: 'disabled',
   SHOW: 'show',
-  DROPUP: 'dropup',
-  DROPRIGHT: 'dropright',
-  DROPLEFT: 'dropleft',
-  MENURIGHT: 'dropdown-menu-right',
+  DROPUP: 'c-dropup',
+  DROPRIGHT: 'c-dropright',
+  DROPLEFT: 'c-dropleft',
+  MENURIGHT: 'c-dropdown-menu-right',
   POSITION_STATIC: 'position-static'
 }
 
 const Selector = {
-  DATA_TOGGLE: '[data-toggle="dropdown"]',
-  FORM_CHILD: '.dropdown form',
-  MENU: '.dropdown-menu',
-  NAVBAR_NAV: '.navbar-nav',
-  VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
+  DATA_TOGGLE: '[data-toggle="c-dropdown"]',
+  FORM_CHILD: '.c-dropdown form',
+  MENU: '.c-dropdown-menu',
+  NAVBAR_NAV: '.c-navbar-nav',
+  VISIBLE_ITEMS: '.c-dropdown-menu .c-dropdown-item:not(.disabled):not(:disabled)'
 }
 
 const AttachmentMap = {

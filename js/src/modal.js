@@ -29,7 +29,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'modal'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.modal'
+const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
@@ -63,19 +63,19 @@ const Event = {
 }
 
 const ClassName = {
-  SCROLLABLE: 'modal-dialog-scrollable',
-  SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-  BACKDROP: 'modal-backdrop',
-  OPEN: 'modal-open',
+  SCROLLABLE: 'c-modal-dialog-scrollable',
+  SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
+  BACKDROP: 'c-modal-backdrop',
+  OPEN: 'c-modal-open',
   FADE: 'fade',
   SHOW: 'show'
 }
 
 const Selector = {
-  DIALOG: '.modal-dialog',
-  MODAL_BODY: '.modal-body',
-  DATA_TOGGLE: '[data-toggle="modal"]',
-  DATA_DISMISS: '[data-dismiss="modal"]',
+  DIALOG: '.c-modal-dialog',
+  MODAL_BODY: '.c-modal-body',
+  DATA_TOGGLE: '[data-toggle="c-modal"]',
+  DATA_DISMISS: '[data-dismiss="c-modal"]',
   FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
   STICKY_CONTENT: '.sticky-top'
 }

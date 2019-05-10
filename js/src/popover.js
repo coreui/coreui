@@ -18,9 +18,9 @@ import Tooltip from './tooltip'
 
 const NAME = 'popover'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.popover'
+const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
-const CLASS_PREFIX = 'bs-popover'
+const CLASS_PREFIX = 'c-bs-popover'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 
 const Default = {
@@ -28,10 +28,10 @@ const Default = {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: '<div class="popover" role="tooltip">' +
-              '<div class="popover-arrow"></div>' +
-              '<h3 class="popover-header"></h3>' +
-              '<div class="popover-body"></div></div>'
+  template: '<div class="c-popover" role="tooltip">' +
+              '<div class="c-popover-arrow"></div>' +
+              '<h3 class="c-popover-header"></h3>' +
+              '<div class="c-popover-body"></div></div>'
 }
 
 const DefaultType = {
@@ -45,8 +45,8 @@ const ClassName = {
 }
 
 const Selector = {
-  TITLE: '.popover-header',
-  CONTENT: '.popover-body'
+  TITLE: '.c-popover-header',
+  CONTENT: '.c-popover-body'
 }
 
 const Event = {

@@ -29,7 +29,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'collapse'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.collapse'
+const DATA_KEY = 'coreui.collapse'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -53,9 +53,9 @@ const Event = {
 
 const ClassName = {
   SHOW: 'show',
-  COLLAPSE: 'collapse',
-  COLLAPSING: 'collapsing',
-  COLLAPSED: 'collapsed'
+  COLLAPSE: 'c-collapse',
+  COLLAPSING: 'c-collapsing',
+  COLLAPSED: 'c-collapsed'
 }
 
 const Dimension = {
@@ -64,8 +64,8 @@ const Dimension = {
 }
 
 const Selector = {
-  ACTIVES: '.show, .collapsing',
-  DATA_TOGGLE: '[data-toggle="collapse"]'
+  ACTIVES: '.show, .c-collapsing',
+  DATA_TOGGLE: '[data-toggle="c-collapse"]'
 }
 
 /**

@@ -35,9 +35,9 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'tooltip'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.tooltip'
+const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
-const CLASS_PREFIX = 'bs-tooltip'
+const CLASS_PREFIX = 'c-bs-tooltip'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
 
@@ -69,9 +69,9 @@ const AttachmentMap = {
 
 const Default = {
   animation: true,
-  template: '<div class="tooltip" role="tooltip">' +
-                    '<div class="tooltip-arrow"></div>' +
-                    '<div class="tooltip-inner"></div></div>',
+  template: '<div class="c-tooltip" role="tooltip">' +
+                    '<div class="c-tooltip-arrow"></div>' +
+                    '<div class="c-tooltip-inner"></div></div>',
   trigger: 'hover focus',
   title: '',
   delay: 0,
@@ -111,8 +111,8 @@ const ClassName = {
 }
 
 const Selector = {
-  TOOLTIP_INNER: '.tooltip-inner',
-  TOOLTIP_ARROW: '.tooltip-arrow'
+  TOOLTIP_INNER: '.c-tooltip-inner',
+  TOOLTIP_ARROW: '.c-tooltip-arrow'
 }
 
 const Trigger = {

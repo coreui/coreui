@@ -20,7 +20,7 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'tab';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.tab';
+var DATA_KEY = 'coreui.tab';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var Event = {
@@ -31,20 +31,20 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_MENU: 'dropdown-menu',
+  DROPDOWN_MENU: 'c-dropdown-menu',
   ACTIVE: 'active',
   DISABLED: 'disabled',
   FADE: 'fade',
   SHOW: 'show'
 };
 var Selector = {
-  DROPDOWN: '.dropdown',
-  NAV_LIST_GROUP: '.nav, .list-group',
+  DROPDOWN: '.c-dropdown',
+  NAV_LIST_GROUP: '.c-nav, .c-list-group',
   ACTIVE: '.active',
   ACTIVE_UL: ':scope > li > .active',
-  DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-  DROPDOWN_TOGGLE: '.dropdown-toggle',
-  DROPDOWN_ACTIVE_CHILD: ':scope > .dropdown-menu .active'
+  DATA_TOGGLE: '[data-toggle="c-tab"], [data-toggle="c-pill"], [data-toggle="c-list"]',
+  DROPDOWN_TOGGLE: '.c-dropdown-toggle',
+  DROPDOWN_ACTIVE_CHILD: ':scope > .c-dropdown-menu .active'
   /**
    * ------------------------------------------------------------------------
    * Class Definition

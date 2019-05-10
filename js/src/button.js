@@ -18,13 +18,13 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'button'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.button'
+const DATA_KEY = 'coreui.button'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
 const ClassName = {
   ACTIVE: 'active',
-  BUTTON: 'btn',
+  BUTTON: 'c-btn',
   FOCUS: 'focus'
 }
 
@@ -33,7 +33,7 @@ const Selector = {
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
   ACTIVE: '.active',
-  BUTTON: '.btn'
+  BUTTON: '.c-btn'
 }
 
 const Event = {

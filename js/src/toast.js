@@ -24,7 +24,7 @@ import Manipulator from './dom/manipulator'
 
 const NAME = 'toast'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.toast'
+const DATA_KEY = 'coreui.toast'
 const EVENT_KEY = `.${DATA_KEY}`
 
 const Event = {
@@ -55,7 +55,7 @@ const Default = {
 }
 
 const Selector = {
-  DATA_DISMISS: '[data-dismiss="toast"]'
+  DATA_DISMISS: '[data-dismiss="c-toast"]'
 }
 
 /**

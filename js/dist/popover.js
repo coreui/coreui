@@ -26,16 +26,16 @@ import Tooltip from './tooltip';
 
 var NAME = 'popover';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.popover';
+var DATA_KEY = 'coreui.popover';
 var EVENT_KEY = "." + DATA_KEY;
-var CLASS_PREFIX = 'bs-popover';
+var CLASS_PREFIX = 'c-bs-popover';
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
 var Default = _objectSpread({}, Tooltip.Default, {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+  template: '<div class="c-popover" role="tooltip">' + '<div class="c-popover-arrow"></div>' + '<h3 class="c-popover-header"></h3>' + '<div class="c-popover-body"></div></div>'
 });
 
 var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
@@ -47,8 +47,8 @@ var ClassName = {
   SHOW: 'show'
 };
 var Selector = {
-  TITLE: '.popover-header',
-  CONTENT: '.popover-body'
+  TITLE: '.c-popover-header',
+  CONTENT: '.c-popover-body'
 };
 var Event = {
   HIDE: "hide" + EVENT_KEY,

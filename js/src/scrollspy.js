@@ -25,7 +25,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'scrollspy'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.scrollspy'
+const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -48,18 +48,18 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_ITEM: 'dropdown-item',
+  DROPDOWN_ITEM: 'c-dropdown-item',
   ACTIVE: 'active'
 }
 
 const Selector = {
-  DATA_SPY: '[data-spy="scroll"]',
-  NAV_LIST_GROUP: '.nav, .list-group',
-  NAV_LINKS: '.nav-link',
-  NAV_ITEMS: '.nav-item',
-  LIST_ITEMS: '.list-group-item',
-  DROPDOWN: '.dropdown',
-  DROPDOWN_TOGGLE: '.dropdown-toggle'
+  DATA_SPY: '[data-spy="c-scroll"]',
+  NAV_LIST_GROUP: '.c-nav, .c-list-group',
+  NAV_LINKS: '.c-nav-link',
+  NAV_ITEMS: '.c-nav-item',
+  LIST_ITEMS: '.c-list-group-item',
+  DROPDOWN: '.c-dropdown',
+  DROPDOWN_TOGGLE: '.c-dropdown-toggle'
 }
 
 const OffsetMethod = {

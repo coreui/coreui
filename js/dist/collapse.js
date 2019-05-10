@@ -25,7 +25,7 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'collapse';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.collapse';
+var DATA_KEY = 'coreui.collapse';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var Default = {
@@ -45,17 +45,17 @@ var Event = {
 };
 var ClassName = {
   SHOW: 'show',
-  COLLAPSE: 'collapse',
-  COLLAPSING: 'collapsing',
-  COLLAPSED: 'collapsed'
+  COLLAPSE: 'c-collapse',
+  COLLAPSING: 'c-collapsing',
+  COLLAPSED: 'c-collapsed'
 };
 var Dimension = {
   WIDTH: 'width',
   HEIGHT: 'height'
 };
 var Selector = {
-  ACTIVES: '.show, .collapsing',
-  DATA_TOGGLE: '[data-toggle="collapse"]'
+  ACTIVES: '.show, .c-collapsing',
+  DATA_TOGGLE: '[data-toggle="c-collapse"]'
   /**
    * ------------------------------------------------------------------------
    * Class Definition

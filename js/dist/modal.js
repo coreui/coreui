@@ -25,7 +25,7 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'modal';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.modal';
+var DATA_KEY = 'coreui.modal';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
@@ -56,18 +56,18 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  SCROLLABLE: 'modal-dialog-scrollable',
-  SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-  BACKDROP: 'modal-backdrop',
-  OPEN: 'modal-open',
+  SCROLLABLE: 'c-modal-dialog-scrollable',
+  SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
+  BACKDROP: 'c-modal-backdrop',
+  OPEN: 'c-modal-open',
   FADE: 'fade',
   SHOW: 'show'
 };
 var Selector = {
-  DIALOG: '.modal-dialog',
-  MODAL_BODY: '.modal-body',
-  DATA_TOGGLE: '[data-toggle="modal"]',
-  DATA_DISMISS: '[data-dismiss="modal"]',
+  DIALOG: '.c-modal-dialog',
+  MODAL_BODY: '.c-modal-body',
+  DATA_TOGGLE: '[data-toggle="c-modal"]',
+  DATA_DISMISS: '[data-dismiss="c-modal"]',
   FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
   STICKY_CONTENT: '.sticky-top'
   /**

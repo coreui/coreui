@@ -29,7 +29,7 @@ var Default = {
 };
 var ClassName = {
   ACTIVE: 'active',
-  NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
+  NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
   OPEN: 'open',
   SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
   SIDEBAR_SHOW: 'c-sidebar-show'
@@ -45,12 +45,12 @@ var Event = {
   UPDATE: 'update'
 };
 var Selector = {
-  NAV_DROPDOWN_TOGGLE: '.nav-dropdown-toggle',
-  NAV_DROPDOWN: '.nav-dropdown',
-  NAV_LINK: '.nav-link',
-  NAV_LINK_QUERIED: '.nav-link-queried',
-  NAVIGATION_CONTAINER: '.c-sidebar-nav, .sidebar-nav',
-  SIDEBAR: '.c-sidebar, .sidebar'
+  NAV_DROPDOWN_TOGGLE: '.c-nav-dropdown-toggle',
+  NAV_DROPDOWN: '.c-nav-dropdown',
+  NAV_LINK: '.c-nav-link',
+  NAV_LINK_QUERIED: '.c-nav-link-queried',
+  NAVIGATION_CONTAINER: '.c-sidebar-nav, .c-sidebar-nav',
+  SIDEBAR: '.c-sidebar, .c-sidebar'
   /**
    * ------------------------------------------------------------------------
    * Class Definition

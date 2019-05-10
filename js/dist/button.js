@@ -20,12 +20,12 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'button';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.button';
+var DATA_KEY = 'coreui.button';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var ClassName = {
   ACTIVE: 'active',
-  BUTTON: 'btn',
+  BUTTON: 'c-btn',
   FOCUS: 'focus'
 };
 var Selector = {
@@ -33,7 +33,7 @@ var Selector = {
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
   ACTIVE: '.active',
-  BUTTON: '.btn'
+  BUTTON: '.c-btn'
 };
 var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,

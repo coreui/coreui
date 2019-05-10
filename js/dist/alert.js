@@ -20,7 +20,7 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'alert';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.alert';
+var DATA_KEY = 'coreui.alert';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var Selector = {
@@ -32,7 +32,7 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  ALERT: 'alert',
+  ALERT: 'c-alert',
   FADE: 'fade',
   SHOW: 'show'
   /**

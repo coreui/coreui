@@ -24,7 +24,7 @@ import Manipulator from './dom/manipulator';
 
 var NAME = 'toast';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.toast';
+var DATA_KEY = 'coreui.toast';
 var EVENT_KEY = "." + DATA_KEY;
 var Event = {
   CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
@@ -50,7 +50,7 @@ var Default = {
   delay: 500
 };
 var Selector = {
-  DATA_DISMISS: '[data-dismiss="toast"]'
+  DATA_DISMISS: '[data-dismiss="c-toast"]'
   /**
    * ------------------------------------------------------------------------
    * Class Definition

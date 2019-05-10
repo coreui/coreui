@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'carousel'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.carousel'
+const DATA_KEY = 'coreui.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ARROW_LEFT_KEYCODE = 37 // KeyboardEvent.which value for left arrow key
@@ -80,24 +80,24 @@ const Event = {
 }
 
 const ClassName = {
-  CAROUSEL: 'carousel',
+  CAROUSEL: 'c-carousel',
   ACTIVE: 'active',
   SLIDE: 'slide',
-  RIGHT: 'carousel-item-right',
-  LEFT: 'carousel-item-left',
-  NEXT: 'carousel-item-next',
-  PREV: 'carousel-item-prev',
-  ITEM: 'carousel-item',
-  POINTER_EVENT: 'pointer-event'
+  RIGHT: 'c-carousel-item-right',
+  LEFT: 'c-carousel-item-left',
+  NEXT: 'c-carousel-item-next',
+  PREV: 'c-carousel-item-prev',
+  ITEM: 'c-carousel-item',
+  POINTER_EVENT: 'c-pointer-event'
 }
 
 const Selector = {
   ACTIVE: '.active',
-  ACTIVE_ITEM: '.active.carousel-item',
-  ITEM: '.carousel-item',
-  ITEM_IMG: '.carousel-item img',
-  NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
-  INDICATORS: '.carousel-indicators',
+  ACTIVE_ITEM: '.active.c-carousel-item',
+  ITEM: '.c-carousel-item',
+  ITEM_IMG: '.c-carousel-item img',
+  NEXT_PREV: '.c-carousel-item-next, .c-carousel-item-prev',
+  INDICATORS: '.c-carousel-indicators',
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 }

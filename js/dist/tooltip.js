@@ -27,9 +27,9 @@ import SelectorEngine from './dom/selectorEngine';
 
 var NAME = 'tooltip';
 var VERSION = '4.3.1';
-var DATA_KEY = 'bs.tooltip';
+var DATA_KEY = 'coreui.tooltip';
 var EVENT_KEY = "." + DATA_KEY;
-var CLASS_PREFIX = 'bs-tooltip';
+var CLASS_PREFIX = 'c-bs-tooltip';
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
 var DefaultType = {
@@ -58,7 +58,7 @@ var AttachmentMap = {
 };
 var Default = {
   animation: true,
-  template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div></div>',
+  template: '<div class="c-tooltip" role="tooltip">' + '<div class="c-tooltip-arrow"></div>' + '<div class="c-tooltip-inner"></div></div>',
   trigger: 'hover focus',
   title: '',
   delay: 0,
@@ -94,8 +94,8 @@ var ClassName = {
   SHOW: 'show'
 };
 var Selector = {
-  TOOLTIP_INNER: '.tooltip-inner',
-  TOOLTIP_ARROW: '.tooltip-arrow'
+  TOOLTIP_INNER: '.c-tooltip-inner',
+  TOOLTIP_ARROW: '.c-tooltip-arrow'
 };
 var Trigger = {
   HOVER: 'hover',

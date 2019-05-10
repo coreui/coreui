@@ -26,7 +26,7 @@ import SelectorEngine from './dom/selectorEngine'
 
 const NAME = 'tab'
 const VERSION = '4.3.1'
-const DATA_KEY = 'bs.tab'
+const DATA_KEY = 'coreui.tab'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -39,7 +39,7 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_MENU: 'dropdown-menu',
+  DROPDOWN_MENU: 'c-dropdown-menu',
   ACTIVE: 'active',
   DISABLED: 'disabled',
   FADE: 'fade',
@@ -47,13 +47,13 @@ const ClassName = {
 }
 
 const Selector = {
-  DROPDOWN: '.dropdown',
-  NAV_LIST_GROUP: '.nav, .list-group',
+  DROPDOWN: '.c-dropdown',
+  NAV_LIST_GROUP: '.c-nav, .c-list-group',
   ACTIVE: '.active',
   ACTIVE_UL: ':scope > li > .active',
-  DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-  DROPDOWN_TOGGLE: '.dropdown-toggle',
-  DROPDOWN_ACTIVE_CHILD: ':scope > .dropdown-menu .active'
+  DATA_TOGGLE: '[data-toggle="c-tab"], [data-toggle="c-pill"], [data-toggle="c-list"]',
+  DROPDOWN_TOGGLE: '.c-dropdown-toggle',
+  DROPDOWN_ACTIVE_CHILD: ':scope > .c-dropdown-menu .active'
 }
 
 /**

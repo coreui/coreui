@@ -25,9 +25,9 @@ const DATA_API_KEY = '.data-api'
 
 const ClassName = {
   ACTIVE: 'active',
-  NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
-  NAV_PILLS: 'nav-pills',
-  NAV_TABS: 'nav-tabs',
+  NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
+  NAV_PILLS: 'c-nav-pills',
+  NAV_TABS: 'c-nav-tabs',
   OPEN: 'open',
   VIEW_SCRIPT: 'view-script'
 }
@@ -40,10 +40,10 @@ const Event = {
 
 const Selector = {
   HEAD: 'head',
-  NAV_DROPDOWN: '.nav .nav-dropdown',
-  NAV_LINK: '.dropdown-nav-link, .nav .nav-link',
-  NAV_ITEM: '.nav .nav-item',
-  SIDEBAT_NAV: '.c-sidebar-nav, .sidebar-nav',
+  NAV_DROPDOWN: '.c-nav .c-nav-dropdown',
+  NAV_LINK: '.c-dropdown-nav-link, .c-nav .c-nav-link',
+  NAV_ITEM: '.c-nav .c-nav-item',
+  SIDEBAT_NAV: '.c-sidebar-nav, .c-sidebar-nav',
   VIEW_SCRIPT: '.view-script'
 }
 
