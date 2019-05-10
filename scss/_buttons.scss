@@ -4,7 +4,7 @@
 // Base styles
 //
 
-.btn {
+.#{$bs-prefix}btn {
   display: inline-block;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
@@ -55,8 +55,8 @@
 }
 
 // Future-proof disabling of clicks on `<a>` elements
-a.btn.disabled,
-fieldset:disabled a.btn {
+a.#{$bs-prefix}btn.disabled,
+fieldset:disabled a.#{$bs-prefix}btn {
   pointer-events: none;
 }
 
@@ -66,13 +66,13 @@ fieldset:disabled a.btn {
 //
 
 @each $color, $value in $theme-colors {
-  .btn-#{$color} {
+  .#{$bs-prefix}btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 @each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
+  .#{$bs-prefix}btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
@@ -83,7 +83,7 @@ fieldset:disabled a.btn {
 //
 
 // Make a button look and behave like a link
-.btn-link {
+.#{$bs-prefix}btn-link {
   font-weight: $font-weight-normal;
   color: $link-color;
   text-decoration: $link-decoration;
@@ -113,11 +113,11 @@ fieldset:disabled a.btn {
 // Button Sizes
 //
 
-.btn-lg {
+.#{$bs-prefix}btn-lg {
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
 }
 
-.btn-sm {
+.#{$bs-prefix}btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
 }
 
@@ -126,12 +126,12 @@ fieldset:disabled a.btn {
 // Block button
 //
 
-.btn-block {
+.#{$bs-prefix}btn-block {
   display: block;
   width: 100%;
 
   // Vertically space out multiple block buttons
-  + .btn-block {
+  + .#{$bs-prefix}btn-block {
     margin-top: $btn-block-spacing-y;
   }
 }
@@ -140,7 +140,7 @@ fieldset:disabled a.btn {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.btn-block {
+  &.#{$bs-prefix}btn-block {
     width: 100%;
   }
 }

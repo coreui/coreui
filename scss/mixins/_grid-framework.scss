@@ -17,46 +17,46 @@
 
     // Allow columns to stretch full width below their breakpoints
     @for $i from 1 through $columns {
-      .col#{$infix}-#{$i} {
+      .#{$bs-prefix}col#{$infix}-#{$i} {
         @extend %grid-column;
       }
     }
-    .col#{$infix},
-    .col#{$infix}-auto {
+    .#{$bs-prefix}col#{$infix},
+    .#{$bs-prefix}col#{$infix}-auto {
       @extend %grid-column;
     }
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
       // Provide basic `.col-{bp}` classes for equal-width flexbox columns
-      .col#{$infix} {
+      .#{$bs-prefix}col#{$infix} {
         flex-basis: 0;
         flex-grow: 1;
         max-width: 100%;
       }
-      .col#{$infix}-auto {
+      .#{$bs-prefix}col#{$infix}-auto {
         flex: 0 0 auto;
         width: auto;
         max-width: 100%; // Reset earlier grid tiers
       }
 
       @for $i from 1 through $columns {
-        .col#{$infix}-#{$i} {
+        .#{$bs-prefix}col#{$infix}-#{$i} {
           @include make-col($i, $columns);
         }
       }
 
-      .order#{$infix}-first { order: -1; }
+      .#{$bs-prefix}order#{$infix}-first { order: -1; }
 
-      .order#{$infix}-last { order: $columns + 1; }
+      .#{$bs-prefix}order#{$infix}-last { order: $columns + 1; }
 
       @for $i from 0 through $columns {
-        .order#{$infix}-#{$i} { order: $i; }
+        .#{$bs-prefix}order#{$infix}-#{$i} { order: $i; }
       }
 
       // `$columns - 1` because offsetting by the width of an entire row isn't possible
       @for $i from 0 through ($columns - 1) {
         @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
-          .offset#{$infix}-#{$i} {
+          .#{$bs-prefix}offset#{$infix}-#{$i} {
             @include make-col-offset($i, $columns);
           }
         }

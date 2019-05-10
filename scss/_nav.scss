@@ -3,7 +3,7 @@
 // Kickstart any navigation component with a set of style resets. Works with
 // `<nav>`s or `<ul>`s.
 
-.nav {
+.#{$bs-prefix}nav {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
@@ -11,7 +11,7 @@
   list-style: none;
 }
 
-.nav-link {
+.#{$bs-prefix}nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
@@ -31,14 +31,14 @@
 // Tabs
 //
 
-.nav-tabs {
+.#{$bs-prefix}nav-tabs {
   border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
 
-  .nav-item {
+  .#{$bs-prefix}nav-item {
     margin-bottom: -$nav-tabs-border-width;
   }
 
-  .nav-link {
+  .#{$bs-prefix}nav-link {
     border: $nav-tabs-border-width solid transparent;
     @include border-top-radius($nav-tabs-border-radius);
 
@@ -53,14 +53,14 @@
     }
   }
 
-  .nav-link.active,
-  .nav-item.show .nav-link {
+  .#{$bs-prefix}nav-link.active,
+  .#{$bs-prefix}nav-item.#{$bs-prefix}show .#{$bs-prefix}nav-link {
     color: $nav-tabs-link-active-color;
     background-color: $nav-tabs-link-active-bg;
     border-color: $nav-tabs-link-active-border-color;
   }
 
-  .dropdown-menu {
+  .#{$bs-prefix}dropdown-menu {
     // Make dropdown border overlap tab border
     margin-top: -$nav-tabs-border-width;
     // Remove the top rounded corners here since there is a hard edge above the menu
@@ -73,13 +73,13 @@
 // Pills
 //
 
-.nav-pills {
-  .nav-link {
+.#{$bs-prefix}nav-pills {
+  .#{$bs-prefix}nav-link {
     @include border-radius($nav-pills-border-radius);
   }
 
-  .nav-link.active,
-  .show > .nav-link {
+  .#{$bs-prefix}nav-link.active,
+  .show > .#{$bs-prefix}nav-link {
     color: $nav-pills-link-active-color;
     background-color: $nav-pills-link-active-bg;
   }
@@ -90,15 +90,15 @@
 // Justified variants
 //
 
-.nav-fill {
-  .nav-item {
+.#{$bs-prefix}nav-fill {
+  .#{$bs-prefix}nav-item {
     flex: 1 1 auto;
     text-align: center;
   }
 }
 
-.nav-justified {
-  .nav-item {
+.#{$bs-prefix}nav-justified {
+  .#{$bs-prefix}nav-item {
     flex-basis: 0;
     flex-grow: 1;
     text-align: center;
@@ -110,8 +110,8 @@
 //
 // Hide tabbable panes to start, show them when `.active`
 
-.tab-content {
-  > .tab-pane {
+.#{$bs-prefix}tab-content {
+  > .#{$bs-prefix}tab-pane {
     display: none;
   }
   > .active {
@@ -121,8 +121,8 @@
 
 // CoreUI specific changes start
 // ToDo: refactor
-.nav-tabs {
-  .nav-link {
+.#{$bs-prefix}nav-tabs {
+  .#{$bs-prefix}nav-link {
     color: $gray-600;
     &:hover {
       cursor: pointer;
@@ -141,31 +141,31 @@
   }
 }
 
-.tab-content {
+.#{$bs-prefix}tab-content {
   margin-top: -1px;
   background: #fff;
   border: 1px solid $border-color;
-  .tab-pane {
+  .#{$bs-prefix}tab-pane {
     padding: $spacer;
   }
 }
 
-.card-block {
-  .tab-content {
+.#{$bs-prefix}card-block {
+  .#{$bs-prefix}tab-content {
     margin-top: 0;
     border: 0;
   }
 }
 
-.nav-fill {
-  .nav-link {
+.#{$bs-prefix}nav-fill {
+  .#{$bs-prefix}nav-link {
     background-color: #fff;
     border-color: $border-color;
   }
-  .nav-link + .nav-link {
+  .#{$bs-prefix}nav-link + .#{$bs-prefix}nav-link {
     margin-left: -1px;
   }
-  .nav-link.active {
+  .#{$bs-prefix}nav-link.active {
     margin-top: -1px;
     // margin-left: 0;
     border-top: 2px solid $primary;
@@ -174,7 +174,7 @@
 
 // Right-to-Left Support
 *[dir="rtl"] {
-  .nav {
+  .#{$bs-prefix}nav {
     padding-right: 0;
   }
 }

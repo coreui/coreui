@@ -4,10 +4,10 @@
 // Visibility utilities
 //
 
-.visible {
+.#{$bs-prefix}visible {
   visibility: visible !important;
 }
 
-.invisible {
+.#{$bs-prefix}invisible {
   visibility: hidden !important;
 }

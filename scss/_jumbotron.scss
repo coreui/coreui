@@ -1,4 +1,4 @@
-.jumbotron {
+.#{$bs-prefix}jumbotron {
   padding: $jumbotron-padding ($jumbotron-padding / 2);
   margin-bottom: $jumbotron-padding;
   color: $jumbotron-color;
@@ -10,7 +10,7 @@
   }
 }
 
-.jumbotron-fluid {
+.#{$bs-prefix}jumbotron-fluid {
   padding-right: 0;
   padding-left: 0;
   @include border-radius(0);

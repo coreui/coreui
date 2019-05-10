@@ -2,12 +2,12 @@
 
 // Common values
 @each $position in $positions {
-  .position-#{$position} { position: $position !important; }
+  .#{$bs-prefix}position-#{$position} { position: $position !important; }
 }
 
 // Shorthand
 
-.fixed-top {
+.#{$bs-prefix}fixed-top {
   position: fixed;
   top: 0;
   right: 0;
@@ -15,7 +15,7 @@
   z-index: $zindex-fixed;
 }
 
-.fixed-bottom {
+.#{$bs-prefix}fixed-bottom {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -23,7 +23,7 @@
   z-index: $zindex-fixed;
 }
 
-.sticky-top {
+.#{$bs-prefix}sticky-top {
   @supports (position: sticky) {
     position: sticky;
     top: 0;

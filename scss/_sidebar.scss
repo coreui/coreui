@@ -54,8 +54,7 @@
     }
   }
 
-  .#{$prefix}sidebar-header,
-  .sidebar-header {
+  .#{$prefix}sidebar-header {
     flex: 0 0 $sidebar-header-height;
     padding: $sidebar-header-padding-y $sidebar-header-padding-x;
     text-align: center;
@@ -64,20 +63,19 @@
 
   // Sidebar navigation
 
-  .#{$prefix}sidebar-nav,
-  .sidebar-nav {
+  .#{$prefix}sidebar-nav {
     position: relative;
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
   }
 
-  .nav:not(.nav-tabs) {
+  .#{$prefix}nav:not(.#{$prefix}nav-tabs) {
     flex-direction: column;
     min-height: 100%;
   }
 
-  .nav-title {
+  .#{$prefix}nav-title {
     padding: $sidebar-nav-title-padding-y $sidebar-nav-title-padding-x;
     font-size: 80%;
     font-weight: 700;
@@ -85,12 +83,12 @@
     transition: $layout-transition-speed;
   }
 
-  .nav-divider {
+  .#{$prefix}nav-divider {
     height: 10px;
     transition: height $layout-transition-speed;
   }
 
-  .nav-link {
+  .#{$prefix}nav-link {
     display: flex;
     flex: 1;
     align-items: center;
@@ -101,7 +99,7 @@
       border-radius: $border-radius;
     }
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       flex: 0 0 $sidebar-nav-icon-width;
       height: ($font-size-base * 1.25);
       font-size: $font-size-base;
@@ -109,7 +107,7 @@
       transition: $layout-transition-speed;
     }
 
-    .badge {
+    .#{$prefix}badge {
       margin-right: $sidebar-nav-link-padding-x;
       margin-left: auto;
     }
@@ -119,15 +117,15 @@
     }
 
     @each $color, $value in $theme-colors {
-      &.nav-link-#{$color} {
+      &.#{$prefix}nav-link-#{$color} {
         background: $value;
-        .nav-icon {
+        .#{$prefix}nav-icon {
           color: rgba(255, 255, 255, .7);
           fill: rgba(255, 255, 255, .7);
         }
         &:hover {
           background: darken($value, 5%);
-          .nav-icon {
+          .#{$prefix}nav-icon {
             color: #fff;
             fill: #fff;
           }
@@ -136,7 +134,7 @@
     }
   }
 
-  .nav-dropdown {
+  .#{$prefix}nav-dropdown {
     position: relative;
     transition: background $layout-transition-speed ease-in-out;
 
@@ -144,17 +142,17 @@
       @if $enable-sidebar-nav-rounded {
         border-radius: $border-radius;
       }
-      > .nav-dropdown-items {
+      > .#{$prefix}nav-dropdown-items {
         max-height: 1500px;
       }
 
-      > .nav-dropdown-toggle::after {
+      > .#{$prefix}nav-dropdown-toggle::after {
         transform: rotate(-90deg);
       }
     }
   }
 
-  .nav-dropdown-toggle {
+  .#{$prefix}nav-dropdown-toggle {
 
     &::after {
       display: block;
@@ -168,19 +166,19 @@
       transition: transform $layout-transition-speed;
     }
 
-    .badge {
+    .#{$prefix}badge {
       margin-right: $sidebar-nav-link-padding-x;
     }
   }
 
-  .nav-dropdown-items {
+  .#{$prefix}nav-dropdown-items {
     max-height: 0;
     padding: 0;
     overflow-y: hidden;
     transition: max-height $layout-transition-speed ease-in-out;
   }
 
-  .nav-label {
+  .#{$prefix}nav-label {
     display: block;
     padding: ($sidebar-nav-link-padding-y / 8) $sidebar-nav-link-padding-x;
     transition: $layout-transition-speed;
@@ -189,7 +187,7 @@
       text-decoration: none;
     }
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       width: 20px;
       margin: -3px ($sidebar-nav-link-padding-x / 2) 0 0;
       font-size: 10px;
@@ -200,16 +198,16 @@
 
   // TODO: refactor
   // @if (lightness( $sidebar-bg ) < 40) {
-  //   .progress {
+  //   .#{$prefix}progress {
   //     background-color: lighten($sidebar-bg, 15%) !important;
   //   }
   // }
 
   // Tabs
 
-  .nav-tabs {
+  .#{$prefix}nav-tabs {
     // border-color: $border-color;
-    .nav-link {
+    .#{$prefix}nav-link {
       display: block;
       padding: $sidebar-nav-tabs-link-padding-y $sidebar-nav-tabs-link-padding-x;
       // color: $body-color;
@@ -219,34 +217,32 @@
         // color: theme-color("primary");
       }
     }
-    .nav-item:first-child {
-      .nav-link {
+    .#{$prefix}nav-item:first-child {
+      .#{$prefix}nav-link {
         border-left: 0;
       }
     }
   }
 
-  .tab-content {
+  .#{$prefix}tab-content {
     position: relative;
     overflow-x: hidden;
     overflow-y: auto;
     background-color: transparent;
     border: 0;
 
-    .tab-pane {
+    .#{$prefix}tab-pane {
       padding: 0;
     }
   }
 
-  .#{$prefix}sidebar-footer,
-  .sidebar-footer {
+  .#{$prefix}sidebar-footer {
     flex: 0 0 $sidebar-footer-height;
     padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
     transition: $layout-transition-speed;
   }
 
-  .#{$prefix}sidebar-minimizer,
-  .sidebar-minimizer {
+  .#{$prefix}sidebar-minimizer {
     display: flex;
     flex: 0 0 $sidebar-minimizer-height;
     justify-content: flex-end;
@@ -273,8 +269,7 @@
   }
 
   &.#{$prefix}sidebar-right {
-    .#{$prefix}sidebar-minimizer,
-    .sidebar-minimizer {
+    .#{$prefix}sidebar-minimizer {
       justify-content: flex-start;
       &::before {
         transform: rotate(-180deg);
@@ -307,18 +302,18 @@
       display: initial;
     }
 
-    .sidebar-nav {
+    .#{$prefix}sidebar-nav {
       padding-bottom: $sidebar-minimizer-height;
       overflow: visible;
     }
 
-    .d-minimized-none,
-    .nav-divider,
-    .nav-label,
-    .nav-title,
-    .c-sidebar-footer,
-    .c-sidebar-form,
-    .c-sidebar-header {
+    .#{$prefix}d-minimized-none,
+    .#{$prefix}nav-divider,
+    .#{$prefix}nav-label,
+    .#{$prefix}nav-title,
+    .#{$prefix}sidebar-footer,
+    .#{$prefix}sidebar-form,
+    .#{$prefix}sidebar-header {
       height: 0;
       padding: 0;
       margin: 0;
@@ -344,7 +339,7 @@
       }
     }
 
-    .nav-dropdown {
+    .#{$prefix}nav-dropdown {
       position: relative;
       overflow: hidden;
 
@@ -354,53 +349,53 @@
       }
     }
 
-    &.#{$prefix}sidebar-right .sidebar-nav > .nav > .nav-item:hover {
+    &.#{$prefix}sidebar-right .#{$prefix}sidebar-nav > .#{$prefix}nav > .#{$prefix}nav-item:hover {
       margin-left: - $sidebar-width;
     }
 
-    .nav-link {
+    .#{$prefix}nav-link {
       overflow: hidden;
       white-space: nowrap;
       border-left: 0;
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         display: block;
         float: left;
         width: $sidebar-minimized-height;
         font-size: 18px;
       }
 
-      .badge {
+      .#{$prefix}badge {
         display: none;
       }
 
       &:hover {
         width: $sidebar-width + $sidebar-minimized-width;
 
-        .badge {
+        .#{$prefix}badge {
           display: inline;
         }
       }
 
-      &.nav-dropdown-toggle::after {
+      &.#{$prefix}nav-dropdown-toggle::after {
         display: none;
       }
     }
 
-    .nav-dropdown-items {
-      .nav-link {
+    .#{$prefix}nav-dropdown-items {
+      .#{$prefix}nav-link {
         width: $sidebar-width;
       }
     }
 
-    .nav > .nav-dropdown {
-      > .nav-dropdown-items {
+    .#{$prefix}nav > .#{$prefix}nav-dropdown {
+      > .#{$prefix}nav-dropdown-items {
         display: none;
         max-height: 1000px;
       }
 
       &:hover {
-        > .nav-dropdown-items {
+        > .#{$prefix}nav-dropdown-items {
           position: absolute;
           left: $sidebar-minimized-width;
           display: inline;
@@ -408,29 +403,27 @@
       }
     }
 
-    &.#{$prefix}sidebar-right .nav > .nav-dropdown:hover > .nav-dropdown-items {
+    &.#{$prefix}sidebar-right .#{$prefix}nav > .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
       left: 0;
     }
 
     // Right-to-Left Support
     @if $enable-rtl {
       *[dir="rtl"] {
-        .#{$prefix}sidebar-minimized,
-        .sidebar-minimized {
-          .sidebar {
-            .nav {
+        .#{$prefix}sidebar-minimized {
+          .#{$prefix}sidebar {
+            .#{$prefix}nav {
               list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-              .divider {
+              .#{$prefix}nav-divider {
                 height: 0;
               }
             }
 
-            .#{$prefix}sidebar-minimizer::before,
-            .sidebar-minimizer::before {
+            .#{$prefix}sidebar-minimizer::before {
               transform: rotate(0deg);
             }
 
-            .nav-dropdown:hover > .nav-dropdown-items {
+            .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
               left: 0;
             }
           }
@@ -439,39 +432,38 @@
     }
   }
   @include media-breakpoint-up(lg) {
-    &.#{$prefix}sidebar-compact,
-    &.sidebar-compact {
+    &.#{$prefix}sidebar-compact {
       width: $sidebar-compact-width;
-      .d-compact-none {
+      .#{$prefix}d-compact-none {
         display: none;
       }
 
-      .nav-title {
+      .#{$prefix}nav-title {
         text-align: center;
       }
 
-      .nav-item {
+      .#{$prefix}nav-item {
         width: $sidebar-compact-width;
         border-left: 0;
       }
 
-      .nav-link {
+      .#{$prefix}nav-link {
         text-align: center;
 
-        .nav-icon {
+        .#{$prefix}nav-icon {
           display: block;
           width: 100%;
           margin: $spacer / 4 0;
           font-size: 24px;
         }
 
-        .badge {
+        .#{$prefix}badge {
           position: absolute;
           top: 18px;
           right: 10px;
         }
 
-        &.nav-dropdown-toggle::after {
+        &.#{$prefix}nav-dropdown-toggle::after {
           top: 30px;
         }
       }
@@ -531,8 +523,7 @@
 // Right-to-Left Support
 @if $enable-rtl {
   *[dir="rtl"] {
-    .#{$prefix}sidebar,
-    .sidebar {
+    .#{$prefix}sidebar {
 
       &:not(.#{$prefix}sidebar-right){
         margin-right: - $sidebar-width;
@@ -552,14 +543,14 @@
         }
       }
 
-      .nav-dropdown-toggle::after {
+      .#{$prefix}nav-dropdown-toggle::after {
         margin-right: auto;
         margin-left: $sidebar-nav-link-padding-x;
         transform: rotate(180deg);
       }
 
-      .nav-dropdown.open {
-        > .nav-dropdown-toggle::after {
+      .#{$prefix}nav-dropdown.open {
+        > .#{$prefix}nav-dropdown-toggle::after {
           transform: rotate(270deg);
         }
       }
@@ -568,18 +559,16 @@
         transform: rotate(180deg);
       }
 
-      &.#{$prefix}sidebar-right,
-      &.sidebar-right {
+      &.#{$prefix}sidebar-right {
         .#{$prefix}sidebar-minimizer::before {
           transform: rotate(0deg);
         }
       }
 
-      &.#{$prefix}sidebar-minimized,
-      &.sidebar-minimized {
-        .nav {
+      &.#{$prefix}sidebar-minimized {
+        .#{$prefix}nav {
           list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-          .divider {
+          .#{$prefix}nav-divider {
             height: 0;
           }
         }
@@ -588,27 +577,25 @@
           transform: rotate(0deg);
         }
 
-        &.#{$prefix}sidebar-right,
-        &.sidebar-right {
+        &.#{$prefix}sidebar-right {
           .#{$prefix}sidebar-minimizer::before {
             transform: rotate(180deg);
           }
         }
 
-        &.#{$prefix}sidebar-right,
-        &.sidebar-right {
-          .sidebar-nav > .nav {
-            > .nav-item:hover {
+        &.#{$prefix}sidebar-right {
+          .#{$prefix}sidebar-nav > .#{$prefix}nav {
+            > .#{$prefix}nav-item:hover {
               margin-right: - $sidebar-width;
             }
-            > .nav-dropdown:hover .nav-dropdown-items {
+            > .#{$prefix}nav-dropdown:hover .#{$prefix}nav-dropdown-items {
               right: 0;
               // left: auto;
             }
           }
         }
 
-        .nav-dropdown:hover > .nav-dropdown-items {
+        .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
           left: 0;
         }
       }
@@ -682,8 +669,7 @@
     }
   }
 
-  .#{$prefix}sidebar-close,
-  .sidebar-close {
+  .#{$prefix}sidebar-close {
     color: $sidebar-dark-color;
   }
 
@@ -695,8 +681,7 @@
     background: $sidebar-dark-header-bg;
   }
 
-  .#{$prefix}sidebar-form .form-control,
-  .sidebar-form .form-control {
+  .#{$prefix}sidebar-form .#{$prefix}form-control {
     color: $sidebar-dark-form-color;
     background: $sidebar-dark-form-bg;
     border: $sidebar-dark-form-border;
@@ -706,16 +691,16 @@
     }
   }
 
-  .nav-title {
+  .#{$prefix}nav-title {
     color: $sidebar-dark-nav-title-color;
   }
 
-  .nav-link {
+  .#{$prefix}nav-link {
     color: $sidebar-dark-nav-link-color;
     background: $sidebar-dark-nav-link-bg;
     @include borders($sidebar-dark-nav-link-borders);
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       color: $sidebar-dark-nav-link-icon-color;
       fill: $sidebar-dark-nav-link-icon-color;
     }
@@ -725,7 +710,7 @@
       background: $sidebar-dark-nav-link-active-bg;
       @include borders($sidebar-dark-nav-link-active-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-dark-nav-link-active-icon-color;
         fill: $sidebar-dark-nav-link-active-icon-color;
       }
@@ -736,12 +721,12 @@
       background: $sidebar-dark-nav-link-hover-bg;
       @include borders($sidebar-dark-nav-link-hover-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-dark-nav-link-hover-icon-color;
         fill: $sidebar-dark-nav-link-hover-icon-color;
       }
 
-      &.nav-dropdown-toggle::after {
+      &.#{$prefix}nav-dropdown-toggle::after {
         background-image: $sidebar-dark-nav-dropdown-indicator-hover;
       }
     }
@@ -751,7 +736,7 @@
       background: transparent;
       @include borders($sidebar-dark-nav-link-disabled-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-dark-nav-link-disabled-icon-color;
         fill: $sidebar-dark-nav-link-disabled-icon-color;
       }
@@ -760,18 +745,18 @@
         color: $sidebar-dark-nav-link-disabled-color;
         @include borders($sidebar-dark-nav-link-hover-borders);
 
-        .nav-icon {
+        .#{$prefix}nav-icon {
           color: $sidebar-dark-nav-link-disabled-icon-color;
           fill: $sidebar-dark-nav-link-disabled-icon-color;
         }
 
-        &.nav-dropdown-toggle::after {
+        &.#{$prefix}nav-dropdown-toggle::after {
           background-image: $sidebar-dark-nav-dropdown-indicator-hover;
         }
       }
     }
   }
-  .nav-dropdown-toggle {
+  .#{$prefix}nav-dropdown-toggle {
     position: relative;
 
     &::after {
@@ -779,11 +764,11 @@
     }
   }
 
-  .nav-dropdown.open {
+  .#{$prefix}nav-dropdown.open {
     background: $sidebar-dark-nav-dropdown-bg;
     @include borders($sidebar-dark-nav-dropdown-borders);
 
-    .nav-link {
+    .#{$prefix}nav-link {
       color: $sidebar-dark-nav-dropdown-color;
 
       &.disabled {
@@ -793,7 +778,7 @@
         &:hover {
           color: $sidebar-dark-nav-link-disabled-color;
 
-          .nav-icon {
+          .#{$prefix}nav-icon {
             color: $sidebar-dark-nav-link-disabled-icon-color;
           }
         }
@@ -801,22 +786,22 @@
     }
   }
 
-  .nav-label {
+  .#{$prefix}nav-label {
     color: $sidebar-dark-nav-title-color;
 
     &:hover {
       color: $sidebar-dark-color;
     }
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       color: $sidebar-dark-nav-link-icon-color;
     }
   }
 
-  .nav-tabs {
+  .#{$prefix}nav-tabs {
     border-color: $sidebar-dark-nav-tabs-border-color;
 
-    .nav-link {
+    .#{$prefix}nav-link {
       &:hover,
       &:focus {
         background: $sidebar-dark-nav-tabs-link-hover-bg;
@@ -830,19 +815,17 @@
   }
 
   @if (lightness( $sidebar-dark-bg ) < 40) {
-    .progress {
+    .#{$prefix}progress {
       background-color: lighten($sidebar-dark-bg, 15%) !important;
     }
   }
 
-  .#{$prefix}sidebar-footer,
-  .sidebar-footer {
+  .#{$prefix}sidebar-footer {
     background: $sidebar-dark-footer-bg;
     @include borders($sidebar-dark-footer-borders);
   }
 
-  .#{$prefix}sidebar-minimizer,
-  .sidebar-minimizer {
+  .#{$prefix}sidebar-minimizer {
     background-color: $sidebar-dark-minimizer-bg;
     @include borders($sidebar-dark-minimizer-borders);
 
@@ -865,21 +848,21 @@
   &.#{$prefix}sidebar-minimized {
     background-color: darken($sidebar-dark-bg, 5%);
 
-    .nav-item {
+    .#{$prefix}nav-item {
 
       &:hover {
 
-        > .nav-link {
+        > .#{$prefix}nav-link {
           background: $sidebar-dark-nav-link-hover-bg;
 
-          .nav-icon {
+          .#{$prefix}nav-icon {
             color: $sidebar-dark-nav-link-hover-color;
           }
 
           &.disabled {
             background: $sidebar-dark-nav-link-disabled-bg;
 
-            .nav-icon {
+            .#{$prefix}nav-icon {
               color: $sidebar-dark-nav-link-disabled-icon-color;
             }
           }
@@ -887,12 +870,12 @@
       }
     }
 
-    .nav-link:hover {
+    .#{$prefix}nav-link:hover {
       background: $sidebar-dark-nav-link-hover-bg;
     }
 
-    .nav > .nav-dropdown {
-      > .nav-dropdown-items {
+    .#{$prefix}nav > .#{$prefix}nav-dropdown {
+      > .#{$prefix}nav-dropdown-items {
         background: $sidebar-dark-bg;
       }
 
@@ -920,8 +903,7 @@
     }
   }
 
-  .#{$prefix}sidebar-close,
-  .sidebar-close {
+  .#{$prefix}sidebar-close {
     color: $sidebar-light-color;
   }
 
@@ -933,8 +915,7 @@
     background: $sidebar-light-header-bg;
   }
 
-  .#{$prefix}sidebar-form .form-control,
-  .sidebar-form .form-control {
+  .#{$prefix}sidebar-form .#{$prefix}form-control {
     color: $sidebar-light-form-color;
     background: $sidebar-light-form-bg;
     border: $sidebar-light-form-border;
@@ -944,16 +925,16 @@
     }
   }
 
-  .nav-title {
+  .#{$prefix}nav-title {
     color: $sidebar-light-nav-title-color;
   }
 
-  .nav-link {
+  .#{$prefix}nav-link {
     color: $sidebar-light-nav-link-color;
     background: $sidebar-light-nav-link-bg;
     @include borders($sidebar-light-nav-link-borders);
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       color: $sidebar-light-nav-link-icon-color;
       fill: $sidebar-light-nav-link-icon-color;
     }
@@ -963,7 +944,7 @@
       background: $sidebar-light-nav-link-active-bg;
       @include borders($sidebar-light-nav-link-active-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-light-nav-link-active-icon-color;
         fill: $sidebar-light-nav-link-active-icon-color;
       }
@@ -974,12 +955,12 @@
       background: $sidebar-light-nav-link-hover-bg;
       @include borders($sidebar-light-nav-link-hover-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-light-nav-link-hover-icon-color;
         fill: $sidebar-light-nav-link-hover-icon-color;
       }
 
-      &.nav-dropdown-toggle::after {
+      &.#{$prefix}nav-dropdown-toggle::after {
         background-image: $sidebar-light-nav-dropdown-indicator-hover;
       }
     }
@@ -989,7 +970,7 @@
       background: transparent;
       @include borders($sidebar-light-nav-link-disabled-borders);
 
-      .nav-icon {
+      .#{$prefix}nav-icon {
         color: $sidebar-light-nav-link-disabled-icon-color;
         fill: $sidebar-light-nav-link-disabled-icon-color;
       }
@@ -998,18 +979,18 @@
         color: $sidebar-light-nav-link-disabled-color;
         @include borders($sidebar-light-nav-link-hover-borders);
 
-        .nav-icon {
+        .#{$prefix}nav-icon {
           color: $sidebar-light-nav-link-disabled-icon-color;
           fill: $sidebar-light-nav-link-disabled-icon-color;
         }
 
-        &.nav-dropdown-toggle::after {
+        &.#{$prefix}nav-dropdown-toggle::after {
           background-image: $sidebar-light-nav-dropdown-indicator-hover;
         }
       }
     }
   }
-  .nav-dropdown-toggle {
+  .#{$prefix}nav-dropdown-toggle {
     position: relative;
 
     &::after {
@@ -1017,11 +998,11 @@
     }
   }
 
-  .nav-dropdown.open {
+  .#{$prefix}nav-dropdown.open {
     background: $sidebar-light-nav-dropdown-bg;
     @include borders($sidebar-light-nav-dropdown-borders);
 
-    .nav-link {
+    .#{$prefix}nav-link {
       color: $sidebar-light-nav-dropdown-color;
 
       &.disabled {
@@ -1031,7 +1012,7 @@
         &:hover {
           color: $sidebar-light-nav-link-disabled-color;
 
-          .nav-icon {
+          .#{$prefix}nav-icon {
             color: $sidebar-light-nav-link-disabled-icon-color;
           }
         }
@@ -1039,28 +1020,28 @@
     }
   }
 
-  .nav-label {
+  .#{$prefix}nav-label {
     color: $sidebar-light-nav-title-color;
 
     &:hover {
       color: $sidebar-light-color;
     }
 
-    .nav-icon {
+    .#{$prefix}nav-icon {
       color: $sidebar-light-nav-link-icon-color;
     }
   }
 
   @if (lightness( $sidebar-light-bg ) < 40) {
-    .progress {
+    .#{$prefix}progress {
       background-color: lighten($sidebar-light-bg, 15%) !important;
     }
   }
 
-  .nav-tabs {
+  .#{$prefix}nav-tabs {
     border-color: $sidebar-light-nav-tabs-border-color;
 
-    .nav-link {
+    .#{$prefix}nav-link {
       &:hover,
       &:focus {
         background: $sidebar-light-nav-tabs-link-hover-bg;
@@ -1073,24 +1054,22 @@
     }
   }
 
-  // .tab-content {
+  // .#{$prefix}tab-content {
   //   @include borders($sidebar-light-tab-content-borders);
   // }
 
   @if (lightness( $sidebar-light-bg ) < 40) {
-    .progress {
+    .#{$prefix}progress {
       background-color: lighten($sidebar-light-bg, 15%) !important;
     }
   }
 
-  .#{$prefix}sidebar-footer,
-  .sidebar-footer {
+  .#{$prefix}sidebar-footer {
     background: $sidebar-light-footer-bg;
     @include borders($sidebar-light-footer-borders);
   }
 
-  .#{$prefix}sidebar-minimizer,
-  .sidebar-minimizer {
+  .#{$prefix}sidebar-minimizer {
     background-color: $sidebar-light-minimizer-bg;
     @include borders($sidebar-light-minimizer-borders);
 
@@ -1113,21 +1092,21 @@
   &.#{$prefix}sidebar-minimized {
     background-color: darken($sidebar-light-bg, 5%);
 
-    .nav-item {
+    .#{$prefix}nav-item {
 
       &:hover {
 
-        > .nav-link {
+        > .#{$prefix}nav-link {
           background: $sidebar-light-nav-link-hover-bg;
 
-          .nav-icon {
+          .#{$prefix}nav-icon {
             color: $sidebar-light-nav-link-hover-color;
           }
 
           &.disabled {
             background: $sidebar-light-nav-link-disabled-bg;
 
-            .nav-icon {
+            .#{$prefix}nav-icon {
               color: $sidebar-light-nav-link-disabled-icon-color;
             }
           }
@@ -1135,12 +1114,12 @@
       }
     }
 
-    .nav-link:hover {
+    .#{$prefix}nav-link:hover {
       background: $sidebar-light-nav-link-hover-bg;
     }
 
-    .nav > .nav-dropdown {
-      > .nav-dropdown-items {
+    .#{$prefix}nav > .#{$prefix}nav-dropdown {
+      > .#{$prefix}nav-dropdown-items {
         background: $sidebar-light-bg;
       }
 

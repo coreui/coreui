@@ -2,11 +2,11 @@
 //
 // Easily usable on <ul>, <ol>, or <div>.
 
-.list-group {
+.#{$bs-prefix}list-group {
   display: flex;
   flex-direction: column;
 
-  // No need to set list-style: none; since .list-group-item is block level
+  // No need to set list-style: none; since .#{$bs-prefix}list-group-item is block level
   padding-left: 0; // reset padding because ul and ol
   margin-bottom: 0;
 }
@@ -17,7 +17,7 @@
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
 // list items. Includes an extra `.active` modifier class for selected items.
 
-.list-group-item-action {
+.#{$bs-prefix}list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
   color: $list-group-action-color;
   text-align: inherit; // For `<button>`s (anchors inherit)
@@ -39,9 +39,9 @@
 
 // Individual list items
 //
-// Use on `li`s or `div`s within the `.list-group` parent.
+// Use on `li`s or `div`s within the `.#{$bs-prefix}list-group` parent.
 
-.list-group-item {
+.#{$bs-prefix}list-group-item {
   position: relative;
   display: block;
   padding: $list-group-item-padding-y $list-group-item-padding-x;
@@ -85,10 +85,10 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .list-group-horizontal#{$infix} {
+    .#{$bs-prefix}list-group-horizontal#{$infix} {
       flex-direction: row;
 
-      .list-group-item {
+      .#{$bs-prefix}list-group-item {
         margin-right: -$list-group-border-width;
         margin-bottom: 0;
 
@@ -113,8 +113,8 @@
 // Remove borders and border-radius to keep list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
 
-.list-group-flush {
-  .list-group-item {
+.#{$bs-prefix}list-group-flush {
+  .#{$bs-prefix}list-group-item {
     border-right: 0;
     border-left: 0;
     @include border-radius(0);
@@ -125,13 +125,13 @@
   }
 
   &:first-child {
-    .list-group-item:first-child {
+    .#{$bs-prefix}list-group-item:first-child {
       border-top: 0;
     }
   }
 
   &:last-child {
-    .list-group-item:last-child {
+    .#{$bs-prefix}list-group-item:last-child {
       margin-bottom: 0;
       border-bottom: 0;
     }
@@ -154,15 +154,15 @@
 //
 // Remove top, bottome and right borders and border-radius.
 
-.list-group-accent {
-  .list-group-item {
+.#{$bs-prefix}list-group-accent {
+  .#{$bs-prefix}list-group-item {
     margin-bottom: 1px;
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
     @include border-radius(0);
 
-    &.list-group-item-divider {
+    &.#{$bs-prefix}list-group-item-divider {
       position: relative;
 
       &::before {

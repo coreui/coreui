@@ -50,7 +50,7 @@
     @include border-radius($form-feedback-tooltip-border-radius);
   }
 
-  .form-control {
+  .#{$bs-prefix}form-control {
     .was-validated &:#{$state},
     &.is-#{$state} {
       border-color: $color;
@@ -76,7 +76,7 @@
   }
 
   // stylelint-disable-next-line selector-no-qualifying-type
-  textarea.form-control {
+  textarea.#{$bs-prefix}form-control {
     .was-validated &:#{$state},
     &.is-#{$state} {
       @if $enable-validation-icons {
@@ -86,7 +86,7 @@
     }
   }
 
-  .custom-select {
+  .#{$bs-prefix}custom-select {
     .was-validated &:#{$state},
     &.is-#{$state} {
       border-color: $color;
@@ -109,7 +109,7 @@
   }
 
 
-  .form-control-file {
+  .#{$bs-prefix}form-control-file {
     .was-validated &:#{$state},
     &.is-#{$state} {
       ~ .#{$state}-feedback,
@@ -119,10 +119,10 @@
     }
   }
 
-  .form-check-input {
+  .#{$bs-prefix}form-check-input {
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .form-check-label {
+      ~ .#{$bs-prefix}form-check-label {
         color: $color;
       }
 
@@ -133,10 +133,10 @@
     }
   }
 
-  .custom-control-input {
+  .#{$bs-prefix}custom-control-input {
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .custom-control-label {
+      ~ .#{$bs-prefix}custom-control-label {
         color: $color;
 
         &::before {
@@ -150,18 +150,18 @@
       }
 
       &:checked {
-        ~ .custom-control-label::before {
+        ~ .#{$bs-prefix}custom-control-label::before {
           border-color: lighten($color, 10%);
           @include gradient-bg(lighten($color, 10%));
         }
       }
 
       &:focus {
-        ~ .custom-control-label::before {
+        ~ .#{$bs-prefix}custom-control-label::before {
           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
         }
 
-        &:not(:checked) ~ .custom-control-label::before {
+        &:not(:checked) ~ .#{$bs-prefix}custom-control-label::before {
           border-color: $color;
         }
       }
@@ -169,10 +169,10 @@
   }
 
   // custom file
-  .custom-file-input {
+  .#{$bs-prefix}custom-file-input {
     .was-validated &:#{$state},
     &.is-#{$state} {
-      ~ .custom-file-label {
+      ~ .#{$bs-prefix}custom-file-label {
         border-color: $color;
       }
 
@@ -182,7 +182,7 @@
       }
 
       &:focus {
-        ~ .custom-file-label {
+        ~ .#{$bs-prefix}custom-file-label {
           border-color: $color;
           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
         }

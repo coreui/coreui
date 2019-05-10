@@ -1,33 +1,33 @@
-.img-avatar {
+.#{$prefix}img-avatar {
   max-width: 100%;
   height: auto;
   border-radius: 50em;
 }
 
-.avatar {
+.#{$prefix}avatar {
   @include avatar($avatar-width,$avatar-status-width);
 
   > img {
-    @extend .img-avatar;
+    @extend .#{$prefix}img-avatar;
     vertical-align: initial;
   }
 }
 
-.avatar-lg {
+.#{$prefix}avatar-lg {
   @include avatar($avatar-lg-width,$avatar-lg-status-width);
 }
 
-.avatar-sm {
+.#{$prefix}avatar-sm {
   @include avatar($avatar-sm-width,$avatar-sm-status-width);
 }
 
-.avatar-xs {
+.#{$prefix}avatar-xs {
   @include avatar($avatar-xs-width,$avatar-xs-status-width);
 }
 
-.avatars-stack {
+.#{$prefix}avatars-stack {
 
-  .avatar {
+  .#{$prefix}avatar {
     margin-right: - ($avatar-width / 2);
     transition: margin-right $layout-transition-speed;
 
@@ -36,15 +36,15 @@
     }
   }
 
-  .avatar-lg {
+  .#{$prefix}avatar-lg {
     margin-right: - ($avatar-lg-width / 2);
   }
 
-  .avatar-sm {
+  .#{$prefix}avatar-sm {
     margin-right: - ($avatar-sm-width / 2);
   }
 
-  .avatar-xs {
+  .#{$prefix}avatar-xs {
     margin-right: - ($avatar-xs-width / 2);
   }
 }

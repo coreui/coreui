@@ -1,4 +1,4 @@
-.toast {
+.#{$bs-prefix}toast {
   max-width: $toast-max-width;
   overflow: hidden; // cheap rounded corners on nested items
   @include font-size($toast-font-size);
@@ -29,7 +29,7 @@
   }
 }
 
-.toast-header {
+.#{$bs-prefix}toast-header {
   display: flex;
   align-items: center;
   padding: $toast-padding-y $toast-padding-x;
@@ -39,6 +39,6 @@
   border-bottom: $toast-border-width solid $toast-header-border-color;
 }
 
-.toast-body {
+.#{$bs-prefix}toast-body {
   padding: $toast-padding-x; // apply to both vertical and horizontal
 }

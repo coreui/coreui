@@ -1,31 +1,26 @@
 //
 // CoreUI default layout
 //
-.#{$prefix}app.#{$prefix}default-layout,
-.#{$prefix}default-layout {
+.#{$prefix}app.#{$prefix}default-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  .#{$prefix}header,
-  .app-header {
+  .#{$prefix}header {
     flex: 0 0 $header-height;
   }
 
-  .#{$prefix}footer,
-  .app-footer {
+  .#{$prefix}footer {
     flex: 0 0 $footer-height;
   }
 
-  .app-body,
   .#{$prefix}body {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
     overflow-x: hidden;
 
-    .#{$prefix}main,
-    .main {
+    .#{$prefix}main {
       flex: 1;
       min-width: 0;
     }
@@ -375,8 +370,7 @@
 // .#{$prefix}sidebar,
 // .sidebar,
 .#{$prefix}body,
-.#{$prefix}main,
-.main {
+.#{$prefix}main {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 }
 // .sidebar-nav {

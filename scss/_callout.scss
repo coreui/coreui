@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.callout {
+.#{$prefix}callout {
   position: relative;
   padding: 0 $spacer;
   margin: $spacer 0;
@@ -12,7 +12,7 @@
     border-radius: $border-radius;
   }
 
-  .chart-wrapper {
+  .#{$prefix}chart-wrapper {
     position: absolute;
     top: 10px;
     left: 50%;
@@ -21,21 +21,21 @@
   }
 }
 
-.callout-bordered {
+.#{$prefix}callout-bordered {
   border: 1px solid $border-color;
   border-left-width: 4px;
 }
-.callout code {
+.#{$prefix}callout code {
   border-radius: $border-radius;
 }
-.callout h4 {
+.#{$prefix}callout h4 {
   margin-top: 0;
   margin-bottom: .25rem;
 }
-.callout p:last-child {
+.#{$prefix}callout p:last-child {
   margin-bottom: 0;
 }
-.callout + .callout {
+.#{$prefix}callout + .#{$prefix}callout {
   margin-top: - .25rem;
 }
 
@@ -44,7 +44,7 @@
 //
 
 @each $color, $value in $theme-colors {
-  .callout-#{$color} {
+  .#{$prefix}callout-#{$color} {
     border-left-color: $value;
 
     h4 {
@@ -55,17 +55,17 @@
 
 // Right-to-Left Support
 *[dir="rtl"] {
-  .callout {
+  .#{$prefix}callout {
     border-right: 4px solid $border-color;
     border-left: 0;
 
     @each $color, $value in $theme-colors {
-      &.callout-#{$color} {
+      &.#{$prefix}callout-#{$color} {
         border-right-color: $value;
       }
     }
 
-    .chart-wrapper {
+    .#{$prefix}chart-wrapper {
       left: 0;
       float: left;
     }

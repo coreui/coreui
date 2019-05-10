@@ -1,15 +1,15 @@
-.breadcrumb-menu {
+.#{$prefix}breadcrumb-menu {
   margin-left: auto;
 
   &::before {
     display: none;
   }
 
-  .btn-group {
+  .#{$bs-prefix}btn-group {
     vertical-align: top;
   }
 
-  .btn {
+  .#{$bs-prefix}btn {
     padding: 0 $input-btn-padding-x;
     color: $text-muted;
     vertical-align: top;
@@ -23,13 +23,13 @@
   }
 
   .open {
-    .btn {
+    .#{$bs-prefix}btn {
       color: $body-color;
       background: transparent;
     }
   }
 
-  .dropdown-menu {
+  .#{$bs-prefix}dropdown-menu {
     min-width: 180px;
     line-height: $line-height-base;
   }
@@ -37,7 +37,7 @@
 
 // Right-to-Left Support
 *[dir="rtl"] {
-  .breadcrumb-menu {
+  .#{$prefix}breadcrumb-menu {
     margin-right: auto;
     margin-left: initial;
   }

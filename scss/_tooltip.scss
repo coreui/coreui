@@ -1,5 +1,5 @@
 // Base class
-.tooltip {
+.#{$bs-prefix}tooltip {
   position: absolute;
   z-index: $zindex-tooltip;
   display: block;
@@ -14,7 +14,7 @@
 
   &.show { opacity: $tooltip-opacity; }
 
-  .arrow {
+  .#{$bs-prefix}arrow {
     position: absolute;
     display: block;
     width: $tooltip-arrow-width;
@@ -29,10 +29,10 @@
   }
 }
 
-.bs-tooltip-top {
+.#{$bs-prefix}bs-tooltip-top {
   padding: $tooltip-arrow-height 0;
 
-  .arrow {
+  .#{$bs-prefix}arrow {
     bottom: 0;
 
     &::before {
@@ -43,10 +43,10 @@
   }
 }
 
-.bs-tooltip-right {
+.#{$bs-prefix}bs-tooltip-right {
   padding: 0 $tooltip-arrow-height;
 
-  .arrow {
+  .#{$bs-prefix}arrow {
     left: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
@@ -59,10 +59,10 @@
   }
 }
 
-.bs-tooltip-bottom {
+.#{$bs-prefix}bs-tooltip-bottom {
   padding: $tooltip-arrow-height 0;
 
-  .arrow {
+  .#{$bs-prefix}arrow {
     top: 0;
 
     &::before {
@@ -73,10 +73,10 @@
   }
 }
 
-.bs-tooltip-left {
+.#{$bs-prefix}bs-tooltip-left {
   padding: 0 $tooltip-arrow-height;
 
-  .arrow {
+  .#{$bs-prefix}arrow {
     right: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
@@ -89,23 +89,23 @@
   }
 }
 
-.bs-tooltip-auto {
+.#{$bs-prefix}bs-tooltip-auto {
   &[x-placement^="top"] {
-    @extend .bs-tooltip-top;
+    @extend .#{$bs-prefix}bs-tooltip-top;
   }
   &[x-placement^="right"] {
-    @extend .bs-tooltip-right;
+    @extend .#{$bs-prefix}bs-tooltip-right;
   }
   &[x-placement^="bottom"] {
-    @extend .bs-tooltip-bottom;
+    @extend .#{$bs-prefix}bs-tooltip-bottom;
   }
   &[x-placement^="left"] {
-    @extend .bs-tooltip-left;
+    @extend .#{$bs-prefix}bs-tooltip-left;
   }
 }
 
 // Wrapper for the tooltip content
-.tooltip-inner {
+.#{$bs-prefix}tooltip-inner {
   max-width: $tooltip-max-width;
   padding: $tooltip-padding-y $tooltip-padding-x;
   color: $tooltip-color;

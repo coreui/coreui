@@ -11,7 +11,7 @@
 
 
   // Dropdown
-  .dropdown-item {
+  .#{$bs-prefix}dropdown-item {
     text-align: right;
 
     i {
@@ -19,7 +19,7 @@
       margin-left: 10px;
     }
 
-    .badge {
+    .#{$bs-prefix}badge {
       right: auto;
       left: 10px;
     }

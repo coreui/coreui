@@ -8,65 +8,65 @@
 
     @each $prop, $abbrev in (margin: m, padding: p) {
       @each $size, $length in $spacers {
-        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
-        .#{$abbrev}t#{$infix}-#{$size},
-        .#{$abbrev}y#{$infix}-#{$size} {
+        .#{$bs-prefix}#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .#{$bs-prefix}#{$abbrev}t#{$infix}-#{$size},
+        .#{$bs-prefix}#{$abbrev}y#{$infix}-#{$size} {
           #{$prop}-top: $length !important;
         }
-        .#{$abbrev}r#{$infix}-#{$size},
-        .#{$abbrev}x#{$infix}-#{$size} {
+        .#{$bs-prefix}#{$abbrev}r#{$infix}-#{$size},
+        .#{$bs-prefix}#{$abbrev}x#{$infix}-#{$size} {
           #{$prop}-right: $length !important;
         }
-        .#{$abbrev}b#{$infix}-#{$size},
-        .#{$abbrev}y#{$infix}-#{$size} {
+        .#{$bs-prefix}#{$abbrev}b#{$infix}-#{$size},
+        .#{$bs-prefix}#{$abbrev}y#{$infix}-#{$size} {
           #{$prop}-bottom: $length !important;
         }
-        .#{$abbrev}l#{$infix}-#{$size},
-        .#{$abbrev}x#{$infix}-#{$size} {
+        .#{$bs-prefix}#{$abbrev}l#{$infix}-#{$size},
+        .#{$bs-prefix}#{$abbrev}x#{$infix}-#{$size} {
           #{$prop}-left: $length !important;
         }
       }
     }
 
-    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    // Negative margins (e.#{$bs-prefix}g., where `.#{$bs-prefix}mb-n1` is negative version of `.#{$bs-prefix}mb-1`)
     @each $size, $length in $spacers {
       @if $size != 0 {
-        .m#{$infix}-n#{$size} { margin: -$length !important; }
-        .mt#{$infix}-n#{$size},
-        .my#{$infix}-n#{$size} {
+        .#{$bs-prefix}m#{$infix}-n#{$size} { margin: -$length !important; }
+        .#{$bs-prefix}mt#{$infix}-n#{$size},
+        .#{$bs-prefix}my#{$infix}-n#{$size} {
           margin-top: -$length !important;
         }
-        .mr#{$infix}-n#{$size},
-        .mx#{$infix}-n#{$size} {
+        .#{$bs-prefix}mr#{$infix}-n#{$size},
+        .#{$bs-prefix}mx#{$infix}-n#{$size} {
           margin-right: -$length !important;
         }
-        .mb#{$infix}-n#{$size},
-        .my#{$infix}-n#{$size} {
+        .#{$bs-prefix}mb#{$infix}-n#{$size},
+        .#{$bs-prefix}my#{$infix}-n#{$size} {
           margin-bottom: -$length !important;
         }
-        .ml#{$infix}-n#{$size},
-        .mx#{$infix}-n#{$size} {
+        .#{$bs-prefix}ml#{$infix}-n#{$size},
+        .#{$bs-prefix}mx#{$infix}-n#{$size} {
           margin-left: -$length !important;
         }
       }
     }
 
     // Some special margin utils
-    .m#{$infix}-auto { margin: auto !important; }
-    .mt#{$infix}-auto,
-    .my#{$infix}-auto {
+    .#{$bs-prefix}m#{$infix}-auto { margin: auto !important; }
+    .#{$bs-prefix}mt#{$infix}-auto,
+    .#{$bs-prefix}my#{$infix}-auto {
       margin-top: auto !important;
     }
-    .mr#{$infix}-auto,
-    .mx#{$infix}-auto {
+    .#{$bs-prefix}mr#{$infix}-auto,
+    .#{$bs-prefix}mx#{$infix}-auto {
       margin-right: auto !important;
     }
-    .mb#{$infix}-auto,
-    .my#{$infix}-auto {
+    .#{$bs-prefix}mb#{$infix}-auto,
+    .#{$bs-prefix}my#{$infix}-auto {
       margin-bottom: auto !important;
     }
-    .ml#{$infix}-auto,
-    .mx#{$infix}-auto {
+    .#{$bs-prefix}ml#{$infix}-auto,
+    .#{$bs-prefix}mx#{$infix}-auto {
       margin-left: auto !important;
     }
   }

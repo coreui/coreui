@@ -3,7 +3,7 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
-  .container {
+  .#{$bs-prefix}container {
     @include make-container();
     @include make-container-max-widths();
   }
@@ -15,7 +15,7 @@
 // fluid, full width layouts.
 
 @if $enable-grid-classes {
-  .container-fluid {
+  .#{$bs-prefix}container-fluid {
     @include make-container();
   }
 }
@@ -25,17 +25,17 @@
 // Rows contain and clear the floats of your columns.
 
 @if $enable-grid-classes {
-  .row {
+  .#{$bs-prefix}row {
     @include make-row();
   }
 
-  // Remove the negative margin from default .row, then the horizontal padding
+  // Remove the negative margin from default .#{$bs-prefix}row, then the horizontal padding
   // from all immediate children columns (to prevent runaway style inheritance).
-  .no-gutters {
+  .#{$bs-prefix}no-gutters {
     margin-right: 0;
     margin-left: 0;
 
-    > .col,
+    > .#{$bs-prefix}col,
     > [class*="col-"] {
       padding-right: 0;
       padding-left: 0;
@@ -52,7 +52,7 @@
 }
 
 // CoreUI start
-.row.row-equal {
+.#{$bs-prefix}row.#{$bs-prefix}row-equal {
   padding-right: ($grid-gutter-width / 4);
   padding-left: ($grid-gutter-width / 4);
   margin-right: ($grid-gutter-width / -2);
@@ -64,7 +64,7 @@
   }
 }
 
-.main .container-fluid {
+.#{$bs-prefix}main .#{$bs-prefix}container-fluid {
   padding: 0 30px;
 }
 // CoreUI end

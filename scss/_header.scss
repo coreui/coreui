@@ -96,7 +96,7 @@
   margin-bottom: 0;
   list-style: none;
 
-  .nav-item {
+  .#{$prefix}nav-item {
     position: relative;
   }
 
@@ -104,11 +104,11 @@
     margin: 0 auto;
   }
 
-  .nav-link {
+  .#{$prefix}nav-link {
     padding-right: $header-nav-link-padding-x;
     padding-left: $header-nav-link-padding-x;
 
-    .badge {
+    .#{$prefix}badge {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -116,18 +116,18 @@
       margin-left: 0;
     }
 
-    > .img-avatar {
+    > .#{$prefix}img-avatar {
       height: $header-height - 20px;
       margin: 0 10px;
     }
   }
 
-  .dropdown-menu {
+  .#{$prefix}dropdown-menu {
     padding-bottom: 0;
     line-height: $line-height-base;
   }
 
-  .dropdown-item {
+  .#{$prefix}dropdown-item {
     min-width: 180px;
   }
 }
@@ -137,7 +137,7 @@
 // Styles for switching between navbars with light or dark background.
 
 // Dark links against a light background
-&.#{$prefix}header-light {
+.#{$prefix}header-light {
   background: $header-light-bg;
   @include borders($header-light-border);
 
@@ -159,7 +159,7 @@
   }
 
   .#{$prefix}header-nav {
-    .nav-link {
+    .#{$prefix}nav-link {
       color: $header-light-color;
 
       @include hover-focus {
@@ -171,10 +171,10 @@
       }
     }
 
-    .show > .nav-link,
-    .active > .nav-link,
-    .nav-link.show,
-    .nav-link.active {
+    .show > .#{$prefix}nav-link,
+    .active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.show,
+    .#{$prefix}nav-link.active {
       color: $header-light-active-color;
     }
   }
@@ -205,7 +205,7 @@
 }
 
 // White links against a dark background
-&.#{$prefix}header-dark {
+.#{$prefix}header-dark {
   background: $header-dark-bg;
   @include borders($header-dark-border);
 
@@ -227,7 +227,7 @@
   }
 
   .#{$prefix}header-nav {
-    .nav-link {
+    .#{$prefix}nav-link {
       color: $header-dark-color;
 
       @include hover-focus {
@@ -239,10 +239,10 @@
       }
     }
 
-    .show > .nav-link,
-    .active > .nav-link,
-    .nav-link.show,
-    .nav-link.active {
+    .show > .#{$prefix}nav-link,
+    .active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.show,
+    .#{$prefix}nav-link.active {
       color: $header-dark-active-color;
     }
   }

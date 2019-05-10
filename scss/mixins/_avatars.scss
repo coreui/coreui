@@ -4,7 +4,7 @@
   width: $width;
   height: $width;
 
-  .avatar-status {
+  .#{$prefix}avatar-status {
     position: absolute;
     right: 0;
     bottom: 0;

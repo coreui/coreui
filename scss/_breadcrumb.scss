@@ -1,4 +1,4 @@
-.breadcrumb {
+.#{$prefix}breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: $breadcrumb-padding-y $breadcrumb-padding-x;
@@ -10,9 +10,9 @@
 
 }
 
-.breadcrumb-item {
+.#{$prefix}breadcrumb-item {
   // The separator between breadcrumbs (by default, a forward-slash: "/")
-  + .breadcrumb-item {
+  + .#{$prefix}breadcrumb-item {
     padding-left: $breadcrumb-item-padding;
 
     &::before {
@@ -25,15 +25,15 @@
 
   // IE9-11 hack to properly handle hyperlink underlines for breadcrumbs built
   // without `<ul>`s. The `::before` pseudo-element generates an element
-  // *within* the .breadcrumb-item and thereby inherits the `text-decoration`.
+  // *within* the .#{$prefix}breadcrumb-item and thereby inherits the `text-decoration`.
   //
   // To trick IE into suppressing the underline, we give the pseudo-element an
   // underline and then immediately remove it.
-  + .breadcrumb-item:hover::before {
+  + .#{$prefix}breadcrumb-item:hover::before {
     text-decoration: underline;
   }
   // stylelint-disable-next-line no-duplicate-selectors
-  + .breadcrumb-item:hover::before {
+  + .#{$prefix}breadcrumb-item:hover::before {
     text-decoration: none;
   }
 
@@ -44,11 +44,11 @@
 
 // CoreUI start
 *[dir="rtl"] {
-  .breadcrumb-item::before {
+  .#{$prefix}breadcrumb-item::before {
     padding-right: 0;
     padding-left: $breadcrumb-item-padding;
   }
-  .breadcrumb-item {
+  .#{$prefix}breadcrumb-item {
     padding-right: $breadcrumb-item-padding;
     padding-left: 0;
   }

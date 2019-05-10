@@ -2,17 +2,17 @@
 // Base styles
 //
 
-.switch {
+.#{$prefix}switch {
   display: inline-block;
   width: $switch-width;
   height: $switch-height;
 }
 
-.switch-input {
+.#{$prefix}switch-input {
   display: none;
 }
 
-.switch-slider {
+.#{$prefix}switch-slider {
   position: relative;
   display: block;
   height: inherit;
@@ -37,13 +37,13 @@
   }
 }
 
-.switch-input:checked ~ .switch-slider {
+.#{$prefix}switch-input:checked ~ .#{$prefix}switch-slider {
   &::before {
     transform: translateX($switch-width - $switch-height);
   }
 }
 
-.switch-input:disabled ~ .switch-slider {
+.#{$prefix}switch-input:disabled ~ .#{$prefix}switch-slider {
   cursor: not-allowed;
   opacity: .5;
 }
@@ -52,21 +52,21 @@
 // Switch Sizes
 //
 
-.switch-lg {
+.#{$prefix}switch-lg {
   @include switch-size($switch-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
 }
 
-.switch-sm {
+.#{$prefix}switch-sm {
   @include switch-size($switch-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
 }
 
 //
 // Switch with label
 //
-.switch-label {
+.#{$prefix}switch-label {
   width: $switch-label-width;
 
-  .switch-slider {
+  .#{$prefix}switch-slider {
     &::before {
       z-index: 2;
     }
@@ -88,7 +88,7 @@
     }
   }
 
-  .switch-input:checked ~ .switch-slider {
+  .#{$prefix}switch-input:checked ~ .#{$prefix}switch-slider {
     &::before {
       transform: translateX($switch-label-width - $switch-height);
     }
@@ -100,11 +100,11 @@
   }
 
   // Sizes
-  &.switch-lg {
+  &.#{$prefix}switch-lg {
     @include switch-size($switch-label-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
   }
 
-  &.switch-sm {
+  &.#{$prefix}switch-sm {
     @include switch-size($switch-label-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
   }
 }
@@ -113,8 +113,8 @@
 // Switch 3d
 //
 
-.switch-3d {
-  .switch-slider {
+.#{$prefix}switch-3d {
+  .#{$prefix}switch-slider {
     background-color: $gray-100;
     border-radius: 50em;
 
@@ -130,11 +130,11 @@
   }
 
   // Sizes
-  &.switch-lg {
+  &.#{$prefix}switch-lg {
     @include switch-3d-size($switch-lg-width, $switch-lg-height);
   }
 
-  &.switch-sm {
+  &.#{$prefix}switch-sm {
     @include switch-3d-size($switch-sm-width, $switch-sm-height);
   }
 }
@@ -145,15 +145,15 @@
 
 @each $color, $value in $theme-colors {
   //normal style
-  .switch-#{$color} {
+  .#{$prefix}switch-#{$color} {
     @include switch-variant($value);
   }
   //outline style
-  .switch-outline-#{$color} {
+  .#{$prefix}switch-outline-#{$color} {
     @include switch-outline-variant($value);
   }
   //outline alternative style
-  .switch-outline-#{$color}-alt {
+  .#{$prefix}switch-outline-#{$color}-alt {
     @include switch-outline-variant-alt($value);
   }
 }
@@ -162,8 +162,8 @@
 // Pill Style
 //
 
-.switch-pill {
-  .switch-slider {
+.#{$prefix}switch-pill {
+  .#{$prefix}switch-slider {
     border-radius: 50em;
 
     &::before {

@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.btn-brand {
+.#{$prefix}btn-brand {
   border: 0;
   i {
     display: inline-block;
@@ -18,7 +18,7 @@
     margin-left: ($btn-padding-x * 2);
   }
 
-  &.btn-lg {
+  &.#{$prefix}btn-lg {
     i {
       width: (($btn-padding-y-lg * 2) + ($font-size-lg * $btn-line-height-lg));
       margin: (- $btn-padding-y-lg) (- $btn-padding-x-lg);
@@ -31,7 +31,7 @@
     }
   }
 
-  &.btn-sm {
+  &.#{$prefix}btn-sm {
     i {
       width: (($btn-padding-y-sm * 2) + ($font-size-sm * $btn-line-height-sm));
       margin: (- $btn-padding-y-sm) (- $btn-padding-x-sm);
@@ -44,7 +44,7 @@
     }
   }
 
-  &.btn-square i {
+  &.#{$prefix}btn-square i {
     border-radius: 0;
   }
 }
@@ -54,7 +54,7 @@
 //
 
 @each $color, $value in $brands-colors {
-  .btn-#{$color} {
+  .#{$prefix}btn-#{$color} {
     @include button-variant($value, $value);
   }
 }

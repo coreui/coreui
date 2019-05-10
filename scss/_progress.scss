@@ -6,7 +6,7 @@
   }
 }
 
-.progress {
+.#{$bs-prefix}progress {
   display: flex;
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
@@ -16,7 +16,7 @@
   @include box-shadow($progress-box-shadow);
 }
 
-.progress-bar {
+.#{$bs-prefix}progress-bar {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -27,13 +27,13 @@
   @include transition($progress-bar-transition);
 }
 
-.progress-bar-striped {
+.#{$bs-prefix}progress-bar-striped {
   @include gradient-striped();
   background-size: $progress-height $progress-height;
 }
 
 @if $enable-transitions {
-  .progress-bar-animated {
+  .#{$bs-prefix}progress-bar-animated {
     animation: progress-bar-stripes $progress-bar-animation-timing;
 
     @media (prefers-reduced-motion: reduce) {
@@ -43,18 +43,18 @@
 }
 
 // CoreUI specific changes start
-.progress-xs {
+.#{$bs-prefix}progress-xs {
   height: 4px;
 }
 
-.progress-sm {
+.#{$bs-prefix}progress-sm {
   height: 8px;
 }
 
 // White progress bar
-.progress-white {
+.#{$bs-prefix}progress-white {
   background-color: rgba(255, 255, 255, .2);
-  .progress-bar {
+  .#{$bs-prefix}progress-bar {
     background-color: #fff;
   }
 }

@@ -4,52 +4,52 @@ body {
 }
 
 // stylelint-disable declaration-no-important
-.font-xs {
+.#{$bs-prefix}font-xs {
   font-size: .75rem !important;
 }
 
-.font-sm {
+.#{$bs-prefix}font-sm {
   font-size: .85rem !important;
 }
 
-.font-lg {
+.#{$bs-prefix}font-lg {
   font-size: 1rem !important;
 }
 
-.font-xl {
+.#{$bs-prefix}font-xl {
   font-size: 1.25rem !important;
 }
 
-.font-2xl {
+.#{$bs-prefix}font-2xl {
   font-size: 1.5rem !important;
 }
 
-.font-3xl {
+.#{$bs-prefix}font-3xl {
   font-size: 1.75rem !important;
 }
 
-.font-4xl {
+.#{$bs-prefix}font-4xl {
   font-size: 2rem !important;
 }
 
-.font-5xl {
+.#{$bs-prefix}font-5xl {
   font-size: 2.5rem !important;
 }
 
-.text-value {
+.#{$bs-prefix}text-value {
   font-size: ($font-size-base * 1.5);
   font-weight: 600;
 }
-.text-value-sm {
+.#{$bs-prefix}text-value-sm {
   font-size: ($font-size-base * 1.25);
   font-weight: 600;
 }
 
-.text-value-lg {
+.#{$bs-prefix}text-value-lg {
   font-size: ($font-size-base * 1.75);
   font-weight: 600;
 }
 
-.text-white .text-muted {
+.#{$bs-prefix}text-white .#{$bs-prefix}text-muted {
   color: rgba(255, 255, 255, .6) !important;
 }
