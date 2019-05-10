@@ -1,0 +1,28 @@
+{
+  "replace": [
+    {
+      "old": ".app",
+      "new": ".c-app"
+    },
+    {
+      "old": ".app-footer",
+      "new": ".c-footer"
+    },
+    {
+      "old": ".app-header",
+      "new": ".c-header"
+    },
+    {
+      "old": ".aside-options",
+      "new": ".c-aside-options"
+    },
+    {
+      "old": ".main",
+      "new": ".c-main"
+    },
+    {
+      "old": ".tab",
+      "new": ".c-tab"
+    }
+  ]
+}
