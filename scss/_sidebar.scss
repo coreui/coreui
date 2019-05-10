@@ -95,6 +95,7 @@
     padding: $sidebar-nav-link-padding-y 0;
     text-decoration: none;
     white-space: nowrap;
+    transition: background $layout-transition-speed, color $layout-transition-speed;
     @if $enable-sidebar-nav-rounded {
       border-radius: $border-radius;
     }
