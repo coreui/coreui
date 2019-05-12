@@ -1,1 +1,0 @@
-{"version":3,"sources":["../scss/_others.scss"],"names":[],"mappings":"AACE,eACA,WAAY,IAAA,MAAA","sourcesContent":["// stylelint-disable selector-no-qualifying-type\nhr.transparent {\n  border-top: 1px solid transparent;\n}\n"]}
