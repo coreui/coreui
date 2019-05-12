@@ -1669,6 +1669,14 @@
       "new": ".c-col-xl-auto"
     },
     {
+      "old": ".collapse",
+      "new": ".c-collapse"
+    },
+    {
+      "old": ".collapsing",
+      "new": ".c-collapsing"
+    },
+    {
       "old": ".cols-2",
       "new": ".c-cols-2"
     },
@@ -2107,6 +2115,14 @@
     {
       "old": ".embed-responsive-item",
       "new": ".c-embed-responsive-item"
+    },
+    {
+      "old": ".fade",
+      "new": ".c-fade"
+    },
+    {
+      "old": ".fade-in",
+      "new": ".c-fade-in"
     },
     {
       "old": ".figure",
@@ -2657,6 +2673,10 @@
       "new": ".c-header-toggler-icon"
     },
     {
+      "old": ".hide",
+      "new": ".c-hide"
+    },
+    {
       "old": ".img-avatar",
       "new": ".c-img-avatar"
     },
@@ -2701,8 +2721,24 @@
       "new": ".c-input-group-text"
     },
     {
+      "old": ".invalid-feedback",
+      "new": ".c-invalid-feedback"
+    },
+    {
+      "old": ".invalid-tooltip",
+      "new": ".c-invalid-tooltip"
+    },
+    {
       "old": ".invisible",
       "new": ".c-invisible"
+    },
+    {
+      "old": ".is-invalid",
+      "new": ".c-is-invalid"
+    },
+    {
+      "old": ".is-valid",
+      "new": ".c-is-valid"
     },
     {
       "old": ".jumbotron",
@@ -5125,6 +5161,10 @@
       "new": ".c-offset-xl-9"
     },
     {
+      "old": ".open",
+      "new": ".c-open"
+    },
+    {
       "old": ".order-0",
       "new": ".c-order-0"
     },
@@ -6449,6 +6489,10 @@
       "new": ".c-show"
     },
     {
+      "old": ".showing",
+      "new": ".c-showing"
+    },
+    {
       "old": ".sidebar",
       "new": ".c-sidebar"
     },
@@ -6993,6 +7037,14 @@
       "new": ".c-tooltip-inner"
     },
     {
+      "old": ".valid-feedback",
+      "new": ".c-valid-feedback"
+    },
+    {
+      "old": ".valid-tooltip",
+      "new": ".c-valid-tooltip"
+    },
+    {
       "old": ".vh-100",
       "new": ".c-vh-100"
     },
@@ -7023,6 +7075,10 @@
     {
       "old": ".w-auto",
       "new": ".c-w-auto"
+    },
+    {
+      "old": ".was-validated",
+      "new": ".c-was-validated"
     }
   ]
 }

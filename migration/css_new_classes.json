@@ -17,6 +17,10 @@
       "new": ".c-aside-options"
     },
     {
+      "old": ".fadeIn",
+      "new": ".c-fade-in"
+    },
+    {
       "old": ".main",
       "new": ".c-main"
     },
