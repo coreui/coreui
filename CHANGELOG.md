@@ -1,5 +1,6 @@
 ## v3.0.0
 - refactor: merge CoreUI and Bootstrap
+- refacror: add `c-` prefix to each css class
 - feat: new class toggler component, use instead of: `.sidebar-toggler`, `.aside-menu-toggler`, `.sidebar-minizer`, `.brand-minimizer`
 - refactor(sidebar, aside-menu): removed togglers
 - ref
