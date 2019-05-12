@@ -212,9 +212,9 @@
       }
     }
 
-    .show > .#{$bs-prefix}nav-link,
+    .#{$bs-prefix}show > .#{$bs-prefix}nav-link,
     .active > .#{$bs-prefix}nav-link,
-    .#{$bs-prefix}nav-link.show,
+    .#{$bs-prefix}nav-link.#{$bs-prefix}show,
     .#{$bs-prefix}nav-link.active {
       color: $navbar-light-active-color;
     }
@@ -264,9 +264,9 @@
       }
     }
 
-    .show > .#{$bs-prefix}nav-link,
+    .#{$bs-prefix}show > .#{$bs-prefix}nav-link,
     .active > .#{$bs-prefix}nav-link,
-    .#{$bs-prefix}nav-link.show,
+    .#{$bs-prefix}nav-link.#{$bs-prefix}show,
     .#{$bs-prefix}nav-link.active {
       color: $navbar-dark-active-color;
     }

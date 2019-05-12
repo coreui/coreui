@@ -79,7 +79,7 @@
   }
 
   .#{$bs-prefix}nav-link.active,
-  .show > .#{$bs-prefix}nav-link {
+  .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
     color: $nav-pills-link-active-color;
     background-color: $nav-pills-link-active-bg;
   }

@@ -15,16 +15,16 @@
     margin-bottom: $toast-padding-x;
   }
 
-  &.showing {
+  &.#{$bs-prefix}showing {
     opacity: 1;
   }
 
-  &.show {
+  &.#{$bs-prefix}show {
     display: block;
     opacity: 1;
   }
 
-  &.hide {
+  &.#{$bs-prefix}hide {
     display: none;
   }
 }

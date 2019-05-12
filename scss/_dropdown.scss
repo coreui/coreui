@@ -169,7 +169,7 @@
   }
 }
 
-.#{$bs-prefix}dropdown-menu.show {
+.#{$bs-prefix}dropdown-menu.#{$bs-prefix}show {
   display: block;
 }
 

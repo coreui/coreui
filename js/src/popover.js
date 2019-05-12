@@ -40,8 +40,8 @@ const DefaultType = {
 }
 
 const ClassName = {
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 }
 
 const Selector = {

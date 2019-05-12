@@ -106,8 +106,8 @@ const Event = {
 }
 
 const ClassName = {
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 }
 
 const Selector = {

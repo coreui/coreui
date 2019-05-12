@@ -36,10 +36,10 @@ const Event = {
 }
 
 const ClassName = {
-  FADE: 'fade',
-  HIDE: 'hide',
-  SHOW: 'show',
-  SHOWING: 'showing'
+  FADE: 'c-fade',
+  HIDE: 'c-hide',
+  SHOW: 'c-show',
+  SHOWING: 'c-showing'
 }
 
 const DefaultType = {

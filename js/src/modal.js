@@ -67,8 +67,8 @@ const ClassName = {
   SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
   BACKDROP: 'c-modal-backdrop',
   OPEN: 'c-modal-open',
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 }
 
 const Selector = {
@@ -76,8 +76,8 @@ const Selector = {
   MODAL_BODY: '.c-modal-body',
   DATA_TOGGLE: '[data-toggle="c-modal"]',
   DATA_DISMISS: '[data-dismiss="c-modal"]',
-  FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-  STICKY_CONTENT: '.sticky-top'
+  FIXED_CONTENT: '.c-fixed-top, .c-fixed-bottom, .c-is-fixed, .c-sticky-top',
+  STICKY_CONTENT: '.c-sticky-top'
 }
 
 /**

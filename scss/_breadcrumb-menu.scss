@@ -22,7 +22,7 @@
     }
   }
 
-  .open {
+  .#{$bs-prefix}open {
     .#{$bs-prefix}btn {
       color: $body-color;
       background: transparent;

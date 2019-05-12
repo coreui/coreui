@@ -42,8 +42,8 @@ const ClassName = {
   DROPDOWN_MENU: 'c-dropdown-menu',
   ACTIVE: 'active',
   DISABLED: 'disabled',
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 }
 
 const Selector = {

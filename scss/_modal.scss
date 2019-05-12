@@ -41,11 +41,11 @@
   pointer-events: none;
 
   // When fading in the modal, animate it to slide down
-  .#{$bs-prefix}modal.fade & {
+  .#{$bs-prefix}modal.#{$bs-prefix}fade & {
     @include transition($modal-transition);
     transform: $modal-fade-transform;
   }
-  .#{$bs-prefix}modal.show & {
+  .#{$bs-prefix}modal.#{$bs-prefix}show & {
     transform: $modal-show-transform;
   }
 }
@@ -126,8 +126,8 @@
   background-color: $modal-backdrop-bg;
 
   // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.show { opacity: $modal-backdrop-opacity; }
+  &.#{$bs-prefix}fade { opacity: 0; }
+  &.#{$bs-prefix}show { opacity: $modal-backdrop-opacity; }
 }
 
 // Modal header

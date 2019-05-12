@@ -32,7 +32,7 @@ const Default = {
 const ClassName = {
   ACTIVE: 'active',
   NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-  OPEN: 'open',
+  OPEN: 'c-open',
   SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
   SIDEBAR_SHOW: 'c-sidebar-show'
 }

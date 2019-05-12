@@ -139,7 +139,7 @@
     position: relative;
     transition: background $layout-transition-speed ease-in-out;
 
-    &.open {
+    &.#{$prefix}open {
       @if $enable-sidebar-nav-rounded {
         border-radius: $border-radius;
       }
@@ -550,7 +550,7 @@
         transform: rotate(180deg);
       }
 
-      .#{$prefix}nav-dropdown.open {
+      .#{$prefix}nav-dropdown.#{$bs-prefix}open {
         > .#{$prefix}nav-dropdown-toggle::after {
           transform: rotate(270deg);
         }
@@ -765,7 +765,7 @@
     }
   }
 
-  .#{$prefix}nav-dropdown.open {
+  .#{$prefix}nav-dropdown.#{$bs-prefix}open {
     background: $sidebar-dark-nav-dropdown-bg;
     @include borders($sidebar-dark-nav-dropdown-borders);
 
@@ -999,7 +999,7 @@
     }
   }
 
-  .#{$prefix}nav-dropdown.open {
+  .#{$prefix}nav-dropdown.#{$prefix}open {
     background: $sidebar-light-nav-dropdown-bg;
     @include borders($sidebar-light-nav-dropdown-borders);
 
