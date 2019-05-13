@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.2): sidebar.js
+ * CoreUI (v3.0.0-alpha.3): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -271,7 +271,6 @@ class Sidebar {
     })
 
     EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_LINK, event => {
-      event.preventDefault()
       this._closeSidebar(event)
     })
   }
