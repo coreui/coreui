@@ -126,7 +126,7 @@
   list-style: none;
 }
 
-.c-header-nav .nav-item {
+.c-header-nav .c-nav-item {
   position: relative;
 }
 
@@ -134,12 +134,12 @@
   margin: 0 auto;
 }
 
-.c-header-nav .nav-link {
+.c-header-nav .c-nav-link {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
 
-.c-header-nav .nav-link .badge {
+.c-header-nav .c-nav-link .c-badge {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -147,17 +147,17 @@
   margin-left: 0;
 }
 
-.c-header-nav .nav-link > .img-avatar {
+.c-header-nav .c-nav-link > .c-img-avatar {
   height: 35px;
   margin: 0 10px;
 }
 
-.c-header-nav .dropdown-menu {
+.c-header-nav .c-dropdown-menu {
   padding-bottom: 0;
   line-height: 1.5;
 }
 
-.c-header-nav .dropdown-item {
+.c-header-nav .c-dropdown-item {
   min-width: 180px;
 }
 
@@ -181,22 +181,22 @@
   }
 }
 
-.c-header-light .c-header-nav .nav-link {
+.c-header-light .c-header-nav .c-nav-link {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.c-header-light .c-header-nav .nav-link:hover, .c-header-light .c-header-nav .nav-link:focus {
+.c-header-light .c-header-nav .c-nav-link:hover, .c-header-light .c-header-nav .c-nav-link:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.c-header-light .c-header-nav .nav-link.disabled {
+.c-header-light .c-header-nav .c-nav-link.disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.c-header-light .c-header-nav .show > .nav-link,
-.c-header-light .c-header-nav .active > .nav-link,
-.c-header-light .c-header-nav .nav-link.show,
-.c-header-light .c-header-nav .nav-link.active {
+.c-header-light .c-header-nav .c-show > .c-nav-link,
+.c-header-light .c-header-nav .active > .c-nav-link,
+.c-header-light .c-header-nav .c-nav-link.c-show,
+.c-header-light .c-header-nav .c-nav-link.active {
   color: rgba(0, 0, 0, 0.9);
 }
 
@@ -245,22 +245,22 @@
   }
 }
 
-.c-header-dark .c-header-nav .nav-link {
+.c-header-dark .c-header-nav .c-nav-link {
   color: rgba(255, 255, 255, 0.75);
 }
 
-.c-header-dark .c-header-nav .nav-link:hover, .c-header-dark .c-header-nav .nav-link:focus {
+.c-header-dark .c-header-nav .c-nav-link:hover, .c-header-dark .c-header-nav .c-nav-link:focus {
   color: rgba(255, 255, 255, 0.9);
 }
 
-.c-header-dark .c-header-nav .nav-link.disabled {
+.c-header-dark .c-header-nav .c-nav-link.disabled {
   color: rgba(255, 255, 255, 0.25);
 }
 
-.c-header-dark .c-header-nav .show > .nav-link,
-.c-header-dark .c-header-nav .active > .nav-link,
-.c-header-dark .c-header-nav .nav-link.show,
-.c-header-dark .c-header-nav .nav-link.active {
+.c-header-dark .c-header-nav .c-show > .c-nav-link,
+.c-header-dark .c-header-nav .active > .c-nav-link,
+.c-header-dark .c-header-nav .c-nav-link.c-show,
+.c-header-dark .c-header-nav .c-nav-link.active {
   color: #fff;
 }
 

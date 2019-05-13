@@ -1,17 +1,17 @@
-.img-avatar, .avatar > img {
+.c-img-avatar, .c-avatar > img {
   max-width: 100%;
   height: auto;
   border-radius: 50em;
 }
 
-.avatar {
+.c-avatar {
   position: relative;
   display: inline-block;
   width: 36px;
   height: 36px;
 }
 
-.avatar .avatar-status {
+.c-avatar .c-avatar-status {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -22,18 +22,18 @@
   border-radius: 50em;
 }
 
-.avatar > img {
+.c-avatar > img {
   vertical-align: initial;
 }
 
-.avatar-lg {
+.c-avatar-lg {
   position: relative;
   display: inline-block;
   width: 72px;
   height: 72px;
 }
 
-.avatar-lg .avatar-status {
+.c-avatar-lg .c-avatar-status {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -44,14 +44,14 @@
   border-radius: 50em;
 }
 
-.avatar-sm {
+.c-avatar-sm {
   position: relative;
   display: inline-block;
   width: 24px;
   height: 24px;
 }
 
-.avatar-sm .avatar-status {
+.c-avatar-sm .c-avatar-status {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -62,14 +62,14 @@
   border-radius: 50em;
 }
 
-.avatar-xs {
+.c-avatar-xs {
   position: relative;
   display: inline-block;
   width: 20px;
   height: 20px;
 }
 
-.avatar-xs .avatar-status {
+.c-avatar-xs .c-avatar-status {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -80,24 +80,24 @@
   border-radius: 50em;
 }
 
-.avatars-stack .avatar {
+.c-avatars-stack .c-avatar {
   margin-right: -18px;
   transition: margin-right 0.25s;
 }
 
-.avatars-stack .avatar:hover {
+.c-avatars-stack .c-avatar:hover {
   margin-right: 0;
 }
 
-.avatars-stack .avatar-lg {
+.c-avatars-stack .c-avatar-lg {
   margin-right: -36px;
 }
 
-.avatars-stack .avatar-sm {
+.c-avatars-stack .c-avatar-sm {
   margin-right: -12px;
 }
 
-.avatars-stack .avatar-xs {
+.c-avatars-stack .c-avatar-xs {
   margin-right: -10px;
 }
 

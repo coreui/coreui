@@ -5,7 +5,7 @@
     text-shadow: none !important;
     box-shadow: none !important;
   }
-  a:not(.btn) {
+  a:not(.c-btn) {
     text-decoration: underline;
   }
   abbr[title]::after {
@@ -42,36 +42,36 @@
   body {
     min-width: 992px !important;
   }
-  .container {
+  .c-container {
     min-width: 992px !important;
   }
-  .navbar {
+  .c-navbar {
     display: none;
   }
-  .badge {
+  .c-badge {
     border: 1px solid #000;
   }
-  .table {
+  .c-table {
     border-collapse: collapse !important;
   }
-  .table td,
-  .table th {
+  .c-table td,
+  .c-table th {
     background-color: #fff !important;
   }
-  .table-bordered th,
-  .table-bordered td {
+  .c-table-bordered th,
+  .c-table-bordered td {
     border: 1px solid #c8ced3 !important;
   }
-  .table-dark {
+  .c-table-dark {
     color: inherit;
   }
-  .table-dark th,
-  .table-dark td,
-  .table-dark thead th,
-  .table-dark tbody + tbody {
+  .c-table-dark th,
+  .c-table-dark td,
+  .c-table-dark thead th,
+  .c-table-dark tbody + tbody {
     border-color: #c8ced3;
   }
-  .table .thead-dark th {
+  .c-table .c-thead-dark th {
     color: inherit;
     border-color: #c8ced3;
   }

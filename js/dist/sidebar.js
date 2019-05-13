@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.2): sidebar.js
+ * CoreUI (v3.0.0-alpha.4): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -30,7 +30,7 @@ var Default = {
 var ClassName = {
   ACTIVE: 'active',
   NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-  OPEN: 'open',
+  OPEN: 'c-open',
   SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
   SIDEBAR_SHOW: 'c-sidebar-show'
 };
@@ -289,8 +289,6 @@ function () {
       _this3._toggleDropdown(event);
     });
     EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_LINK, function (event) {
-      event.preventDefault();
-
       _this3._closeSidebar(event);
     });
   } // Static

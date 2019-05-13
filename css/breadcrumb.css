@@ -1,4 +1,4 @@
-.breadcrumb {
+.c-breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: 0.75rem 1rem;
@@ -9,35 +9,35 @@
   border-bottom: 1px solid #c8ced3;
 }
 
-.breadcrumb-item + .breadcrumb-item {
+.c-breadcrumb-item + .c-breadcrumb-item {
   padding-left: 0.5rem;
 }
 
-.breadcrumb-item + .breadcrumb-item::before {
+.c-breadcrumb-item + .c-breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
   color: #73818f;
   content: "/";
 }
 
-.breadcrumb-item + .breadcrumb-item:hover::before {
+.c-breadcrumb-item + .c-breadcrumb-item:hover::before {
   text-decoration: underline;
 }
 
-.breadcrumb-item + .breadcrumb-item:hover::before {
+.c-breadcrumb-item + .c-breadcrumb-item:hover::before {
   text-decoration: none;
 }
 
-.breadcrumb-item.active {
+.c-breadcrumb-item.active {
   color: #73818f;
 }
 
-*[dir="rtl"] .breadcrumb-item::before {
+*[dir="rtl"] .c-breadcrumb-item::before {
   padding-right: 0;
   padding-left: 0.5rem;
 }
 
-*[dir="rtl"] .breadcrumb-item {
+*[dir="rtl"] .c-breadcrumb-item {
   padding-right: 0.5rem;
   padding-left: 0;
 }

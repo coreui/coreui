@@ -90,8 +90,8 @@ var Event = {
   MOUSELEAVE: "mouseleave" + EVENT_KEY
 };
 var ClassName = {
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 };
 var Selector = {
   TOOLTIP_INNER: '.c-tooltip-inner',

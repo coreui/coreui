@@ -1,4 +1,4 @@
-.toast {
+.c-toast {
   max-width: 350px;
   overflow: hidden;
   font-size: 0.875rem;
@@ -11,24 +11,24 @@
   border-radius: 0.25rem;
 }
 
-.toast:not(:last-child) {
+.c-toast:not(:last-child) {
   margin-bottom: 0.75rem;
 }
 
-.toast.showing {
+.c-toast.c-showing {
   opacity: 1;
 }
 
-.toast.show {
+.c-toast.c-show {
   display: block;
   opacity: 1;
 }
 
-.toast.hide {
+.c-toast.c-hide {
   display: none;
 }
 
-.toast-header {
+.c-toast-header {
   display: flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
@@ -38,7 +38,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.toast-body {
+.c-toast-body {
   padding: 0.75rem;
 }
 

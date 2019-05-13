@@ -1,38 +1,38 @@
-.breadcrumb-menu {
+.c-breadcrumb-menu {
   margin-left: auto;
 }
 
-.breadcrumb-menu::before {
+.c-breadcrumb-menu::before {
   display: none;
 }
 
-.breadcrumb-menu .btn-group {
+.c-breadcrumb-menu .c-btn-group {
   vertical-align: top;
 }
 
-.breadcrumb-menu .btn {
+.c-breadcrumb-menu .c-btn {
   padding: 0 0.75rem;
   color: #73818f;
   vertical-align: top;
   border: 0;
 }
 
-.breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {
+.c-breadcrumb-menu .c-btn:hover, .c-breadcrumb-menu .c-btn.active {
   color: #23282c;
   background: transparent;
 }
 
-.breadcrumb-menu .open .btn {
+.c-breadcrumb-menu .c-open .c-btn {
   color: #23282c;
   background: transparent;
 }
 
-.breadcrumb-menu .dropdown-menu {
+.c-breadcrumb-menu .c-dropdown-menu {
   min-width: 180px;
   line-height: 1.5;
 }
 
-*[dir="rtl"] .breadcrumb-menu {
+*[dir="rtl"] .c-breadcrumb-menu {
   margin-right: auto;
   margin-left: initial;
 }

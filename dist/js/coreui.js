@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.2 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.4 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -741,9 +741,9 @@
   var DATA_API_KEY = '.data-api';
   var ClassName = {
     ACTIVE: 'active',
-    NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
-    NAV_PILLS: 'nav-pills',
-    NAV_TABS: 'nav-tabs',
+    NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
+    NAV_PILLS: 'c-nav-pills',
+    NAV_TABS: 'c-nav-tabs',
     OPEN: 'open',
     VIEW_SCRIPT: 'view-script'
   };
@@ -754,10 +754,10 @@
   };
   var Selector = {
     HEAD: 'head',
-    NAV_DROPDOWN: '.nav .nav-dropdown',
-    NAV_LINK: '.dropdown-nav-link, .nav .nav-link',
-    NAV_ITEM: '.nav .nav-item',
-    SIDEBAT_NAV: '.c-sidebar-nav, .sidebar-nav',
+    NAV_DROPDOWN: '.c-nav .c-nav-dropdown',
+    NAV_LINK: '.c-dropdown-nav-link, .c-nav .c-nav-link',
+    NAV_ITEM: '.c-nav .c-nav-item',
+    SIDEBAT_NAV: '.c-sidebar-nav, .c-sidebar-nav',
     VIEW_SCRIPT: '.view-script'
   };
   var Default = {
@@ -1106,7 +1106,7 @@
 
   var NAME$1 = 'alert';
   var VERSION$1 = '4.3.1';
-  var DATA_KEY$1 = 'bs.alert';
+  var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
   var Selector$1 = {
@@ -1118,9 +1118,9 @@
     CLICK_DATA_API: "click" + EVENT_KEY$1 + DATA_API_KEY$1
   };
   var ClassName$1 = {
-    ALERT: 'alert',
-    FADE: 'fade',
-    SHOW: 'show'
+    ALERT: 'c-alert',
+    FADE: 'c-fade',
+    SHOW: 'c-show'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -1283,12 +1283,12 @@
 
   var NAME$2 = 'button';
   var VERSION$2 = '4.3.1';
-  var DATA_KEY$2 = 'bs.button';
+  var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var ClassName$2 = {
     ACTIVE: 'active',
-    BUTTON: 'btn',
+    BUTTON: 'c-btn',
     FOCUS: 'focus'
   };
   var Selector$2 = {
@@ -1296,7 +1296,7 @@
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
     ACTIVE: '.active',
-    BUTTON: '.btn'
+    BUTTON: '.c-btn'
   };
   var Event$3 = {
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2,
@@ -1543,7 +1543,7 @@
 
   var NAME$3 = 'carousel';
   var VERSION$3 = '4.3.1';
-  var DATA_KEY$3 = 'bs.carousel';
+  var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
   var ARROW_LEFT_KEYCODE = 37; // KeyboardEvent.which value for left arrow key
@@ -1591,23 +1591,23 @@
     CLICK_DATA_API: "click" + EVENT_KEY$3 + DATA_API_KEY$3
   };
   var ClassName$3 = {
-    CAROUSEL: 'carousel',
+    CAROUSEL: 'c-carousel',
     ACTIVE: 'active',
     SLIDE: 'slide',
-    RIGHT: 'carousel-item-right',
-    LEFT: 'carousel-item-left',
-    NEXT: 'carousel-item-next',
-    PREV: 'carousel-item-prev',
-    ITEM: 'carousel-item',
-    POINTER_EVENT: 'pointer-event'
+    RIGHT: 'c-carousel-item-right',
+    LEFT: 'c-carousel-item-left',
+    NEXT: 'c-carousel-item-next',
+    PREV: 'c-carousel-item-prev',
+    ITEM: 'c-carousel-item',
+    POINTER_EVENT: 'c-pointer-event'
   };
   var Selector$3 = {
     ACTIVE: '.active',
-    ACTIVE_ITEM: '.active.carousel-item',
-    ITEM: '.carousel-item',
-    ITEM_IMG: '.carousel-item img',
-    NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
-    INDICATORS: '.carousel-indicators',
+    ACTIVE_ITEM: '.active.c-carousel-item',
+    ITEM: '.c-carousel-item',
+    ITEM_IMG: '.c-carousel-item img',
+    NEXT_PREV: '.c-carousel-item-next, .c-carousel-item-prev',
+    INDICATORS: '.c-carousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
@@ -2446,7 +2446,7 @@
 
   var NAME$5 = 'collapse';
   var VERSION$5 = '4.3.1';
-  var DATA_KEY$5 = 'bs.collapse';
+  var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
   var Default$3 = {
@@ -2466,17 +2466,17 @@
   };
   var ClassName$5 = {
     SHOW: 'show',
-    COLLAPSE: 'collapse',
-    COLLAPSING: 'collapsing',
-    COLLAPSED: 'collapsed'
+    COLLAPSE: 'c-collapse',
+    COLLAPSING: 'c-collapsing',
+    COLLAPSED: 'c-collapsed'
   };
   var Dimension = {
     WIDTH: 'width',
     HEIGHT: 'height'
   };
   var Selector$5 = {
-    ACTIVES: '.show, .collapsing',
-    DATA_TOGGLE: '[data-toggle="collapse"]'
+    ACTIVES: '.c-show, .c-collapsing',
+    DATA_TOGGLE: '[data-toggle="c-collapse"]'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -2868,7 +2868,7 @@
 
   var NAME$6 = 'dropdown';
   var VERSION$6 = '4.3.1';
-  var DATA_KEY$6 = 'bs.dropdown';
+  var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
   var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
@@ -2896,19 +2896,19 @@
   };
   var ClassName$6 = {
     DISABLED: 'disabled',
-    SHOW: 'show',
-    DROPUP: 'dropup',
-    DROPRIGHT: 'dropright',
-    DROPLEFT: 'dropleft',
-    MENURIGHT: 'dropdown-menu-right',
+    SHOW: 'c-show',
+    DROPUP: 'c-dropup',
+    DROPRIGHT: 'c-dropright',
+    DROPLEFT: 'c-dropleft',
+    MENURIGHT: 'c-dropdown-menu-right',
     POSITION_STATIC: 'position-static'
   };
   var Selector$6 = {
-    DATA_TOGGLE: '[data-toggle="dropdown"]',
-    FORM_CHILD: '.dropdown form',
-    MENU: '.dropdown-menu',
-    NAVBAR_NAV: '.navbar-nav',
-    VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
+    DATA_TOGGLE: '[data-toggle="c-dropdown"]',
+    FORM_CHILD: '.c-dropdown form',
+    MENU: '.c-dropdown-menu',
+    NAVBAR_NAV: '.c-navbar-nav',
+    VISIBLE_ITEMS: '.c-dropdown-menu .c-dropdown-item:not(.disabled):not(:disabled)'
   };
   var AttachmentMap = {
     TOP: 'top-start',
@@ -3411,7 +3411,7 @@
 
   var NAME$7 = 'modal';
   var VERSION$7 = '4.3.1';
-  var DATA_KEY$7 = 'bs.modal';
+  var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
   var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
@@ -3442,20 +3442,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$7 + DATA_API_KEY$7
   };
   var ClassName$7 = {
-    SCROLLABLE: 'modal-dialog-scrollable',
-    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
-    BACKDROP: 'modal-backdrop',
-    OPEN: 'modal-open',
-    FADE: 'fade',
-    SHOW: 'show'
+    SCROLLABLE: 'c-modal-dialog-scrollable',
+    SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
+    BACKDROP: 'c-modal-backdrop',
+    OPEN: 'c-modal-open',
+    FADE: 'c-fade',
+    SHOW: 'c-show'
   };
   var Selector$7 = {
-    DIALOG: '.modal-dialog',
-    MODAL_BODY: '.modal-body',
-    DATA_TOGGLE: '[data-toggle="modal"]',
-    DATA_DISMISS: '[data-dismiss="modal"]',
-    FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
-    STICKY_CONTENT: '.sticky-top'
+    DIALOG: '.c-modal-dialog',
+    MODAL_BODY: '.c-modal-body',
+    DATA_TOGGLE: '[data-toggle="c-modal"]',
+    DATA_DISMISS: '[data-dismiss="c-modal"]',
+    FIXED_CONTENT: '.c-fixed-top, .c-fixed-bottom, .c-is-fixed, .c-sticky-top',
+    STICKY_CONTENT: '.c-sticky-top'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -4137,9 +4137,9 @@
 
   var NAME$8 = 'tooltip';
   var VERSION$8 = '4.3.1';
-  var DATA_KEY$8 = 'bs.tooltip';
+  var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
-  var CLASS_PREFIX = 'bs-tooltip';
+  var CLASS_PREFIX = 'c-bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType$4 = {
@@ -4168,7 +4168,7 @@
   };
   var Default$6 = {
     animation: true,
-    template: '<div class="tooltip" role="tooltip">' + '<div class="tooltip-arrow"></div>' + '<div class="tooltip-inner"></div></div>',
+    template: '<div class="c-tooltip" role="tooltip">' + '<div class="c-tooltip-arrow"></div>' + '<div class="c-tooltip-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -4200,12 +4200,12 @@
     MOUSELEAVE: "mouseleave" + EVENT_KEY$8
   };
   var ClassName$8 = {
-    FADE: 'fade',
-    SHOW: 'show'
+    FADE: 'c-fade',
+    SHOW: 'c-show'
   };
   var Selector$8 = {
-    TOOLTIP_INNER: '.tooltip-inner',
-    TOOLTIP_ARROW: '.tooltip-arrow'
+    TOOLTIP_INNER: '.c-tooltip-inner',
+    TOOLTIP_ARROW: '.c-tooltip-arrow'
   };
   var Trigger = {
     HOVER: 'hover',
@@ -4890,16 +4890,16 @@
 
   var NAME$9 = 'popover';
   var VERSION$9 = '4.3.1';
-  var DATA_KEY$9 = 'bs.popover';
+  var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
-  var CLASS_PREFIX$1 = 'bs-popover';
+  var CLASS_PREFIX$1 = 'c-bs-popover';
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
   var Default$7 = _objectSpread({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+    template: '<div class="c-popover" role="tooltip">' + '<div class="c-popover-arrow"></div>' + '<h3 class="c-popover-header"></h3>' + '<div class="c-popover-body"></div></div>'
   });
 
   var DefaultType$5 = _objectSpread({}, Tooltip.DefaultType, {
@@ -4907,12 +4907,12 @@
   });
 
   var ClassName$9 = {
-    FADE: 'fade',
-    SHOW: 'show'
+    FADE: 'c-fade',
+    SHOW: 'c-show'
   };
   var Selector$9 = {
-    TITLE: '.popover-header',
-    CONTENT: '.popover-body'
+    TITLE: '.c-popover-header',
+    CONTENT: '.c-popover-body'
   };
   var Event$a = {
     HIDE: "hide" + EVENT_KEY$9,
@@ -5083,7 +5083,7 @@
 
   var NAME$a = 'scrollspy';
   var VERSION$a = '4.3.1';
-  var DATA_KEY$a = 'bs.scrollspy';
+  var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
   var Default$8 = {
@@ -5102,17 +5102,17 @@
     LOAD_DATA_API: "load" + EVENT_KEY$a + DATA_API_KEY$8
   };
   var ClassName$a = {
-    DROPDOWN_ITEM: 'dropdown-item',
+    DROPDOWN_ITEM: 'c-dropdown-item',
     ACTIVE: 'active'
   };
   var Selector$a = {
-    DATA_SPY: '[data-spy="scroll"]',
-    NAV_LIST_GROUP: '.nav, .list-group',
-    NAV_LINKS: '.nav-link',
-    NAV_ITEMS: '.nav-item',
-    LIST_ITEMS: '.list-group-item',
-    DROPDOWN: '.dropdown',
-    DROPDOWN_TOGGLE: '.dropdown-toggle'
+    DATA_SPY: '[data-spy="c-scroll"]',
+    NAV_LIST_GROUP: '.c-nav, .c-list-group',
+    NAV_LINKS: '.c-nav-link',
+    NAV_ITEMS: '.c-nav-item',
+    LIST_ITEMS: '.c-list-group-item',
+    DROPDOWN: '.c-dropdown',
+    DROPDOWN_TOGGLE: '.c-dropdown-toggle'
   };
   var OffsetMethod = {
     OFFSET: 'offset',
@@ -5390,7 +5390,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.2): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.4): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -5431,7 +5431,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.2): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.4): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -5478,8 +5478,8 @@
   };
   var ClassName$b = {
     ACTIVE: 'active',
-    NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
-    OPEN: 'open',
+    NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
+    OPEN: 'c-open',
     SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
     SIDEBAR_SHOW: 'c-sidebar-show'
   };
@@ -5494,12 +5494,12 @@
     UPDATE: 'update'
   };
   var Selector$b = {
-    NAV_DROPDOWN_TOGGLE: '.nav-dropdown-toggle',
-    NAV_DROPDOWN: '.nav-dropdown',
-    NAV_LINK: '.nav-link',
-    NAV_LINK_QUERIED: '.nav-link-queried',
-    NAVIGATION_CONTAINER: '.c-sidebar-nav, .sidebar-nav',
-    SIDEBAR: '.c-sidebar, .sidebar'
+    NAV_DROPDOWN_TOGGLE: '.c-nav-dropdown-toggle',
+    NAV_DROPDOWN: '.c-nav-dropdown',
+    NAV_LINK: '.c-nav-link',
+    NAV_LINK_QUERIED: '.c-nav-link-queried',
+    NAVIGATION_CONTAINER: '.c-sidebar-nav, .c-sidebar-nav',
+    SIDEBAR: '.c-sidebar, .c-sidebar'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -5738,8 +5738,6 @@
         _this3._toggleDropdown(event);
       });
       EventHandler.on(this._element, Event$c.CLICK_DATA_API, Selector$b.NAV_LINK, function (event) {
-        event.preventDefault();
-
         _this3._closeSidebar(event);
       });
     } // Static
@@ -5817,7 +5815,7 @@
 
   var NAME$c = 'tab';
   var VERSION$c = '4.3.1';
-  var DATA_KEY$c = 'bs.tab';
+  var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
   var Event$d = {
@@ -5828,20 +5826,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$c + DATA_API_KEY$a
   };
   var ClassName$c = {
-    DROPDOWN_MENU: 'dropdown-menu',
+    DROPDOWN_MENU: 'c-dropdown-menu',
     ACTIVE: 'active',
     DISABLED: 'disabled',
-    FADE: 'fade',
-    SHOW: 'show'
+    FADE: 'c-fade',
+    SHOW: 'c-show'
   };
   var Selector$c = {
-    DROPDOWN: '.dropdown',
-    NAV_LIST_GROUP: '.nav, .list-group',
+    DROPDOWN: '.c-dropdown',
+    NAV_LIST_GROUP: '.c-nav, .c-list-group',
     ACTIVE: '.active',
     ACTIVE_UL: ':scope > li > .active',
-    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
-    DROPDOWN_TOGGLE: '.dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD: ':scope > .dropdown-menu .active'
+    DATA_TOGGLE: '[data-toggle="c-tab"], [data-toggle="c-pill"], [data-toggle="c-list"]',
+    DROPDOWN_TOGGLE: '.c-dropdown-toggle',
+    DROPDOWN_ACTIVE_CHILD: ':scope > .c-dropdown-menu .active'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -6054,7 +6052,7 @@
 
   var NAME$d = 'toast';
   var VERSION$d = '4.3.1';
-  var DATA_KEY$d = 'bs.toast';
+  var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var Event$e = {
     CLICK_DISMISS: "click.dismiss" + EVENT_KEY$d,
@@ -6064,10 +6062,10 @@
     SHOWN: "shown" + EVENT_KEY$d
   };
   var ClassName$d = {
-    FADE: 'fade',
-    HIDE: 'hide',
-    SHOW: 'show',
-    SHOWING: 'showing'
+    FADE: 'c-fade',
+    HIDE: 'c-hide',
+    SHOW: 'c-show',
+    SHOWING: 'c-showing'
   };
   var DefaultType$7 = {
     animation: 'boolean',
@@ -6080,7 +6078,7 @@
     delay: 500
   };
   var Selector$d = {
-    DATA_DISMISS: '[data-dismiss="toast"]'
+    DATA_DISMISS: '[data-dismiss="c-toast"]'
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -6272,7 +6270,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.2): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.4): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6308,7 +6306,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.2): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.4): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6348,7 +6346,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.2): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.4): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6377,7 +6375,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.2): index.umd.js
+   * CoreUI (v3.0.0-alpha.4): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

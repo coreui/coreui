@@ -1,13 +1,13 @@
-.modal-open {
+.c-modal-open {
   overflow: hidden;
 }
 
-.modal-open .modal {
+.c-modal-open .c-modal {
   overflow-x: hidden;
   overflow-y: auto;
 }
 
-.modal {
+.c-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -19,74 +19,74 @@
   outline: 0;
 }
 
-.modal-dialog {
+.c-modal-dialog {
   position: relative;
   width: auto;
   margin: 0.5rem;
   pointer-events: none;
 }
 
-.modal.fade .modal-dialog {
+.c-modal.c-fade .c-modal-dialog {
   transition: transform 0.3s ease-out;
   transform: translate(0, -50px);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .modal.fade .modal-dialog {
+  .c-modal.c-fade .c-modal-dialog {
     transition: none;
   }
 }
 
-.modal.show .modal-dialog {
+.c-modal.c-show .c-modal-dialog {
   transform: none;
 }
 
-.modal-dialog-scrollable {
+.c-modal-dialog-scrollable {
   display: flex;
   max-height: calc(100% - 1rem);
 }
 
-.modal-dialog-scrollable .modal-content {
+.c-modal-dialog-scrollable .c-modal-content {
   max-height: calc(100vh - 1rem);
   overflow: hidden;
 }
 
-.modal-dialog-scrollable .modal-header,
-.modal-dialog-scrollable .modal-footer {
+.c-modal-dialog-scrollable .c-modal-header,
+.c-modal-dialog-scrollable .c-modal-footer {
   flex-shrink: 0;
 }
 
-.modal-dialog-scrollable .modal-body {
+.c-modal-dialog-scrollable .c-modal-body {
   overflow-y: auto;
 }
 
-.modal-dialog-centered {
+.c-modal-dialog-centered {
   display: flex;
   align-items: center;
   min-height: calc(100% - 1rem);
 }
 
-.modal-dialog-centered::before {
+.c-modal-dialog-centered::before {
   display: block;
   height: calc(100vh - 1rem);
   content: "";
 }
 
-.modal-dialog-centered.modal-dialog-scrollable {
+.c-modal-dialog-centered.c-modal-dialog-scrollable {
   flex-direction: column;
   justify-content: center;
   height: 100%;
 }
 
-.modal-dialog-centered.modal-dialog-scrollable .modal-content {
+.c-modal-dialog-centered.c-modal-dialog-scrollable .c-modal-content {
   max-height: none;
 }
 
-.modal-dialog-centered.modal-dialog-scrollable::before {
+.c-modal-dialog-centered.c-modal-dialog-scrollable::before {
   content: none;
 }
 
-.modal-content {
+.c-modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -99,7 +99,7 @@
   outline: 0;
 }
 
-.modal-backdrop {
+.c-modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -109,15 +109,15 @@
   background-color: #000;
 }
 
-.modal-backdrop.fade {
+.c-modal-backdrop.c-fade {
   opacity: 0;
 }
 
-.modal-backdrop.show {
+.c-modal-backdrop.c-show {
   opacity: 0.5;
 }
 
-.modal-header {
+.c-modal-header {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -127,23 +127,23 @@
   border-top-right-radius: 0.3rem;
 }
 
-.modal-header .close {
+.c-modal-header .c-close {
   padding: 1rem 1rem;
   margin: -1rem -1rem -1rem auto;
 }
 
-.modal-title {
+.c-modal-title {
   margin-bottom: 0;
   line-height: 1.5;
 }
 
-.modal-body {
+.c-modal-body {
   position: relative;
   flex: 1 1 auto;
   padding: 1rem;
 }
 
-.modal-footer {
+.c-modal-footer {
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -153,15 +153,15 @@
   border-bottom-left-radius: 0.3rem;
 }
 
-.modal-footer > :not(:first-child) {
+.c-modal-footer > :not(:first-child) {
   margin-left: .25rem;
 }
 
-.modal-footer > :not(:last-child) {
+.c-modal-footer > :not(:last-child) {
   margin-right: .25rem;
 }
 
-.modal-scrollbar-measure {
+.c-modal-scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
@@ -170,108 +170,108 @@
 }
 
 @media (min-width: 576px) {
-  .modal-dialog {
+  .c-modal-dialog {
     max-width: 500px;
     margin: 1.75rem auto;
   }
-  .modal-dialog-scrollable {
+  .c-modal-dialog-scrollable {
     max-height: calc(100% - 3.5rem);
   }
-  .modal-dialog-scrollable .modal-content {
+  .c-modal-dialog-scrollable .c-modal-content {
     max-height: calc(100vh - 3.5rem);
   }
-  .modal-dialog-centered {
+  .c-modal-dialog-centered {
     min-height: calc(100% - 3.5rem);
   }
-  .modal-dialog-centered::before {
+  .c-modal-dialog-centered::before {
     height: calc(100vh - 3.5rem);
   }
-  .modal-sm {
+  .c-modal-sm {
     max-width: 300px;
   }
 }
 
 @media (min-width: 992px) {
-  .modal-lg,
-  .modal-xl {
+  .c-modal-lg,
+  .c-modal-xl {
     max-width: 800px;
   }
 }
 
 @media (min-width: 1200px) {
-  .modal-xl {
+  .c-modal-xl {
     max-width: 1140px;
   }
 }
 
-.modal-primary .modal-content {
+.c-modal-primary .c-modal-content {
   border-color: #20a8d8;
 }
 
-.modal-primary .modal-header {
+.c-modal-primary .c-modal-header {
   color: #fff;
   background-color: #20a8d8;
 }
 
-.modal-secondary .modal-content {
+.c-modal-secondary .c-modal-content {
   border-color: #c8ced3;
 }
 
-.modal-secondary .modal-header {
+.c-modal-secondary .c-modal-header {
   color: #fff;
   background-color: #c8ced3;
 }
 
-.modal-success .modal-content {
+.c-modal-success .c-modal-content {
   border-color: #4dbd74;
 }
 
-.modal-success .modal-header {
+.c-modal-success .c-modal-header {
   color: #fff;
   background-color: #4dbd74;
 }
 
-.modal-info .modal-content {
+.c-modal-info .c-modal-content {
   border-color: #63c2de;
 }
 
-.modal-info .modal-header {
+.c-modal-info .c-modal-header {
   color: #fff;
   background-color: #63c2de;
 }
 
-.modal-warning .modal-content {
+.c-modal-warning .c-modal-content {
   border-color: #ffc107;
 }
 
-.modal-warning .modal-header {
+.c-modal-warning .c-modal-header {
   color: #fff;
   background-color: #ffc107;
 }
 
-.modal-danger .modal-content {
+.c-modal-danger .c-modal-content {
   border-color: #f86c6b;
 }
 
-.modal-danger .modal-header {
+.c-modal-danger .c-modal-header {
   color: #fff;
   background-color: #f86c6b;
 }
 
-.modal-light .modal-content {
+.c-modal-light .c-modal-content {
   border-color: #f0f3f5;
 }
 
-.modal-light .modal-header {
+.c-modal-light .c-modal-header {
   color: #fff;
   background-color: #f0f3f5;
 }
 
-.modal-dark .modal-content {
+.c-modal-dark .c-modal-content {
   border-color: #2f353a;
 }
 
-.modal-dark .modal-header {
+.c-modal-dark .c-modal-header {
   color: #fff;
   background-color: #2f353a;
 }

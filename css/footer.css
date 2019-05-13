@@ -1,5 +1,4 @@
-.c-footer,
-.app-footer {
+.c-footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

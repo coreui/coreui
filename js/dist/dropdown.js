@@ -54,7 +54,7 @@ var Event = {
 };
 var ClassName = {
   DISABLED: 'disabled',
-  SHOW: 'show',
+  SHOW: 'c-show',
   DROPUP: 'c-dropup',
   DROPRIGHT: 'c-dropright',
   DROPLEFT: 'c-dropleft',

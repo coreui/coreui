@@ -1,4 +1,4 @@
-.close {
+.c-close {
   float: right;
   font-size: 1.3125rem;
   font-weight: 700;
@@ -8,23 +8,23 @@
   opacity: .5;
 }
 
-.close:hover {
+.c-close:hover {
   color: #000;
   text-decoration: none;
 }
 
-.close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
+.c-close:not(:disabled):not(.disabled):hover, .c-close:not(:disabled):not(.disabled):focus {
   opacity: .75;
 }
 
-button.close {
+button.c-close {
   padding: 0;
   background-color: transparent;
   border: 0;
   appearance: none;
 }
 
-a.close.disabled {
+a.c-close.disabled {
   pointer-events: none;
 }
 

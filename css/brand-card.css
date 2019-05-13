@@ -1,4 +1,4 @@
-.brand-card {
+.c-brand-card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   border-radius: 0.25rem;
 }
 
-.brand-card-header {
+.c-brand-card-header {
   position: relative;
   display: flex;
   align-items: center;
@@ -20,12 +20,12 @@
   border-radius: 0.25rem 0.25rem 0 0;
 }
 
-.brand-card-header i {
+.c-brand-card-header i {
   font-size: 2rem;
   color: #fff;
 }
 
-.brand-card-header .chart-wrapper {
+.c-brand-card-header .c-chart-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -33,23 +33,23 @@
   height: 100%;
 }
 
-.brand-card-body {
+.c-brand-card-body {
   display: flex;
   flex-direction: row;
   padding: 0.75rem 0;
   text-align: center;
 }
 
-.brand-card-body > * {
+.c-brand-card-body > * {
   flex: 1;
   padding: 0.1875rem 0;
 }
 
-.brand-card-body > *:not(:last-child) {
+.c-brand-card-body > *:not(:last-child) {
   border-right: 1px solid #c8ced3;
 }
 
-*[dir="rtl"] .brand-card-body > *:not(:last-child) {
+*[dir="rtl"] .c-brand-card-body > *:not(:last-child) {
   border-right: 0;
   border-left: 1px solid #c8ced3;
 }

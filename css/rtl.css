@@ -7,16 +7,16 @@
   text-align: right;
 }
 
-*[dir="rtl"] .dropdown-item {
+*[dir="rtl"] .c-dropdown-item {
   text-align: right;
 }
 
-*[dir="rtl"] .dropdown-item i {
+*[dir="rtl"] .c-dropdown-item i {
   margin-right: -10px;
   margin-left: 10px;
 }
 
-*[dir="rtl"] .dropdown-item .badge {
+*[dir="rtl"] .c-dropdown-item .c-badge {
   right: auto;
   left: 10px;
 }

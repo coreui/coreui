@@ -1,4 +1,4 @@
-.callout {
+.c-callout {
   position: relative;
   padding: 0 1rem;
   margin: 1rem 0;
@@ -6,7 +6,7 @@
   border-radius: 0.25rem;
 }
 
-.callout .chart-wrapper {
+.c-callout .c-chart-wrapper {
   position: absolute;
   top: 10px;
   left: 50%;
@@ -14,130 +14,130 @@
   width: 50%;
 }
 
-.callout-bordered {
+.c-callout-bordered {
   border: 1px solid #c8ced3;
   border-left-width: 4px;
 }
 
-.callout code {
+.c-callout code {
   border-radius: 0.25rem;
 }
 
-.callout h4 {
+.c-callout h4 {
   margin-top: 0;
   margin-bottom: .25rem;
 }
 
-.callout p:last-child {
+.c-callout p:last-child {
   margin-bottom: 0;
 }
 
-.callout + .callout {
+.c-callout + .c-callout {
   margin-top: -0.25rem;
 }
 
-.callout-primary {
+.c-callout-primary {
   border-left-color: #20a8d8;
 }
 
-.callout-primary h4 {
+.c-callout-primary h4 {
   color: #20a8d8;
 }
 
-.callout-secondary {
+.c-callout-secondary {
   border-left-color: #c8ced3;
 }
 
-.callout-secondary h4 {
+.c-callout-secondary h4 {
   color: #c8ced3;
 }
 
-.callout-success {
+.c-callout-success {
   border-left-color: #4dbd74;
 }
 
-.callout-success h4 {
+.c-callout-success h4 {
   color: #4dbd74;
 }
 
-.callout-info {
+.c-callout-info {
   border-left-color: #63c2de;
 }
 
-.callout-info h4 {
+.c-callout-info h4 {
   color: #63c2de;
 }
 
-.callout-warning {
+.c-callout-warning {
   border-left-color: #ffc107;
 }
 
-.callout-warning h4 {
+.c-callout-warning h4 {
   color: #ffc107;
 }
 
-.callout-danger {
+.c-callout-danger {
   border-left-color: #f86c6b;
 }
 
-.callout-danger h4 {
+.c-callout-danger h4 {
   color: #f86c6b;
 }
 
-.callout-light {
+.c-callout-light {
   border-left-color: #f0f3f5;
 }
 
-.callout-light h4 {
+.c-callout-light h4 {
   color: #f0f3f5;
 }
 
-.callout-dark {
+.c-callout-dark {
   border-left-color: #2f353a;
 }
 
-.callout-dark h4 {
+.c-callout-dark h4 {
   color: #2f353a;
 }
 
-*[dir="rtl"] .callout {
+*[dir="rtl"] .c-callout {
   border-right: 4px solid #c8ced3;
   border-left: 0;
 }
 
-*[dir="rtl"] .callout.callout-primary {
+*[dir="rtl"] .c-callout.c-callout-primary {
   border-right-color: #20a8d8;
 }
 
-*[dir="rtl"] .callout.callout-secondary {
+*[dir="rtl"] .c-callout.c-callout-secondary {
   border-right-color: #c8ced3;
 }
 
-*[dir="rtl"] .callout.callout-success {
+*[dir="rtl"] .c-callout.c-callout-success {
   border-right-color: #4dbd74;
 }
 
-*[dir="rtl"] .callout.callout-info {
+*[dir="rtl"] .c-callout.c-callout-info {
   border-right-color: #63c2de;
 }
 
-*[dir="rtl"] .callout.callout-warning {
+*[dir="rtl"] .c-callout.c-callout-warning {
   border-right-color: #ffc107;
 }
 
-*[dir="rtl"] .callout.callout-danger {
+*[dir="rtl"] .c-callout.c-callout-danger {
   border-right-color: #f86c6b;
 }
 
-*[dir="rtl"] .callout.callout-light {
+*[dir="rtl"] .c-callout.c-callout-light {
   border-right-color: #f0f3f5;
 }
 
-*[dir="rtl"] .callout.callout-dark {
+*[dir="rtl"] .c-callout.c-callout-dark {
   border-right-color: #2f353a;
 }
 
-*[dir="rtl"] .callout .chart-wrapper {
+*[dir="rtl"] .c-callout .c-chart-wrapper {
   left: 0;
   float: left;
 }

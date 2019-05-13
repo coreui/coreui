@@ -34,10 +34,10 @@ var Event = {
   SHOWN: "shown" + EVENT_KEY
 };
 var ClassName = {
-  FADE: 'fade',
-  HIDE: 'hide',
-  SHOW: 'show',
-  SHOWING: 'showing'
+  FADE: 'c-fade',
+  HIDE: 'c-hide',
+  SHOW: 'c-show',
+  SHOWING: 'c-showing'
 };
 var DefaultType = {
   animation: 'boolean',

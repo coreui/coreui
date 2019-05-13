@@ -54,7 +54,7 @@ var Dimension = {
   HEIGHT: 'height'
 };
 var Selector = {
-  ACTIVES: '.show, .c-collapsing',
+  ACTIVES: '.c-show, .c-collapsing',
   DATA_TOGGLE: '[data-toggle="c-collapse"]'
   /**
    * ------------------------------------------------------------------------

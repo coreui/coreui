@@ -33,8 +33,8 @@ var Event = {
 };
 var ClassName = {
   ALERT: 'c-alert',
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
   /**
    * ------------------------------------------------------------------------
    * Class Definition

@@ -1,55 +1,36 @@
-.c-app.c-default-layout,
-.c-default-layout {
+.c-app.c-default-layout {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.c-app.c-default-layout .c-header,
-.c-app.c-default-layout .app-header,
-.c-default-layout .c-header,
-.c-default-layout .app-header {
+.c-app.c-default-layout .c-header {
   flex: 0 0 55px;
 }
 
-.c-app.c-default-layout .c-footer,
-.c-app.c-default-layout .app-footer,
-.c-default-layout .c-footer,
-.c-default-layout .app-footer {
+.c-app.c-default-layout .c-footer {
   flex: 0 0 50px;
 }
 
-.c-app.c-default-layout .app-body,
-.c-app.c-default-layout .c-body,
-.c-default-layout .app-body,
-.c-default-layout .c-body {
+.c-app.c-default-layout .c-body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
   overflow-x: hidden;
 }
 
-.c-app.c-default-layout .app-body .c-main,
-.c-app.c-default-layout .app-body .main,
-.c-app.c-default-layout .c-body .c-main,
-.c-app.c-default-layout .c-body .main,
-.c-default-layout .app-body .c-main,
-.c-default-layout .app-body .main,
-.c-default-layout .c-body .c-main,
-.c-default-layout .c-body .main {
+.c-app.c-default-layout .c-body .c-main {
   flex: 1;
   min-width: 0;
 }
 
-.c-app.c-default-layout .c-sidebar.c-sidebar-fixed,
-.c-default-layout .c-sidebar.c-sidebar-fixed {
+.c-app.c-default-layout .c-sidebar.c-sidebar-fixed {
   top: 55px;
 }
 
 .c-footer,
 .c-body,
-.c-main,
-.main {
+.c-main {
   transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
 }
 

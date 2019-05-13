@@ -1,4 +1,4 @@
-.tooltip {
+.c-tooltip {
   position: absolute;
   z-index: 1070;
   display: block;
@@ -22,85 +22,85 @@
   opacity: 0;
 }
 
-.tooltip.show {
+.c-tooltip.c-show {
   opacity: 0.9;
 }
 
-.tooltip .arrow {
+.c-tooltip .c-arrow {
   position: absolute;
   display: block;
   width: 0.8rem;
   height: 0.4rem;
 }
 
-.tooltip .arrow::before {
+.c-tooltip .c-arrow::before {
   position: absolute;
   content: "";
   border-color: transparent;
   border-style: solid;
 }
 
-.bs-tooltip-top, .bs-tooltip-auto[x-placement^="top"] {
+.c-bs-tooltip-top, .c-bs-tooltip-auto[x-placement^="top"] {
   padding: 0.4rem 0;
 }
 
-.bs-tooltip-top .arrow, .bs-tooltip-auto[x-placement^="top"] .arrow {
+.c-bs-tooltip-top .c-arrow, .c-bs-tooltip-auto[x-placement^="top"] .c-arrow {
   bottom: 0;
 }
 
-.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
+.c-bs-tooltip-top .c-arrow::before, .c-bs-tooltip-auto[x-placement^="top"] .c-arrow::before {
   top: 0;
   border-width: 0.4rem 0.4rem 0;
   border-top-color: #000;
 }
 
-.bs-tooltip-right, .bs-tooltip-auto[x-placement^="right"] {
+.c-bs-tooltip-right, .c-bs-tooltip-auto[x-placement^="right"] {
   padding: 0 0.4rem;
 }
 
-.bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^="right"] .arrow {
+.c-bs-tooltip-right .c-arrow, .c-bs-tooltip-auto[x-placement^="right"] .c-arrow {
   left: 0;
   width: 0.4rem;
   height: 0.8rem;
 }
 
-.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
+.c-bs-tooltip-right .c-arrow::before, .c-bs-tooltip-auto[x-placement^="right"] .c-arrow::before {
   right: 0;
   border-width: 0.4rem 0.4rem 0.4rem 0;
   border-right-color: #000;
 }
 
-.bs-tooltip-bottom, .bs-tooltip-auto[x-placement^="bottom"] {
+.c-bs-tooltip-bottom, .c-bs-tooltip-auto[x-placement^="bottom"] {
   padding: 0.4rem 0;
 }
 
-.bs-tooltip-bottom .arrow, .bs-tooltip-auto[x-placement^="bottom"] .arrow {
+.c-bs-tooltip-bottom .c-arrow, .c-bs-tooltip-auto[x-placement^="bottom"] .c-arrow {
   top: 0;
 }
 
-.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
+.c-bs-tooltip-bottom .c-arrow::before, .c-bs-tooltip-auto[x-placement^="bottom"] .c-arrow::before {
   bottom: 0;
   border-width: 0 0.4rem 0.4rem;
   border-bottom-color: #000;
 }
 
-.bs-tooltip-left, .bs-tooltip-auto[x-placement^="left"] {
+.c-bs-tooltip-left, .c-bs-tooltip-auto[x-placement^="left"] {
   padding: 0 0.4rem;
 }
 
-.bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^="left"] .arrow {
+.c-bs-tooltip-left .c-arrow, .c-bs-tooltip-auto[x-placement^="left"] .c-arrow {
   right: 0;
   width: 0.4rem;
   height: 0.8rem;
 }
 
-.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
+.c-bs-tooltip-left .c-arrow::before, .c-bs-tooltip-auto[x-placement^="left"] .c-arrow::before {
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
   border-left-color: #000;
 }
 
-.tooltip-inner {
+.c-tooltip-inner {
   max-width: 200px;
   padding: 0.25rem 0.5rem;
   color: #fff;

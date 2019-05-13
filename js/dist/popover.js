@@ -43,8 +43,8 @@ var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
 });
 
 var ClassName = {
-  FADE: 'fade',
-  SHOW: 'show'
+  FADE: 'c-fade',
+  SHOW: 'c-show'
 };
 var Selector = {
   TITLE: '.c-popover-header',

@@ -4,7 +4,7 @@
   }
 }
 
-.spinner-border {
+.c-spinner-border {
   display: inline-block;
   width: 2rem;
   height: 2rem;
@@ -15,7 +15,7 @@
   animation: spinner-border .75s linear infinite;
 }
 
-.spinner-border-sm {
+.c-spinner-border-sm {
   width: 1rem;
   height: 1rem;
   border-width: 0.2em;
@@ -30,7 +30,7 @@
   }
 }
 
-.spinner-grow {
+.c-spinner-grow {
   display: inline-block;
   width: 2rem;
   height: 2rem;
@@ -41,7 +41,7 @@
   animation: spinner-grow .75s linear infinite;
 }
 
-.spinner-grow-sm {
+.c-spinner-grow-sm {
   width: 1rem;
   height: 1rem;
 }
