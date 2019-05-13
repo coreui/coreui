@@ -144,3 +144,21 @@ input[type="button"] {
     width: 100%;
   }
 }
+
+.#{$prefix}btn-pill {
+  border-radius: 50em;
+}
+
+.#{$prefix}btn-square {
+  border-radius: 0;
+}
+
+//
+// Ghost button
+//
+
+@each $color, $value in $theme-colors {
+  .#{$prefix}btn-ghost-#{$color} {
+    @include button-ghost-variant($value);
+  }
+}
