@@ -17,7 +17,7 @@ import Tooltip from './tooltip';
 import Util from './util';
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.4): index.js
+ * CoreUI (v3.0.0-alpha.5): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
