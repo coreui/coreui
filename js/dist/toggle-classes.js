@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.5): toggle-classes.js
+ * CoreUI (v3.0.0-alpha.7): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

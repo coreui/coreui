@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.5): sidebar.js
+ * CoreUI (v3.0.0-alpha.7): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
