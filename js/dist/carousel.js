@@ -35,6 +35,7 @@ var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
 var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
 var SWIPE_THRESHOLD = 40;
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   interval: 5000,
   keyboard: true,
@@ -73,23 +74,23 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  CAROUSEL: 'c-carousel',
+  CAROUSEL: PREFIX + "carousel",
   ACTIVE: 'active',
   SLIDE: 'slide',
-  RIGHT: 'c-carousel-item-right',
-  LEFT: 'c-carousel-item-left',
-  NEXT: 'c-carousel-item-next',
-  PREV: 'c-carousel-item-prev',
-  ITEM: 'c-carousel-item',
-  POINTER_EVENT: 'c-pointer-event'
+  RIGHT: PREFIX + "carousel-item-right",
+  LEFT: PREFIX + "carousel-item-left",
+  NEXT: PREFIX + "carousel-item-next",
+  PREV: PREFIX + "carousel-item-prev",
+  ITEM: PREFIX + "carousel-item",
+  POINTER_EVENT: PREFIX + "pointer-event"
 };
 var Selector = {
   ACTIVE: '.active',
-  ACTIVE_ITEM: '.active.c-carousel-item',
-  ITEM: '.c-carousel-item',
-  ITEM_IMG: '.c-carousel-item img',
-  NEXT_PREV: '.c-carousel-item-next, .c-carousel-item-prev',
-  INDICATORS: '.c-carousel-indicators',
+  ACTIVE_ITEM: ".active." + PREFIX + "carousel-item",
+  ITEM: "." + PREFIX + "carousel-item",
+  ITEM_IMG: "." + PREFIX + "carousel-item img",
+  NEXT_PREV: "." + PREFIX + "carousel-item-next, ." + PREFIX + "carousel-item-prev",
+  INDICATORS: "." + PREFIX + "carousel-indicators",
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 };

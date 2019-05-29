@@ -24,15 +24,16 @@ var VERSION = '3.0.0';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   transition: 400
 };
 var ClassName = {
   ACTIVE: 'active',
-  NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-  OPEN: 'c-open',
-  SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
-  SIDEBAR_SHOW: 'c-sidebar-show'
+  NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
+  OPEN: PREFIX + "open",
+  SIDEBAR_MINIMIZED: PREFIX + "sidebar-minimized",
+  SIDEBAR_SHOW: PREFIX + "sidebar-show"
 };
 var Event = {
   CLASS_TOGGLE: 'classtoggle',
@@ -45,12 +46,12 @@ var Event = {
   UPDATE: 'update'
 };
 var Selector = {
-  NAV_DROPDOWN_TOGGLE: '.c-nav-dropdown-toggle',
-  NAV_DROPDOWN: '.c-nav-dropdown',
-  NAV_LINK: '.c-nav-link',
-  NAV_LINK_QUERIED: '.c-nav-link-queried',
-  NAVIGATION_CONTAINER: '.c-sidebar-nav, .c-sidebar-nav',
-  SIDEBAR: '.c-sidebar, .c-sidebar'
+  NAV_DROPDOWN_TOGGLE: "." + PREFIX + "nav-dropdown-toggle",
+  NAV_DROPDOWN: "." + PREFIX + "nav-dropdown",
+  NAV_LINK: "." + PREFIX + "nav-link",
+  NAV_LINK_QUERIED: "." + PREFIX + "nav-link-queried",
+  NAVIGATION_CONTAINER: "." + PREFIX + "sidebar-nav",
+  SIDEBAR: "." + PREFIX + "sidebar"
   /**
    * ------------------------------------------------------------------------
    * Class Definition

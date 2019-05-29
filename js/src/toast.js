@@ -26,6 +26,7 @@ const NAME = 'toast'
 const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.toast'
 const EVENT_KEY = `.${DATA_KEY}`
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Event = {
   CLICK_DISMISS: `click.dismiss${EVENT_KEY}`,
@@ -36,10 +37,10 @@ const Event = {
 }
 
 const ClassName = {
-  FADE: 'c-fade',
-  HIDE: 'c-hide',
-  SHOW: 'c-show',
-  SHOWING: 'c-showing'
+  FADE: `${PREFIX}fade`,
+  HIDE: `${PREFIX}hide`,
+  SHOW: `${PREFIX}show`,
+  SHOWING: `${PREFIX}showing`
 }
 
 const DefaultType = {
@@ -55,7 +56,7 @@ const Default = {
 }
 
 const Selector = {
-  DATA_DISMISS: '[data-dismiss="c-toast"]'
+  DATA_DISMISS: `[data-dismiss="${PREFIX}toast"]`
 }
 
 /**

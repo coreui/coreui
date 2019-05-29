@@ -37,7 +37,8 @@ const NAME = 'tooltip'
 const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
-const CLASS_PREFIX = 'c-bs-tooltip'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const CLASS_PREFIX = `${PREFIX}bs-tooltip`
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
 
@@ -69,9 +70,10 @@ const AttachmentMap = {
 
 const Default = {
   animation: true,
-  template: '<div class="c-tooltip" role="tooltip">' +
-                    '<div class="c-tooltip-arrow"></div>' +
-                    '<div class="c-tooltip-inner"></div></div>',
+  template: `<div class="${PREFIX}tooltip" role="tooltip">
+               <div class="${PREFIX}tooltip-arrow"></div>
+               <div class="${PREFIX}tooltip-inner"></div>
+             </div>`,
   trigger: 'hover focus',
   title: '',
   delay: 0,
@@ -106,13 +108,13 @@ const Event = {
 }
 
 const ClassName = {
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  FADE: `${PREFIX}fade`,
+  SHOW: `${PREFIX}show`
 }
 
 const Selector = {
-  TOOLTIP_INNER: '.c-tooltip-inner',
-  TOOLTIP_ARROW: '.c-tooltip-arrow'
+  TOOLTIP_INNER: `.${PREFIX}tooltip-inner`,
+  TOOLTIP_ARROW: `.${PREFIX}tooltip-arrow`
 }
 
 const Trigger = {

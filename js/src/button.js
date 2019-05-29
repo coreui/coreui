@@ -21,10 +21,11 @@ const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.button'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const ClassName = {
   ACTIVE: 'active',
-  BUTTON: 'c-btn',
+  BUTTON: `${PREFIX}btn`,
   FOCUS: 'focus'
 }
 
@@ -33,7 +34,7 @@ const Selector = {
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
   ACTIVE: '.active',
-  BUTTON: '.c-btn'
+  BUTTON: `.${PREFIX}btn`
 }
 
 const Event = {

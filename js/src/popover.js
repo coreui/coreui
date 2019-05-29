@@ -20,7 +20,8 @@ const NAME = 'popover'
 const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
-const CLASS_PREFIX = 'c-bs-popover'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const CLASS_PREFIX = `${PREFIX}bs-popover`
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 
 const Default = {
@@ -28,10 +29,11 @@ const Default = {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: '<div class="c-popover" role="tooltip">' +
-              '<div class="c-popover-arrow"></div>' +
-              '<h3 class="c-popover-header"></h3>' +
-              '<div class="c-popover-body"></div></div>'
+  template: `<div class="${PREFIX}popover" role="tooltip">
+               <div class="${PREFIX}popover-arrow"></div>
+               <h3 class="${PREFIX}popover-header"></h3>
+               <div class="${PREFIX}popover-body"></div>
+             </div>`
 }
 
 const DefaultType = {
@@ -40,13 +42,13 @@ const DefaultType = {
 }
 
 const ClassName = {
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  FADE: `${PREFIX}fade`,
+  SHOW: `${PREFIX}show`
 }
 
 const Selector = {
-  TITLE: '.c-popover-header',
-  CONTENT: '.c-popover-body'
+  TITLE: `.${PREFIX}popover-header`,
+  CONTENT: `.${PREFIX}popover-body`
 }
 
 const Event = {

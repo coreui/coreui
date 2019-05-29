@@ -24,6 +24,7 @@ const VERSION = '3.0.0'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Default = {
   transition: 400
@@ -31,10 +32,10 @@ const Default = {
 
 const ClassName = {
   ACTIVE: 'active',
-  NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-  OPEN: 'c-open',
-  SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
-  SIDEBAR_SHOW: 'c-sidebar-show'
+  NAV_DROPDOWN_TOGGLE: `${PREFIX}nav-dropdown-toggle`,
+  OPEN: `${PREFIX}open`,
+  SIDEBAR_MINIMIZED: `${PREFIX}sidebar-minimized`,
+  SIDEBAR_SHOW: `${PREFIX}sidebar-show`
 }
 
 const Event = {
@@ -49,12 +50,12 @@ const Event = {
 }
 
 const Selector = {
-  NAV_DROPDOWN_TOGGLE: '.c-nav-dropdown-toggle',
-  NAV_DROPDOWN: '.c-nav-dropdown',
-  NAV_LINK: '.c-nav-link',
-  NAV_LINK_QUERIED: '.c-nav-link-queried',
-  NAVIGATION_CONTAINER: '.c-sidebar-nav, .c-sidebar-nav',
-  SIDEBAR: '.c-sidebar, .c-sidebar'
+  NAV_DROPDOWN_TOGGLE: `.${PREFIX}nav-dropdown-toggle`,
+  NAV_DROPDOWN: `.${PREFIX}nav-dropdown`,
+  NAV_LINK: `.${PREFIX}nav-link`,
+  NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
+  NAVIGATION_CONTAINER: `.${PREFIX}sidebar-nav`,
+  SIDEBAR: `.${PREFIX}sidebar`
 }
 
 /**

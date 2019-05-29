@@ -28,6 +28,7 @@ const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Default = {
   offset: 10,
@@ -48,18 +49,18 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_ITEM: 'c-dropdown-item',
+  DROPDOWN_ITEM: `${PREFIX}dropdown-item`,
   ACTIVE: 'active'
 }
 
 const Selector = {
-  DATA_SPY: '[data-spy="c-scroll"]',
-  NAV_LIST_GROUP: '.c-nav, .c-list-group',
-  NAV_LINKS: '.c-nav-link',
-  NAV_ITEMS: '.c-nav-item',
-  LIST_ITEMS: '.c-list-group-item',
-  DROPDOWN: '.c-dropdown',
-  DROPDOWN_TOGGLE: '.c-dropdown-toggle'
+  DATA_SPY: `[data-spy="${PREFIX}scroll"]`,
+  NAV_LIST_GROUP: `.${PREFIX}nav, .${PREFIX}list-group`,
+  NAV_LINKS: `.${PREFIX}nav-link`,
+  NAV_ITEMS: `.${PREFIX}nav-item`,
+  LIST_ITEMS: `.${PREFIX}list-group-item`,
+  DROPDOWN: `.${PREFIX}dropdown`,
+  DROPDOWN_TOGGLE: `.${PREFIX}dropdown-toggle`
 }
 
 const OffsetMethod = {

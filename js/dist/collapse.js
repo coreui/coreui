@@ -28,6 +28,7 @@ var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.collapse';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   toggle: true,
   parent: ''
@@ -45,17 +46,17 @@ var Event = {
 };
 var ClassName = {
   SHOW: 'show',
-  COLLAPSE: 'c-collapse',
-  COLLAPSING: 'c-collapsing',
-  COLLAPSED: 'c-collapsed'
+  COLLAPSE: PREFIX + "collapse",
+  COLLAPSING: PREFIX + "collapsing",
+  COLLAPSED: PREFIX + "collapsed"
 };
 var Dimension = {
   WIDTH: 'width',
   HEIGHT: 'height'
 };
 var Selector = {
-  ACTIVES: '.c-show, .c-collapsing',
-  DATA_TOGGLE: '[data-toggle="c-collapse"]'
+  ACTIVES: "." + PREFIX + "show, ." + PREFIX + "collapsing",
+  DATA_TOGGLE: "[data-toggle=\"" + PREFIX + "collapse\"]"
   /**
    * ------------------------------------------------------------------------
    * Class Definition

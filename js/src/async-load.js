@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): async-load.js
+ * CoreUI (v3.0.0-alpha.7): asyn${PREFIX}load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -22,12 +22,13 @@ const VERSION = '3.0.0'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const ClassName = {
   ACTIVE: 'active',
-  NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-  NAV_PILLS: 'c-nav-pills',
-  NAV_TABS: 'c-nav-tabs',
+  NAV_DROPDOWN_TOGGLE: `${PREFIX}nav-dropdown-toggle`,
+  NAV_PILLS: `${PREFIX}nav-pills`,
+  NAV_TABS: `${PREFIX}nav-tabs`,
   OPEN: 'open',
   VIEW_SCRIPT: 'view-script'
 }
@@ -40,10 +41,10 @@ const Event = {
 
 const Selector = {
   HEAD: 'head',
-  NAV_DROPDOWN: '.c-nav .c-nav-dropdown',
-  NAV_LINK: '.c-dropdown-nav-link, .c-nav .c-nav-link',
-  NAV_ITEM: '.c-nav .c-nav-item',
-  SIDEBAT_NAV: '.c-sidebar-nav, .c-sidebar-nav',
+  NAV_DROPDOWN: `.${PREFIX}nav .${PREFIX}nav-dropdown`,
+  NAV_LINK: `.${PREFIX}dropdown-nav-link, .${PREFIX}nav .${PREFIX}nav-link`,
+  NAV_ITEM: `.${PREFIX}nav .${PREFIX}nav-item`,
+  SIDEBAT_NAV: `.${PREFIX}sidebar-nav, .${PREFIX}sidebar-nav`,
   VIEW_SCRIPT: '.view-script'
 }
 

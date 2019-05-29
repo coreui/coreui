@@ -33,6 +33,7 @@ const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Default = {
   backdrop: true,
@@ -63,21 +64,21 @@ const Event = {
 }
 
 const ClassName = {
-  SCROLLABLE: 'c-modal-dialog-scrollable',
-  SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
-  BACKDROP: 'c-modal-backdrop',
-  OPEN: 'c-modal-open',
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  SCROLLABLE: `${PREFIX}modal-dialog-scrollable`,
+  SCROLLBAR_MEASURER: `${PREFIX}modal-scrollbar-measure`,
+  BACKDROP: `${PREFIX}modal-backdrop`,
+  OPEN: `${PREFIX}modal-open`,
+  FADE: `${PREFIX}fade`,
+  SHOW: `${PREFIX}show`
 }
 
 const Selector = {
-  DIALOG: '.c-modal-dialog',
-  MODAL_BODY: '.c-modal-body',
-  DATA_TOGGLE: '[data-toggle="c-modal"]',
-  DATA_DISMISS: '[data-dismiss="c-modal"]',
-  FIXED_CONTENT: '.c-fixed-top, .c-fixed-bottom, .c-is-fixed, .c-sticky-top',
-  STICKY_CONTENT: '.c-sticky-top'
+  DIALOG: `.${PREFIX}modal-dialog`,
+  MODAL_BODY: `.${PREFIX}modal-body`,
+  DATA_TOGGLE: `[data-toggle="${PREFIX}modal"]`,
+  DATA_DISMISS: `[data-dismiss="${PREFIX}modal"]`,
+  FIXED_CONTENT: `.${PREFIX}fixed-top, .${PREFIX}fixed-bottom, .${PREFIX}is-fixed, .${PREFIX}sticky-top`,
+  STICKY_CONTENT: `.${PREFIX}sticky-top`
 }
 
 /**

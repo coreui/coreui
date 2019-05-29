@@ -23,6 +23,7 @@ var VERSION = '3.0.0';
 var DATA_KEY = 'coreui.class-toggler';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   breakpoints: '-sm,-md,-lg,-xl',
   postfix: '-show',
@@ -30,14 +31,14 @@ var Default = {
   target: 'body'
 };
 var ClassName = {
-  CLASS_TOGGLER: 'c-class-toggler'
+  CLASS_TOGGLER: PREFIX + "class-toggler"
 };
 var Event = {
   CLASS_TOGGLE: 'classtoggle',
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var Selector = {
-  CLASS_TOGGLER: '.c-class-toggler'
+  CLASS_TOGGLER: "." + PREFIX + "class-toggler"
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -278,7 +279,7 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, function
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .c-class-toggler to jQuery only if jQuery is present
+ * add .${PREFIX}class-toggler to jQuery only if jQuery is present
  */
 
 if (typeof $ !== 'undefined') {

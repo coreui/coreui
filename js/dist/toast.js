@@ -26,6 +26,7 @@ var NAME = 'toast';
 var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.toast';
 var EVENT_KEY = "." + DATA_KEY;
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Event = {
   CLICK_DISMISS: "click.dismiss" + EVENT_KEY,
   HIDE: "hide" + EVENT_KEY,
@@ -34,10 +35,10 @@ var Event = {
   SHOWN: "shown" + EVENT_KEY
 };
 var ClassName = {
-  FADE: 'c-fade',
-  HIDE: 'c-hide',
-  SHOW: 'c-show',
-  SHOWING: 'c-showing'
+  FADE: PREFIX + "fade",
+  HIDE: PREFIX + "hide",
+  SHOW: PREFIX + "show",
+  SHOWING: PREFIX + "showing"
 };
 var DefaultType = {
   animation: 'boolean',
@@ -50,7 +51,7 @@ var Default = {
   delay: 500
 };
 var Selector = {
-  DATA_DISMISS: '[data-dismiss="c-toast"]'
+  DATA_DISMISS: "[data-dismiss=\"" + PREFIX + "toast\"]"
   /**
    * ------------------------------------------------------------------------
    * Class Definition

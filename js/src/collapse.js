@@ -32,6 +32,7 @@ const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.collapse'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Default = {
   toggle: true,
@@ -53,9 +54,9 @@ const Event = {
 
 const ClassName = {
   SHOW: 'show',
-  COLLAPSE: 'c-collapse',
-  COLLAPSING: 'c-collapsing',
-  COLLAPSED: 'c-collapsed'
+  COLLAPSE: `${PREFIX}collapse`,
+  COLLAPSING: `${PREFIX}collapsing`,
+  COLLAPSED: `${PREFIX}collapsed`
 }
 
 const Dimension = {
@@ -64,8 +65,8 @@ const Dimension = {
 }
 
 const Selector = {
-  ACTIVES: '.c-show, .c-collapsing',
-  DATA_TOGGLE: '[data-toggle="c-collapse"]'
+  ACTIVES: `.${PREFIX}show, .${PREFIX}collapsing`,
+  DATA_TOGGLE: `[data-toggle="${PREFIX}collapse"]`
 }
 
 /**

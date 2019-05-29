@@ -23,6 +23,7 @@ var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.alert';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Selector = {
   DISMISS: '[data-dismiss="alert"]'
 };
@@ -32,9 +33,9 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  ALERT: 'c-alert',
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  ALERT: PREFIX + "alert",
+  FADE: PREFIX + "fade",
+  SHOW: PREFIX + "show"
   /**
    * ------------------------------------------------------------------------
    * Class Definition

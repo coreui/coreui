@@ -28,6 +28,7 @@ var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.scrollspy';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   offset: 10,
   method: 'auto',
@@ -44,17 +45,17 @@ var Event = {
   LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_ITEM: 'c-dropdown-item',
+  DROPDOWN_ITEM: PREFIX + "dropdown-item",
   ACTIVE: 'active'
 };
 var Selector = {
-  DATA_SPY: '[data-spy="c-scroll"]',
-  NAV_LIST_GROUP: '.c-nav, .c-list-group',
-  NAV_LINKS: '.c-nav-link',
-  NAV_ITEMS: '.c-nav-item',
-  LIST_ITEMS: '.c-list-group-item',
-  DROPDOWN: '.c-dropdown',
-  DROPDOWN_TOGGLE: '.c-dropdown-toggle'
+  DATA_SPY: "[data-spy=\"" + PREFIX + "scroll\"]",
+  NAV_LIST_GROUP: "." + PREFIX + "nav, ." + PREFIX + "list-group",
+  NAV_LINKS: "." + PREFIX + "nav-link",
+  NAV_ITEMS: "." + PREFIX + "nav-item",
+  LIST_ITEMS: "." + PREFIX + "list-group-item",
+  DROPDOWN: "." + PREFIX + "dropdown",
+  DROPDOWN_TOGGLE: "." + PREFIX + "dropdown-toggle"
 };
 var OffsetMethod = {
   OFFSET: 'offset',

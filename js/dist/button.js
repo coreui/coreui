@@ -23,9 +23,10 @@ var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.button';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var ClassName = {
   ACTIVE: 'active',
-  BUTTON: 'c-btn',
+  BUTTON: PREFIX + "btn",
   FOCUS: 'focus'
 };
 var Selector = {
@@ -33,7 +34,7 @@ var Selector = {
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
   ACTIVE: '.active',
-  BUTTON: '.c-btn'
+  BUTTON: "." + PREFIX + "btn"
 };
 var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,

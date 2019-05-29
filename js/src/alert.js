@@ -27,6 +27,7 @@ const VERSION = '4.3.1'
 const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Selector = {
   DISMISS: '[data-dismiss="alert"]'
@@ -39,9 +40,9 @@ const Event = {
 }
 
 const ClassName = {
-  ALERT: 'c-alert',
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  ALERT: `${PREFIX}alert`,
+  FADE: `${PREFIX}fade`,
+  SHOW: `${PREFIX}show`
 }
 
 /**

@@ -37,6 +37,7 @@ const ARROW_UP_KEYCODE = 38 // KeyboardEvent.which value for up arrow key
 const ARROW_DOWN_KEYCODE = 40 // KeyboardEvent.which value for down arrow key
 const RIGHT_MOUSE_BUTTON_WHICH = 3 // MouseEvent.which value for the right button (assuming a right-handed mouse)
 const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEYCODE}|${ARROW_DOWN_KEYCODE}|${ESCAPE_KEYCODE}`)
+const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Event = {
   HIDE: `hide${EVENT_KEY}`,
@@ -51,20 +52,20 @@ const Event = {
 
 const ClassName = {
   DISABLED: 'disabled',
-  SHOW: 'c-show',
-  DROPUP: 'c-dropup',
-  DROPRIGHT: 'c-dropright',
-  DROPLEFT: 'c-dropleft',
-  MENURIGHT: 'c-dropdown-menu-right',
+  SHOW: `${PREFIX}show`,
+  DROPUP: `${PREFIX}dropup`,
+  DROPRIGHT: `${PREFIX}dropright`,
+  DROPLEFT: `${PREFIX}dropleft`,
+  MENURIGHT: `${PREFIX}dropdown-menu-right`,
   POSITION_STATIC: 'position-static'
 }
 
 const Selector = {
-  DATA_TOGGLE: '[data-toggle="c-dropdown"]',
-  FORM_CHILD: '.c-dropdown form',
-  MENU: '.c-dropdown-menu',
-  NAVBAR_NAV: '.c-navbar-nav',
-  VISIBLE_ITEMS: '.c-dropdown-menu .c-dropdown-item:not(.disabled):not(:disabled)'
+  DATA_TOGGLE: `[data-toggle="${PREFIX}dropdown"]`,
+  FORM_CHILD: `.${PREFIX}dropdown form`,
+  MENU: `.${PREFIX}dropdown-menu`,
+  NAVBAR_NAV: `.${PREFIX}navbar-nav`,
+  VISIBLE_ITEMS: `.${PREFIX}dropdown-menu .${PREFIX}dropdown-item:not(.disabled):not(:disabled)`
 }
 
 const AttachmentMap = {

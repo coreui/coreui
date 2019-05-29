@@ -28,14 +28,15 @@ var NAME = 'popover';
 var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.popover';
 var EVENT_KEY = "." + DATA_KEY;
-var CLASS_PREFIX = 'c-bs-popover';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+var CLASS_PREFIX = PREFIX + "bs-popover";
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
 var Default = _objectSpread({}, Tooltip.Default, {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: '<div class="c-popover" role="tooltip">' + '<div class="c-popover-arrow"></div>' + '<h3 class="c-popover-header"></h3>' + '<div class="c-popover-body"></div></div>'
+  template: "<div class=\"" + PREFIX + "popover\" role=\"tooltip\">\n               <div class=\"" + PREFIX + "popover-arrow\"></div>\n               <h3 class=\"" + PREFIX + "popover-header\"></h3>\n               <div class=\"" + PREFIX + "popover-body\"></div>\n             </div>"
 });
 
 var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
@@ -43,12 +44,12 @@ var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
 });
 
 var ClassName = {
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  FADE: PREFIX + "fade",
+  SHOW: PREFIX + "show"
 };
 var Selector = {
-  TITLE: '.c-popover-header',
-  CONTENT: '.c-popover-body'
+  TITLE: "." + PREFIX + "popover-header",
+  CONTENT: "." + PREFIX + "popover-body"
 };
 var Event = {
   HIDE: "hide" + EVENT_KEY,

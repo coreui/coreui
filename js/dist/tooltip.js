@@ -29,7 +29,8 @@ var NAME = 'tooltip';
 var VERSION = '4.3.1';
 var DATA_KEY = 'coreui.tooltip';
 var EVENT_KEY = "." + DATA_KEY;
-var CLASS_PREFIX = 'c-bs-tooltip';
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+var CLASS_PREFIX = PREFIX + "bs-tooltip";
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
 var DefaultType = {
@@ -58,7 +59,7 @@ var AttachmentMap = {
 };
 var Default = {
   animation: true,
-  template: '<div class="c-tooltip" role="tooltip">' + '<div class="c-tooltip-arrow"></div>' + '<div class="c-tooltip-inner"></div></div>',
+  template: "<div class=\"" + PREFIX + "tooltip\" role=\"tooltip\">\n               <div class=\"" + PREFIX + "tooltip-arrow\"></div>\n               <div class=\"" + PREFIX + "tooltip-inner\"></div>\n             </div>",
   trigger: 'hover focus',
   title: '',
   delay: 0,
@@ -90,12 +91,12 @@ var Event = {
   MOUSELEAVE: "mouseleave" + EVENT_KEY
 };
 var ClassName = {
-  FADE: 'c-fade',
-  SHOW: 'c-show'
+  FADE: PREFIX + "fade",
+  SHOW: PREFIX + "show"
 };
 var Selector = {
-  TOOLTIP_INNER: '.c-tooltip-inner',
-  TOOLTIP_ARROW: '.c-tooltip-arrow'
+  TOOLTIP_INNER: "." + PREFIX + "tooltip-inner",
+  TOOLTIP_ARROW: "." + PREFIX + "tooltip-arrow"
 };
 var Trigger = {
   HOVER: 'hover',
