@@ -2,40 +2,25 @@
   @each $border in $borders {
     $direction: nth($border, 1);
     @if $direction == "all" {
-      $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
-      $color: map-get(map-get($borders, $direction), color);
-      border: $size $style $color;
+      border: map-get($borders, $direction);
     } @else if $direction == "top" {
-      $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
-      $color: map-get(map-get($borders, $direction), color);
-      border-top: $size $style $color;
+      border-top: map-get($borders, $direction);
     } @else if $direction == "right" {
-      $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
-      $color: map-get(map-get($borders, $direction), color);
       @if $reverse {
         border-right: 0;
-        border-left: $size $style $color;
+        border-left: map-get($borders, $direction);
       } @else {
-        border-right: $size $style $color;
+        border-right: map-get($borders, $direction);
       }
     } @else if $direction == "bottom" {
-      $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
-      $color: map-get(map-get($borders, $direction), color);
-      border-bottom: $size $style $color;
+      border-bottom: map-get($borders, $direction);
     } @else if $direction == "left" {
-      $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
-      $color: map-get(map-get($borders, $direction), color);
-      border-left: $size $style $color;
+      border-left: map-get($borders, $direction);
       @if $reverse {
-        border-right: $size $style $color;
+        border-right: map-get($borders, $direction);
         border-left: 0;
       } @else {
-        border-left: $size $style $color;
+        border-left: map-get($borders, $direction);
       }
     }
   }

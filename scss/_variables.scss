@@ -821,13 +821,9 @@ $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 $header-height:                       55px !default;
 $header-bg:                           $white !default;
 $header-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
+  bottom: 1px solid $border-color
 ) !default;
-$header-brand-width:                  155px !default;
+$header-brand-width:                  205px !default;
 $header-brand-minimized-width:        50px !default;
 
 $header-padding-y:                  $spacer / 2 !default;
@@ -849,11 +845,7 @@ $header-toggler-border-radius:      $btn-border-radius !default;
 $header-dark-bg:                    $gray-800 !default;
 $header-dark-color:                 rgba($white, .75) !default;
 $header-dark-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $gray-800
-  )
+  bottom: 1px solid $gray-800
 ) !default;
 $header-dark-hover-color:           rgba($white, .9) !default;
 $header-dark-active-color:          $white !default;
@@ -865,11 +857,7 @@ $header-dark-toggler-border-color:  rgba($white, .1) !default;
 $header-light-bg:                   $white !default;
 $header-light-color:                rgba($black, .5) !default;
 $header-light-border: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
+  bottom: 1px solid $border-color
 ) !default;
 $header-light-hover-color:           rgba($black, .7) !default;
 $header-light-active-color:          rgba($black, .9) !default;
@@ -904,7 +892,7 @@ $header-dark-brand-minimized-border:      0 !default;
 
 // Sidebar
 
-$sidebar-width:                       200px !default;
+$sidebar-width:                       250px !default;
 $sidebar-padding:                     0 !default;
 $sidebar-minimized-width:             50px !default;
 $sidebar-minimized-height:            $sidebar-minimized-width !default;
@@ -917,11 +905,7 @@ $sidebar-dark-borders:                none !default;
 $sidebar-light-color:                 $body-color !default;
 $sidebar-light-bg:                    $white !default;
 $sidebar-light-borders: (
-  right: (
-    size:                             1px,
-    style:                            solid,
-    color:                            rgba(darken($border-color, 20%), .5)
-  )
+  right: 1px solid rgba(darken($border-color, 20%), .5)
 ) !default;
 
 // Sidebar Brand
@@ -1033,11 +1017,7 @@ $sidebar-dark-nav-tabs-link-active-border-color: rgba($black, .2) rgba($black, .
 $sidebar-dark-nav-tabs-link-hover-bg:            rgba($black, .2) !default;
 $sidebar-dark-nav-tabs-link-hover-border-color:  rgba($black, .2) rgba($black, .2) $gray-200 !default;
 $sidebar-dark-tab-content-borders: (
-  top: (
-    size:                             1px,
-    style:                            solid,
-    color:                            rgba($black, .2)
-  )
+  top: 1px solid rgba($black, .2)
 ) !default;
 
 $sidebar-light-nav-tabs-border-color:             rgba(darken($border-color, 20%), .5) !default;
@@ -1046,11 +1026,7 @@ $sidebar-light-nav-tabs-link-active-border-color: rgba(darken($border-color, 20%
 $sidebar-light-nav-tabs-link-hover-bg:            $white !default;
 $sidebar-light-nav-tabs-link-hover-border-color: rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
 $sidebar-light-tab-content-borders: (
-  top: (
-    size:                             1px,
-    style:                            solid,
-    color:                            rgba(darken($border-color, 20%), .5)
-  )
+  top: 1px solid rgba(darken($border-color, 20%), .5)
 ) !default;
 
 // Sidebar Footer
@@ -1091,11 +1067,7 @@ $footer-height:                       50px !default;
 $footer-bg:                           $gray-100 !default;
 $footer-color:                        $body-color !default;
 $footer-borders: (
-  top: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
+  top: 1px solid $border-color
 ) !default;
 // CoreUI specific changes end
 
@@ -1412,11 +1384,7 @@ $breadcrumb-border-radius:          0 !default; // was: $border-radius
 
 // CoreUI specific changes start
 $breadcrumb-borders: (
-  bottom: (
-    size:                             1px,
-    style:                            solid,
-    color:                            $border-color
-  )
+  bottom: 1px solid $border-color
 ) !default;
 // CoreUI specific changes end
 
