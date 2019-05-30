@@ -5,23 +5,40 @@
 .#{$bs-prefix}table {
   width: 100%;
   margin-bottom: $spacer;
-  color: $table-color;
-  background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  // color: $table-color;
+  // background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+
+  @include theme($table-theme-map, $create: parent) {
+    color: theme-get('table-color');
+    background-color: theme-get('table-bg');
+  }
 
   th,
   td {
     padding: $table-cell-padding;
     vertical-align: top;
-    border-top: $table-border-width solid $table-border-color;
+    border-top: $table-border-width solid;
+
+    @include theme($table-theme-map, $create: parent) {
+      border-top-color: theme-get('table-border-color');
+    }
   }
 
   thead th {
     vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+    border-bottom: (2 * $table-border-width) solid;
+
+    @include theme($table-theme-map, $create: parent) {
+      border-bottom-color: theme-get('table-border-color');
+    }
   }
 
   tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
+    border-top: (2 * $table-border-width) solid;
+
+    @include theme($table-theme-map, $create: parent) {
+      border-top-color: theme-get('table-border-color');
+    }
   }
 }
 
@@ -43,11 +60,19 @@
 // Add or remove borders all around the table and between all the columns.
 
 .#{$bs-prefix}table-bordered {
-  border: $table-border-width solid $table-border-color;
+  border: $table-border-width solid;
+
+  @include theme($table-theme-map, $create: parent) {
+    border-color: theme-get('table-border-color');
+  }
 
   th,
   td {
-    border: $table-border-width solid $table-border-color;
+    border: $table-border-width solid;
+
+    @include theme($table-theme-map, $create: parent) {
+      border-color: theme-get('table-border-color');
+    }
   }
 
   thead {
@@ -73,7 +98,11 @@
 
 .#{$bs-prefix}table-striped {
   tbody tr:nth-of-type(#{$table-striped-order}) {
-    background-color: $table-accent-bg;
+    // background-color: $table-accent-bg;
+
+    @include theme($table-theme-map, $create: parent) {
+      background-color: theme-get('table-accent-bg');
+    }
   }
 }
 
@@ -85,8 +114,12 @@
 .#{$bs-prefix}table-hover {
   tbody tr {
     @include hover {
-      color: $table-hover-color;
-      background-color: $table-hover-bg;
+      // color: $table-hover-color;
+      // background-color: $table-hover-bg;
+      @include theme($table-theme-map, $create: parent) {
+        color: theme-get('table-hover-color');
+        background-color: theme-get('table-hover-bg');
+      }
     }
   }
 }

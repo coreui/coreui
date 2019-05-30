@@ -656,254 +656,480 @@
   }
 }
 
-.#{$prefix}sidebar- {
-  @include variant($sidebar-variant-map, $create: append) {
-    color: variant-get("sidebar-color");
-    background: variant-get("sidebar-bg");
-    @include borders(variant-get("sidebar-borders"));
+.#{$prefix}sidebar-dark {
+  color: $sidebar-dark-color;
+  background: $sidebar-dark-bg;
+  @include borders($sidebar-dark-borders);
 
-    .#{$prefix}dark-theme & {
-      @include borders(variant-get("dark-theme-sidebar-borders"));
+  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+    @include borders($sidebar-dark-borders,true);
+  }
+
+  *[dir="rtl"] & {
+    @include borders($sidebar-dark-borders,true);
+    &.#{$prefix}sidebar-right {
+      border: 0;
+      @include borders($sidebar-dark-borders);
+    }
+  }
+
+  .#{$prefix}sidebar-close {
+    color: $sidebar-dark-color;
+  }
+
+  .#{$prefix}sidebar-brand {
+    background: $sidebar-dark-brand-bg;
+  }
+
+  .#{$prefix}sidebar-header {
+    background: $sidebar-dark-header-bg;
+  }
+
+  .#{$prefix}sidebar-form .#{$prefix}form-control {
+    color: $sidebar-dark-form-color;
+    background: $sidebar-dark-form-bg;
+    border: $sidebar-dark-form-border;
+
+    &::placeholder {
+      color: $sidebar-dark-form-placeholder-color;
+    }
+  }
+
+  .#{$prefix}nav-title {
+    color: $sidebar-dark-nav-title-color;
+  }
+
+  .#{$prefix}nav-link {
+    color: $sidebar-dark-nav-link-color;
+    background: $sidebar-dark-nav-link-bg;
+    @include borders($sidebar-dark-nav-link-borders);
+
+    .#{$prefix}nav-icon {
+      color: $sidebar-dark-nav-link-icon-color;
+      fill: $sidebar-dark-nav-link-icon-color;
     }
 
-    html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-      @include borders(variant-get("sidebar-borders"),true);
-    }
-
-    html:not([dir="rtl"]) .#{$prefix}dark-theme &.#{$prefix}sidebar-right {
-      @include borders(variant-get("dark-theme-sidebar-borders"),true);
-    }
-
-    *[dir="rtl"] & {
-      @include borders(variant-get("sidebar-borders"),true);
-      &.#{$prefix}sidebar-right {
-        border: 0;
-        @include borders(variant-get("sidebar-borders"));
-      }
-    }
-    *[dir="rtl"] .#{$prefix}dark-theme & {
-      @include borders(variant-get("dark-theme-sidebar-borders"),true);
-      &.#{$prefix}sidebar-right {
-        border: 0;
-        @include borders(variant-get("dark-theme-sidebar-borders"));
-      }
-    }
-
-    .#{$prefix}sidebar-close {
-      color: variant-get("sidebar-color");
-    }
-
-    .#{$prefix}sidebar-brand {
-      background: variant-get("sidebar-brand-bg");
-    }
-
-    .#{$prefix}sidebar-header {
-      background: variant-get("sidebar-header-bg");
-    }
-
-    .#{$prefix}sidebar-form .#{$prefix}form-control {
-      color: variant-get("sidebar-form-color");
-      background: variant-get("sidebar-form-bg");
-      border: variant-get("sidebar-form-border");
-
-      &::placeholder {
-        color: variant-get("sidebar-form-placeholder-color");
-      }
-    }
-
-    .#{$prefix}nav-title {
-      color: variant-get("sidebar-nav-title-color");
-    }
-
-    .#{$prefix}nav-link {
-      color: variant-get("sidebar-nav-link-color");
-      background: variant-get("sidebar-nav-link-bg");
-      @include borders(variant-get("sidebar-nav-link-borders"));
+    &.active {
+      color: $sidebar-dark-nav-link-active-color;
+      background: $sidebar-dark-nav-link-active-bg;
+      @include borders($sidebar-dark-nav-link-active-borders);
 
       .#{$prefix}nav-icon {
-        color: variant-get("sidebar-nav-link-icon-color");
-        fill: variant-get("sidebar-nav-link-icon-color");
+        color: $sidebar-dark-nav-link-active-icon-color;
+        fill: $sidebar-dark-nav-link-active-icon-color;
+      }
+    }
+
+    &:hover {
+      color: $sidebar-dark-nav-link-hover-color;
+      background: $sidebar-dark-nav-link-hover-bg;
+      @include borders($sidebar-dark-nav-link-hover-borders);
+
+      .#{$prefix}nav-icon {
+        color: $sidebar-dark-nav-link-hover-icon-color;
+        fill: $sidebar-dark-nav-link-hover-icon-color;
       }
 
-      &.active {
-        color: variant-get("sidebar-nav-link-active-color");
-        background: variant-get("sidebar-nav-link-active-bg");
-        @include borders(variant-get("sidebar-nav-link-active-borders"));
+      &.#{$prefix}nav-dropdown-toggle::after {
+        background-image: $sidebar-dark-nav-dropdown-indicator-hover;
+      }
+    }
 
-        .#{$prefix}nav-icon {
-          color: variant-get("sidebar-nav-link-active-icon-color");
-          fill: variant-get("sidebar-nav-link-active-icon-color");
-        }
+    &.disabled {
+      color: $sidebar-dark-nav-link-disabled-color;
+      background: transparent;
+      @include borders($sidebar-dark-nav-link-disabled-borders);
+
+      .#{$prefix}nav-icon {
+        color: $sidebar-dark-nav-link-disabled-icon-color;
+        fill: $sidebar-dark-nav-link-disabled-icon-color;
       }
 
       &:hover {
-        color: variant-get("sidebar-nav-link-hover-color");
-        background: variant-get("sidebar-nav-link-hover-bg");
-        @include borders(variant-get("sidebar-nav-link-hover-borders"));
+        color: $sidebar-dark-nav-link-disabled-color;
+        @include borders($sidebar-dark-nav-link-hover-borders);
 
         .#{$prefix}nav-icon {
-          color: variant-get("sidebar-nav-link-hover-icon-color");
-          fill: variant-get("sidebar-nav-link-hover-icon-color");
+          color: $sidebar-dark-nav-link-disabled-icon-color;
+          fill: $sidebar-dark-nav-link-disabled-icon-color;
         }
 
         &.#{$prefix}nav-dropdown-toggle::after {
-          background-image: variant-get("sidebar-nav-dropdown-indicator-hover");
+          background-image: $sidebar-dark-nav-dropdown-indicator-hover;
         }
       }
+    }
+  }
+  .#{$prefix}nav-dropdown-toggle {
+    position: relative;
+
+    &::after {
+      background-image: $sidebar-dark-nav-dropdown-indicator;
+    }
+  }
+
+  .#{$prefix}nav-dropdown.#{$bs-prefix}open {
+    background: $sidebar-dark-nav-dropdown-bg;
+    @include borders($sidebar-dark-nav-dropdown-borders);
+
+    .#{$prefix}nav-link {
+      color: $sidebar-dark-nav-dropdown-color;
 
       &.disabled {
-        color: variant-get("sidebar-nav-link-disabled-color");
+        color: $sidebar-dark-nav-link-disabled-color;
         background: transparent;
-        @include borders(variant-get("sidebar-nav-link-disabled-borders"));
-
-        .#{$prefix}nav-icon {
-          color: variant-get("sidebar-nav-link-disabled-icon-color");
-          fill: variant-get("sidebar-nav-link-disabled-icon-color");
-        }
 
         &:hover {
-          color: variant-get("sidebar-nav-link-disabled-color");
-          @include borders(variant-get("sidebar-nav-link-hover-borders"));
+          color: $sidebar-dark-nav-link-disabled-color;
 
           .#{$prefix}nav-icon {
-            color: variant-get("sidebar-nav-link-disabled-icon-color");
-            fill: variant-get("sidebar-nav-link-disabled-icon-color");
-          }
-
-          &.#{$prefix}nav-dropdown-toggle::after {
-            background-image: variant-get("sidebar-nav-dropdown-indicator-hover");
+            color: $sidebar-dark-nav-link-disabled-icon-color;
           }
         }
       }
     }
-    .#{$prefix}nav-dropdown-toggle {
-      position: relative;
+  }
 
-      &::after {
-        background-image: variant-get("sidebar-nav-dropdown-indicator");
-      }
+  .#{$prefix}nav-label {
+    color: $sidebar-dark-nav-title-color;
+
+    &:hover {
+      color: $sidebar-dark-color;
     }
 
-    .#{$prefix}nav-dropdown.#{$bs-prefix}open {
-      background: variant-get("sidebar-nav-dropdown-bg");
-      @include borders(variant-get("sidebar-nav-dropdown-borders"));
+    .#{$prefix}nav-icon {
+      color: $sidebar-dark-nav-link-icon-color;
+    }
+  }
 
-      .#{$prefix}nav-link {
-        color: variant-get("sidebar-nav-dropdown-color");
+  .#{$prefix}nav-tabs {
+    border-color: $sidebar-dark-nav-tabs-border-color;
 
-        &.disabled {
-          color: variant-get("sidebar-nav-link-disabled-color");
-          background: transparent;
+    .#{$prefix}nav-link {
+      &:hover,
+      &:focus {
+        background: $sidebar-dark-nav-tabs-link-hover-bg;
+        border-color: $sidebar-dark-nav-tabs-link-hover-border-color;
+      }
+      &.active {
+        background: $sidebar-dark-nav-tabs-link-active-bg;
+        border-color: $sidebar-dark-nav-tabs-link-active-border-color;
+      }
+    }
+  }
 
-          &:hover {
-            color: variant-get("sidebar-nav-link-disabled-color");
+  @if (lightness( $sidebar-dark-bg ) < 40) {
+    .#{$prefix}progress {
+      background-color: lighten($sidebar-dark-bg, 15%) !important;
+    }
+  }
+
+  .#{$prefix}sidebar-footer {
+    background: $sidebar-dark-footer-bg;
+    @include borders($sidebar-dark-footer-borders);
+  }
+
+  .#{$prefix}sidebar-minimizer {
+    background-color: $sidebar-dark-minimizer-bg;
+    @include borders($sidebar-dark-minimizer-borders);
+
+    &::before {
+      background-image: $sidebar-dark-minimizer-indicator;
+    }
+
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: $sidebar-dark-minimizer-hover-bg;
+      &::before {
+        background-image: $sidebar-dark-minimizer-hover-indicator;
+      }
+    }
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
+  }
+  &.#{$prefix}sidebar-minimized {
+
+    .#{$prefix}nav-item {
+
+      &:hover {
+
+        > .#{$prefix}nav-link {
+          background: $sidebar-dark-nav-link-hover-bg;
+
+          .#{$prefix}nav-icon {
+            color: $sidebar-dark-nav-link-hover-color;
+          }
+
+          &.disabled {
+            background: $sidebar-dark-nav-link-disabled-bg;
 
             .#{$prefix}nav-icon {
-              color: variant-get("sidebar-nav-link-disabled-icon-color");
+              color: $sidebar-dark-nav-link-disabled-icon-color;
             }
           }
         }
       }
     }
 
-    .#{$prefix}nav-label {
-      color: variant-get("sidebar-nav-title-color");
+    .#{$prefix}nav-link:hover {
+      background: $sidebar-dark-nav-link-hover-bg;
+    }
+
+    .#{$prefix}nav > .#{$prefix}nav-dropdown {
+      > .#{$prefix}nav-dropdown-items {
+        background: $sidebar-dark-bg;
+      }
 
       &:hover {
-        color: variant-get("sidebar-color");
+        background: $sidebar-dark-nav-link-hover-bg;
       }
+    }
+  }
+}
+
+.#{$prefix}sidebar-light {
+  color: $sidebar-light-color;
+  background: $sidebar-light-bg;
+  @include borders($sidebar-light-borders);
+
+  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+    @include borders($sidebar-light-borders,true);
+  }
+
+  *[dir="rtl"] & {
+    @include borders($sidebar-light-borders,true);
+    &.#{$prefix}sidebar-right {
+      border: 0;
+      @include borders($sidebar-light-borders);
+    }
+  }
+
+  .#{$prefix}sidebar-close {
+    color: $sidebar-light-color;
+  }
+
+  .#{$prefix}sidebar-brand {
+    background: $sidebar-light-brand-bg;
+  }
+
+  .#{$prefix}sidebar-header {
+    background: $sidebar-light-header-bg;
+  }
+
+  .#{$prefix}sidebar-form .#{$prefix}form-control {
+    color: $sidebar-light-form-color;
+    background: $sidebar-light-form-bg;
+    border: $sidebar-light-form-border;
+
+    &::placeholder {
+      color: $sidebar-light-form-placeholder-color;
+    }
+  }
+
+  .#{$prefix}nav-title {
+    color: $sidebar-light-nav-title-color;
+  }
+
+  .#{$prefix}nav-link {
+    color: $sidebar-light-nav-link-color;
+    background: $sidebar-light-nav-link-bg;
+    @include borders($sidebar-light-nav-link-borders);
+
+    .#{$prefix}nav-icon {
+      color: $sidebar-light-nav-link-icon-color;
+      fill: $sidebar-light-nav-link-icon-color;
+    }
+
+    &.active {
+      color: $sidebar-light-nav-link-active-color;
+      background: $sidebar-light-nav-link-active-bg;
+      @include borders($sidebar-light-nav-link-active-borders);
 
       .#{$prefix}nav-icon {
-        color: variant-get("sidebar-nav-link-icon-color");
+        color: $sidebar-light-nav-link-active-icon-color;
+        fill: $sidebar-light-nav-link-active-icon-color;
       }
     }
 
-    .#{$prefix}nav-tabs {
-      border-color: variant-get("sidebar-nav-tabs-border-color");
+    &:hover {
+      color: $sidebar-light-nav-link-hover-color;
+      background: $sidebar-light-nav-link-hover-bg;
+      @include borders($sidebar-light-nav-link-hover-borders);
 
-      .#{$prefix}nav-link {
-        &:hover,
-        &:focus {
-          background: variant-get("sidebar-nav-tabs-link-hover-bg");
-          border-color: variant-get("sidebar-nav-tabs-link-hover-border-color");
-        }
-        &.active {
-          background: variant-get("sidebar-nav-tabs-link-active-bg");
-          border-color: variant-get("sidebar-nav-tabs-link-active-border-color");
-        }
+      .#{$prefix}nav-icon {
+        color: $sidebar-light-nav-link-hover-icon-color;
+        fill: $sidebar-light-nav-link-hover-icon-color;
+      }
+
+      &.#{$prefix}nav-dropdown-toggle::after {
+        background-image: $sidebar-light-nav-dropdown-indicator-hover;
       }
     }
 
-    @if (lightness( variant-get("sidebar-bg") ) < 40) {
-      .#{$prefix}progress {
-        background-color: lighten(variant-get("sidebar-bg"), 15%) !important;
-      }
-    }
+    &.disabled {
+      color: $sidebar-light-nav-link-disabled-color;
+      background: transparent;
+      @include borders($sidebar-light-nav-link-disabled-borders);
 
-    .#{$prefix}sidebar-footer {
-      background: variant-get("sidebar-footer-bg");
-      @include borders(variant-get("sidebar-footer-borders"));
-    }
-
-    .#{$prefix}sidebar-minimizer {
-      background-color: variant-get("sidebar-minimizer-bg");
-      @include borders(variant-get("sidebar-minimizer-borders"));
-
-      &::before {
-        background-image: variant-get("sidebar-minimizer-indicator");
-      }
-
-      &:focus,
-      &.focus {
-        outline: 0;
+      .#{$prefix}nav-icon {
+        color: $sidebar-light-nav-link-disabled-icon-color;
+        fill: $sidebar-light-nav-link-disabled-icon-color;
       }
 
       &:hover {
-        background-color: variant-get("sidebar-minimizer-hover-bg");
-        &::before {
-          background-image: variant-get("sidebar-minimizer-hover-indicator");
+        color: $sidebar-light-nav-link-disabled-color;
+        @include borders($sidebar-light-nav-link-hover-borders);
+
+        .#{$prefix}nav-icon {
+          color: $sidebar-light-nav-link-disabled-icon-color;
+          fill: $sidebar-light-nav-link-disabled-icon-color;
+        }
+
+        &.#{$prefix}nav-dropdown-toggle::after {
+          background-image: $sidebar-light-nav-dropdown-indicator-hover;
         }
       }
-      @include media-breakpoint-down(xs) {
-        display: none;
-      }
     }
-    &.#{$prefix}sidebar-minimized {
+  }
+  .#{$prefix}nav-dropdown-toggle {
+    position: relative;
 
-      .#{$prefix}nav-item {
+    &::after {
+      background-image: $sidebar-light-nav-dropdown-indicator;
+    }
+  }
+
+  .#{$prefix}nav-dropdown.#{$prefix}open {
+    background: $sidebar-light-nav-dropdown-bg;
+    @include borders($sidebar-light-nav-dropdown-borders);
+
+    .#{$prefix}nav-link {
+      color: $sidebar-light-nav-dropdown-color;
+
+      &.disabled {
+        color: $sidebar-light-nav-link-disabled-color;
+        background: transparent;
 
         &:hover {
+          color: $sidebar-light-nav-link-disabled-color;
 
-          > .#{$prefix}nav-link {
-            background: variant-get("sidebar-nav-link-hover-bg");
+          .#{$prefix}nav-icon {
+            color: $sidebar-light-nav-link-disabled-icon-color;
+          }
+        }
+      }
+    }
+  }
+
+  .#{$prefix}nav-label {
+    color: $sidebar-light-nav-title-color;
+
+    &:hover {
+      color: $sidebar-light-color;
+    }
+
+    .#{$prefix}nav-icon {
+      color: $sidebar-light-nav-link-icon-color;
+    }
+  }
+
+  @if (lightness( $sidebar-light-bg ) < 40) {
+    .#{$prefix}progress {
+      background-color: lighten($sidebar-light-bg, 15%) !important;
+    }
+  }
+
+  .#{$prefix}nav-tabs {
+    border-color: $sidebar-light-nav-tabs-border-color;
+
+    .#{$prefix}nav-link {
+      &:hover,
+      &:focus {
+        background: $sidebar-light-nav-tabs-link-hover-bg;
+        border-color: $sidebar-light-nav-tabs-link-hover-border-color;
+      }
+      &.active {
+        background: $sidebar-light-nav-tabs-link-active-bg;
+        border-color: $sidebar-light-nav-tabs-link-active-border-color;
+      }
+    }
+  }
+
+  // .#{$prefix}tab-content {
+  //   @include borders($sidebar-light-tab-content-borders);
+  // }
+
+  @if (lightness( $sidebar-light-bg ) < 40) {
+    .#{$prefix}progress {
+      background-color: lighten($sidebar-light-bg, 15%) !important;
+    }
+  }
+
+  .#{$prefix}sidebar-footer {
+    background: $sidebar-light-footer-bg;
+    @include borders($sidebar-light-footer-borders);
+  }
+
+  .#{$prefix}sidebar-minimizer {
+    background-color: $sidebar-light-minimizer-bg;
+    @include borders($sidebar-light-minimizer-borders);
+
+    &::before {
+      background-image: $sidebar-light-minimizer-indicator;
+    }
+
+    &:focus,
+    &.focus {
+      outline: 0;
+    }
+
+    &:hover {
+      background-color: $sidebar-light-minimizer-hover-bg;
+      &::before {
+        background-image: $sidebar-light-minimizer-hover-indicator;
+      }
+    }
+  }
+  &.#{$prefix}sidebar-minimized {
+
+    .#{$prefix}nav-item {
+
+      &:hover {
+
+        > .#{$prefix}nav-link {
+          background: $sidebar-light-nav-link-hover-bg;
+
+          .#{$prefix}nav-icon {
+            color: $sidebar-light-nav-link-hover-color;
+          }
+
+          &.disabled {
+            background: $sidebar-light-nav-link-disabled-bg;
 
             .#{$prefix}nav-icon {
-              color: variant-get("sidebar-nav-link-hover-color");
-            }
-
-            &.disabled {
-              background: variant-get("sidebar-nav-link-disabled-bg");
-
-              .#{$prefix}nav-icon {
-                color: variant-get("sidebar-nav-link-disabled-icon-color");
-              }
+              color: $sidebar-light-nav-link-disabled-icon-color;
             }
           }
         }
       }
+    }
 
-      .#{$prefix}nav-link:hover {
-        background: variant-get("sidebar-nav-link-hover-bg");
+    .#{$prefix}nav-link:hover {
+      background: $sidebar-light-nav-link-hover-bg;
+    }
+
+    .#{$prefix}nav > .#{$prefix}nav-dropdown {
+      > .#{$prefix}nav-dropdown-items {
+        background: $sidebar-light-bg;
       }
 
-      .#{$prefix}nav > .#{$prefix}nav-dropdown {
-        > .#{$prefix}nav-dropdown-items {
-          background: variant-get("sidebar-bg");
-        }
-
-        &:hover {
-          background: variant-get("sidebar-nav-link-hover-bg");
-        }
+      &:hover {
+        background: $sidebar-light-nav-link-hover-bg;
       }
     }
   }

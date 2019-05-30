@@ -235,18 +235,6 @@ $sizes: map-merge(
 $body-bg:                   #e4e5e6 !default; // was: $white
 $body-color:                $gray-900 !default;
 
-$body-theme-map: (
-  default: (
-    "body-bg":  #e4e5e6,
-    "body-color": $gray-900
-  ),
-  dark: (
-    "body-bg":  $gray-800,
-    "body-color": $gray-200
-  )
-) !default;
-
-
 
 // Links
 //
@@ -327,9 +315,6 @@ $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 
 $component-active-color:      $white !default;
 $component-active-bg:         theme-color("primary") !default;
-
-$component-active-color-dark: $black !default;
-$component-active-bg-dark:    theme-color("primary") !default;
 
 $caret-width:                 .3em !default;
 $caret-vertical-align:        $caret-width * .85 !default;
@@ -460,31 +445,6 @@ $table-caption-color:         $text-muted !default;
 
 $table-bg-level:              -9 !default;
 $table-border-level:          -6 !default;
-
-$table-theme-map: (
-  default: (
-    "table-color":        $gray-900,
-    "table-bg":           transparent,
-    "table-accent-bg":    rgba($black, .05),
-    "table-hover-color":  $gray-900,
-    "table-hover-bg":     rgba($black, .075),
-    "table-active-bg":    rgba($black, .075),
-    "table-border-color": $border-color,
-    "table-head-bg":      $gray-200,
-    "table-head-color":   $gray-700
-  ),
-  dark: (
-    "table-color":        $gray-900,
-    "table-bg":           transparent,
-    "table-accent-bg":    rgba($black, .05),
-    "table-hover-color":  $gray-900,
-    "table-hover-bg":     rgba($black, .075),
-    "table-active-bg":    rgba($black, .075),
-    "table-border-color": $border-color,
-    "table-head-bg":      $gray-200,
-    "table-head-color":   $gray-700
-  )
-) !default;
 
 
 // Buttons + Forms
@@ -861,7 +821,11 @@ $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 $header-height:                       55px !default;
 $header-bg:                           $white !default;
 $header-border: (
-  bottom: 1px solid $border-color
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
 ) !default;
 $header-brand-width:                  205px !default;
 $header-brand-minimized-width:        50px !default;
@@ -885,7 +849,11 @@ $header-toggler-border-radius:      $btn-border-radius !default;
 $header-dark-bg:                    $gray-800 !default;
 $header-dark-color:                 rgba($white, .75) !default;
 $header-dark-border: (
-  bottom: 1px solid $gray-800
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $gray-800
+  )
 ) !default;
 $header-dark-hover-color:           rgba($white, .9) !default;
 $header-dark-active-color:          $white !default;
@@ -897,7 +865,11 @@ $header-dark-toggler-border-color:  rgba($white, .1) !default;
 $header-light-bg:                   $white !default;
 $header-light-color:                rgba($black, .5) !default;
 $header-light-border: (
-  bottom: 1px solid $border-color
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
 ) !default;
 $header-light-hover-color:           rgba($black, .7) !default;
 $header-light-active-color:          rgba($black, .9) !default;
@@ -919,53 +891,6 @@ $header-dark-brand-color:                 $header-dark-active-color !default;
 $header-dark-brand-hover-color:           $header-dark-active-color !default;
 $header-dark-brand-minimized-bg:          transparent !default;
 $header-dark-brand-minimized-border:      0 !default;
-
-$header-variant-map: (
-  dark: (
-    "header-bg":                     $gray-800,
-    "header-color":                  rgba($white, .75),
-    "header-border": (
-      bottom: 1px solid $gray-800
-    ),
-    "dark-theme-header-border": (
-      bottom: 1px solid $gray-900
-    ),
-    "header-hover-color":            rgba($white, .9),
-    "header-active-color":           $white,
-    "header-disabled-color":         rgba($white, .25),
-    "header-toggler-icon-bg":        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-hover-icon-bg":  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-border-color":   rgba($white, .1),
-    "header-brand-bg":               transparent,
-    "header-brand-border":           0,
-    "header-brand-color":            $header-dark-active-color,
-    "header-brand-hover-color":      $header-dark-active-color,
-    "header-brand-minimized-bg":     transparent,
-    "header-brand-minimized-border": 0
-  ),
-  light: (
-    "header-bg":                  $white,
-    "header-color":               rgba($black, .5),
-    "header-border":(
-      bottom: 1px solid $border-color
-    ),
-    "dark-theme-header-border": (
-      bottom: 1px solid $border-color
-    ),
-    "header-hover-color":            rgba($black, .7),
-    "header-active-color":           rgba($black, .9),
-    "header-disabled-color":         rgba($black, .3),
-    "header-toggler-icon-bg":        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-hover-icon-bg":  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-border-color":   rgba($black, .1),
-    "header-brand-bg":               transparent,
-    "header-brand-border":           0,
-    "header-brand-color":            $header-light-active-color,
-    "header-brand-hover-color":      $header-light-active-color,
-    "header-brand-minimized-bg":     transparent,
-    "header-brand-minimized-border": 0,
-  )
-) !default;
 
 
 // $header-color:                        $gray-600 !default;
@@ -992,7 +917,11 @@ $sidebar-dark-borders:                none !default;
 $sidebar-light-color:                 $body-color !default;
 $sidebar-light-bg:                    $white !default;
 $sidebar-light-borders: (
-  right: 1px solid rgba(darken($border-color, 20%), .5)
+  right: (
+    size:                             1px,
+    style:                            solid,
+    color:                            rgba(darken($border-color, 20%), .5)
+  )
 ) !default;
 
 // Sidebar Brand
@@ -1011,6 +940,7 @@ $sidebar-header-padding-x:            1rem !default;
 $sidebar-dark-header-bg:              rgba($black, .2) !default;
 $sidebar-light-header-bg:             rgba($black, .2) !default;
 
+
 // Sidebar Form
 
 $sidebar-dark-form-border:                 0 !default;
@@ -1022,7 +952,6 @@ $sidebar-light-form-border:                0 !default;
 $sidebar-light-form-bg:                    rgba($black, .1) !default;
 $sidebar-light-form-color:                $white !default;
 $sidebar-light-form-placeholder-color:     rgba($white, .7) !default;
-
 
 // Sidebar Navigation
 
@@ -1104,7 +1033,11 @@ $sidebar-dark-nav-tabs-link-active-border-color: rgba($black, .2) rgba($black, .
 $sidebar-dark-nav-tabs-link-hover-bg:            rgba($black, .2) !default;
 $sidebar-dark-nav-tabs-link-hover-border-color:  rgba($black, .2) rgba($black, .2) $gray-200 !default;
 $sidebar-dark-tab-content-borders: (
-  top: 1px solid rgba($black, .2)
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            rgba($black, .2)
+  )
 ) !default;
 
 $sidebar-light-nav-tabs-border-color:             rgba(darken($border-color, 20%), .5) !default;
@@ -1113,7 +1046,11 @@ $sidebar-light-nav-tabs-link-active-border-color: rgba(darken($border-color, 20%
 $sidebar-light-nav-tabs-link-hover-bg:            $white !default;
 $sidebar-light-nav-tabs-link-hover-border-color: rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
 $sidebar-light-tab-content-borders: (
-  top: 1px solid rgba(darken($border-color, 20%), .5)
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            rgba(darken($border-color, 20%), .5)
+  )
 ) !default;
 
 // Sidebar Footer
@@ -1146,123 +1083,6 @@ $sidebar-light-minimizer-hover-bg:          rgba(0, 0, 0, .3) !default;
 $sidebar-light-minimizer-hover-indicator-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-light-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$sidebar-variant-map: (
-  dark: (
-    "sidebar-color":                              $white,
-    "sidebar-bg":                                 $gray-800,
-    "dark-theme-sidebar-bg":                      $gray-800,
-    "sidebar-borders":                            0,
-    "dark-theme-sidebar-borders":(
-      right :1px solid $gray-900
-    ),
-    "sidebar-brand-bg":                           rgba($black, .2),
-    "sidebar-header-bg":                          rgba($black, .2),
-    "sidebar-form-border":                        0,
-    "sidebar-form-bg":                            rgba($black, .1),
-    "sidebar-form-color":                         $white,
-    "sidebar-form-placeholder-color":             rgba($white, .7),
-    "sidebar-nav-title-color":                    rgba($white, .6),
-    "sidebar-nav-link-color":                     rgba($white, .8),
-    "sidebar-nav-link-bg":                        transparent,
-    "sidebar-nav-link-icon-color":                $gray-600,
-    "sidebar-nav-link-borders":                   0,
-    "sidebar-nav-link-hover-color":               $white,
-    "sidebar-nav-link-hover-bg":                  theme-color("primary"),
-    "sidebar-nav-link-hover-icon-color":          $white,
-    "sidebar-nav-link-hover-borders":             0,
-    "sidebar-nav-link-active-color":              $white,
-    "sidebar-nav-link-active-bg":                 rgba($white, .05),
-    "sidebar-nav-link-active-icon-color":         theme-color("primary"),
-    "sidebar-nav-link-active-borders":            0,
-    "sidebar-nav-link-disabled-color":            darken($white, 30%),
-    "sidebar-nav-link-disabled-bg":               $sidebar-dark-bg,
-    "sidebar-nav-link-disabled-icon-color":       $sidebar-dark-nav-link-icon-color,
-    "sidebar-nav-link-disabled-borders":          0,
-    "sidebar-nav-dropdown-color":                 $white,
-    "sidebar-nav-dropdown-bg":                    rgba(0, 0, 0, .2),
-    "sidebar-nav-dropdown-borders":               0,
-    "sidebar-nav-dropdown-indicator-color":       $gray-600,
-    "sidebar-nav-dropdown-indicator":             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-dropdown-indicator-hover-color": $sidebar-dark-nav-link-hover-color,
-    "sidebar-nav-dropdown-indicator-hover":       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-tabs-border-color":              rgba($black, .2),
-    "sidebar-nav-tabs-link-active-bg":            rgba($white, .05),
-    "sidebar-nav-tabs-link-active-border-color":  rgba($black, .2) rgba($black, .2) theme-color("primary"),
-    "sidebar-nav-tabs-link-hover-bg":             rgba($black, .2),
-    "sidebar-nav-tabs-link-hover-border-color":   rgba($black, .2) rgba($black, .2) $gray-200,
-    "sidebar-tab-content-borders": (
-      top: 1px solid rgba($black, .2)
-    ),
-    "sidebar-footer-bg":                          rgba($black, .2),
-    "sidebar-footer-borders":                     0,
-    "sidebar-minimizer-borders":                  0,
-    "sidebar-minimizer-bg":                       rgba($black, .2),
-    "sidebar-minimizer-indicator-color":          $gray-600,
-    "sidebar-minimizer-indicator":                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-minimizer-hover-bg":               rgba(0, 0, 0, .3),
-    "sidebar-minimizer-hover-indicator-color":    $sidebar-dark-nav-link-hover-color,
-    "sidebar-minimizer-hover-indicator":          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-  ),
-  light: (
-    "sidebar-color":                              $body-color,
-    "sidebar-bg":                                 $white,
-    "dark-theme-sidebar-bg":                      $gray-800,
-    "sidebar-borders":(
-      right :1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "dark-theme-sidebar-borders":(
-      right :1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "sidebar-brand-bg":                           rgba($black, .2),
-    "sidebar-header-bg":                          rgba($black, .2),
-    "sidebar-form-border":                        0,
-    "sidebar-form-bg":                            rgba($black, .1),
-    "sidebar-form-color":                         $white,
-    "sidebar-form-placeholder-color":             rgba($white, .7),
-    "sidebar-nav-title-color":                    rgba($black, .4),
-    "sidebar-nav-link-color":                     rgba($black, .8),
-    "sidebar-nav-link-bg":                        transparent,
-    "sidebar-nav-link-icon-color":                $gray-600,
-    "sidebar-nav-link-borders":                   0,
-    "sidebar-nav-link-hover-color":               $white,
-    "sidebar-nav-link-hover-bg":                  theme-color("primary"),
-    "sidebar-nav-link-hover-icon-color":          $white,
-    "sidebar-nav-link-hover-borders":             0,
-    "sidebar-nav-link-active-color":              $white,
-    "sidebar-nav-link-active-bg":                 rgba($black, .05),
-    "sidebar-nav-link-active-icon-color":         theme-color("primary"),
-    "sidebar-nav-link-active-borders":            0,
-    "sidebar-nav-link-disabled-color":            darken($white, 30%),
-    "sidebar-nav-link-disabled-bg":               $sidebar-light-bg,
-    "sidebar-nav-link-disabled-icon-color":       $sidebar-light-nav-link-icon-color,
-    "sidebar-nav-link-disabled-borders":          0,
-    "sidebar-nav-dropdown-color":                 $white,
-    "sidebar-nav-dropdown-bg":                  rgba(0, 0, 0, .2),
-    "sidebar-nav-dropdown-borders":               0,
-    "sidebar-nav-dropdown-indicator-color":       $gray-600,
-    "sidebar-nav-dropdown-indicator":             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-dropdown-indicator-hover-color": $sidebar-dark-nav-link-hover-color,
-    "sidebar-nav-dropdown-indicator-hover":       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-tabs-border-color":              rgba(darken($border-color, 20%), .5),
-    "sidebar-nav-tabs-link-active-bg":            $white,
-    "sidebar-nav-tabs-link-active-border-color":  rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white,
-    "sidebar-nav-tabs-link-hover-bg":             $white,
-    "sidebar-nav-tabs-link-hover-border-color":   rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white,
-    "sidebar-tab-content-borders":(
-      top: 1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "sidebar-footer-bg":                          rgba($black, .2),
-    "sidebar-footer-borders":                     0,
-    "sidebar-minimizer-borders":                  0,
-    "sidebar-minimizer-bg":                       rgba($black, .2),
-    "sidebar-minimizer-indicator-color":          $gray-600,
-    "sidebar-minimizer-indicator":                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-minimizer-hover-bg":               rgba(0, 0, 0, .3),
-    "sidebar-minimizer-hover-indicator-color":    $sidebar-dark-nav-link-hover-color,
-    "sidebar-minimizer-hover-indicator":          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-  )
-) !default;
-
 // CoreUI specific changes end
 
 // CoreUI specific changes start
@@ -1271,7 +1091,11 @@ $footer-height:                       50px !default;
 $footer-bg:                           $gray-100 !default;
 $footer-color:                        $body-color !default;
 $footer-borders: (
-  top: 1px solid $border-color
+  top: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
 ) !default;
 // CoreUI specific changes end
 
@@ -1284,22 +1108,22 @@ $dropdown-min-width:                10rem !default;
 $dropdown-padding-y:                0 !default; // was: .5rem !default;
 $dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                $font-size-base !default;
-// $dropdown-color:                    $body-color !default;
-// $dropdown-bg:                       $white !default;
-// $dropdown-border-color:             $gray-300 !default; // was: rgba($black, .15) !default;
+$dropdown-color:                    $body-color !default;
+$dropdown-bg:                       $white !default;
+$dropdown-border-color:             $gray-300 !default; // was: rgba($black, .15) !default;
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
 $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
-// $dropdown-divider-bg:               $gray-200 !default;
+$dropdown-divider-bg:               $gray-200 !default;
 $dropdown-divider-margin-y:         $nav-divider-margin-y !default;
 $dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;
 
-// $dropdown-link-color:               $gray-900 !default;
-// $dropdown-link-hover-color:         darken($gray-900, 5%) !default;
-// $dropdown-link-hover-bg:            $gray-100 !default;
+$dropdown-link-color:               $gray-900 !default;
+$dropdown-link-hover-color:         darken($gray-900, 5%) !default;
+$dropdown-link-hover-bg:            $gray-100 !default;
 
-// $dropdown-link-active-color:        $component-active-color !default;
-// $dropdown-link-active-bg:           $component-active-bg !default;
+$dropdown-link-active-color:        $component-active-color !default;
+$dropdown-link-active-bg:           $component-active-bg !default;
 
 $dropdown-link-disabled-color:      $gray-600 !default;
 
@@ -1307,35 +1131,6 @@ $dropdown-item-padding-y:           .25rem !default;
 $dropdown-item-padding-x:           1.5rem !default;
 
 $dropdown-header-color:             $gray-600 !default;
-
-$dropdown-theme-map: (
-  default: (
-    "dropdown-color":               $body-color,
-    "dropdown-border-color":        $gray-300,
-    "dropdown-bg":                  $white,
-    "dropdown-divider-bg":          $gray-200,
-    "dropdown-link-color":          $gray-900,
-    "dropdown-link-hover-color":    darken($gray-900, 5%),
-    "dropdown-link-hover-bg":       $gray-100,
-    "dropdown-link-active-color":   $component-active-color,
-    "dropdown-link-active-bg":      $component-active-bg,
-    "dropdown-link-disabled-color": $gray-600,
-    "dropdown-header-color":        $gray-600
-  ),
-  dark: (
-    "dropdown-color":               $white,
-    "dropdown-border-color":        $black,
-    "dropdown-bg":                  $gray-800,
-    "dropdown-divider-bg":          $black,
-    "dropdown-link-color":          $white,
-    "dropdown-link-hover-color":    $white,
-    "dropdown-link-hover-bg":       $gray-900,
-    "dropdown-link-active-color":   $component-active-color-dark,
-    "dropdown-link-active-bg":      $component-active-bg-dark,
-    "dropdown-link-disabled-color": $gray-600,
-    "dropdown-header-color":        $gray-200
-  )
-) !default;
 
 
 // Pagination
@@ -1369,21 +1164,26 @@ $pagination-disabled-bg:            $white !default;
 $pagination-disabled-border-color:  $gray-300 !default;
 
 
-//
+// Jumbotron
+
+$jumbotron-padding:                 2rem !default;
+$jumbotron-color:                   null !default;
+$jumbotron-bg:                      $gray-200 !default;
+
+
 // Cards
-//
 
 $card-spacer-y:                     .75rem !default;
 $card-spacer-x:                     1.25rem !default;
 $card-border-width:                 $border-width !default;
 $card-border-radius:                $border-radius !default;
-// $card-border-color:                 $gray-300 !default; // was: rgba($black, .125) !default;
+$card-border-color:                 $gray-300 !default; // was: rgba($black, .125) !default;
 $card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
 $card-margin-bottom:                $spacer * 1.5 !default; // CoreUI
-// $card-cap-bg:                       $gray-100 !default; // was: rgba($black, .03) !default;
-// $card-cap-color:                    null !default;
-// $card-color:                        null !default;
-// $card-bg:                           $white !default;
+$card-cap-bg:                       $gray-100 !default; // was: rgba($black, .03) !default;
+$card-cap-color:                    null !default;
+$card-color:                        null !default;
+$card-bg:                           $white !default;
 
 $card-img-overlay-padding:          1.25rem !default;
 
@@ -1394,33 +1194,10 @@ $card-columns-count:                3 !default;
 $card-columns-gap:                  1.25rem !default;
 $card-columns-margin:               $card-spacer-y !default;
 
+// CoreUI specific changes start
 $card-icon-bg:                        transparent !default;
 $card-icon-color:                     $body-color !default;
-
-
-$card-theme-map: (
-  default: (
-    "card-border-color": $gray-300,
-    "card-cap-bg": $gray-100,
-    "card-cap-color": "null",
-    "card-color": "null",
-    "card-bg": $white
-  ),
-  dark: (
-    "card-border-color": $gray-900,
-    "card-cap-bg": $gray-800,
-    "card-cap-color": "null",
-    "card-color": "null",
-    "card-bg": lighten($gray-800,5%)
-  )
-);
-
-
-// Jumbotron
-
-$jumbotron-padding:                 2rem !default;
-$jumbotron-color:                   null !default;
-$jumbotron-bg:                      $gray-200 !default;
+// CoreUI specific changes end
 
 
 // Tooltips
@@ -1567,26 +1344,13 @@ $alert-color-level:                 6 !default;
 
 $progress-height:                   1rem !default;
 $progress-font-size:                $font-size-base * .75 !default;
-// $progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
+$progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1) !default;
-// $progress-bar-color:                $white !default;
-// $progress-bar-bg:                   theme-color("primary") !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   theme-color("primary") !default;
 $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
-
-$progress-theme-map: (
-  default: (
-    "progress-bg":        $gray-100,
-    "progress-bar-color": $white,
-    "progress-bar-bg":    theme-color("primary")
-  ),
-  dark: (
-    "progress-bg":        $gray-700,
-    "progress-bar-color": $white,
-    "progress-bar-bg":    theme-color("primary")
-  )
-) !default;
 
 
 // List group
@@ -1629,6 +1393,32 @@ $thumbnail-box-shadow:              0 1px 2px rgba($black, .075) !default;
 
 $figure-caption-font-size:          90% !default;
 $figure-caption-color:              $gray-600 !default;
+
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .75rem !default;
+$breadcrumb-padding-x:              1rem !default;
+$breadcrumb-item-padding:           .5rem !default;
+
+$breadcrumb-margin-bottom:          1.5rem !default; // was: 1rem
+
+$breadcrumb-bg:                     $white !default; // was: $gray-200
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+$breadcrumb-divider:                quote("/") !default;
+
+$breadcrumb-border-radius:          0 !default; // was: $border-radius
+
+// CoreUI specific changes start
+$breadcrumb-borders: (
+  bottom: (
+    size:                             1px,
+    style:                            solid,
+    color:                            $border-color
+  )
+) !default;
+// CoreUI specific changes end
 
 
 // Carousel

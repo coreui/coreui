@@ -1,0 +1,565 @@
+@charset 'UTF-8';
+/* stylelint-disable */
+////
+/// -------------------------------------------------------------------------------------
+///
+///                       _theme.scss v1.1 - Consistent CSS theming
+///
+///                                 jaicab.com/sass-theme/
+///
+/// -------------------------------------------------------------------------------------
+///
+/// List all your variations in your $theme-map.
+/// theme will loop through them and create the code for you, with a consistent and DRYer code.
+///
+/// You can start using this library like so:
+///
+///   $theme-map: (
+///      user: (
+///        'color-primary': blue,
+///        'border': '1px solid #ff0',
+///      ),
+///      admin: (
+///        'color-primary': pink,
+///        'border': '10px solid black',
+///      )
+///    );
+///
+///   .foo {
+///     background: red;
+///
+///     @include theme($create: body) {
+///       background: theme-get('color-primary');
+///       border: theme-get('border');
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     background: red;
+///   }
+///   .is-user .foo {
+///     color: blue;
+///     border: 1px solid #ff0;
+///   }
+///   .is-admin .foo {
+///     color: pink;
+///     border: 10px solid red;
+///   }
+///
+///
+/// 2015 - Made with ♥ by Jaime Caballero (@jaicab_)
+/// @author Jaime Caballero (@jaicab_)
+////
+
+
+
+/// Set to true if using libsass. Uses some extra CSS on HTML class scenario.
+///
+/// @type Bool
+$theme-libsass: true !default;
+
+
+
+/// When creating a class, theme will use this prefix.
+/// Will work as .#{$theme-default-post-class}foo
+///
+/// @type String
+$theme-default-post-class: '-theme' !default;
+
+
+
+/// Default creation mode.
+/// Will set a default value for $create.
+///
+/// @type String
+$theme-default-create: 'modifier' !default;
+
+
+
+/// List of variations.
+/// Should be put with your other variables, before the mixins.
+///
+/// Set as many keys as you wish, will be used to keep consistency.
+/// The variables under each key should be consistent in order to loop over all the keys.
+///
+/// @type Map
+$theme-map: (
+  user: (
+    'color-primary': blue,
+    'border': '1px solid #ff0'
+  ),
+  admin: (
+    'color-primary': pink,
+    'border': '10px solid black'
+  )
+) !default;
+
+
+
+/// Current _entity_ during the loop. Can be used in custom creation mode.
+///
+/// @type String
+$theme-loop-entity: '';
+
+
+
+/// Current _map_ during the loop. Can be used in custom creation.
+///
+/// @type Map
+$theme-loop-map: $theme-map;
+
+
+
+/// Gets a value from a theme-like map using the current entity and map withing the theme scope.
+///
+/// @param {String} $key - Name of the variable you want to get
+/// @param {String} $entity - Name of the entity you want to access
+///
+/// @example scss
+///   theme-get('color-primary', user);
+///   // -> #333
+///
+/// @returns {String} Value of key for that entity
+@function theme-get($key, $entity: $theme-loop-entity, $map: $theme-loop-map) {
+  $entity-map: map-get($map, $entity);
+
+  @if not $entity-map {
+    @error 'There is no `#{$entity}` entity in your variations list.';
+  }
+
+  $ret: map-get($entity-map, $key);
+
+  @if not $ret {
+    @error 'The entity `#{$entity}` doesn\'t have a value for `#{$key}`.';
+  }
+
+  @return $ret;
+}
+
+
+/// Filters the entities provieded into a final list
+///
+/// @param {List} $included - List with the keys to use
+/// @param {List} $excluded - List with the keys NOT to use
+/// @param {Map} $map - Map to check keys against
+///
+/// @example scss
+///   theme-filter(color border thickness, border);
+///   // -> (color thickness)
+///
+/// @returns {List} List of the keys to use, available on the map, without the ones excluded
+@function theme-filter($included: (), $excluded: (), $map: $theme-loop-map) {
+  $ret: ();
+
+  // If haven't specified anything, default to all
+  @if $included == 'all' {
+    $included: map-keys($map);
+  }
+
+  // Build the specified key list
+  @each $key in $included {
+
+    // If it's in our map
+    @if not map-has-key($map, $key) {
+      @error 'There is no `#{$key}` class in your variations list.';
+    }
+
+    // But not excluded
+    @if not index($excluded, $key) {
+      // Add it to the final list
+      $ret: append($ret, $key, 'comma');
+    }
+  }
+
+  @return $ret;
+}
+
+
+
+/// Adds a body class between the html class and the rest of selectors
+///
+/// @param {List} $selector list - List of selectors
+/// @param {List} $bodyclass - Body class to put between
+///
+/// @example scss
+///   theme-htmlclass((.js .foo, .csstransitions .element), '.is-admin');
+///   // -> (.js .is-admin .foo, .csstransitions .is-admin .element)
+///
+/// @returns {List} List of selectors to
+@function theme-htmlclass($selector-list, $bodyclass) {
+  $ret: ();
+
+  // Go through each selector
+  @each $selector in $selector-list {
+    $with-bodyclass: ();
+
+    // Just html class - .htmlclass
+    $with-bodyclass: append($with-bodyclass, nth($selector, 1));
+
+    // Add body class - .htmlclass .bodyclass
+    $with-bodyclass: append($with-bodyclass, unquote($bodyclass), 'space');
+
+    // If more than one element
+    @if length($selector) > 1 {
+      // Each restant element - .htmlclass .bodyclass .otherselectors
+      @for $i from 2 through length($selector) {
+        // Add the other selectors
+        $with-bodyclass: append($with-bodyclass, nth($selector, $i), 'space');
+      }
+    }
+
+    // Merge it all in the selector list
+    $ret: append($ret, $with-bodyclass, 'comma');
+  }
+
+  @return $ret;
+}
+
+
+
+/// Creates variations with a .is-class body class.
+/// It also places it after the HTML class given in the parent.
+///
+/// @param {String} $entity - Entity key to use.
+///
+///   $theme-map: (
+///      user: (
+///        'color-primary': blue,
+///        'border': '1px solid #ff0',
+///      ),
+///      admin: (
+///        'color-primary': pink,
+///        'border': '10px solid black',
+///      )
+///    );
+///
+///   .foo {
+///     background: red;
+///
+///     @include theme($create: insert) {
+///       background: theme-get('color-primary');
+///       border: theme-get('border');
+///     }
+///   }
+///
+///   // Compiles into
+///   .js .foo {
+///     font-size: .9em;
+///   }
+///   .js .is-user .foo {
+///     color: blue;
+///     border: 1px solid #ff0;
+///   }
+///   .js .is-admin .foo {
+///     color: pink;
+///     border: 10px solid black;
+///   }
+///
+@mixin theme-single-htmlbody($entity) {
+  // Update the global helper class
+  $theme-loop-entity: $entity !global;
+  $selector-list: ();
+
+  @if not & {
+    @error 'No parent found. I need the parent HTML class to place everything on its right place.';
+  }
+
+  $selector: &;
+  $bodyclass: '.#{$prefix}#{$theme-loop-entity}#{$theme-default-post-class}';
+
+  @at-root{
+    @if $theme-libsass {
+      html {
+        &#{theme-htmlclass($selector, $bodyclass)} {
+          @content;
+        }
+      }
+    } @else {
+      #{theme-htmlclass($selector, $bodyclass)} {
+        @content;
+      }
+    }
+  }
+
+}
+
+
+/// Creates variations with a .is-class body class.
+///
+/// @param {String} $entity - Entity key to use.
+///
+/// @example scss
+///   $theme-map: (
+///      user: (
+///        'color-primary': #333,
+///        'color-secondary': #069,
+///      ),
+///      admin: (
+///        'color-primary': #f0f,
+///        'color-secondary': #000,
+///      )
+///    );
+///   .foo {
+///     font-size: .9em;
+///
+///     @include theme-single-parent('user') {
+///       color: theme-get('color-primary');
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     font-size: .9em;
+///   }
+///   .is-user .foo {
+///     color: #333;
+///   }
+///
+@mixin theme-single-parent($entity) {
+  // Update the global helper class
+  $theme-loop-entity: $entity !global;
+
+  @at-root{
+    @if & {
+      .#{$prefix}#{$entity}#{$theme-default-post-class} & {
+        @content;
+      }
+    } @else {
+      .#{$prefix}#{$entity}#{$theme-default-post-class} {
+        @content;
+      }
+    }
+  }
+
+}
+
+
+
+/// Appends an .is-class class to the element.
+///
+/// @param {String} $entity - Entity key to use.
+///
+/// @example scss
+///   $theme-map: (
+///      user: (
+///        'color-primary': #333,
+///        'color-secondary': #069,
+///      ),
+///      admin: (
+///        'color-primary': #f0f,
+///        'color-secondary': #000,
+///      )
+///    );
+///   .foo {
+///     font-size: .9em;
+///
+///     @include theme-single-append('user') {
+///       color: theme-get('color-primary');
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     font-size: .9em;
+///   }
+///   .foo.is-user {
+///     color: #333;
+///   }
+///
+@mixin theme-single-append($entity) {
+  // Update the global helper class
+  $theme-loop-entity: $entity !global;
+
+  @if not & {
+    @error 'No selector found. I need a selector to append the class to.';
+  }
+
+  &.#{$prefix}#{$entity}#{$theme-default-post-class} {
+    @content;
+  }
+}
+
+
+
+/// Creates BEM modifiers for a wrapper element
+///
+/// @param {String} $entity - Modifier key to use.
+///
+/// @example scss
+///   $theme-map: (
+///      user: (
+///        'color-primary': #333,
+///        'color-secondary': #069,
+///      ),
+///      admin: (
+///        'color-primary': #f0f,
+///        'color-secondary': #000,
+///      )
+///    );
+///   .foo {
+///     font-size: .9em;
+///
+///     @include theme-single-modifier('user') {
+///       color: theme-get('color-primary');
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     font-size: .9em;
+///   }
+///   .foo--user {
+///     color: #333;
+///   }
+///
+@mixin theme-single-modifier($entity) {
+  // Update the global helper class
+  $theme-loop-entity: $entity !global;
+
+  // Do we have a parent selector?
+  @if not & {
+    @error 'You can\'t create a modifier without a base.';
+  }
+
+  @at-root {
+    &--#{$entity} {
+      @content;
+    }
+  }
+}
+
+
+
+/// Doesn't create anything, it just gives you the right scope.
+///
+/// @param {String} $entity - Entity key to use.
+///
+/// @example scss
+///   $theme-map: (
+///      user: (
+///        'color-primary': #333,
+///        'color-secondary': #069,
+///      ),
+///      admin: (
+///        'color-primary': #f0f,
+///        'color-secondary': #000,
+///      )
+///    );
+///   .foo {
+///     font-size: .9em;
+///
+///     @include theme-single-custom('user') {
+///       &.#{$theme-loop-entity} {
+///          color: theme-get('color-primary');
+///       }
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     font-size: .9em;
+///   }
+///   .foo.user {
+///     color: #333;
+///   }
+///
+@mixin theme-single-custom($entity) {
+  // Update the global helper class
+  $theme-loop-entity: $entity !global;
+
+  @content;
+}
+
+
+
+/// Creates variations for $theme-map
+///
+/// @param {String} $create - What theme will create for you.
+/// @param {List} $for - List of entities to include
+/// @param {List} $not - Excluded list of entities
+/// @param {Map} $loop - Map to loop through
+///
+/// @example scss
+///   $theme-map: (
+///      user: (
+///        'color-primary': blue,
+///        'border': '1px solid #ff0',
+///      ),
+///      admin: (
+///        'color-primary': pink,
+///        'border': '10px solid black',
+///      )
+///    );
+///
+///   .foo{
+///     background: red;
+///
+///     @include theme($create: parent) {
+///       background: theme-get('color-primary');
+///       border: theme-get('border');
+///     }
+///   }
+///
+///   // Compiles into
+///   .foo {
+///     background: red;
+///   }
+///   .is-user .foo {
+///     color: blue;
+///     border: 1px solid #ff0;
+///   }
+///   .is-admin .foo {
+///     color: pink;
+///     border: 10px solid red;
+///   }
+///
+@mixin theme($loop: $theme-map, $create: $theme-default-create, $for: 'all', $not: ()){
+  $theme-loop-map: $loop !global;
+  $entity-list: theme-filter($for, $not, $loop);
+
+  $creation-modes: parent, insert, modifier, append, custom;
+
+  // Check if valid creation mode
+  @if not index($creation-modes, $create) {
+    @error 'There is no `#{$create}` creation mode in this version of theme.';
+  }
+
+  // Go through all the creation modes
+  @if $create == 'parent' {
+    // Body class
+    @each $entity in $entity-list {
+      @include theme-single-parent($entity) {
+        @content;
+      }
+    }
+  } @elseif $create == 'insert' {
+    // Body class with html parent class
+    @each $entity in $entity-list {
+      @include theme-single-htmlbody($entity) {
+        @content;
+      }
+    }
+  } @elseif $create == 'modifier' {
+    // BEM modifier
+    @each $entity in $entity-list {
+      @include theme-single-modifier($entity) {
+        @content;
+      }
+    }
+  } @elseif $create == 'append' {
+    // Appended class
+    @each $entity in $entity-list {
+      @include theme-single-append($entity) {
+        @content;
+      }
+    }
+  } @else {
+    // Custom
+    @each $entity in $entity-list {
+      @include theme-single-custom($entity) {
+        @content;
+      }
+    }
+  }
+}

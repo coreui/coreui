@@ -137,23 +137,15 @@
 //
 // Styles for switching between navbars with light or dark background.
 
-.#{$prefix}header- {
+.#{$prefix}header-v- {
   @include variant($header-variant-map, $create: append) {
     background: variant-get("header-bg");
     @include borders(variant-get("header-border"));
-
-    .#{$prefix}dark-theme & {
-      @include borders(variant-get("dark-theme-header-border"));
-    }
 
     .#{$prefix}header-brand {
       color: variant-get("header-brand-color");
       background-color: variant-get("header-brand-bg");
       @include borders(variant-get("header-brand-border"));
-
-      .#{$prefix}dark-theme & {
-        @include borders(variant-get("dark-theme-header-border"));
-      }
 
       @include hover-focus {
         color: variant-get("header-brand-hover-color");
@@ -209,6 +201,143 @@
         @include hover-focus {
           color: variant-get("header-active-color");
         }
+      }
+    }
+  }
+}
+
+
+// Dark links against a light background
+.#{$prefix}header-light {
+  background: $header-light-bg;
+  @include borders($header-light-border);
+
+  .#{$prefix}header-brand {
+    color: $header-light-brand-color;
+    background-color: $header-light-brand-bg;
+    @include borders($header-light-brand-border);
+
+    @include hover-focus {
+      color: $header-light-brand-hover-color;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &.#{$prefix}header-brand-minimized {
+        background-color: $header-light-brand-minimized-bg;
+        @include borders($header-light-brand-minimized-border);
+      }
+    }
+  }
+
+  .#{$prefix}header-nav {
+    .#{$prefix}nav-link {
+      color: $header-light-color;
+
+      @include hover-focus {
+        color: $header-light-hover-color;
+      }
+
+      &.disabled {
+        color: $header-light-disabled-color;
+      }
+    }
+
+    .#{$bs-prefix}show > .#{$prefix}nav-link,
+    .active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.#{$bs-prefix}show,
+    .#{$prefix}nav-link.active {
+      color: $header-light-active-color;
+    }
+  }
+
+  .#{$prefix}header-toggler {
+    color: $header-light-color;
+    border-color: $header-light-toggler-border-color;
+  }
+
+  .#{$prefix}header-toggler-icon {
+    background-image: $header-light-toggler-icon-bg;
+
+    &:hover {
+      background-image: $header-light-toggler-hover-icon-bg;
+    }
+  }
+
+  .#{$prefix}header-text {
+    color: $header-light-color;
+    a {
+      color: $header-light-active-color;
+
+      @include hover-focus {
+        color: $header-light-active-color;
+      }
+    }
+  }
+}
+
+// White links against a dark background
+.#{$prefix}header-dark {
+  background: $header-dark-bg;
+  @include borders($header-dark-border);
+
+  .#{$prefix}header-brand {
+    color: $header-dark-brand-color;
+    background-color: $header-dark-brand-bg;
+    @include borders($header-dark-brand-border);
+
+    @include hover-focus {
+      color: $header-dark-brand-hover-color;
+    }
+
+    @include media-breakpoint-up(lg) {
+      &.#{$prefix}header-brand-minimized {
+        background-color: $header-light-brand-minimized-bg;
+        @include borders($header-light-brand-minimized-border);
+      }
+    }
+  }
+
+  .#{$prefix}header-nav {
+    .#{$prefix}nav-link {
+      color: $header-dark-color;
+
+      @include hover-focus {
+        color: $header-dark-hover-color;
+      }
+
+      &.disabled {
+        color: $header-dark-disabled-color;
+      }
+    }
+
+    .#{$bs-prefix}show > .#{$prefix}nav-link,
+    .active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.#{$bs-prefix}show,
+    .#{$prefix}nav-link.active {
+      color: $header-dark-active-color;
+    }
+  }
+
+  .#{$prefix}header-toggler {
+    color: $header-dark-color;
+    border-color: $header-dark-toggler-border-color;
+  }
+
+  .#{$prefix}header-toggler-icon {
+    background-image: $header-dark-toggler-icon-bg;
+
+    &:hover {
+      background-image: $header-dark-toggler-hover-icon-bg;
+    }
+  }
+
+  .#{$prefix}header-text {
+    color: $header-dark-color;
+    a {
+      color: $header-dark-active-color;
+
+      @include hover-focus {
+        color: $header-dark-active-color;
       }
     }
   }

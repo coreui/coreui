@@ -45,11 +45,9 @@
   }
 
   // CoreUI start
-  [class^="icon-"],
-  [class*=" icon-"] {
-    display: inline-block;
-    margin-top: -2px;
-    vertical-align: middle;
+  i,
+  .#{$bs-prefix}btn-icon {
+    min-width: ($btn-font-size * $btn-line-height);
   }
   // CoreUI end
 }
@@ -160,5 +158,21 @@ input[type="button"] {
 @each $color, $value in $theme-colors {
   .#{$prefix}btn-ghost-#{$color} {
     @include button-ghost-variant($value);
+  }
+}
+
+//
+// Brand button
+//
+
+@each $color, $value in $brands-colors {
+  .#{$bs-prefix}btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $brands-colors {
+  .#{$bs-prefix}btn-outline-#{$color} {
+    @include button-outline-variant($value);
   }
 }

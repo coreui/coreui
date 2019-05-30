@@ -25,14 +25,20 @@
   padding: $dropdown-padding-y 0;
   margin: $dropdown-spacer 0 0; // override default ul
   @include font-size($dropdown-font-size);
-  color: $dropdown-color;
+  // color: $dropdown-color;
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   list-style: none;
-  background-color: $dropdown-bg;
+  // background-color: $dropdown-bg;
   background-clip: padding-box;
-  border: $dropdown-border-width solid $dropdown-border-color;
+  border: $dropdown-border-width solid;
   @include border-radius($dropdown-border-radius);
   @include box-shadow($dropdown-box-shadow);
+
+  @include theme($dropdown-theme-map, $create: parent) {
+    color: theme-get('dropdown-color');
+    background-color: theme-get('dropdown-bg');
+    border-color: theme-get('dropdown-border-color');
+	}
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -114,7 +120,9 @@
 
 // Dividers (basically an `<hr>`) within the dropdown
 .#{$bs-prefix}dropdown-divider {
-  @include nav-divider($dropdown-divider-bg, $dropdown-divider-margin-y);
+  @include theme($dropdown-theme-map, $create: parent) {
+    @include nav-divider(theme-get('dropdown-divider-bg'), $dropdown-divider-margin-y);
+  }
 }
 
 // Links, buttons, and more within the dropdown menu
@@ -126,11 +134,15 @@
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   clear: both;
   font-weight: $font-weight-normal;
-  color: $dropdown-link-color;
+  // color: $dropdown-link-color;
   text-align: inherit; // For `<button>`s
   white-space: nowrap; // prevent links from randomly breaking onto new lines
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
+
+  @include theme($dropdown-theme-map, $create: parent) {
+    color: theme-get('dropdown-link-color');
+	}
 
   // Prevent dropdown overflow if there's no padding
   // See https://github.com/twbs/bootstrap/pull/27703
@@ -145,26 +157,40 @@
   }
 
   @include hover-focus {
-    color: $dropdown-link-hover-color;
+    // color: $dropdown-link-hover-color;
     text-decoration: none;
-    @include gradient-bg($dropdown-link-hover-bg);
+    // @include gradient-bg($dropdown-link-hover-bg);
+
+    @include theme($dropdown-theme-map, $create: parent) {
+      color: theme-get('dropdown-link-hover-color');
+      @include gradient-bg(theme-get('dropdown-link-hover-bg'));
+    }
   }
 
   &.active,
   &:active {
-    color: $dropdown-link-active-color;
+    // color: $dropdown-link-active-color;
     text-decoration: none;
-    @include gradient-bg($dropdown-link-active-bg);
+    // @include gradient-bg($dropdown-link-active-bg);
+
+    @include theme($dropdown-theme-map, $create: parent) {
+      color: theme-get('dropdown-link-active-color');
+      @include gradient-bg(theme-get('dropdown-link-active-bg'));
+    }
   }
 
   &.disabled,
   &:disabled {
-    color: $dropdown-link-disabled-color;
+    // color: $dropdown-link-disabled-color;
     pointer-events: none;
     background-color: transparent;
     // Remove CSS gradients if they're enabled
     @if $enable-gradients {
       background-image: none;
+    }
+
+    @include theme($dropdown-theme-map, $create: parent) {
+      color: theme-get('dropdown-link-disabled-color');
     }
   }
 }
@@ -179,13 +205,20 @@
   padding: $dropdown-padding-y $dropdown-item-padding-x;
   margin-bottom: 0; // for use with heading elements
   @include font-size($font-size-sm);
-  color: $dropdown-header-color;
+  // color: $dropdown-header-color;
   white-space: nowrap; // as with > li > a
+  @include theme($dropdown-theme-map, $create: parent) {
+    color: theme-get('dropdown-header-color');
+  }
 }
 
 // Dropdown text
 .#{$bs-prefix}dropdown-item-text {
   display: block;
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
-  color: $dropdown-link-color;
+  // color: $dropdown-link-color;
+
+  @include theme($dropdown-theme-map, $create: parent) {
+    color: theme-get('dropdown-link-color');
+	}
 }

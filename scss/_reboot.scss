@@ -49,9 +49,13 @@ body {
   @include font-size($font-size-base);
   font-weight: $font-weight-base;
   line-height: $line-height-base;
-  color: $body-color;
+  // color: $body-color;
   text-align: left; // 3
-  background-color: $body-bg; // 2
+  // background-color: $body-bg; // 2
+  @include theme($body-theme-map, $create: append) {
+    color: theme-get("body-color");
+    background-color: theme-get("body-bg");
+  }
 }
 
 // Suppress the focus outline on elements that cannot be accessed via keyboard.
