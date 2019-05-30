@@ -845,6 +845,9 @@
         background-image: $sidebar-dark-minimizer-hover-indicator;
       }
     }
+    @include media-breakpoint-down(xs) {
+      display: none;
+    }
   }
   &.#{$prefix}sidebar-minimized {
     background-color: darken($sidebar-dark-bg, 5%);
