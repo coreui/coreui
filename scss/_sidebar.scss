@@ -73,6 +73,7 @@
   .#{$prefix}nav:not(.#{$prefix}nav-tabs) {
     flex-direction: column;
     min-height: 100%;
+    width: 100%;
   }
 
   .#{$prefix}nav-title {
@@ -87,7 +88,9 @@
     height: 10px;
     transition: height $layout-transition-speed;
   }
-
+  .#{$prefix}nav-item {
+    width: inherit;
+  }
   .#{$prefix}nav-link {
     display: flex;
     flex: 1;
@@ -1094,7 +1097,6 @@
     }
   }
   &.#{$prefix}sidebar-minimized {
-    background-color: darken($sidebar-light-bg, 5%);
 
     .#{$prefix}nav-item {
 
