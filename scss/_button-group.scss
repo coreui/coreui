@@ -43,14 +43,28 @@
   }
 
   // Reset rounded corners
-  > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
-  > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
+  html:not([dir="rtl"]) & > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
+  html:not([dir="rtl"]) & > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
     @include border-right-radius(0);
   }
 
-  > .#{$bs-prefix}btn:not(:first-child),
-  > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
+  html:not([dir="rtl"]) & > .#{$bs-prefix}btn:not(:first-child),
+  html:not([dir="rtl"]) & > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
     @include border-left-radius(0);
+  }
+
+  @if $enable-rtl {
+    *[dir="rtl"] & {
+      > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
+      > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
+        @include border-left-radius(0);
+      }
+
+      > .#{$bs-prefix}btn:not(:first-child),
+      > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
+        @include border-right-radius(0);
+      }
+    }
   }
 }
 
