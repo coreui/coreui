@@ -4,8 +4,7 @@
   flex-direction: row;
   height: $header-height;
 
-  &.#{$prefix}header-dark[class*="bg-"],
-  &.#{$prefix}header-light[class*="bg-"]  {
+  &[class*="bg-"]  {
     border-color: rgba($black, .1);
   }
 

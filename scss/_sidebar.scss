@@ -17,9 +17,7 @@
     margin-right: - $sidebar-width;
   }
 
-  // TODO: refactor
-  &.#{$prefix}sidebar-dark[class*="bg-"],
-  &.#{$prefix}sidebar-light[class*="bg-"]  {
+  &[class*="bg-"]  {
     border-color: rgba($black, .1);
   }
 
@@ -660,14 +658,23 @@
   @include variant($sidebar-variant-map, $create: append) {
     color: variant-get("sidebar-color");
     background: variant-get("sidebar-bg");
-    @include borders(variant-get("sidebar-borders"));
+
+    @if $default-theme == "dark" {
+      @include borders(variant-get("dark-theme-sidebar-borders"));
+    } @else {
+      @include borders(variant-get("sidebar-borders"));
+    }
 
     .#{$prefix}dark-theme & {
       @include borders(variant-get("dark-theme-sidebar-borders"));
     }
 
     html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-      @include borders(variant-get("sidebar-borders"),true);
+      @if $default-theme == "dark" {
+        @include borders(variant-get("dark-theme-sidebar-borders"),true);
+      } @else {
+        @include borders(variant-get("sidebar-borders"),true);
+      }
     }
 
     html:not([dir="rtl"]) .#{$prefix}dark-theme &.#{$prefix}sidebar-right {
@@ -675,10 +682,18 @@
     }
 
     *[dir="rtl"] & {
-      @include borders(variant-get("sidebar-borders"),true);
+      @if $default-theme == "dark" {
+        @include borders(variant-get("dark-theme-sidebar-borders"),true);
+      } @else {
+        @include borders(variant-get("sidebar-borders"),true);
+      }
       &.#{$prefix}sidebar-right {
         border: 0;
-        @include borders(variant-get("sidebar-borders"));
+        @if $default-theme == "dark" {
+          @include borders(variant-get("dark-theme-sidebar-borders"));
+        } @else {
+          @include borders(variant-get("sidebar-borders"));
+        }
       }
     }
     *[dir="rtl"] .#{$prefix}dark-theme & {
