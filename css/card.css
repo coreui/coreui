@@ -5,10 +5,19 @@
   min-width: 0;
   margin-bottom: 1.5rem;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: border-box;
-  border: 1px solid #c8ced3;
+  border: 1px solid;
   border-radius: 0.25rem;
+}
+
+.c-default-theme .c-card {
+  background-color: #fff;
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-card {
+  background-color: #3a4248;
+  border-color: #23282c;
 }
 
 .c-card > hr {
@@ -108,6 +117,14 @@
   padding: 1.25rem;
 }
 
+.c-default-theme .c-card-body {
+  color: "null";
+}
+
+.c-dark-theme .c-card-body {
+  color: "null";
+}
+
 .c-card-title {
   margin-bottom: 0.75rem;
 }
@@ -132,8 +149,19 @@
 .c-card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
+  border-bottom: 1px solid;
+}
+
+.c-default-theme .c-card-header {
+  color: "null";
   background-color: #f0f3f5;
-  border-bottom: 1px solid #c8ced3;
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-card-header {
+  color: "null";
+  background-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-card-header:first-child {
@@ -146,8 +174,19 @@
 
 .c-card-footer {
   padding: 0.75rem 1.25rem;
+  border-top: 1px solid;
+}
+
+.c-default-theme .c-card-footer {
+  color: "null";
   background-color: #f0f3f5;
-  border-top: 1px solid #c8ced3;
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-card-footer {
+  color: "null";
+  background-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-card-footer:last-child {
@@ -188,6 +227,38 @@
 
 .c-card-img-bottom {
   width: 100%;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+[class^="c-card-icon-"] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 6rem;
+}
+
+[class^="c-card-icon-"] .c-card-icon {
+  font-size: 2rem;
+  color: #fff;
+}
+
+[class^="c-card-icon-"] .c-chart-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c-card-icon-top {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.c-card-icon-bottom {
   border-bottom-right-radius: calc(0.25rem - 1px);
   border-bottom-left-radius: calc(0.25rem - 1px);
 }
@@ -282,6 +353,7 @@
 }
 
 .c-accordion > .c-card {
+  margin-bottom: 0;
   overflow: hidden;
 }
 
@@ -353,7 +425,15 @@
   color: #23282c;
   text-align: center;
   background: transparent;
-  border-right: 1px solid #c8ced3;
+  border-right: 1px solid;
+}
+
+.c-default-theme .c-card-header-icon-bg {
+  border-right: #c8ced3;
+}
+
+.c-dark-theme .c-card-header-icon-bg {
+  border-right: #23282c;
 }
 
 .c-card-header-actions {

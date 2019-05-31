@@ -1,9 +1,14 @@
 .#{$bs-prefix}jumbotron {
   padding: $jumbotron-padding ($jumbotron-padding / 2);
   margin-bottom: $jumbotron-padding;
-  color: $jumbotron-color;
-  background-color: $jumbotron-bg;
+  // color: $jumbotron-color;
+  // background-color: $jumbotron-bg;
   @include border-radius($border-radius-lg);
+
+  @include theme($jumbotron-theme-map, $create: parent) {
+    color: theme-get("jumbotron-color");
+    background-color: theme-get("jumbotron-bg");
+  }
 
   @include media-breakpoint-up(sm) {
     padding: ($jumbotron-padding * 2) $jumbotron-padding;

@@ -235,14 +235,17 @@ $sizes: map-merge(
 $body-bg:                   #e4e5e6 !default; // was: $white
 $body-color:                $gray-900 !default;
 
+$body-dark-bg:              $gray-800 !default;
+$body-dark-color:           $gray-200 !default;
+
 $body-theme-map: (
   default: (
     "body-bg":  #e4e5e6,
     "body-color": $gray-900
   ),
   dark: (
-    "body-bg":  $gray-800,
-    "body-color": $gray-200
+    "body-bg":  $body-dark-bg,
+    "body-color": $body-dark-color
   )
 ) !default;
 
@@ -474,15 +477,15 @@ $table-theme-map: (
     "table-head-color":   $gray-700
   ),
   dark: (
-    "table-color":        $gray-900,
+    "table-color":        $body-dark-color,
     "table-bg":           transparent,
-    "table-accent-bg":    rgba($black, .05),
-    "table-hover-color":  $gray-900,
-    "table-hover-bg":     rgba($black, .075),
-    "table-active-bg":    rgba($black, .075),
-    "table-border-color": $border-color,
-    "table-head-bg":      $gray-200,
-    "table-head-color":   $gray-700
+    "table-accent-bg":    rgba($white, .05),
+    "table-hover-color":  $body-dark-color,
+    "table-hover-bg":     rgba($white, .075),
+    "table-active-bg":    rgba($white, .075),
+    "table-border-color": $gray-900,
+    "table-head-bg":      $gray-800,
+    "table-head-color":   $body-dark-color,
   )
 ) !default;
 
@@ -752,6 +755,36 @@ $custom-file-text: (
   en: "Browse"
 ) !default;
 
+$form-theme-map: (
+  default: (
+    "input-bg":                              $white,
+    "input-disabled-bg":                     $gray-200,
+    "input-color":                           $gray-700,
+    "input-border-color":                    $gray-200,
+    "input-focus-bg":                        $input-bg,
+    "input-focus-border-color":              lighten($component-active-bg, 25%),
+    "input-focus-color":                     $input-color,
+    "input-placeholder-color":               $gray-600,
+    "input-plaintext-color":                 $body-color,
+    "input-group-addon-color":               $input-color,
+    "input-group-addon-bg":                  $gray-100,
+    "input-group-addon-border-color":        $input-border-color
+  ),
+  dark: (
+    "input-bg":                              $gray-700,
+    "input-disabled-bg":                     $gray-900,
+    "input-color":                           $gray-100,
+    "input-border-color":                    $gray-900,
+    "input-focus-bg":                        $gray-700,
+    "input-focus-border-color":              lighten($component-active-bg, 25%),
+    "input-focus-color":                     $gray-100,
+    "input-placeholder-color":               $gray-500,
+    "input-plaintext-color":                 $body-dark-color,
+    "input-group-addon-color":               $gray-100,
+    "input-group-addon-bg":                  $gray-800,
+    "input-group-addon-border-color":        $gray-900
+  )
+) !default;
 
 // Form validation
 
@@ -815,6 +848,31 @@ $nav-pills-link-active-bg:          $component-active-bg !default;
 
 $nav-divider-color:                 $gray-200 !default;
 $nav-divider-margin-y:              $spacer / 2 !default;
+
+$nav-theme-map: (
+  default: (
+    "nav-link-disabled-color":           $gray-600,
+    "nav-tabs-border-color":             $gray-300,
+    "nav-tabs-link-hover-border-color":  $gray-200 $gray-200 $nav-tabs-border-color,
+    "nav-tabs-link-active-color":        $gray-700,
+    "nav-tabs-link-active-bg":           $body-bg,
+    "nav-tabs-link-active-border-color": $gray-300 $gray-300 $nav-tabs-link-active-bg,
+    "nav-pills-link-active-color":       $component-active-color,
+    "nav-pills-link-active-bg":          $component-active-bg,
+    "nav-divider-color":                 $gray-200
+  ),
+  dark: (
+    "nav-link-disabled-color":           $gray-900,
+    "nav-tabs-border-color":             $gray-900,
+    "nav-tabs-link-hover-border-color":  $gray-900 $gray-900 $gray-900,
+    "nav-tabs-link-active-color":        $body-dark-color,
+    "nav-tabs-link-active-bg":           $gray-800,
+    "nav-tabs-link-active-border-color": $gray-900 $gray-900 $gray-800,
+    "nav-pills-link-active-color":       $component-active-color,
+    "nav-pills-link-active-bg":          $component-active-bg,
+    "nav-divider-color":                 $gray-200
+  )
+) !default;
 
 
 // Navbar
@@ -1368,6 +1426,41 @@ $pagination-disabled-color:         $gray-600 !default;
 $pagination-disabled-bg:            $white !default;
 $pagination-disabled-border-color:  $gray-300 !default;
 
+$pagination-theme-map: (
+  default: (
+    "pagination-color":                  $link-color,
+    "pagination-bg":                     $white,
+    "pagination-border-color":           $gray-300,
+    "pagination-focus-box-shadow":       $input-btn-focus-box-shadow,
+    "pagination-focus-outline":          0,
+    "pagination-hover-color":            $link-hover-color,
+    "pagination-hover-bg":               $gray-200,
+    "pagination-hover-border-color":     $gray-300,
+    "pagination-active-color":           $component-active-color,
+    "pagination-active-bg":              $component-active-bg,
+    "pagination-active-border-color":    $pagination-active-bg,
+    "pagination-disabled-color":         $gray-600,
+    "pagination-disabled-bg":            $white,
+    "pagination-disabled-border-color":  $gray-300
+  ),
+  dark: (
+    "pagination-color":                  $link-color,
+    "pagination-bg":                     $gray-800,
+    "pagination-border-color":           $gray-900,
+    "pagination-focus-box-shadow":       $input-btn-focus-box-shadow,
+    "pagination-focus-outline":          0,
+    "pagination-hover-color":            $link-hover-color,
+    "pagination-hover-bg":               $gray-900,
+    "pagination-hover-border-color":     $gray-900,
+    "pagination-active-color":           $component-active-color,
+    "pagination-active-bg":              $component-active-bg,
+    "pagination-active-border-color":    $pagination-active-bg,
+    "pagination-disabled-color":         $gray-600,
+    "pagination-disabled-bg":            $gray-900,
+    "pagination-disabled-border-color":  $gray-900
+  )
+) !default;
+
 
 //
 // Cards
@@ -1421,6 +1514,17 @@ $card-theme-map: (
 $jumbotron-padding:                 2rem !default;
 $jumbotron-color:                   null !default;
 $jumbotron-bg:                      $gray-200 !default;
+
+$jumbotron-theme-map: (
+  default: (
+    "jumbotron-color":                   0,
+    "jumbotron-bg":                      $gray-200
+  ),
+  dark: (
+    "jumbotron-color":                   0,
+    "jumbotron-bg":                      $gray-900
+  )
+) !default;
 
 
 // Tooltips
@@ -1614,6 +1718,38 @@ $list-group-action-hover-color:     $list-group-action-color !default;
 $list-group-action-active-color:    $body-color !default;
 $list-group-action-active-bg:       $gray-200 !default;
 
+$list-group-theme-map: (
+  default: (
+    "list-group-color":                  0,
+    "list-group-bg":                     $white,
+    "list-group-border-color":           rgba($black, .125),
+    "list-group-hover-bg":               $gray-100,
+    "list-group-active-color":           $component-active-color,
+    "list-group-active-bg":              $component-active-bg,
+    "list-group-active-border-color":    $list-group-active-bg,
+    "list-group-disabled-color":         $gray-600,
+    "list-group-disabled-bg":            $list-group-bg,
+    "list-group-action-color":           $gray-700,
+    "list-group-action-hover-color":     $list-group-action-color,
+    "list-group-action-active-color":    $body-color,
+    "list-group-action-active-bg":       $gray-200
+  ),
+  dark: (
+    "list-group-color":                  $body-dark-color,
+    "list-group-bg":                     lighten($gray-800, 5%),
+    "list-group-border-color":           $gray-900,
+    "list-group-hover-bg":               $gray-800,
+    "list-group-active-color":           $component-active-color,
+    "list-group-active-bg":              $component-active-bg,
+    "list-group-active-border-color":    $list-group-active-bg,
+    "list-group-disabled-color":         $gray-600,
+    "list-group-disabled-bg":            $gray-800,
+    "list-group-action-color":           $body-dark-color,
+    "list-group-action-hover-color":     $body-dark-color,
+    "list-group-action-active-color":    $body-dark-color,
+    "list-group-action-active-bg":       $gray-200
+  )
+) !default;
 
 // Image thumbnails
 

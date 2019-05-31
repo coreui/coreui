@@ -736,11 +736,12 @@
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
+  var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var ClassName = {
     ACTIVE: 'active',
-    NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-    NAV_PILLS: 'c-nav-pills',
-    NAV_TABS: 'c-nav-tabs',
+    NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
+    NAV_PILLS: PREFIX + "nav-pills",
+    NAV_TABS: PREFIX + "nav-tabs",
     OPEN: 'open',
     VIEW_SCRIPT: 'view-script'
   };
@@ -751,10 +752,10 @@
   };
   var Selector = {
     HEAD: 'head',
-    NAV_DROPDOWN: '.c-nav .c-nav-dropdown',
-    NAV_LINK: '.c-dropdown-nav-link, .c-nav .c-nav-link',
-    NAV_ITEM: '.c-nav .c-nav-item',
-    SIDEBAT_NAV: '.c-sidebar-nav, .c-sidebar-nav',
+    NAV_DROPDOWN: "." + PREFIX + "nav ." + PREFIX + "nav-dropdown",
+    NAV_LINK: "." + PREFIX + "dropdown-nav-link, ." + PREFIX + "nav ." + PREFIX + "nav-link",
+    NAV_ITEM: "." + PREFIX + "nav ." + PREFIX + "nav-item",
+    SIDEBAT_NAV: "." + PREFIX + "sidebar-nav, ." + PREFIX + "sidebar-nav",
     VIEW_SCRIPT: '.view-script'
   };
   var Default = {
@@ -1106,6 +1107,7 @@
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
+  var PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Selector$1 = {
     DISMISS: '[data-dismiss="alert"]'
   };
@@ -1115,9 +1117,9 @@
     CLICK_DATA_API: "click" + EVENT_KEY$1 + DATA_API_KEY$1
   };
   var ClassName$1 = {
-    ALERT: 'c-alert',
-    FADE: 'c-fade',
-    SHOW: 'c-show'
+    ALERT: PREFIX$1 + "alert",
+    FADE: PREFIX$1 + "fade",
+    SHOW: PREFIX$1 + "show"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -1283,9 +1285,10 @@
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
+  var PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var ClassName$2 = {
     ACTIVE: 'active',
-    BUTTON: 'c-btn',
+    BUTTON: PREFIX$2 + "btn",
     FOCUS: 'focus'
   };
   var Selector$2 = {
@@ -1293,7 +1296,7 @@
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
     ACTIVE: '.active',
-    BUTTON: '.c-btn'
+    BUTTON: "." + PREFIX$2 + "btn"
   };
   var Event$3 = {
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2,
@@ -1550,6 +1553,7 @@
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
   var SWIPE_THRESHOLD = 40;
+  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$1 = {
     interval: 5000,
     keyboard: true,
@@ -1588,23 +1592,23 @@
     CLICK_DATA_API: "click" + EVENT_KEY$3 + DATA_API_KEY$3
   };
   var ClassName$3 = {
-    CAROUSEL: 'c-carousel',
+    CAROUSEL: PREFIX$3 + "carousel",
     ACTIVE: 'active',
     SLIDE: 'slide',
-    RIGHT: 'c-carousel-item-right',
-    LEFT: 'c-carousel-item-left',
-    NEXT: 'c-carousel-item-next',
-    PREV: 'c-carousel-item-prev',
-    ITEM: 'c-carousel-item',
-    POINTER_EVENT: 'c-pointer-event'
+    RIGHT: PREFIX$3 + "carousel-item-right",
+    LEFT: PREFIX$3 + "carousel-item-left",
+    NEXT: PREFIX$3 + "carousel-item-next",
+    PREV: PREFIX$3 + "carousel-item-prev",
+    ITEM: PREFIX$3 + "carousel-item",
+    POINTER_EVENT: PREFIX$3 + "pointer-event"
   };
   var Selector$3 = {
     ACTIVE: '.active',
-    ACTIVE_ITEM: '.active.c-carousel-item',
-    ITEM: '.c-carousel-item',
-    ITEM_IMG: '.c-carousel-item img',
-    NEXT_PREV: '.c-carousel-item-next, .c-carousel-item-prev',
-    INDICATORS: '.c-carousel-indicators',
+    ACTIVE_ITEM: ".active." + PREFIX$3 + "carousel-item",
+    ITEM: "." + PREFIX$3 + "carousel-item",
+    ITEM_IMG: "." + PREFIX$3 + "carousel-item img",
+    NEXT_PREV: "." + PREFIX$3 + "carousel-item-next, ." + PREFIX$3 + "carousel-item-prev",
+    INDICATORS: "." + PREFIX$3 + "carousel-indicators",
     DATA_SLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
@@ -2166,6 +2170,7 @@
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
+  var PREFIX$4 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$2 = {
     breakpoints: '-sm,-md,-lg,-xl',
     postfix: '-show',
@@ -2173,14 +2178,14 @@
     target: 'body'
   };
   var ClassName$4 = {
-    CLASS_TOGGLER: 'c-class-toggler'
+    CLASS_TOGGLER: PREFIX$4 + "class-toggler"
   };
   var Event$5 = {
     CLASS_TOGGLE: 'classtoggle',
     CLICK_DATA_API: "click" + EVENT_KEY$4 + DATA_API_KEY$4
   };
   var Selector$4 = {
-    CLASS_TOGGLER: '.c-class-toggler'
+    CLASS_TOGGLER: "." + PREFIX$4 + "class-toggler"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -2421,7 +2426,7 @@
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .c-class-toggler to jQuery only if jQuery is present
+   * add .${PREFIX}class-toggler to jQuery only if jQuery is present
    */
 
   if (typeof jQuery !== 'undefined') {
@@ -2446,6 +2451,7 @@
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
+  var PREFIX$5 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$3 = {
     toggle: true,
     parent: ''
@@ -2463,17 +2469,17 @@
   };
   var ClassName$5 = {
     SHOW: 'show',
-    COLLAPSE: 'c-collapse',
-    COLLAPSING: 'c-collapsing',
-    COLLAPSED: 'c-collapsed'
+    COLLAPSE: PREFIX$5 + "collapse",
+    COLLAPSING: PREFIX$5 + "collapsing",
+    COLLAPSED: PREFIX$5 + "collapsed"
   };
   var Dimension = {
     WIDTH: 'width',
     HEIGHT: 'height'
   };
   var Selector$5 = {
-    ACTIVES: '.c-show, .c-collapsing',
-    DATA_TOGGLE: '[data-toggle="c-collapse"]'
+    ACTIVES: "." + PREFIX$5 + "show, ." + PREFIX$5 + "collapsing",
+    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$5 + "collapse\"]"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -2859,7 +2865,7 @@
 
   /**!
    * @fileOverview Kickass library to create and place poppers near their reference elements.
-   * @version 1.15.0
+   * @version 1.14.7
    * @license
    * Copyright (c) 2016 Federico Zivolo and contributors
    *
@@ -4463,14 +4469,7 @@
 
       // flip the variation if required
       var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
-
-      // flips variation if reference element overflows boundaries
-      var flippedVariationByRef = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
-
-      // flips variation if popper content overflows boundaries
-      var flippedVariationByContent = !!options.flipVariationsByContent && (isVertical && variation === 'start' && overflowsRight || isVertical && variation === 'end' && overflowsLeft || !isVertical && variation === 'start' && overflowsBottom || !isVertical && variation === 'end' && overflowsTop);
-
-      var flippedVariation = flippedVariationByRef || flippedVariationByContent;
+      var flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
 
       if (overlapsRef || overflowsBoundaries || flippedVariation) {
         // this boolean to detect any flip loop
@@ -5077,23 +5076,7 @@
        * The popper will never be placed outside of the defined boundaries
        * (except if `keepTogether` is enabled)
        */
-      boundariesElement: 'viewport',
-      /**
-       * @prop {Boolean} flipVariations=false
-       * The popper will switch placement variation between `-start` and `-end` when
-       * the reference element overlaps its boundaries.
-       *
-       * The original placement should have a set variation.
-       */
-      flipVariations: false,
-      /**
-       * @prop {Boolean} flipVariationsByContent=false
-       * The popper will switch placement variation between `-start` and `-end` when
-       * the popper element overlaps its reference boundaries.
-       *
-       * The original placement should have a set variation.
-       */
-      flipVariationsByContent: false
+      boundariesElement: 'viewport'
     },
 
     /**
@@ -5310,8 +5293,8 @@
     /**
      * Creates a new Popper.js instance.
      * @class Popper
-     * @param {Element|referenceObject} reference - The reference element used to position the popper
-     * @param {Element} popper - The HTML / XML element used as the popper
+     * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
+     * @param {HTMLElement} popper - The HTML element used as the popper
      * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
      * @return {Object} instance - The generated Popper.js instance
      */
@@ -5483,6 +5466,7 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+  var PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Event$7 = {
     HIDE: "hide" + EVENT_KEY$6,
     HIDDEN: "hidden" + EVENT_KEY$6,
@@ -5495,19 +5479,19 @@
   };
   var ClassName$6 = {
     DISABLED: 'disabled',
-    SHOW: 'c-show',
-    DROPUP: 'c-dropup',
-    DROPRIGHT: 'c-dropright',
-    DROPLEFT: 'c-dropleft',
-    MENURIGHT: 'c-dropdown-menu-right',
+    SHOW: PREFIX$6 + "show",
+    DROPUP: PREFIX$6 + "dropup",
+    DROPRIGHT: PREFIX$6 + "dropright",
+    DROPLEFT: PREFIX$6 + "dropleft",
+    MENURIGHT: PREFIX$6 + "dropdown-menu-right",
     POSITION_STATIC: 'position-static'
   };
   var Selector$6 = {
-    DATA_TOGGLE: '[data-toggle="c-dropdown"]',
-    FORM_CHILD: '.c-dropdown form',
-    MENU: '.c-dropdown-menu',
-    NAVBAR_NAV: '.c-navbar-nav',
-    VISIBLE_ITEMS: '.c-dropdown-menu .c-dropdown-item:not(.disabled):not(:disabled)'
+    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$6 + "dropdown\"]",
+    FORM_CHILD: "." + PREFIX$6 + "dropdown form",
+    MENU: "." + PREFIX$6 + "dropdown-menu",
+    NAVBAR_NAV: "." + PREFIX$6 + "navbar-nav",
+    VISIBLE_ITEMS: "." + PREFIX$6 + "dropdown-menu ." + PREFIX$6 + "dropdown-item:not(.disabled):not(:disabled)"
   };
   var AttachmentMap = {
     TOP: 'top-start',
@@ -6015,6 +5999,7 @@
   var DATA_API_KEY$7 = '.data-api';
   var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
 
+  var PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$5 = {
     backdrop: true,
     keyboard: true,
@@ -6041,20 +6026,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$7 + DATA_API_KEY$7
   };
   var ClassName$7 = {
-    SCROLLABLE: 'c-modal-dialog-scrollable',
-    SCROLLBAR_MEASURER: 'c-modal-scrollbar-measure',
-    BACKDROP: 'c-modal-backdrop',
-    OPEN: 'c-modal-open',
-    FADE: 'c-fade',
-    SHOW: 'c-show'
+    SCROLLABLE: PREFIX$7 + "modal-dialog-scrollable",
+    SCROLLBAR_MEASURER: PREFIX$7 + "modal-scrollbar-measure",
+    BACKDROP: PREFIX$7 + "modal-backdrop",
+    OPEN: PREFIX$7 + "modal-open",
+    FADE: PREFIX$7 + "fade",
+    SHOW: PREFIX$7 + "show"
   };
   var Selector$7 = {
-    DIALOG: '.c-modal-dialog',
-    MODAL_BODY: '.c-modal-body',
-    DATA_TOGGLE: '[data-toggle="c-modal"]',
-    DATA_DISMISS: '[data-dismiss="c-modal"]',
-    FIXED_CONTENT: '.c-fixed-top, .c-fixed-bottom, .c-is-fixed, .c-sticky-top',
-    STICKY_CONTENT: '.c-sticky-top'
+    DIALOG: "." + PREFIX$7 + "modal-dialog",
+    MODAL_BODY: "." + PREFIX$7 + "modal-body",
+    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$7 + "modal\"]",
+    DATA_DISMISS: "[data-dismiss=\"" + PREFIX$7 + "modal\"]",
+    FIXED_CONTENT: "." + PREFIX$7 + "fixed-top, ." + PREFIX$7 + "fixed-bottom, ." + PREFIX$7 + "is-fixed, ." + PREFIX$7 + "sticky-top",
+    STICKY_CONTENT: "." + PREFIX$7 + "sticky-top"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -6738,7 +6723,8 @@
   var VERSION$8 = '4.3.1';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
-  var CLASS_PREFIX = 'c-bs-tooltip';
+  var PREFIX$8 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var CLASS_PREFIX = PREFIX$8 + "bs-tooltip";
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType$4 = {
@@ -6767,7 +6753,7 @@
   };
   var Default$6 = {
     animation: true,
-    template: '<div class="c-tooltip" role="tooltip">' + '<div class="c-tooltip-arrow"></div>' + '<div class="c-tooltip-inner"></div></div>',
+    template: "<div class=\"" + PREFIX$8 + "tooltip\" role=\"tooltip\">\n               <div class=\"" + PREFIX$8 + "tooltip-arrow\"></div>\n               <div class=\"" + PREFIX$8 + "tooltip-inner\"></div>\n             </div>",
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -6799,12 +6785,12 @@
     MOUSELEAVE: "mouseleave" + EVENT_KEY$8
   };
   var ClassName$8 = {
-    FADE: 'c-fade',
-    SHOW: 'c-show'
+    FADE: PREFIX$8 + "fade",
+    SHOW: PREFIX$8 + "show"
   };
   var Selector$8 = {
-    TOOLTIP_INNER: '.c-tooltip-inner',
-    TOOLTIP_ARROW: '.c-tooltip-arrow'
+    TOOLTIP_INNER: "." + PREFIX$8 + "tooltip-inner",
+    TOOLTIP_ARROW: "." + PREFIX$8 + "tooltip-arrow"
   };
   var Trigger = {
     HOVER: 'hover',
@@ -7491,14 +7477,15 @@
   var VERSION$9 = '4.3.1';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
-  var CLASS_PREFIX$1 = 'c-bs-popover';
+  var PREFIX$9 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var CLASS_PREFIX$1 = PREFIX$9 + "bs-popover";
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
   var Default$7 = _objectSpread({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="c-popover" role="tooltip">' + '<div class="c-popover-arrow"></div>' + '<h3 class="c-popover-header"></h3>' + '<div class="c-popover-body"></div></div>'
+    template: "<div class=\"" + PREFIX$9 + "popover\" role=\"tooltip\">\n               <div class=\"" + PREFIX$9 + "popover-arrow\"></div>\n               <h3 class=\"" + PREFIX$9 + "popover-header\"></h3>\n               <div class=\"" + PREFIX$9 + "popover-body\"></div>\n             </div>"
   });
 
   var DefaultType$5 = _objectSpread({}, Tooltip.DefaultType, {
@@ -7506,12 +7493,12 @@
   });
 
   var ClassName$9 = {
-    FADE: 'c-fade',
-    SHOW: 'c-show'
+    FADE: PREFIX$9 + "fade",
+    SHOW: PREFIX$9 + "show"
   };
   var Selector$9 = {
-    TITLE: '.c-popover-header',
-    CONTENT: '.c-popover-body'
+    TITLE: "." + PREFIX$9 + "popover-header",
+    CONTENT: "." + PREFIX$9 + "popover-body"
   };
   var Event$a = {
     HIDE: "hide" + EVENT_KEY$9,
@@ -7685,6 +7672,7 @@
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
+  var PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$8 = {
     offset: 10,
     method: 'auto',
@@ -7701,17 +7689,17 @@
     LOAD_DATA_API: "load" + EVENT_KEY$a + DATA_API_KEY$8
   };
   var ClassName$a = {
-    DROPDOWN_ITEM: 'c-dropdown-item',
+    DROPDOWN_ITEM: PREFIX$a + "dropdown-item",
     ACTIVE: 'active'
   };
   var Selector$a = {
-    DATA_SPY: '[data-spy="c-scroll"]',
-    NAV_LIST_GROUP: '.c-nav, .c-list-group',
-    NAV_LINKS: '.c-nav-link',
-    NAV_ITEMS: '.c-nav-item',
-    LIST_ITEMS: '.c-list-group-item',
-    DROPDOWN: '.c-dropdown',
-    DROPDOWN_TOGGLE: '.c-dropdown-toggle'
+    DATA_SPY: "[data-spy=\"" + PREFIX$a + "scroll\"]",
+    NAV_LIST_GROUP: "." + PREFIX$a + "nav, ." + PREFIX$a + "list-group",
+    NAV_LINKS: "." + PREFIX$a + "nav-link",
+    NAV_ITEMS: "." + PREFIX$a + "nav-item",
+    LIST_ITEMS: "." + PREFIX$a + "list-group-item",
+    DROPDOWN: "." + PREFIX$a + "dropdown",
+    DROPDOWN_TOGGLE: "." + PREFIX$a + "dropdown-toggle"
   };
   var OffsetMethod = {
     OFFSET: 'offset',
@@ -9387,15 +9375,16 @@
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
+  var PREFIX$b = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$9 = {
     transition: 400
   };
   var ClassName$b = {
     ACTIVE: 'active',
-    NAV_DROPDOWN_TOGGLE: 'c-nav-dropdown-toggle',
-    OPEN: 'c-open',
-    SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
-    SIDEBAR_SHOW: 'c-sidebar-show'
+    NAV_DROPDOWN_TOGGLE: PREFIX$b + "nav-dropdown-toggle",
+    OPEN: PREFIX$b + "open",
+    SIDEBAR_MINIMIZED: PREFIX$b + "sidebar-minimized",
+    SIDEBAR_SHOW: PREFIX$b + "sidebar-show"
   };
   var Event$c = {
     CLASS_TOGGLE: 'classtoggle',
@@ -9408,12 +9397,12 @@
     UPDATE: 'update'
   };
   var Selector$b = {
-    NAV_DROPDOWN_TOGGLE: '.c-nav-dropdown-toggle',
-    NAV_DROPDOWN: '.c-nav-dropdown',
-    NAV_LINK: '.c-nav-link',
-    NAV_LINK_QUERIED: '.c-nav-link-queried',
-    NAVIGATION_CONTAINER: '.c-sidebar-nav, .c-sidebar-nav',
-    SIDEBAR: '.c-sidebar, .c-sidebar'
+    NAV_DROPDOWN_TOGGLE: "." + PREFIX$b + "nav-dropdown-toggle",
+    NAV_DROPDOWN: "." + PREFIX$b + "nav-dropdown",
+    NAV_LINK: "." + PREFIX$b + "nav-link",
+    NAV_LINK_QUERIED: "." + PREFIX$b + "nav-link-queried",
+    NAVIGATION_CONTAINER: "." + PREFIX$b + "sidebar-nav",
+    SIDEBAR: "." + PREFIX$b + "sidebar"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -9732,6 +9721,7 @@
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
+  var PREFIX$c = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Event$d = {
     HIDE: "hide" + EVENT_KEY$c,
     HIDDEN: "hidden" + EVENT_KEY$c,
@@ -9740,20 +9730,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$c + DATA_API_KEY$a
   };
   var ClassName$c = {
-    DROPDOWN_MENU: 'c-dropdown-menu',
+    DROPDOWN_MENU: PREFIX$c + "dropdown-menu",
     ACTIVE: 'active',
     DISABLED: 'disabled',
-    FADE: 'c-fade',
-    SHOW: 'c-show'
+    FADE: PREFIX$c + "fade",
+    SHOW: PREFIX$c + "show"
   };
   var Selector$c = {
-    DROPDOWN: '.c-dropdown',
-    NAV_LIST_GROUP: '.c-nav, .c-list-group',
+    DROPDOWN: "." + PREFIX$c + "dropdown",
+    NAV_LIST_GROUP: "." + PREFIX$c + "nav, ." + PREFIX$c + "list-group",
     ACTIVE: '.active',
     ACTIVE_UL: ':scope > li > .active',
-    DATA_TOGGLE: '[data-toggle="c-tab"], [data-toggle="c-pill"], [data-toggle="c-list"]',
-    DROPDOWN_TOGGLE: '.c-dropdown-toggle',
-    DROPDOWN_ACTIVE_CHILD: ':scope > .c-dropdown-menu .active'
+    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$c + "tab\"], [data-toggle=\"" + PREFIX$c + "pill\"], [data-toggle=\"" + PREFIX$c + "list\"]",
+    DROPDOWN_TOGGLE: "." + PREFIX$c + "dropdown-toggle",
+    DROPDOWN_ACTIVE_CHILD: ":scope > ." + PREFIX$c + "dropdown-menu .active"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -9968,6 +9958,7 @@
   var VERSION$d = '4.3.1';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
+  var PREFIX$d = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Event$e = {
     CLICK_DISMISS: "click.dismiss" + EVENT_KEY$d,
     HIDE: "hide" + EVENT_KEY$d,
@@ -9976,10 +9967,10 @@
     SHOWN: "shown" + EVENT_KEY$d
   };
   var ClassName$d = {
-    FADE: 'c-fade',
-    HIDE: 'c-hide',
-    SHOW: 'c-show',
-    SHOWING: 'c-showing'
+    FADE: PREFIX$d + "fade",
+    HIDE: PREFIX$d + "hide",
+    SHOW: PREFIX$d + "show",
+    SHOWING: PREFIX$d + "showing"
   };
   var DefaultType$7 = {
     animation: 'boolean',
@@ -9992,7 +9983,7 @@
     delay: 500
   };
   var Selector$d = {
-    DATA_DISMISS: '[data-dismiss="c-toast"]'
+    DATA_DISMISS: "[data-dismiss=\"" + PREFIX$d + "toast\"]"
     /**
      * ------------------------------------------------------------------------
      * Class Definition

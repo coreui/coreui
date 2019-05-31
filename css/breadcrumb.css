@@ -4,9 +4,18 @@
   padding: 0.75rem 1rem;
   margin-bottom: 1.5rem;
   list-style: none;
-  background-color: #fff;
   border-radius: 0;
-  border-bottom: 1px solid #c8ced3;
+  border-bottom: 1px solid;
+}
+
+.c-default-theme .c-breadcrumb {
+  background-color: #fff;
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-breadcrumb {
+  background-color: #3a4248;
+  border-color: #23282c;
 }
 
 .c-breadcrumb-item + .c-breadcrumb-item {

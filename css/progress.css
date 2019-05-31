@@ -12,18 +12,23 @@
   height: 1rem;
   overflow: hidden;
   font-size: 0.65625rem;
-  background-color: #f0f3f5;
   border-radius: 0.25rem;
+}
+
+.c-default-theme .c-progress {
+  background-color: #f0f3f5;
+}
+
+.c-dark-theme .c-progress {
+  background-color: #5c6873;
 }
 
 .c-progress-bar {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #20a8d8;
   transition: width 0.6s ease;
 }
 
@@ -31,6 +36,16 @@
   .c-progress-bar {
     transition: none;
   }
+}
+
+.c-default-theme .c-progress-bar {
+  color: #fff;
+  background-color: #20a8d8;
+}
+
+.c-dark-theme .c-progress-bar {
+  color: #fff;
+  background-color: #20a8d8;
 }
 
 .c-progress-bar-striped {

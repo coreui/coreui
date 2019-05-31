@@ -1,23 +1,58 @@
 .c-table {
   width: 100%;
   margin-bottom: 1rem;
+}
+
+.c-default-theme .c-table {
   color: #23282c;
+  background-color: transparent;
+}
+
+.c-dark-theme .c-table {
+  color: #23282c;
+  background-color: transparent;
 }
 
 .c-table th,
 .c-table td {
   padding: 0.75rem;
   vertical-align: top;
-  border-top: 1px solid #c8ced3;
+  border-top: 1px solid;
+}
+
+.c-default-theme .c-table th, .c-default-theme
+.c-table td {
+  border-top-color: #c8ced3;
+}
+
+.c-dark-theme .c-table th, .c-dark-theme
+.c-table td {
+  border-top-color: #c8ced3;
 }
 
 .c-table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #c8ced3;
+  border-bottom: 2px solid;
+}
+
+.c-default-theme .c-table thead th {
+  border-bottom-color: #c8ced3;
+}
+
+.c-dark-theme .c-table thead th {
+  border-bottom-color: #c8ced3;
 }
 
 .c-table tbody + tbody {
-  border-top: 2px solid #c8ced3;
+  border-top: 2px solid;
+}
+
+.c-default-theme .c-table tbody + tbody {
+  border-top-color: #c8ced3;
+}
+
+.c-dark-theme .c-table tbody + tbody {
+  border-top-color: #c8ced3;
 }
 
 .c-table-sm th,
@@ -26,12 +61,30 @@
 }
 
 .c-table-bordered {
-  border: 1px solid #c8ced3;
+  border: 1px solid;
+}
+
+.c-default-theme .c-table-bordered {
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-table-bordered {
+  border-color: #c8ced3;
 }
 
 .c-table-bordered th,
 .c-table-bordered td {
-  border: 1px solid #c8ced3;
+  border: 1px solid;
+}
+
+.c-default-theme .c-table-bordered th, .c-default-theme
+.c-table-bordered td {
+  border-color: #c8ced3;
+}
+
+.c-dark-theme .c-table-bordered th, .c-dark-theme
+.c-table-bordered td {
+  border-color: #c8ced3;
 }
 
 .c-table-bordered thead th,
@@ -46,11 +99,20 @@
   border: 0;
 }
 
-.c-table-striped tbody tr:nth-of-type(odd) {
+.c-default-theme .c-table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.c-table-hover tbody tr:hover {
+.c-dark-theme .c-table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.c-default-theme .c-table-hover tbody tr:hover {
+  color: #23282c;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.c-dark-theme .c-table-hover tbody tr:hover {
   color: #23282c;
   background-color: rgba(0, 0, 0, 0.075);
 }

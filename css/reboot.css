@@ -21,9 +21,17 @@ body {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #23282c;
   text-align: left;
+}
+
+body.c-default-theme {
+  color: #23282c;
   background-color: #e4e5e6;
+}
+
+body.c-dark-theme {
+  color: #e4e7ea;
+  background-color: #2f353a;
 }
 
 [tabindex="-1"]:focus {

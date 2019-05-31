@@ -24,6 +24,9 @@
     color: $nav-link-disabled-color;
     pointer-events: none;
     cursor: default;
+    @include theme($nav-theme-map, $create: parent) {
+      color: theme-get("nav-link-disabled-color");
+    }
   }
 }
 
@@ -32,7 +35,10 @@
 //
 
 .#{$bs-prefix}nav-tabs {
-  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-bottom: $nav-tabs-border-width solid;
+  @include theme($nav-theme-map, $create: parent) {
+    border-color: theme-get("nav-tabs-border-color");
+  }
 
   .#{$bs-prefix}nav-item {
     margin-bottom: -$nav-tabs-border-width;
@@ -43,21 +49,32 @@
     @include border-top-radius($nav-tabs-border-radius);
 
     @include hover-focus {
-      border-color: $nav-tabs-link-hover-border-color;
+      // border-color: $nav-tabs-link-hover-border-color;
+      @include theme($nav-theme-map, $create: parent) {
+        border-color: theme-get("nav-tabs-link-hover-border-color");
+      }
     }
 
     &.disabled {
-      color: $nav-link-disabled-color;
+      // color: $nav-link-disabled-color;
       background-color: transparent;
       border-color: transparent;
+      @include theme($nav-theme-map, $create: parent) {
+        color: theme-get("nav-link-disabled-color");
+      }
     }
   }
 
   .#{$bs-prefix}nav-link.active,
   .#{$bs-prefix}nav-item.#{$bs-prefix}show .#{$bs-prefix}nav-link {
-    color: $nav-tabs-link-active-color;
-    background-color: $nav-tabs-link-active-bg;
-    border-color: $nav-tabs-link-active-border-color;
+    // color: $nav-tabs-link-active-color;
+    // background-color: $nav-tabs-link-active-bg;
+    // border-color: $nav-tabs-link-active-border-color;
+    @include theme($nav-theme-map, $create: parent) {
+      color: theme-get("nav-tabs-link-active-color");
+      background-color: theme-get("nav-tabs-link-active-bg");
+      border-color: theme-get("nav-tabs-link-active-border-color");
+    }
   }
 
   .#{$bs-prefix}dropdown-menu {
@@ -80,8 +97,12 @@
 
   .#{$bs-prefix}nav-link.active,
   .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
-    color: $nav-pills-link-active-color;
-    background-color: $nav-pills-link-active-bg;
+    // color: $nav-pills-link-active-color;
+    // background-color: $nav-pills-link-active-bg;
+    @include theme($nav-theme-map, $create: parent) {
+      color: theme-get("nav-pills-link-active-color");
+      background-color: theme-get("nav-pills-link-active-bg");
+    }
   }
 }
 
@@ -121,56 +142,56 @@
 
 // CoreUI specific changes start
 // ToDo: refactor
-.#{$bs-prefix}nav-tabs {
-  .#{$bs-prefix}nav-link {
-    color: $gray-600;
-    &:hover {
-      cursor: pointer;
-    }
-    &.active {
-      color: $gray-800;
-      background: #fff;
-      border-color: $border-color;
-      border-bottom-color: #fff;
-      &:focus {
-        background: #fff;
-        border-color: $border-color;
-        border-bottom-color: #fff;
-      }
-    }
-  }
-}
+// .#{$bs-prefix}nav-tabs {
+//   .#{$bs-prefix}nav-link {
+//     color: $gray-600;
+//     &:hover {
+//       cursor: pointer;
+//     }
+//     &.active {
+//       color: $gray-800;
+//       background: #fff;
+//       border-color: $border-color;
+//       border-bottom-color: #fff;
+//       &:focus {
+//         background: #fff;
+//         border-color: $border-color;
+//         border-bottom-color: #fff;
+//       }
+//     }
+//   }
+// }
 
-.#{$bs-prefix}tab-content {
-  margin-top: -1px;
-  background: #fff;
-  border: 1px solid $border-color;
-  .#{$bs-prefix}tab-pane {
-    padding: $spacer;
-  }
-}
+// .#{$bs-prefix}tab-content {
+//   margin-top: -1px;
+//   background: #fff;
+//   border: 1px solid $border-color;
+//   .#{$bs-prefix}tab-pane {
+//     padding: $spacer;
+//   }
+// }
 
-.#{$bs-prefix}card-block {
-  .#{$bs-prefix}tab-content {
-    margin-top: 0;
-    border: 0;
-  }
-}
+// .#{$bs-prefix}card-block {
+//   .#{$bs-prefix}tab-content {
+//     margin-top: 0;
+//     border: 0;
+//   }
+// }
 
-.#{$bs-prefix}nav-fill {
-  .#{$bs-prefix}nav-link {
-    background-color: #fff;
-    border-color: $border-color;
-  }
-  .#{$bs-prefix}nav-link + .#{$bs-prefix}nav-link {
-    margin-left: -1px;
-  }
-  .#{$bs-prefix}nav-link.active {
-    margin-top: -1px;
-    // margin-left: 0;
-    border-top: 2px solid $primary;
-  }
-}
+// .#{$bs-prefix}nav-fill {
+//   .#{$bs-prefix}nav-link {
+//     background-color: #fff;
+//     border-color: $border-color;
+//   }
+//   .#{$bs-prefix}nav-link + .#{$bs-prefix}nav-link {
+//     margin-left: -1px;
+//   }
+//   .#{$bs-prefix}nav-link.active {
+//     margin-top: -1px;
+//     // margin-left: 0;
+//     border-top: 2px solid $primary;
+//   }
+// }
 
 // Right-to-Left Support
 *[dir="rtl"] {

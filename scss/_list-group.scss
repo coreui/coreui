@@ -19,20 +19,32 @@
 
 .#{$bs-prefix}list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
-  color: $list-group-action-color;
+  // color: $list-group-action-color;
   text-align: inherit; // For `<button>`s (anchors inherit)
+  @include theme($list-group-theme-map, $create: parent) {
+    color: theme-get("list-group-action-color");
+  }
 
   // Hover state
   @include hover-focus {
     z-index: 1; // Place hover/focus items above their siblings for proper border styling
-    color: $list-group-action-hover-color;
+    // color: $list-group-action-hover-color;
     text-decoration: none;
-    background-color: $list-group-hover-bg;
+    // background-color: $list-group-hover-bg;
+    @include theme($list-group-theme-map, $create: parent) {
+      color: theme-get("list-group-action-hover-color");
+      background-color: theme-get("list-group-hover-bg");
+    }
+
   }
 
   &:active {
-    color: $list-group-action-active-color;
-    background-color: $list-group-action-active-bg;
+    // color: $list-group-action-active-color;
+    // background-color: $list-group-action-active-bg;
+    @include theme($list-group-theme-map, $create: parent) {
+      color: theme-get("list-group-action-active-color");
+      background-color: theme-get("list-group-active-bg");
+    }
   }
 }
 
@@ -47,9 +59,15 @@
   padding: $list-group-item-padding-y $list-group-item-padding-x;
   // Place the border on the list items and negative margin up for better styling
   margin-bottom: -$list-group-border-width;
-  color: $list-group-color;
-  background-color: $list-group-bg;
-  border: $list-group-border-width solid $list-group-border-color;
+  // color: $list-group-color;
+  // background-color: $list-group-bg;
+  border: $list-group-border-width solid;
+
+  @include theme($list-group-theme-map, $create: parent) {
+    color: theme-get("list-group-color");
+    background-color: theme-get("list-group-bg");
+    border-color: theme-get("list-group-border-color");
+  }
 
   &:first-child {
     @include border-top-radius($list-group-border-radius);
@@ -62,9 +80,13 @@
 
   &.disabled,
   &:disabled {
-    color: $list-group-disabled-color;
+    // color: $list-group-disabled-color;
     pointer-events: none;
-    background-color: $list-group-disabled-bg;
+    // background-color: $list-group-disabled-bg;
+    @include theme($list-group-theme-map, $create: parent) {
+      color: theme-get("list-group-disabled-color");
+      background-color: theme-get("list-group-disabled-bg");
+    }
   }
 
   // Include both here for `<a>`s and `<button>`s

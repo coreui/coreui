@@ -220,7 +220,11 @@
 // CoreUI start
 
 .#{$bs-prefix}table-outline {
-  border: 1px solid $table-border-color;
+  border: 1px solid;
+
+  @include theme($table-theme-map, $create: parent) {
+    border-color: theme-get('table-border-color');
+  }
 
   td {
     vertical-align: middle;

@@ -3902,19 +3902,28 @@ body {
   font-size: 2.5rem !important;
 }
 
-.c-text-value {
-  font-size: 1.3125rem;
+[class^="c-text-value"] {
   font-weight: 600;
+}
+
+.c-text-value-xs {
+  font-size: 0.65625rem;
 }
 
 .c-text-value-sm {
-  font-size: 1.09375rem;
-  font-weight: 600;
+  font-size: 0.74375rem;
+}
+
+.c-text-value {
+  font-size: 0.875rem;
 }
 
 .c-text-value-lg {
+  font-size: 1.3125rem;
+}
+
+.c-text-value-xl {
   font-size: 1.53125rem;
-  font-weight: 600;
 }
 
 .c-text-white .c-text-muted {
@@ -3927,6 +3936,11 @@ body {
 
 .c-invisible {
   visibility: hidden !important;
+}
+
+.c-vr {
+  width: 1px;
+  background-color: #c8ced3;
 }
 
 /*# sourceMappingURL=utilities.css.map */
