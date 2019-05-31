@@ -190,6 +190,7 @@ $enable-deprecation-messages:                 true !default;
 // CoreUI
 $enable-sidebar-nav-rounded:                  false !default;
 $layout-transition-speed:                     .25s !default;
+$default-theme:                               "dark" !default;
 
 
 // Spacing
@@ -412,8 +413,11 @@ $blockquote-small-color:      $gray-600 !default;
 $blockquote-small-font-size:  $small-font-size !default;
 $blockquote-font-size:        $font-size-base * 1.25 !default;
 
-$hr-border-color:             rgba($black, .1) !default;
+$hr-border-color:             rgba($black, .2) !default;
 $hr-border-width:             $border-width !default;
+
+$vr-color-bg:                 rgba($black, .2) !default;
+$vr-width:                    $border-width !default;
 
 $mark-padding:                .2em !default;
 
@@ -1330,6 +1334,19 @@ $footer-bg:                           $gray-100 !default;
 $footer-color:                        $body-color !default;
 $footer-borders: (
   top: 1px solid $border-color
+) !default;
+
+$footer-variant-map: (
+  dark: (
+    "footer-bg":      $gray-800,
+    "footer-color":   rgba($white, .75),
+    "footer-borders": ( top: 1px solid $gray-800 )
+  ),
+  light: (
+    "footer-bg":      $gray-100,
+    "footer-color":   $gray-100,
+    "footer-borders": ( top: 1px solid $border-color )
+  )
 ) !default;
 // CoreUI specific changes end
 

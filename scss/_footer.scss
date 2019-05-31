@@ -3,7 +3,12 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 0 $spacer;
-  color: $footer-color;
-  background: $footer-bg;
-  @include borders($footer-borders);
+}
+
+.#{$prefix}footer- {
+  @include variant($footer-variant-map, $create: append) {
+    color: variant-get("footer-color");
+    background: variant-get("footer-bg");
+    @include borders(variant-get("footer-borders"));
+  }
 }
