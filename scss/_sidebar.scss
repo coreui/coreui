@@ -1,4 +1,4 @@
-// stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors
+// stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -140,6 +140,30 @@
       }
     }
 
+    &.disabled {
+      color: $sidebar-nav-link-disabled-color;
+      cursor: $cursor-disabled;
+      background: transparent;
+      @include borders($sidebar-nav-link-disabled-borders);
+
+      .nav-icon {
+        color: $sidebar-nav-link-disabled-icon-color;
+      }
+
+      &:hover {
+        color: $sidebar-nav-link-disabled-color;
+        @include borders($sidebar-nav-link-hover-borders);
+
+        .nav-icon {
+          color: $sidebar-nav-link-disabled-icon-color;
+        }
+
+        &.nav-dropdown-toggle::before {
+          background-image: $sidebar-nav-dropdown-indicator-hover;
+        }
+      }
+    }
+
     @each $color, $value in $theme-colors {
       &.nav-link-#{$color} {
         background: $value;
@@ -174,6 +198,10 @@
       background-position: center;
       transition: transform .3s;
     }
+
+    .badge {
+      margin-right: 16px;
+    }
   }
 
   .nav-dropdown.open {
@@ -189,6 +217,19 @@
     .nav-link {
       color: $sidebar-nav-dropdown-color;
       border-left: 0;
+
+      &.disabled {
+        color: $sidebar-nav-link-disabled-color;
+        background: transparent;
+
+        &:hover {
+          color: $sidebar-nav-link-disabled-color;
+
+          .nav-icon {
+            color: $sidebar-nav-link-disabled-icon-color;
+          }
+        }
+      }
     }
 
     > .nav-dropdown-toggle::before {
@@ -236,6 +277,7 @@
   .sidebar-minimizer {
     position: relative;
     flex: 0 0 $sidebar-minimizer-height;
+    cursor: pointer;
     background-color: $sidebar-minimizer-bg;
     border: 0;
     @include borders($sidebar-minimizer-borders);
@@ -342,7 +384,7 @@
         display: none;
       }
 
-      // Temporary fix for thsi issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
+      // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
       // ToDo: find better solution
       .sidebar-minimizer {
         position: fixed;
@@ -377,8 +419,30 @@
               color: $sidebar-nav-link-hover-color;
             }
           }
+          .nav-link {
+
+            &.disabled,
+            :disabled {
+              background: $sidebar-nav-link-disabled-bg;
+
+              .nav-icon {
+                color: $sidebar-nav-link-disabled-icon-color;
+              }
+            }
+          }
         }
       }
+      // temp fix for vue version
+      section {
+        :not(.nav-dropdown-items) > {
+          .nav-item:last-child::after {
+            display: block;
+            margin-bottom: $sidebar-minimizer-height;
+            content: "";
+          }
+        }
+      }
+      // temp fix end
 
       .nav-link {
         position: relative;
@@ -442,6 +506,70 @@
       }
     }
   }
+
+  *[dir="rtl"] {
+    .sidebar-minimized {
+      .sidebar {
+        .nav {
+          list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+          .divider {
+            height: 0;
+          }
+        }
+
+        //.d-minimized-none,
+        //.nav-divider,
+        //.nav-label,
+        //.nav-title,
+        //.sidebar-footer,
+        //.sidebar-form,
+        //.sidebar-header {
+        //  display: none;
+        //}
+
+        .sidebar-minimizer::before {
+          width: 100%;
+          transform: rotate(0deg);
+        }
+
+        .nav-link {
+          padding-right: 0;
+
+          .nav-icon {
+            float: right;
+          }
+
+          .badge {
+            right: auto;
+            left: 15px;
+          }
+
+          &:hover {
+            .badge {
+              display: inline;
+            }
+          }
+        }
+
+        .nav > .nav-dropdown {
+          > .nav-dropdown-items {
+            display: none;
+            max-height: 1000px;
+            background: $sidebar-bg;
+          }
+
+          &:hover {
+            background: $sidebar-nav-link-hover-bg;
+            > .nav-dropdown-items {
+              position: absolute;
+              left: 0;
+              display: inline;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 *[dir="rtl"] {
@@ -452,42 +580,41 @@
       left: $sidebar-nav-link-padding-x;
       transform: rotate(180deg);
     }
+
     .nav-dropdown.open {
       > .nav-dropdown-toggle::before {
         transform: rotate(270deg);
       }
     }
+
     .nav-link {
       .nav-icon {
         margin: 0 0 0 ($sidebar-nav-link-padding-x / 2);
       }
+
       .badge {
         float: left;
         margin-top: 2px;
       }
     }
-  }
 
-  .sidebar-minimized {
-    .sidebar {
-      .nav-link {
-        padding-right: 0;
-        .nav-icon {
-          float: right;
-          padding: 0;
-          margin: 0;
-        }
-        .badge {
-          right: auto;
-          left: 15px;
-        }
-      }
-      .nav-dropdown:hover {
-        > .nav-dropdown-items {
-          right: $sidebar-minimized-width;
-          left: 0;
-        }
+    .nav-link.nav-dropdown-toggle {
+      .badge  {
+        margin-right: auto;
+        margin-left: 16px;
       }
     }
+
+    .sidebar-minimizer::before {
+      right: auto;
+      left: 0;
+      transform: rotate(180deg);
+    }
+  }
+
+  // Temp fix for rtl sidebar-toggler
+  // ToDo: find better solution
+  .sidebar-toggler {
+    margin-right: 0 !important;
   }
 }

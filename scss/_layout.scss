@@ -6,7 +6,7 @@
   }
 }
 
-// stylelint-disable selector-type-no-unknown, no-duplicate-selectors, selector-no-qualifying-type
+// stylelint-disable selector-type-no-unknown, no-duplicate-selectors, selector-no-qualifying-type, selector-max-combinators
 // app-dashboard and app-root are Angular2+ selectors. You can add here your own selectors if you need.
 .app,
 app-dashboard,
@@ -53,6 +53,7 @@ html:not([dir="rtl"]) {
     margin-left: - $sidebar-width;
   }
   .aside-menu {
+    right: 0;
     margin-right: - $aside-menu-width;
   }
 }
@@ -61,6 +62,7 @@ html[dir="rtl"] {
     margin-right: - $sidebar-width;
   }
   .aside-menu {
+    left: 0;
     margin-left: - $aside-menu-width;
   }
 }
@@ -165,7 +167,6 @@ html[dir="rtl"] {
   //
   // Aside Menu
   //
-
   .aside-menu-fixed {
     .aside-menu {
       position: fixed;
@@ -237,11 +238,12 @@ html[dir="rtl"] {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     html:not([dir="rtl"]) {
-      .sidebar#{$infix}-show {
+      .sidebar#{$infix}-show,
+      .sidebar-show {
         .sidebar {
           margin-left: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if $breakpoint != "xs" {
           &.sidebar-fixed {
             .main,
             .app-footer {
@@ -256,7 +258,7 @@ html[dir="rtl"] {
             &.sidebar-minimized {
               .main,
               .app-footer {
-                margin-left: $sidebar-minimized-width;
+                margin-left: if($breakpoint != "lg" and $breakpoint != "xl", $sidebar-width, $sidebar-minimized-width);
               }
             }
           }
@@ -278,11 +280,12 @@ html[dir="rtl"] {
         }
       }
 
+      .aside-menu-show,
       .aside-menu#{$infix}-show {
         .aside-menu {
           margin-right: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if $breakpoint != "xs" {
           &.aside-menu-fixed {
             .main,
             .app-footer {
@@ -299,11 +302,12 @@ html[dir="rtl"] {
     }
 
     html[dir="rtl"] {
-      .sidebar#{$infix}-show {
+      .sidebar#{$infix}-show,
+      .sidebar-show {
         .sidebar {
           margin-right: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if $breakpoint != "xs" {
           &.sidebar-fixed {
             .main,
             .app-footer {
@@ -318,7 +322,7 @@ html[dir="rtl"] {
             &.sidebar-minimized {
               .main,
               .app-footer {
-                margin-right: $sidebar-minimized-width;
+                margin-right: if($breakpoint != "lg" and $breakpoint != "xl", $sidebar-width, $sidebar-minimized-width);
               }
             }
           }
@@ -340,11 +344,12 @@ html[dir="rtl"] {
         }
       }
 
+      .aside-menu-show,
       .aside-menu#{$infix}-show {
         .aside-menu {
           margin-left: 0;
         }
-        @include media-breakpoint-up(sm) {
+        @if $breakpoint != "xs" {
           &.aside-menu-fixed {
             .main,
             .app-footer {
@@ -359,6 +364,7 @@ html[dir="rtl"] {
         }
       }
     }
+
     .sidebar#{$infix}-show,
     .aside-menu#{$infix}-show {
       @keyframes opacity {
@@ -366,19 +372,21 @@ html[dir="rtl"] {
         100% { opacity: 1; }
       }
 
-      @include media-breakpoint-down(xs) {
-        .main {
-          position: relative;
-          &::before {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: $zindex-sticky - 2;
-            width: 100%;
-            height: 100%;
-            content: "";
-            background: rgba(0, 0, 0, .7);
-            animation: opacity $layout-transition-speed;
+      @if $breakpoint == "xs" {
+        @include media-breakpoint-down(xs) {
+          .main {
+            position: relative;
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: $zindex-sticky - 2;
+              width: 100%;
+              height: 100%;
+              content: "";
+              background: rgba(0, 0, 0, .7);
+              animation: opacity $layout-transition-speed;
+            }
           }
         }
       }
@@ -424,7 +432,6 @@ html[dir="rtl"] {
 //
 // Mobile layout
 //
-
 @include media-breakpoint-down(md) {
   .app-header {
     position: fixed;
@@ -471,7 +478,6 @@ html[dir="rtl"] {
 
   .aside-menu {
     position: fixed;
-    right: 0;
     height: 100%;
   }
 }

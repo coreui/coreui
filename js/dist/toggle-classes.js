@@ -1,6 +1,9 @@
+import "core-js/modules/es.array.map";
+import "core-js/modules/es.array.slice";
+
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.10): toggle-classes.js
+ * CoreUI (v2.1.10): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

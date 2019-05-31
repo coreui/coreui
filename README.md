@@ -1,3 +1,10 @@
+[![npm package][npm-badge]][npm]
+[![NPM downloads][npm-download]][npm]
+
+[npm-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
+[npm-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
+[npm]: https://www.npmjs.com/package/@coreui/coreui
+
 # CoreUI - Free WebApp UI Kit built on top of Bootstrap 4 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20Bootstrap%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
 
 Please help us on [Product Hunt](https://www.producthunt.com/posts/coreui-open-source-bootstrap-4-admin-template-with-angular-2-react-js-vue-js-support) and [Designer News](https://www.designernews.co/stories/81127). Thanks in advance!
@@ -52,13 +59,13 @@ $ npm install @coreui/coreui --save
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/coreui@2.0.10
+$ yarn add @coreui/coreui@2.1.10
 ```
 
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:2.0.10
+$ composer require coreui/coreui:2.1.10
 ```
 
 ## Usage

@@ -4,11 +4,15 @@ module.exports = {
       '@babel/preset-env',
       {
         'targets': {
+          ie: 11,
+          ie: 10,
           'browsers': [
             "> 1%",
             "IE 10"
           ]
         },
+        useBuiltIns: 'usage',
+        corejs: { version: 3, proposals: true },
         loose: true,
         modules: false,
         exclude: ['transform-typeof-symbol']

@@ -1,10 +1,11 @@
 import $ from 'jquery'
 import PerfectScrollbar from 'perfect-scrollbar'
+import getStyle from './utilities/get-style'
 import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.10): sidebar.js
+ * CoreUI (v2.1.10): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -17,7 +18,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.0.10'
+  const VERSION             = '2.1.10'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -53,6 +54,7 @@ const Sidebar = (($) => {
     NAV_DROPDOWN_ITEMS   : '.nav-dropdown-items',
     NAV_ITEM             : '.nav-item',
     NAV_LINK             : '.nav-link',
+    NAV_LINK_QUERIED     : '.nav-link-queried',
     NAVIGATION_CONTAINER : '.sidebar-nav',
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
@@ -77,10 +79,14 @@ const Sidebar = (($) => {
   class Sidebar {
     constructor(element) {
       this._element = element
+      this.mobile = false
       this.ps = null
       this.perfectScrollbar(Event.INIT)
       this.setActiveLink()
+      this._breakpointTest = this._breakpointTest.bind(this)
+      this._clickOutListener = this._clickOutListener.bind(this)
       this._addEventListeners()
+      this._addMediaQuery()
     }
 
     // Getters
@@ -93,7 +99,8 @@ const Sidebar = (($) => {
 
     perfectScrollbar(event) {
       if (typeof PerfectScrollbar !== 'undefined') {
-        if (event === Event.INIT && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+        const classList = document.body.classList
+        if (event === Event.INIT && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
           this.ps = this.makeScrollbar()
         }
 
@@ -102,14 +109,15 @@ const Sidebar = (($) => {
         }
 
         if (event === Event.TOGGLE) {
-          if (document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+          if (classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
             this.destroyScrollbar()
           } else {
+            this.destroyScrollbar()
             this.ps = this.makeScrollbar()
           }
         }
 
-        if (event === Event.UPDATE && !document.body.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+        if (event === Event.UPDATE && !classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
           // ToDo: Add smooth transition
           setTimeout(() => {
             this.destroyScrollbar()
@@ -120,9 +128,12 @@ const Sidebar = (($) => {
     }
 
     makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
-      return new PerfectScrollbar(document.querySelector(container), {
+      const ps = new PerfectScrollbar(document.querySelector(container), {
         suppressScrollX: true
       })
+      // ToDo: find real fix for ps rtl
+      ps.isRtl = false
+      return ps
     }
 
     destroyScrollbar() {
@@ -135,12 +146,17 @@ const Sidebar = (($) => {
     setActiveLink() {
       $(Selector.NAVIGATION).find(Selector.NAV_LINK).each((key, value) => {
         let link = value
-        let cUrl = String(window.location).split('?')[0]
+        let cUrl
+
+        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+          cUrl = String(window.location)
+        } else {
+          cUrl = String(window.location).split('?')[0]
+        }
 
         if (cUrl.substr(cUrl.length - 1) === '#') {
           cUrl = cUrl.slice(0, -1)
         }
-
         if ($($(link))[0].href === cUrl) {
           $(link).addClass(ClassName.ACTIVE).parents(Selector.NAV_DROPDOWN_ITEMS).add(link).each((key, value) => {
             link = value
@@ -152,14 +168,58 @@ const Sidebar = (($) => {
 
     // Private
 
+    _addMediaQuery() {
+      const sm = getStyle('--breakpoint-sm')
+      if (!sm) {
+        return
+      }
+      const smVal = parseInt(sm, 10) - 1
+      const mediaQueryList = window.matchMedia(`(max-width: ${smVal}px)`)
+
+      this._breakpointTest(mediaQueryList)
+
+      mediaQueryList.addListener(this._breakpointTest)
+    }
+
+    _breakpointTest(e) {
+      this.mobile = Boolean(e.matches)
+      this._toggleClickOut()
+    }
+
+    _clickOutListener(event) {
+      if (!this._element.contains(event.target)) { // or use: event.target.closest(Selector.SIDEBAR) === null
+        event.preventDefault()
+        event.stopPropagation()
+        this._removeClickOut()
+        document.body.classList.remove('sidebar-show')
+      }
+    }
+
+    _addClickOut() {
+      document.addEventListener(Event.CLICK, this._clickOutListener, true)
+    }
+
+    _removeClickOut() {
+      document.removeEventListener(Event.CLICK, this._clickOutListener, true)
+    }
+
+    _toggleClickOut() {
+      if (this.mobile && document.body.classList.contains('sidebar-show')) {
+        document.body.classList.remove('aside-menu-show')
+        this._addClickOut()
+      } else {
+        this._removeClickOut()
+      }
+    }
+
     _addEventListeners() {
-      $(Selector.BRAND_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.BRAND_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.BRAND_MINIMIZED)
       })
 
-      $(Selector.NAV_DROPDOWN_TOGGLE).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE, (event) => {
         event.preventDefault()
         event.stopPropagation()
         const dropdown = event.target
@@ -167,21 +227,23 @@ const Sidebar = (($) => {
         this.perfectScrollbar(Event.UPDATE)
       })
 
-      $(Selector.SIDEBAR_MINIMIZER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_MINIMIZER, (event) => {
         event.preventDefault()
         event.stopPropagation()
         $(Selector.BODY).toggleClass(ClassName.SIDEBAR_MINIMIZED)
         this.perfectScrollbar(Event.TOGGLE)
       })
 
-      $(Selector.SIDEBAR_TOGGLER).on(Event.CLICK, (event) => {
+      $(document).on(Event.CLICK, Selector.SIDEBAR_TOGGLER, (event) => {
         event.preventDefault()
         event.stopPropagation()
-        const toggle = event.currentTarget.dataset.toggle
+        const toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle')
         toggleClasses(toggle, ShowClassNames)
+        this._toggleClickOut()
       })
 
       $(`${Selector.NAVIGATION} > ${Selector.NAV_ITEM} ${Selector.NAV_LINK}:not(${Selector.NAV_DROPDOWN_TOGGLE})`).on(Event.CLICK, () => {
+        this._removeClickOut()
         document.body.classList.remove('sidebar-show')
       })
     }

@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.0.10): ajax-load.js
+ * CoreUI (v2.1.10): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -16,7 +16,7 @@ const AjaxLoad = (($) => {
    */
 
   const NAME                       = 'ajaxLoad'
-  const VERSION                    = '2.0.10'
+  const VERSION                    = '2.1.10'
   const DATA_KEY                   = 'coreui.ajaxLoad'
   const JQUERY_NO_CONFLICT         = $.fn[NAME]
 
