@@ -12,6 +12,7 @@ module.exports = {
           ]
         },
         useBuiltIns: 'usage',
+        corejs: { version: 3, proposals: true },
         loose: true,
         modules: false,
         exclude: ['transform-typeof-symbol']

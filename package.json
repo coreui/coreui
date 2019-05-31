@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -119,7 +119,7 @@
     "popper.js": "^1.14.3"
   },
   "engines": {
-    "node": ">= 8",
+    "node": ">= 8.7",
     "npm": ">= 5"
   },
   "browserslist": [

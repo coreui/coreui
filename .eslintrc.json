@@ -13,7 +13,7 @@
     "no-extra-parens": "error",
     "no-prototype-builtins": "error",
     "no-template-curly-in-string": "error",
-    "compat/compat": "error",
+    "compat/compat": "warn",
     "valid-jsdoc": "error",
 
     // Best Practices
