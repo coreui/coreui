@@ -61,7 +61,7 @@
 }
 
 // White progress bar
-.#{$bs-prefix}progress-white {
+.#{$bs-prefix}progress.#{$bs-prefix}progress-white {
   background-color: rgba(255, 255, 255, .2);
   .#{$bs-prefix}progress-bar {
     background-color: #fff;
