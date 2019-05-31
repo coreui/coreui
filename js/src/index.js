@@ -1,4 +1,3 @@
-import './polyfill'
 import $ from 'jquery'
 import AjaxLoad from './ajax-load'
 import AsideMenu from './aside-menu'
@@ -6,7 +5,7 @@ import Sidebar from './sidebar'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.9): index.js
+ * CoreUI (v2.1.10): index.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

@@ -1,10 +1,18 @@
+import "core-js/modules/es.array.from";
+import "core-js/modules/es.array.map";
+import "core-js/modules/es.object.assign";
+import "core-js/modules/es.string.iterator";
+import "core-js/modules/es.string.replace";
+import "core-js/modules/es.string.split";
+import "core-js/modules/web.dom-collections.for-each";
+
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.9): ajax-load.js
+ * CoreUI (v2.1.10): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -15,7 +23,7 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.1.9';
+  var VERSION = '2.1.10';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {

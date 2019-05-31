@@ -1,6 +1,11 @@
+import "core-js/modules/es.array.slice";
+import "core-js/modules/es.object.to-string";
+import "core-js/modules/es.regexp.to-string";
+import "core-js/modules/es.string.match";
+
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.9): rgb-to-hex.js
+ * CoreUI (v2.1.10): rgb-to-hex.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

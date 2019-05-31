@@ -1,6 +1,10 @@
+import "core-js/modules/es.string.split";
+import "core-js/modules/es.string.trim";
+import "core-js/modules/web.dom-collections.for-each";
+
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.9): get-css-custom-properties.js
+ * CoreUI Utilities (v2.1.10): get-css-custom-properties.js
  * Licensed under MIT (https://coreui.io/license)
  * @returns {string} css custom property name
  * --------------------------------------------------------------------------

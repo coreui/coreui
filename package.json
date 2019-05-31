@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.1.9",
+  "version": "2.1.10",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -72,45 +72,46 @@
     "watch-css": "nodemon --ignore dist/ -e scss -x \"npm run css\""
   },
   "dependencies": {
-    "@babel/polyfill": "^7.4.0",
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
-    "bootstrap": "^4.3.1"
+    "bootstrap": "^4.3.1",
+    "core-js": "^3.1.3",
+    "regenerator-runtime": "^0.13.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.4",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
-    "@babel/plugin-transform-runtime": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "autoprefixer": "^9.5.0",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
+    "autoprefixer": "^9.5.1",
     "babel-eslint": "^10.0.1",
-    "babel-plugin-istanbul": "^5.1.1",
+    "babel-plugin-istanbul": "^5.1.4",
     "babel-plugin-transform-es2015-modules-strip": "^0.1.1",
-    "clean-css-cli": "^4.2.1",
+    "clean-css-cli": "^4.3.0",
     "copyfiles": "^2.1.0",
     "cross-env": "^5.2.0",
-    "eslint": "^5.15.3",
-    "eslint-plugin-compat": "^2.7.0",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.10",
+    "eslint": "^5.16.0",
+    "eslint-plugin-compat": "^3.1.1",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.7.0",
+    "rollup": "^1.13.0",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-commonjs": "^9.2.1",
-    "rollup-plugin-node-resolve": "^4.0.1",
-    "semver": "^5.6.0",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-node-resolve": "^5.0.1",
+    "semver": "^6.1.1",
     "shelljs": "^0.8.3",
     "shx": "^0.3.2",
-    "stylelint": "^9.10.1",
-    "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-config-standard": "^18.2.0",
-    "stylelint-order": "^2.1.0",
-    "stylelint-scss": "^3.5.4",
-    "uglify-js": "^3.5.1"
+    "stylelint": "^10.0.1",
+    "stylelint-config-recommended-scss": "^3.3.0",
+    "stylelint-config-standard": "^18.3.0",
+    "stylelint-order": "^3.0.0",
+    "stylelint-scss": "^3.7.0",
+    "uglify-js": "^3.6.0"
   },
   "peerDependencies": {
     "jquery": "1.9.1 - 3",
@@ -118,7 +119,7 @@
     "popper.js": "^1.14.3"
   },
   "engines": {
-    "node": ">= 8",
+    "node": ">= 8.7",
     "npm": ">= 5"
   },
   "browserslist": [
