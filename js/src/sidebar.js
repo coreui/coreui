@@ -59,7 +59,8 @@ const Sidebar = (($) => {
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
     SIDEBAR_MINIMIZER    : '.sidebar-minimizer',
-    SIDEBAR_TOGGLER      : '.sidebar-toggler'
+    SIDEBAR_TOGGLER      : '.sidebar-toggler',
+    SIDEBAR_SCROLL       : '.sidebar-scroll'
   }
 
   const ShowClassNames = [
@@ -127,7 +128,17 @@ const Sidebar = (($) => {
       }
     }
 
-    makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
+    makeScrollbar() {
+      let container = Selector.SIDEBAR_SCROLL;
+
+      if (document.querySelector(container) === null) {
+        container = Selector.NAVIGATION_CONTAINER;
+
+        if (document.querySelector(container) === null) {
+          return null;
+        }
+      }
+
       const ps = new PerfectScrollbar(document.querySelector(container), {
         suppressScrollX: true
       })
