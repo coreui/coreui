@@ -26,6 +26,7 @@
   justify-content: center;
   width: $header-brand-width;
   height: $header-height;
+  transition: width $layout-transition-speed;
 
   .#{$prefix}header-brand-minimized {
     display: none;
@@ -140,7 +141,11 @@
 .#{$prefix}header- {
   @include variant($header-variant-map, $create: append) {
     background: variant-get("header-bg");
-    @include borders(variant-get("header-border"));
+    @if $default-theme == "dark" {
+      @include borders(variant-get("dark-theme-header-border"));
+    } @else {
+      @include borders(variant-get("header-border"));
+    }
 
     .#{$prefix}dark-theme & {
       @include borders(variant-get("dark-theme-header-border"));
@@ -149,7 +154,11 @@
     .#{$prefix}header-brand {
       color: variant-get("header-brand-color");
       background-color: variant-get("header-brand-bg");
-      @include borders(variant-get("header-brand-border"));
+      @if $default-theme == "dark" {
+        @include borders(variant-get("dark-theme-header-border"));
+      } @else {
+        @include borders(variant-get("header-brand-border"));
+      }
 
       .#{$prefix}dark-theme & {
         @include borders(variant-get("dark-theme-header-border"));
