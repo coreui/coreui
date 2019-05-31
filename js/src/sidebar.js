@@ -129,13 +129,13 @@ const Sidebar = (($) => {
     }
 
     makeScrollbar() {
-      let container = Selector.SIDEBAR_SCROLL;
+      let container = Selector.SIDEBAR_SCROLL
 
       if (document.querySelector(container) === null) {
-        container = Selector.NAVIGATION_CONTAINER;
+        container = Selector.NAVIGATION_CONTAINER
 
         if (document.querySelector(container) === null) {
-          return null;
+          return null
         }
       }
 
