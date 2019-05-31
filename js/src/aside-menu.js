@@ -3,7 +3,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.9): aside-menu.js
+ * CoreUI (v2.1.10): aside-menu.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -16,7 +16,7 @@ const AsideMenu = (($) => {
    */
 
   const NAME                = 'aside-menu'
-  const VERSION             = '2.1.9'
+  const VERSION             = '2.1.10'
   const DATA_KEY            = 'coreui.aside-menu'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'

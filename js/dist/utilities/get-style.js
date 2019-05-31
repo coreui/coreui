@@ -1,6 +1,9 @@
+import "core-js/modules/es.string.match";
+import "core-js/modules/es.string.replace";
+
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.9): get-style.js
+ * CoreUI Utilities (v2.1.10): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
