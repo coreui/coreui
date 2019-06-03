@@ -3,7 +3,7 @@ import "core-js/modules/es.array.slice";
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.10): toggle-classes.js
+ * CoreUI (v2.1.11): toggle-classes.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
