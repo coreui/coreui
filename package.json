@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.1.10",
+  "version": "2.1.11",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -99,7 +99,7 @@
     "npm-run-all": "^4.1.5",
     "postcss-cli": "^6.1.2",
     "rimraf": "^2.6.3",
-    "rollup": "^1.13.0",
+    "rollup": "^1.13.1",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.1",
@@ -110,7 +110,7 @@
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.0",
-    "stylelint-scss": "^3.7.0",
+    "stylelint-scss": "^3.8.0",
     "uglify-js": "^3.6.0"
   },
   "peerDependencies": {

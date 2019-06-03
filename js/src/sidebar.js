@@ -5,7 +5,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.10): sidebar.js
+ * CoreUI (v2.1.11): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.1.10'
+  const VERSION             = '2.1.11'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -59,7 +59,8 @@ const Sidebar = (($) => {
     NAVIGATION           : '.sidebar-nav > .nav',
     SIDEBAR              : '.sidebar',
     SIDEBAR_MINIMIZER    : '.sidebar-minimizer',
-    SIDEBAR_TOGGLER      : '.sidebar-toggler'
+    SIDEBAR_TOGGLER      : '.sidebar-toggler',
+    SIDEBAR_SCROLL       : '.sidebar-scroll'
   }
 
   const ShowClassNames = [
@@ -127,7 +128,17 @@ const Sidebar = (($) => {
       }
     }
 
-    makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
+    makeScrollbar() {
+      let container = Selector.SIDEBAR_SCROLL
+
+      if (document.querySelector(container) === null) {
+        container = Selector.NAVIGATION_CONTAINER
+
+        if (document.querySelector(container) === null) {
+          return null
+        }
+      }
+
       const ps = new PerfectScrollbar(document.querySelector(container), {
         suppressScrollX: true
       })

@@ -45,12 +45,23 @@
     }
   }
 
-  .sidebar-nav {
+  .sidebar-scroll {
     position: relative;
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
     @include sidebar-width($sidebar-borders, $sidebar-width);
+  }
+
+  .sidebar-nav {
+    position: relative;
+    flex: 1;
+    @include sidebar-width($sidebar-borders, $sidebar-width);
+  }
+
+  > .sidebar-nav {
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .nav {
@@ -364,6 +375,11 @@
   .sidebar-minimized {
     .sidebar {
       z-index: $zindex-sticky - 1;
+
+      .sidebar-scroll {
+        overflow: visible;
+        @include sidebar-width($sidebar-borders, $sidebar-minimized-width);
+      }
 
       .sidebar-nav {
         overflow: visible;

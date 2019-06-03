@@ -1,3 +1,12 @@
+## v2.1.11
+- fix(sidebar): add optional container `sidebar-scroll`. Thanks @MartijnBastiaansen
+  - fixes an issue where `sidebar-toggler` causes an error when there is no `sidebar-nav` element in it
+  - if no container is set, returns null for perfectScrollbar
+
+###### Dependencies update:
+- update `rollup` to `^1.13.1`
+- update `stylelint-scss` to `^3.8.0`
+
 ## v2.1.10
 - chore: drop `@babel/polyfill` in favour of `core-js@3` and `regenerator-runtime`
 
