@@ -1,5 +1,9 @@
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): carousel.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's carousel.js
  * Bootstrap (v4.3.1): carousel.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
@@ -18,9 +22,9 @@ import {
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
+import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
-import SelectorEngine from './dom/selectorEngine'
+import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -29,7 +33,7 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'carousel'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -82,7 +86,7 @@ const Event = {
 
 const ClassName = {
   CAROUSEL: `${PREFIX}carousel`,
-  ACTIVE: 'active',
+  ACTIVE: `${PREFIX}active`,
   SLIDE: 'slide',
   RIGHT: `${PREFIX}carousel-item-right`,
   LEFT: `${PREFIX}carousel-item-left`,
@@ -93,8 +97,8 @@ const ClassName = {
 }
 
 const Selector = {
-  ACTIVE: '.active',
-  ACTIVE_ITEM: `.active.${PREFIX}carousel-item`,
+  ACTIVE: `.${PREFIX}active`,
+  ACTIVE_ITEM: `.${PREFIX}active.${PREFIX}carousel-item`,
   ITEM: `.${PREFIX}carousel-item`,
   ITEM_IMG: `.${PREFIX}carousel-item img`,
   NEXT_PREV: `.${PREFIX}carousel-item-next, .${PREFIX}carousel-item-prev`,

@@ -19,7 +19,7 @@ import { isArray } from 'util'
  */
 
 const NAME = 'class-toggler'
-const VERSION = '3.0.0'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.class-toggler'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

@@ -1,5 +1,9 @@
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): tab.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's tab.js
  * Bootstrap (v4.3.1): tab.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
@@ -15,8 +19,8 @@ import {
   reflow
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
-import SelectorEngine from './dom/selectorEngine'
+import EventHandler from './dom/event-handler'
+import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -25,7 +29,7 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'tab'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.tab'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -41,7 +45,7 @@ const Event = {
 
 const ClassName = {
   DROPDOWN_MENU: `${PREFIX}dropdown-menu`,
-  ACTIVE: 'active',
+  ACTIVE: `${PREFIX}active`,
   DISABLED: 'disabled',
   FADE: `${PREFIX}fade`,
   SHOW: `${PREFIX}show`
@@ -50,11 +54,11 @@ const ClassName = {
 const Selector = {
   DROPDOWN: `.${PREFIX}dropdown`,
   NAV_LIST_GROUP: `.${PREFIX}nav, .${PREFIX}list-group`,
-  ACTIVE: '.active',
-  ACTIVE_UL: ':scope > li > .active',
+  ACTIVE: `.${PREFIX}active`,
+  ACTIVE_UL: `:scope > li > .${PREFIX}active`,
   DATA_TOGGLE: `[data-toggle="${PREFIX}tab"], [data-toggle="${PREFIX}pill"], [data-toggle="${PREFIX}list"]`,
   DROPDOWN_TOGGLE: `.${PREFIX}dropdown-toggle`,
-  DROPDOWN_ACTIVE_CHILD: `:scope > .${PREFIX}dropdown-menu .active`
+  DROPDOWN_ACTIVE_CHILD: `:scope > .${PREFIX}dropdown-menu .${PREFIX}active`
 }
 
 /**

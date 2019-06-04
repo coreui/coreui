@@ -9,7 +9,7 @@ import {
   jQuery as $
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
+import EventHandler from './dom/event-handler'
 import PerfectScrollbar from 'perfect-scrollbar'
 import getStyle from './utilities/get-style'
 
@@ -20,7 +20,7 @@ import getStyle from './utilities/get-style'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -31,7 +31,7 @@ const Default = {
 }
 
 const ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: `${PREFIX}active`,
   NAV_DROPDOWN_TOGGLE: `${PREFIX}nav-dropdown-toggle`,
   OPEN: `${PREFIX}open`,
   SIDEBAR_MINIMIZED: `${PREFIX}sidebar-minimized`,

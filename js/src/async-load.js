@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): asyn${PREFIX}load.js
+ * CoreUI (v3.0.0-alpha.7): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -9,7 +9,7 @@ import {
   jQuery as $
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
+import EventHandler from './dom/event-handler'
 
 /**
  * ------------------------------------------------------------------------
@@ -18,14 +18,14 @@ import EventHandler from './dom/eventHandler'
  */
 
 const NAME = 'asyncLoad'
-const VERSION = '3.0.0'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: `${PREFIX}active`,
   NAV_DROPDOWN_TOGGLE: `${PREFIX}nav-dropdown-toggle`,
   NAV_PILLS: `${PREFIX}nav-pills`,
   NAV_TABS: `${PREFIX}nav-tabs`,

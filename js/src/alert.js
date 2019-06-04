@@ -1,5 +1,9 @@
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): alerj.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's alert.js
  * Bootstrap (v4.3.1): alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
@@ -13,8 +17,8 @@ import {
   getTransitionDurationFromElement
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
-import SelectorEngine from './dom/selectorEngine'
+import EventHandler from './dom/event-handler'
+import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -23,7 +27,7 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'alert'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

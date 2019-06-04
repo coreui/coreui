@@ -1,14 +1,18 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): button.js
+ * CoreUI (v3.0.0-alpha.7): button.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's buttons.js
+ * Bootstrap (v4.3.1): buttons.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
 import { jQuery as $ } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
-import SelectorEngine from './dom/selectorEngine'
+import EventHandler from './dom/event-handler'
+import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -17,14 +21,14 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'button'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.button'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: `${PREFIX}active`,
   BUTTON: `${PREFIX}btn`,
   FOCUS: 'focus'
 }
@@ -33,7 +37,7 @@ const Selector = {
   DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
-  ACTIVE: '.active',
+  ACTIVE: `.${PREFIX}active`,
   BUTTON: `.${PREFIX}btn`
 }
 

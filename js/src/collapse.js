@@ -1,5 +1,9 @@
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): collapse.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's collapse.js
  * Bootstrap (v4.3.1): collapse.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
@@ -28,7 +32,7 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'collapse'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.collapse'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

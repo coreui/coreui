@@ -1,5 +1,9 @@
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): scrollspy.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's scrollspy.js
  * Bootstrap (v4.3.1): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
@@ -13,9 +17,9 @@ import {
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
+import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
-import SelectorEngine from './dom/selectorEngine'
+import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -24,7 +28,7 @@ import SelectorEngine from './dom/selectorEngine'
  */
 
 const NAME = 'scrollspy'
-const VERSION = '4.3.1'
+const VERSION = '3.0.0-alpha.7'
 const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -50,7 +54,7 @@ const Event = {
 
 const ClassName = {
   DROPDOWN_ITEM: `${PREFIX}dropdown-item`,
-  ACTIVE: 'active'
+  ACTIVE: `${PREFIX}active`,
 }
 
 const Selector = {
