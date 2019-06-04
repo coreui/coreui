@@ -2,11 +2,12 @@
 * required polyfills
 */
 
-// eslint-disable-next-line consistent-return
+// eslint-disable-next-line consistent-return, wrap-iife
 (function () {
   if (typeof NodeList.prototype.forEach === 'function') {
     return false
   }
+
   NodeList.prototype.forEach = Array.prototype.forEach
 }())
 

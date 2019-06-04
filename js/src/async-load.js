@@ -35,16 +35,19 @@ const ClassName = {
 
 const Event = {
   CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-  LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
+  // TODO: clean-up
+  // LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
   XHR_STATUS: 'xhr'
 }
 
 const Selector = {
-  HEAD: 'head',
+  // TODO: clean-up
+  // HEAD: 'head',
   NAV_DROPDOWN: `.${PREFIX}nav .${PREFIX}nav-dropdown`,
   NAV_LINK: `.${PREFIX}dropdown-nav-link, .${PREFIX}nav .${PREFIX}nav-link`,
   NAV_ITEM: `.${PREFIX}nav .${PREFIX}nav-item`,
-  SIDEBAT_NAV: `.${PREFIX}sidebar-nav, .${PREFIX}sidebar-nav`,
+  // TODO: clean-up
+  // SIDEBAT_NAV: `.${PREFIX}sidebar-nav, .${PREFIX}sidebar-nav`,
   VIEW_SCRIPT: '.view-script'
 }
 
@@ -60,6 +63,7 @@ class AsyncLoad {
     this._element = element
     const url = location.hash.replace(/^#/, '')
 
+    // eslint-disable-next-line no-negated-condition
     if (url !== '') {
       this._setUpUrl(url)
     } else {

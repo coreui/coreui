@@ -8,13 +8,13 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): asyn${PREFIX}load.js
+ * CoreUI (v3.0.0-alpha.7): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -22,13 +22,13 @@ import EventHandler from './dom/eventHandler';
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: PREFIX + "active",
   NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
   NAV_PILLS: PREFIX + "nav-pills",
   NAV_TABS: PREFIX + "nav-tabs",

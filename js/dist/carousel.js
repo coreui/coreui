@@ -8,15 +8,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): carousel.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's carousel.js
  * Bootstrap (v4.3.1): carousel.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $, TRANSITION_END, emulateTransitionEnd, getSelectorFromElement, getTransitionDurationFromElement, isVisible, makeArray, reflow, triggerTransitionEnd, typeCheckConfig } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selectorEngine';
+import SelectorEngine from './dom/selector-engine';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -24,7 +28,7 @@ import SelectorEngine from './dom/selectorEngine';
  */
 
 var NAME = 'carousel';
-var VERSION = '4.3.1';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.carousel';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -75,7 +79,7 @@ var Event = {
 };
 var ClassName = {
   CAROUSEL: PREFIX + "carousel",
-  ACTIVE: 'active',
+  ACTIVE: PREFIX + "active",
   SLIDE: 'slide',
   RIGHT: PREFIX + "carousel-item-right",
   LEFT: PREFIX + "carousel-item-left",
@@ -85,8 +89,8 @@ var ClassName = {
   POINTER_EVENT: PREFIX + "pointer-event"
 };
 var Selector = {
-  ACTIVE: '.active',
-  ACTIVE_ITEM: ".active." + PREFIX + "carousel-item",
+  ACTIVE: "." + PREFIX + "active",
+  ACTIVE_ITEM: "." + PREFIX + "active." + PREFIX + "carousel-item",
   ITEM: "." + PREFIX + "carousel-item",
   ITEM_IMG: "." + PREFIX + "carousel-item img",
   NEXT_PREV: "." + PREFIX + "carousel-item-next, ." + PREFIX + "carousel-item-prev",

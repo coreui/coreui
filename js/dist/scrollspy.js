@@ -8,15 +8,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): scrollspy.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's scrollspy.js
  * Bootstrap (v4.3.1): scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $, getSelectorFromElement, getUID, makeArray, typeCheckConfig } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
-import SelectorEngine from './dom/selectorEngine';
+import SelectorEngine from './dom/selector-engine';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -24,7 +28,7 @@ import SelectorEngine from './dom/selectorEngine';
  */
 
 var NAME = 'scrollspy';
-var VERSION = '4.3.1';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.scrollspy';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -46,7 +50,7 @@ var Event = {
 };
 var ClassName = {
   DROPDOWN_ITEM: PREFIX + "dropdown-item",
-  ACTIVE: 'active'
+  ACTIVE: PREFIX + "active"
 };
 var Selector = {
   DATA_SPY: "[data-spy=\"" + PREFIX + "scroll\"]",

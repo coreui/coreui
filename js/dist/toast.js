@@ -8,13 +8,17 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): toast.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's toast.js
  * Bootstrap (v4.3.1): toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $, TRANSITION_END, emulateTransitionEnd, getTransitionDurationFromElement, typeCheckConfig } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 import Manipulator from './dom/manipulator';
 /**
  * ------------------------------------------------------------------------
@@ -23,7 +27,7 @@ import Manipulator from './dom/manipulator';
  */
 
 var NAME = 'toast';
-var VERSION = '4.3.1';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.toast';
 var EVENT_KEY = "." + DATA_KEY;
 var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';

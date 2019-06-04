@@ -54,7 +54,7 @@ const Event = {
 
 const ClassName = {
   DROPDOWN_ITEM: `${PREFIX}dropdown-item`,
-  ACTIVE: `${PREFIX}active`,
+  ACTIVE: `${PREFIX}active`
 }
 
 const Selector = {

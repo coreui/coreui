@@ -4,14 +4,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): button.js
+ * CoreUI (v3.0.0-alpha.7): button.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's buttons.js
+ * Bootstrap (v4.3.1): buttons.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
-import SelectorEngine from './dom/selectorEngine';
+import EventHandler from './dom/event-handler';
+import SelectorEngine from './dom/selector-engine';
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -19,13 +23,13 @@ import SelectorEngine from './dom/selectorEngine';
  */
 
 var NAME = 'button';
-var VERSION = '4.3.1';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.button';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: PREFIX + "active",
   BUTTON: PREFIX + "btn",
   FOCUS: 'focus'
 };
@@ -33,7 +37,7 @@ var Selector = {
   DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
-  ACTIVE: '.active',
+  ACTIVE: "." + PREFIX + "active",
   BUTTON: "." + PREFIX + "btn"
 };
 var Event = {

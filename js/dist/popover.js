@@ -10,13 +10,17 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * --------------------------------------------------------------------------
+ * CoreUI (v3.0.0-alpha.7): popover.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's popover.js
  * Bootstrap (v4.3.1): popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import SelectorEngine from './dom/selectorEngine';
+import SelectorEngine from './dom/selector-engine';
 import Tooltip from './tooltip';
 /**
  * ------------------------------------------------------------------------
@@ -25,7 +29,7 @@ import Tooltip from './tooltip';
  */
 
 var NAME = 'popover';
-var VERSION = '4.3.1';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.popover';
 var EVENT_KEY = "." + DATA_KEY;
 var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';

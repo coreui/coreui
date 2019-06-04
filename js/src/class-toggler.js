@@ -9,8 +9,7 @@ import {
   jQuery as $
 } from './util/index'
 import Data from './dom/data'
-import EventHandler from './dom/eventHandler'
-import { isArray } from 'util'
+import EventHandler from './dom/event-handler'
 
 /**
  * ------------------------------------------------------------------------
@@ -145,7 +144,7 @@ class ClassToggler {
 
   _isArray(array) {
     try {
-      JSON.parse(array.replace(/'/g, '"'));
+      JSON.parse(array.replace(/'/g, '"'))
       return true
     } catch {
       return false

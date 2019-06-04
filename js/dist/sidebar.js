@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 import PerfectScrollbar from 'perfect-scrollbar';
 import getStyle from './utilities/get-style';
 /**
@@ -20,7 +20,7 @@ import getStyle from './utilities/get-style';
  */
 
 var NAME = 'sidebar';
-var VERSION = '3.0.0';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -29,7 +29,7 @@ var Default = {
   transition: 400
 };
 var ClassName = {
-  ACTIVE: 'active',
+  ACTIVE: PREFIX + "active",
   NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
   OPEN: PREFIX + "open",
   SIDEBAR_MINIMIZED: PREFIX + "sidebar-minimized",

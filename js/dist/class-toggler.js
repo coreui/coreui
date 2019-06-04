@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/eventHandler';
+import EventHandler from './dom/event-handler';
 import { isArray } from 'util';
 /**
  * ------------------------------------------------------------------------
@@ -19,7 +19,7 @@ import { isArray } from 'util';
  */
 
 var NAME = 'class-toggler';
-var VERSION = '3.0.0';
+var VERSION = '3.0.0-alpha.7';
 var DATA_KEY = 'coreui.class-toggler';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
