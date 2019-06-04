@@ -13,7 +13,7 @@
     text-decoration: none;
   }
 
-  &:not(:disabled):not(.disabled) {
+  &:not(:disabled):not(.#{$bs-prefix}disabled) {
     @include hover-focus {
       opacity: .75;
     }
@@ -36,6 +36,6 @@ button.#{$bs-prefix}close {
 // Future-proof disabling of clicks on `<a>` elements
 
 // stylelint-disable-next-line selector-no-qualifying-type
-a.#{$bs-prefix}close.disabled {
+a.#{$bs-prefix}close.#{$bs-prefix}disabled {
   pointer-events: none;
 }

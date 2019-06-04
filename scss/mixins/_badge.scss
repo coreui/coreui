@@ -9,7 +9,7 @@
     }
 
     &:focus,
-    &.focus {
+    &.#{$bs-prefix}focus {
       outline: 0;
       box-shadow: 0 0 0 $badge-focus-width rgba($bg, .5);
     }

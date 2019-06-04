@@ -20,7 +20,7 @@
   }
 
   // Disabled state lightens text
-  &.disabled {
+  &.#{$bs-prefix}disabled {
     color: $nav-link-disabled-color;
     pointer-events: none;
     cursor: default;
@@ -55,7 +55,7 @@
       }
     }
 
-    &.disabled {
+    &.#{$bs-prefix}disabled {
       // color: $nav-link-disabled-color;
       background-color: transparent;
       border-color: transparent;
@@ -65,7 +65,7 @@
     }
   }
 
-  .#{$bs-prefix}nav-link.active,
+  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
   .#{$bs-prefix}nav-item.#{$bs-prefix}show .#{$bs-prefix}nav-link {
     // color: $nav-tabs-link-active-color;
     // background-color: $nav-tabs-link-active-bg;
@@ -95,7 +95,7 @@
     @include border-radius($nav-pills-border-radius);
   }
 
-  .#{$bs-prefix}nav-link.active,
+  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
   .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
     // color: $nav-pills-link-active-color;
     // background-color: $nav-pills-link-active-bg;
@@ -129,14 +129,14 @@
 
 // Tabbable tabs
 //
-// Hide tabbable panes to start, show them when `.active`
+// Hide tabbable panes to start, show them when `.#{$bs-prefix}active`
 
 .#{$bs-prefix}tab-content {
   padding-top: $spacer;
   > .#{$bs-prefix}tab-pane {
     display: none;
   }
-  > .active {
+  > .#{$bs-prefix}active {
     display: block;
   }
 }
@@ -149,7 +149,7 @@
 //     &:hover {
 //       cursor: pointer;
 //     }
-//     &.active {
+//     &.#{$bs-prefix}active {
 //       color: $gray-800;
 //       background: #fff;
 //       border-color: $border-color;
@@ -187,7 +187,7 @@
 //   .#{$bs-prefix}nav-link + .#{$bs-prefix}nav-link {
 //     margin-left: -1px;
 //   }
-//   .#{$bs-prefix}nav-link.active {
+//   .#{$bs-prefix}nav-link.#{$bs-prefix}active {
 //     margin-top: -1px;
 //     // margin-left: 0;
 //     border-top: 2px solid $primary;

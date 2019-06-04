@@ -118,7 +118,7 @@
       margin-left: auto;
     }
 
-    &.disabled {
+    &.#{$prefix}disabled {
       cursor: $cursor-disabled;
     }
 
@@ -219,7 +219,7 @@
       // color: $body-color;
       border-top: 0;
       @include border-radius(0);
-      &.active {
+      &.#{$prefix}active {
         // color: theme-color("primary");
       }
     }
@@ -269,7 +269,7 @@
     }
 
     &:focus,
-    &.focus {
+    &.#{$prefix}focus {
       outline: 0;
     }
   }
@@ -553,7 +553,7 @@
         transform: rotate(180deg);
       }
 
-      .#{$prefix}nav-dropdown.#{$bs-prefix}open {
+      .#{$prefix}nav-dropdown.#{$prefix}open {
         > .#{$prefix}nav-dropdown-toggle::after {
           transform: rotate(270deg);
         }
@@ -737,7 +737,7 @@
       fill: variant-get("sidebar-nav-link-icon-color");
     }
 
-    &.active {
+    &.#{$prefix}active {
       color: variant-get("sidebar-nav-link-active-color");
       background: variant-get("sidebar-nav-link-active-bg");
       @include borders(variant-get("sidebar-nav-link-active-borders"));
@@ -763,7 +763,7 @@
       }
     }
 
-    &.disabled {
+    &.#{$prefix}disabled {
       color: variant-get("sidebar-nav-link-disabled-color");
       background: transparent;
       @include borders(variant-get("sidebar-nav-link-disabled-borders"));
@@ -796,14 +796,14 @@
     }
   }
 
-  .#{$prefix}nav-dropdown.#{$bs-prefix}open {
+  .#{$prefix}nav-dropdown.#{$prefix}open {
     background: variant-get("sidebar-nav-dropdown-bg");
     @include borders(variant-get("sidebar-nav-dropdown-borders"));
 
     .#{$prefix}nav-link {
       color: variant-get("sidebar-nav-dropdown-color");
 
-      &.disabled {
+      &.#{$prefix}disabled {
         color: variant-get("sidebar-nav-link-disabled-color");
         background: transparent;
 
@@ -839,7 +839,7 @@
         background: variant-get("sidebar-nav-tabs-link-hover-bg");
         border-color: variant-get("sidebar-nav-tabs-link-hover-border-color");
       }
-      &.active {
+      &.#{$prefix}active {
         background: variant-get("sidebar-nav-tabs-link-active-bg");
         border-color: variant-get("sidebar-nav-tabs-link-active-border-color");
       }
@@ -866,7 +866,7 @@
     }
 
     &:focus,
-    &.focus {
+    &.#{$prefix}focus {
       outline: 0;
     }
 
@@ -893,7 +893,7 @@
             color: variant-get("sidebar-nav-link-hover-color");
           }
 
-          &.disabled {
+          &.#{$prefix}disabled {
             background: variant-get("sidebar-nav-link-disabled-bg");
 
             .#{$prefix}nav-icon {

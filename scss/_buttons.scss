@@ -23,20 +23,20 @@
   }
 
   &:focus,
-  &.focus {
+  &.#{$bs-prefix}focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle
-  &.disabled,
+  &.#{$bs-prefix}disabled,
   &:disabled {
     opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
 
-  &:not(:disabled):not(.disabled):active,
-  &:not(:disabled):not(.disabled).active {
+  &:not(:disabled):not(.#{$bs-prefix}disabled):active,
+  &:not(:disabled):not(.#{$bs-prefix}disabled).#{$bs-prefix}active {
     @include box-shadow($btn-active-box-shadow);
 
     &:focus {
@@ -53,7 +53,7 @@
 }
 
 // Future-proof disabling of clicks on `<a>` elements
-a.#{$bs-prefix}btn.disabled,
+a.#{$bs-prefix}btn.#{$bs-prefix}disabled,
 fieldset:disabled a.#{$bs-prefix}btn {
   pointer-events: none;
 }
@@ -92,13 +92,13 @@ fieldset:disabled a.#{$bs-prefix}btn {
   }
 
   &:focus,
-  &.focus {
+  &.#{$bs-prefix}focus {
     text-decoration: $link-hover-decoration;
     box-shadow: none;
   }
 
   &:disabled,
-  &.disabled {
+  &.#{$bs-prefix}disabled {
     color: $btn-link-disabled-color;
     pointer-events: none;
   }

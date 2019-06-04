@@ -44,7 +44,7 @@
     text-decoration: none;
   }
 
-  &.active {
+  &.#{$bs-prefix}active {
     color: $breadcrumb-active-color;
   }
 }

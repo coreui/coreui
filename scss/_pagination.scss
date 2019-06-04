@@ -52,7 +52,7 @@
     }
   }
 
-  &.active .#{$bs-prefix}page-link {
+  &.#{$bs-prefix}active .#{$bs-prefix}page-link {
     z-index: 1;
     // color: $pagination-active-color;
     // background-color: $pagination-active-bg;
@@ -64,7 +64,7 @@
     }
   }
 
-  &.disabled .#{$bs-prefix}page-link {
+  &.#{$bs-prefix}disabled .#{$bs-prefix}page-link {
     // color: $pagination-disabled-color;
     pointer-events: none;
     // Opinionated: remove the "hand" cursor set previously for .#{$bs-prefix}page-link

@@ -207,15 +207,15 @@
         color: $navbar-light-hover-color;
       }
 
-      &.disabled {
+      &.#{$bs-prefix}disabled {
         color: $navbar-light-disabled-color;
       }
     }
 
     .#{$bs-prefix}show > .#{$bs-prefix}nav-link,
-    .active > .#{$bs-prefix}nav-link,
+    .#{$bs-prefix}active > .#{$bs-prefix}nav-link,
     .#{$bs-prefix}nav-link.#{$bs-prefix}show,
-    .#{$bs-prefix}nav-link.active {
+    .#{$bs-prefix}nav-link.#{$bs-prefix}active {
       color: $navbar-light-active-color;
     }
   }
@@ -259,15 +259,15 @@
         color: $navbar-dark-hover-color;
       }
 
-      &.disabled {
+      &.#{$bs-prefix}disabled {
         color: $navbar-dark-disabled-color;
       }
     }
 
     .#{$bs-prefix}show > .#{$bs-prefix}nav-link,
-    .active > .#{$bs-prefix}nav-link,
+    .#{$bs-prefix}active > .#{$bs-prefix}nav-link,
     .#{$bs-prefix}nav-link.#{$bs-prefix}show,
-    .#{$bs-prefix}nav-link.active {
+    .#{$bs-prefix}nav-link.#{$bs-prefix}active {
       color: $navbar-dark-active-color;
     }
   }

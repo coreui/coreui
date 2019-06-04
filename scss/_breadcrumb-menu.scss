@@ -16,7 +16,7 @@
     border: 0;
 
     &:hover,
-    &.active {
+    &.#{$bs-prefix}active {
       color: $body-color;
       background: transparent;
     }

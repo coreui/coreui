@@ -11,7 +11,7 @@
         background-color: darken($background, 5%);
       }
 
-      &.active {
+      &.#{$bs-prefix}active {
         color: $white;
         background-color: $color;
         border-color: $color;

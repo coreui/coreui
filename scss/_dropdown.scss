@@ -167,7 +167,7 @@
     }
   }
 
-  &.active,
+  &.#{$bs-prefix}active,
   &:active {
     // color: $dropdown-link-active-color;
     text-decoration: none;
@@ -179,7 +179,7 @@
     }
   }
 
-  &.disabled,
+  &.#{$bs-prefix}disabled,
   &:disabled {
     // color: $dropdown-link-disabled-color;
     pointer-events: none;

@@ -75,7 +75,7 @@
   }
 
   // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
-  &:not(:disabled):not(.disabled) {
+  &:not(:disabled):not(.#{$prefix}disabled) {
     cursor: pointer;
   }
 }
@@ -182,15 +182,15 @@
         color: variant-get("header-hover-color");
       }
 
-      &.disabled {
+      &.#{$prefix}disabled {
         color: variant-get("header-disabled-color");
       }
     }
 
-    .#{$bs-prefix}show > .#{$prefix}nav-link,
-    .active > .#{$prefix}nav-link,
-    .#{$prefix}nav-link.#{$bs-prefix}show,
-    .#{$prefix}nav-link.active {
+    .#{$prefix}show > .#{$prefix}nav-link,
+    .#{$prefix}active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.#{$prefix}show,
+    .#{$prefix}nav-link.#{$prefix}active {
       color: variant-get("header-active-color");
     }
   }
