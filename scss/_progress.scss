@@ -16,7 +16,7 @@
   @include box-shadow($progress-box-shadow);
 
   @include theme($progress-theme-map, $create: parent) {
-    background-color: theme-get('progress-bg');
+    background-color: theme-get("progress-bg");
   }
 }
 
@@ -31,8 +31,8 @@
   @include transition($progress-bar-transition);
 
   @include theme($progress-theme-map, $create: parent) {
-    color: theme-get('progress-bar-color');
-    background-color: theme-get('progress-bar-bg');
+    color: theme-get("progress-bar-color");
+    background-color: theme-get("progress-bar-bg");
   }
 }
 

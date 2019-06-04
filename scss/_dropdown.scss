@@ -35,10 +35,10 @@
   @include box-shadow($dropdown-box-shadow);
 
   @include theme($dropdown-theme-map, $create: parent) {
-    color: theme-get('dropdown-color');
-    background-color: theme-get('dropdown-bg');
-    border-color: theme-get('dropdown-border-color');
-	}
+    color: theme-get("dropdown-color");
+    background-color: theme-get("dropdown-bg");
+    border-color: theme-get("dropdown-border-color");
+  }
 }
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -58,7 +58,7 @@
 }
 
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
-// Just add .#{$bs-prefix}dropup after the standard .#{$bs-prefix}dropdown class and you're set.
+// Just add .#{$bs-prefix}dropup after the standard .#{$bs-prefix}dropdown class and you"re set.
 .#{$bs-prefix}dropup {
   .#{$bs-prefix}dropdown-menu {
     top: auto;
@@ -121,7 +121,7 @@
 // Dividers (basically an `<hr>`) within the dropdown
 .#{$bs-prefix}dropdown-divider {
   @include theme($dropdown-theme-map, $create: parent) {
-    @include nav-divider(theme-get('dropdown-divider-bg'), $dropdown-divider-margin-y);
+    @include nav-divider(theme-get("dropdown-divider-bg"), $dropdown-divider-margin-y);
   }
 }
 
@@ -141,10 +141,10 @@
   border: 0; // For `<button>`s
 
   @include theme($dropdown-theme-map, $create: parent) {
-    color: theme-get('dropdown-link-color');
-	}
+    color: theme-get("dropdown-link-color");
+  }
 
-  // Prevent dropdown overflow if there's no padding
+  // Prevent dropdown overflow if there"s no padding
   // See https://github.com/twbs/bootstrap/pull/27703
   @if $dropdown-padding-y == 0 {
     &:first-child {
@@ -162,8 +162,8 @@
     // @include gradient-bg($dropdown-link-hover-bg);
 
     @include theme($dropdown-theme-map, $create: parent) {
-      color: theme-get('dropdown-link-hover-color');
-      @include gradient-bg(theme-get('dropdown-link-hover-bg'));
+      color: theme-get("dropdown-link-hover-color");
+      @include gradient-bg(theme-get("dropdown-link-hover-bg"));
     }
   }
 
@@ -174,8 +174,8 @@
     // @include gradient-bg($dropdown-link-active-bg);
 
     @include theme($dropdown-theme-map, $create: parent) {
-      color: theme-get('dropdown-link-active-color');
-      @include gradient-bg(theme-get('dropdown-link-active-bg'));
+      color: theme-get("dropdown-link-active-color");
+      @include gradient-bg(theme-get("dropdown-link-active-bg"));
     }
   }
 
@@ -190,7 +190,7 @@
     }
 
     @include theme($dropdown-theme-map, $create: parent) {
-      color: theme-get('dropdown-link-disabled-color');
+      color: theme-get("dropdown-link-disabled-color");
     }
   }
 }
@@ -208,7 +208,7 @@
   // color: $dropdown-header-color;
   white-space: nowrap; // as with > li > a
   @include theme($dropdown-theme-map, $create: parent) {
-    color: theme-get('dropdown-header-color');
+    color: theme-get("dropdown-header-color");
   }
 }
 
@@ -219,6 +219,6 @@
   // color: $dropdown-link-color;
 
   @include theme($dropdown-theme-map, $create: parent) {
-    color: theme-get('dropdown-link-color');
-	}
+    color: theme-get("dropdown-link-color");
+  }
 }

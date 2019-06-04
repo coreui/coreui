@@ -3,12 +3,18 @@
   flex-wrap: wrap;
   align-items: center;
   padding: 0 $spacer;
+
+  &[class*="bg-"] {
+    border-color: rgba($black, .1);
+  }
 }
 
-.#{$prefix}footer- {
-  @include variant($footer-variant-map, $create: append) {
-    color: variant-get("footer-color");
-    background: variant-get("footer-bg");
-    @include borders(variant-get("footer-borders"));
-  }
+// .#{$prefix}footer- {
+
+// }
+
+@include variant($footer-variants, $create: append, $parent: ".#{$prefix}footer") {
+  color: variant-get("footer-color");
+  background: variant-get("footer-bg");
+  @include borders(variant-get("footer-borders"));
 }

@@ -1,0 +1,77 @@
+//
+// CoreUI 3.x Color system
+//
+
+$white:     #fff !default;
+$gray-900: #212233 !default;
+$gray-50:  #e9e9eb !default;
+$gray-100:  #d3d3d6 !default;
+$gray-200:  #bcbdc2 !default;
+$gray-300:  #a6a7ad !default;
+$gray-400:  #909099 !default;
+$gray-500:  #7a7a85 !default;
+$gray-600:  #646470 !default;
+$gray-700:  #4d4e5c !default;
+$gray-800:  #373847 !default;
+$black:     #000 !default;
+
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(
+  (
+    "100": $gray-100,
+    "200": $gray-200,
+    "300": $gray-300,
+    "400": $gray-400,
+    "500": $gray-500,
+    "600": $gray-600,
+    "700": $gray-700,
+    "800": $gray-800,
+    "900": $gray-900
+  ),
+  $grays
+);
+
+$primary-dark: #1f1498 !default;
+$primary: #321fdb !default;
+$primary-50: #988fed !default;
+$primary-25: #ccc7f6 !default;
+
+$secondary-dark: #212233 !default;
+$secondary: #3c4b64 !default;
+$secondary-50: #9da5b1 !default;
+$secondary-25: #ced2d8 !default;
+
+$danger-dark: #d93737 !default;
+$danger: #e55353 !default;
+$danger-50: #f2a9a9 !default;
+$danger-25: #f9d4d4 !default;
+
+$info-dark: #2982cc !default;
+$info: #39f !default;
+$info-50: #80c6ff !default;
+$info-25: #c0e6ff !default;
+
+$success-dark: #1b9e3e !default;
+$success: #2eb85c !default;
+$success-50: #96dbad !default;
+$success-25: #cbedd6 !default;
+
+$warning-dark: #f6960b !default;
+$warning: #f9b115 !default;
+$warning-50: #fcd88a !default;
+$warning-25: #feecc5 !default;
+
+$theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(
+  (
+    "primary":    $primary,
+    "secondary":  $secondary-50,
+    "success":    $success,
+    "info":       $info,
+    "warning":    $warning,
+    "danger":     $danger
+  ),
+  $theme-colors
+);

@@ -130,9 +130,10 @@ $theme-loop-map: $theme-map;
 
   $ret: map-get($entity-map, $key);
 
-  @if not $ret {
-    @error 'The entity `#{$entity}` doesn\'t have a value for `#{$key}`.';
-  }
+  //TODO: find solution when $key is `null`
+  // @if not $ret {
+  //   @warn 'The entity `#{$entity}` doesn\'t have a value for `#{$key}`.';
+  // }
 
   @return $ret;
 }
@@ -331,9 +332,12 @@ $theme-loop-map: $theme-map;
       }
     }
   }
-
 }
 
+@mixin theme-append-variables($entity) {
+  $theme-loop-entity: $entity !global;
+  @content;
+}
 
 
 /// Appends an .is-class class to the element.
@@ -514,10 +518,12 @@ $theme-loop-map: $theme-map;
 ///     border: 10px solid red;
 ///   }
 ///
-@mixin theme($loop: $theme-map, $create: $theme-default-create, $for: 'all', $not: ()){
+@mixin theme($loop: $theme-map, $create: $theme-default-create, $default: $default-theme, $for: 'all', $not: (),){
   $theme-loop-map: $loop !global;
   $entity-list: theme-filter($for, $not, $loop);
 
+  // @debug $loop;
+  // @debug $entity-list;
   $creation-modes: parent, insert, modifier, append, custom;
 
   // Check if valid creation mode
@@ -529,36 +535,66 @@ $theme-loop-map: $theme-map;
   @if $create == 'parent' {
     // Body class
     @each $entity in $entity-list {
-      @include theme-single-parent($entity) {
-        @content;
+      @if $entity == $default {
+        @include theme-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include theme-single-parent($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'insert' {
     // Body class with html parent class
     @each $entity in $entity-list {
-      @include theme-single-htmlbody($entity) {
-        @content;
+      @if $entity == $default {
+        @include theme-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include theme-single-htmlbody($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'modifier' {
     // BEM modifier
     @each $entity in $entity-list {
-      @include theme-single-modifier($entity) {
-        @content;
+      @if $entity == $default {
+        @include theme-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include theme-single-modifier($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'append' {
     // Appended class
     @each $entity in $entity-list {
-      @include theme-single-append($entity) {
-        @content;
+      @if $entity == $default {
+        @include theme-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include theme-single-append($entity) {
+          @content;
+        }
       }
     }
   } @else {
     // Custom
     @each $entity in $entity-list {
-      @include theme-single-custom($entity) {
-        @content;
+      @if $entity == $default {
+        @include theme-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include theme-single-custom($entity) {
+          @content;
+        }
       }
     }
   }

@@ -3,7 +3,7 @@
 // Used in conjunction with global variables to enable certain theme features.
 
 // Vendor
-@import "vendor/rfs";
+@import "vendors/rfs";
 
 // Deprecate
 @import "mixins/deprecate";
@@ -52,5 +52,6 @@
 @import "mixins/float";
 
 // // Themes
+@import "mixins/elevation";
 @import "mixins/theme";
 @import "mixins/variant";

@@ -18,7 +18,6 @@
     border-color: theme-get("card-border-color");
   }
 
-
   > hr {
     margin-right: 0;
     margin-left: 0;
@@ -111,6 +110,14 @@
       border-top: 0;
     }
   }
+
+  .#{$bs-prefix}chart-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .#{$bs-prefix}card-footer {
@@ -167,38 +174,6 @@
 
 .#{$bs-prefix}card-img-bottom {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  @include border-bottom-radius($card-inner-border-radius);
-}
-
-// Card icons
-
-[class^="#{$bs-prefix}card-icon-"] {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
-  height: 6rem;
-
-  .#{$bs-prefix}card-icon {
-    font-size: 2rem;
-    color: $white;
-  }
-
-  .#{$bs-prefix}chart-wrapper {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-
-.#{$bs-prefix}card-icon-top {
-  @include border-top-radius($card-inner-border-radius);
-}
-
-.#{$bs-prefix}card-icon-bottom {
   @include border-bottom-radius($card-inner-border-radius);
 }
 
@@ -359,32 +334,33 @@
   border: 1px dashed $gray-300;
 }
 
-.#{$bs-prefix}card-header {
-  > i {
-    margin-right: $spacer / 2;
-  }
+// TODO: check and refactor
+// .#{$bs-prefix}card-header {
+//   > i {
+//     margin-right: $spacer / 2;
+//   }
 
-  .#{$bs-prefix}nav-tabs {
-    margin-top: -$card-spacer-y;
-    margin-bottom: -$card-spacer-y;
-    border-bottom: 0;
+//   .#{$bs-prefix}nav-tabs {
+//     margin-top: -$card-spacer-y;
+//     margin-bottom: -$card-spacer-y;
+//     border-bottom: 0;
 
-    .#{$bs-prefix}nav-item {
-      border-top: 0;
-    }
+//     .#{$bs-prefix}nav-item {
+//       border-top: 0;
+//     }
 
-    .#{$bs-prefix}nav-link {
-      padding: $card-spacer-y ($card-spacer-x / 2);
-      color: $text-muted;
-      border-top: 0;
+//     .#{$bs-prefix}nav-link {
+//       padding: $card-spacer-y ($card-spacer-x / 2);
+//       color: $text-muted;
+//       border-top: 0;
 
-      &.active {
-        color: $body-color;
-        background: #fff;
-      }
-    }
-  }
-}
+//       &.active {
+//         color: $body-color;
+//         background: #fff;
+//       }
+//     }
+//   }
+// }
 
 *[dir="rtl"] .#{$bs-prefix}card-header > i {
   margin-right: 0;

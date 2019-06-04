@@ -132,6 +132,7 @@
 // Hide tabbable panes to start, show them when `.active`
 
 .#{$bs-prefix}tab-content {
+  padding-top: $spacer;
   > .#{$bs-prefix}tab-pane {
     display: none;
   }

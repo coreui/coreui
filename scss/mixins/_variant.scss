@@ -334,6 +334,30 @@ $variant-loop-map: $variant-map;
 
 }
 
+@mixin variant-add-to-parent($entity, $parent) {
+  $variant-loop-entity: $entity !global;
+  @at-root{
+    &#{$parent} {
+      @content;
+    }
+  }
+}
+
+@mixin variant-create-new-variant($entity, $parent) {
+  $variant-loop-entity: $entity !global;
+  @at-root{
+    #{$parent} {
+      &#{$parent}-#{$entity} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin variant-append-variables($entity) {
+  $variant-loop-entity: $entity !global;
+  @content;
+}
 
 
 /// Appends an .is-class class to the element.
@@ -514,9 +538,12 @@ $variant-loop-map: $variant-map;
 ///     border: 10px solid red;
 ///   }
 ///
-@mixin variant($loop: $variant-map, $create: $variant-default-create, $for: 'all', $not: ()){
-  $variant-loop-map: $loop !global;
-  $entity-list: variant-filter($for, $not, $loop);
+@mixin variant($loop: $variant-map, $create: $variant-default-create, $parent: null, $for: 'all', $not: ()){
+  $map: map-get($loop, 'map');
+  // Get default variant
+  $default-variant: map-get($loop, 'default');
+  $variant-loop-map: $map !global;
+  $entity-list: variant-filter($for, $not, $map);
 
   $creation-modes: parent, insert, modifier, append, custom;
 
@@ -526,39 +553,81 @@ $variant-loop-map: $variant-map;
   }
 
   // Go through all the creation modes
-  @if $create == 'parent' {
+  @if $parent {
+    @each $entity in $entity-list {
+      @if $entity == $default-variant {
+        @include variant-add-to-parent($entity, $parent) {
+          @content;
+        }
+      } @else {
+        @include variant-create-new-variant($entity, $parent) {
+          @content;
+        }
+      }
+    }
+  } @elseif $create == 'parent' {
     // Body class
     @each $entity in $entity-list {
-      @include variant-single-parent($entity) {
-        @content;
+      @if $entity == $default-variant {
+        @include variant-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include variant-single-parent($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'insert' {
     // Body class with html parent class
     @each $entity in $entity-list {
-      @include variant-single-htmlbody($entity) {
-        @content;
+      @if $entity == $default-variant {
+        @include variant-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include variant-single-htmlbody($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'modifier' {
     // BEM modifier
     @each $entity in $entity-list {
-      @include variant-single-modifier($entity) {
-        @content;
+      @if $entity == $default-variant {
+        @include variant-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include variant-single-modifier($entity) {
+          @content;
+        }
       }
     }
   } @elseif $create == 'append' {
     // Appended class
     @each $entity in $entity-list {
-      @include variant-single-append($entity) {
-        @content;
+      @if $entity == $default-variant {
+        @include variant-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include variant-single-append($entity) {
+          @content;
+        }
       }
     }
   } @else {
     // Custom
     @each $entity in $entity-list {
-      @include variant-single-custom($entity) {
-        @content;
+      @if $entity == $default-variant {
+        @include variant-append-variables($entity) {
+          @content;
+        }
+      } @else {
+        @include variant-single-custom($entity) {
+          @content;
+        }
       }
     }
   }

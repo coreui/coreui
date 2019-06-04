@@ -133,90 +133,88 @@
 }
 
 
-// Navbar themes
 //
-// Styles for switching between navbars with light or dark background.
+// Header variants
+//
 
-.#{$prefix}header- {
-  @include variant($header-variant-map, $create: append) {
-    background: variant-get("header-bg");
+@include variant($header-variants, $create: append, $parent: ".#{$prefix}header") {
+  background: variant-get("header-bg");
+  @if $default-theme == "dark" {
+    @include borders(variant-get("dark-theme-header-border"));
+  } @else {
+    @include borders(variant-get("header-border"));
+  }
+
+  .#{$prefix}dark-theme & {
+    @include borders(variant-get("dark-theme-header-border"));
+  }
+
+  .#{$prefix}header-brand {
+    color: variant-get("header-brand-color");
+    background-color: variant-get("header-brand-bg");
     @if $default-theme == "dark" {
       @include borders(variant-get("dark-theme-header-border"));
     } @else {
-      @include borders(variant-get("header-border"));
+      @include borders(variant-get("header-brand-border"));
     }
 
     .#{$prefix}dark-theme & {
       @include borders(variant-get("dark-theme-header-border"));
     }
 
-    .#{$prefix}header-brand {
-      color: variant-get("header-brand-color");
-      background-color: variant-get("header-brand-bg");
-      @if $default-theme == "dark" {
-        @include borders(variant-get("dark-theme-header-border"));
-      } @else {
-        @include borders(variant-get("header-brand-border"));
-      }
+    @include hover-focus {
+      color: variant-get("header-brand-hover-color");
+    }
 
-      .#{$prefix}dark-theme & {
-        @include borders(variant-get("dark-theme-header-border"));
+    @include media-breakpoint-up(lg) {
+      &.#{$prefix}header-brand-minimized {
+        background-color: variant-get("header-brand-minimized-bg");
+        @include borders(variant-get("header-brand-minimized-border"));
       }
+    }
+  }
+
+  .#{$prefix}header-nav {
+    .#{$prefix}nav-link {
+      color: variant-get("header-color");
 
       @include hover-focus {
-        color: variant-get("header-brand-hover-color");
+        color: variant-get("header-hover-color");
       }
 
-      @include media-breakpoint-up(lg) {
-        &.#{$prefix}header-brand-minimized {
-          background-color: variant-get("header-brand-minimized-bg");
-          @include borders(variant-get("header-brand-minimized-border"));
-        }
+      &.disabled {
+        color: variant-get("header-disabled-color");
       }
     }
 
-    .#{$prefix}header-nav {
-      .#{$prefix}nav-link {
-        color: variant-get("header-color");
+    .#{$bs-prefix}show > .#{$prefix}nav-link,
+    .active > .#{$prefix}nav-link,
+    .#{$prefix}nav-link.#{$bs-prefix}show,
+    .#{$prefix}nav-link.active {
+      color: variant-get("header-active-color");
+    }
+  }
 
-        @include hover-focus {
-          color: variant-get("header-hover-color");
-        }
+  .#{$prefix}header-toggler {
+    color: variant-get("header-color");
+    border-color: variant-get("header-toggler-border-color");
+  }
 
-        &.disabled {
-          color: variant-get("header-disabled-color");
-        }
-      }
+  .#{$prefix}header-toggler-icon {
+    background-image: variant-get("header-toggler-icon-bg");
 
-      .#{$bs-prefix}show > .#{$prefix}nav-link,
-      .active > .#{$prefix}nav-link,
-      .#{$prefix}nav-link.#{$bs-prefix}show,
-      .#{$prefix}nav-link.active {
+    &:hover {
+      background-image: variant-get("header-toggler-hover-icon-bg");
+    }
+  }
+
+  .#{$prefix}header-text {
+    color: variant-get("header-color");
+    a {
+      color: variant-get("header-active-color");
+
+      @include hover-focus {
         color: variant-get("header-active-color");
-      }
-    }
-
-    .#{$prefix}header-toggler {
-      color: variant-get("header-color");
-      border-color: variant-get("header-toggler-border-color");
-    }
-
-    .#{$prefix}header-toggler-icon {
-      background-image: variant-get("header-toggler-icon-bg");
-
-      &:hover {
-        background-image: variant-get("header-toggler-hover-icon-bg");
-      }
-    }
-
-    .#{$prefix}header-text {
-      color: variant-get("header-color");
-      a {
-        color: variant-get("header-active-color");
-
-        @include hover-focus {
-          color: variant-get("header-active-color");
-        }
       }
     }
   }

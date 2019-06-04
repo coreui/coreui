@@ -9,8 +9,8 @@
   // background-color: $table-bg; // Reset for nesting within parents with `background-color`.
 
   @include theme($table-theme-map, $create: parent) {
-    color: theme-get('table-color');
-    background-color: theme-get('table-bg');
+    color: theme-get("table-color");
+    background-color: theme-get("table-bg");
   }
 
   th,
@@ -20,7 +20,7 @@
     border-top: $table-border-width solid;
 
     @include theme($table-theme-map, $create: parent) {
-      border-top-color: theme-get('table-border-color');
+      border-top-color: theme-get("table-border-color");
     }
   }
 
@@ -29,7 +29,7 @@
     border-bottom: (2 * $table-border-width) solid;
 
     @include theme($table-theme-map, $create: parent) {
-      border-bottom-color: theme-get('table-border-color');
+      border-bottom-color: theme-get("table-border-color");
     }
   }
 
@@ -37,7 +37,7 @@
     border-top: (2 * $table-border-width) solid;
 
     @include theme($table-theme-map, $create: parent) {
-      border-top-color: theme-get('table-border-color');
+      border-top-color: theme-get("table-border-color");
     }
   }
 }
@@ -63,7 +63,7 @@
   border: $table-border-width solid;
 
   @include theme($table-theme-map, $create: parent) {
-    border-color: theme-get('table-border-color');
+    border-color: theme-get("table-border-color");
   }
 
   th,
@@ -71,7 +71,7 @@
     border: $table-border-width solid;
 
     @include theme($table-theme-map, $create: parent) {
-      border-color: theme-get('table-border-color');
+      border-color: theme-get("table-border-color");
     }
   }
 
@@ -101,7 +101,7 @@
     // background-color: $table-accent-bg;
 
     @include theme($table-theme-map, $create: parent) {
-      background-color: theme-get('table-accent-bg');
+      background-color: theme-get("table-accent-bg");
     }
   }
 }
@@ -117,8 +117,8 @@
       // color: $table-hover-color;
       // background-color: $table-hover-bg;
       @include theme($table-theme-map, $create: parent) {
-        color: theme-get('table-hover-color');
-        background-color: theme-get('table-hover-bg');
+        color: theme-get("table-hover-color");
+        background-color: theme-get("table-hover-bg");
       }
     }
   }
@@ -134,7 +134,9 @@
   @include table-row-variant($color, theme-color-level($color, $table-bg-level), theme-color-level($color, $table-border-level));
 }
 
-@include table-row-variant(active, $table-active-bg);
+@include theme($table-theme-map, $create: parent) {
+  @include table-row-variant(active, theme-get("table-active-bg"));
+}
 
 
 // Dark styles
@@ -223,7 +225,7 @@
   border: 1px solid;
 
   @include theme($table-theme-map, $create: parent) {
-    border-color: theme-get('table-border-color');
+    border-color: theme-get("table-border-color");
   }
 
   td {

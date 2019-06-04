@@ -99,28 +99,28 @@ $theme-colors: map-merge(
 $facebook:       #3b5998 !default;
 $twitter:        #00aced !default;
 $linkedin:       #4875b4 !default;
-$google-plus:    #d34836 !default;
+// $google-plus:    #d34836 !default;
 $flickr:         #ff0084 !default;
 $tumblr:         #32506d !default;
 $xing:           #026466 !default;
 $github:         #4183c4 !default;
-$html5:          #e34f26 !default;
-$openid:         #f78c40 !default;
+// $html5:          #e34f26 !default;
+// $openid:         #f78c40 !default;
 $stack-overflow: #fe7a15 !default;
 $youtube:        #b00 !default;
-$css3:           #0170ba !default;
+// $css3:           #0170ba !default;
 $dribbble:       #ea4c89 !default;
-$google-plus:    #bb4b39 !default;
+// $google-plus:    #bb4b39 !default;
 $instagram:      #517fa4 !default;
 $pinterest:      #cb2027 !default;
 $vk:             #45668e !default;
 $yahoo:          #400191 !default;
 $behance:        #1769ff !default;
-$dropbox:        #007ee5 !default;
+// $dropbox:        #007ee5 !default;
 $reddit:         #ff4500 !default;
-$spotify:        #7ab800 !default;
-$vine:           #00bf8f !default;
-$foursquare:     #1073af !default;
+// $spotify:        #7ab800 !default;
+// $vine:           #00bf8f !default;
+// $foursquare:     #1073af !default;
 $vimeo:          #aad450 !default;
 
 $brands-colors: () !default;
@@ -130,27 +130,27 @@ $brands-colors: map-merge(
     "facebook":       $facebook,
     "twitter":        $twitter,
     "linkedin":       $linkedin,
-    "google-plus":    $google-plus,
+    // "google-plus":    $google-plus,
     "flickr":         $flickr,
     "tumblr":         $tumblr,
     "xing":           $xing,
     "github":         $github,
-    "html5":          $html5,
-    "openid":         $openid,
+    // "html5":          $html5,
+    // "openid":         $openid,
     "stack-overflow": $stack-overflow,
     "youtube":        $youtube,
-    "css3":           $css3,
+    // "css3":           $css3,
     "dribbble":       $dribbble,
     "instagram":      $instagram,
     "pinterest":      $pinterest,
     "vk":             $vk,
     "yahoo":          $yahoo,
     "behance":        $behance,
-    "dropbox":        $dropbox,
+    // "dropbox":        $dropbox,
     "reddit":         $reddit,
-    "spotify":        $spotify,
-    "vine":           $vine,
-    "foursquare":     $foursquare,
+    // "spotify":        $spotify,
+    // "vine":           $vine,
+    // "foursquare":     $foursquare,
     "vimeo":          $vimeo
   ),
   $brands-colors
@@ -190,7 +190,8 @@ $enable-deprecation-messages:                 true !default;
 // CoreUI
 $enable-sidebar-nav-rounded:                  false !default;
 $layout-transition-speed:                     .25s !default;
-$default-theme:                               "dark" !default;
+$default-theme:                               "light" !default;
+$enable-elevation:                            false !default;
 
 
 // Spacing
@@ -239,8 +240,10 @@ $body-color:                $gray-900 !default;
 $body-dark-bg:              $gray-800 !default;
 $body-dark-color:           $gray-200 !default;
 
+$grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $body-theme-map: (
-  default: (
+  light: (
     "body-bg":  #e4e5e6,
     "body-color": $gray-900
   ),
@@ -249,7 +252,6 @@ $body-theme-map: (
     "body-color": $body-dark-color
   )
 ) !default;
-
 
 
 // Links
@@ -318,6 +320,7 @@ $line-height-sm:              1.5 !default;
 
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
+$border-dark-color:           $gray-800 !default;
 
 $border-radius:               .25rem !default;
 $border-radius-lg:            .3rem !default;
@@ -354,6 +357,25 @@ $embed-responsive-aspect-ratios: join(
   ),
   $embed-responsive-aspect-ratios
 );
+
+// TODO: Add elevation system
+// Elevation
+//
+// Define common box shadows.
+
+$elevations: (
+  0: none,
+  1: "0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12), 0 1px 3px 0 rgba(0, 0, 0, .20)",
+  2: "0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .12), 0 1px 5px 0 rgba(0, 0, 0, .20)",
+  3: "0 3px 4px 0 rgba(0, 0, 0, .14), 0 3px 3px -2px rgba(0, 0, 0, .12), 0 1px 8px 0 rgba(0, 0, 0, .20)",
+  4: "0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .20)",
+  6: "0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12), 0 3px 5px -1px rgba(0, 0, 0, .20)",
+  8: "0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12), 0 5px 5px -3px rgba(0, 0, 0, .20)",
+  9: "0 9px 12px 1px rgba(0, 0, 0, .14), 0 3px 16px 2px rgba(0, 0, 0, .12), 0 5px 6px -3px rgba(0, 0, 0, .20)",
+  12: "0 12px 17px 2px rgba(0, 0, 0, .14), 0 5px 22px 4px rgba(0, 0, 0, .12), 0 7px 8px -4px rgba(0, 0, 0, .20)",
+  16: "0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .20)",
+  24: "0 24px 38px 3px rgba(0, 0, 0, .14), 0 9px 46px 8px rgba(0, 0, 0, .12), 0 11px 15px -7px rgba(0, 0, 0, .20)"
+) !default;
 
 // Typography
 //
@@ -468,31 +490,35 @@ $table-caption-color:         $text-muted !default;
 $table-bg-level:              -9 !default;
 $table-border-level:          -6 !default;
 
-$table-theme-map: (
-  default: (
-    "table-color":        $gray-900,
-    "table-bg":           transparent,
-    "table-accent-bg":    rgba($black, .05),
-    "table-hover-color":  $gray-900,
-    "table-hover-bg":     rgba($black, .075),
-    "table-active-bg":    rgba($black, .075),
-    "table-border-color": $border-color,
-    "table-head-bg":      $gray-200,
-    "table-head-color":   $gray-700
+$table-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$table-theme-map: map-merge(
+  (
+    "light": (
+      "table-color":        $gray-900,
+      "table-bg":           transparent,
+      "table-accent-bg":    rgba($black, .05),
+      "table-hover-color":  $gray-900,
+      "table-hover-bg":     rgba($black, .075),
+      "table-active-bg":    rgba($black, .075),
+      "table-border-color": $border-color,
+      "table-head-bg":      $gray-200,
+      "table-head-color":   $gray-700
+    ),
+    "dark": (
+      "table-color":        $body-dark-color,
+      "table-bg":           transparent,
+      "table-accent-bg":    rgba($white, .05),
+      "table-hover-color":  $body-dark-color,
+      "table-hover-bg":     rgba($white, .075),
+      "table-active-bg":    rgba($white, .075),
+      "table-border-color": $gray-900,
+      "table-head-bg":      $gray-800,
+      "table-head-color":   $body-dark-color,
+    )
   ),
-  dark: (
-    "table-color":        $body-dark-color,
-    "table-bg":           transparent,
-    "table-accent-bg":    rgba($white, .05),
-    "table-hover-color":  $body-dark-color,
-    "table-hover-bg":     rgba($white, .075),
-    "table-active-bg":    rgba($white, .075),
-    "table-border-color": $gray-900,
-    "table-head-bg":      $gray-800,
-    "table-head-color":   $body-dark-color,
-  )
-) !default;
-
+  $table-theme-map
+);
 
 // Buttons + Forms
 //
@@ -759,36 +785,41 @@ $custom-file-text: (
   en: "Browse"
 ) !default;
 
-$form-theme-map: (
-  default: (
-    "input-bg":                              $white,
-    "input-disabled-bg":                     $gray-200,
-    "input-color":                           $gray-700,
-    "input-border-color":                    $gray-200,
-    "input-focus-bg":                        $input-bg,
-    "input-focus-border-color":              lighten($component-active-bg, 25%),
-    "input-focus-color":                     $input-color,
-    "input-placeholder-color":               $gray-600,
-    "input-plaintext-color":                 $body-color,
-    "input-group-addon-color":               $input-color,
-    "input-group-addon-bg":                  $gray-100,
-    "input-group-addon-border-color":        $input-border-color
+$form-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$form-theme-map: map-merge(
+  (
+    light: (
+      "input-bg":                              $white,
+      "input-disabled-bg":                     $gray-200,
+      "input-color":                           $gray-700,
+      "input-border-color":                    $gray-200,
+      "input-focus-bg":                        $input-bg,
+      "input-focus-border-color":              lighten($component-active-bg, 25%),
+      "input-focus-color":                     $input-color,
+      "input-placeholder-color":               $gray-600,
+      "input-plaintext-color":                 $body-color,
+      "input-group-addon-color":               $input-color,
+      "input-group-addon-bg":                  $gray-100,
+      "input-group-addon-border-color":        $input-border-color
+    ),
+    dark: (
+      "input-bg":                              $gray-700,
+      "input-disabled-bg":                     $gray-900,
+      "input-color":                           $gray-100,
+      "input-border-color":                    $gray-900,
+      "input-focus-bg":                        $gray-700,
+      "input-focus-border-color":              lighten($component-active-bg, 25%),
+      "input-focus-color":                     $gray-100,
+      "input-placeholder-color":               $gray-500,
+      "input-plaintext-color":                 $body-dark-color,
+      "input-group-addon-color":               $gray-100,
+      "input-group-addon-bg":                  $gray-800,
+      "input-group-addon-border-color":        $gray-900
+    )
   ),
-  dark: (
-    "input-bg":                              $gray-700,
-    "input-disabled-bg":                     $gray-900,
-    "input-color":                           $gray-100,
-    "input-border-color":                    $gray-900,
-    "input-focus-bg":                        $gray-700,
-    "input-focus-border-color":              lighten($component-active-bg, 25%),
-    "input-focus-color":                     $gray-100,
-    "input-placeholder-color":               $gray-500,
-    "input-plaintext-color":                 $body-dark-color,
-    "input-group-addon-color":               $gray-100,
-    "input-group-addon-bg":                  $gray-800,
-    "input-group-addon-border-color":        $gray-900
-  )
-) !default;
+  $form-theme-map
+);
 
 // Form validation
 
@@ -853,30 +884,35 @@ $nav-pills-link-active-bg:          $component-active-bg !default;
 $nav-divider-color:                 $gray-200 !default;
 $nav-divider-margin-y:              $spacer / 2 !default;
 
-$nav-theme-map: (
-  default: (
-    "nav-link-disabled-color":           $gray-600,
-    "nav-tabs-border-color":             $gray-300,
-    "nav-tabs-link-hover-border-color":  $gray-200 $gray-200 $nav-tabs-border-color,
-    "nav-tabs-link-active-color":        $gray-700,
-    "nav-tabs-link-active-bg":           $body-bg,
-    "nav-tabs-link-active-border-color": $gray-300 $gray-300 $nav-tabs-link-active-bg,
-    "nav-pills-link-active-color":       $component-active-color,
-    "nav-pills-link-active-bg":          $component-active-bg,
-    "nav-divider-color":                 $gray-200
+$nav-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$nav-theme-map: map-merge(
+  (
+    light: (
+      "nav-link-disabled-color":           $gray-600,
+      "nav-tabs-border-color":             $gray-300,
+      "nav-tabs-link-hover-border-color":  $gray-200 $gray-200 $nav-tabs-border-color,
+      "nav-tabs-link-active-color":        $gray-700,
+      "nav-tabs-link-active-bg":           $body-bg,
+      "nav-tabs-link-active-border-color": $gray-300 $gray-300 $nav-tabs-link-active-bg,
+      "nav-pills-link-active-color":       $component-active-color,
+      "nav-pills-link-active-bg":          $component-active-bg,
+      "nav-divider-color":                 $gray-200
+    ),
+    dark: (
+      "nav-link-disabled-color":           $gray-900,
+      "nav-tabs-border-color":             $gray-900,
+      "nav-tabs-link-hover-border-color":  $gray-900 $gray-900 $gray-900,
+      "nav-tabs-link-active-color":        $body-dark-color,
+      "nav-tabs-link-active-bg":           $gray-800,
+      "nav-tabs-link-active-border-color": $gray-900 $gray-900 $gray-800,
+      "nav-pills-link-active-color":       $component-active-color,
+      "nav-pills-link-active-bg":          $component-active-bg,
+      "nav-divider-color":                 $gray-200
+    )
   ),
-  dark: (
-    "nav-link-disabled-color":           $gray-900,
-    "nav-tabs-border-color":             $gray-900,
-    "nav-tabs-link-hover-border-color":  $gray-900 $gray-900 $gray-900,
-    "nav-tabs-link-active-color":        $body-dark-color,
-    "nav-tabs-link-active-bg":           $gray-800,
-    "nav-tabs-link-active-border-color": $gray-900 $gray-900 $gray-800,
-    "nav-pills-link-active-color":       $component-active-color,
-    "nav-pills-link-active-bg":          $component-active-bg,
-    "nav-divider-color":                 $gray-200
-  )
-) !default;
+  $nav-theme-map
+);
 
 
 // Navbar
@@ -919,12 +955,13 @@ $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 // CoreUI specific changes start
 
 // Header
+// TODO: clean-up
 
 $header-height:                       55px !default;
-$header-bg:                           $white !default;
-$header-border: (
-  bottom: 1px solid $border-color
-) !default;
+// $header-bg:                           $white !default;
+// $header-border: (
+//   bottom: 1px solid $border-color
+// ) !default;
 $header-brand-width:                  205px !default;
 $header-brand-minimized-width:        50px !default;
 
@@ -973,67 +1010,70 @@ $header-light-brand-border:               0 !default;
 $header-light-brand-color:                $header-light-active-color !default;
 $header-light-brand-hover-color:          $header-light-active-color !default;
 $header-light-brand-minimized-bg:         transparent !default;
-$header-light-brand-minimized-border:     0 !default;
+$header-light-brand-minimized-border: 0 !default;
 
-$header-dark-brand-bg:                    transparent !default;
-$header-dark-brand-border:                0 !default;
-$header-dark-brand-color:                 $header-dark-active-color !default;
-$header-dark-brand-hover-color:           $header-dark-active-color !default;
-$header-dark-brand-minimized-bg:          transparent !default;
-$header-dark-brand-minimized-border:      0 !default;
+$header-dark-brand-bg:                transparent !default;
+$header-dark-brand-border:            0 !default;
+$header-dark-brand-color:             $header-dark-active-color !default;
+$header-dark-brand-hover-color:       $header-dark-active-color !default;
+$header-dark-brand-minimized-bg:      transparent !default;
+$header-dark-brand-minimized-border:  0 !default;
 
-$header-variant-map: (
-  dark: (
-    "header-bg":                     $gray-800,
-    "header-color":                  rgba($white, .75),
-    "header-border": (
-      bottom: 1px solid $gray-800
+$header-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$header-variants-map: map-merge(
+  (
+    dark: (
+      "header-bg":                      $header-dark-bg,
+      "header-color":                   $header-dark-color,
+      "header-border":                  $header-dark-border,
+      "dark-theme-header-border":       0,
+      "header-hover-color":             $header-dark-hover-color,
+      "header-active-color":            $header-dark-active-color,
+      "header-disabled-color":          $header-dark-disabled-color,
+      "header-toggler-icon-bg":         $header-dark-toggler-icon-bg,
+      "header-toggler-hover-icon-bg":   $header-dark-toggler-hover-icon-bg,
+      "header-toggler-border-color":    $header-dark-toggler-border-color,
+      "header-brand-bg":                $header-dark-brand-bg,
+      "header-brand-border":            $header-dark-brand-border,
+      "header-brand-color":             $header-dark-brand-color,
+      "header-brand-hover-color":       $header-dark-brand-hover-color,
+      "header-brand-minimized-bg":      $header-dark-brand-minimized-bg,
+      "header-brand-minimized-border":  $header-dark-brand-minimized-border
     ),
-    "dark-theme-header-border": (
-      bottom: 1px solid $gray-900
-    ),
-    "header-hover-color":            rgba($white, .9),
-    "header-active-color":           $white,
-    "header-disabled-color":         rgba($white, .25),
-    "header-toggler-icon-bg":        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-hover-icon-bg":  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-border-color":   rgba($white, .1),
-    "header-brand-bg":               transparent,
-    "header-brand-border":           0,
-    "header-brand-color":            $header-dark-active-color,
-    "header-brand-hover-color":      $header-dark-active-color,
-    "header-brand-minimized-bg":     transparent,
-    "header-brand-minimized-border": 0
+    light: (
+      "header-bg":                      $header-light-bg,
+      "header-color":                   $header-light-color,
+      "header-border":                  $header-light-border,
+      "dark-theme-header-border":       0,
+      "header-hover-color":             $header-light-hover-color,
+      "header-active-color":            $header-light-active-color,
+      "header-disabled-color":          $header-light-disabled-color,
+      "header-toggler-icon-bg":         $header-light-toggler-icon-bg,
+      "header-toggler-hover-icon-bg":   $header-light-toggler-hover-icon-bg,
+      "header-toggler-border-color":    $header-light-toggler-border-color,
+      "header-brand-bg":                $header-light-brand-bg,
+      "header-brand-border":            $header-light-brand-border,
+      "header-brand-color":             $header-light-brand-color,
+      "header-brand-hover-color":       $header-light-brand-hover-color,
+      "header-brand-minimized-bg":      $header-light-brand-minimized-bg,
+      "header-brand-minimized-border":  $header-light-brand-minimized-border
+    )
   ),
-  light: (
-    "header-bg":                  $white,
-    "header-color":               rgba($black, .5),
-    "header-border":(
-      bottom: 1px solid $border-color
-    ),
-    "dark-theme-header-border": (
-      bottom: 1px solid $border-color
-    ),
-    "header-hover-color":            rgba($black, .7),
-    "header-active-color":           rgba($black, .9),
-    "header-disabled-color":         rgba($black, .3),
-    "header-toggler-icon-bg":        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-hover-icon-bg":  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23"),
-    "header-toggler-border-color":   rgba($black, .1),
-    "header-brand-bg":               transparent,
-    "header-brand-border":           0,
-    "header-brand-color":            $header-light-active-color,
-    "header-brand-hover-color":      $header-light-active-color,
-    "header-brand-minimized-bg":     transparent,
-    "header-brand-minimized-border": 0,
-  )
+  $header-variants-map
+);
+
+$header-default-variant: "light" !default;
+$header-variants: (
+  default: $header-default-variant,
+  map: $header-variants-map
 ) !default;
 
 
 // $header-color:                        $gray-600 !default;
 // $header-hover-color:                  $gray-800 !default;
 // $header-active-color:                 $gray-800 !default;
-// ToDo: Variable is not being used!
+// TODO: Variable is not being used!
 // $header-disabled-color:               $gray-300 !default;
 
 
@@ -1191,164 +1231,178 @@ $sidebar-light-footer-borders:              0 !default;
 
 // Sidebar Minimizer
 
-$sidebar-minimizer-height:            50px !default;
+$sidebar-minimizer-height:                        50px !default;
 
-$sidebar-dark-minimizer-borders:           0 !default;
-$sidebar-dark-minimizer-bg:                rgba($black, .2) !default;
-$sidebar-dark-minimizer-indicator-color:   $gray-600 !default;
-$sidebar-dark-minimizer-indicator:         str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-dark-minimizer-hover-bg:          rgba(0, 0, 0, .3) !default;
-$sidebar-dark-minimizer-hover-indicator-color: $sidebar-dark-nav-link-hover-color !default;
-$sidebar-dark-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-light-minimizer-borders:           0 !default;
-$sidebar-light-minimizer-bg:                rgba($black, .2) !default;
-$sidebar-light-minimizer-indicator-color:   $gray-600 !default;
-$sidebar-light-minimizer-indicator:         str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-light-minimizer-hover-bg:          rgba(0, 0, 0, .3) !default;
-$sidebar-light-minimizer-hover-indicator-color: $sidebar-dark-nav-link-hover-color !default;
-$sidebar-light-minimizer-hover-indicator:   str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-dark-minimizer-borders:                  0 !default;
+$sidebar-dark-minimizer-bg:                       rgba($black, .2) !default;
+$sidebar-dark-minimizer-indicator-color:          $gray-600 !default;
+$sidebar-dark-minimizer-indicator:                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-dark-minimizer-hover-bg:               rgba(0, 0, 0, .3) !default;
+$sidebar-dark-minimizer-hover-indicator-color:    $sidebar-dark-nav-link-hover-color !default;
+$sidebar-dark-minimizer-hover-indicator:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$sidebar-variant-map: (
-  dark: (
-    "sidebar-color":                              $white,
-    "sidebar-bg":                                 $gray-800,
-    "dark-theme-sidebar-bg":                      $gray-800,
-    "sidebar-borders":                            0,
-    "dark-theme-sidebar-borders":(
-      right :1px solid $gray-900
+$sidebar-light-minimizer-borders:                 0 !default;
+$sidebar-light-minimizer-bg:                      rgba($black, .2) !default;
+$sidebar-light-minimizer-indicator-color:         $gray-600 !default;
+$sidebar-light-minimizer-indicator:               str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-light-minimizer-hover-bg:              rgba(0, 0, 0, .3) !default;
+$sidebar-light-minimizer-hover-indicator-color:   $sidebar-dark-nav-link-hover-color !default;
+$sidebar-light-minimizer-hover-indicator:         str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$sidebar-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sidebar-variants-map: map-merge(
+  (
+    dark: (
+      "sidebar-color":                              $sidebar-dark-color,
+      "sidebar-bg":                                 $sidebar-dark-bg,
+      "dark-theme-sidebar-bg":                      0,
+      "sidebar-borders":                            $sidebar-dark-borders,
+      "dark-theme-sidebar-borders":                 0,
+      "sidebar-brand-bg":                           $sidebar-dark-brand-bg,
+      "sidebar-header-bg":                          $sidebar-dark-header-bg,
+      "sidebar-form-border":                        $sidebar-dark-form-border,
+      "sidebar-form-bg":                            $sidebar-dark-form-bg,
+      "sidebar-form-color":                         $sidebar-dark-form-color,
+      "sidebar-form-placeholder-color":             $sidebar-dark-form-placeholder-color,
+      "sidebar-nav-title-color":                    $sidebar-dark-nav-title-color,
+      "sidebar-nav-link-color":                     $sidebar-dark-nav-link-color,
+      "sidebar-nav-link-bg":                        $sidebar-dark-nav-link-bg,
+      "sidebar-nav-link-icon-color":                $sidebar-dark-nav-link-icon-color,
+      "sidebar-nav-link-borders":                   $sidebar-dark-nav-link-borders,
+      "sidebar-nav-link-hover-color":               $sidebar-dark-nav-link-hover-color,
+      "sidebar-nav-link-hover-bg":                  $sidebar-dark-nav-link-hover-bg,
+      "sidebar-nav-link-hover-icon-color":          $sidebar-dark-nav-link-hover-icon-color,
+      "sidebar-nav-link-hover-borders":             $sidebar-dark-nav-link-hover-borders,
+      "sidebar-nav-link-active-color":              $sidebar-dark-nav-link-active-color,
+      "sidebar-nav-link-active-bg":                 $sidebar-dark-nav-link-active-bg,
+      "sidebar-nav-link-active-icon-color":         $sidebar-dark-nav-link-active-icon-color,
+      "sidebar-nav-link-active-borders":            $sidebar-dark-nav-link-active-borders,
+      "sidebar-nav-link-disabled-color":            $sidebar-dark-nav-link-disabled-color,
+      "sidebar-nav-link-disabled-bg":               $sidebar-dark-nav-link-disabled-bg,
+      "sidebar-nav-link-disabled-icon-color":       $sidebar-dark-nav-link-disabled-icon-color,
+      "sidebar-nav-link-disabled-borders":          $sidebar-dark-nav-link-disabled-borders,
+      "sidebar-nav-dropdown-color":                 $sidebar-dark-nav-dropdown-color,
+      "sidebar-nav-dropdown-bg":                    $sidebar-dark-nav-dropdown-bg,
+      "sidebar-nav-dropdown-borders":               $sidebar-dark-nav-dropdown-borders,
+      "sidebar-nav-dropdown-indicator-color":       $sidebar-dark-nav-dropdown-indicator-color,
+      "sidebar-nav-dropdown-indicator":             $sidebar-dark-nav-dropdown-indicator,
+      "sidebar-nav-dropdown-indicator-hover-color": $sidebar-dark-nav-dropdown-indicator-hover-color,
+      "sidebar-nav-dropdown-indicator-hover":       $sidebar-dark-nav-dropdown-indicator-hover,
+      "sidebar-nav-tabs-border-color":              $sidebar-dark-nav-tabs-border-color,
+      "sidebar-nav-tabs-link-active-bg":            $sidebar-dark-nav-tabs-link-active-bg,
+      "sidebar-nav-tabs-link-active-border-color":  $sidebar-dark-nav-tabs-link-active-border-color,
+      "sidebar-nav-tabs-link-hover-bg":             $sidebar-dark-nav-tabs-link-hover-bg,
+      "sidebar-nav-tabs-link-hover-border-color":   $sidebar-dark-nav-tabs-link-hover-border-color,
+      "sidebar-tab-content-borders":                $sidebar-dark-tab-content-borders,
+      "sidebar-footer-bg":                          $sidebar-dark-footer-bg,
+      "sidebar-footer-borders":                     $sidebar-dark-footer-borders,
+      "sidebar-minimizer-borders":                  $sidebar-dark-minimizer-borders,
+      "sidebar-minimizer-bg":                       $sidebar-dark-minimizer-bg,
+      "sidebar-minimizer-indicator-color":          $sidebar-dark-minimizer-indicator-color,
+      "sidebar-minimizer-indicator":                $sidebar-dark-minimizer-indicator,
+      "sidebar-minimizer-hover-bg":                 $sidebar-dark-minimizer-hover-bg,
+      "sidebar-minimizer-hover-indicator-color":    $sidebar-dark-minimizer-hover-indicator-color,
+      "sidebar-minimizer-hover-indicator":          $sidebar-dark-minimizer-hover-indicator
     ),
-    "sidebar-brand-bg":                           rgba($black, .2),
-    "sidebar-header-bg":                          rgba($black, .2),
-    "sidebar-form-border":                        0,
-    "sidebar-form-bg":                            rgba($black, .1),
-    "sidebar-form-color":                         $white,
-    "sidebar-form-placeholder-color":             rgba($white, .7),
-    "sidebar-nav-title-color":                    rgba($white, .6),
-    "sidebar-nav-link-color":                     rgba($white, .8),
-    "sidebar-nav-link-bg":                        transparent,
-    "sidebar-nav-link-icon-color":                $gray-600,
-    "sidebar-nav-link-borders":                   0,
-    "sidebar-nav-link-hover-color":               $white,
-    "sidebar-nav-link-hover-bg":                  theme-color("primary"),
-    "sidebar-nav-link-hover-icon-color":          $white,
-    "sidebar-nav-link-hover-borders":             0,
-    "sidebar-nav-link-active-color":              $white,
-    "sidebar-nav-link-active-bg":                 rgba($white, .05),
-    "sidebar-nav-link-active-icon-color":         theme-color("primary"),
-    "sidebar-nav-link-active-borders":            0,
-    "sidebar-nav-link-disabled-color":            darken($white, 30%),
-    "sidebar-nav-link-disabled-bg":               $sidebar-dark-bg,
-    "sidebar-nav-link-disabled-icon-color":       $sidebar-dark-nav-link-icon-color,
-    "sidebar-nav-link-disabled-borders":          0,
-    "sidebar-nav-dropdown-color":                 $white,
-    "sidebar-nav-dropdown-bg":                    rgba(0, 0, 0, .2),
-    "sidebar-nav-dropdown-borders":               0,
-    "sidebar-nav-dropdown-indicator-color":       $gray-600,
-    "sidebar-nav-dropdown-indicator":             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-dropdown-indicator-hover-color": $sidebar-dark-nav-link-hover-color,
-    "sidebar-nav-dropdown-indicator-hover":       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-tabs-border-color":              rgba($black, .2),
-    "sidebar-nav-tabs-link-active-bg":            rgba($white, .05),
-    "sidebar-nav-tabs-link-active-border-color":  rgba($black, .2) rgba($black, .2) theme-color("primary"),
-    "sidebar-nav-tabs-link-hover-bg":             rgba($black, .2),
-    "sidebar-nav-tabs-link-hover-border-color":   rgba($black, .2) rgba($black, .2) $gray-200,
-    "sidebar-tab-content-borders": (
-      top: 1px solid rgba($black, .2)
-    ),
-    "sidebar-footer-bg":                          rgba($black, .2),
-    "sidebar-footer-borders":                     0,
-    "sidebar-minimizer-borders":                  0,
-    "sidebar-minimizer-bg":                       rgba($black, .2),
-    "sidebar-minimizer-indicator-color":          $gray-600,
-    "sidebar-minimizer-indicator":                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-minimizer-hover-bg":               rgba(0, 0, 0, .3),
-    "sidebar-minimizer-hover-indicator-color":    $sidebar-dark-nav-link-hover-color,
-    "sidebar-minimizer-hover-indicator":          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
+    light: (
+      "sidebar-color":                              $sidebar-light-color,
+      "sidebar-bg":                                 $sidebar-light-bg,
+      "dark-theme-sidebar-bg":                      0,
+      "sidebar-borders":                            $sidebar-light-borders,
+      "dark-theme-sidebar-borders":                 0,
+      "sidebar-brand-bg":                           $sidebar-light-brand-bg,
+      "sidebar-header-bg":                          $sidebar-light-header-bg,
+      "sidebar-form-border":                        $sidebar-light-form-border,
+      "sidebar-form-bg":                            $sidebar-light-form-bg,
+      "sidebar-form-color":                         $sidebar-light-form-color,
+      "sidebar-form-placeholder-color":             $sidebar-light-form-placeholder-color,
+      "sidebar-nav-title-color":                    $sidebar-light-nav-title-color,
+      "sidebar-nav-link-color":                     $sidebar-light-nav-link-color,
+      "sidebar-nav-link-bg":                        $sidebar-light-nav-link-bg,
+      "sidebar-nav-link-icon-color":                $sidebar-light-nav-link-icon-color,
+      "sidebar-nav-link-borders":                   $sidebar-light-nav-link-borders,
+      "sidebar-nav-link-hover-color":               $sidebar-light-nav-link-hover-color,
+      "sidebar-nav-link-hover-bg":                  $sidebar-light-nav-link-hover-bg,
+      "sidebar-nav-link-hover-icon-color":          $sidebar-light-nav-link-hover-icon-color,
+      "sidebar-nav-link-hover-borders":             $sidebar-light-nav-link-hover-borders,
+      "sidebar-nav-link-active-color":              $sidebar-light-nav-link-active-color,
+      "sidebar-nav-link-active-bg":                 $sidebar-light-nav-link-active-bg,
+      "sidebar-nav-link-active-icon-color":         $sidebar-light-nav-link-active-icon-color,
+      "sidebar-nav-link-active-borders":            $sidebar-light-nav-link-active-borders,
+      "sidebar-nav-link-disabled-color":            $sidebar-light-nav-link-disabled-color,
+      "sidebar-nav-link-disabled-bg":               $sidebar-light-nav-link-disabled-bg,
+      "sidebar-nav-link-disabled-icon-color":       $sidebar-light-nav-link-disabled-icon-color,
+      "sidebar-nav-link-disabled-borders":          $sidebar-light-nav-link-disabled-borders,
+      "sidebar-nav-dropdown-color":                 $sidebar-light-nav-dropdown-color,
+      "sidebar-nav-dropdown-bg":                    $sidebar-light-nav-dropdown-bg,
+      "sidebar-nav-dropdown-borders":               $sidebar-light-nav-dropdown-borders,
+      "sidebar-nav-dropdown-indicator-color":       $sidebar-light-nav-dropdown-indicator-color,
+      "sidebar-nav-dropdown-indicator":             $sidebar-light-nav-dropdown-indicator,
+      "sidebar-nav-dropdown-indicator-hover-color": $sidebar-light-nav-dropdown-indicator-hover-color,
+      "sidebar-nav-dropdown-indicator-hover":       $sidebar-light-nav-dropdown-indicator-hover,
+      "sidebar-nav-tabs-border-color":              $sidebar-light-nav-tabs-border-color,
+      "sidebar-nav-tabs-link-active-bg":            $sidebar-light-nav-tabs-link-active-bg,
+      "sidebar-nav-tabs-link-active-border-color":  $sidebar-light-nav-tabs-link-active-border-color,
+      "sidebar-nav-tabs-link-hover-bg":             $sidebar-light-nav-tabs-link-hover-bg,
+      "sidebar-nav-tabs-link-hover-border-color":   $sidebar-light-nav-tabs-link-hover-border-color,
+      "sidebar-tab-content-borders":                $sidebar-light-tab-content-borders,
+      "sidebar-footer-bg":                          $sidebar-light-footer-bg,
+      "sidebar-footer-borders":                     $sidebar-light-footer-borders,
+      "sidebar-minimizer-borders":                  $sidebar-light-minimizer-borders,
+      "sidebar-minimizer-bg":                       $sidebar-light-minimizer-bg,
+      "sidebar-minimizer-indicator-color":          $sidebar-light-minimizer-indicator-color,
+      "sidebar-minimizer-indicator":                $sidebar-light-minimizer-indicator,
+      "sidebar-minimizer-hover-bg":                 $sidebar-light-minimizer-hover-bg,
+      "sidebar-minimizer-hover-indicator-color":    $sidebar-light-minimizer-hover-indicator-color,
+      "sidebar-minimizer-hover-indicator":          $sidebar-light-minimizer-hover-indicator,
+    )
   ),
-  light: (
-    "sidebar-color":                              $body-color,
-    "sidebar-bg":                                 $white,
-    "dark-theme-sidebar-bg":                      $gray-800,
-    "sidebar-borders":(
-      right :1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "dark-theme-sidebar-borders":(
-      right :1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "sidebar-brand-bg":                           rgba($black, .2),
-    "sidebar-header-bg":                          rgba($black, .2),
-    "sidebar-form-border":                        0,
-    "sidebar-form-bg":                            rgba($black, .1),
-    "sidebar-form-color":                         $white,
-    "sidebar-form-placeholder-color":             rgba($white, .7),
-    "sidebar-nav-title-color":                    rgba($black, .4),
-    "sidebar-nav-link-color":                     rgba($black, .8),
-    "sidebar-nav-link-bg":                        transparent,
-    "sidebar-nav-link-icon-color":                $gray-600,
-    "sidebar-nav-link-borders":                   0,
-    "sidebar-nav-link-hover-color":               $white,
-    "sidebar-nav-link-hover-bg":                  theme-color("primary"),
-    "sidebar-nav-link-hover-icon-color":          $white,
-    "sidebar-nav-link-hover-borders":             0,
-    "sidebar-nav-link-active-color":              $white,
-    "sidebar-nav-link-active-bg":                 rgba($black, .05),
-    "sidebar-nav-link-active-icon-color":         theme-color("primary"),
-    "sidebar-nav-link-active-borders":            0,
-    "sidebar-nav-link-disabled-color":            darken($white, 30%),
-    "sidebar-nav-link-disabled-bg":               $sidebar-light-bg,
-    "sidebar-nav-link-disabled-icon-color":       $sidebar-light-nav-link-icon-color,
-    "sidebar-nav-link-disabled-borders":          0,
-    "sidebar-nav-dropdown-color":                 $white,
-    "sidebar-nav-dropdown-bg":                  rgba(0, 0, 0, .2),
-    "sidebar-nav-dropdown-borders":               0,
-    "sidebar-nav-dropdown-indicator-color":       $gray-600,
-    "sidebar-nav-dropdown-indicator":             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-dropdown-indicator-hover-color": $sidebar-dark-nav-link-hover-color,
-    "sidebar-nav-dropdown-indicator-hover":       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-nav-tabs-border-color":              rgba(darken($border-color, 20%), .5),
-    "sidebar-nav-tabs-link-active-bg":            $white,
-    "sidebar-nav-tabs-link-active-border-color":  rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white,
-    "sidebar-nav-tabs-link-hover-bg":             $white,
-    "sidebar-nav-tabs-link-hover-border-color":   rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white,
-    "sidebar-tab-content-borders":(
-      top: 1px solid rgba(darken($border-color, 20%), .5)
-    ),
-    "sidebar-footer-bg":                          rgba($black, .2),
-    "sidebar-footer-borders":                     0,
-    "sidebar-minimizer-borders":                  0,
-    "sidebar-minimizer-bg":                       rgba($black, .2),
-    "sidebar-minimizer-indicator-color":          $gray-600,
-    "sidebar-minimizer-indicator":                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-    "sidebar-minimizer-hover-bg":               rgba(0, 0, 0, .3),
-    "sidebar-minimizer-hover-indicator-color":    $sidebar-dark-nav-link-hover-color,
-    "sidebar-minimizer-hover-indicator":          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23"),
-  )
+  $sidebar-variants-map
+);
+
+$sidebar-default-variant: "dark" !default;
+$sidebar-variants: (
+  map: $sidebar-variants-map,
+  default: $sidebar-default-variant
 ) !default;
 
-// CoreUI specific changes end
 
-// CoreUI specific changes start
 // Footer
-$footer-height:                       50px !default;
-$footer-bg:                           $gray-100 !default;
-$footer-color:                        $body-color !default;
-$footer-borders: (
-  top: 1px solid $border-color
-) !default;
 
-$footer-variant-map: (
-  dark: (
-    "footer-bg":      $gray-800,
-    "footer-color":   rgba($white, .75),
-    "footer-borders": ( top: 1px solid $gray-800 )
+$footer-height:        50px !default;
+
+$footer-dark-bg:       $gray-100 !default;
+$footer-dark-color:    $body-dark-color !default;
+$footer-dark-borders:  ( top: 1px solid $border-dark-color ) !default;
+
+$footer-light-bg:      $gray-100 !default;
+$footer-light-color:   $body-color !default;
+$footer-light-borders: ( top: 1px solid $border-color ) !default;
+
+$footer-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$footer-variants-map: map-merge(
+  (
+    dark: (
+      "footer-bg":       $footer-dark-bg,
+      "footer-color":    $footer-dark-color,
+      "footer-borders":  $footer-dark-borders
+    ),
+    light: (
+      "footer-bg":       $footer-light-bg,
+      "footer-color":    $footer-light-color,
+      "footer-borders":  $footer-light-borders
+    )
   ),
-  light: (
-    "footer-bg":      $gray-100,
-    "footer-color":   $gray-100,
-    "footer-borders": ( top: 1px solid $border-color )
-  )
+  $footer-variants-map
+);
+
+$footer-default-variant: "light" !default;
+$footer-variants: (
+  "default": $footer-default-variant,
+  "map": $footer-variants-map
 ) !default;
-// CoreUI specific changes end
 
 
 // Dropdowns
@@ -1359,189 +1413,246 @@ $dropdown-min-width:                10rem !default;
 $dropdown-padding-y:                0 !default; // was: .5rem !default;
 $dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                $font-size-base !default;
-// $dropdown-color:                    $body-color !default;
-// $dropdown-bg:                       $white !default;
-// $dropdown-border-color:             $gray-300 !default; // was: rgba($black, .15) !default;
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
 $dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
-// $dropdown-divider-bg:               $gray-200 !default;
 $dropdown-divider-margin-y:         $nav-divider-margin-y !default;
 $dropdown-box-shadow:               0 .5rem 1rem rgba($black, .175) !default;
-
-// $dropdown-link-color:               $gray-900 !default;
-// $dropdown-link-hover-color:         darken($gray-900, 5%) !default;
-// $dropdown-link-hover-bg:            $gray-100 !default;
-
-// $dropdown-link-active-color:        $component-active-color !default;
-// $dropdown-link-active-bg:           $component-active-bg !default;
-
-$dropdown-link-disabled-color:      $gray-600 !default;
-
 $dropdown-item-padding-y:           .25rem !default;
 $dropdown-item-padding-x:           1.5rem !default;
 
+// Default theme
+$dropdown-color:                    $body-color !default;
+$dropdown-bg:                       $white !default;
+$dropdown-border-color:             $border-color !default; // was: rgba($black, .15) !default;
+$dropdown-divider-bg:               $gray-200 !default;
+$dropdown-link-color:               $gray-900 !default;
+$dropdown-link-hover-color:         darken($gray-900, 5%) !default;
+$dropdown-link-hover-bg:            $gray-100 !default;
+$dropdown-link-active-color:        $component-active-color !default;
+$dropdown-link-active-bg:           $component-active-bg !default;
+$dropdown-link-disabled-color:      $gray-600 !default;
 $dropdown-header-color:             $gray-600 !default;
 
-$dropdown-theme-map: (
-  default: (
-    "dropdown-color":               $body-color,
-    "dropdown-border-color":        $gray-300,
-    "dropdown-bg":                  $white,
-    "dropdown-divider-bg":          $gray-200,
-    "dropdown-link-color":          $gray-900,
-    "dropdown-link-hover-color":    darken($gray-900, 5%),
-    "dropdown-link-hover-bg":       $gray-100,
-    "dropdown-link-active-color":   $component-active-color,
-    "dropdown-link-active-bg":      $component-active-bg,
-    "dropdown-link-disabled-color": $gray-600,
-    "dropdown-header-color":        $gray-600
+// Dark theme
+$dropdown-dark-color:               $body-dark-color !default;
+$dropdown-dark-bg:                  $gray-800 !default;
+$dropdown-dark-border-color:        $border-dark-color !default; // was: rgba($black, .15) !default;
+$dropdown-dark-divider-bg:          $gray-800 !default;
+$dropdown-dark-link-color:          $gray-900 !default;
+$dropdown-dark-link-hover-color:    $body-dark-color !default;
+$dropdown-dark-link-hover-bg:       $gray-900 !default;
+$dropdown-dark-link-active-color:   $component-active-color !default;
+$dropdown-dark-link-active-bg:      $component-active-bg !default;
+$dropdown-dark-link-disabled-color: $gray-600 !default;
+$dropdown-dark-header-color:        $gray-200 !default;
+
+$dropdown-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$dropdown-theme-map: map-merge(
+  (
+    light: (
+      "dropdown-color":               $dropdown-color,
+      "dropdown-border-color":        $dropdown-border-color,
+      "dropdown-bg":                  $dropdown-bg,
+      "dropdown-divider-bg":          $dropdown-divider-bg,
+      "dropdown-link-color":          $dropdown-link-color,
+      "dropdown-link-hover-color":    $dropdown-link-hover-color,
+      "dropdown-link-hover-bg":       $dropdown-link-hover-bg,
+      "dropdown-link-active-color":   $dropdown-link-active-color,
+      "dropdown-link-active-bg":      $dropdown-link-active-bg,
+      "dropdown-link-disabled-color": $dropdown-link-disabled-color,
+      "dropdown-header-color":        $dropdown-header-color
+    ),
+    dark: (
+      "dropdown-color":               $dropdown-dark-color,
+      "dropdown-border-color":        $dropdown-dark-border-color,
+      "dropdown-bg":                  $dropdown-dark-bg,
+      "dropdown-divider-bg":          $dropdown-dark-divider-bg,
+      "dropdown-link-color":          $dropdown-dark-link-color,
+      "dropdown-link-hover-color":    $dropdown-dark-link-hover-color,
+      "dropdown-link-hover-bg":       $dropdown-dark-link-hover-bg,
+      "dropdown-link-active-color":   $dropdown-dark-link-active-color,
+      "dropdown-link-active-bg":      $dropdown-dark-link-active-bg,
+      "dropdown-link-disabled-color": $dropdown-dark-link-disabled-color,
+      "dropdown-header-color":        $dropdown-header-color
+    )
   ),
-  dark: (
-    "dropdown-color":               $white,
-    "dropdown-border-color":        $black,
-    "dropdown-bg":                  $gray-800,
-    "dropdown-divider-bg":          $black,
-    "dropdown-link-color":          $white,
-    "dropdown-link-hover-color":    $white,
-    "dropdown-link-hover-bg":       $gray-900,
-    "dropdown-link-active-color":   $component-active-color-dark,
-    "dropdown-link-active-bg":      $component-active-bg-dark,
-    "dropdown-link-disabled-color": $gray-600,
-    "dropdown-header-color":        $gray-200
-  )
-) !default;
+  $dropdown-theme-map
+);
 
 
 // Pagination
 
-$pagination-padding-y:              .5rem !default;
-$pagination-padding-x:              .75rem !default;
-$pagination-padding-y-sm:           .25rem !default;
-$pagination-padding-x-sm:           .5rem !default;
-$pagination-padding-y-lg:           .75rem !default;
-$pagination-padding-x-lg:           1.5rem !default;
-$pagination-line-height:            1.25 !default;
+$pagination-padding-y:                  .5rem !default;
+$pagination-padding-x:                  .75rem !default;
+$pagination-padding-y-sm:               .25rem !default;
+$pagination-padding-x-sm:               .5rem !default;
+$pagination-padding-y-lg:               .75rem !default;
+$pagination-padding-x-lg:               1.5rem !default;
+$pagination-line-height:                1.25 !default;
+$pagination-border-width:               $border-width !default;
 
-$pagination-color:                  $link-color !default;
-$pagination-bg:                     $white !default;
-$pagination-border-width:           $border-width !default;
-$pagination-border-color:           $gray-300 !default;
+// Default theme
+$pagination-color:                      $link-color !default;
+$pagination-bg:                         $white !default;
+$pagination-border-color:               $border-color !default;
+$pagination-focus-box-shadow:           $input-btn-focus-box-shadow !default;
+$pagination-focus-outline:              0 !default;
+$pagination-hover-color:                $link-hover-color !default;
+$pagination-hover-bg:                   $gray-200 !default;
+$pagination-hover-border-color:         $gray-300 !default;
+$pagination-active-color:               $component-active-color !default;
+$pagination-active-bg:                  $component-active-bg !default;
+$pagination-active-border-color:        $pagination-active-bg !default;
+$pagination-disabled-color:             $gray-600 !default;
+$pagination-disabled-bg:                $white !default;
+$pagination-disabled-border-color:      $gray-300 !default;
 
-$pagination-focus-box-shadow:       $input-btn-focus-box-shadow !default;
-$pagination-focus-outline:          0 !default;
+// Dark theme
+$pagination-dark-color:                      $link-color !default;
+$pagination-dark-bg:                         $gray-800 !default;
+$pagination-dark-border-color:               $border-dark-color !default;
+$pagination-dark-focus-box-shadow:           $input-btn-focus-box-shadow !default;
+$pagination-dark-focus-outline:              0 !default;
+$pagination-dark-hover-color:                $link-hover-color !default;
+$pagination-dark-hover-bg:                   $gray-900 !default;
+$pagination-dark-hover-border-color:         $gray-900 !default;
+$pagination-dark-active-color:               $component-active-color !default;
+$pagination-dark-active-bg:                  $component-active-bg !default;
+$pagination-dark-active-border-color:        $pagination-active-bg !default;
+$pagination-dark-disabled-color:             $gray-600 !default;
+$pagination-dark-disabled-bg:                $gray-900 !default;
+$pagination-dark-disabled-border-color:      $gray-900 !default;
 
-$pagination-hover-color:            $link-hover-color !default;
-$pagination-hover-bg:               $gray-200 !default;
-$pagination-hover-border-color:     $gray-300 !default;
-
-$pagination-active-color:           $component-active-color !default;
-$pagination-active-bg:              $component-active-bg !default;
-$pagination-active-border-color:    $pagination-active-bg !default;
-
-$pagination-disabled-color:         $gray-600 !default;
-$pagination-disabled-bg:            $white !default;
-$pagination-disabled-border-color:  $gray-300 !default;
-
-$pagination-theme-map: (
-  default: (
-    "pagination-color":                  $link-color,
-    "pagination-bg":                     $white,
-    "pagination-border-color":           $gray-300,
-    "pagination-focus-box-shadow":       $input-btn-focus-box-shadow,
-    "pagination-focus-outline":          0,
-    "pagination-hover-color":            $link-hover-color,
-    "pagination-hover-bg":               $gray-200,
-    "pagination-hover-border-color":     $gray-300,
-    "pagination-active-color":           $component-active-color,
-    "pagination-active-bg":              $component-active-bg,
-    "pagination-active-border-color":    $pagination-active-bg,
-    "pagination-disabled-color":         $gray-600,
-    "pagination-disabled-bg":            $white,
-    "pagination-disabled-border-color":  $gray-300
+$pagination-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$pagination-theme-map: map-merge(
+  (
+    light: (
+      "pagination-color":                      $link-color,
+      "pagination-bg":                         $white,
+      "pagination-border-color":               $gray-300,
+      "pagination-focus-box-shadow":           $input-btn-focus-box-shadow,
+      "pagination-focus-outline":              0,
+      "pagination-hover-color":                $link-hover-color,
+      "pagination-hover-bg":                   $gray-200,
+      "pagination-hover-border-color":         $gray-300,
+      "pagination-active-color":               $component-active-color,
+      "pagination-active-bg":                  $component-active-bg,
+      "pagination-active-border-color":        $pagination-active-bg,
+      "pagination-disabled-color":             $gray-600,
+      "pagination-disabled-bg":                $white,
+      "pagination-disabled-border-color":      $gray-300
+    ),
+    dark: (
+      "pagination-color":                      $link-color,
+      "pagination-bg":                         $gray-800,
+      "pagination-border-color":               $gray-900,
+      "pagination-focus-box-shadow":           $input-btn-focus-box-shadow,
+      "pagination-focus-outline":              0,
+      "pagination-hover-color":                $link-hover-color,
+      "pagination-hover-bg":                   $gray-900,
+      "pagination-hover-border-color":         $gray-900,
+      "pagination-active-color":               $component-active-color,
+      "pagination-active-bg":                  $component-active-bg,
+      "pagination-active-border-color":        $pagination-active-bg,
+      "pagination-disabled-color":             $gray-600,
+      "pagination-disabled-bg":                $gray-900,
+      "pagination-disabled-border-color":      $gray-900
+    )
   ),
-  dark: (
-    "pagination-color":                  $link-color,
-    "pagination-bg":                     $gray-800,
-    "pagination-border-color":           $gray-900,
-    "pagination-focus-box-shadow":       $input-btn-focus-box-shadow,
-    "pagination-focus-outline":          0,
-    "pagination-hover-color":            $link-hover-color,
-    "pagination-hover-bg":               $gray-900,
-    "pagination-hover-border-color":     $gray-900,
-    "pagination-active-color":           $component-active-color,
-    "pagination-active-bg":              $component-active-bg,
-    "pagination-active-border-color":    $pagination-active-bg,
-    "pagination-disabled-color":         $gray-600,
-    "pagination-disabled-bg":            $gray-900,
-    "pagination-disabled-border-color":  $gray-900
-  )
-) !default;
+  $pagination-theme-map
+);
 
 
 //
 // Cards
 //
 
-$card-spacer-y:                     .75rem !default;
-$card-spacer-x:                     1.25rem !default;
-$card-border-width:                 $border-width !default;
-$card-border-radius:                $border-radius !default;
-// $card-border-color:                 $gray-300 !default; // was: rgba($black, .125) !default;
-$card-inner-border-radius:          calc(#{$card-border-radius} - #{$card-border-width}) !default;
-$card-margin-bottom:                $spacer * 1.5 !default; // CoreUI
-// $card-cap-bg:                       $gray-100 !default; // was: rgba($black, .03) !default;
-// $card-cap-color:                    null !default;
-// $card-color:                        null !default;
-// $card-bg:                           $white !default;
+$card-spacer-y:            .75rem !default;
+$card-spacer-x:            1.25rem !default;
+$card-border-width:        $border-width !default;
+$card-border-radius:       $border-radius !default;
+$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-margin-bottom:       $spacer * 1.5 !default; // CoreUI
 
-$card-img-overlay-padding:          1.25rem !default;
+$card-img-overlay-padding: 1.25rem !default;
 
-$card-group-margin:                 $grid-gutter-width / 2 !default;
-$card-deck-margin:                  $card-group-margin !default;
+$card-group-margin:        $grid-gutter-width / 2 !default;
+$card-deck-margin:         $card-group-margin !default;
 
-$card-columns-count:                3 !default;
-$card-columns-gap:                  1.25rem !default;
-$card-columns-margin:               $card-spacer-y !default;
+$card-columns-count:       3 !default;
+$card-columns-gap:         1.25rem !default;
+$card-columns-margin:      $card-spacer-y !default;
 
-$card-icon-bg:                        transparent !default;
-$card-icon-color:                     $body-color !default;
+$card-icon-bg:             transparent !default;
+$card-icon-color:          $body-color !default;
 
+// Default theme
+$card-border-color:        $border-color !default; // was: rgba($black, .125) !default;
+$card-cap-bg:              $gray-100 !default; // was: rgba($black, .03) !default;
+$card-cap-color:           null !default;
+$card-color:               null !default;
+$card-bg:                  $white !default;
 
-$card-theme-map: (
-  default: (
-    "card-border-color": $gray-300,
-    "card-cap-bg": $gray-100,
-    "card-cap-color": "null",
-    "card-color": "null",
-    "card-bg": $white
+// Dark theme
+$card-dark-border-color:   $border-dark-color !default;
+$card-dark-cap-bg:         $gray-800 !default;
+$card-dark-cap-color:      null !default;
+$card-dark-color:          null !default;
+$card-dark-bg:             lighten($gray-800, 5%) !default;
+
+$card-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$card-theme-map: map-merge(
+  (
+    light: (
+      "card-border-color":   $card-border-color,
+      "card-cap-bg":         $card-cap-bg,
+      "card-cap-color":      $card-cap-color,
+      "card-color":          $card-color,
+      "card-bg":             $card-bg
+    ),
+    dark: (
+      "card-border-color":   $card-dark-border-color,
+      "card-cap-bg":         $card-dark-cap-bg,
+      "card-cap-color":      $card-dark-cap-color,
+      "card-color":          $card-dark-color,
+      "card-bg":             $card-dark-bg
+    )
   ),
-  dark: (
-    "card-border-color": $gray-900,
-    "card-cap-bg": $gray-800,
-    "card-cap-color": "null",
-    "card-color": "null",
-    "card-bg": lighten($gray-800,5%)
-  )
+  $card-theme-map
 );
 
 
 // Jumbotron
 
-$jumbotron-padding:                 2rem !default;
-$jumbotron-color:                   null !default;
-$jumbotron-bg:                      $gray-200 !default;
+$jumbotron-padding:    2rem !default;
 
-$jumbotron-theme-map: (
-  default: (
-    "jumbotron-color":                   0,
-    "jumbotron-bg":                      $gray-200
+// Default theme
+$jumbotron-color:      null !default;
+$jumbotron-bg:         $gray-200 !default;
+
+// Dark theme
+$jumbotron-dark-color: null !default;
+$jumbotron-dark-bg:    $gray-900 !default;
+
+$jumbotron-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$jumbotron-theme-map: map-merge(
+  (
+    light: (
+      "jumbotron-color": $jumbotron-color,
+      "jumbotron-bg":    $jumbotron-bg
+    ),
+    dark: (
+      "jumbotron-color": $jumbotron-dark-color,
+      "jumbotron-bg":    $jumbotron-dark-bg
+    )
   ),
-  dark: (
-    "jumbotron-color":                   0,
-    "jumbotron-bg":                      $gray-900
-  )
-) !default;
+  $jumbotron-theme-map
+);
 
 
 // Tooltips
@@ -1688,85 +1799,117 @@ $alert-color-level:                 6 !default;
 
 $progress-height:                   1rem !default;
 $progress-font-size:                $font-size-base * .75 !default;
-// $progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
+
 $progress-border-radius:            $border-radius !default;
 $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1) !default;
-// $progress-bar-color:                $white !default;
-// $progress-bar-bg:                   theme-color("primary") !default;
+
 $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
 
-$progress-theme-map: (
-  default: (
-    "progress-bg":        $gray-100,
-    "progress-bar-color": $white,
-    "progress-bar-bg":    theme-color("primary")
+// Default theme
+$progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   theme-color("primary") !default;
+
+// Dark theme
+$progress-dark-bg:                  $gray-700 !default;
+$progress-dark-bar-color:           $white !default;
+$progress-dark-bar-bg:              theme-color("primary") !default;
+
+$progress-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$progress-theme-map: map-merge(
+  (
+    light: (
+      "progress-bg":                  $progress-bg,
+      "progress-bar-color":           $progress-bar-color,
+      "progress-bar-bg":              $progress-bar-bg
+    ),
+    dark: (
+      "progress-bg":                  $progress-dark-bg,
+      "progress-bar-color":           $progress-dark-bar-color,
+      "progress-bar-bg":              $progress-dark-bar-bg
+    )
   ),
-  dark: (
-    "progress-bg":        $gray-700,
-    "progress-bar-color": $white,
-    "progress-bar-bg":    theme-color("primary")
-  )
-) !default;
+  $progress-theme-map
+);
 
 
 // List group
 
-$list-group-color:                  null !default;
-$list-group-bg:                     $white !default;
-$list-group-border-color:           rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
 $list-group-border-radius:          $border-radius !default;
 
 $list-group-item-padding-y:         .75rem !default;
 $list-group-item-padding-x:         1.25rem !default;
 
+// Default theme
+$list-group-color:                  null !default;
+$list-group-bg:                     $white !default;
+$list-group-border-color:           rgba($black, .125) !default;
 $list-group-hover-bg:               $gray-100 !default;
 $list-group-active-color:           $component-active-color !default;
 $list-group-active-bg:              $component-active-bg !default;
 $list-group-active-border-color:    $list-group-active-bg !default;
-
 $list-group-disabled-color:         $gray-600 !default;
 $list-group-disabled-bg:            $list-group-bg !default;
-
 $list-group-action-color:           $gray-700 !default;
 $list-group-action-hover-color:     $list-group-action-color !default;
-
 $list-group-action-active-color:    $body-color !default;
 $list-group-action-active-bg:       $gray-200 !default;
 
-$list-group-theme-map: (
-  default: (
-    "list-group-color":                  0,
-    "list-group-bg":                     $white,
-    "list-group-border-color":           rgba($black, .125),
-    "list-group-hover-bg":               $gray-100,
-    "list-group-active-color":           $component-active-color,
-    "list-group-active-bg":              $component-active-bg,
-    "list-group-active-border-color":    $list-group-active-bg,
-    "list-group-disabled-color":         $gray-600,
-    "list-group-disabled-bg":            $list-group-bg,
-    "list-group-action-color":           $gray-700,
-    "list-group-action-hover-color":     $list-group-action-color,
-    "list-group-action-active-color":    $body-color,
-    "list-group-action-active-bg":       $gray-200
+// Dark theme
+$list-group-dark-color:                  $body-dark-color !default;
+$list-group-dark-bg:                     lighten($gray-800, 5%) !default;
+$list-group-dark-border-color:           $border-dark-color !default;
+$list-group-dark-hover-bg:               $gray-800 !default;
+$list-group-dark-active-color:           $component-active-color !default;
+$list-group-dark-active-bg:              $component-active-bg !default;
+$list-group-dark-active-border-color:    $list-group-dark-active-bg !default;
+$list-group-dark-disabled-color:         $gray-600 !default;
+$list-group-dark-disabled-bg:            $gray-800 !default;
+$list-group-dark-action-color:           $body-dark-color !default;
+$list-group-dark-action-hover-color:     $body-dark-color !default;
+$list-group-dark-action-active-color:    $body-dark-color !default;
+$list-group-dark-action-active-bg:       $gray-900 !default;
+
+$list-group-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$list-group-theme-map: map-merge(
+  (
+    light: (
+      "list-group-color":                  $list-group-color,
+      "list-group-bg":                     $list-group-bg,
+      "list-group-border-color":           $list-group-border-color,
+      "list-group-hover-bg":               $list-group-hover-bg,
+      "list-group-active-color":           $list-group-active-color,
+      "list-group-active-bg":              $list-group-active-bg,
+      "list-group-active-border-color":    $list-group-active-border-color,
+      "list-group-disabled-color":         $list-group-disabled-color,
+      "list-group-disabled-bg":            $list-group-disabled-bg,
+      "list-group-action-color":           $list-group-action-color,
+      "list-group-action-hover-color":     $list-group-action-hover-color,
+      "list-group-action-active-color":    $list-group-action-active-color,
+      "list-group-action-active-bg":       $list-group-action-active-bg,
+    ),
+    dark: (
+      "list-group-color":                  $list-group-dark-color,
+      "list-group-bg":                     $list-group-dark-bg,
+      "list-group-border-color":           $list-group-dark-border-color,
+      "list-group-hover-bg":               $list-group-dark-hover-bg,
+      "list-group-active-color":           $list-group-dark-active-color,
+      "list-group-active-bg":              $list-group-dark-active-bg,
+      "list-group-active-border-color":    $list-group-dark-active-border-color,
+      "list-group-disabled-color":         $list-group-dark-disabled-color,
+      "list-group-disabled-bg":            $list-group-dark-disabled-bg,
+      "list-group-action-color":           $list-group-dark-action-color,
+      "list-group-action-hover-color":     $list-group-dark-action-hover-color,
+      "list-group-action-active-color":    $list-group-dark-action-active-color,
+      "list-group-action-active-bg":       $list-group-dark-action-active-bg
+    )
   ),
-  dark: (
-    "list-group-color":                  $body-dark-color,
-    "list-group-bg":                     lighten($gray-800, 5%),
-    "list-group-border-color":           $gray-900,
-    "list-group-hover-bg":               $gray-800,
-    "list-group-active-color":           $component-active-color,
-    "list-group-active-bg":              $component-active-bg,
-    "list-group-active-border-color":    $list-group-active-bg,
-    "list-group-disabled-color":         $gray-600,
-    "list-group-disabled-bg":            $gray-800,
-    "list-group-action-color":           $body-dark-color,
-    "list-group-action-hover-color":     $body-dark-color,
-    "list-group-action-active-color":    $body-dark-color,
-    "list-group-action-active-bg":       $gray-200
-  )
-) !default;
+  $list-group-theme-map
+);
 
 // Image thumbnails
 
@@ -1783,6 +1926,54 @@ $thumbnail-box-shadow:              0 1px 2px rgba($black, .075) !default;
 $figure-caption-font-size:          90% !default;
 $figure-caption-color:              $gray-600 !default;
 
+
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .75rem !default;
+$breadcrumb-padding-x:              1rem !default;
+$breadcrumb-item-padding:           .5rem !default;
+
+$breadcrumb-margin-bottom:          1.5rem !default; // was: 1rem
+
+$breadcrumb-divider:                quote("/") !default;
+
+$breadcrumb-border-radius:          0 !default; // was: $border-radius
+
+$breadcrumb-borders: (
+  bottom: 1px solid
+) !default;
+
+// Default theme
+$breadcrumb-bg:                     $white !default; // was: $gray-200
+$breadcrumb-border-color:           $border-color !default;
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+
+// Dark theme
+$breadcrumb-dark-bg:                lighten($gray-800, 5%) !default;
+$breadcrumb-dark-border-color:      $border-dark-color !default;
+$breadcrumb-dark-divider-color:     $gray-600 !default;
+$breadcrumb-dark-active-color:      $gray-600 !default;
+
+$breadcrumb-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$breadcrumb-theme-map: map-merge(
+  (
+    light: (
+      "breadcrumb-bg":                $breadcrumb-bg,
+      "breadcrumb-border-color":      $breadcrumb-border-color,
+      "breadcrumb-divider-color":     $breadcrumb-divider-color,
+      "breadcrumb-active-color":      $breadcrumb-active-color
+    ),
+    dark: (
+      "breadcrumb-bg":                $breadcrumb-dark-bg,
+      "breadcrumb-border-color":      $breadcrumb-dark-border-color,
+      "breadcrumb-divider-color":     $breadcrumb-dark-divider-color,
+      "breadcrumb-active-color":      $breadcrumb-dark-active-color
+    )
+  ),
+  $breadcrumb-theme-map
+);
 
 // Carousel
 

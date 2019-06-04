@@ -59,6 +59,15 @@ hr {
   border-top: $hr-border-width solid $hr-border-color;
 }
 
+//
+// Vertical rules
+//
+
+.#{$prefix}vr {
+  width: $vr-width;
+  background-color: $vr-color-bg;
+}
+
 
 //
 // Emphasis
