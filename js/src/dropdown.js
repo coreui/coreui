@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): dropdown.js
+ * CoreUI (v3.0.0-alpha.9): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'dropdown'
-const VERSION = '3.0.0-alpha.7'
+const VERSION = '3.0.0-alpha.9'
 const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

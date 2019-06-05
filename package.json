@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "3.0.0-alpha.7",
+  "version": "3.0.0-alpha.9",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -53,7 +53,7 @@
     "css": "npm-run-all --parallel css-lint css-compile* --sequential css-combine-duplicated-selectors css-prefix* css-minify*",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 6 scss/coreui.scss dist/css/coreui.css",
     "css-combine-duplicated-selectors": "postcss dist/css/coreui.css --use postcss-combine-duplicated-selectors --output dist/css/coreui.css",
-    "aaacss-compile-partials": "node build/scss-partials.js && rimraf css && foreach -g \"scss/partials/*.scss\" -x \"node-sass --include-path scss --output-style expanded --source-map true --source-map-contents true --precision 6 scss/partials/#{name}.scss css/#{name}.css\"",
+    "css-compile-partials": "node build/scss-partials.js && rimraf css && foreach -g \"scss/partials/*.scss\" -x \"node-sass --include-path scss --output-style expanded --source-map true --source-map-contents true --precision 6 scss/partials/#{name}.scss css/#{name}.css\"",
     "css-lint": "npm-run-all --parallel css-lint-*",
     "css-lint-styles": "stylelint --syntax scss \"scss/**/*.scss\"",
     "css-lint-vars": "fusv scss/",
@@ -75,7 +75,7 @@
     "js-minify": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",
     "js-minify-bundle": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.bundle.js.map,includeSources,url=coreui.bundle.min.js.map\" --output dist/js/coreui.bundle.min.js dist/js/coreui.bundle.js",
     "js-minify-utilities": "uglifyjs --compress typeofs=false --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui-utilities.js.map,includeSources,url=coreui-utilities.min.js.map\" --output dist/js/coreui-utilities.min.js dist/js/coreui-utilities.js",
-    "postinstall": "node build/npm-postinstall.js",
+    "postinstall": "node postinstall.js",
     "release-version": "node build/change-version.js",
     "release-zip": "cd dist/ && zip -r9 coreui-$npm_package_version-dist.zip * && shx mv coreui-$npm_package_version-dist.zip ..",
     "test": "npm-run-all css-lint js-lint dist bundlesize",

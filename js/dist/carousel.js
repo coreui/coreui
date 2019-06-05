@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): carousel.js
+ * CoreUI (v3.0.0-alpha.9): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -28,7 +28,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'carousel';
-var VERSION = '3.0.0-alpha.7';
+var VERSION = '3.0.0-alpha.9';
 var DATA_KEY = 'coreui.carousel';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';

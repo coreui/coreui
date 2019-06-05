@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.7 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.9 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): classes.js
+   * CoreUI Utilities (v3.0.0-alpha.9): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -39,7 +39,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.9): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -54,6 +54,7 @@
 
       for (var j = rules.length - 1; j > -1; j--) {
         if (rules[j].selectorText === '.ie-custom-properties') {
+          // eslint-disable-next-line prefer-destructuring
           cssText = rules[j].cssText;
           break;
         }
@@ -80,7 +81,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.9): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -113,7 +114,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): get-color.js
+   * CoreUI Utilities (v3.0.0-alpha.9): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -130,7 +131,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -138,7 +139,7 @@
   /* eslint-disable no-magic-numbers */
   var hexToRgb = function hexToRgb(color) {
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
@@ -166,7 +167,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -178,7 +179,7 @@
     }
 
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
@@ -206,7 +207,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.7): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.9): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -214,7 +215,7 @@
   /* eslint-disable no-magic-numbers */
   var rgbToHex = function rgbToHex(color) {
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     if (color === 'transparent') {

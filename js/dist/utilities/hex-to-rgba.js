@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v3.0.0-alpha.7): hex-to-rgba.js
+ * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgba.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -12,7 +12,7 @@ var hexToRgba = function hexToRgba(color, opacity) {
   }
 
   if (typeof color === 'undefined') {
-    throw new Error('Hex color is not defined');
+    throw new TypeError('Hex color is not defined');
   }
 
   var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);

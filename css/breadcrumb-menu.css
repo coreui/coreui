@@ -1,0 +1,42 @@
+/* stylelint-disable */
+/* stylelint-disable */
+.c-breadcrumb-menu {
+  margin-left: auto;
+}
+
+.c-breadcrumb-menu::before {
+  display: none;
+}
+
+.c-breadcrumb-menu .c-btn-group {
+  vertical-align: top;
+}
+
+.c-breadcrumb-menu .c-btn {
+  padding: 0 0.75rem;
+  color: #73818f;
+  vertical-align: top;
+  border: 0;
+}
+
+.c-breadcrumb-menu .c-btn:hover, .c-breadcrumb-menu .c-btn.c-active {
+  color: #23282c;
+  background: transparent;
+}
+
+.c-breadcrumb-menu .c-open .c-btn {
+  color: #23282c;
+  background: transparent;
+}
+
+.c-breadcrumb-menu .c-dropdown-menu {
+  min-width: 180px;
+  line-height: 1.5;
+}
+
+*[dir="rtl"] .c-breadcrumb-menu {
+  margin-right: auto;
+  margin-left: initial;
+}
+
+/*# sourceMappingURL=breadcrumb-menu.css.map */

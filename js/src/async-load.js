@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): asyn-load.js
+ * CoreUI (v3.0.0-alpha.9): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'asyncLoad'
-const VERSION = '3.0.0-alpha.7'
+const VERSION = '3.0.0-alpha.9'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

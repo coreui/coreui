@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): modal.js
+ * CoreUI (v3.0.0-alpha.9): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -32,7 +32,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'modal'
-const VERSION = '3.0.0-alpha.7'
+const VERSION = '3.0.0-alpha.9'
 const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

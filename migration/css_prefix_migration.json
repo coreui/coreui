@@ -5,6 +5,10 @@
       "new": ".c-accordion"
     },
     {
+      "old": ".active",
+      "new": ".c-active"
+    },
+    {
       "old": ".alert",
       "new": ".c-alert"
     },
@@ -561,10 +565,6 @@
       "new": ".c-bg-box"
     },
     {
-      "old": ".bg-css3",
-      "new": ".c-bg-css3"
-    },
-    {
       "old": ".bg-cyan",
       "new": ".c-bg-cyan"
     },
@@ -581,10 +581,6 @@
       "new": ".c-bg-dribbble"
     },
     {
-      "old": ".bg-dropbox",
-      "new": ".c-bg-dropbox"
-    },
-    {
       "old": ".bg-facebook",
       "new": ".c-bg-facebook"
     },
@@ -593,16 +589,8 @@
       "new": ".c-bg-flickr"
     },
     {
-      "old": ".bg-foursquare",
-      "new": ".c-bg-foursquare"
-    },
-    {
       "old": ".bg-github",
       "new": ".c-bg-github"
-    },
-    {
-      "old": ".bg-google-plus",
-      "new": ".c-bg-google-plus"
     },
     {
       "old": ".bg-gray",
@@ -653,10 +641,6 @@
       "new": ".c-bg-green"
     },
     {
-      "old": ".bg-html5",
-      "new": ".c-bg-html5"
-    },
-    {
       "old": ".bg-indigo",
       "new": ".c-bg-indigo"
     },
@@ -679,10 +663,6 @@
     {
       "old": ".bg-linkedin",
       "new": ".c-bg-linkedin"
-    },
-    {
-      "old": ".bg-openid",
-      "new": ".c-bg-openid"
     },
     {
       "old": ".bg-orange",
@@ -717,10 +697,6 @@
       "new": ".c-bg-secondary"
     },
     {
-      "old": ".bg-spotify",
-      "new": ".c-bg-spotify"
-    },
-    {
       "old": ".bg-stack-overflow",
       "new": ".c-bg-stack-overflow"
     },
@@ -747,10 +723,6 @@
     {
       "old": ".bg-vimeo",
       "new": ".c-bg-vimeo"
-    },
-    {
-      "old": ".bg-vine",
-      "new": ".c-bg-vine"
     },
     {
       "old": ".bg-vk",
@@ -869,18 +841,6 @@
       "new": ".c-border-white"
     },
     {
-      "old": ".brand-card",
-      "new": ".c-brand-card"
-    },
-    {
-      "old": ".brand-card-body",
-      "new": ".c-brand-card-body"
-    },
-    {
-      "old": ".brand-card-header",
-      "new": ".c-brand-card-header"
-    },
-    {
       "old": ".breadcrumb",
       "new": ".c-breadcrumb"
     },
@@ -945,14 +905,6 @@
       "new": ".c-btn-block"
     },
     {
-      "old": ".btn-brand",
-      "new": ".c-btn-brand"
-    },
-    {
-      "old": ".btn-css3",
-      "new": ".c-btn-css3"
-    },
-    {
       "old": ".btn-danger",
       "new": ".c-btn-danger"
     },
@@ -965,10 +917,6 @@
       "new": ".c-btn-dribbble"
     },
     {
-      "old": ".btn-dropbox",
-      "new": ".c-btn-dropbox"
-    },
-    {
       "old": ".btn-facebook",
       "new": ".c-btn-facebook"
     },
@@ -977,16 +925,40 @@
       "new": ".c-btn-flickr"
     },
     {
-      "old": ".btn-foursquare",
-      "new": ".c-btn-foursquare"
+      "old": ".btn-ghost-danger",
+      "new": ".c-btn-ghost-danger"
+    },
+    {
+      "old": ".btn-ghost-dark",
+      "new": ".c-btn-ghost-dark"
+    },
+    {
+      "old": ".btn-ghost-info",
+      "new": ".c-btn-ghost-info"
+    },
+    {
+      "old": ".btn-ghost-light",
+      "new": ".c-btn-ghost-light"
+    },
+    {
+      "old": ".btn-ghost-primary",
+      "new": ".c-btn-ghost-primary"
+    },
+    {
+      "old": ".btn-ghost-secondary",
+      "new": ".c-btn-ghost-secondary"
+    },
+    {
+      "old": ".btn-ghost-success",
+      "new": ".c-btn-ghost-success"
+    },
+    {
+      "old": ".btn-ghost-warning",
+      "new": ".c-btn-ghost-warning"
     },
     {
       "old": ".btn-github",
       "new": ".c-btn-github"
-    },
-    {
-      "old": ".btn-google-plus",
-      "new": ".c-btn-google-plus"
     },
     {
       "old": ".btn-group",
@@ -1009,8 +981,8 @@
       "new": ".c-btn-group-vertical"
     },
     {
-      "old": ".btn-html5",
-      "new": ".c-btn-html5"
+      "old": ".btn-icon",
+      "new": ".c-btn-icon"
     },
     {
       "old": ".btn-info",
@@ -1037,8 +1009,8 @@
       "new": ".c-btn-linkedin"
     },
     {
-      "old": ".btn-openid",
-      "new": ".c-btn-openid"
+      "old": ".btn-outline-behance",
+      "new": ".c-btn-outline-behance"
     },
     {
       "old": ".btn-outline-danger",
@@ -1049,28 +1021,96 @@
       "new": ".c-btn-outline-dark"
     },
     {
+      "old": ".btn-outline-dribbble",
+      "new": ".c-btn-outline-dribbble"
+    },
+    {
+      "old": ".btn-outline-facebook",
+      "new": ".c-btn-outline-facebook"
+    },
+    {
+      "old": ".btn-outline-flickr",
+      "new": ".c-btn-outline-flickr"
+    },
+    {
+      "old": ".btn-outline-github",
+      "new": ".c-btn-outline-github"
+    },
+    {
       "old": ".btn-outline-info",
       "new": ".c-btn-outline-info"
+    },
+    {
+      "old": ".btn-outline-instagram",
+      "new": ".c-btn-outline-instagram"
     },
     {
       "old": ".btn-outline-light",
       "new": ".c-btn-outline-light"
     },
     {
+      "old": ".btn-outline-linkedin",
+      "new": ".c-btn-outline-linkedin"
+    },
+    {
+      "old": ".btn-outline-pinterest",
+      "new": ".c-btn-outline-pinterest"
+    },
+    {
       "old": ".btn-outline-primary",
       "new": ".c-btn-outline-primary"
+    },
+    {
+      "old": ".btn-outline-reddit",
+      "new": ".c-btn-outline-reddit"
     },
     {
       "old": ".btn-outline-secondary",
       "new": ".c-btn-outline-secondary"
     },
     {
+      "old": ".btn-outline-stack-overflow",
+      "new": ".c-btn-outline-stack-overflow"
+    },
+    {
       "old": ".btn-outline-success",
       "new": ".c-btn-outline-success"
     },
     {
+      "old": ".btn-outline-tumblr",
+      "new": ".c-btn-outline-tumblr"
+    },
+    {
+      "old": ".btn-outline-twitter",
+      "new": ".c-btn-outline-twitter"
+    },
+    {
+      "old": ".btn-outline-vimeo",
+      "new": ".c-btn-outline-vimeo"
+    },
+    {
+      "old": ".btn-outline-vk",
+      "new": ".c-btn-outline-vk"
+    },
+    {
       "old": ".btn-outline-warning",
       "new": ".c-btn-outline-warning"
+    },
+    {
+      "old": ".btn-outline-xing",
+      "new": ".c-btn-outline-xing"
+    },
+    {
+      "old": ".btn-outline-yahoo",
+      "new": ".c-btn-outline-yahoo"
+    },
+    {
+      "old": ".btn-outline-youtube",
+      "new": ".c-btn-outline-youtube"
+    },
+    {
+      "old": ".btn-pill",
+      "new": ".c-btn-pill"
     },
     {
       "old": ".btn-pinterest",
@@ -1091,10 +1131,6 @@
     {
       "old": ".btn-sm",
       "new": ".c-btn-sm"
-    },
-    {
-      "old": ".btn-spotify",
-      "new": ".c-btn-spotify"
     },
     {
       "old": ".btn-square",
@@ -1123,10 +1159,6 @@
     {
       "old": ".btn-vimeo",
       "new": ".c-btn-vimeo"
-    },
-    {
-      "old": ".btn-vine",
-      "new": ".c-btn-vine"
     },
     {
       "old": ".btn-vk",
@@ -1223,10 +1255,6 @@
     {
       "old": ".card-accent-warning",
       "new": ".c-card-accent-warning"
-    },
-    {
-      "old": ".card-block",
-      "new": ".c-card-block"
     },
     {
       "old": ".card-body",
@@ -1689,6 +1717,10 @@
       "new": ".c-container-fluid"
     },
     {
+      "old": ".content-center",
+      "new": ".c-content-center"
+    },
+    {
       "old": ".custom-checkbox",
       "new": ".c-custom-checkbox"
     },
@@ -1989,8 +2021,16 @@
       "new": ".c-d-xl-table-row"
     },
     {
+      "old": ".dark-theme",
+      "new": ".c-dark-theme"
+    },
+    {
       "old": ".default-layout",
       "new": ".c-default-layout"
+    },
+    {
+      "old": ".disabled",
+      "new": ".c-disabled"
     },
     {
       "old": ".display-1",
@@ -2445,6 +2485,10 @@
       "new": ".c-float-xl-right"
     },
     {
+      "old": ".focus",
+      "new": ".c-focus"
+    },
+    {
       "old": ".font-2xl",
       "new": ".c-font-2xl"
     },
@@ -2503,6 +2547,10 @@
     {
       "old": ".footer",
       "new": ".c-footer"
+    },
+    {
+      "old": ".footer-dark",
+      "new": ".c-footer-dark"
     },
     {
       "old": ".form-check",
@@ -2651,10 +2699,6 @@
     {
       "old": ".header-fixed",
       "new": ".c-header-fixed"
-    },
-    {
-      "old": ".header-light",
-      "new": ".c-header-light"
     },
     {
       "old": ".header-nav",
@@ -6517,10 +6561,6 @@
       "new": ".c-sidebar-compact"
     },
     {
-      "old": ".sidebar-dark",
-      "new": ".c-sidebar-dark"
-    },
-    {
       "old": ".sidebar-fixed",
       "new": ".c-sidebar-fixed"
     },
@@ -6981,6 +7021,14 @@
       "new": ".c-text-value-sm"
     },
     {
+      "old": ".text-value-xl",
+      "new": ".c-text-value-xl"
+    },
+    {
+      "old": ".text-value-xs",
+      "new": ".c-text-value-xs"
+    },
+    {
       "old": ".text-warning",
       "new": ".c-text-warning"
     },
@@ -7051,6 +7099,10 @@
     {
       "old": ".visible",
       "new": ".c-visible"
+    },
+    {
+      "old": ".vr",
+      "new": ".c-vr"
     },
     {
       "old": ".vw-100",

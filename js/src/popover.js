@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): popover.js
+ * CoreUI (v3.0.0-alpha.9): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -21,7 +21,7 @@ import Tooltip from './tooltip'
  */
 
 const NAME = 'popover'
-const VERSION = '3.0.0-alpha.7'
+const VERSION = '3.0.0-alpha.9'
 const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
 const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'

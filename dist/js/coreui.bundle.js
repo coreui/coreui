@@ -1,13 +1,13 @@
 /*!
-  * CoreUI v3.0.0-alpha.7 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.9 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('util')) :
-  typeof define === 'function' && define.amd ? define(['util'], factory) :
-  (global = global || self, global.coreui = factory(global.util));
-}(this, function (util) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.coreui = factory());
+}(this, function () { 'use strict';
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -434,7 +434,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): dom/eventHandler.js
+   * Bootstrap (v4.3.1): dom/event-handler.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -522,14 +522,13 @@
       delegationSelector = null;
     }
 
-    var uidList = Object.keys(events);
+    var uidEventList = Object.keys(events);
 
-    for (var i = 0; i < uidList.length; i++) {
-      var uid = uidList[i];
-      var event = events[uid];
+    for (var i = 0, len = uidEventList.length; i < len; i++) {
+      var event = events[uidEventList[i]];
 
       if (event.originalHandler === handler && event.delegationSelector === delegationSelector) {
-        return events[uid];
+        return event;
       }
     }
 
@@ -593,7 +592,7 @@
   function removeHandler(element, events, typeEvent, handler, delegationSelector) {
     var fn = findHandler(events[typeEvent], handler, delegationSelector);
 
-    if (fn === null) {
+    if (!fn) {
       return;
     }
 
@@ -732,13 +731,13 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0';
+  var VERSION = '3.0.0-alpha.9';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var ClassName = {
-    ACTIVE: 'active',
+    ACTIVE: PREFIX + "active",
     NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
     NAV_PILLS: PREFIX + "nav-pills",
     NAV_TABS: PREFIX + "nav-tabs",
@@ -747,15 +746,18 @@
   };
   var Event$1 = {
     CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
-    LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY,
+    // TODO: clean-up
+    // LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
     XHR_STATUS: 'xhr'
   };
   var Selector = {
-    HEAD: 'head',
+    // TODO: clean-up
+    // HEAD: 'head',
     NAV_DROPDOWN: "." + PREFIX + "nav ." + PREFIX + "nav-dropdown",
     NAV_LINK: "." + PREFIX + "dropdown-nav-link, ." + PREFIX + "nav ." + PREFIX + "nav-link",
     NAV_ITEM: "." + PREFIX + "nav ." + PREFIX + "nav-item",
-    SIDEBAT_NAV: "." + PREFIX + "sidebar-nav, ." + PREFIX + "sidebar-nav",
+    // TODO: clean-up
+    // SIDEBAT_NAV: `.${PREFIX}sidebar-nav, .${PREFIX}sidebar-nav`,
     VIEW_SCRIPT: '.view-script'
   };
   var Default = {
@@ -770,7 +772,7 @@
     function AsyncLoad(element, config) {
       this._config = this._getConfig(config);
       this._element = element;
-      var url = location.hash.replace(/^#/, '');
+      var url = location.hash.replace(/^#/, ''); // eslint-disable-next-line no-negated-condition
 
       if (url !== '') {
         this._setUpUrl(url);
@@ -1103,7 +1105,7 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '4.3.1';
+  var VERSION$1 = '3.0.0-alpha.9';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -1281,13 +1283,13 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '4.3.1';
+  var VERSION$2 = '3.0.0-alpha.9';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
   var PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var ClassName$2 = {
-    ACTIVE: 'active',
+    ACTIVE: PREFIX$2 + "active",
     BUTTON: PREFIX$2 + "btn",
     FOCUS: 'focus'
   };
@@ -1295,7 +1297,7 @@
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
-    ACTIVE: '.active',
+    ACTIVE: "." + PREFIX$2 + "active",
     BUTTON: "." + PREFIX$2 + "btn"
   };
   var Event$3 = {
@@ -1542,7 +1544,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '4.3.1';
+  var VERSION$3 = '3.0.0-alpha.9';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -1593,7 +1595,7 @@
   };
   var ClassName$3 = {
     CAROUSEL: PREFIX$3 + "carousel",
-    ACTIVE: 'active',
+    ACTIVE: PREFIX$3 + "active",
     SLIDE: 'slide',
     RIGHT: PREFIX$3 + "carousel-item-right",
     LEFT: PREFIX$3 + "carousel-item-left",
@@ -1603,8 +1605,8 @@
     POINTER_EVENT: PREFIX$3 + "pointer-event"
   };
   var Selector$3 = {
-    ACTIVE: '.active',
-    ACTIVE_ITEM: ".active." + PREFIX$3 + "carousel-item",
+    ACTIVE: "." + PREFIX$3 + "active",
+    ACTIVE_ITEM: "." + PREFIX$3 + "active." + PREFIX$3 + "carousel-item",
     ITEM: "." + PREFIX$3 + "carousel-item",
     ITEM_IMG: "." + PREFIX$3 + "carousel-item img",
     NEXT_PREV: "." + PREFIX$3 + "carousel-item-next, ." + PREFIX$3 + "carousel-item-prev",
@@ -2166,7 +2168,7 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0';
+  var VERSION$4 = '3.0.0-alpha.9';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -2447,7 +2449,7 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '4.3.1';
+  var VERSION$5 = '3.0.0-alpha.9';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -2468,7 +2470,7 @@
     CLICK_DATA_API: "click" + EVENT_KEY$5 + DATA_API_KEY$5
   };
   var ClassName$5 = {
-    SHOW: 'show',
+    SHOW: PREFIX$5 + "show",
     COLLAPSE: PREFIX$5 + "collapse",
     COLLAPSING: PREFIX$5 + "collapsing",
     COLLAPSED: PREFIX$5 + "collapsed"
@@ -2865,7 +2867,7 @@
 
   /**!
    * @fileOverview Kickass library to create and place poppers near their reference elements.
-   * @version 1.14.7
+   * @version 1.15.0
    * @license
    * Copyright (c) 2016 Federico Zivolo and contributors
    *
@@ -4469,7 +4471,14 @@
 
       // flip the variation if required
       var isVertical = ['top', 'bottom'].indexOf(placement) !== -1;
-      var flippedVariation = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+      // flips variation if reference element overflows boundaries
+      var flippedVariationByRef = !!options.flipVariations && (isVertical && variation === 'start' && overflowsLeft || isVertical && variation === 'end' && overflowsRight || !isVertical && variation === 'start' && overflowsTop || !isVertical && variation === 'end' && overflowsBottom);
+
+      // flips variation if popper content overflows boundaries
+      var flippedVariationByContent = !!options.flipVariationsByContent && (isVertical && variation === 'start' && overflowsRight || isVertical && variation === 'end' && overflowsLeft || !isVertical && variation === 'start' && overflowsBottom || !isVertical && variation === 'end' && overflowsTop);
+
+      var flippedVariation = flippedVariationByRef || flippedVariationByContent;
 
       if (overlapsRef || overflowsBoundaries || flippedVariation) {
         // this boolean to detect any flip loop
@@ -5076,7 +5085,23 @@
        * The popper will never be placed outside of the defined boundaries
        * (except if `keepTogether` is enabled)
        */
-      boundariesElement: 'viewport'
+      boundariesElement: 'viewport',
+      /**
+       * @prop {Boolean} flipVariations=false
+       * The popper will switch placement variation between `-start` and `-end` when
+       * the reference element overlaps its boundaries.
+       *
+       * The original placement should have a set variation.
+       */
+      flipVariations: false,
+      /**
+       * @prop {Boolean} flipVariationsByContent=false
+       * The popper will switch placement variation between `-start` and `-end` when
+       * the popper element overlaps its reference boundaries.
+       *
+       * The original placement should have a set variation.
+       */
+      flipVariationsByContent: false
     },
 
     /**
@@ -5293,8 +5318,8 @@
     /**
      * Creates a new Popper.js instance.
      * @class Popper
-     * @param {HTMLElement|referenceObject} reference - The reference element used to position the popper
-     * @param {HTMLElement} popper - The HTML element used as the popper
+     * @param {Element|referenceObject} reference - The reference element used to position the popper
+     * @param {Element} popper - The HTML / XML element used as the popper
      * @param {Object} options - Your custom options to override the ones defined in [Defaults](#defaults)
      * @return {Object} instance - The generated Popper.js instance
      */
@@ -5449,7 +5474,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '4.3.1';
+  var VERSION$6 = '3.0.0-alpha.9';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -5993,7 +6018,7 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '4.3.1';
+  var VERSION$7 = '3.0.0-alpha.9';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
@@ -6720,7 +6745,7 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '4.3.1';
+  var VERSION$8 = '3.0.0-alpha.9';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var PREFIX$8 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
@@ -7474,7 +7499,7 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '4.3.1';
+  var VERSION$9 = '3.0.0-alpha.9';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var PREFIX$9 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
@@ -7668,7 +7693,7 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '4.3.1';
+  var VERSION$a = '3.0.0-alpha.9';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
@@ -7690,7 +7715,7 @@
   };
   var ClassName$a = {
     DROPDOWN_ITEM: PREFIX$a + "dropdown-item",
-    ACTIVE: 'active'
+    ACTIVE: PREFIX$a + "active"
   };
   var Selector$a = {
     DATA_SPY: "[data-spy=\"" + PREFIX$a + "scroll\"]",
@@ -9292,7 +9317,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.9): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -9307,6 +9332,7 @@
 
       for (var j = rules.length - 1; j > -1; j--) {
         if (rules[j].selectorText === '.ie-custom-properties') {
+          // eslint-disable-next-line prefer-destructuring
           cssText = rules[j].cssText;
           break;
         }
@@ -9333,7 +9359,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.9): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -9371,7 +9397,7 @@
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0';
+  var VERSION$b = '3.0.0-alpha.9';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
@@ -9380,7 +9406,7 @@
     transition: 400
   };
   var ClassName$b = {
-    ACTIVE: 'active',
+    ACTIVE: PREFIX$b + "active",
     NAV_DROPDOWN_TOGGLE: PREFIX$b + "nav-dropdown-toggle",
     OPEN: PREFIX$b + "open",
     SIDEBAR_MINIMIZED: PREFIX$b + "sidebar-minimized",
@@ -9717,7 +9743,7 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '4.3.1';
+  var VERSION$c = '3.0.0-alpha.9';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
@@ -9731,7 +9757,7 @@
   };
   var ClassName$c = {
     DROPDOWN_MENU: PREFIX$c + "dropdown-menu",
-    ACTIVE: 'active',
+    ACTIVE: PREFIX$c + "active",
     DISABLED: 'disabled',
     FADE: PREFIX$c + "fade",
     SHOW: PREFIX$c + "show"
@@ -9739,11 +9765,11 @@
   var Selector$c = {
     DROPDOWN: "." + PREFIX$c + "dropdown",
     NAV_LIST_GROUP: "." + PREFIX$c + "nav, ." + PREFIX$c + "list-group",
-    ACTIVE: '.active',
-    ACTIVE_UL: ':scope > li > .active',
+    ACTIVE: "." + PREFIX$c + "active",
+    ACTIVE_UL: ":scope > li > ." + PREFIX$c + "active",
     DATA_TOGGLE: "[data-toggle=\"" + PREFIX$c + "tab\"], [data-toggle=\"" + PREFIX$c + "pill\"], [data-toggle=\"" + PREFIX$c + "list\"]",
     DROPDOWN_TOGGLE: "." + PREFIX$c + "dropdown-toggle",
-    DROPDOWN_ACTIVE_CHILD: ":scope > ." + PREFIX$c + "dropdown-menu .active"
+    DROPDOWN_ACTIVE_CHILD: ":scope > ." + PREFIX$c + "dropdown-menu ." + PREFIX$c + "active"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -9955,7 +9981,7 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '4.3.1';
+  var VERSION$d = '3.0.0-alpha.9';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var PREFIX$d = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
@@ -10175,7 +10201,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10183,7 +10209,7 @@
   /* eslint-disable no-magic-numbers */
   var hexToRgb = function hexToRgb(color) {
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
@@ -10211,7 +10237,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.7): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10223,7 +10249,7 @@
     }
 
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
@@ -10251,7 +10277,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.7): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.9): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10259,7 +10285,7 @@
   /* eslint-disable no-magic-numbers */
   var rgbToHex = function rgbToHex(color) {
     if (typeof color === 'undefined') {
-      throw new Error('Hex color is not defined');
+      throw new TypeError('Hex color is not defined');
     }
 
     if (color === 'transparent') {
@@ -10280,7 +10306,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.7): index.umd.js
+   * CoreUI (v3.0.0-alpha.9): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

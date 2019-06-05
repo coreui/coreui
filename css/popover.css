@@ -1,0 +1,164 @@
+/* stylelint-disable */
+/* stylelint-disable */
+.c-popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: block;
+  max-width: 276px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  text-align: start;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-break: normal;
+  word-spacing: normal;
+  white-space: normal;
+  line-break: auto;
+  font-size: 0.765625rem;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+}
+
+.c-popover .c-arrow {
+  position: absolute;
+  display: block;
+  width: 1rem;
+  height: 0.5rem;
+  margin: 0 0.3rem;
+}
+
+.c-popover .c-arrow::before, .c-popover .c-arrow::after {
+  position: absolute;
+  display: block;
+  content: "";
+  border-color: transparent;
+  border-style: solid;
+}
+
+.c-bs-popover-top, .c-bs-popover-auto[x-placement^="top"] {
+  margin-bottom: 0.5rem;
+}
+
+.c-bs-popover-top > .c-arrow, .c-bs-popover-auto[x-placement^="top"] > .c-arrow {
+  bottom: calc((0.5rem + 1px) * -1);
+}
+
+.c-bs-popover-top > .c-arrow::before, .c-bs-popover-auto[x-placement^="top"] > .c-arrow::before {
+  bottom: 0;
+  border-width: 0.5rem 0.5rem 0;
+  border-top-color: rgba(0, 0, 0, 0.25);
+}
+
+.c-bs-popover-top > .c-arrow::after, .c-bs-popover-auto[x-placement^="top"] > .c-arrow::after {
+  bottom: 1px;
+  border-width: 0.5rem 0.5rem 0;
+  border-top-color: #fff;
+}
+
+.c-bs-popover-right, .c-bs-popover-auto[x-placement^="right"] {
+  margin-left: 0.5rem;
+}
+
+.c-bs-popover-right > .c-arrow, .c-bs-popover-auto[x-placement^="right"] > .c-arrow {
+  left: calc((0.5rem + 1px) * -1);
+  width: 0.5rem;
+  height: 1rem;
+  margin: 0.3rem 0;
+}
+
+.c-bs-popover-right > .c-arrow::before, .c-bs-popover-auto[x-placement^="right"] > .c-arrow::before {
+  left: 0;
+  border-width: 0.5rem 0.5rem 0.5rem 0;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+
+.c-bs-popover-right > .c-arrow::after, .c-bs-popover-auto[x-placement^="right"] > .c-arrow::after {
+  left: 1px;
+  border-width: 0.5rem 0.5rem 0.5rem 0;
+  border-right-color: #fff;
+}
+
+.c-bs-popover-bottom, .c-bs-popover-auto[x-placement^="bottom"] {
+  margin-top: 0.5rem;
+}
+
+.c-bs-popover-bottom > .c-arrow, .c-bs-popover-auto[x-placement^="bottom"] > .c-arrow {
+  top: calc((0.5rem + 1px) * -1);
+}
+
+.c-bs-popover-bottom > .c-arrow::before, .c-bs-popover-auto[x-placement^="bottom"] > .c-arrow::before {
+  top: 0;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+}
+
+.c-bs-popover-bottom > .c-arrow::after, .c-bs-popover-auto[x-placement^="bottom"] > .c-arrow::after {
+  top: 1px;
+  border-width: 0 0.5rem 0.5rem 0.5rem;
+  border-bottom-color: #fff;
+}
+
+.c-bs-popover-bottom .c-popover-header::before, .c-bs-popover-auto[x-placement^="bottom"] .c-popover-header::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 1rem;
+  margin-left: -0.5rem;
+  content: "";
+  border-bottom: 1px solid #f7f7f7;
+}
+
+.c-bs-popover-left, .c-bs-popover-auto[x-placement^="left"] {
+  margin-right: 0.5rem;
+}
+
+.c-bs-popover-left > .c-arrow, .c-bs-popover-auto[x-placement^="left"] > .c-arrow {
+  right: calc((0.5rem + 1px) * -1);
+  width: 0.5rem;
+  height: 1rem;
+  margin: 0.3rem 0;
+}
+
+.c-bs-popover-left > .c-arrow::before, .c-bs-popover-auto[x-placement^="left"] > .c-arrow::before {
+  right: 0;
+  border-width: 0.5rem 0 0.5rem 0.5rem;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+
+.c-bs-popover-left > .c-arrow::after, .c-bs-popover-auto[x-placement^="left"] > .c-arrow::after {
+  right: 1px;
+  border-width: 0.5rem 0 0.5rem 0.5rem;
+  border-left-color: #fff;
+}
+
+.c-popover-header {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0;
+  font-size: 0.875rem;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ebebeb;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.c-popover-header:empty {
+  display: none;
+}
+
+.c-popover-body {
+  padding: 0.5rem 0.75rem;
+  color: #23282c;
+}
+
+/*# sourceMappingURL=popover.css.map */

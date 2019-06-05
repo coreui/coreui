@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v3.0.0-alpha.7): get-css-custom-properties.js
+ * CoreUI Utilities (v3.0.0-alpha.9): get-css-custom-properties.js
  * Licensed under MIT (https://coreui.io/license)
  * @returns {string} css custom property name
  * --------------------------------------------------------------------------
@@ -15,6 +15,7 @@ var getCssCustomProperties = function getCssCustomProperties() {
 
     for (var j = rules.length - 1; j > -1; j--) {
       if (rules[j].selectorText === '.ie-custom-properties') {
+        // eslint-disable-next-line prefer-destructuring
         cssText = rules[j].cssText;
         break;
       }

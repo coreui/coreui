@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.7): rgb-to-hex.js
+ * CoreUI (v3.0.0-alpha.9): rgb-to-hex.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -8,7 +8,7 @@
 /* eslint-disable no-magic-numbers */
 var rgbToHex = function rgbToHex(color) {
   if (typeof color === 'undefined') {
-    throw new Error('Hex color is not defined');
+    throw new TypeError('Hex color is not defined');
   }
 
   if (color === 'transparent') {

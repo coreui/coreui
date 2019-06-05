@@ -1,0 +1,12 @@
+/* stylelint-disable */
+/* stylelint-disable */
+.c-media {
+  display: flex;
+  align-items: flex-start;
+}
+
+.c-media-body {
+  flex: 1;
+}
+
+/*# sourceMappingURL=media.css.map */
