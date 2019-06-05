@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.9 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.11 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): classes.js
+   * CoreUI Utilities (v3.0.0-alpha.11): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -39,7 +39,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.11): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -81,7 +81,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.11): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -114,7 +114,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): get-color.js
+   * CoreUI Utilities (v3.0.0-alpha.11): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -131,7 +131,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.11): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -167,7 +167,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.9): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.11): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -207,7 +207,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.9): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.11): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
