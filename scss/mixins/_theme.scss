@@ -28,9 +28,9 @@
 ///   .foo {
 ///     background: red;
 ///
-///     @include theme($create: body) {
-///       background: theme-get('color-primary');
-///       border: theme-get('border');
+///     @include themes($create: body) {
+///       background: themes-get-value('color-primary');
+///       border: themes-get-value('border');
 ///     }
 ///   }
 ///
@@ -117,11 +117,11 @@ $theme-loop-map: $theme-map;
 /// @param {String} $entity - Name of the entity you want to access
 ///
 /// @example scss
-///   theme-get('color-primary', user);
+///   themes-get-value('color-primary', user);
 ///   // -> #333
 ///
 /// @returns {String} Value of key for that entity
-@function theme-get($key, $entity: $theme-loop-entity, $map: $theme-loop-map) {
+@function themes-get-value($key, $entity: $theme-loop-entity, $map: $theme-loop-map) {
   $entity-map: map-get($map, $entity);
 
   @if not $entity-map {
@@ -238,9 +238,9 @@ $theme-loop-map: $theme-map;
 ///   .foo {
 ///     background: red;
 ///
-///     @include theme($create: insert) {
-///       background: theme-get('color-primary');
-///       border: theme-get('border');
+///     @include themes($create: insert) {
+///       background: themes-get-value('color-primary');
+///       border: themes-get-value('border');
 ///     }
 ///   }
 ///
@@ -304,8 +304,8 @@ $theme-loop-map: $theme-map;
 ///   .foo {
 ///     font-size: .9em;
 ///
-///     @include theme-single-parent('user') {
-///       color: theme-get('color-primary');
+///     @include themes-single-parent('user') {
+///       color: themes-get-value('color-primary');
 ///     }
 ///   }
 ///
@@ -358,8 +358,8 @@ $theme-loop-map: $theme-map;
 ///   .foo {
 ///     font-size: .9em;
 ///
-///     @include theme-single-append('user') {
-///       color: theme-get('color-primary');
+///     @include themes-single-append('user') {
+///       color: themes-get-value('color-primary');
 ///     }
 ///   }
 ///
@@ -404,8 +404,8 @@ $theme-loop-map: $theme-map;
 ///   .foo {
 ///     font-size: .9em;
 ///
-///     @include theme-single-modifier('user') {
-///       color: theme-get('color-primary');
+///     @include themes-single-modifier('user') {
+///       color: themes-get-value('color-primary');
 ///     }
 ///   }
 ///
@@ -453,9 +453,9 @@ $theme-loop-map: $theme-map;
 ///   .foo {
 ///     font-size: .9em;
 ///
-///     @include theme-single-custom('user') {
+///     @include themes-single-custom('user') {
 ///       &.#{$theme-loop-entity} {
-///          color: theme-get('color-primary');
+///          color: themes-get-value('color-primary');
 ///       }
 ///     }
 ///   }
@@ -499,9 +499,9 @@ $theme-loop-map: $theme-map;
 ///   .foo{
 ///     background: red;
 ///
-///     @include theme($create: parent) {
-///       background: theme-get('color-primary');
-///       border: theme-get('border');
+///     @include themes($create: parent) {
+///       background: themes-get-value('color-primary');
+///       border: themes-get-value('border');
 ///     }
 ///   }
 ///
@@ -536,11 +536,11 @@ $theme-loop-map: $theme-map;
     // Body class
     @each $entity in $entity-list {
       @if $entity == $default {
-        @include theme-append-variables($entity) {
+        @include themes-append-variables($entity) {
           @content;
         }
       } @else {
-        @include theme-single-parent($entity) {
+        @include themes-single-parent($entity) {
           @content;
         }
       }
@@ -549,11 +549,11 @@ $theme-loop-map: $theme-map;
     // Body class with html parent class
     @each $entity in $entity-list {
       @if $entity == $default {
-        @include theme-append-variables($entity) {
+        @include themes-append-variables($entity) {
           @content;
         }
       } @else {
-        @include theme-single-htmlbody($entity) {
+        @include themes-single-htmlbody($entity) {
           @content;
         }
       }
@@ -562,11 +562,11 @@ $theme-loop-map: $theme-map;
     // BEM modifier
     @each $entity in $entity-list {
       @if $entity == $default {
-        @include theme-append-variables($entity) {
+        @include themes-append-variables($entity) {
           @content;
         }
       } @else {
-        @include theme-single-modifier($entity) {
+        @include themes-single-modifier($entity) {
           @content;
         }
       }
@@ -575,11 +575,11 @@ $theme-loop-map: $theme-map;
     // Appended class
     @each $entity in $entity-list {
       @if $entity == $default {
-        @include theme-append-variables($entity) {
+        @include themes-append-variables($entity) {
           @content;
         }
       } @else {
-        @include theme-single-append($entity) {
+        @include themes-single-append($entity) {
           @content;
         }
       }
@@ -588,11 +588,11 @@ $theme-loop-map: $theme-map;
     // Custom
     @each $entity in $entity-list {
       @if $entity == $default {
-        @include theme-append-variables($entity) {
+        @include themes-append-variables($entity) {
           @content;
         }
       } @else {
-        @include theme-single-custom($entity) {
+        @include themes-single-custom($entity) {
           @content;
         }
       }

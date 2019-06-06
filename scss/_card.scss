@@ -9,7 +9,6 @@
   min-width: 0;
   margin-bottom: $card-margin-bottom; // CoreUI
   word-wrap: break-word;
-  // background-color: $card-bg;
   background-clip: border-box;
   border: $card-border-width solid;
   @include border-radius($card-border-radius);

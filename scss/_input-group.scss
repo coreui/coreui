@@ -119,17 +119,15 @@
   @include font-size($input-font-size); // Match inputs
   font-weight: $font-weight-normal;
   line-height: $input-line-height;
-  // color: $input-group-addon-color;
   text-align: center;
   white-space: nowrap;
-  // background-color: $input-group-addon-bg;
   border: $input-border-width solid;
   @include border-radius($input-border-radius);
 
-  @include theme($form-theme-map, $create: parent) {
-    color: theme-get("input-group-addon-color");
-    background-color: theme-get("input-group-addon-bg");
-    border-color: theme-get("input-group-addon-border-color");
+  @include themes($form-theme-map, $create: parent) {
+    color: themes-get-value("input-group-addon-color");
+    background-color: themes-get-value("input-group-addon-bg");
+    border-color: themes-get-value("input-group-addon-border-color");
   }
 
   // Nuke default margins from checkboxes and radios to vertically center within.

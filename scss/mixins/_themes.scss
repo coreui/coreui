@@ -99,7 +99,7 @@ $theme-has-variants: false !default;
     @error "No selector found. I need a selector to append the class to.";
   }
 
-  &.#{$prefix}#{$theme}#{$theme-default-post-class} {
+  &.#{$prefix}#{$theme}#{$themes-default-post-class} {
     @content;
   }
 }
@@ -110,11 +110,11 @@ $theme-has-variants: false !default;
 
   @at-root{
     @if & {
-      .#{$prefix}#{$theme}#{$theme-default-post-class} & {
+      .#{$prefix}#{$theme}#{$themes-default-post-class} & {
         @content;
       }
     } @else {
-      .#{$prefix}#{$theme}#{$theme-default-post-class} {
+      .#{$prefix}#{$theme}#{$themes-default-post-class} {
         @content;
       }
     }
@@ -143,6 +143,7 @@ $theme-has-variants: false !default;
         }
       }
     } @else {
+      $theme-has-variants: false !global;
       @if $theme == $default {
         @include themes-append-variables($theme) {
           @content;

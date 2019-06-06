@@ -10,12 +10,6 @@
   }
 }
 
-// @include variant($footer-variants, $create: append, $parent: ".#{$prefix}footer") {
-//   color: variant-get("footer-color");
-//   background: variant-get("footer-bg");
-//   @include borders(variant-get("footer-borders"));
-// }
-
 @include themes($footer-theme-map, $parent: ".#{$prefix}footer") {
   color: themes-get-value("footer-color");
   background: themes-get-value("footer-bg");

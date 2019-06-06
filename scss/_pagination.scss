@@ -10,25 +10,20 @@
   padding: $pagination-padding-y $pagination-padding-x;
   margin-left: -$pagination-border-width;
   line-height: $pagination-line-height;
-  // color: $pagination-color;
-  // background-color: $pagination-bg;
   border: $pagination-border-width solid;
-  @include theme($pagination-theme-map, $create: parent) {
-    color: theme-get("pagination-color");
-    background-color: theme-get("pagination-bg");
-    border-color: theme-get("pagination-border-color");
+  @include themes($pagination-theme-map, $create: parent) {
+    color: themes-get-value("pagination-color");
+    background-color: themes-get-value("pagination-bg");
+    border-color: themes-get-value("pagination-border-color");
   }
 
   &:hover {
     z-index: 2;
-    // color: $pagination-hover-color;
     text-decoration: none;
-    // background-color: $pagination-hover-bg;
-    // border-color: $pagination-hover-border-color;
-    @include theme($pagination-theme-map, $create: parent) {
-      color: theme-get("pagination-hover-color");
-      background-color: theme-get("pagination-hover-bg");
-      border-color: theme-get("pagination-hover-border-color");
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-hover-color");
+      background-color: themes-get-value("pagination-hover-bg");
+      border-color: themes-get-value("pagination-hover-border-color");
     }
   }
 
@@ -54,27 +49,21 @@
 
   &.#{$bs-prefix}active .#{$bs-prefix}page-link {
     z-index: 1;
-    // color: $pagination-active-color;
-    // background-color: $pagination-active-bg;
-    // border-color: $pagination-active-border-color;
-    @include theme($pagination-theme-map, $create: parent) {
-      color: theme-get("pagination-active-color");
-      background-color: theme-get("pagination-active-bg");
-      border-color: theme-get("pagination-active-border-color");
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-active-color");
+      background-color: themes-get-value("pagination-active-bg");
+      border-color: themes-get-value("pagination-active-border-color");
     }
   }
 
   &.#{$bs-prefix}disabled .#{$bs-prefix}page-link {
-    // color: $pagination-disabled-color;
     pointer-events: none;
     // Opinionated: remove the "hand" cursor set previously for .#{$bs-prefix}page-link
     cursor: auto;
-    // background-color: $pagination-disabled-bg;
-    // border-color: $pagination-disabled-border-color;
-    @include theme($pagination-theme-map, $create: parent) {
-      color: theme-get("pagination-disabled-color");
-      background-color: theme-get("pagination-disabled-bg");
-      border-color: theme-get("pagination-disabled-border-color");
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-disabled-color");
+      background-color: themes-get-value("pagination-disabled-bg");
+      border-color: themes-get-value("pagination-disabled-border-color");
     }
   }
 }

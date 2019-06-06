@@ -5,12 +5,10 @@
 .#{$bs-prefix}table {
   width: 100%;
   margin-bottom: $spacer;
-  // color: $table-color;
-  // background-color: $table-bg; // Reset for nesting within parents with `background-color`.
 
-  @include theme($table-theme-map, $create: parent) {
-    color: theme-get("table-color");
-    background-color: theme-get("table-bg");
+  @include themes($table-theme-map, $create: parent) {
+    color: themes-get-value("table-color");
+    background-color: themes-get-value("table-bg");
   }
 
   th,
@@ -19,8 +17,8 @@
     vertical-align: top;
     border-top: $table-border-width solid;
 
-    @include theme($table-theme-map, $create: parent) {
-      border-top-color: theme-get("table-border-color");
+    @include themes($table-theme-map, $create: parent) {
+      border-top-color: themes-get-value("table-border-color");
     }
   }
 
@@ -28,16 +26,16 @@
     vertical-align: bottom;
     border-bottom: (2 * $table-border-width) solid;
 
-    @include theme($table-theme-map, $create: parent) {
-      border-bottom-color: theme-get("table-border-color");
+    @include themes($table-theme-map, $create: parent) {
+      border-bottom-color: themes-get-value("table-border-color");
     }
   }
 
   tbody + tbody {
     border-top: (2 * $table-border-width) solid;
 
-    @include theme($table-theme-map, $create: parent) {
-      border-top-color: theme-get("table-border-color");
+    @include themes($table-theme-map, $create: parent) {
+      border-top-color: themes-get-value("table-border-color");
     }
   }
 }
@@ -62,16 +60,16 @@
 .#{$bs-prefix}table-bordered {
   border: $table-border-width solid;
 
-  @include theme($table-theme-map, $create: parent) {
-    border-color: theme-get("table-border-color");
+  @include themes($table-theme-map, $create: parent) {
+    border-color: themes-get-value("table-border-color");
   }
 
   th,
   td {
     border: $table-border-width solid;
 
-    @include theme($table-theme-map, $create: parent) {
-      border-color: theme-get("table-border-color");
+    @include themes($table-theme-map, $create: parent) {
+      border-color: themes-get-value("table-border-color");
     }
   }
 
@@ -98,10 +96,9 @@
 
 .#{$bs-prefix}table-striped {
   tbody tr:nth-of-type(#{$table-striped-order}) {
-    // background-color: $table-accent-bg;
 
-    @include theme($table-theme-map, $create: parent) {
-      background-color: theme-get("table-accent-bg");
+    @include themes($table-theme-map, $create: parent) {
+      background-color: themes-get-value("table-accent-bg");
     }
   }
 }
@@ -114,11 +111,9 @@
 .#{$bs-prefix}table-hover {
   tbody tr {
     @include hover {
-      // color: $table-hover-color;
-      // background-color: $table-hover-bg;
-      @include theme($table-theme-map, $create: parent) {
-        color: theme-get("table-hover-color");
-        background-color: theme-get("table-hover-bg");
+      @include themes($table-theme-map, $create: parent) {
+        color: themes-get-value("table-hover-color");
+        background-color: themes-get-value("table-hover-bg");
       }
     }
   }
@@ -134,8 +129,8 @@
   @include table-row-variant($color, theme-color-level($color, $table-bg-level), theme-color-level($color, $table-border-level));
 }
 
-@include theme($table-theme-map, $create: parent) {
-  @include table-row-variant(active, theme-get("table-active-bg"));
+@include themes($table-theme-map, $create: parent) {
+  @include table-row-variant(active, themes-get-value("table-active-bg"));
 }
 
 
@@ -224,8 +219,8 @@
 .#{$bs-prefix}table-outline {
   border: 1px solid;
 
-  @include theme($table-theme-map, $create: parent) {
-    border-color: theme-get("table-border-color");
+  @include themes($table-theme-map, $create: parent) {
+    border-color: themes-get-value("table-border-color");
   }
 
   td {

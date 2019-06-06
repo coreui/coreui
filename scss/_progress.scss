@@ -11,12 +11,11 @@
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
   @include font-size($progress-font-size);
-  // background-color: $progress-bg;
   @include border-radius($progress-border-radius);
   @include box-shadow($progress-box-shadow);
 
-  @include theme($progress-theme-map, $create: parent) {
-    background-color: theme-get("progress-bg");
+  @include themes($progress-theme-map, $create: parent) {
+    background-color: themes-get-value("progress-bg");
   }
 }
 
@@ -24,15 +23,13 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  // color: $progress-bar-color;
   text-align: center;
   white-space: nowrap;
-  // background-color: $progress-bar-bg;
   @include transition($progress-bar-transition);
 
-  @include theme($progress-theme-map, $create: parent) {
-    color: theme-get("progress-bar-color");
-    background-color: theme-get("progress-bar-bg");
+  @include themes($progress-theme-map, $create: parent) {
+    color: themes-get-value("progress-bar-color");
+    background-color: themes-get-value("progress-bar-bg");
   }
 }
 

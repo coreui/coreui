@@ -11,9 +11,9 @@
   @include border-radius($breadcrumb-border-radius);
   @include borders($breadcrumb-borders); // CoreUI
 
-  @include theme($breadcrumb-theme-map, $create: parent) {
-    background-color: theme-get("breadcrumb-bg");
-    border-color: theme-get("breadcrumb-border-color");
+  @include themes($breadcrumb-theme-map, $create: parent) {
+    background-color: themes-get-value("breadcrumb-bg");
+    border-color: themes-get-value("breadcrumb-border-color");
   }
 }
 

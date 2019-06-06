@@ -13,15 +13,13 @@
   @include font-size($input-font-size);
   font-weight: $input-font-weight;
   line-height: $input-line-height;
-  // color: $input-color;
-  // background-color: $input-bg;
   background-clip: padding-box;
   border: $input-border-width solid $input-border-color;
 
-  @include theme($form-theme-map, $create: parent) {
-    color: theme-get("input-color");
-    background-color: theme-get("input-bg");
-    border-color: theme-get("input-border-color");
+  @include themes($form-theme-map, $create: parent) {
+    color: themes-get-value("input-color");
+    background-color: themes-get-value("input-bg");
+    border-color: themes-get-value("input-border-color");
   }
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
@@ -41,9 +39,8 @@
 
   // Placeholder
   &::placeholder {
-    // color: $input-placeholder-color;
-    @include theme($form-theme-map, $create: parent) {
-      color: theme-get("input-placeholder-color");
+    @include themes($form-theme-map, $create: parent) {
+      color: themes-get-value("input-placeholder-color");
     }
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
@@ -56,9 +53,8 @@
   // don't honor that edge case; we style them as disabled anyway.
   &:disabled,
   &[readonly] {
-    // background-color: $input-disabled-bg;
-    @include theme($form-theme-map, $create: parent) {
-      background-color: theme-get("input-disabled-bg");
+    @include themes($form-theme-map, $create: parent) {
+      background-color: themes-get-value("input-disabled-bg");
     }
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
@@ -72,11 +68,9 @@ select.#{$bs-prefix}form-control {
     // in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
     // match the appearance of the native widget.
     // See https://github.com/twbs/bootstrap/issues/19398.
-    // color: $input-color;
-    // background-color: $input-bg;
-    @include theme($form-theme-map, $create: parent) {
-      color: theme-get("input-color");
-      background-color: theme-get("input-bg");
+    @include themes($form-theme-map, $create: parent) {
+      color: themes-get-value("input-color");
+      background-color: themes-get-value("input-bg");
     }
   }
 }
@@ -130,13 +124,12 @@ select.#{$bs-prefix}form-control {
   padding-bottom: $input-padding-y;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
   line-height: $input-line-height;
-  // color: $input-plaintext-color;
   background-color: transparent;
   border: solid transparent;
   border-width: $input-border-width 0;
 
-  @include theme($form-theme-map, $create: parent) {
-    color: theme-get("input-plaintext-color");
+  @include themes($form-theme-map, $create: parent) {
+    color: themes-get-value("input-plaintext-color");
   }
 
   &.#{$bs-prefix}form-control-sm,
