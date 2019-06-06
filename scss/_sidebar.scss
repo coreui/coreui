@@ -652,138 +652,138 @@
   }
 }
 
-@include variant($sidebar-variants, $create: append, $parent: ".#{$prefix}sidebar") {
-  color: variant-get("sidebar-color");
-  background: variant-get("sidebar-bg");
+@include themes($sidebar-theme-map, $create: append, $parent: ".#{$prefix}sidebar") {
+  color: themes-get-value("sidebar-color");
+  background: themes-get-value("sidebar-bg");
 
   @if $default-theme == "dark" {
-    @include borders(variant-get("dark-theme-sidebar-borders"));
+    @include borders(themes-get-value("dark-theme-sidebar-borders"));
   } @else {
-    @include borders(variant-get("sidebar-borders"));
+    @include borders(themes-get-value("sidebar-borders"));
   }
 
   .#{$prefix}dark-theme & {
-    @include borders(variant-get("dark-theme-sidebar-borders"));
+    @include borders(themes-get-value("dark-theme-sidebar-borders"));
   }
 
   html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
     @if $default-theme == "dark" {
-      @include borders(variant-get("dark-theme-sidebar-borders"),true);
+      @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
     } @else {
-      @include borders(variant-get("sidebar-borders"),true);
+      @include borders(themes-get-value("sidebar-borders"),true);
     }
   }
 
   html:not([dir="rtl"]) .#{$prefix}dark-theme &.#{$prefix}sidebar-right {
-    @include borders(variant-get("dark-theme-sidebar-borders"),true);
+    @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
   }
 
   *[dir="rtl"] & {
     @if $default-theme == "dark" {
-      @include borders(variant-get("dark-theme-sidebar-borders"),true);
+      @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
     } @else {
-      @include borders(variant-get("sidebar-borders"),true);
+      @include borders(themes-get-value("sidebar-borders"),true);
     }
     &.#{$prefix}sidebar-right {
       border: 0;
       @if $default-theme == "dark" {
-        @include borders(variant-get("dark-theme-sidebar-borders"));
+        @include borders(themes-get-value("dark-theme-sidebar-borders"));
       } @else {
-        @include borders(variant-get("sidebar-borders"));
+        @include borders(themes-get-value("sidebar-borders"));
       }
     }
   }
   *[dir="rtl"] .#{$prefix}dark-theme & {
-    @include borders(variant-get("dark-theme-sidebar-borders"),true);
+    @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
     &.#{$prefix}sidebar-right {
       border: 0;
-      @include borders(variant-get("dark-theme-sidebar-borders"));
+      @include borders(themes-get-value("dark-theme-sidebar-borders"));
     }
   }
 
   .#{$prefix}sidebar-close {
-    color: variant-get("sidebar-color");
+    color: themes-get-value("sidebar-color");
   }
 
   .#{$prefix}sidebar-brand {
-    background: variant-get("sidebar-brand-bg");
+    background: themes-get-value("sidebar-brand-bg");
   }
 
   .#{$prefix}sidebar-header {
-    background: variant-get("sidebar-header-bg");
+    background: themes-get-value("sidebar-header-bg");
   }
 
   .#{$prefix}sidebar-form .#{$prefix}form-control {
-    color: variant-get("sidebar-form-color");
-    background: variant-get("sidebar-form-bg");
-    border: variant-get("sidebar-form-border");
+    color: themes-get-value("sidebar-form-color");
+    background: themes-get-value("sidebar-form-bg");
+    border: themes-get-value("sidebar-form-border");
 
     &::placeholder {
-      color: variant-get("sidebar-form-placeholder-color");
+      color: themes-get-value("sidebar-form-placeholder-color");
     }
   }
 
   .#{$prefix}nav-title {
-    color: variant-get("sidebar-nav-title-color");
+    color: themes-get-value("sidebar-nav-title-color");
   }
 
   .#{$prefix}nav-link {
-    color: variant-get("sidebar-nav-link-color");
-    background: variant-get("sidebar-nav-link-bg");
-    @include borders(variant-get("sidebar-nav-link-borders"));
+    color: themes-get-value("sidebar-nav-link-color");
+    background: themes-get-value("sidebar-nav-link-bg");
+    @include borders(themes-get-value("sidebar-nav-link-borders"));
 
     .#{$prefix}nav-icon {
-      color: variant-get("sidebar-nav-link-icon-color");
-      fill: variant-get("sidebar-nav-link-icon-color");
+      color: themes-get-value("sidebar-nav-link-icon-color");
+      fill: themes-get-value("sidebar-nav-link-icon-color");
     }
 
     &.#{$prefix}active {
-      color: variant-get("sidebar-nav-link-active-color");
-      background: variant-get("sidebar-nav-link-active-bg");
-      @include borders(variant-get("sidebar-nav-link-active-borders"));
+      color: themes-get-value("sidebar-nav-link-active-color");
+      background: themes-get-value("sidebar-nav-link-active-bg");
+      @include borders(themes-get-value("sidebar-nav-link-active-borders"));
 
       .#{$prefix}nav-icon {
-        color: variant-get("sidebar-nav-link-active-icon-color");
-        fill: variant-get("sidebar-nav-link-active-icon-color");
+        color: themes-get-value("sidebar-nav-link-active-icon-color");
+        fill: themes-get-value("sidebar-nav-link-active-icon-color");
       }
     }
 
     &:hover {
-      color: variant-get("sidebar-nav-link-hover-color");
-      background: variant-get("sidebar-nav-link-hover-bg");
-      @include borders(variant-get("sidebar-nav-link-hover-borders"));
+      color: themes-get-value("sidebar-nav-link-hover-color");
+      background: themes-get-value("sidebar-nav-link-hover-bg");
+      @include borders(themes-get-value("sidebar-nav-link-hover-borders"));
 
       .#{$prefix}nav-icon {
-        color: variant-get("sidebar-nav-link-hover-icon-color");
-        fill: variant-get("sidebar-nav-link-hover-icon-color");
+        color: themes-get-value("sidebar-nav-link-hover-icon-color");
+        fill: themes-get-value("sidebar-nav-link-hover-icon-color");
       }
 
       &.#{$prefix}nav-dropdown-toggle::after {
-        background-image: variant-get("sidebar-nav-dropdown-indicator-hover");
+        background-image: themes-get-value("sidebar-nav-dropdown-indicator-hover");
       }
     }
 
     &.#{$prefix}disabled {
-      color: variant-get("sidebar-nav-link-disabled-color");
+      color: themes-get-value("sidebar-nav-link-disabled-color");
       background: transparent;
-      @include borders(variant-get("sidebar-nav-link-disabled-borders"));
+      @include borders(themes-get-value("sidebar-nav-link-disabled-borders"));
 
       .#{$prefix}nav-icon {
-        color: variant-get("sidebar-nav-link-disabled-icon-color");
-        fill: variant-get("sidebar-nav-link-disabled-icon-color");
+        color: themes-get-value("sidebar-nav-link-disabled-icon-color");
+        fill: themes-get-value("sidebar-nav-link-disabled-icon-color");
       }
 
       &:hover {
-        color: variant-get("sidebar-nav-link-disabled-color");
-        @include borders(variant-get("sidebar-nav-link-hover-borders"));
+        color: themes-get-value("sidebar-nav-link-disabled-color");
+        @include borders(themes-get-value("sidebar-nav-link-hover-borders"));
 
         .#{$prefix}nav-icon {
-          color: variant-get("sidebar-nav-link-disabled-icon-color");
-          fill: variant-get("sidebar-nav-link-disabled-icon-color");
+          color: themes-get-value("sidebar-nav-link-disabled-icon-color");
+          fill: themes-get-value("sidebar-nav-link-disabled-icon-color");
         }
 
         &.#{$prefix}nav-dropdown-toggle::after {
-          background-image: variant-get("sidebar-nav-dropdown-indicator-hover");
+          background-image: themes-get-value("sidebar-nav-dropdown-indicator-hover");
         }
       }
     }
@@ -792,26 +792,26 @@
     position: relative;
 
     &::after {
-      background-image: variant-get("sidebar-nav-dropdown-indicator");
+      background-image: themes-get-value("sidebar-nav-dropdown-indicator");
     }
   }
 
   .#{$prefix}nav-dropdown.#{$prefix}open {
-    background: variant-get("sidebar-nav-dropdown-bg");
-    @include borders(variant-get("sidebar-nav-dropdown-borders"));
+    background: themes-get-value("sidebar-nav-dropdown-bg");
+    @include borders(themes-get-value("sidebar-nav-dropdown-borders"));
 
     .#{$prefix}nav-link {
-      color: variant-get("sidebar-nav-dropdown-color");
+      color: themes-get-value("sidebar-nav-dropdown-color");
 
       &.#{$prefix}disabled {
-        color: variant-get("sidebar-nav-link-disabled-color");
+        color: themes-get-value("sidebar-nav-link-disabled-color");
         background: transparent;
 
         &:hover {
-          color: variant-get("sidebar-nav-link-disabled-color");
+          color: themes-get-value("sidebar-nav-link-disabled-color");
 
           .#{$prefix}nav-icon {
-            color: variant-get("sidebar-nav-link-disabled-icon-color");
+            color: themes-get-value("sidebar-nav-link-disabled-icon-color");
           }
         }
       }
@@ -819,50 +819,50 @@
   }
 
   .#{$prefix}nav-label {
-    color: variant-get("sidebar-nav-title-color");
+    color: themes-get-value("sidebar-nav-title-color");
 
     &:hover {
-      color: variant-get("sidebar-color");
+      color: themes-get-value("sidebar-color");
     }
 
     .#{$prefix}nav-icon {
-      color: variant-get("sidebar-nav-link-icon-color");
+      color: themes-get-value("sidebar-nav-link-icon-color");
     }
   }
 
   .#{$prefix}nav-tabs {
-    border-color: variant-get("sidebar-nav-tabs-border-color");
+    border-color: themes-get-value("sidebar-nav-tabs-border-color");
 
     .#{$prefix}nav-link {
       &:hover,
       &:focus {
-        background: variant-get("sidebar-nav-tabs-link-hover-bg");
-        border-color: variant-get("sidebar-nav-tabs-link-hover-border-color");
+        background: themes-get-value("sidebar-nav-tabs-link-hover-bg");
+        border-color: themes-get-value("sidebar-nav-tabs-link-hover-border-color");
       }
       &.#{$prefix}active {
-        background: variant-get("sidebar-nav-tabs-link-active-bg");
-        border-color: variant-get("sidebar-nav-tabs-link-active-border-color");
+        background: themes-get-value("sidebar-nav-tabs-link-active-bg");
+        border-color: themes-get-value("sidebar-nav-tabs-link-active-border-color");
       }
     }
   }
 
-  @if (lightness( variant-get("sidebar-bg") ) < 40) {
+  @if (lightness( themes-get-value("sidebar-bg") ) < 40) {
     .#{$prefix}progress {
-      background-color: lighten(variant-get("sidebar-bg"), 15%) !important;
+      background-color: lighten(themes-get-value("sidebar-bg"), 15%) !important;
     }
   }
 
   .#{$prefix}sidebar-footer {
-    background: variant-get("sidebar-footer-bg");
-    @include borders(variant-get("sidebar-footer-borders"));
+    background: themes-get-value("sidebar-footer-bg");
+    @include borders(themes-get-value("sidebar-footer-borders"));
   }
 
   .#{$prefix}sidebar-minimizer {
-    background-color: variant-get("sidebar-minimizer-bg");
-    @include borders(variant-get("sidebar-minimizer-borders"));
+    background-color: themes-get-value("sidebar-minimizer-bg");
+    @include borders(themes-get-value("sidebar-minimizer-borders"));
 
     &::before {
-      background-image: variant-get("sidebar-minimizer-indicator");
+      background-image: themes-get-value("sidebar-minimizer-indicator");
     }
 
     &:focus,
@@ -871,9 +871,9 @@
     }
 
     &:hover {
-      background-color: variant-get("sidebar-minimizer-hover-bg");
+      background-color: themes-get-value("sidebar-minimizer-hover-bg");
       &::before {
-        background-image: variant-get("sidebar-minimizer-hover-indicator");
+        background-image: themes-get-value("sidebar-minimizer-hover-indicator");
       }
     }
     @include media-breakpoint-down(xs) {
@@ -887,17 +887,17 @@
       &:hover {
 
         > .#{$prefix}nav-link {
-          background: variant-get("sidebar-nav-link-hover-bg");
+          background: themes-get-value("sidebar-nav-link-hover-bg");
 
           .#{$prefix}nav-icon {
-            color: variant-get("sidebar-nav-link-hover-color");
+            color: themes-get-value("sidebar-nav-link-hover-color");
           }
 
           &.#{$prefix}disabled {
-            background: variant-get("sidebar-nav-link-disabled-bg");
+            background: themes-get-value("sidebar-nav-link-disabled-bg");
 
             .#{$prefix}nav-icon {
-              color: variant-get("sidebar-nav-link-disabled-icon-color");
+              color: themes-get-value("sidebar-nav-link-disabled-icon-color");
             }
           }
         }
@@ -905,16 +905,16 @@
     }
 
     .#{$prefix}nav-link:hover {
-      background: variant-get("sidebar-nav-link-hover-bg");
+      background: themes-get-value("sidebar-nav-link-hover-bg");
     }
 
     .#{$prefix}nav > .#{$prefix}nav-dropdown {
       > .#{$prefix}nav-dropdown-items {
-        background: variant-get("sidebar-bg");
+        background: themes-get-value("sidebar-bg");
       }
 
       &:hover {
-        background: variant-get("sidebar-nav-link-hover-bg");
+        background: themes-get-value("sidebar-nav-link-hover-bg");
       }
     }
   }

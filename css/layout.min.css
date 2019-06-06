@@ -1,2 +1,0 @@
-.c-app.c-default-layout{display:flex;flex-direction:column;min-height:100vh}.c-app.c-default-layout .c-header{flex:0 0 55px}.c-app.c-default-layout .c-footer{flex:0 0 50px}.c-app.c-default-layout .c-body{display:flex;flex-direction:row;flex-grow:1;overflow-x:hidden}.c-app.c-default-layout .c-body .c-main{flex:1;min-width:0}.c-app.c-default-layout .c-sidebar.c-sidebar-fixed{top:55px}.c-body,.c-footer,.c-main{transition:margin-left .25s,margin-right .25s,width .25s,flex .25s}
-/*# sourceMappingURL=layout.min.css.map */

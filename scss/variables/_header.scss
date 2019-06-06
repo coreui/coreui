@@ -1,0 +1,170 @@
+// Header
+
+$header-height:                         55px !default;
+$header-brand-width:                    205px !default;
+$header-brand-minimized-width:          50px !default;
+
+$header-padding-y:                      $spacer / 2 !default;
+$header-padding-x:                      $spacer !default;
+
+$header-nav-link-padding-x:             .5rem !default;
+
+$header-brand-font-size:                $font-size-lg !default;
+$header-brand-height:                   $header-brand-font-size * $line-height-base !default;
+$header-brand-padding-y:                ($nav-link-height - $header-brand-height) / 2 !default;
+
+
+// Default theme
+
+$header-toggler-bg:                     transparent !default;
+$header-toggler-padding-y:              .25rem !default;
+$header-toggler-padding-x:              .75rem !default;
+$header-toggler-font-size:              $font-size-lg !default;
+$header-toggler-border:                 0 !default;
+$header-toggler-border-radius:          $btn-border-radius !default;
+
+$header-dark-bg:                        $gray-800 !default;
+$header-dark-color:                     rgba($white, .75) !default;
+$header-dark-border: (
+  bottom: 1px solid $gray-800
+) !default;
+$header-dark-hover-color:               rgba($white, .9) !default;
+$header-dark-active-color:              $white !default;
+$header-dark-disabled-color:            rgba($white, .25) !default;
+$header-dark-toggler-icon-bg:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-toggler-hover-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-toggler-border-color:      rgba($white, .1) !default;
+
+$header-light-bg:                       $white !default;
+$header-light-color:                    rgba($black, .5) !default;
+$header-light-border: (
+  bottom: 1px solid $border-color
+) !default;
+$header-light-hover-color:              rgba($black, .7) !default;
+$header-light-active-color:             rgba($black, .9) !default;
+$header-light-disabled-color:           rgba($black, .3) !default;
+$header-light-toggler-icon-bg:          str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-light-toggler-hover-icon-bg:    str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-light-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-light-toggler-border-color:     rgba($black, .1) !default;
+
+$header-light-brand-bg:                 transparent !default;
+$header-light-brand-border:             0 !default;
+$header-light-brand-color:              $header-light-active-color !default;
+$header-light-brand-hover-color:        $header-light-active-color !default;
+$header-light-brand-minimized-bg:       transparent !default;
+$header-light-brand-minimized-border:   0 !default;
+
+$header-dark-brand-bg:                  transparent !default;
+$header-dark-brand-border:              0 !default;
+$header-dark-brand-color:               $header-dark-active-color !default;
+$header-dark-brand-hover-color:         $header-dark-active-color !default;
+$header-dark-brand-minimized-bg:        transparent !default;
+$header-dark-brand-minimized-border:    0 !default;
+
+$header-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$header-variants-map: map-merge(
+  (
+    dark: (
+      "header-bg":                      $header-dark-bg,
+      "header-color":                   $header-dark-color,
+      "header-border":                  $header-dark-border,
+      "dark-theme-header-border":       0,
+      "header-hover-color":             $header-dark-hover-color,
+      "header-active-color":            $header-dark-active-color,
+      "header-disabled-color":          $header-dark-disabled-color,
+      "header-toggler-icon-bg":         $header-dark-toggler-icon-bg,
+      "header-toggler-hover-icon-bg":   $header-dark-toggler-hover-icon-bg,
+      "header-toggler-border-color":    $header-dark-toggler-border-color,
+      "header-brand-bg":                $header-dark-brand-bg,
+      "header-brand-border":            $header-dark-brand-border,
+      "header-brand-color":             $header-dark-brand-color,
+      "header-brand-hover-color":       $header-dark-brand-hover-color,
+      "header-brand-minimized-bg":      $header-dark-brand-minimized-bg,
+      "header-brand-minimized-border":  $header-dark-brand-minimized-border
+    ),
+    light: (
+      "header-bg":                      $header-light-bg,
+      "header-color":                   $header-light-color,
+      "header-border":                  $header-light-border,
+      "dark-theme-header-border":       0,
+      "header-hover-color":             $header-light-hover-color,
+      "header-active-color":            $header-light-active-color,
+      "header-disabled-color":          $header-light-disabled-color,
+      "header-toggler-icon-bg":         $header-light-toggler-icon-bg,
+      "header-toggler-hover-icon-bg":   $header-light-toggler-hover-icon-bg,
+      "header-toggler-border-color":    $header-light-toggler-border-color,
+      "header-brand-bg":                $header-light-brand-bg,
+      "header-brand-border":            $header-light-brand-border,
+      "header-brand-color":             $header-light-brand-color,
+      "header-brand-hover-color":       $header-light-brand-hover-color,
+      "header-brand-minimized-bg":      $header-light-brand-minimized-bg,
+      "header-brand-minimized-border":  $header-light-brand-minimized-border
+    )
+  ),
+  $header-variants-map
+);
+
+$header-default-variant: "light" !default;
+$header-variants: (
+  default: $header-default-variant,
+  map: $header-variants-map
+) !default;
+
+// Dark theme
+
+$header-dark-theme-bg:                        $dark-theme-gray-800 !default;
+$header-dark-theme-color:                     rgba($white, .75) !default;
+$header-dark-theme-border: (
+  bottom: 0
+) !default;
+$header-dark-theme-hover-color:               rgba($white, .9) !default;
+$header-dark-theme-active-color:              $white !default;
+$header-dark-theme-disabled-color:            rgba($white, .25) !default;
+$header-dark-theme-toggler-icon-bg:           str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-theme-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-theme-toggler-hover-icon-bg:     str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-dark-theme-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-dark-theme-toggler-border-color:      rgba($white, .1) !default;
+
+$header-dark-theme-brand-bg:                  transparent !default;
+$header-dark-theme-brand-border:              0 !default;
+$header-dark-theme-brand-color:               $header-dark-theme-active-color !default;
+$header-dark-theme-brand-hover-color:         $header-dark-theme-active-color !default;
+$header-dark-theme-brand-minimized-bg:        transparent !default;
+$header-dark-theme-brand-minimized-border:    0 !default;
+
+$header-dark-theme-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$header-dark-theme-variants-map: map-merge(
+  (
+    dark: (
+      "header-bg":                      $header-dark-theme-bg,
+      "header-color":                   $header-dark-theme-color,
+      "header-border":                  $header-dark-theme-border,
+      "dark-theme-header-border":       0,
+      "header-hover-color":             $header-dark-theme-hover-color,
+      "header-active-color":            $header-dark-theme-active-color,
+      "header-disabled-color":          $header-dark-theme-disabled-color,
+      "header-toggler-icon-bg":         $header-dark-theme-toggler-icon-bg,
+      "header-toggler-hover-icon-bg":   $header-dark-theme-toggler-hover-icon-bg,
+      "header-toggler-border-color":    $header-dark-theme-toggler-border-color,
+      "header-brand-bg":                $header-dark-theme-brand-bg,
+      "header-brand-border":            $header-dark-theme-brand-border,
+      "header-brand-color":             $header-dark-theme-brand-color,
+      "header-brand-hover-color":       $header-dark-theme-brand-hover-color,
+      "header-brand-minimized-bg":      $header-dark-theme-brand-minimized-bg,
+      "header-brand-minimized-border":  $header-dark-theme-brand-minimized-border
+    )
+  ),
+  $header-dark-theme-variants-map
+);
+
+$header-dark-theme-default-variant: "dark" !default;
+$header-dark-theme-variants: (
+  default: $header-dark-theme-default-variant,
+  map: $header-dark-theme-variants-map
+) !default;
+
+$header-theme-map: (
+  light: $header-variants,
+  dark: $header-dark-theme-variants
+) !default;

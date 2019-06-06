@@ -318,6 +318,14 @@ fieldset:disabled a.c-btn {
   box-shadow: 0 0 0 0.2rem rgba(78, 83, 88, 0.5);
 }
 
+.c-btn-transparent {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.c-btn-transparent:hover {
+  color: white;
+}
+
 .c-btn-outline-primary {
   color: #20a8d8;
   border-color: #20a8d8;

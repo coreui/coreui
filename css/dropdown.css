@@ -50,7 +50,7 @@
 .c-dark-theme .c-dropdown-menu {
   color: #e4e7ea;
   background-color: #2f353a;
-  border-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-dropdown-menu-left {
@@ -226,7 +226,7 @@
 }
 
 .c-dark-theme .c-dropdown-item {
-  color: #23282c;
+  color: #e4e7ea;
 }
 
 .c-dropdown-item:hover, .c-dropdown-item:focus {
@@ -285,7 +285,7 @@
 }
 
 .c-dark-theme .c-dropdown-item-text {
-  color: #23282c;
+  color: #e4e7ea;
 }
 
 /*# sourceMappingURL=dropdown.css.map */

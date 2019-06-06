@@ -16,7 +16,7 @@
 
 .c-dark-theme .c-card {
   background-color: #3a4248;
-  border-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-card > hr {
@@ -147,7 +147,7 @@
 
 .c-dark-theme .c-card-header {
   background-color: #2f353a;
-  border-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-card-header:first-child {
@@ -175,7 +175,7 @@
 
 .c-dark-theme .c-card-footer {
   background-color: #2f353a;
-  border-color: #2f353a;
+  border-color: #23282c;
 }
 
 .c-card-footer:last-child {
@@ -362,7 +362,7 @@
 }
 
 .c-dark-theme .c-card-header-icon-bg {
-  border-right: #2f353a;
+  border-right: #23282c;
 }
 
 .c-card-header-actions {

@@ -13,9 +13,9 @@
   background-clip: border-box;
   border: $card-border-width solid;
   @include border-radius($card-border-radius);
-  @include theme($card-theme-map, $create: parent) {
-    background-color: theme-get("card-bg");
-    border-color: theme-get("card-border-color");
+  @include themes($card-theme-map, $create: parent) {
+    background-color: themes-get-value("card-bg");
+    border-color: themes-get-value("card-border-color");
   }
 
   > hr {
@@ -59,8 +59,8 @@
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
   padding: $card-spacer-x;
-  @include theme($card-theme-map, $create: parent) {
-    color: theme-get("card-color");
+  @include themes($card-theme-map, $create: parent) {
+    color: themes-get-value("card-color");
   }
 }
 
@@ -95,10 +95,10 @@
   padding: $card-spacer-y $card-spacer-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
   border-bottom: $card-border-width solid;
-  @include theme($card-theme-map, $create: parent) {
-    color: theme-get("card-cap-color");
-    background-color: theme-get("card-cap-bg");
-    border-color: theme-get("card-border-color");
+  @include themes($card-theme-map, $create: parent) {
+    color: themes-get-value("card-cap-color");
+    background-color: themes-get-value("card-cap-bg");
+    border-color: themes-get-value("card-border-color");
   }
 
   &:first-child {
@@ -123,10 +123,10 @@
 .#{$bs-prefix}card-footer {
   padding: $card-spacer-y $card-spacer-x;
   border-top: $card-border-width solid;
-  @include theme($card-theme-map, $create: parent) {
-    color: theme-get("card-cap-color");
-    background-color: theme-get("card-cap-bg");
-    border-color: theme-get("card-border-color");
+  @include themes($card-theme-map, $create: parent) {
+    color: themes-get-value("card-cap-color");
+    background-color: themes-get-value("card-cap-bg");
+    border-color: themes-get-value("card-border-color");
   }
 
   &:last-child {
@@ -354,7 +354,7 @@
 //       color: $text-muted;
 //       border-top: 0;
 
-//       &.active {
+//       &.#{$bs-prefix}active {
 //         color: $body-color;
 //         background: #fff;
 //       }
@@ -377,8 +377,8 @@
   text-align: center;
   background: $card-icon-bg;
   border-right: $card-border-width solid;
-  @include theme($card-theme-map, $create: parent) {
-    border-right: theme-get("card-border-color");
+  @include themes($card-theme-map, $create: parent) {
+    border-right: themes-get-value("card-border-color");
   }
 }
 

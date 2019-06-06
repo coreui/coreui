@@ -69,6 +69,14 @@ fieldset:disabled a.#{$bs-prefix}btn {
   }
 }
 
+.#{$bs-prefix}btn-transparent {
+  color: rgba(255, 255, 255, .8);
+
+  &:hover {
+    color: rgba(255, 255, 255, 1);
+  }
+}
+
 @each $color, $value in $theme-colors {
   .#{$bs-prefix}btn-outline-#{$color} {
     @include button-outline-variant($value);

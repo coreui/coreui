@@ -52,9 +52,9 @@ body {
   // color: $body-color;
   text-align: left; // 3
   // background-color: $body-bg; // 2
-  @include theme($body-theme-map, $create: append) {
-    color: theme-get("body-color");
-    background-color: theme-get("body-bg");
+  @include themes($body-theme-map, $create: append) {
+    color: themes-get-value("body-color");
+    background-color: themes-get-value("body-bg");
   }
 }
 

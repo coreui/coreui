@@ -11,10 +11,11 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 
+.c-dark-theme .c-footer,
 .c-footer.c-footer-dark {
   color: #e4e7ea;
-  background: #f0f3f5;
-  border-top: 1px solid #2f353a;
+  background: #2f353a;
+  border-top: 1px solid #23282c;
 }
 
 .c-footer {

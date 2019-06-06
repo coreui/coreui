@@ -346,9 +346,16 @@ $variant-loop-map: $variant-map;
 @mixin variant-create-new-variant($entity, $parent) {
   $variant-loop-entity: $entity !global;
   @at-root{
-    #{$parent} {
-      &#{$parent}-#{$entity} {
-        @content;
+    @if $entity == 'dark' {
+      .#{$prefix}dark-theme #{$parent},
+      #{$parent}#{$parent}-#{$entity} {
+          @content;
+      }
+    } @else {
+      #{$parent} {
+        &#{$parent}-#{$entity} {
+          @content;
+        }
       }
     }
   }

@@ -3,16 +3,16 @@
 //
 
 $white:     #fff !default;
-$gray-900: #212233 !default;
-$gray-50:  #e9e9eb !default;
-$gray-100:  #d3d3d6 !default;
-$gray-200:  #bcbdc2 !default;
-$gray-300:  #a6a7ad !default;
-$gray-400:  #909099 !default;
-$gray-500:  #7a7a85 !default;
-$gray-600:  #646470 !default;
-$gray-700:  #4d4e5c !default;
-$gray-800:  #373847 !default;
+$gray-base: #212233 !default;
+$gray-100:  #e9e9eb !default;
+$gray-200:  #d3d3d6 !default;
+$gray-300:  #bcbdc2 !default;
+$gray-400:  #a6a7ad !default;
+$gray-500:  #909099 !default;
+$gray-600:  #7a7a85 !default;
+$gray-700:  #646470 !default;
+$gray-800:  #4d4e5c !default;
+$gray-900:  #373847 !default;
 $black:     #000 !default;
 
 $grays: () !default;
@@ -31,6 +31,35 @@ $grays: map-merge(
   ),
   $grays
 );
+
+$dark-theme-gray-base: #121212 !default;
+$dark-theme-gray-100:  lighten($dark-theme-gray-base, 16%) !default;
+$dark-theme-gray-200:  lighten($dark-theme-gray-base, 15%) !default;
+$dark-theme-gray-300:  lighten($dark-theme-gray-base, 14%) !default;
+$dark-theme-gray-400:  lighten($dark-theme-gray-base, 12%) !default;
+$dark-theme-gray-500:  lighten($dark-theme-gray-base, 11%) !default;
+$dark-theme-gray-600:  lighten($dark-theme-gray-base, 9%) !default;
+$dark-theme-gray-700:  lighten($dark-theme-gray-base, 8%) !default;
+$dark-theme-gray-800:  lighten($dark-theme-gray-base, 7%) !default;
+$dark-theme-gray-900:  lighten($dark-theme-gray-base, 5%) !default;
+
+$dark-theme-grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$dark-theme-grays: map-merge(
+  (
+    "100": $dark-theme-gray-100,
+    "200": $dark-theme-gray-200,
+    "300": $dark-theme-gray-300,
+    "400": $dark-theme-gray-400,
+    "500": $dark-theme-gray-500,
+    "600": $dark-theme-gray-600,
+    "700": $dark-theme-gray-700,
+    "800": $dark-theme-gray-800,
+    "900": $dark-theme-gray-900
+  ),
+  $dark-theme-grays
+);
+
 
 $primary-dark: #1f1498 !default;
 $primary: #321fdb !default;
