@@ -1,14 +1,12 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #23282c;
+  color: #373847;
   background-color: transparent;
 }
 
 .c-dark-theme .c-table {
-  color: #e4e7ea;
+  color: #e1e1e1;
   background-color: transparent;
 }
 
@@ -17,31 +15,31 @@
   padding: 0.75rem;
   vertical-align: top;
   border-top: 1px solid;
-  border-top-color: #c8ced3;
+  border-top-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table th, .c-dark-theme
 .c-table td {
-  border-top-color: #23282c;
+  border-top-color: #373847;
 }
 
 .c-table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid;
-  border-bottom-color: #c8ced3;
+  border-bottom-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table thead th {
-  border-bottom-color: #23282c;
+  border-bottom-color: #373847;
 }
 
 .c-table tbody + tbody {
   border-top: 2px solid;
-  border-top-color: #c8ced3;
+  border-top-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table tbody + tbody {
-  border-top-color: #23282c;
+  border-top-color: #373847;
 }
 
 .c-table-sm th,
@@ -51,22 +49,22 @@
 
 .c-table-bordered {
   border: 1px solid;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table-bordered {
-  border-color: #23282c;
+  border-color: #373847;
 }
 
 .c-table-bordered th,
 .c-table-bordered td {
   border: 1px solid;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table-bordered th, .c-dark-theme
 .c-table-bordered td {
-  border-color: #23282c;
+  border-color: #373847;
 }
 
 .c-table-bordered thead th,
@@ -90,189 +88,189 @@
 }
 
 .c-table-hover tbody tr:hover {
-  color: #23282c;
+  color: #373847;
   background-color: rgba(0, 0, 0, 0.075);
 }
 
 .c-dark-theme .c-table-hover tbody tr:hover {
-  color: #e4e7ea;
+  color: #e1e1e1;
   background-color: rgba(255, 255, 255, 0.075);
 }
 
 .c-table-primary,
 .c-table-primary > th,
 .c-table-primary > td {
-  background-color: #c1e7f4;
+  background-color: #c6c0f5;
 }
 
 .c-table-primary th,
 .c-table-primary td,
 .c-table-primary thead th,
 .c-table-primary tbody + tbody {
-  border-color: #8bd2eb;
+  border-color: #948bec;
 }
 
 .c-table-hover .c-table-primary:hover {
-  background-color: #abdff0;
+  background-color: #b2aaf2;
 }
 
 .c-table-hover .c-table-primary:hover > td,
 .c-table-hover .c-table-primary:hover > th {
-  background-color: #abdff0;
+  background-color: #b2aaf2;
 }
 
 .c-table-secondary,
 .c-table-secondary > th,
 .c-table-secondary > td {
-  background-color: #f0f1f3;
+  background-color: #e4e6e9;
 }
 
 .c-table-secondary th,
 .c-table-secondary td,
 .c-table-secondary thead th,
 .c-table-secondary tbody + tbody {
-  border-color: #e2e6e8;
+  border-color: #ccd0d6;
 }
 
 .c-table-hover .c-table-secondary:hover {
-  background-color: #e2e4e8;
+  background-color: #d6d9de;
 }
 
 .c-table-hover .c-table-secondary:hover > td,
 .c-table-hover .c-table-secondary:hover > th {
-  background-color: #e2e4e8;
+  background-color: #d6d9de;
 }
 
 .c-table-success,
 .c-table-success > th,
 .c-table-success > td {
-  background-color: #cdedd8;
+  background-color: #c4ebd1;
 }
 
 .c-table-success th,
 .c-table-success td,
 .c-table-success thead th,
 .c-table-success tbody + tbody {
-  border-color: #a2ddb7;
+  border-color: #92daaa;
 }
 
 .c-table-hover .c-table-success:hover {
-  background-color: #bae6c9;
+  background-color: #b1e5c2;
 }
 
 .c-table-hover .c-table-success:hover > td,
 .c-table-hover .c-table-success:hover > th {
-  background-color: #bae6c9;
+  background-color: #b1e5c2;
 }
 
 .c-table-info,
 .c-table-info > th,
 .c-table-info > td {
-  background-color: #d3eef6;
+  background-color: #c6e2ff;
 }
 
 .c-table-info th,
 .c-table-info td,
 .c-table-info thead th,
 .c-table-info tbody + tbody {
-  border-color: #aedfee;
+  border-color: #95caff;
 }
 
 .c-table-hover .c-table-info:hover {
-  background-color: #bee6f2;
+  background-color: #add5ff;
 }
 
 .c-table-hover .c-table-info:hover > td,
 .c-table-hover .c-table-info:hover > th {
-  background-color: #bee6f2;
+  background-color: #add5ff;
 }
 
 .c-table-warning,
 .c-table-warning > th,
 .c-table-warning > td {
-  background-color: #ffeeba;
+  background-color: #fde9bd;
 }
 
 .c-table-warning th,
 .c-table-warning td,
 .c-table-warning thead th,
 .c-table-warning tbody + tbody {
-  border-color: #ffdf7e;
+  border-color: #fcd685;
 }
 
 .c-table-hover .c-table-warning:hover {
-  background-color: #ffe8a1;
+  background-color: #fce1a4;
 }
 
 .c-table-hover .c-table-warning:hover > td,
 .c-table-hover .c-table-warning:hover > th {
-  background-color: #ffe8a1;
+  background-color: #fce1a4;
 }
 
 .c-table-danger,
 .c-table-danger > th,
 .c-table-danger > td {
-  background-color: #fdd6d6;
+  background-color: #f8cfcf;
 }
 
 .c-table-danger th,
 .c-table-danger td,
 .c-table-danger thead th,
 .c-table-danger tbody + tbody {
-  border-color: #fbb3b2;
+  border-color: #f1a6a6;
 }
 
 .c-table-hover .c-table-danger:hover {
-  background-color: #fcbebe;
+  background-color: #f5b9b9;
 }
 
 .c-table-hover .c-table-danger:hover > td,
 .c-table-hover .c-table-danger:hover > th {
-  background-color: #fcbebe;
+  background-color: #f5b9b9;
 }
 
 .c-table-light,
 .c-table-light > th,
 .c-table-light > td {
-  background-color: #fbfcfc;
+  background-color: #f9f9f9;
 }
 
 .c-table-light th,
 .c-table-light td,
 .c-table-light thead th,
 .c-table-light tbody + tbody {
-  border-color: #f7f9fa;
+  border-color: #f4f4f5;
 }
 
 .c-table-hover .c-table-light:hover {
-  background-color: #ecf1f1;
+  background-color: #ececec;
 }
 
 .c-table-hover .c-table-light:hover > td,
 .c-table-hover .c-table-light:hover > th {
-  background-color: #ecf1f1;
+  background-color: #ececec;
 }
 
 .c-table-dark,
 .c-table-dark > th,
 .c-table-dark > td {
-  background-color: #c5c6c8;
+  background-color: #cdcdd1;
 }
 
 .c-table-dark th,
 .c-table-dark td,
 .c-table-dark thead th,
 .c-table-dark tbody + tbody {
-  border-color: #939699;
+  border-color: #a2a3aa;
 }
 
 .c-table-hover .c-table-dark:hover {
-  background-color: #b8b9bc;
+  background-color: #c0c0c5;
 }
 
 .c-table-hover .c-table-dark:hover > td,
 .c-table-hover .c-table-dark:hover > th {
-  background-color: #b8b9bc;
+  background-color: #c0c0c5;
 }
 
 .c-table-active,
@@ -307,25 +305,25 @@
 
 .c-table .c-thead-dark th {
   color: #fff;
-  background-color: #2f353a;
-  border-color: #40484f;
+  background-color: #4d4e5c;
+  border-color: #5e6071;
 }
 
 .c-table .c-thead-light th {
-  color: #5c6873;
-  background-color: #e4e7ea;
-  border-color: #c8ced3;
+  color: #646470;
+  background-color: #d3d3d6;
+  border-color: #bcbdc2;
 }
 
 .c-table-dark {
   color: #fff;
-  background-color: #2f353a;
+  background-color: #4d4e5c;
 }
 
 .c-table-dark th,
 .c-table-dark td,
 .c-table-dark thead th {
-  border-color: #40484f;
+  border-color: #5e6071;
 }
 
 .c-table-dark.c-table-bordered {
@@ -402,11 +400,11 @@
 
 .c-table-outline {
   border: 1px solid;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-table-outline {
-  border-color: #23282c;
+  border-color: #373847;
 }
 
 .c-table-outline td {

@@ -1,0 +1,1 @@
+{"version":3,"sources":["../scss/_media.scss"],"names":[],"mappings":"AAAA,SACE,QAAS,KACT,YAAa,WAGf,cACE,KAAM","sourcesContent":[".#{$bs-prefix}media {\n  display: flex;\n  align-items: flex-start;\n}\n\n.#{$bs-prefix}media-body {\n  flex: 1;\n}\n"]}

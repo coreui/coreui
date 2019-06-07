@@ -1,5 +1,3 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-input-group {
   position: relative;
   display: flex;
@@ -122,15 +120,15 @@
   white-space: nowrap;
   border: 1px solid;
   border-radius: 0.25rem;
-  color: #5c6873;
-  background-color: #f0f3f5;
-  border-color: #e4e7ea;
+  color: #646470;
+  background-color: #e9e9eb;
+  border-color: #d3d3d6;
 }
 
 .c-dark-theme .c-input-group-text {
-  color: #f0f3f5;
-  background-color: #2f353a;
-  border-color: #23282c;
+  color: #e9e9eb;
+  background-color: #4d4e5c;
+  border-color: #373847;
 }
 
 .c-input-group-text input[type="radio"],

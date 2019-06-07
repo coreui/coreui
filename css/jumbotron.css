@@ -1,14 +1,12 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
   border-radius: 0.3rem;
-  background-color: #e4e7ea;
+  background-color: #d3d3d6;
 }
 
 .c-dark-theme .c-jumbotron {
-  background-color: #23282c;
+  background-color: #373847;
 }
 
 @media (min-width: 576px) {

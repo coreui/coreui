@@ -289,9 +289,9 @@ $sidebar-variants: (
 
 // Dark theme
 
-$sidebar-dark-theme-color:                  $white !default;
-$sidebar-dark-theme-bg:                     $dark-theme-gray-800 !default;
-$sidebar-dark-theme-borders:                none !default;
+$sidebar-dark-theme-color:                  $body-dark-theme-color !default;
+$sidebar-dark-theme-bg:                     $gray-dark-theme-400 !default;
+$sidebar-dark-theme-borders:                (all: 0) !default;
 $sidebar-dark-theme-brand-bg:              rgba($black, .2) !default;
 $sidebar-dark-theme-header-bg:              rgba($black, .2) !default;
 $sidebar-dark-theme-form-border:            0 !default;

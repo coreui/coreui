@@ -192,7 +192,7 @@ $enable-deprecation-messages:                 true !default;
 $enable-sidebar-nav-rounded:                  false !default;
 $layout-transition-speed:                     .25s !default;
 $themes:                                      light, dark !default;
-$default-theme:                               "light" !default;
+$default-theme:                               light !default;
 $enable-elevation:                            false !default;
 $enable-prefers-color-scheme:                 true !default;
 
@@ -240,8 +240,8 @@ $sizes: map-merge(
 $body-bg:                   #e4e5e6 !default; // was: $white
 $body-color:                $gray-900 !default;
 
-$body-dark-bg:              $dark-theme-gray-900 !default;
-$body-dark-color:           $gray-200 !default;
+$body-dark-theme-bg:        $gray-dark-theme-base !default;
+$body-dark-theme-color:    #e1e1e1 !default;
 
 $body-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -252,8 +252,8 @@ $body-theme-map: map-merge(
       "body-color": $gray-900
     ),
     dark: (
-      "body-bg":  $body-dark-bg,
-      "body-color": $body-dark-color
+      "body-bg":  $body-dark-theme-bg,
+      "body-color": $body-dark-theme-color
     )
   ),
   $body-theme-map
@@ -269,6 +269,26 @@ $link-hover-color:                        darken($link-color, 15%) !default;
 $link-hover-decoration:                   underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
+
+$link-dark-theme-color:                   $primary-50 !default;
+$link-dark-theme-hover-color:             darken($link-dark-theme-color, 15%) !default;
+
+$link-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$link-theme-map: map-merge(
+  (
+    light: (
+      "link-color":                       $link-color,
+      "link-hover-color":                 $link-hover-color
+    ),
+    dark: (
+      "link-color":                       $link-dark-theme-color,
+      "link-hover-color":                 $link-dark-theme-hover-color
+    )
+  ),
+  $link-theme-map
+);
+
 
 // Paragraphs
 //
@@ -325,7 +345,7 @@ $line-height-sm:              1.5 !default;
 
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
-$border-dark-color:           $dark-theme-gray-900 !default;
+$border-dark-color:           $gray-dark-theme-900 !default;
 
 $border-radius:               .25rem !default;
 $border-radius-lg:            .3rem !default;
@@ -337,11 +357,17 @@ $box-shadow-sm:               0 .125rem .25rem rgba($black, .075) !default;
 $box-shadow:                  0 .5rem 1rem rgba($black, .15) !default;
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 
+$component-color:             $body-color !default;
+$component-bg:                $white !default;
+
 $component-active-color:      $white !default;
 $component-active-bg:         theme-color("primary") !default;
 
-$component-active-color-dark: $black !default;
-$component-active-bg-dark:    theme-color("primary") !default;
+$component-dark-theme-color:  $body-dark-theme-color !default;
+$component-dark-theme-bg:     $gray-dark-theme-800 !default;
+
+$component-dark-theme-active-color: $black !default;
+$component-dark-theme-active-bg:    $primary-50 !default;
 
 $caret-width:                 .3em !default;
 $caret-vertical-align:        $caret-width * .85 !default;
@@ -511,15 +537,15 @@ $table-theme-map: map-merge(
       "table-head-color":   $gray-700
     ),
     "dark": (
-      "table-color":        $body-dark-color,
+      "table-color":        $body-dark-theme-color,
       "table-bg":           transparent,
       "table-accent-bg":    rgba($white, .05),
-      "table-hover-color":  $body-dark-color,
+      "table-hover-color":  $body-dark-theme-color,
       "table-hover-bg":     rgba($white, .075),
       "table-active-bg":    rgba($white, .075),
       "table-border-color": $gray-900,
       "table-head-bg":      $gray-800,
-      "table-head-color":   $body-dark-color,
+      "table-head-color":   $body-dark-theme-color,
     )
   ),
   $table-theme-map
@@ -809,15 +835,15 @@ $form-theme-map: map-merge(
       "input-group-addon-border-color":        $input-border-color
     ),
     dark: (
-      "input-bg":                              $gray-700,
-      "input-disabled-bg":                     $gray-900,
+      "input-bg":                              $gray-dark-theme-400,
+      "input-disabled-bg":                     rgba($white, .12),
       "input-color":                           $gray-100,
-      "input-border-color":                    $gray-900,
-      "input-focus-bg":                        $gray-700,
-      "input-focus-border-color":              lighten($component-active-bg, 25%),
+      "input-border-color":                    $gray-dark-theme-400,
+      "input-focus-bg":                        lighten($gray-dark-theme-400, 12%),
+      "input-focus-border-color":              lighten($gray-dark-theme-400, 12%),
       "input-focus-color":                     $gray-100,
       "input-placeholder-color":               $gray-500,
-      "input-plaintext-color":                 $body-dark-color,
+      "input-plaintext-color":                 $body-dark-theme-color,
       "input-group-addon-color":               $gray-100,
       "input-group-addon-bg":                  $gray-800,
       "input-group-addon-border-color":        $gray-900
@@ -908,7 +934,7 @@ $nav-theme-map: map-merge(
       "nav-link-disabled-color":           $gray-900,
       "nav-tabs-border-color":             $gray-900,
       "nav-tabs-link-hover-border-color":  $gray-900 $gray-900 $gray-900,
-      "nav-tabs-link-active-color":        $body-dark-color,
+      "nav-tabs-link-active-color":        $body-dark-theme-color,
       "nav-tabs-link-active-bg":           $gray-800,
       "nav-tabs-link-active-border-color": $gray-900 $gray-900 $gray-800,
       "nav-pills-link-active-color":       $component-active-color,
@@ -1380,7 +1406,7 @@ $navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
 // $footer-height:        50px !default;
 
 // $footer-dark-bg:       $gray-800 !default;
-// $footer-dark-color:    $body-dark-color !default;
+// $footer-dark-color:    $dark-theme-body-color !default;
 // $footer-dark-borders:  ( top: 1px solid $border-dark-color ) !default;
 
 // $footer-light-bg:      $gray-100 !default;
@@ -1441,12 +1467,12 @@ $dropdown-link-disabled-color:      $gray-600 !default;
 $dropdown-header-color:             $gray-600 !default;
 
 // Dark theme
-$dropdown-dark-color:               $body-dark-color !default;
-$dropdown-dark-bg:                  $gray-800 !default;
+$dropdown-dark-color:               $body-dark-theme-color !default;
+$dropdown-dark-bg:                  $gray-dark-theme-200 !default;
 $dropdown-dark-border-color:        $border-dark-color !default; // was: rgba($black, .15) !default;
 $dropdown-dark-divider-bg:          $gray-800 !default;
-$dropdown-dark-link-color:          $body-dark-color !default;
-$dropdown-dark-link-hover-color:    $body-dark-color !default;
+$dropdown-dark-link-color:          $body-dark-theme-color !default;
+$dropdown-dark-link-hover-color:    $body-dark-theme-color !default;
 $dropdown-dark-link-hover-bg:       $gray-900 !default;
 $dropdown-dark-link-active-color:   $component-active-color !default;
 $dropdown-dark-link-active-bg:      $component-active-bg !default;
@@ -1524,8 +1550,8 @@ $pagination-dark-focus-outline:              0 !default;
 $pagination-dark-hover-color:                $link-hover-color !default;
 $pagination-dark-hover-bg:                   $gray-900 !default;
 $pagination-dark-hover-border-color:         $gray-900 !default;
-$pagination-dark-active-color:               $component-active-color !default;
-$pagination-dark-active-bg:                  $component-active-bg !default;
+$pagination-dark-active-color:               $component-dark-theme-active-color !default;
+$pagination-dark-active-bg:                  $component-dark-theme-active-bg !default;
 $pagination-dark-active-border-color:        $pagination-active-bg !default;
 $pagination-dark-disabled-color:             $gray-600 !default;
 $pagination-dark-disabled-bg:                $gray-900 !default;
@@ -1552,7 +1578,7 @@ $pagination-theme-map: map-merge(
       "pagination-disabled-border-color":      $gray-300
     ),
     dark: (
-      "pagination-color":                      $link-color,
+      "pagination-color":                      $link-dark-theme-color,
       "pagination-bg":                         $gray-800,
       "pagination-border-color":               $gray-900,
       "pagination-focus-box-shadow":           $input-btn-focus-box-shadow,
@@ -1604,10 +1630,10 @@ $card-bg:                  $white !default;
 
 // Dark theme
 $card-dark-border-color:   $border-dark-color !default;
-$card-dark-cap-bg:         $dark-theme-gray-700 !default;
+$card-dark-cap-bg:         $gray-dark-theme-700 !default;
 $card-dark-cap-color:      null !default;
 $card-dark-color:          null !default;
-$card-dark-bg:             $dark-theme-gray-600 !default;
+$card-dark-bg:             $gray-dark-theme-600 !default;
 
 $card-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -1865,7 +1891,7 @@ $list-group-action-active-color:    $body-color !default;
 $list-group-action-active-bg:       $gray-200 !default;
 
 // Dark theme
-$list-group-dark-color:                  $body-dark-color !default;
+$list-group-dark-color:                  $body-dark-theme-color !default;
 $list-group-dark-bg:                     lighten($gray-800, 5%) !default;
 $list-group-dark-border-color:           $border-dark-color !default;
 $list-group-dark-hover-bg:               $gray-800 !default;
@@ -1874,9 +1900,9 @@ $list-group-dark-active-bg:              $component-active-bg !default;
 $list-group-dark-active-border-color:    $list-group-dark-active-bg !default;
 $list-group-dark-disabled-color:         $gray-600 !default;
 $list-group-dark-disabled-bg:            $gray-800 !default;
-$list-group-dark-action-color:           $body-dark-color !default;
-$list-group-dark-action-hover-color:     $body-dark-color !default;
-$list-group-dark-action-active-color:    $body-dark-color !default;
+$list-group-dark-action-color:           $body-dark-theme-color !default;
+$list-group-dark-action-hover-color:     $body-dark-theme-color !default;
+$list-group-dark-action-active-color:    $body-dark-theme-color !default;
 $list-group-dark-action-active-bg:       $gray-900 !default;
 
 $list-group-theme-map: () !default;
@@ -1956,9 +1982,9 @@ $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
 
 // Dark theme
-$breadcrumb-dark-bg:                lighten($gray-800, 5%) !default;
-$breadcrumb-dark-border-color:      $border-dark-color !default;
-$breadcrumb-dark-divider-color:     $gray-600 !default;
+$breadcrumb-dark-bg:                $component-dark-theme-bg !default;
+$breadcrumb-dark-border-color:      $component-dark-theme-bg !default;
+$breadcrumb-dark-divider-color:     $body-dark-theme-color !default;
 $breadcrumb-dark-active-color:      $gray-600 !default;
 
 $breadcrumb-theme-map: () !default;

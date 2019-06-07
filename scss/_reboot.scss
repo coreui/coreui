@@ -182,13 +182,19 @@ sup { top: -.5em; }
 //
 
 a {
-  color: $link-color;
+  // color: $link-color;
   text-decoration: $link-decoration;
   background-color: transparent; // Remove the gray background on active links in IE 10.
+  @include themes($link-theme-map) {
+    color: themes-get-value("link-color");
+  }
 
   @include hover {
-    color: $link-hover-color;
+    // color: $link-hover-color;
     text-decoration: $link-hover-decoration;
+    @include themes($link-theme-map) {
+      color: themes-get-value("link-color");
+    }
   }
 }
 

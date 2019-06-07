@@ -1,5 +1,3 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-pagination {
   display: flex;
   padding-left: 0;
@@ -14,35 +12,35 @@
   margin-left: -1px;
   line-height: 1.25;
   border: 1px solid;
-  color: #20a8d8;
+  color: #321fdb;
   background-color: #fff;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-page-link {
-  color: #20a8d8;
-  background-color: #2f353a;
-  border-color: #23282c;
+  color: #988fed;
+  background-color: #4d4e5c;
+  border-color: #373847;
 }
 
 .c-page-link:hover {
   z-index: 2;
   text-decoration: none;
-  color: #167495;
-  background-color: #e4e7ea;
-  border-color: #c8ced3;
+  color: #231698;
+  background-color: #d3d3d6;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-page-link:hover {
-  color: #167495;
-  background-color: #23282c;
-  border-color: #23282c;
+  color: #231698;
+  background-color: #373847;
+  border-color: #373847;
 }
 
 .c-page-link:focus {
   z-index: 2;
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(32, 168, 216, 0.25);
+  box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
 .c-page-item:first-child .c-page-link {
@@ -59,28 +57,28 @@
 .c-page-item.c-active .c-page-link {
   z-index: 1;
   color: #fff;
-  background-color: #20a8d8;
-  border-color: #20a8d8;
+  background-color: #321fdb;
+  border-color: #321fdb;
 }
 
 .c-dark-theme .c-page-item.c-active .c-page-link {
   color: #fff;
-  background-color: #20a8d8;
-  border-color: #20a8d8;
+  background-color: #321fdb;
+  border-color: #321fdb;
 }
 
 .c-page-item.c-disabled .c-page-link {
   pointer-events: none;
   cursor: auto;
-  color: #73818f;
+  color: #7a7a85;
   background-color: #fff;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-page-item.c-disabled .c-page-link {
-  color: #73818f;
-  background-color: #23282c;
-  border-color: #23282c;
+  color: #7a7a85;
+  background-color: #373847;
+  border-color: #373847;
 }
 
 .c-pagination-lg .c-page-link {

@@ -1,5 +1,3 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-dropup,
 .c-dropright,
 .c-dropdown,
@@ -42,15 +40,15 @@
   background-clip: padding-box;
   border: 1px solid;
   border-radius: 0.25rem;
-  color: #23282c;
+  color: #373847;
   background-color: #fff;
-  border-color: #c8ced3;
+  border-color: #bcbdc2;
 }
 
 .c-dark-theme .c-dropdown-menu {
-  color: #e4e7ea;
-  background-color: #2f353a;
-  border-color: #23282c;
+  color: #e1e1e1;
+  background-color: #353535;
+  border-color: #1e1e1e;
 }
 
 .c-dropdown-menu-left {
@@ -202,14 +200,14 @@
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #e4e7ea;
+  border-top: 1px solid #d3d3d6;
 }
 
 .c-dark-theme .c-dropdown-divider {
   height: 0;
   margin: 0.5rem 0;
   overflow: hidden;
-  border-top: 1px solid #2f353a;
+  border-top: 1px solid #4d4e5c;
 }
 
 .c-dropdown-item {
@@ -222,43 +220,43 @@
   white-space: nowrap;
   background-color: transparent;
   border: 0;
-  color: #23282c;
+  color: #373847;
 }
 
 .c-dark-theme .c-dropdown-item {
-  color: #e4e7ea;
+  color: #e1e1e1;
 }
 
 .c-dropdown-item:hover, .c-dropdown-item:focus {
   text-decoration: none;
-  color: #181b1e;
-  background-color: #f0f3f5;
+  color: #2c2d39;
+  background-color: #e9e9eb;
 }
 
 .c-dark-theme .c-dropdown-item:hover, .c-dark-theme .c-dropdown-item:focus {
-  color: #e4e7ea;
-  background-color: #23282c;
+  color: #e1e1e1;
+  background-color: #373847;
 }
 
 .c-dropdown-item.c-active, .c-dropdown-item:active {
   text-decoration: none;
   color: #fff;
-  background-color: #20a8d8;
+  background-color: #321fdb;
 }
 
 .c-dark-theme .c-dropdown-item.c-active, .c-dark-theme .c-dropdown-item:active {
   color: #fff;
-  background-color: #20a8d8;
+  background-color: #321fdb;
 }
 
 .c-dropdown-item.c-disabled, .c-dropdown-item:disabled {
   pointer-events: none;
   background-color: transparent;
-  color: #73818f;
+  color: #7a7a85;
 }
 
 .c-dark-theme .c-dropdown-item.c-disabled, .c-dark-theme .c-dropdown-item:disabled {
-  color: #73818f;
+  color: #7a7a85;
 }
 
 .c-dropdown-menu.c-show {
@@ -271,21 +269,21 @@
   margin-bottom: 0;
   font-size: 0.765625rem;
   white-space: nowrap;
-  color: #73818f;
+  color: #7a7a85;
 }
 
 .c-dark-theme .c-dropdown-header {
-  color: #73818f;
+  color: #7a7a85;
 }
 
 .c-dropdown-item-text {
   display: block;
   padding: 0.5rem 1.25rem;
-  color: #23282c;
+  color: #373847;
 }
 
 .c-dark-theme .c-dropdown-item-text {
-  color: #e4e7ea;
+  color: #e1e1e1;
 }
 
 /*# sourceMappingURL=dropdown.css.map */

@@ -1,5 +1,3 @@
-/* stylelint-disable */
-/* stylelint-disable */
 :root {
   --blue: #20a8d8;
   --indigo: #6610f2;
@@ -13,16 +11,16 @@
   --cyan: #17a2b8;
   --light-blue: #63c2de;
   --white: #fff;
-  --gray: #73818f;
-  --gray-dark: #2f353a;
-  --primary: #20a8d8;
-  --secondary: #c8ced3;
-  --success: #4dbd74;
-  --info: #63c2de;
-  --warning: #ffc107;
-  --danger: #f86c6b;
-  --light: #f0f3f5;
-  --dark: #2f353a;
+  --gray: #7a7a85;
+  --gray-dark: #4d4e5c;
+  --primary: #321fdb;
+  --secondary: #9da5b1;
+  --success: #2eb85c;
+  --info: #39f;
+  --warning: #f9b115;
+  --danger: #e55353;
+  --light: #e9e9eb;
+  --dark: #4d4e5c;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;

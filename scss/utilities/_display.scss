@@ -19,6 +19,23 @@
   }
 }
 
+@each $theme in $themes {
+  .#{$prefix}#{$theme}-theme {
+    .#{$prefix}d-#{$theme}-none { display: none !important; }
+  }
+  @if $default-theme {
+    @if $theme != $default-theme {
+      body,
+      div,
+      .#{$prefix}app {
+        &:not(.#{$prefix}#{$theme}-theme) {
+          .#{$prefix}d-#{$default-theme}-none { display: none !important; }
+        }
+      }
+    }
+  }
+}
+
 
 //
 // Utilities for toggling `display` in print

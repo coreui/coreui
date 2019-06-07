@@ -1,5 +1,3 @@
-/* stylelint-disable */
-/* stylelint-disable */
 .c-img-fluid {
   max-width: 100%;
   height: auto;
@@ -8,7 +6,7 @@
 .c-img-thumbnail {
   padding: 0.25rem;
   background-color: #e4e5e6;
-  border: 1px solid #c8ced3;
+  border: 1px solid #bcbdc2;
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -25,7 +23,7 @@
 
 .c-figure-caption {
   font-size: 90%;
-  color: #73818f;
+  color: #7a7a85;
 }
 
 .c-img-circle {

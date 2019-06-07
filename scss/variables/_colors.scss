@@ -3,7 +3,10 @@
 //
 
 $white:     #fff !default;
+$black:     #000 !default;
+
 $gray-base: #212233 !default;
+
 $gray-100:  #e9e9eb !default;
 $gray-200:  #d3d3d6 !default;
 $gray-300:  #bcbdc2 !default;
@@ -13,7 +16,6 @@ $gray-600:  #7a7a85 !default;
 $gray-700:  #646470 !default;
 $gray-800:  #4d4e5c !default;
 $gray-900:  #373847 !default;
-$black:     #000 !default;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -32,64 +34,91 @@ $grays: map-merge(
   $grays
 );
 
-$dark-theme-gray-base: #121212 !default;
-$dark-theme-gray-100:  lighten($dark-theme-gray-base, 16%) !default;
-$dark-theme-gray-200:  lighten($dark-theme-gray-base, 15%) !default;
-$dark-theme-gray-300:  lighten($dark-theme-gray-base, 14%) !default;
-$dark-theme-gray-400:  lighten($dark-theme-gray-base, 12%) !default;
-$dark-theme-gray-500:  lighten($dark-theme-gray-base, 11%) !default;
-$dark-theme-gray-600:  lighten($dark-theme-gray-base, 9%) !default;
-$dark-theme-gray-700:  lighten($dark-theme-gray-base, 8%) !default;
-$dark-theme-gray-800:  lighten($dark-theme-gray-base, 7%) !default;
-$dark-theme-gray-900:  lighten($dark-theme-gray-base, 5%) !default;
 
-$dark-theme-grays: () !default;
+$gray-dark-theme-base: #121212 !default;
+$gray-dark-theme-100:  #383838 !default;
+$gray-dark-theme-200:  #353535 !default;
+$gray-dark-theme-300:  #333 !default;
+$gray-dark-theme-400:  #2e2e2e !default;
+$gray-dark-theme-500:  #2c2c2c !default;
+$gray-dark-theme-600:  #272727 !default;
+$gray-dark-theme-700:  #252525 !default;
+$gray-dark-theme-800:  #222 !default;
+$gray-dark-theme-900:  #1e1e1e !default;
+
+$grays-dark-theme: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
-$dark-theme-grays: map-merge(
+$grays-dark-theme: map-merge(
   (
-    "100": $dark-theme-gray-100,
-    "200": $dark-theme-gray-200,
-    "300": $dark-theme-gray-300,
-    "400": $dark-theme-gray-400,
-    "500": $dark-theme-gray-500,
-    "600": $dark-theme-gray-600,
-    "700": $dark-theme-gray-700,
-    "800": $dark-theme-gray-800,
-    "900": $dark-theme-gray-900
+    "100": $gray-dark-theme-100,
+    "200": $gray-dark-theme-200,
+    "300": $gray-dark-theme-300,
+    "400": $gray-dark-theme-400,
+    "500": $gray-dark-theme-500,
+    "600": $gray-dark-theme-600,
+    "700": $gray-dark-theme-700,
+    "800": $gray-dark-theme-800,
+    "900": $gray-dark-theme-900
   ),
-  $dark-theme-grays
+  $grays-dark-theme
 );
 
 
-$primary-dark: #1f1498 !default;
-$primary: #321fdb !default;
-$primary-50: #988fed !default;
-$primary-25: #ccc7f6 !default;
+$primary-base:   #321fdb !default;
+
+$primary-100:    #eae9fb !default;
+$primary-200:    #d6d2fb !default;
+$primary-300:    #c1bcf4 !default;
+$primary-400:    #ada5f1 !default;
+$primary-500:    #988fed !default;
+$primary-600:    #8478ea !default;
+$primary-700:    #6f62e6 !default;
+$primary-800:    #5b4ce2 !default;
+$primary-900:    #4635df !default;
+
+$primary-dark:   #1f1498 !default;
+$primary:        #321fdb !default;
+$primary-50:     #988fed !default;
+$primary-25:     #ccc7f6 !default;
+
+
+$secondary-base: #3c4b64 !default;
+
+$secondary-100:  #ebedef !default;
+$secondary-200:  #d8dbe0 !default;
+$secondary-300:  #c4c9d0 !default;
+$secondary-400:  #b1b7c1 !default;
+$secondary-500:  #9da5b1 !default;
+$secondary-600:  #8a93a2 !default;
+$secondary-700:  #768192 !default;
+$secondary-800:  #636f83 !default;
+$secondary-900:  #4f5d73 !default;
 
 $secondary-dark: #212233 !default;
-$secondary: #3c4b64 !default;
-$secondary-50: #9da5b1 !default;
-$secondary-25: #ced2d8 !default;
+$secondary:      #3c4b64 !default;
+$secondary-50:   #9da5b1 !default;
+$secondary-25:   #ced2d8 !default;
 
-$danger-dark: #d93737 !default;
-$danger: #e55353 !default;
-$danger-50: #f2a9a9 !default;
-$danger-25: #f9d4d4 !default;
 
-$info-dark: #2982cc !default;
-$info: #39f !default;
-$info-50: #80c6ff !default;
-$info-25: #c0e6ff !default;
+$danger-dark:    #d93737 !default;
+$danger:         #e55353 !default;
+$danger-50:      #f2a9a9 !default;
+$danger-25:      #f9d4d4 !default;
 
-$success-dark: #1b9e3e !default;
-$success: #2eb85c !default;
-$success-50: #96dbad !default;
-$success-25: #cbedd6 !default;
+$info-dark:      #2982cc !default;
+$info:           #39f !default;
+$info-50:        #80c6ff !default;
+$info-25:        #c0e6ff !default;
 
-$warning-dark: #f6960b !default;
-$warning: #f9b115 !default;
-$warning-50: #fcd88a !default;
-$warning-25: #feecc5 !default;
+$success-dark:   #1b9e3e !default;
+$success:        #2eb85c !default;
+$success-50:     #96dbad !default;
+$success-25:     #cbedd6 !default;
+
+$warning-dark:   #f6960b !default;
+$warning:        #f9b115 !default;
+$warning-50:     #fcd88a !default;
+$warning-25:     #feecc5 !default;
 
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
