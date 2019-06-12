@@ -321,7 +321,7 @@
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up($breakpoint-mobile-up) {
   .sidebar-compact {
     .sidebar {
       .sidebar-nav {

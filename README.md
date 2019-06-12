@@ -59,13 +59,13 @@ $ npm install @coreui/coreui --save
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/coreui@2.1.11
+$ yarn add @coreui/coreui@2.1.12
 ```
 
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:2.1.11
+$ composer require coreui/coreui:2.1.12
 ```
 
 ## Usage

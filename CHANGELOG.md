@@ -1,3 +1,30 @@
+## v2.1.12
+- fix(scss): new mobile breakpoint variables
+```scss
+// Breakpoints for mobile defaults:
+$breakpoint-mobile-up: lg !default;
+$breakpoint-mobile-down: md !default;
+ ```
+usage: to shift mobile breakpoint in your template:
+1. override `_variables.scss`
+    ```scss
+    // Variable overrides
+    $breakpoint-mobile-up: md;
+    $breakpoint-mobile-down: sm;
+    ```
+
+2. and complementary changes in `index.html`  
+  - body: `sidebar-lg-show` -> `sidebar-md-show`
+  - mobile sidebar toggler button: `d-lg-none` -> `d-md-none`
+  - sidebar toggler button: 
+    - `d-md-down-none` -> `d-sm-down-none` 
+    - `data-toggle="sidebar-lg-show"` -> `data-toggle="sidebar-md-show"`  
+
+###### Dependencies update:
+- update `autoprefixer` to `^9.6.0`
+- update `rollup` to `^1.15.1`
+- update `stylelint` to `^10.1.0`
+
 ## v2.1.11
 - fix(sidebar): add optional container `sidebar-scroll`. Thanks @MartijnBastiaansen
   - fixes an issue where `sidebar-toggler` causes an error when there is no `sidebar-nav` element in it
