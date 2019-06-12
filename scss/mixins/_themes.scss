@@ -64,7 +64,7 @@ $theme-has-variants: false !default;
   $current-theme: $theme !global;
   $current-variant: $variant !global;
 
-  @if $current-theme == $default-theme {
+  @if map-get(map-get($default-themes, $current-theme), "default") {
     @at-root{
       @if $variant == $default-variant {
         #{$parent-element} {
@@ -121,7 +121,7 @@ $theme-has-variants: false !default;
   }
 }
 
-@mixin themes($loop: $themes-map, $parent: false, $create: false, $default: $default-theme) {
+@mixin themes($loop: $themes-map, $parent: false, $create: false) {
   $themes-map: $loop !global;
   $parent-element: $parent !global;
 
@@ -129,38 +129,58 @@ $theme-has-variants: false !default;
   $themes: map-keys($themes-map);
 
   @each $theme in $themes {
-    $theme-map: map-get($themes-map, $theme);
-
-    // Check if $theme-map has variants
-    @if map-has-key($theme-map, "map") {
-      $theme-has-variants: true !global;
-      // Get list of variants
-      $variants: map-keys(map-get($theme-map, "map"));
-      $default-variant: map-get($theme-map, "default") !global;
-      @each $variant in $variants {
-        @include themes-create-parent($theme, $variant) {
-          @content;
-        }
-      }
-    } @else {
-      $theme-has-variants: false !global;
-      @if $theme == $default {
-        @include themes-append-variables($theme) {
-          @content;
-        }
-      } @else {
-        @if $create == "parent" {
-          @include themes-single-parent($theme) {
+    @if map-has-key($default-themes, $theme) {
+      $theme-map: map-get($themes-map, $theme);
+      // Check if $theme-map has variants
+      @if map-has-key($theme-map, "map") {
+        $theme-has-variants: true !global;
+        // Get list of variants
+        $variants: map-keys(map-get($theme-map, "map"));
+        $default-variant: map-get($theme-map, "default") !global;
+        @each $variant in $variants {
+          @include themes-create-parent($theme, $variant) {
             @content;
           }
-        } @else if $create == "append" {
-          @include theme-single-append($theme) {
+        }
+      } @else {
+        $theme-has-variants: false !global;
+        @if map-get(map-get($default-themes, $theme), "default") {
+          @include themes-append-variables($theme) {
             @content;
           }
         } @else {
-          @include themes-single-parent($theme) {
-            @content;
+          @if $create == "parent" {
+            @include themes-single-parent($theme) {
+              @content;
+            }
+          } @else if $create == "append" {
+            @include theme-single-append($theme) {
+              @content;
+            }
+          } @else {
+            @include themes-single-parent($theme) {
+              @content;
+            }
           }
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-variant() {
+  @each $theme in map-keys($default-themes) {
+    $get-colors: map-get(map-get($default-themes, $theme), "theme-colors");
+    $get-default: map-get(map-get($default-themes, $theme), "default");
+    $get-grays: map-get(map-get($default-themes, $theme), "grays");
+    @each $color, $value in $get-colors {
+      $color: $color !global;
+      $value: $value !global;
+      @if $get-default {
+        @content;
+      } @else {
+        .#{$bs-prefix}#{$theme}#{$theme-suffix} {
+          @content;
         }
       }
     }

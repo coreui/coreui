@@ -125,7 +125,7 @@
 // Exact selectors below required to override `.#{$bs-prefix}table-striped` and prevent
 // inheritance to nested tables.
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   @include table-row-variant($color, theme-color-level($color, $table-bg-level), theme-color-level($color, $table-border-level));
 }
 

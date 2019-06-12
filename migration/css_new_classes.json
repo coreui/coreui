@@ -27,6 +27,18 @@
     {
       "old": ".tab",
       "new": ".c-tab"
+    },
+    {
+      "old": ".c-text-value-lg",
+      "new": ".c-text-value-xl"
+    },
+    {
+      "old": ".c-text-value",
+      "new": ".c-text-value-lg"
+    },
+    {
+      "old": ".c-text-value-sm",
+      "new": ".c-text-value"
     }
   ]
 }

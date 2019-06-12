@@ -1,0 +1,32 @@
+// Footer
+
+$footer-height:                     50px !default;
+
+
+// Default Theme
+$footer-light-bg:                   $gray-100 !default;
+$footer-light-color:                $body-color !default;
+$footer-light-borders:              ( top: 1px solid $border-color ) !default;
+
+$footer-variants-map:               () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$footer-variants-map: map-merge(
+  (
+    light: (
+      "footer-bg":                  $footer-light-bg,
+      "footer-color":               $footer-light-color,
+      "footer-borders":             $footer-light-borders
+    )
+  ),
+  $footer-variants-map
+);
+
+$footer-default-variant:            "light" !default;
+$footer-variants: (
+  "default":                        $footer-default-variant,
+  "map":                            $footer-variants-map
+) !default;
+
+$footer-theme-map: (
+  light: $footer-variants
+) !default;

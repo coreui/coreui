@@ -121,23 +121,6 @@
     &.#{$prefix}disabled {
       cursor: $cursor-disabled;
     }
-
-    @each $color, $value in $theme-colors {
-      &.#{$prefix}nav-link-#{$color} {
-        background: $value;
-        .#{$prefix}nav-icon {
-          color: rgba(255, 255, 255, .7);
-          fill: rgba(255, 255, 255, .7);
-        }
-        &:hover {
-          background: darken($value, 5%);
-          .#{$prefix}nav-icon {
-            color: #fff;
-            fill: #fff;
-          }
-        }
-      }
-    }
   }
 
   .#{$prefix}nav-dropdown {
@@ -656,48 +639,17 @@
   color: themes-get-value("sidebar-color");
   background: themes-get-value("sidebar-bg");
 
-  @if $default-theme == "dark" {
-    @include borders(themes-get-value("dark-theme-sidebar-borders"));
-  } @else {
-    @include borders(themes-get-value("sidebar-borders"));
-  }
-
-  .#{$prefix}dark-theme & {
-    @include borders(themes-get-value("dark-theme-sidebar-borders"));
-  }
+  @include borders(themes-get-value("sidebar-borders"));
 
   html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-    @if $default-theme == "dark" {
-      @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
-    } @else {
-      @include borders(themes-get-value("sidebar-borders"),true);
-    }
+    @include borders(themes-get-value("sidebar-borders"),true);
   }
 
-  html:not([dir="rtl"]) .#{$prefix}dark-theme &.#{$prefix}sidebar-right {
-    @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
-  }
-
-  *[dir="rtl"] & {
-    @if $default-theme == "dark" {
-      @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
-    } @else {
-      @include borders(themes-get-value("sidebar-borders"),true);
-    }
+  *[dir="rtl"]  {
+    @include borders(themes-get-value("sidebar-borders"),true);
     &.#{$prefix}sidebar-right {
       border: 0;
-      @if $default-theme == "dark" {
-        @include borders(themes-get-value("dark-theme-sidebar-borders"));
-      } @else {
-        @include borders(themes-get-value("sidebar-borders"));
-      }
-    }
-  }
-  *[dir="rtl"] .#{$prefix}dark-theme & {
-    @include borders(themes-get-value("dark-theme-sidebar-borders"),true);
-    &.#{$prefix}sidebar-right {
-      border: 0;
-      @include borders(themes-get-value("dark-theme-sidebar-borders"));
+      @include borders(themes-get-value("sidebar-borders"));
     }
   }
 
@@ -915,6 +867,28 @@
 
       &:hover {
         background: themes-get-value("sidebar-nav-link-hover-bg");
+      }
+    }
+  }
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+.#{$prefix}sidebar {
+  @include theme-variant() {
+    .#{$prefix}nav-link {
+      &.#{$prefix}nav-link-#{$color} {
+        background: $value;
+        .#{$prefix}nav-icon {
+          color: rgba(255, 255, 255, .7);
+          fill: rgba(255, 255, 255, .7);
+        }
+        &:hover {
+          background: darken($value, 5%);
+          .#{$prefix}nav-icon {
+            color: #fff;
+            fill: #fff;
+          }
+        }
       }
     }
   }

@@ -12,11 +12,6 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-card {
-  background-color: #272727;
-  border-color: #1e1e1e;
-}
-
 .c-card > hr {
   margin-right: 0;
   margin-left: 0;
@@ -143,11 +138,6 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-card-header {
-  background-color: #252525;
-  border-color: #1e1e1e;
-}
-
 .c-card-header:first-child {
   border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
@@ -169,11 +159,6 @@
   border-top: 1px solid;
   background-color: #e9e9eb;
   border-color: #bcbdc2;
-}
-
-.c-dark-theme .c-card-footer {
-  background-color: #252525;
-  border-color: #1e1e1e;
 }
 
 .c-card-footer:last-child {
@@ -357,10 +342,6 @@
   background: transparent;
   border-right: 1px solid;
   border-right: #bcbdc2;
-}
-
-.c-dark-theme .c-card-header-icon-bg {
-  border-right: #1e1e1e;
 }
 
 .c-card-header-actions {

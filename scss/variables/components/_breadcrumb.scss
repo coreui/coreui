@@ -1,0 +1,35 @@
+// Breadcrumbs
+
+$breadcrumb-padding-y:              .75rem !default;
+$breadcrumb-padding-x:              1rem !default;
+$breadcrumb-item-padding:           .5rem !default;
+
+$breadcrumb-margin-bottom:          1.5rem !default; // was: 1rem
+
+$breadcrumb-divider:                quote("/") !default;
+
+$breadcrumb-border-radius:          0 !default; // was: $border-radius
+
+$breadcrumb-borders: (
+  bottom: 1px solid
+) !default;
+
+// Default theme
+$breadcrumb-bg:                     $white !default; // was: $gray-200
+$breadcrumb-border-color:           $border-color !default;
+$breadcrumb-divider-color:          $gray-600 !default;
+$breadcrumb-active-color:           $gray-600 !default;
+
+$breadcrumb-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$breadcrumb-theme-map: map-merge(
+  (
+    light: (
+      "breadcrumb-bg":                $breadcrumb-bg,
+      "breadcrumb-border-color":      $breadcrumb-border-color,
+      "breadcrumb-divider-color":     $breadcrumb-divider-color,
+      "breadcrumb-active-color":      $breadcrumb-active-color
+    )
+  ),
+  $breadcrumb-theme-map
+);

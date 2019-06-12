@@ -1,11 +1,11 @@
 // stylelint-disable declaration-no-important
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
 }
 
 @if $enable-gradients {
-  @each $color, $value in $theme-colors {
+  @include theme-variant() {
     @include bg-gradient-variant(".#{$bs-prefix}bg-gradient-#{$color}", $value);
   }
 }
@@ -29,10 +29,6 @@
 }
 
 @each $color, $value in $brands-colors {
-  @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
-}
-
-@each $color, $value in $colors {
   @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
 }
 

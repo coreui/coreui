@@ -41,7 +41,7 @@
   }
 
   // Cards with color accent
-  @each $color, $value in $theme-colors {
+  @include theme-variant() {
     &.#{$bs-prefix}bg-#{$color} {
       border-color: darken($value, 12.5%);
       .#{$bs-prefix}card-header {
@@ -407,7 +407,7 @@
 
 
 // Cards with color accent
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$bs-prefix}card-accent-#{$color} {
     @include card-accent-variant($value);
   }

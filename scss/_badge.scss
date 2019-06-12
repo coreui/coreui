@@ -47,7 +47,7 @@
 //
 // Contextual variations (linked badges get darker on :hover).
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$prefix}badge-#{$color} {
     @include badge-variant($value);
   }

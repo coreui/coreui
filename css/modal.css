@@ -92,11 +92,12 @@
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid;
   border-radius: 0.3rem;
   outline: 0;
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .c-modal-backdrop {
@@ -122,9 +123,10 @@
   align-items: flex-start;
   justify-content: space-between;
   padding: 1rem 1rem;
-  border-bottom: 1px solid #bcbdc2;
+  border-bottom: 1px solid;
   border-top-left-radius: 0.3rem;
   border-top-right-radius: 0.3rem;
+  border-color: #bcbdc2;
 }
 
 .c-modal-header .c-close {
@@ -148,9 +150,10 @@
   align-items: center;
   justify-content: flex-end;
   padding: 1rem;
-  border-top: 1px solid #bcbdc2;
+  border-top: 1px solid;
   border-bottom-right-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
+  border-color: #bcbdc2;
 }
 
 .c-modal-footer > :not(:first-child) {

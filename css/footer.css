@@ -9,22 +9,10 @@
   border-color: rgba(0, 0, 0, 0.1);
 }
 
-.c-footer.c-footer-dark {
-  color: #e1e1e1;
-  background: #4d4e5c;
-  border-top: 1px solid #1e1e1e;
-}
-
 .c-footer {
   color: #373847;
   background: #e9e9eb;
   border-top: 1px solid #bcbdc2;
-}
-
-.c-dark-theme .c-footer {
-  color: #e1e1e1;
-  background: #222;
-  border-top: 1px solid #1e1e1e;
 }
 
 /*# sourceMappingURL=footer.css.map */

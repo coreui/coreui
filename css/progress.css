@@ -16,10 +16,6 @@
   background-color: #e9e9eb;
 }
 
-.c-dark-theme .c-progress {
-  background-color: #646470;
-}
-
 .c-progress-bar {
   display: flex;
   flex-direction: column;
@@ -35,11 +31,6 @@
   .c-progress-bar {
     transition: none;
   }
-}
-
-.c-dark-theme .c-progress-bar {
-  color: #fff;
-  background-color: #321fdb;
 }
 
 .c-progress-bar-striped {

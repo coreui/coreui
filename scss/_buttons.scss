@@ -5,7 +5,8 @@
 //
 
 .#{$bs-prefix}btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
   color: $body-color;
@@ -48,6 +49,8 @@
   i,
   .#{$bs-prefix}btn-icon {
     min-width: ($btn-font-size * $btn-line-height);
+    height: $btn-font-size;
+    fill: currentColor;
   }
   // CoreUI end
 }
@@ -63,7 +66,7 @@ fieldset:disabled a.#{$bs-prefix}btn {
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$bs-prefix}btn-#{$color} {
     @include button-variant($value, $value);
   }
@@ -77,7 +80,7 @@ fieldset:disabled a.#{$bs-prefix}btn {
   }
 }
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$bs-prefix}btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
@@ -163,7 +166,7 @@ input[type="button"] {
 // Ghost button
 //
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$prefix}btn-ghost-#{$color} {
     @include button-ghost-variant($value);
   }
@@ -179,8 +182,8 @@ input[type="button"] {
   }
 }
 
-@each $color, $value in $brands-colors {
-  .#{$bs-prefix}btn-outline-#{$color} {
-    @include button-outline-variant($value);
-  }
-}
+// @each $color, $value in $brands-colors {
+//   .#{$bs-prefix}btn-outline-#{$color} {
+//     @include button-outline-variant($value);
+//   }
+// }

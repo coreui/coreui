@@ -45,12 +45,6 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-dropdown-menu {
-  color: #e1e1e1;
-  background-color: #353535;
-  border-color: #1e1e1e;
-}
-
 .c-dropdown-menu-left {
   right: auto;
   left: 0;
@@ -203,15 +197,9 @@
   border-top: 1px solid #d3d3d6;
 }
 
-.c-dark-theme .c-dropdown-divider {
-  height: 0;
-  margin: 0.5rem 0;
-  overflow: hidden;
-  border-top: 1px solid #4d4e5c;
-}
-
 .c-dropdown-item {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%;
   padding: 0.5rem 1.25rem;
   clear: both;
@@ -223,19 +211,10 @@
   color: #373847;
 }
 
-.c-dark-theme .c-dropdown-item {
-  color: #e1e1e1;
-}
-
 .c-dropdown-item:hover, .c-dropdown-item:focus {
   text-decoration: none;
   color: #2c2d39;
   background-color: #e9e9eb;
-}
-
-.c-dark-theme .c-dropdown-item:hover, .c-dark-theme .c-dropdown-item:focus {
-  color: #e1e1e1;
-  background-color: #373847;
 }
 
 .c-dropdown-item.c-active, .c-dropdown-item:active {
@@ -244,18 +223,9 @@
   background-color: #321fdb;
 }
 
-.c-dark-theme .c-dropdown-item.c-active, .c-dark-theme .c-dropdown-item:active {
-  color: #fff;
-  background-color: #321fdb;
-}
-
 .c-dropdown-item.c-disabled, .c-dropdown-item:disabled {
   pointer-events: none;
   background-color: transparent;
-  color: #7a7a85;
-}
-
-.c-dark-theme .c-dropdown-item.c-disabled, .c-dark-theme .c-dropdown-item:disabled {
   color: #7a7a85;
 }
 
@@ -272,18 +242,10 @@
   color: #7a7a85;
 }
 
-.c-dark-theme .c-dropdown-header {
-  color: #7a7a85;
-}
-
 .c-dropdown-item-text {
   display: block;
   padding: 0.5rem 1.25rem;
   color: #373847;
-}
-
-.c-dark-theme .c-dropdown-item-text {
-  color: #e1e1e1;
 }
 
 /*# sourceMappingURL=dropdown.css.map */

@@ -43,7 +43,7 @@
 // Variants
 //
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$prefix}callout-#{$color} {
     border-left-color: $value;
 
@@ -59,7 +59,7 @@
     border-right: 4px solid $border-color;
     border-left: 0;
 
-    @each $color, $value in $theme-colors {
+    @include theme-variant() {
       &.#{$prefix}callout-#{$color} {
         border-right-color: $value;
       }

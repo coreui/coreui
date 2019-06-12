@@ -104,15 +104,18 @@
   flex-direction: column;
   width: 100%; // Ensure `.#{$bs-prefix}modal-content` extends the full width of the parent `.#{$bs-prefix}modal-dialog`
   // counteract the pointer-events: none; in the .#{$bs-prefix}modal-dialog
-  color: $modal-content-color;
   pointer-events: auto;
-  background-color: $modal-content-bg;
   background-clip: padding-box;
-  border: $modal-content-border-width solid $modal-content-border-color;
+  border: $modal-content-border-width solid;
   @include border-radius($modal-content-border-radius);
   @include box-shadow($modal-content-box-shadow-xs);
   // Remove focus outline from opened modal
   outline: 0;
+  @include themes($modal-theme-map) {
+    color: themes-get-value("modal-content-color");
+    background-color: themes-get-value("modal-content-bg");
+    border-color: themes-get-value("modal-content-border-color");
+  }
 }
 
 // Modal background
@@ -137,8 +140,11 @@
   align-items: flex-start; // so the close btn always stays on the upper right corner
   justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
   padding: $modal-header-padding;
-  border-bottom: $modal-header-border-width solid $modal-header-border-color;
+  border-bottom: $modal-header-border-width solid;
   @include border-top-radius($modal-content-border-radius);
+  @include themes($modal-theme-map) {
+    border-color: themes-get-value("modal-header-border-color");
+  }
 
   .#{$bs-prefix}close {
     padding: $modal-header-padding;
@@ -169,8 +175,11 @@
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
   padding: $modal-inner-padding;
-  border-top: $modal-footer-border-width solid $modal-footer-border-color;
+  border-top: $modal-footer-border-width solid;
   @include border-bottom-radius($modal-content-border-radius);
+  @include themes($modal-theme-map) {
+    border-color: themes-get-value("modal-footer-border-color");
+  }
 
   // Easily place margin between footer elements
   > :not(:first-child) { margin-left: .25rem; }
@@ -230,7 +239,7 @@
 
 // CoreUI specific changes start
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   .#{$bs-prefix}modal-#{$color} {
 
     .#{$bs-prefix}modal-content {

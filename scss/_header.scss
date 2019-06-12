@@ -139,28 +139,12 @@
 
 @include themes($header-theme-map, $create: append, $parent: ".#{$prefix}header") {
   background: themes-get-value("header-bg");
-  @if $default-theme == "dark" {
-    @include borders(themes-get-value("dark-theme-header-border"));
-  } @else {
-    @include borders(themes-get-value("header-border"));
-  }
-
-  .#{$prefix}dark-theme & {
-    @include borders(themes-get-value("dark-theme-header-border"));
-  }
+  @include borders(themes-get-value("header-border"));
 
   .#{$prefix}header-brand {
     color: themes-get-value("header-brand-color");
     background-color: themes-get-value("header-brand-bg");
-    @if $default-theme == "dark" {
-      @include borders(themes-get-value("dark-theme-header-border"));
-    } @else {
-      @include borders(themes-get-value("header-brand-border"));
-    }
-
-    .#{$prefix}dark-theme & {
-      @include borders(themes-get-value("dark-theme-header-border"));
-    }
+    @include borders(themes-get-value("header-brand-border"));
 
     @include hover-focus {
       color: themes-get-value("header-brand-hover-color");

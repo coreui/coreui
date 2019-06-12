@@ -34,36 +34,6 @@ $grays: map-merge(
   $grays
 );
 
-
-$gray-dark-theme-base: #121212 !default;
-$gray-dark-theme-100:  #383838 !default;
-$gray-dark-theme-200:  #353535 !default;
-$gray-dark-theme-300:  #333 !default;
-$gray-dark-theme-400:  #2e2e2e !default;
-$gray-dark-theme-500:  #2c2c2c !default;
-$gray-dark-theme-600:  #272727 !default;
-$gray-dark-theme-700:  #252525 !default;
-$gray-dark-theme-800:  #222 !default;
-$gray-dark-theme-900:  #1e1e1e !default;
-
-$grays-dark-theme: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$grays-dark-theme: map-merge(
-  (
-    "100": $gray-dark-theme-100,
-    "200": $gray-dark-theme-200,
-    "300": $gray-dark-theme-300,
-    "400": $gray-dark-theme-400,
-    "500": $gray-dark-theme-500,
-    "600": $gray-dark-theme-600,
-    "700": $gray-dark-theme-700,
-    "800": $gray-dark-theme-800,
-    "900": $gray-dark-theme-900
-  ),
-  $grays-dark-theme
-);
-
-
 $primary-base:   #321fdb !default;
 
 $primary-100:    #eae9fb !default;
@@ -120,6 +90,11 @@ $warning:        #f9b115 !default;
 $warning-50:     #fcd88a !default;
 $warning-25:     #feecc5 !default;
 
+$light:           $gray-100 !default;
+$dark:            $gray-800 !default;
+
+$pink:           #e83e8c !default;
+
 $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
@@ -129,7 +104,9 @@ $theme-colors: map-merge(
     "success":    $success,
     "info":       $info,
     "warning":    $warning,
-    "danger":     $danger
+    "danger":     $danger,
+    "light":      $light,
+    "dark":       $dark
   ),
   $theme-colors
 );

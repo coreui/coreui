@@ -11,10 +11,6 @@
   color: #646470;
 }
 
-.c-dark-theme .c-list-group-item-action {
-  color: #e1e1e1;
-}
-
 .c-list-group-item-action:hover, .c-list-group-item-action:focus {
   z-index: 1;
   text-decoration: none;
@@ -22,18 +18,8 @@
   background-color: #e9e9eb;
 }
 
-.c-dark-theme .c-list-group-item-action:hover, .c-dark-theme .c-list-group-item-action:focus {
-  color: #e1e1e1;
-  background-color: #4d4e5c;
-}
-
 .c-list-group-item-action:active {
   color: #373847;
-  background-color: #321fdb;
-}
-
-.c-dark-theme .c-list-group-item-action:active {
-  color: #e1e1e1;
   background-color: #321fdb;
 }
 
@@ -43,14 +29,8 @@
   padding: 0.75rem 1.25rem;
   margin-bottom: -1px;
   border: 1px solid;
-  background-color: #fff;
+  background-color: inherit;
   border-color: rgba(0, 0, 0, 0.125);
-}
-
-.c-dark-theme .c-list-group-item {
-  color: #e1e1e1;
-  background-color: #595a6a;
-  border-color: #1e1e1e;
 }
 
 .c-list-group-item:first-child {
@@ -67,12 +47,7 @@
 .c-list-group-item.c-disabled, .c-list-group-item:disabled {
   pointer-events: none;
   color: #7a7a85;
-  background-color: #fff;
-}
-
-.c-dark-theme .c-list-group-item.c-disabled, .c-dark-theme .c-list-group-item:disabled {
-  color: #7a7a85;
-  background-color: #4d4e5c;
+  background-color: inherit;
 }
 
 .c-list-group-item.c-active {
@@ -354,38 +329,38 @@
   width: 90%;
   height: 1px;
   content: "";
-  background-color: #d3d3d6;
+  background-color: rgba(0, 0, 0, 0.125);
 }
 
-.c-list-group-item-accent-primary {
+.c-list-group-accent .c-list-group-item-accent-primary {
   border-left: 4px solid #321fdb;
 }
 
-.c-list-group-item-accent-secondary {
+.c-list-group-accent .c-list-group-item-accent-secondary {
   border-left: 4px solid #9da5b1;
 }
 
-.c-list-group-item-accent-success {
+.c-list-group-accent .c-list-group-item-accent-success {
   border-left: 4px solid #2eb85c;
 }
 
-.c-list-group-item-accent-info {
+.c-list-group-accent .c-list-group-item-accent-info {
   border-left: 4px solid #39f;
 }
 
-.c-list-group-item-accent-warning {
+.c-list-group-accent .c-list-group-item-accent-warning {
   border-left: 4px solid #f9b115;
 }
 
-.c-list-group-item-accent-danger {
+.c-list-group-accent .c-list-group-item-accent-danger {
   border-left: 4px solid #e55353;
 }
 
-.c-list-group-item-accent-light {
+.c-list-group-accent .c-list-group-item-accent-light {
   border-left: 4px solid #e9e9eb;
 }
 
-.c-list-group-item-accent-dark {
+.c-list-group-accent .c-list-group-item-accent-dark {
   border-left: 4px solid #4d4e5c;
 }
 

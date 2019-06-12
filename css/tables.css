@@ -2,12 +2,6 @@
   width: 100%;
   margin-bottom: 1rem;
   color: #373847;
-  background-color: transparent;
-}
-
-.c-dark-theme .c-table {
-  color: #e1e1e1;
-  background-color: transparent;
 }
 
 .c-table th,
@@ -18,28 +12,15 @@
   border-top-color: #bcbdc2;
 }
 
-.c-dark-theme .c-table th, .c-dark-theme
-.c-table td {
-  border-top-color: #373847;
-}
-
 .c-table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid;
   border-bottom-color: #bcbdc2;
 }
 
-.c-dark-theme .c-table thead th {
-  border-bottom-color: #373847;
-}
-
 .c-table tbody + tbody {
   border-top: 2px solid;
   border-top-color: #bcbdc2;
-}
-
-.c-dark-theme .c-table tbody + tbody {
-  border-top-color: #373847;
 }
 
 .c-table-sm th,
@@ -52,19 +33,10 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-table-bordered {
-  border-color: #373847;
-}
-
 .c-table-bordered th,
 .c-table-bordered td {
   border: 1px solid;
   border-color: #bcbdc2;
-}
-
-.c-dark-theme .c-table-bordered th, .c-dark-theme
-.c-table-bordered td {
-  border-color: #373847;
 }
 
 .c-table-bordered thead th,
@@ -83,18 +55,9 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-.c-dark-theme .c-table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
 .c-table-hover tbody tr:hover {
   color: #373847;
   background-color: rgba(0, 0, 0, 0.075);
-}
-
-.c-dark-theme .c-table-hover tbody tr:hover {
-  color: #e1e1e1;
-  background-color: rgba(255, 255, 255, 0.075);
 }
 
 .c-table-primary,
@@ -288,21 +251,6 @@
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-.c-dark-theme .c-table-active,
-.c-dark-theme .c-table-active > th,
-.c-dark-theme .c-table-active > td {
-  background-color: rgba(255, 255, 255, 0.075);
-}
-
-.c-dark-theme .c-table-hover .c-table-active:hover {
-  background-color: rgba(242, 242, 242, 0.075);
-}
-
-.c-dark-theme .c-table-hover .c-table-active:hover > td,
-.c-dark-theme .c-table-hover .c-table-active:hover > th {
-  background-color: rgba(242, 242, 242, 0.075);
-}
-
 .c-table .c-thead-dark th {
   color: #fff;
   background-color: #4d4e5c;
@@ -401,10 +349,6 @@
 .c-table-outline {
   border: 1px solid;
   border-color: #bcbdc2;
-}
-
-.c-dark-theme .c-table-outline {
-  border-color: #373847;
 }
 
 .c-table-outline td {

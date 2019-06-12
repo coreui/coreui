@@ -1,0 +1,38 @@
+// Progress bars
+
+$progress-height:                   1rem !default;
+$progress-font-size:                $font-size-base * .75 !default;
+
+$progress-border-radius:            $border-radius !default;
+$progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1) !default;
+
+$progress-bar-animation-timing:     1s linear infinite !default;
+$progress-bar-transition:           width .6s ease !default;
+
+// Default theme
+$progress-bg:                       $gray-100 !default; // was: $gray-200 !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   theme-color("primary") !default;
+
+// Dark theme
+$progress-dark-theme-bg:                  $gray-700 !default;
+$progress-dark-theme-bar-color:           $white !default;
+$progress-dark-theme-bar-bg:              theme-color("primary") !default;
+
+$progress-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$progress-theme-map: map-merge(
+  (
+    light: (
+      "progress-bg":                  $progress-bg,
+      "progress-bar-color":           $progress-bar-color,
+      "progress-bar-bg":              $progress-bar-bg
+    ),
+    dark: (
+      "progress-bg":                  $progress-dark-theme-bg,
+      "progress-bar-color":           $progress-dark-theme-bar-color,
+      "progress-bar-bg":              $progress-dark-theme-bar-bg
+    )
+  ),
+  $progress-theme-map
+);

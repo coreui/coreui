@@ -127,7 +127,8 @@
 //
 // `<button>`-specific styles are denoted with `// For <button>s`
 .#{$bs-prefix}dropdown-item {
-  display: block;
+  display: flex;
+  align-items: center;
   width: 100%; // For `<button>`s
   padding: $dropdown-item-padding-y $dropdown-item-padding-x;
   clear: both;

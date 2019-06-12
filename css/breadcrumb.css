@@ -10,11 +10,6 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-breadcrumb {
-  background-color: #222;
-  border-color: #222;
-}
-
 .c-breadcrumb-item + .c-breadcrumb-item {
   padding-left: 0.5rem;
 }

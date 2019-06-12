@@ -157,7 +157,7 @@
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
 }
 
@@ -185,18 +185,16 @@
         width: 90%;
         height: 1px;
         content: "";
-        background-color: $gray-200;
+        @include themes($list-group-theme-map) {
+          background-color: themes-get-value("list-group-border-color");
+        }
       }
     }
   }
+  // Contextual variants
+  //
+  // Add modifier classes to change border color on individual items.
+  @include theme-variant() {
+    @include list-group-item-accent-variant($color, $value);
+  }
 }
-
-// Contextual variants
-//
-// Add modifier classes to change border color on individual items.
-
-@each $color, $value in $theme-colors {
-  @include list-group-item-accent-variant($color, $value);
-}
-
-// CoreUI specific changes end

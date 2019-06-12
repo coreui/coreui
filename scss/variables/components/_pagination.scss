@@ -1,0 +1,52 @@
+
+// Pagination
+
+$pagination-padding-y:                  .5rem !default;
+$pagination-padding-x:                  .75rem !default;
+$pagination-padding-y-sm:               .25rem !default;
+$pagination-padding-x-sm:               .5rem !default;
+$pagination-padding-y-lg:               .75rem !default;
+$pagination-padding-x-lg:               1.5rem !default;
+$pagination-line-height:                1.25 !default;
+$pagination-border-width:               $border-width !default;
+
+// Default theme
+$pagination-color:                      $link-color !default;
+$pagination-bg:                         $white !default;
+$pagination-border-color:               $border-color !default;
+$pagination-focus-box-shadow:           $input-btn-focus-box-shadow !default;
+$pagination-focus-outline:              0 !default;
+$pagination-hover-color:                $link-hover-color !default;
+$pagination-hover-bg:                   $gray-200 !default;
+$pagination-hover-border-color:         $gray-300 !default;
+$pagination-active-color:               $component-active-color !default;
+$pagination-active-bg:                  $component-active-bg !default;
+$pagination-active-border-color:        $pagination-active-bg !default;
+$pagination-disabled-color:             $gray-600 !default;
+$pagination-disabled-bg:                $white !default;
+$pagination-disabled-border-color:      $gray-300 !default;
+
+$pagination-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$pagination-theme-map: map-merge(
+  (
+    light: (
+      "pagination-color":                      $pagination-color,
+      "pagination-bg":                         $pagination-bg,
+      "pagination-border-color":               $pagination-border-color,
+      "pagination-focus-box-shadow":           $pagination-focus-box-shadow,
+      "pagination-focus-outline":              $pagination-focus-outline,
+      "pagination-hover-color":                $pagination-hover-color,
+      "pagination-hover-bg":                   $pagination-hover-bg,
+      "pagination-hover-border-color":         $pagination-hover-border-color,
+      "pagination-active-color":               $pagination-active-color,
+      "pagination-active-bg":                  $pagination-active-bg,
+      "pagination-active-border-color":        $pagination-active-border-color,
+      "pagination-disabled-color":             $pagination-disabled-color,
+      "pagination-disabled-bg":                $pagination-disabled-bg,
+      "pagination-disabled-border-color":      $pagination-disabled-border-color
+    )
+  ),
+  $pagination-theme-map
+);
+

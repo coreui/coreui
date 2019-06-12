@@ -44,7 +44,7 @@
 
 .#{$bs-prefix}text-white { color: $white !important; }
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   @include text-emphasis-variant(".#{$bs-prefix}text-#{$color}", $value);
 }
 

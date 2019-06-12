@@ -104,6 +104,10 @@
   line-height: $line-height;
   // Manually declare to provide an override to the browser default
   @include border-radius($border-radius, 0);
+
+  .#{$bs-prefix}btn-icon {
+    height: $font-size;
+  }
 }
 
 // CoreUI start

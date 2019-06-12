@@ -9,6 +9,9 @@ module.exports = ctx => ({
   plugins: {
     autoprefixer: {
       cascade: false
-    }
+    },
+    // 'cssnano': {},
+    'postcss-combine-duplicated-selectors': {},
+    'postcss-merge-rules': {}
   }
 })

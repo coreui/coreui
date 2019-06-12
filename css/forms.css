@@ -15,12 +15,6 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.c-dark-theme .c-form-control {
-  color: #e9e9eb;
-  background-color: #2e2e2e;
-  border-color: #2e2e2e;
-}
-
 @media (prefers-reduced-motion: reduce) {
   .c-form-control {
     transition: none;
@@ -40,19 +34,9 @@
   box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
-.c-dark-theme .c-form-control:focus {
-  color: #e9e9eb;
-  background-color: #4d4d4d;
-  border-color: #4d4d4d;
-}
-
 .c-form-control::placeholder {
   color: #7a7a85;
   opacity: 1;
-}
-
-.c-dark-theme .c-form-control::placeholder {
-  color: #909099;
 }
 
 .c-form-control:disabled, .c-form-control[readonly] {
@@ -60,18 +44,9 @@
   opacity: 1;
 }
 
-.c-dark-theme .c-form-control:disabled, .c-dark-theme .c-form-control[readonly] {
-  background-color: rgba(255, 255, 255, 0.12);
-}
-
 select.c-form-control:focus::-ms-value {
   color: #646470;
   background-color: #fff;
-}
-
-.c-dark-theme select.c-form-control:focus::-ms-value {
-  color: #e9e9eb;
-  background-color: #2e2e2e;
 }
 
 .c-form-control-file,
@@ -113,10 +88,6 @@ select.c-form-control:focus::-ms-value {
   border: solid transparent;
   border-width: 1px 0;
   color: #373847;
-}
-
-.c-dark-theme .c-form-control-plaintext {
-  color: #e1e1e1;
 }
 
 .c-form-control-plaintext.c-form-control-sm, .c-form-control-plaintext.c-form-control-lg {
@@ -183,7 +154,7 @@ textarea.c-form-control {
 }
 
 .c-form-check-input:disabled ~ .c-form-check-label {
-  color: #7a7a85;
+  color: #646470;
 }
 
 .c-form-check-label {

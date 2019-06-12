@@ -78,6 +78,101 @@
     // Remove the top rounded corners here since there is a hard edge above the menu
     @include border-top-radius(0);
   }
+
+  // &.#{$bs-prefix}nav-tabs-boxed {
+  //   border-color: $nav-tabs-boxed-border-color;
+  //   + .#{$bs-prefix}tab-content {
+
+  //     border: $nav-tabs-border-width solid;
+  //     border-color: $nav-tabs-boxed-border-color;
+
+  //   }
+  // }
+}
+
+.#{$bs-prefix}nav-tabs-boxed {
+  .#{$bs-prefix}nav-tabs {
+    border: 0;
+
+    .#{$bs-prefix}nav-link {
+      &.#{$bs-prefix}active {
+        @include themes($nav-theme-map, $create: parent) {
+          background-color: themes-get-value("nav-tabs-boxed-link-active-bg");
+          border-bottom-color: themes-get-value("nav-tabs-boxed-link-active-bg");
+        }
+      }
+    }
+  }
+  .#{$bs-prefix}tab-content {
+    padding: $nav-tabs-boxed-content-padding-y $nav-tabs-boxed-content-padding-x;
+    border: $nav-tabs-boxed-content-border-width solid;
+    @include border-radius(0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
+    @include themes($nav-theme-map) {
+      color: themes-get-value("nav-tabs-link-active-color");
+      background-color: themes-get-value("nav-tabs-boxed-content-bg");
+      border-color: themes-get-value("nav-tabs-boxed-content-border-color");
+    }
+  }
+
+  &.#{$bs-prefix}nav-tabs-boxed-top-right {
+    .#{$bs-prefix}nav-tabs {
+      justify-content: flex-end;
+    }
+    .#{$bs-prefix}tab-content {
+      @include border-radius($nav-tabs-boxed-content-border-radius 0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
+    }
+  }
+
+  &.c-nav-tabs-boxed-left,
+  &.c-nav-tabs-boxed-right {
+    display: flex;
+
+    .#{$bs-prefix}nav-item {
+      z-index: 1;
+      flex-grow: 1;
+      margin-bottom: 0;
+    }
+  }
+
+  &.c-nav-tabs-boxed-left {
+    display: flex;
+
+    .#{$bs-prefix}nav-item {
+      margin-right: -$nav-tabs-border-width;
+    }
+
+    .#{$bs-prefix}nav-link {
+      @include border-radius($nav-tabs-boxed-content-border-radius 0 0 $nav-tabs-boxed-content-border-radius);
+
+      &.#{$bs-prefix}active {
+        @include themes($nav-theme-map) {
+          border-color: themes-get-value("nav-tabs-boxed-left-active-border-color");
+        }
+      }
+    }
+  }
+
+  &.c-nav-tabs-boxed-right {
+    flex-direction: row-reverse;
+
+    .#{$bs-prefix}nav-item {
+      margin-left: -$nav-tabs-border-width;
+    }
+
+    .#{$bs-prefix}nav-link {
+      @include border-radius(0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius 0);
+
+      &.#{$bs-prefix}active {
+        @include themes($nav-theme-map) {
+          border-color: themes-get-value("nav-tabs-boxed-right-active-border-color");
+        }
+      }
+    }
+
+    .#{$bs-prefix}tab-content {
+      @include border-radius($nav-tabs-boxed-content-border-radius 0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
+    }
+  }
 }
 
 
@@ -125,7 +220,6 @@
 // Hide tabbable panes to start, show them when `.#{$bs-prefix}active`
 
 .#{$bs-prefix}tab-content {
-  padding-top: $spacer;
   > .#{$bs-prefix}tab-pane {
     display: none;
   }

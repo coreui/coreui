@@ -125,12 +125,6 @@
   border-color: #d3d3d6;
 }
 
-.c-dark-theme .c-input-group-text {
-  color: #e9e9eb;
-  background-color: #4d4e5c;
-  border-color: #373847;
-}
-
 .c-input-group-text input[type="radio"],
 .c-input-group-text input[type="checkbox"] {
   margin-top: 0;

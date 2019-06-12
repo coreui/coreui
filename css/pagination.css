@@ -17,24 +17,12 @@
   border-color: #bcbdc2;
 }
 
-.c-dark-theme .c-page-link {
-  color: #988fed;
-  background-color: #4d4e5c;
-  border-color: #373847;
-}
-
 .c-page-link:hover {
   z-index: 2;
   text-decoration: none;
   color: #231698;
   background-color: #d3d3d6;
   border-color: #bcbdc2;
-}
-
-.c-dark-theme .c-page-link:hover {
-  color: #231698;
-  background-color: #373847;
-  border-color: #373847;
 }
 
 .c-page-link:focus {
@@ -61,24 +49,12 @@
   border-color: #321fdb;
 }
 
-.c-dark-theme .c-page-item.c-active .c-page-link {
-  color: #fff;
-  background-color: #321fdb;
-  border-color: #321fdb;
-}
-
 .c-page-item.c-disabled .c-page-link {
   pointer-events: none;
   cursor: auto;
   color: #7a7a85;
   background-color: #fff;
   border-color: #bcbdc2;
-}
-
-.c-dark-theme .c-page-item.c-disabled .c-page-link {
-  color: #7a7a85;
-  background-color: #373847;
-  border-color: #373847;
 }
 
 .c-pagination-lg .c-page-link {

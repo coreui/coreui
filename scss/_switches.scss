@@ -143,7 +143,7 @@
 // Switch Variants
 //
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   //normal style
   .#{$prefix}switch-#{$color} {
     @include switch-variant($value);

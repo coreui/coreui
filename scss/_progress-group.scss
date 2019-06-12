@@ -1,3 +1,4 @@
+//TODO: move all values to variables.scss
 .#{$prefix}progress-group {
   display: flex;
   flex-flow: row wrap;
@@ -16,7 +17,7 @@
 
 .#{$prefix}progress-group-text {
   font-size: $font-size-sm;
-  color: $gray-600;
+  color: $gray-700;
 }
 
 .#{$prefix}progress-group-header {
