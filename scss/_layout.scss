@@ -331,13 +331,13 @@ html[dir="rtl"] {
               @include media-breakpoint-down($breakpoint-mobile-down) {
                 .main,
                 .app-footer {
-                  margin-left: $sidebar-width;
+                  margin-right: $sidebar-width;
                 }
               }
               @include media-breakpoint-up($breakpoint-mobile-up) {
                 .main,
                 .app-footer {
-                  margin-left: $sidebar-minimized-width;
+                  margin-right: $sidebar-minimized-width;
                 }
               }
             }
