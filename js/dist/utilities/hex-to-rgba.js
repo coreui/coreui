@@ -2,7 +2,7 @@ import "core-js/modules/es.string.match";
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.11): hex-to-rgba.js
+ * CoreUI Utilities (v2.1.12): hex-to-rgba.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

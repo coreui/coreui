@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.11
+ * @version v2.1.12
  * @link https://coreui.io
  * Copyright (c) 2018 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://coreui.io/license)
@@ -14111,12 +14111,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
   html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 200px;
   }
+}
+
+@media (min-width: 576px) and (min-width: 992px) {
+  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 576px) {
   html:not([dir="rtl"]) .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
   html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
@@ -14159,12 +14174,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
+}
+
+@media (min-width: 576px) and (max-width: 991.98px) {
   html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 200px;
   }
+}
+
+@media (min-width: 576px) and (min-width: 992px) {
+  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-sm-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-right: 50px;
+  }
+}
+
+@media (min-width: 576px) {
   html[dir="rtl"] .sidebar-sm-show.breadcrumb-fixed .breadcrumb,
   html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
@@ -14226,12 +14256,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
   html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 200px;
   }
+}
+
+@media (min-width: 768px) and (min-width: 992px) {
+  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-left: 50px;
+  }
+}
+
+@media (min-width: 768px) {
   html:not([dir="rtl"]) .sidebar-md-show.breadcrumb-fixed .breadcrumb,
   html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
@@ -14274,12 +14319,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
   html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 200px;
   }
+}
+
+@media (min-width: 768px) and (min-width: 992px) {
+  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-md-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-right: 50px;
+  }
+}
+
+@media (min-width: 768px) {
   html[dir="rtl"] .sidebar-md-show.breadcrumb-fixed .breadcrumb,
   html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
@@ -14341,12 +14401,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
+}
+
+@media (min-width: 992px) and (max-width: 991.98px) {
+  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-left: 200px;
+  }
+}
+
+@media (min-width: 992px) and (min-width: 992px) {
   html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 50px;
   }
+}
+
+@media (min-width: 992px) {
   html:not([dir="rtl"]) .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
   html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
@@ -14389,12 +14464,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
+}
+
+@media (min-width: 992px) and (max-width: 991.98px) {
+  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-right: 200px;
+  }
+}
+
+@media (min-width: 992px) and (min-width: 992px) {
   html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 50px;
   }
+}
+
+@media (min-width: 992px) {
   html[dir="rtl"] .sidebar-lg-show.breadcrumb-fixed .breadcrumb,
   html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
@@ -14456,12 +14546,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-left: 150px;
   }
+}
+
+@media (min-width: 1200px) and (max-width: 991.98px) {
+  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-left: 200px;
+  }
+}
+
+@media (min-width: 1200px) and (min-width: 992px) {
   html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html:not([dir="rtl"]) .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-left: 50px;
   }
+}
+
+@media (min-width: 1200px) {
   html:not([dir="rtl"]) .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
   html:not([dir="rtl"]) .sidebar-show.breadcrumb-fixed .breadcrumb {
     left: 200px;
@@ -14504,12 +14609,27 @@ html[dir="rtl"] .aside-menu-show .aside-menu {
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-compact .app-footer {
     margin-right: 150px;
   }
+}
+
+@media (min-width: 1200px) and (max-width: 991.98px) {
+  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
+  html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
+    margin-right: 200px;
+  }
+}
+
+@media (min-width: 1200px) and (min-width: 992px) {
   html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-xl-show.sidebar-fixed.sidebar-minimized .app-footer,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .main,
   html[dir="rtl"] .sidebar-show.sidebar-fixed.sidebar-minimized .app-footer {
     margin-right: 50px;
   }
+}
+
+@media (min-width: 1200px) {
   html[dir="rtl"] .sidebar-xl-show.breadcrumb-fixed .breadcrumb,
   html[dir="rtl"] .sidebar-show.breadcrumb-fixed .breadcrumb {
     right: 200px;
