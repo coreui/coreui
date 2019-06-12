@@ -67,7 +67,7 @@ html[dir="rtl"] {
   }
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up($breakpoint-mobile-up) {
   //
   // Header
   //
@@ -256,9 +256,17 @@ html[dir="rtl"] {
               }
             }
             &.sidebar-minimized {
-              .main,
-              .app-footer {
-                margin-left: if($breakpoint != "lg" and $breakpoint != "xl", $sidebar-width, $sidebar-minimized-width);
+              @include media-breakpoint-down($breakpoint-mobile-down) {
+                .main,
+                .app-footer {
+                  margin-left: $sidebar-width;
+                }
+              }
+              @include media-breakpoint-up($breakpoint-mobile-up) {
+                .main,
+                .app-footer {
+                  margin-left: $sidebar-minimized-width;
+                }
               }
             }
           }
@@ -320,9 +328,17 @@ html[dir="rtl"] {
               }
             }
             &.sidebar-minimized {
-              .main,
-              .app-footer {
-                margin-right: if($breakpoint != "lg" and $breakpoint != "xl", $sidebar-width, $sidebar-minimized-width);
+              @include media-breakpoint-down($breakpoint-mobile-down) {
+                .main,
+                .app-footer {
+                  margin-left: $sidebar-width;
+                }
+              }
+              @include media-breakpoint-up($breakpoint-mobile-up) {
+                .main,
+                .app-footer {
+                  margin-left: $sidebar-minimized-width;
+                }
               }
             }
           }
@@ -432,7 +448,7 @@ html[dir="rtl"] {
 //
 // Mobile layout
 //
-@include media-breakpoint-down(md) {
+@include media-breakpoint-down($breakpoint-mobile-down) {
   .app-header {
     position: fixed;
     z-index: $zindex-sticky;

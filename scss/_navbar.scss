@@ -114,7 +114,7 @@
   background-color: rgba(0, 0, 0, .075);
 }
 
-@include media-breakpoint-up(lg) {
+@include media-breakpoint-up($breakpoint-mobile-up) {
   .brand-minimized {
     .app-header {
       .navbar-brand {
