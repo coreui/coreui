@@ -1,3 +1,9 @@
+## v2.1.14
+
+###### Dependencies update:
+- update `rollup` to `^1.15.4`
+- update `rollup-plugin-node-resolve` to `^5.0.2` 
+
 ## v2.1.12
 - fix(scss): new mobile breakpoint variables
 ```scss
