@@ -48,8 +48,9 @@
   // CoreUI start
   i,
   .#{$bs-prefix}btn-icon {
-    min-width: ($btn-font-size * $btn-line-height);
+    // min-width: ($btn-font-size * $btn-line-height);
     height: $btn-font-size;
+    margin: ((($font-size-base * $line-height-base) - $font-size-base) / 2) 0;
     fill: currentColor;
   }
   // CoreUI end

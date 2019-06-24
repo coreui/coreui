@@ -10,7 +10,6 @@ module.exports = ctx => ({
     autoprefixer: {
       cascade: false
     },
-    // 'cssnano': {},
     'postcss-combine-duplicated-selectors': {},
     'postcss-merge-rules': {}
   }

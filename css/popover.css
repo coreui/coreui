@@ -21,10 +21,11 @@
   line-break: auto;
   font-size: 0.765625rem;
   word-wrap: break-word;
-  background-color: #fff;
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1px solid;
   border-radius: 0.3rem;
+  background-color: #fff;
+  border-color: rgba(0, 0, 0, 0.2);
 }
 
 .c-popover .c-arrow {
@@ -114,7 +115,8 @@
   width: 1rem;
   margin-left: -0.5rem;
   content: "";
-  border-bottom: 1px solid #f7f7f7;
+  border-bottom: 1px solid;
+  border-bottom-color: #f7f7f7;
 }
 
 .c-bs-popover-left, .c-bs-popover-auto[x-placement^="left"] {
@@ -144,10 +146,11 @@
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
   font-size: 0.875rem;
-  background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-top-left-radius: calc(0.3rem - 1px);
   border-top-right-radius: calc(0.3rem - 1px);
+  background-color: #f7f7f7;
+  border-bottom-color: #ebebeb;
 }
 
 .c-popover-header:empty {

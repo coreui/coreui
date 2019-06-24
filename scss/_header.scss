@@ -48,6 +48,7 @@
       }
     }
   }
+
   @include media-breakpoint-up(lg) {
     &.#{$prefix}header-brand-minimized {
       width: $header-brand-minimized-width;
@@ -100,11 +101,13 @@
     position: relative;
   }
 
+  // TODO: check and remove
   button {
     margin: 0 auto;
   }
 
-  .#{$prefix}nav-link {
+  .#{$prefix}nav-link,
+  .#{$prefix}nav-btn {
     padding-right: $header-nav-link-padding-x;
     padding-left: $header-nav-link-padding-x;
 
@@ -159,7 +162,8 @@
   }
 
   .#{$prefix}header-nav {
-    .#{$prefix}nav-link {
+    .#{$prefix}nav-link,
+    .#{$prefix}nav-btn {
       color: themes-get-value("header-color");
 
       @include hover-focus {

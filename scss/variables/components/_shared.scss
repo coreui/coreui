@@ -10,6 +10,17 @@ $line-height-sm:              1.5 !default;
 $border-width:                1px !default;
 $border-color:                $gray-300 !default;
 
+$border-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$border-theme-map: map-merge(
+  (
+    light: (
+      "border-color": $border-color
+    )
+  ),
+  $border-theme-map
+);
+
 $border-radius:               .25rem !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-sm:            .2rem !default;

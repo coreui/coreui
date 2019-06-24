@@ -251,40 +251,14 @@
   background-color: rgba(0, 0, 0, 0.075);
 }
 
-.c-table .c-thead-dark th {
-  color: #fff;
-  background-color: #4d4e5c;
-  border-color: #5e6071;
-}
-
 .c-table .c-thead-light th {
   color: #646470;
   background-color: #d3d3d6;
   border-color: #bcbdc2;
 }
 
-.c-table-dark {
-  color: #fff;
-  background-color: #4d4e5c;
-}
-
-.c-table-dark th,
-.c-table-dark td,
-.c-table-dark thead th {
-  border-color: #5e6071;
-}
-
 .c-table-dark.c-table-bordered {
   border: 0;
-}
-
-.c-table-dark.c-table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.c-table-dark.c-table-hover tbody tr:hover {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.075);
 }
 
 @media (max-width: 575.98px) {

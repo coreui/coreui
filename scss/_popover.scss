@@ -11,11 +11,14 @@
   @include font-size($popover-font-size);
   // Allow breaking very long words so they don't overflow the popover's bounds
   word-wrap: break-word;
-  background-color: $popover-bg;
   background-clip: padding-box;
-  border: $popover-border-width solid $popover-border-color;
+  border: $popover-border-width solid;
   @include border-radius($popover-border-radius);
   @include box-shadow($popover-box-shadow);
+  @include themes($popover-theme-map) {
+    background-color: themes-get-value("popover-bg");
+    border-color: themes-get-value("popover-border-color");
+  }
 
   .#{$bs-prefix}arrow {
     position: absolute;
@@ -44,13 +47,17 @@
     &::before {
       bottom: 0;
       border-width: $popover-arrow-height ($popover-arrow-width / 2) 0;
-      border-top-color: $popover-arrow-outer-color;
+      @include themes($popover-theme-map) {
+        border-top-color: themes-get-value("popover-arrow-outer-color");
+      }
     }
 
     &::after {
       bottom: $popover-border-width;
       border-width: $popover-arrow-height ($popover-arrow-width / 2) 0;
-      border-top-color: $popover-arrow-color;
+      @include themes($popover-theme-map) {
+        border-top-color: themes-get-value("popover-arrow-color");
+      }
     }
   }
 }
@@ -67,13 +74,17 @@
     &::before {
       left: 0;
       border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0;
-      border-right-color: $popover-arrow-outer-color;
+      @include themes($popover-theme-map) {
+        border-right-color: themes-get-value("popover-arrow-outer-color");
+      }
     }
 
     &::after {
       left: $popover-border-width;
       border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0;
-      border-right-color: $popover-arrow-color;
+      @include themes($popover-theme-map) {
+        border-right-color: themes-get-value("popover-arrow-color");
+      }
     }
   }
 }
@@ -87,13 +98,17 @@
     &::before {
       top: 0;
       border-width: 0 ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2);
-      border-bottom-color: $popover-arrow-outer-color;
+      @include themes($popover-theme-map) {
+        border-bottom-color: themes-get-value("popover-arrow-outer-color");
+      }
     }
 
     &::after {
       top: $popover-border-width;
       border-width: 0 ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2);
-      border-bottom-color: $popover-arrow-color;
+      @include themes($popover-theme-map) {
+        border-bottom-color: themes-get-value("popover-arrow-color");
+      }
     }
   }
 
@@ -106,7 +121,10 @@
     width: $popover-arrow-width;
     margin-left: -$popover-arrow-width / 2;
     content: "";
-    border-bottom: $popover-border-width solid $popover-header-bg;
+    border-bottom: $popover-border-width solid;
+    @include themes($popover-theme-map) {
+      border-bottom-color: themes-get-value("popover-header-bg");
+    }
   }
 }
 
@@ -122,13 +140,17 @@
     &::before {
       right: 0;
       border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height;
-      border-left-color: $popover-arrow-outer-color;
+      @include themes($popover-theme-map) {
+        border-left-color: themes-get-value("popover-arrow-outer-color");
+      }
     }
 
     &::after {
       right: $popover-border-width;
       border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height;
-      border-left-color: $popover-arrow-color;
+      @include themes($popover-theme-map) {
+        border-left-color: themes-get-value("popover-arrow-color");
+      }
     }
   }
 }
@@ -154,11 +176,14 @@
   padding: $popover-header-padding-y $popover-header-padding-x;
   margin-bottom: 0; // Reset the default from Reboot
   @include font-size($font-size-base);
-  color: $popover-header-color;
-  background-color: $popover-header-bg;
   border-bottom: $popover-border-width solid darken($popover-header-bg, 5%);
   $offset-border-width: calc(#{$border-radius-lg} - #{$popover-border-width});
   @include border-top-radius($offset-border-width);
+  @include themes($popover-theme-map) {
+    color: themes-get-value("popover-header-color");
+    background-color: themes-get-value("popover-header-bg");
+    border-bottom-color: darken(themes-get-value("popover-header-bg"), 5%);
+  }
 
   &:empty {
     display: none;
@@ -167,5 +192,7 @@
 
 .#{$bs-prefix}popover-body {
   padding: $popover-body-padding-y $popover-body-padding-x;
-  color: $popover-body-color;
+  @include themes($popover-theme-map) {
+    color: themes-get-value("popover-body-color");
+  }
 }

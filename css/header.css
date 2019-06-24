@@ -135,12 +135,14 @@
   margin: 0 auto;
 }
 
-.c-header-nav .c-nav-link {
+.c-header-nav .c-nav-link,
+.c-header-nav .c-nav-btn {
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
 
-.c-header-nav .c-nav-link .c-badge {
+.c-header-nav .c-nav-link .c-badge,
+.c-header-nav .c-nav-btn .c-badge {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -148,7 +150,8 @@
   margin-left: 0;
 }
 
-.c-header-nav .c-nav-link > .c-img-avatar {
+.c-header-nav .c-nav-link > .c-img-avatar,
+.c-header-nav .c-nav-btn > .c-img-avatar {
   height: 35px;
   margin: 0 10px;
 }
@@ -182,15 +185,19 @@
   }
 }
 
-.c-header .c-header-nav .c-nav-link {
+.c-header .c-header-nav .c-nav-link,
+.c-header .c-header-nav .c-nav-btn {
   color: rgba(0, 0, 0, 0.5);
 }
 
-.c-header .c-header-nav .c-nav-link:hover, .c-header .c-header-nav .c-nav-link:focus {
+.c-header .c-header-nav .c-nav-link:hover, .c-header .c-header-nav .c-nav-link:focus,
+.c-header .c-header-nav .c-nav-btn:hover,
+.c-header .c-header-nav .c-nav-btn:focus {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.c-header .c-header-nav .c-nav-link.c-disabled {
+.c-header .c-header-nav .c-nav-link.c-disabled,
+.c-header .c-header-nav .c-nav-btn.c-disabled {
   color: rgba(0, 0, 0, 0.3);
 }
 

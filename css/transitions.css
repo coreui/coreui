@@ -43,4 +43,11 @@
   animation-duration: 1s;
 }
 
+.c-footer,
+.c-sidebar,
+.c-body,
+.c-main {
+  transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
+}
+
 /*# sourceMappingURL=transitions.css.map */

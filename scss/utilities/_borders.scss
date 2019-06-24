@@ -4,11 +4,13 @@
 // Border
 //
 
-.#{$bs-prefix}border         { border: $border-width solid $border-color !important; }
-.#{$bs-prefix}border-top     { border-top: $border-width solid $border-color !important; }
-.#{$bs-prefix}border-right   { border-right: $border-width solid $border-color !important; }
-.#{$bs-prefix}border-bottom  { border-bottom: $border-width solid $border-color !important; }
-.#{$bs-prefix}border-left    { border-left: $border-width solid $border-color !important; }
+@include themes($border-theme-map) {
+  .#{$bs-prefix}border         { border: $border-width solid themes-get-value("border-color") !important; }
+  .#{$bs-prefix}border-top     { border-top: $border-width solid themes-get-value("border-color") !important; }
+  .#{$bs-prefix}border-right   { border-right: $border-width solid themes-get-value("border-color") !important; }
+  .#{$bs-prefix}border-bottom  { border-bottom: $border-width solid themes-get-value("border-color") !important; }
+  .#{$bs-prefix}border-left    { border-left: $border-width solid themes-get-value("border-color") !important; }
+}
 
 .#{$bs-prefix}border-0        { border: 0 !important; }
 .#{$bs-prefix}border-top-0    { border-top: 0 !important; }

@@ -179,7 +179,26 @@ $theme-has-variants: false !default;
       @if $get-default {
         @content;
       } @else {
-        .#{$bs-prefix}#{$theme}#{$theme-suffix} {
+        @at-root{
+          .#{$bs-prefix}#{$theme}#{$theme-suffix} & {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-get-color($color) {
+  @each $theme in map-keys($default-themes) {
+    $get-color: map-get(map-get(map-get($default-themes, $theme), "theme-colors"), $color);
+    $get-default: map-get(map-get($default-themes, $theme), "default");
+    $color: $get-color !global;
+    @if $get-default {
+      @content;
+    } @else {
+      @at-root{
+        .#{$bs-prefix}#{$theme}#{$theme-suffix} & {
           @content;
         }
       }

@@ -28,10 +28,11 @@
   top: 55px;
 }
 
-.c-footer,
-.c-body,
-.c-main {
-  transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
+@media all and (-ms-high-contrast: none) {
+  html {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 /*# sourceMappingURL=layout.css.map */

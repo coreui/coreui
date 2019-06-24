@@ -142,29 +142,46 @@
 .#{$bs-prefix}table {
   .#{$bs-prefix}thead-dark {
     th {
-      color: $table-dark-color;
-      background-color: $table-dark-bg;
-      border-color: $table-dark-border-color;
+      // color: $table-dark-color;
+      // background-color: $table-dark-bg;
+      // border-color: $table-dark-border-color;
+      @include themes($table-theme-map) {
+        color: themes-get-value("table-dark-color");
+        background-color: themes-get-value("table-dark-bg");
+        border-color: themes-get-value("table-dark-border-color");
+      }
     }
   }
 
   .#{$bs-prefix}thead-light {
     th {
-      color: $table-head-color;
-      background-color: $table-head-bg;
-      border-color: $table-border-color;
+      // color: $table-head-color;
+      // background-color: $table-head-bg;
+      // border-color: $table-border-color;
+      @include themes($table-theme-map) {
+        color: themes-get-value("table-head-color");
+        background-color: themes-get-value("table-head-bg");
+        border-color: themes-get-value("table-border-color");
+      }
     }
   }
 }
 
 .#{$bs-prefix}table-dark {
-  color: $table-dark-color;
-  background-color: $table-dark-bg;
+  // color: $table-dark-color;
+  // background-color: $table-dark-bg;
+  @include themes($table-theme-map) {
+    color: themes-get-value("table-dark-color");
+    background-color: themes-get-value("table-dark-bg");
+  }
 
   th,
   td,
   thead th {
-    border-color: $table-dark-border-color;
+    // border-color: $table-dark-border-color;
+    @include themes($table-theme-map) {
+      border-color: themes-get-value("table-dark-border-color");
+    }
   }
 
   &.#{$bs-prefix}table-bordered {
@@ -173,15 +190,22 @@
 
   &.#{$bs-prefix}table-striped {
     tbody tr:nth-of-type(odd) {
-      background-color: $table-dark-accent-bg;
+      // background-color: $table-dark-accent-bg;
+      @include themes($table-theme-map) {
+        background-color: themes-get-value("table-dark-accent-bg");
+      }
     }
   }
 
   &.#{$bs-prefix}table-hover {
     tbody tr {
       @include hover {
-        color: $table-dark-hover-color;
-        background-color: $table-dark-hover-bg;
+        // color: $table-dark-hover-color;
+        // background-color: $table-dark-hover-bg;
+        @include themes($table-theme-map) {
+          color: themes-get-value("table-dark-hover-color");
+          background-color: themes-get-value("table-dark-hover-bg");
+        }
       }
     }
   }

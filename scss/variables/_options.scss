@@ -1,0 +1,42 @@
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$prefix:                                      c- !default; // CoreUI
+$bs-prefix:                                   c- !default; // CoreUI
+$theme-suffix:                                -theme !default;
+$enable-rtl:                                  true !default; // CoreUI
+$enable-caret:                                true !default;
+$enable-rounded:                              true !default;
+$enable-shadows:                              false !default;
+$enable-gradients:                            false !default;
+$enable-transitions:                          true !default;
+$enable-prefers-reduced-motion-media-query:   true !default;
+$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                         true !default;
+$enable-pointer-cursor-for-buttons:           true !default;
+$enable-print-styles:                         true !default;
+$enable-responsive-font-sizes:                false !default;
+$enable-validation-icons:                     true !default;
+$enable-deprecation-messages:                 true !default;
+// CoreUI
+$enable-sidebar-nav-rounded:                  false !default;
+$layout-transition-speed:                     .25s !default;
+// $default-themes:                              light, dark !default;
+$default-themes: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$default-themes: map-merge(
+  (
+    light: (
+      "default":      true,
+      "theme-colors": $theme-colors,
+      "grays":        $grays
+    )
+  ),
+  $default-themes
+);
+
+// $default-theme:                               light !default;
+$enable-elevation:                            false !default;
+$enable-prefers-color-scheme:                 true !default;

@@ -645,7 +645,7 @@
     @include borders(themes-get-value("sidebar-borders"),true);
   }
 
-  *[dir="rtl"]  {
+  *[dir="rtl"] & {
     @include borders(themes-get-value("sidebar-borders"),true);
     &.#{$prefix}sidebar-right {
       border: 0;

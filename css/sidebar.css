@@ -930,7 +930,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right {
   background: #4d4e5c;
 }
 
-.c-sidebar *[dir="rtl"].c-sidebar-right {
+*[dir="rtl"] .c-sidebar.c-sidebar-right {
   border: 0;
 }
 

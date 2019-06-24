@@ -7,172 +7,20 @@
 @import "variables/colors";
 @import "variables/brand-colors";
 
-// Set a specific jump point for requesting color jumps
-$theme-color-interval:      8% !default;
-
-// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
-$yiq-contrasted-threshold:  150 !default;
-
-// Customize the light and dark text colors for use in our YIQ color contrast function.
-$yiq-text-dark:             $gray-900 !default;
-$yiq-text-light:            $white !default;
-
-
 // Options
-//
-// Quickly modify global styling by enabling or disabling optional features.
+@import "variables/options";
+@import "variables/spacing";
+@import "variables/z-index";
 
-$prefix:                                      c- !default; // CoreUI
-$bs-prefix:                                   c- !default; // CoreUI
-$theme-suffix:                                -theme !default;
-$enable-rtl:                                  true !default; // CoreUI
-$enable-caret:                                true !default;
-$enable-rounded:                              true !default;
-$enable-shadows:                              false !default;
-$enable-gradients:                            false !default;
-$enable-transitions:                          true !default;
-$enable-prefers-reduced-motion-media-query:   true !default;
-$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
-$enable-grid-classes:                         true !default;
-$enable-pointer-cursor-for-buttons:           true !default;
-$enable-print-styles:                         true !default;
-$enable-responsive-font-sizes:                false !default;
-$enable-validation-icons:                     true !default;
-$enable-deprecation-messages:                 true !default;
-// CoreUI
-$enable-sidebar-nav-rounded:                  false !default;
-$layout-transition-speed:                     .25s !default;
-// $default-themes:                              light, dark !default;
-$default-themes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$default-themes: map-merge(
-  (
-    light: (
-      "default":      true,
-      "theme-colors": $theme-colors,
-      "grays":        $grays
-    )
-  ),
-  $default-themes
-);
-
-// $default-theme:                               light !default;
-$enable-elevation:                            false !default;
-$enable-prefers-color-scheme:                 true !default;
-
-
-// Spacing
-//
-// Control the default styling of most Bootstrap elements by modifying these
-// variables. Mostly focused on spacing.
-// You can add more entries to the $spacers map, should you need more variation.
-
-$spacer: 1rem !default;
-$spacers: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$spacers: map-merge(
-  (
-    0: 0,
-    1: ($spacer * .25),
-    2: ($spacer * .5),
-    3: $spacer,
-    4: ($spacer * 1.5),
-    5: ($spacer * 3)
-  ),
-  $spacers
-);
-
-// This variable affects the `.h-*` and `.w-*` classes.
-$sizes: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$sizes: map-merge(
-  (
-    25: 25%,
-    50: 50%,
-    75: 75%,
-    100: 100%,
-    auto: auto
-  ),
-  $sizes
-);
-
-
-// Body
-//
-// Settings for the `<body>` element.
-
-$body-bg:                   #e4e5e6 !default; // was: $white
-$body-color:                $gray-900 !default;
-
-$body-theme-map: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$body-theme-map: map-merge(
-  (
-    light: (
-      "body-bg":  #e4e5e6,
-      "body-color": $gray-900
-    )
-  ),
-  $body-theme-map
-);
-
-// Links
-//
-// Style anchor elements.
-
-$link-color:                              theme-color("primary") !default;
-$link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
-$link-hover-decoration:                   underline !default;
-// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
-$emphasized-link-hover-darken-percentage: 15% !default;
-
-$link-dark-theme-color:                   $primary-50 !default;
-$link-dark-theme-hover-color:             darken($link-dark-theme-color, 15%) !default;
-
-$link-theme-map: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$link-theme-map: map-merge(
-  (
-    light: (
-      "link-color":                       $link-color,
-      "link-hover-color":                 $link-hover-color
-    ),
-    dark: (
-      "link-color":                       $link-dark-theme-color,
-      "link-hover-color":                 $link-dark-theme-hover-color
-    )
-  ),
-  $link-theme-map
-);
-
-
-// Paragraphs
-//
-// Style p element.
-
-$paragraph-margin-bottom:   1rem !default;
-
-
+@import "variables/body";
 @import "variables/components/shared";
 @import "variables/typography";
+@import "variables/grid";
+
+// Components
+@import "variables/components/links";
 @import "variables/components/tables";
 @import "variables/components/buttons-forms";
-
-@import "variables/grid";
-// Z-index master list
-//
-// Warning: Avoid customizing these values. They're used for a bird's eye view
-// of components dependent on the z-axis and are designed to all work together.
-
-$zindex-dropdown:                   1000 !default;
-$zindex-sticky:                     1020 !default;
-$zindex-fixed:                      1030 !default;
-$zindex-modal-backdrop:             1040 !default;
-$zindex-modal:                      1050 !default;
-$zindex-popover:                    1060 !default;
-$zindex-tooltip:                    1070 !default;
-
 @import "variables/components/navs";
 @import "variables/components/navbar";
 @import "variables/components/header";
@@ -200,16 +48,11 @@ $zindex-tooltip:                    1070 !default;
 @import "variables/components/code";
 
 // Utilities
-
-$displays: none, inline, inline-block, block, table, table-row, table-cell, flex, inline-flex !default;
-$overflows: auto, hidden !default;
-$positions: static, relative, absolute, fixed, sticky !default;
+@import "variables/utilities";
 
 
 // Printing
-
-$print-page-size:                   a3 !default;
-$print-body-min-width:              map-get($grid-breakpoints, "lg") !default;
+@import "variables/printing";
 
 // Cursor
 $cursor-disabled: default !default;

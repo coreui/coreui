@@ -770,12 +770,6 @@ button.c-bg-gray-900:focus {
   display: none !important;
 }
 
-body:not(.c-light-theme) .c-d-light-none,
-div:not(.c-light-theme) .c-d-light-none,
-.c-app:not(.c-light-theme) .c-d-light-none {
-  display: none !important;
-}
-
 @media print {
   .c-d-print-none {
     display: none !important;

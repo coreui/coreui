@@ -24,11 +24,15 @@
     .#{$prefix}d-#{$theme}-none { display: none !important; }
   }
   @if map-get(map-get($default-themes, $theme), "default") {
-    body,
-    div,
-    .#{$prefix}app {
-      &:not(.#{$prefix}#{$theme}#{$theme-suffix}) {
-        .#{$prefix}d-#{$theme}-none { display: none !important; }
+    $other-themes: map-remove($default-themes, $theme);
+
+    @each $other-theme in map-keys($other-themes) {
+      body,
+      div,
+      .#{$prefix}app {
+        &:not(.#{$prefix}#{$other-theme}#{$theme-suffix}) {
+          .#{$prefix}d-#{$theme}-none { display: none !important; }
+        }
       }
     }
   }

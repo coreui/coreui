@@ -16,7 +16,9 @@
 }
 
 .c-btn .c-btn-icon {
+  min-width: 0.5625rem;
   height: 0.875rem;
+  margin: 0.21875rem 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -41,8 +43,8 @@
 
 .c-btn i,
 .c-btn .c-btn-icon {
-  min-width: 1.3125rem;
   height: 0.875rem;
+  margin: 0.21875rem 0;
   fill: currentColor;
 }
 
@@ -616,7 +618,9 @@ fieldset:disabled a.c-btn {
 }
 
 .c-btn-lg .c-btn-icon {
+  min-width: 0.640625rem;
   height: 1.09375rem;
+  margin: 0.273438rem 0;
 }
 
 .c-btn-sm {
@@ -627,7 +631,9 @@ fieldset:disabled a.c-btn {
 }
 
 .c-btn-sm .c-btn-icon {
+  min-width: 0.648438rem;
   height: 0.765625rem;
+  margin: 0.191406rem 0;
 }
 
 .c-btn-block {
