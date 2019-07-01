@@ -25,6 +25,7 @@
   @include icon-size($icon-size-sm);
 }
 
+// TODO: Consider whether to add an alias `.#{$prefix}icon-c-size` or shorten the class name.
 .#{$prefix}icon-custom-size {
   // stylelint-disable-next-line declaration-no-important
   width: initial !important;
