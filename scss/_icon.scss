@@ -1,0 +1,36 @@
+.#{$prefix}icon {
+  display: inline-block;
+  color: inherit;
+  text-align: center;
+  fill: currentColor;
+  @include icon-size($icon-size-base);
+}
+
+//
+// Icon Sizes
+//
+
+.#{$prefix}icon-3xl {
+  @include icon-size(3 * $icon-size-xl);
+}
+
+.#{$prefix}icon-2xl {
+  @include icon-size(2 * $icon-size-xl);
+}
+
+.#{$prefix}icon-xl {
+  @include icon-size($icon-size-xl);
+}
+
+.#{$prefix}icon-lg {
+  @include icon-size($icon-size-lg);
+}
+
+.#{$prefix}icon-sm {
+  @include icon-size($icon-size-sm);
+}
+
+.#{$prefix}icon-custom-size {
+  width: initial;
+  height: initial;
+}

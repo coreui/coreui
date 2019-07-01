@@ -106,7 +106,7 @@
   @include border-radius($border-radius, 0);
 
   .#{$bs-prefix}btn-icon {
-    min-width: ($font-size * $line-height) - (($padding-x - $padding-y) * 2);
+    width: $font-size;
     height: $font-size;
     margin: ((($font-size * $line-height) - $font-size) / 2) 0;
   }

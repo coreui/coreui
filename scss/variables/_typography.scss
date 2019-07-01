@@ -80,3 +80,13 @@ $hr-margin-y:                 $spacer !default;
 // Style p element.
 
 $paragraph-margin-bottom:   1rem !default;
+
+
+// Icons
+//
+// Style .c-icon element.
+
+$icon-size-base:              1rem !default; // was: 1rem
+$icon-size-sm:                $icon-size-base * .875 !default;
+$icon-size-lg:                $icon-size-base * 1.25 !default;
+$icon-size-xl:                $icon-size-base * 1.5 !default;
