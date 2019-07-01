@@ -6,16 +6,11 @@
   @include icon-size($icon-size-base);
 }
 
-//
-// Icon Sizes
-//
-
-.#{$prefix}icon-3xl {
-  @include icon-size(3 * $icon-size-xl);
-}
-
-.#{$prefix}icon-2xl {
-  @include icon-size(2 * $icon-size-xl);
+// TODO: create variable with a range
+@for $i from 2 through 9 {
+  .#{$prefix}icon-#{$i}xl {
+    @include icon-size($i * $icon-size-xl);
+  }
 }
 
 .#{$prefix}icon-xl {
