@@ -31,6 +31,8 @@
 }
 
 .#{$prefix}icon-custom-size {
-  width: initial;
-  height: initial;
+  // stylelint-disable-next-line declaration-no-important
+  width: initial !important;
+  // stylelint-disable-next-line declaration-no-important
+  height: initial !important;
 }
