@@ -58,6 +58,7 @@ const AjaxLoad = (($) => {
       } else {
         this.setUpUrl(this._config.defaultPage)
       }
+      this._removeEventListeners()
       this._addEventListeners()
     }
 
@@ -165,6 +166,10 @@ const AjaxLoad = (($) => {
           this.setUpUrl(event.currentTarget.getAttribute('href'))
         }
       })
+    }
+
+    _removeEventListeners() {
+      $(document).off(Event.CLICK, `${Selector.NAV_LINK}[href!="#"]`)
     }
 
     // Static

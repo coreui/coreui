@@ -51,6 +51,7 @@ const AsideMenu = (($) => {
   class AsideMenu {
     constructor(element) {
       this._element = element
+      this._removeEventListeners()
       this._addEventListeners()
     }
 
@@ -69,6 +70,10 @@ const AsideMenu = (($) => {
         const toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle')
         toggleClasses(toggle, ShowClassNames)
       })
+    }
+
+    _removeEventListeners() {
+      $(document).off(Event.CLICK, Selector.ASIDE_MENU_TOGGLER)
     }
 
     // Static
@@ -92,7 +97,7 @@ const AsideMenu = (($) => {
    * ------------------------------------------------------------------------
    */
 
-  $(window).on(Event.LOAD_DATA_API, () => {
+  $(window).one(Event.LOAD_DATA_API, () => {
     const asideMenu = $(Selector.ASIDE_MENU)
     AsideMenu._jQueryInterface.call(asideMenu)
   })

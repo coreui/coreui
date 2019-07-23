@@ -63,6 +63,8 @@ var AjaxLoad = function ($) {
         this.setUpUrl(this._config.defaultPage);
       }
 
+      this._removeEventListeners();
+
       this._addEventListeners();
     } // Getters
 
@@ -147,7 +149,7 @@ var AjaxLoad = function ($) {
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = Object.assign({}, Default, config);
+      config = Object.assign({}, Default, {}, config);
       return config;
     };
 
@@ -166,6 +168,10 @@ var AjaxLoad = function ($) {
           _this.setUpUrl(event.currentTarget.getAttribute('href'));
         }
       });
+    };
+
+    _proto._removeEventListeners = function _removeEventListeners() {
+      $(document).off(Event.CLICK, Selector.NAV_LINK + "[href!=\"#\"]");
     } // Static
     ;
 

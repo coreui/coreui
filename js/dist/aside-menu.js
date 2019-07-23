@@ -43,6 +43,8 @@ var AsideMenu = function ($) {
     function AsideMenu(element) {
       this._element = element;
 
+      this._removeEventListeners();
+
       this._addEventListeners();
     } // Getters
 
@@ -57,6 +59,10 @@ var AsideMenu = function ($) {
         var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
         toggleClasses(toggle, ShowClassNames);
       });
+    };
+
+    _proto._removeEventListeners = function _removeEventListeners() {
+      $(document).off(Event.CLICK, Selector.ASIDE_MENU_TOGGLER);
     } // Static
     ;
 
@@ -88,7 +94,7 @@ var AsideMenu = function ($) {
    */
 
 
-  $(window).on(Event.LOAD_DATA_API, function () {
+  $(window).one(Event.LOAD_DATA_API, function () {
     var asideMenu = $(Selector.ASIDE_MENU);
 
     AsideMenu._jQueryInterface.call(asideMenu);

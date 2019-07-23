@@ -78,6 +78,8 @@ var Sidebar = function ($) {
       this._breakpointTest = this._breakpointTest.bind(this);
       this._clickOutListener = this._clickOutListener.bind(this);
 
+      this._removeEventListeners();
+
       this._addEventListeners();
 
       this._addMediaQuery();
@@ -259,6 +261,14 @@ var Sidebar = function ($) {
 
         document.body.classList.remove('sidebar-show');
       });
+    };
+
+    _proto._removeEventListeners = function _removeEventListeners() {
+      $(document).off(Event.CLICK, Selector.BRAND_MINIMIZER);
+      $(document).off(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE);
+      $(document).off(Event.CLICK, Selector.SIDEBAR_MINIMIZER);
+      $(document).off(Event.CLICK, Selector.SIDEBAR_TOGGLER);
+      $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").off(Event.CLICK);
     } // Static
     ;
 
@@ -290,7 +300,7 @@ var Sidebar = function ($) {
    */
 
 
-  $(window).on(Event.LOAD_DATA_API, function () {
+  $(window).one(Event.LOAD_DATA_API, function () {
     var sidebar = $(Selector.SIDEBAR);
 
     Sidebar._jQueryInterface.call(sidebar);
