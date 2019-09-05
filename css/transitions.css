@@ -1,22 +1,22 @@
-.c-fade {
+.fade {
   transition: opacity 0.15s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c-fade {
+  .fade {
     transition: none;
   }
 }
 
-.c-fade:not(.c-show) {
+.fade:not(.show) {
   opacity: 0;
 }
 
-.c-collapse:not(.c-show) {
+.collapse:not(.show) {
   display: none;
 }
 
-.c-collapsing {
+.collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -24,7 +24,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c-collapsing {
+  .collapsing {
     transition: none;
   }
 }
@@ -38,7 +38,7 @@
   }
 }
 
-.c-fade-in {
+.fade-in {
   animation-name: fadeIn;
   animation-duration: 1s;
 }

@@ -41,7 +41,7 @@ const ARROW_LEFT_KEYCODE = 37 // KeyboardEvent.which value for left arrow key
 const ARROW_RIGHT_KEYCODE = 39 // KeyboardEvent.which value for right arrow key
 const TOUCHEVENT_COMPAT_WAIT = 500 // Time for mouse compat events to fire after touch
 const SWIPE_THRESHOLD = 40
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   interval: 5000,
@@ -85,24 +85,24 @@ const Event = {
 }
 
 const ClassName = {
-  CAROUSEL: `${PREFIX}carousel`,
-  ACTIVE: `${PREFIX}active`,
+  CAROUSEL: `${BS_PREFIX}carousel`,
+  ACTIVE: `${BS_PREFIX}active`,
   SLIDE: 'slide',
-  RIGHT: `${PREFIX}carousel-item-right`,
-  LEFT: `${PREFIX}carousel-item-left`,
-  NEXT: `${PREFIX}carousel-item-next`,
-  PREV: `${PREFIX}carousel-item-prev`,
-  ITEM: `${PREFIX}carousel-item`,
-  POINTER_EVENT: `${PREFIX}pointer-event`
+  RIGHT: `${BS_PREFIX}carousel-item-right`,
+  LEFT: `${BS_PREFIX}carousel-item-left`,
+  NEXT: `${BS_PREFIX}carousel-item-next`,
+  PREV: `${BS_PREFIX}carousel-item-prev`,
+  ITEM: `${BS_PREFIX}carousel-item`,
+  POINTER_EVENT: `${BS_PREFIX}pointer-event`
 }
 
 const Selector = {
-  ACTIVE: `.${PREFIX}active`,
-  ACTIVE_ITEM: `.${PREFIX}active.${PREFIX}carousel-item`,
-  ITEM: `.${PREFIX}carousel-item`,
-  ITEM_IMG: `.${PREFIX}carousel-item img`,
-  NEXT_PREV: `.${PREFIX}carousel-item-next, .${PREFIX}carousel-item-prev`,
-  INDICATORS: `.${PREFIX}carousel-indicators`,
+  ACTIVE: `.${BS_PREFIX}active`,
+  ACTIVE_ITEM: `.${BS_PREFIX}active.${BS_PREFIX}carousel-item`,
+  ITEM: `.${BS_PREFIX}carousel-item`,
+  ITEM_IMG: `.${BS_PREFIX}carousel-item img`,
+  NEXT_PREV: `.${BS_PREFIX}carousel-item-next, .${BS_PREFIX}carousel-item-prev`,
+  INDICATORS: `.${BS_PREFIX}carousel-indicators`,
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 }

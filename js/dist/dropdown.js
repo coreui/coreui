@@ -1,4 +1,6 @@
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -46,6 +48,7 @@ var ARROW_DOWN_KEYCODE = 40; // KeyboardEvent.which value for down arrow key
 var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
 var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
+var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Event = {
   HIDE: "hide" + EVENT_KEY,
@@ -59,19 +62,20 @@ var Event = {
 };
 var ClassName = {
   DISABLED: 'disabled',
-  SHOW: PREFIX + "show",
-  DROPUP: PREFIX + "dropup",
-  DROPRIGHT: PREFIX + "dropright",
-  DROPLEFT: PREFIX + "dropleft",
-  MENURIGHT: PREFIX + "dropdown-menu-right",
+  SHOW: BS_PREFIX + "show",
+  DROPUP: BS_PREFIX + "dropup",
+  DROPRIGHT: BS_PREFIX + "dropright",
+  DROPLEFT: BS_PREFIX + "dropleft",
+  MENURIGHT: BS_PREFIX + "dropdown-menu-right",
   POSITION_STATIC: 'position-static'
 };
 var Selector = {
-  DATA_TOGGLE: "[data-toggle=\"" + PREFIX + "dropdown\"]",
-  FORM_CHILD: "." + PREFIX + "dropdown form",
-  MENU: "." + PREFIX + "dropdown-menu",
-  NAVBAR_NAV: "." + PREFIX + "navbar-nav",
-  VISIBLE_ITEMS: "." + PREFIX + "dropdown-menu ." + PREFIX + "dropdown-item:not(.disabled):not(:disabled)"
+  DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "dropdown\"]",
+  FORM_CHILD: "." + BS_PREFIX + "dropdown form",
+  MENU: "." + BS_PREFIX + "dropdown-menu",
+  NAVBAR_NAV: "." + BS_PREFIX + "navbar-nav",
+  HEADER_NAV: "." + PREFIX + "header-nav",
+  VISIBLE_ITEMS: "." + BS_PREFIX + "dropdown-menu ." + BS_PREFIX + "dropdown-item:not(.disabled):not(:disabled)"
 };
 var AttachmentMap = {
   TOP: 'top-start',
@@ -113,6 +117,7 @@ function () {
     this._config = this._getConfig(config);
     this._menu = this._getMenuElement();
     this._inNavbar = this._detectNavbar();
+    this._inHeader = this._detectHeader();
 
     this._addEventListeners();
 
@@ -145,10 +150,10 @@ function () {
 
     if (showEvent.defaultPrevented) {
       return;
-    } // Disable totally Popper.js for Dropdown in Navbar
+    } // Disable totally Popper.js for Dropdown in Navbar and Header
 
 
-    if (!this._inNavbar) {
+    if (!this._inNavbar && !this._inHeader) {
       /**
        * Check for Popper dependency
        * Popper - https://popper.js.org
@@ -184,6 +189,12 @@ function () {
 
 
     if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector.NAVBAR_NAV)).length) {
+      makeArray(document.body.children).forEach(function (elem) {
+        return EventHandler.on(elem, 'mouseover', null, noop());
+      });
+    }
+
+    if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector.HEADER_NAV)).length) {
       makeArray(document.body.children).forEach(function (elem) {
         return EventHandler.on(elem, 'mouseover', null, noop());
       });
@@ -255,6 +266,7 @@ function () {
 
   _proto.update = function update() {
     this._inNavbar = this._detectNavbar();
+    this._inHeader = this._detectHeader();
 
     if (this._popper !== null) {
       this._popper.scheduleUpdate();
@@ -274,7 +286,7 @@ function () {
   };
 
   _proto._getConfig = function _getConfig(config) {
-    config = _objectSpread({}, this.constructor.Default, Manipulator.getDataAttributes(this._element), config);
+    config = _objectSpread({}, this.constructor.Default, {}, Manipulator.getDataAttributes(this._element), {}, config);
     typeCheckConfig(NAME, config, this.constructor.DefaultType);
     return config;
   };
@@ -313,7 +325,11 @@ function () {
   };
 
   _proto._detectNavbar = function _detectNavbar() {
-    return Boolean(SelectorEngine.closest(this._element, '.navbar'));
+    return Boolean(SelectorEngine.closest(this._element, "." + BS_PREFIX + "navbar"));
+  };
+
+  _proto._detectHeader = function _detectHeader() {
+    return Boolean(SelectorEngine.closest(this._element, "." + PREFIX + "header"));
   };
 
   _proto._getOffset = function _getOffset() {
@@ -323,7 +339,7 @@ function () {
 
     if (typeof this._config.offset === 'function') {
       offset.fn = function (data) {
-        data.offsets = _objectSpread({}, data.offsets, _this2._config.offset(data.offsets, _this2._element) || {});
+        data.offsets = _objectSpread({}, data.offsets, {}, _this2._config.offset(data.offsets, _this2._element) || {});
         return data;
       };
     } else {

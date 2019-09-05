@@ -4,7 +4,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -32,15 +34,15 @@ var NAME = 'popover';
 var VERSION = '3.0.0-alpha.13';
 var DATA_KEY = 'coreui.popover';
 var EVENT_KEY = "." + DATA_KEY;
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
-var CLASS_PREFIX = PREFIX + "bs-popover";
+var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
+var CLASS_PREFIX = BS_PREFIX + "bs-popover";
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
 var Default = _objectSpread({}, Tooltip.Default, {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: "<div class=\"" + PREFIX + "popover\" role=\"tooltip\">\n               <div class=\"" + PREFIX + "popover-arrow\"></div>\n               <h3 class=\"" + PREFIX + "popover-header\"></h3>\n               <div class=\"" + PREFIX + "popover-body\"></div>\n             </div>"
+  template: "<div class=\"" + BS_PREFIX + "popover\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX + "popover-arrow\"></div>\n               <h3 class=\"" + BS_PREFIX + "popover-header\"></h3>\n               <div class=\"" + BS_PREFIX + "popover-body\"></div>\n             </div>"
 });
 
 var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
@@ -48,12 +50,12 @@ var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
 });
 
 var ClassName = {
-  FADE: PREFIX + "fade",
-  SHOW: PREFIX + "show"
+  FADE: BS_PREFIX + "fade",
+  SHOW: BS_PREFIX + "show"
 };
 var Selector = {
-  TITLE: "." + PREFIX + "popover-header",
-  CONTENT: "." + PREFIX + "popover-body"
+  TITLE: "." + BS_PREFIX + "popover-header",
+  CONTENT: "." + BS_PREFIX + "popover-body"
 };
 var Event = {
   HIDE: "hide" + EVENT_KEY,

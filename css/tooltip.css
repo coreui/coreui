@@ -1,4 +1,4 @@
-.c-tooltip {
+.tooltip {
   position: absolute;
   z-index: 1070;
   display: block;
@@ -22,85 +22,85 @@
   opacity: 0;
 }
 
-.c-tooltip.c-show {
+.tooltip.show {
   opacity: 0.9;
 }
 
-.c-tooltip .c-arrow {
+.tooltip .arrow {
   position: absolute;
   display: block;
   width: 0.8rem;
   height: 0.4rem;
 }
 
-.c-tooltip .c-arrow::before {
+.tooltip .arrow::before {
   position: absolute;
   content: "";
   border-color: transparent;
   border-style: solid;
 }
 
-.c-bs-tooltip-top, .c-bs-tooltip-auto[x-placement^="top"] {
+.bs-tooltip-top, .bs-tooltip-auto[x-placement^="top"] {
   padding: 0.4rem 0;
 }
 
-.c-bs-tooltip-top .c-arrow, .c-bs-tooltip-auto[x-placement^="top"] .c-arrow {
+.bs-tooltip-top .arrow, .bs-tooltip-auto[x-placement^="top"] .arrow {
   bottom: 0;
 }
 
-.c-bs-tooltip-top .c-arrow::before, .c-bs-tooltip-auto[x-placement^="top"] .c-arrow::before {
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before {
   top: 0;
   border-width: 0.4rem 0.4rem 0;
   border-top-color: #000;
 }
 
-.c-bs-tooltip-right, .c-bs-tooltip-auto[x-placement^="right"] {
+.bs-tooltip-right, .bs-tooltip-auto[x-placement^="right"] {
   padding: 0 0.4rem;
 }
 
-.c-bs-tooltip-right .c-arrow, .c-bs-tooltip-auto[x-placement^="right"] .c-arrow {
+.bs-tooltip-right .arrow, .bs-tooltip-auto[x-placement^="right"] .arrow {
   left: 0;
   width: 0.4rem;
   height: 0.8rem;
 }
 
-.c-bs-tooltip-right .c-arrow::before, .c-bs-tooltip-auto[x-placement^="right"] .c-arrow::before {
+.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before {
   right: 0;
   border-width: 0.4rem 0.4rem 0.4rem 0;
   border-right-color: #000;
 }
 
-.c-bs-tooltip-bottom, .c-bs-tooltip-auto[x-placement^="bottom"] {
+.bs-tooltip-bottom, .bs-tooltip-auto[x-placement^="bottom"] {
   padding: 0.4rem 0;
 }
 
-.c-bs-tooltip-bottom .c-arrow, .c-bs-tooltip-auto[x-placement^="bottom"] .c-arrow {
+.bs-tooltip-bottom .arrow, .bs-tooltip-auto[x-placement^="bottom"] .arrow {
   top: 0;
 }
 
-.c-bs-tooltip-bottom .c-arrow::before, .c-bs-tooltip-auto[x-placement^="bottom"] .c-arrow::before {
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before {
   bottom: 0;
   border-width: 0 0.4rem 0.4rem;
   border-bottom-color: #000;
 }
 
-.c-bs-tooltip-left, .c-bs-tooltip-auto[x-placement^="left"] {
+.bs-tooltip-left, .bs-tooltip-auto[x-placement^="left"] {
   padding: 0 0.4rem;
 }
 
-.c-bs-tooltip-left .c-arrow, .c-bs-tooltip-auto[x-placement^="left"] .c-arrow {
+.bs-tooltip-left .arrow, .bs-tooltip-auto[x-placement^="left"] .arrow {
   right: 0;
   width: 0.4rem;
   height: 0.8rem;
 }
 
-.c-bs-tooltip-left .c-arrow::before, .c-bs-tooltip-auto[x-placement^="left"] .c-arrow::before {
+.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before {
   left: 0;
   border-width: 0.4rem 0 0.4rem 0.4rem;
   border-left-color: #000;
 }
 
-.c-tooltip-inner {
+.tooltip-inner {
   max-width: 200px;
   padding: 0.25rem 0.5rem;
   color: #fff;

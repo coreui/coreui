@@ -32,7 +32,7 @@ const VERSION = '3.0.0-alpha.13'
 const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   offset: 10,
@@ -53,18 +53,18 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_ITEM: `${PREFIX}dropdown-item`,
-  ACTIVE: `${PREFIX}active`
+  DROPDOWN_ITEM: `${BS_PREFIX}dropdown-item`,
+  ACTIVE: `${BS_PREFIX}active`
 }
 
 const Selector = {
-  DATA_SPY: `[data-spy="${PREFIX}scroll"]`,
-  NAV_LIST_GROUP: `.${PREFIX}nav, .${PREFIX}list-group`,
-  NAV_LINKS: `.${PREFIX}nav-link`,
-  NAV_ITEMS: `.${PREFIX}nav-item`,
-  LIST_ITEMS: `.${PREFIX}list-group-item`,
-  DROPDOWN: `.${PREFIX}dropdown`,
-  DROPDOWN_TOGGLE: `.${PREFIX}dropdown-toggle`
+  DATA_SPY: `[data-spy="${BS_PREFIX}scroll"]`,
+  NAV_LIST_GROUP: `.${BS_PREFIX}nav, .${BS_PREFIX}list-group`,
+  NAV_LINKS: `.${BS_PREFIX}nav-link`,
+  NAV_ITEMS: `.${BS_PREFIX}nav-item`,
+  LIST_ITEMS: `.${BS_PREFIX}list-group-item`,
+  DROPDOWN: `.${BS_PREFIX}dropdown`,
+  DROPDOWN_TOGGLE: `.${BS_PREFIX}dropdown-toggle`
 }
 
 const OffsetMethod = {

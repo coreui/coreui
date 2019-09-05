@@ -9,7 +9,7 @@
 // TODO: create variable with a range
 @for $i from 2 through 9 {
   .#{$prefix}icon-#{$i}xl {
-    @include icon-size($i * $icon-size-xl);
+    @include icon-size($i * ($icon-size-xl / 1.5));
   }
 }
 
@@ -26,6 +26,7 @@
 }
 
 // TODO: Consider whether to add an alias `.#{$prefix}icon-c-size` or shorten the class name.
+.#{$prefix}icon-c-s,
 .#{$prefix}icon-custom-size {
   // stylelint-disable-next-line declaration-no-important
   width: initial !important;

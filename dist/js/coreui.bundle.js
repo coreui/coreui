@@ -40,20 +40,35 @@
     return obj;
   }
 
-  function _objectSpread(target) {
+  function ownKeys(object, enumerableOnly) {
+    var keys = Object.keys(object);
+
+    if (Object.getOwnPropertySymbols) {
+      var symbols = Object.getOwnPropertySymbols(object);
+      if (enumerableOnly) symbols = symbols.filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+      keys.push.apply(keys, symbols);
+    }
+
+    return keys;
+  }
+
+  function _objectSpread2(target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i] != null ? arguments[i] : {};
-      var ownKeys = Object.keys(source);
 
-      if (typeof Object.getOwnPropertySymbols === 'function') {
-        ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
-          return Object.getOwnPropertyDescriptor(source, sym).enumerable;
-        }));
+      if (i % 2) {
+        ownKeys(source, true).forEach(function (key) {
+          _defineProperty(target, key, source[key]);
+        });
+      } else if (Object.getOwnPropertyDescriptors) {
+        Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+      } else {
+        ownKeys(source).forEach(function (key) {
+          Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+        });
       }
-
-      ownKeys.forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
     }
 
     return target;
@@ -735,7 +750,8 @@
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
-  var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
+
   var ClassName = {
     ACTIVE: PREFIX + "active",
     NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
@@ -782,7 +798,7 @@
 
     // Private
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default, config);
+      config = _objectSpread2({}, Default, {}, config);
       return config;
     };
 
@@ -1103,9 +1119,9 @@
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
-  var PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Selector$1 = {
-    DISMISS: '[data-dismiss="alert"]'
+    DISMISS: "[data-dismiss=\"" + BS_PREFIX + "alert\"]"
   };
   var Event$2 = {
     CLOSE: "close" + EVENT_KEY$1,
@@ -1113,9 +1129,9 @@
     CLICK_DATA_API: "click" + EVENT_KEY$1 + DATA_API_KEY$1
   };
   var ClassName$1 = {
-    ALERT: PREFIX$1 + "alert",
-    FADE: PREFIX$1 + "fade",
-    SHOW: PREFIX$1 + "show"
+    ALERT: BS_PREFIX + "alert",
+    FADE: BS_PREFIX + "fade",
+    SHOW: BS_PREFIX + "show"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -1281,18 +1297,18 @@
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
-  var PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var ClassName$2 = {
-    ACTIVE: PREFIX$2 + "active",
-    BUTTON: PREFIX$2 + "btn",
+    ACTIVE: BS_PREFIX$1 + "active",
+    BUTTON: BS_PREFIX$1 + "btn",
     FOCUS: 'focus'
   };
   var Selector$2 = {
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
-    ACTIVE: "." + PREFIX$2 + "active",
-    BUTTON: "." + PREFIX$2 + "btn"
+    ACTIVE: "." + BS_PREFIX$1 + "active",
+    BUTTON: "." + BS_PREFIX$1 + "btn"
   };
   var Event$3 = {
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2,
@@ -1495,7 +1511,7 @@
         return {};
       }
 
-      var attributes = _objectSpread({}, element.dataset);
+      var attributes = _objectSpread2({}, element.dataset);
 
       Object.keys(attributes).forEach(function (key) {
         attributes[key] = normalizeData(attributes[key]);
@@ -1549,7 +1565,7 @@
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
   var SWIPE_THRESHOLD = 40;
-  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$1 = {
     interval: 5000,
     keyboard: true,
@@ -1588,23 +1604,23 @@
     CLICK_DATA_API: "click" + EVENT_KEY$3 + DATA_API_KEY$3
   };
   var ClassName$3 = {
-    CAROUSEL: PREFIX$3 + "carousel",
-    ACTIVE: PREFIX$3 + "active",
+    CAROUSEL: BS_PREFIX$2 + "carousel",
+    ACTIVE: BS_PREFIX$2 + "active",
     SLIDE: 'slide',
-    RIGHT: PREFIX$3 + "carousel-item-right",
-    LEFT: PREFIX$3 + "carousel-item-left",
-    NEXT: PREFIX$3 + "carousel-item-next",
-    PREV: PREFIX$3 + "carousel-item-prev",
-    ITEM: PREFIX$3 + "carousel-item",
-    POINTER_EVENT: PREFIX$3 + "pointer-event"
+    RIGHT: BS_PREFIX$2 + "carousel-item-right",
+    LEFT: BS_PREFIX$2 + "carousel-item-left",
+    NEXT: BS_PREFIX$2 + "carousel-item-next",
+    PREV: BS_PREFIX$2 + "carousel-item-prev",
+    ITEM: BS_PREFIX$2 + "carousel-item",
+    POINTER_EVENT: BS_PREFIX$2 + "pointer-event"
   };
   var Selector$3 = {
-    ACTIVE: "." + PREFIX$3 + "active",
-    ACTIVE_ITEM: "." + PREFIX$3 + "active." + PREFIX$3 + "carousel-item",
-    ITEM: "." + PREFIX$3 + "carousel-item",
-    ITEM_IMG: "." + PREFIX$3 + "carousel-item img",
-    NEXT_PREV: "." + PREFIX$3 + "carousel-item-next, ." + PREFIX$3 + "carousel-item-prev",
-    INDICATORS: "." + PREFIX$3 + "carousel-indicators",
+    ACTIVE: "." + BS_PREFIX$2 + "active",
+    ACTIVE_ITEM: "." + BS_PREFIX$2 + "active." + BS_PREFIX$2 + "carousel-item",
+    ITEM: "." + BS_PREFIX$2 + "carousel-item",
+    ITEM_IMG: "." + BS_PREFIX$2 + "carousel-item img",
+    NEXT_PREV: "." + BS_PREFIX$2 + "carousel-item-next, ." + BS_PREFIX$2 + "carousel-item-prev",
+    INDICATORS: "." + BS_PREFIX$2 + "carousel-indicators",
     DATA_SLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
@@ -1739,7 +1755,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$1, config);
+      config = _objectSpread2({}, Default$1, {}, config);
       typeCheckConfig(NAME$3, config, DefaultType);
       return config;
     };
@@ -2042,10 +2058,10 @@
     Carousel._carouselInterface = function _carouselInterface(element, config) {
       var data = Data.getData(element, DATA_KEY$3);
 
-      var _config = _objectSpread({}, Default$1, Manipulator.getDataAttributes(element));
+      var _config = _objectSpread2({}, Default$1, {}, Manipulator.getDataAttributes(element));
 
       if (typeof config === 'object') {
-        _config = _objectSpread({}, _config, config);
+        _config = _objectSpread2({}, _config, {}, config);
       }
 
       var action = typeof config === 'string' ? config : _config.slide;
@@ -2087,7 +2103,7 @@
         return;
       }
 
-      var config = _objectSpread({}, Manipulator.getDataAttributes(target), Manipulator.getDataAttributes(this));
+      var config = _objectSpread2({}, Manipulator.getDataAttributes(target), {}, Manipulator.getDataAttributes(this));
 
       var slideIndex = this.getAttribute('data-slide-to');
 
@@ -2166,7 +2182,7 @@
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
-  var PREFIX$4 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$2 = {
     breakpoints: '-sm,-md,-lg,-xl',
     postfix: '-show',
@@ -2174,14 +2190,14 @@
     target: 'body'
   };
   var ClassName$4 = {
-    CLASS_TOGGLER: PREFIX$4 + "class-toggler"
+    CLASS_TOGGLER: PREFIX$1 + "class-toggler"
   };
   var Event$5 = {
     CLASS_TOGGLE: 'classtoggle',
     CLICK_DATA_API: "click" + EVENT_KEY$4 + DATA_API_KEY$4
   };
   var Selector$4 = {
-    CLASS_TOGGLER: "." + PREFIX$4 + "class-toggler"
+    CLASS_TOGGLER: "." + PREFIX$1 + "class-toggler"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -2447,7 +2463,7 @@
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
-  var PREFIX$5 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$3 = {
     toggle: true,
     parent: ''
@@ -2464,18 +2480,18 @@
     CLICK_DATA_API: "click" + EVENT_KEY$5 + DATA_API_KEY$5
   };
   var ClassName$5 = {
-    SHOW: PREFIX$5 + "show",
-    COLLAPSE: PREFIX$5 + "collapse",
-    COLLAPSING: PREFIX$5 + "collapsing",
-    COLLAPSED: PREFIX$5 + "collapsed"
+    SHOW: BS_PREFIX$3 + "show",
+    COLLAPSE: BS_PREFIX$3 + "collapse",
+    COLLAPSING: BS_PREFIX$3 + "collapsing",
+    COLLAPSED: BS_PREFIX$3 + "collapsed"
   };
   var Dimension = {
     WIDTH: 'width',
     HEIGHT: 'height'
   };
   var Selector$5 = {
-    ACTIVES: "." + PREFIX$5 + "show, ." + PREFIX$5 + "collapsing",
-    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$5 + "collapse\"]"
+    ACTIVES: "." + BS_PREFIX$3 + "show, ." + BS_PREFIX$3 + "collapsing",
+    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$3 + "collapse\"]"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -2702,7 +2718,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$3, config);
+      config = _objectSpread2({}, Default$3, {}, config);
       config.toggle = Boolean(config.toggle); // Coerce string values
 
       typeCheckConfig(NAME$5, config, DefaultType$1);
@@ -2763,7 +2779,7 @@
     Collapse._collapseInterface = function _collapseInterface(element, config) {
       var data = Data.getData(element, DATA_KEY$5);
 
-      var _config = _objectSpread({}, Default$3, Manipulator.getDataAttributes(element), typeof config === 'object' && config ? config : {});
+      var _config = _objectSpread2({}, Default$3, {}, Manipulator.getDataAttributes(element), {}, typeof config === 'object' && config ? config : {});
 
       if (!data && _config.toggle && /show|hide/.test(config)) {
         _config.toggle = false;
@@ -5485,7 +5501,8 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
-  var PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$4 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
+  var PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Event$7 = {
     HIDE: "hide" + EVENT_KEY$6,
     HIDDEN: "hidden" + EVENT_KEY$6,
@@ -5498,19 +5515,20 @@
   };
   var ClassName$6 = {
     DISABLED: 'disabled',
-    SHOW: PREFIX$6 + "show",
-    DROPUP: PREFIX$6 + "dropup",
-    DROPRIGHT: PREFIX$6 + "dropright",
-    DROPLEFT: PREFIX$6 + "dropleft",
-    MENURIGHT: PREFIX$6 + "dropdown-menu-right",
+    SHOW: BS_PREFIX$4 + "show",
+    DROPUP: BS_PREFIX$4 + "dropup",
+    DROPRIGHT: BS_PREFIX$4 + "dropright",
+    DROPLEFT: BS_PREFIX$4 + "dropleft",
+    MENURIGHT: BS_PREFIX$4 + "dropdown-menu-right",
     POSITION_STATIC: 'position-static'
   };
   var Selector$6 = {
-    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$6 + "dropdown\"]",
-    FORM_CHILD: "." + PREFIX$6 + "dropdown form",
-    MENU: "." + PREFIX$6 + "dropdown-menu",
-    NAVBAR_NAV: "." + PREFIX$6 + "navbar-nav",
-    VISIBLE_ITEMS: "." + PREFIX$6 + "dropdown-menu ." + PREFIX$6 + "dropdown-item:not(.disabled):not(:disabled)"
+    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$4 + "dropdown\"]",
+    FORM_CHILD: "." + BS_PREFIX$4 + "dropdown form",
+    MENU: "." + BS_PREFIX$4 + "dropdown-menu",
+    NAVBAR_NAV: "." + BS_PREFIX$4 + "navbar-nav",
+    HEADER_NAV: "." + PREFIX$2 + "header-nav",
+    VISIBLE_ITEMS: "." + BS_PREFIX$4 + "dropdown-menu ." + BS_PREFIX$4 + "dropdown-item:not(.disabled):not(:disabled)"
   };
   var AttachmentMap = {
     TOP: 'top-start',
@@ -5552,6 +5570,7 @@
       this._config = this._getConfig(config);
       this._menu = this._getMenuElement();
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       this._addEventListeners();
 
@@ -5584,10 +5603,10 @@
 
       if (showEvent.defaultPrevented) {
         return;
-      } // Disable totally Popper.js for Dropdown in Navbar
+      } // Disable totally Popper.js for Dropdown in Navbar and Header
 
 
-      if (!this._inNavbar) {
+      if (!this._inNavbar && !this._inHeader) {
         /**
          * Check for Popper dependency
          * Popper - https://popper.js.org
@@ -5623,6 +5642,12 @@
 
 
       if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector$6.NAVBAR_NAV)).length) {
+        makeArray(document.body.children).forEach(function (elem) {
+          return EventHandler.on(elem, 'mouseover', null, noop());
+        });
+      }
+
+      if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector$6.HEADER_NAV)).length) {
         makeArray(document.body.children).forEach(function (elem) {
           return EventHandler.on(elem, 'mouseover', null, noop());
         });
@@ -5694,6 +5719,7 @@
 
     _proto.update = function update() {
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       if (this._popper !== null) {
         this._popper.scheduleUpdate();
@@ -5713,7 +5739,7 @@
     };
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, this.constructor.Default, Manipulator.getDataAttributes(this._element), config);
+      config = _objectSpread2({}, this.constructor.Default, {}, Manipulator.getDataAttributes(this._element), {}, config);
       typeCheckConfig(NAME$6, config, this.constructor.DefaultType);
       return config;
     };
@@ -5752,7 +5778,11 @@
     };
 
     _proto._detectNavbar = function _detectNavbar() {
-      return Boolean(SelectorEngine.closest(this._element, '.navbar'));
+      return Boolean(SelectorEngine.closest(this._element, "." + BS_PREFIX$4 + "navbar"));
+    };
+
+    _proto._detectHeader = function _detectHeader() {
+      return Boolean(SelectorEngine.closest(this._element, "." + PREFIX$2 + "header"));
     };
 
     _proto._getOffset = function _getOffset() {
@@ -5762,7 +5792,7 @@
 
       if (typeof this._config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread({}, data.offsets, _this2._config.offset(data.offsets, _this2._element) || {});
+          data.offsets = _objectSpread2({}, data.offsets, {}, _this2._config.offset(data.offsets, _this2._element) || {});
           return data;
         };
       } else {
@@ -6018,7 +6048,7 @@
   var DATA_API_KEY$7 = '.data-api';
   var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
 
-  var PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$5 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$5 = {
     backdrop: true,
     keyboard: true,
@@ -6045,20 +6075,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$7 + DATA_API_KEY$7
   };
   var ClassName$7 = {
-    SCROLLABLE: PREFIX$7 + "modal-dialog-scrollable",
-    SCROLLBAR_MEASURER: PREFIX$7 + "modal-scrollbar-measure",
-    BACKDROP: PREFIX$7 + "modal-backdrop",
-    OPEN: PREFIX$7 + "modal-open",
-    FADE: PREFIX$7 + "fade",
-    SHOW: PREFIX$7 + "show"
+    SCROLLABLE: BS_PREFIX$5 + "modal-dialog-scrollable",
+    SCROLLBAR_MEASURER: BS_PREFIX$5 + "modal-scrollbar-measure",
+    BACKDROP: BS_PREFIX$5 + "modal-backdrop",
+    OPEN: BS_PREFIX$5 + "modal-open",
+    FADE: BS_PREFIX$5 + "fade",
+    SHOW: BS_PREFIX$5 + "show"
   };
   var Selector$7 = {
-    DIALOG: "." + PREFIX$7 + "modal-dialog",
-    MODAL_BODY: "." + PREFIX$7 + "modal-body",
-    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$7 + "modal\"]",
-    DATA_DISMISS: "[data-dismiss=\"" + PREFIX$7 + "modal\"]",
-    FIXED_CONTENT: "." + PREFIX$7 + "fixed-top, ." + PREFIX$7 + "fixed-bottom, ." + PREFIX$7 + "is-fixed, ." + PREFIX$7 + "sticky-top",
-    STICKY_CONTENT: "." + PREFIX$7 + "sticky-top"
+    DIALOG: "." + BS_PREFIX$5 + "modal-dialog",
+    MODAL_BODY: "." + BS_PREFIX$5 + "modal-body",
+    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$5 + "modal\"]",
+    DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX$5 + "modal\"]",
+    FIXED_CONTENT: "." + BS_PREFIX$5 + "fixed-top, ." + BS_PREFIX$5 + "fixed-bottom, ." + BS_PREFIX$5 + "is-fixed, ." + BS_PREFIX$5 + "sticky-top",
+    STICKY_CONTENT: "." + BS_PREFIX$5 + "sticky-top"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -6214,7 +6244,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$5, config);
+      config = _objectSpread2({}, Default$5, {}, config);
       typeCheckConfig(NAME$7, config, DefaultType$3);
       return config;
     };
@@ -6515,7 +6545,7 @@
       return this.each(function () {
         var data = Data.getData(this, DATA_KEY$7);
 
-        var _config = _objectSpread({}, Default$5, Manipulator.getDataAttributes(this), typeof config === 'object' && config ? config : {});
+        var _config = _objectSpread2({}, Default$5, {}, Manipulator.getDataAttributes(this), {}, typeof config === 'object' && config ? config : {});
 
         if (!data) {
           data = new Modal(this, _config);
@@ -6568,7 +6598,7 @@
       target = SelectorEngine.findOne(selector);
     }
 
-    var config = Data.getData(target, DATA_KEY$7) ? 'toggle' : _objectSpread({}, Manipulator.getDataAttributes(target), Manipulator.getDataAttributes(this));
+    var config = Data.getData(target, DATA_KEY$7) ? 'toggle' : _objectSpread2({}, Manipulator.getDataAttributes(target), {}, Manipulator.getDataAttributes(this));
 
     if (this.tagName === 'A' || this.tagName === 'AREA') {
       event.preventDefault();
@@ -6724,7 +6754,7 @@
     };
 
     for (var i = 0, len = elements.length; i < len; i++) {
-      var _ret = _loop(i, len);
+      var _ret = _loop(i);
 
       if (_ret === "continue") continue;
     }
@@ -6742,8 +6772,8 @@
   var VERSION$8 = '3.0.0-alpha.13';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
-  var PREFIX$8 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
-  var CLASS_PREFIX = PREFIX$8 + "bs-tooltip";
+  var BS_PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
+  var CLASS_PREFIX = BS_PREFIX$6 + "bs-tooltip";
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType$4 = {
@@ -6772,7 +6802,7 @@
   };
   var Default$6 = {
     animation: true,
-    template: "<div class=\"" + PREFIX$8 + "tooltip\" role=\"tooltip\">\n               <div class=\"" + PREFIX$8 + "tooltip-arrow\"></div>\n               <div class=\"" + PREFIX$8 + "tooltip-inner\"></div>\n             </div>",
+    template: "<div class=\"" + BS_PREFIX$6 + "tooltip\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX$6 + "tooltip-arrow\"></div>\n               <div class=\"" + BS_PREFIX$6 + "tooltip-inner\"></div>\n             </div>",
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -6804,12 +6834,12 @@
     MOUSELEAVE: "mouseleave" + EVENT_KEY$8
   };
   var ClassName$8 = {
-    FADE: PREFIX$8 + "fade",
-    SHOW: PREFIX$8 + "show"
+    FADE: BS_PREFIX$6 + "fade",
+    SHOW: BS_PREFIX$6 + "show"
   };
   var Selector$8 = {
-    TOOLTIP_INNER: "." + PREFIX$8 + "tooltip-inner",
-    TOOLTIP_ARROW: "." + PREFIX$8 + "tooltip-arrow"
+    TOOLTIP_INNER: "." + BS_PREFIX$6 + "tooltip-inner",
+    TOOLTIP_ARROW: "." + BS_PREFIX$6 + "tooltip-arrow"
   };
   var Trigger = {
     HOVER: 'hover',
@@ -7164,7 +7194,7 @@
 
       if (typeof this.config.offset === 'function') {
         offset.fn = function (data) {
-          data.offsets = _objectSpread({}, data.offsets, _this3.config.offset(data.offsets, _this3.element) || {});
+          data.offsets = _objectSpread2({}, data.offsets, {}, _this3.config.offset(data.offsets, _this3.element) || {});
           return data;
         };
       } else {
@@ -7217,7 +7247,7 @@
       });
 
       if (this.config.selector) {
-        this.config = _objectSpread({}, this.config, {
+        this.config = _objectSpread2({}, this.config, {
           trigger: 'manual',
           selector: ''
         });
@@ -7322,7 +7352,7 @@
         config.container = config.container[0];
       }
 
-      config = _objectSpread({}, this.constructor.Default, dataAttributes, typeof config === 'object' && config ? config : {});
+      config = _objectSpread2({}, this.constructor.Default, {}, dataAttributes, {}, typeof config === 'object' && config ? config : {});
 
       if (typeof config.delay === 'number') {
         config.delay = {
@@ -7496,28 +7526,28 @@
   var VERSION$9 = '3.0.0-alpha.13';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
-  var PREFIX$9 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
-  var CLASS_PREFIX$1 = PREFIX$9 + "bs-popover";
+  var BS_PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
+  var CLASS_PREFIX$1 = BS_PREFIX$7 + "bs-popover";
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
-  var Default$7 = _objectSpread({}, Tooltip.Default, {
+  var Default$7 = _objectSpread2({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: "<div class=\"" + PREFIX$9 + "popover\" role=\"tooltip\">\n               <div class=\"" + PREFIX$9 + "popover-arrow\"></div>\n               <h3 class=\"" + PREFIX$9 + "popover-header\"></h3>\n               <div class=\"" + PREFIX$9 + "popover-body\"></div>\n             </div>"
+    template: "<div class=\"" + BS_PREFIX$7 + "popover\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX$7 + "popover-arrow\"></div>\n               <h3 class=\"" + BS_PREFIX$7 + "popover-header\"></h3>\n               <div class=\"" + BS_PREFIX$7 + "popover-body\"></div>\n             </div>"
   });
 
-  var DefaultType$5 = _objectSpread({}, Tooltip.DefaultType, {
+  var DefaultType$5 = _objectSpread2({}, Tooltip.DefaultType, {
     content: '(string|element|function)'
   });
 
   var ClassName$9 = {
-    FADE: PREFIX$9 + "fade",
-    SHOW: PREFIX$9 + "show"
+    FADE: BS_PREFIX$7 + "fade",
+    SHOW: BS_PREFIX$7 + "show"
   };
   var Selector$9 = {
-    TITLE: "." + PREFIX$9 + "popover-header",
-    CONTENT: "." + PREFIX$9 + "popover-body"
+    TITLE: "." + BS_PREFIX$7 + "popover-header",
+    CONTENT: "." + BS_PREFIX$7 + "popover-body"
   };
   var Event$a = {
     HIDE: "hide" + EVENT_KEY$9,
@@ -7691,7 +7721,7 @@
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
-  var PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$8 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$8 = {
     offset: 10,
     method: 'auto',
@@ -7708,17 +7738,17 @@
     LOAD_DATA_API: "load" + EVENT_KEY$a + DATA_API_KEY$8
   };
   var ClassName$a = {
-    DROPDOWN_ITEM: PREFIX$a + "dropdown-item",
-    ACTIVE: PREFIX$a + "active"
+    DROPDOWN_ITEM: BS_PREFIX$8 + "dropdown-item",
+    ACTIVE: BS_PREFIX$8 + "active"
   };
   var Selector$a = {
-    DATA_SPY: "[data-spy=\"" + PREFIX$a + "scroll\"]",
-    NAV_LIST_GROUP: "." + PREFIX$a + "nav, ." + PREFIX$a + "list-group",
-    NAV_LINKS: "." + PREFIX$a + "nav-link",
-    NAV_ITEMS: "." + PREFIX$a + "nav-item",
-    LIST_ITEMS: "." + PREFIX$a + "list-group-item",
-    DROPDOWN: "." + PREFIX$a + "dropdown",
-    DROPDOWN_TOGGLE: "." + PREFIX$a + "dropdown-toggle"
+    DATA_SPY: "[data-spy=\"" + BS_PREFIX$8 + "scroll\"]",
+    NAV_LIST_GROUP: "." + BS_PREFIX$8 + "nav, ." + BS_PREFIX$8 + "list-group",
+    NAV_LINKS: "." + BS_PREFIX$8 + "nav-link",
+    NAV_ITEMS: "." + BS_PREFIX$8 + "nav-item",
+    LIST_ITEMS: "." + BS_PREFIX$8 + "list-group-item",
+    DROPDOWN: "." + BS_PREFIX$8 + "dropdown",
+    DROPDOWN_TOGGLE: "." + BS_PREFIX$8 + "dropdown-toggle"
   };
   var OffsetMethod = {
     OFFSET: 'offset',
@@ -7812,7 +7842,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$8, typeof config === 'object' && config ? config : {});
+      config = _objectSpread2({}, Default$8, {}, typeof config === 'object' && config ? config : {});
 
       if (typeof config.target !== 'string') {
         var id = config.target.id;
@@ -9395,16 +9425,17 @@
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
-  var PREFIX$b = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
+
   var Default$9 = {
     transition: 400
   };
   var ClassName$b = {
-    ACTIVE: PREFIX$b + "active",
-    NAV_DROPDOWN_TOGGLE: PREFIX$b + "nav-dropdown-toggle",
-    OPEN: PREFIX$b + "open",
-    SIDEBAR_MINIMIZED: PREFIX$b + "sidebar-minimized",
-    SIDEBAR_SHOW: PREFIX$b + "sidebar-show"
+    ACTIVE: PREFIX$3 + "active",
+    NAV_DROPDOWN_TOGGLE: PREFIX$3 + "nav-dropdown-toggle",
+    OPEN: PREFIX$3 + "open",
+    SIDEBAR_MINIMIZED: PREFIX$3 + "sidebar-minimized",
+    SIDEBAR_SHOW: PREFIX$3 + "sidebar-show"
   };
   var Event$c = {
     CLASS_TOGGLE: 'classtoggle',
@@ -9417,12 +9448,12 @@
     UPDATE: 'update'
   };
   var Selector$b = {
-    NAV_DROPDOWN_TOGGLE: "." + PREFIX$b + "nav-dropdown-toggle",
-    NAV_DROPDOWN: "." + PREFIX$b + "nav-dropdown",
-    NAV_LINK: "." + PREFIX$b + "nav-link",
-    NAV_LINK_QUERIED: "." + PREFIX$b + "nav-link-queried",
-    NAVIGATION_CONTAINER: "." + PREFIX$b + "sidebar-nav",
-    SIDEBAR: "." + PREFIX$b + "sidebar"
+    NAV_DROPDOWN_TOGGLE: "." + PREFIX$3 + "nav-dropdown-toggle",
+    NAV_DROPDOWN: "." + PREFIX$3 + "nav-dropdown",
+    NAV_LINK: "." + PREFIX$3 + "nav-link",
+    NAV_LINK_QUERIED: "." + PREFIX$3 + "nav-link-queried",
+    NAVIGATION_CONTAINER: "." + PREFIX$3 + "sidebar-nav",
+    SIDEBAR: "." + PREFIX$3 + "sidebar"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -9741,7 +9772,7 @@
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
-  var PREFIX$c = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$9 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Event$d = {
     HIDE: "hide" + EVENT_KEY$c,
     HIDDEN: "hidden" + EVENT_KEY$c,
@@ -9750,20 +9781,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$c + DATA_API_KEY$a
   };
   var ClassName$c = {
-    DROPDOWN_MENU: PREFIX$c + "dropdown-menu",
-    ACTIVE: PREFIX$c + "active",
+    DROPDOWN_MENU: BS_PREFIX$9 + "dropdown-menu",
+    ACTIVE: BS_PREFIX$9 + "active",
     DISABLED: 'disabled',
-    FADE: PREFIX$c + "fade",
-    SHOW: PREFIX$c + "show"
+    FADE: BS_PREFIX$9 + "fade",
+    SHOW: BS_PREFIX$9 + "show"
   };
   var Selector$c = {
-    DROPDOWN: "." + PREFIX$c + "dropdown",
-    NAV_LIST_GROUP: "." + PREFIX$c + "nav, ." + PREFIX$c + "list-group",
-    ACTIVE: "." + PREFIX$c + "active",
-    ACTIVE_UL: ":scope > li > ." + PREFIX$c + "active",
-    DATA_TOGGLE: "[data-toggle=\"" + PREFIX$c + "tab\"], [data-toggle=\"" + PREFIX$c + "pill\"], [data-toggle=\"" + PREFIX$c + "list\"]",
-    DROPDOWN_TOGGLE: "." + PREFIX$c + "dropdown-toggle",
-    DROPDOWN_ACTIVE_CHILD: ":scope > ." + PREFIX$c + "dropdown-menu ." + PREFIX$c + "active"
+    DROPDOWN: "." + BS_PREFIX$9 + "dropdown",
+    NAV_LIST_GROUP: "." + BS_PREFIX$9 + "nav, ." + BS_PREFIX$9 + "list-group",
+    ACTIVE: "." + BS_PREFIX$9 + "active",
+    ACTIVE_UL: ":scope > li > ." + BS_PREFIX$9 + "active",
+    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$9 + "tab\"], [data-toggle=\"" + BS_PREFIX$9 + "pill\"], [data-toggle=\"" + BS_PREFIX$9 + "list\"]",
+    DROPDOWN_TOGGLE: "." + BS_PREFIX$9 + "dropdown-toggle",
+    DROPDOWN_ACTIVE_CHILD: ":scope > ." + BS_PREFIX$9 + "dropdown-menu ." + BS_PREFIX$9 + "active"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -9978,7 +10009,7 @@
   var VERSION$d = '3.0.0-alpha.13';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
-  var PREFIX$d = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+  var BS_PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Event$e = {
     CLICK_DISMISS: "click.dismiss" + EVENT_KEY$d,
     HIDE: "hide" + EVENT_KEY$d,
@@ -9987,10 +10018,10 @@
     SHOWN: "shown" + EVENT_KEY$d
   };
   var ClassName$d = {
-    FADE: PREFIX$d + "fade",
-    HIDE: PREFIX$d + "hide",
-    SHOW: PREFIX$d + "show",
-    SHOWING: PREFIX$d + "showing"
+    FADE: BS_PREFIX$a + "fade",
+    HIDE: BS_PREFIX$a + "hide",
+    SHOW: BS_PREFIX$a + "show",
+    SHOWING: BS_PREFIX$a + "showing"
   };
   var DefaultType$7 = {
     animation: 'boolean',
@@ -10003,7 +10034,7 @@
     delay: 500
   };
   var Selector$d = {
-    DATA_DISMISS: "[data-dismiss=\"" + PREFIX$d + "toast\"]"
+    DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX$a + "toast\"]"
     /**
      * ------------------------------------------------------------------------
      * Class Definition
@@ -10097,7 +10128,7 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread({}, Default$a, Manipulator.getDataAttributes(this._element), typeof config === 'object' && config ? config : {});
+      config = _objectSpread2({}, Default$a, {}, Manipulator.getDataAttributes(this._element), {}, typeof config === 'object' && config ? config : {});
       typeCheckConfig(NAME$d, config, this.constructor.DefaultType);
       return config;
     };

@@ -1,11 +1,11 @@
-.c-pagination {
+.pagination {
   display: flex;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
 }
 
-.c-page-link {
+.page-link {
   position: relative;
   display: block;
   padding: 0.5rem 0.75rem;
@@ -17,7 +17,7 @@
   border-color: #bcbdc2;
 }
 
-.c-page-link:hover {
+.page-link:hover {
   z-index: 2;
   text-decoration: none;
   color: #231698;
@@ -25,31 +25,31 @@
   border-color: #bcbdc2;
 }
 
-.c-page-link:focus {
+.page-link:focus {
   z-index: 2;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
-.c-page-item:first-child .c-page-link {
+.page-item:first-child .page-link {
   margin-left: 0;
   border-top-left-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
 }
 
-.c-page-item:last-child .c-page-link {
+.page-item:last-child .page-link {
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
 }
 
-.c-page-item.c-active .c-page-link {
+.page-item.active .page-link {
   z-index: 1;
   color: #fff;
   background-color: #321fdb;
   border-color: #321fdb;
 }
 
-.c-page-item.c-disabled .c-page-link {
+.page-item.disabled .page-link {
   pointer-events: none;
   cursor: auto;
   color: #7a7a85;
@@ -57,34 +57,34 @@
   border-color: #bcbdc2;
 }
 
-.c-pagination-lg .c-page-link {
+.pagination-lg .page-link {
   padding: 0.75rem 1.5rem;
   font-size: 1.09375rem;
   line-height: 1.5;
 }
 
-.c-pagination-lg .c-page-item:first-child .c-page-link {
+.pagination-lg .page-item:first-child .page-link {
   border-top-left-radius: 0.3rem;
   border-bottom-left-radius: 0.3rem;
 }
 
-.c-pagination-lg .c-page-item:last-child .c-page-link {
+.pagination-lg .page-item:last-child .page-link {
   border-top-right-radius: 0.3rem;
   border-bottom-right-radius: 0.3rem;
 }
 
-.c-pagination-sm .c-page-link {
+.pagination-sm .page-link {
   padding: 0.25rem 0.5rem;
   font-size: 0.765625rem;
   line-height: 1.5;
 }
 
-.c-pagination-sm .c-page-item:first-child .c-page-link {
+.pagination-sm .page-item:first-child .page-link {
   border-top-left-radius: 0.2rem;
   border-bottom-left-radius: 0.2rem;
 }
 
-.c-pagination-sm .c-page-item:last-child .c-page-link {
+.pagination-sm .page-item:last-child .page-link {
   border-top-right-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
 }

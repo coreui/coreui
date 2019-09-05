@@ -1,4 +1,6 @@
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -39,7 +41,7 @@ var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
 var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
 var SWIPE_THRESHOLD = 40;
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   interval: 5000,
   keyboard: true,
@@ -78,23 +80,23 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  CAROUSEL: PREFIX + "carousel",
-  ACTIVE: PREFIX + "active",
+  CAROUSEL: BS_PREFIX + "carousel",
+  ACTIVE: BS_PREFIX + "active",
   SLIDE: 'slide',
-  RIGHT: PREFIX + "carousel-item-right",
-  LEFT: PREFIX + "carousel-item-left",
-  NEXT: PREFIX + "carousel-item-next",
-  PREV: PREFIX + "carousel-item-prev",
-  ITEM: PREFIX + "carousel-item",
-  POINTER_EVENT: PREFIX + "pointer-event"
+  RIGHT: BS_PREFIX + "carousel-item-right",
+  LEFT: BS_PREFIX + "carousel-item-left",
+  NEXT: BS_PREFIX + "carousel-item-next",
+  PREV: BS_PREFIX + "carousel-item-prev",
+  ITEM: BS_PREFIX + "carousel-item",
+  POINTER_EVENT: BS_PREFIX + "pointer-event"
 };
 var Selector = {
-  ACTIVE: "." + PREFIX + "active",
-  ACTIVE_ITEM: "." + PREFIX + "active." + PREFIX + "carousel-item",
-  ITEM: "." + PREFIX + "carousel-item",
-  ITEM_IMG: "." + PREFIX + "carousel-item img",
-  NEXT_PREV: "." + PREFIX + "carousel-item-next, ." + PREFIX + "carousel-item-prev",
-  INDICATORS: "." + PREFIX + "carousel-indicators",
+  ACTIVE: "." + BS_PREFIX + "active",
+  ACTIVE_ITEM: "." + BS_PREFIX + "active." + BS_PREFIX + "carousel-item",
+  ITEM: "." + BS_PREFIX + "carousel-item",
+  ITEM_IMG: "." + BS_PREFIX + "carousel-item img",
+  NEXT_PREV: "." + BS_PREFIX + "carousel-item-next, ." + BS_PREFIX + "carousel-item-prev",
+  INDICATORS: "." + BS_PREFIX + "carousel-indicators",
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 };
@@ -229,7 +231,7 @@ function () {
   ;
 
   _proto._getConfig = function _getConfig(config) {
-    config = _objectSpread({}, Default, config);
+    config = _objectSpread({}, Default, {}, config);
     typeCheckConfig(NAME, config, DefaultType);
     return config;
   };
@@ -532,10 +534,10 @@ function () {
   Carousel._carouselInterface = function _carouselInterface(element, config) {
     var data = Data.getData(element, DATA_KEY);
 
-    var _config = _objectSpread({}, Default, Manipulator.getDataAttributes(element));
+    var _config = _objectSpread({}, Default, {}, Manipulator.getDataAttributes(element));
 
     if (typeof config === 'object') {
-      _config = _objectSpread({}, _config, config);
+      _config = _objectSpread({}, _config, {}, config);
     }
 
     var action = typeof config === 'string' ? config : _config.slide;
@@ -577,7 +579,7 @@ function () {
       return;
     }
 
-    var config = _objectSpread({}, Manipulator.getDataAttributes(target), Manipulator.getDataAttributes(this));
+    var config = _objectSpread({}, Manipulator.getDataAttributes(target), {}, Manipulator.getDataAttributes(this));
 
     var slideIndex = this.getAttribute('data-slide-to');
 

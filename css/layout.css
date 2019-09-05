@@ -24,6 +24,11 @@
   min-width: 0;
 }
 
+.c-app.c-default-layout .c-body .c-main > .container-fluid {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
 .c-app.c-default-layout .c-sidebar.c-sidebar-fixed {
   top: 55px;
 }

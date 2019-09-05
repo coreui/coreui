@@ -41,6 +41,7 @@ const ARROW_UP_KEYCODE = 38 // KeyboardEvent.which value for up arrow key
 const ARROW_DOWN_KEYCODE = 40 // KeyboardEvent.which value for down arrow key
 const RIGHT_MOUSE_BUTTON_WHICH = 3 // MouseEvent.which value for the right button (assuming a right-handed mouse)
 const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEYCODE}|${ARROW_DOWN_KEYCODE}|${ESCAPE_KEYCODE}`)
+const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Event = {
@@ -56,20 +57,21 @@ const Event = {
 
 const ClassName = {
   DISABLED: 'disabled',
-  SHOW: `${PREFIX}show`,
-  DROPUP: `${PREFIX}dropup`,
-  DROPRIGHT: `${PREFIX}dropright`,
-  DROPLEFT: `${PREFIX}dropleft`,
-  MENURIGHT: `${PREFIX}dropdown-menu-right`,
+  SHOW: `${BS_PREFIX}show`,
+  DROPUP: `${BS_PREFIX}dropup`,
+  DROPRIGHT: `${BS_PREFIX}dropright`,
+  DROPLEFT: `${BS_PREFIX}dropleft`,
+  MENURIGHT: `${BS_PREFIX}dropdown-menu-right`,
   POSITION_STATIC: 'position-static'
 }
 
 const Selector = {
-  DATA_TOGGLE: `[data-toggle="${PREFIX}dropdown"]`,
-  FORM_CHILD: `.${PREFIX}dropdown form`,
-  MENU: `.${PREFIX}dropdown-menu`,
-  NAVBAR_NAV: `.${PREFIX}navbar-nav`,
-  VISIBLE_ITEMS: `.${PREFIX}dropdown-menu .${PREFIX}dropdown-item:not(.disabled):not(:disabled)`
+  DATA_TOGGLE: `[data-toggle="${BS_PREFIX}dropdown"]`,
+  FORM_CHILD: `.${BS_PREFIX}dropdown form`,
+  MENU: `.${BS_PREFIX}dropdown-menu`,
+  NAVBAR_NAV: `.${BS_PREFIX}navbar-nav`,
+  HEADER_NAV: `.${PREFIX}header-nav`,
+  VISIBLE_ITEMS: `.${BS_PREFIX}dropdown-menu .${BS_PREFIX}dropdown-item:not(.disabled):not(:disabled)`
 }
 
 const AttachmentMap = {
@@ -112,6 +114,7 @@ class Dropdown {
     this._config = this._getConfig(config)
     this._menu = this._getMenuElement()
     this._inNavbar = this._detectNavbar()
+    this._inHeader = this._detectHeader()
 
     this._addEventListeners()
     Data.setData(element, DATA_KEY, this)
@@ -156,8 +159,8 @@ class Dropdown {
       return
     }
 
-    // Disable totally Popper.js for Dropdown in Navbar
-    if (!this._inNavbar) {
+    // Disable totally Popper.js for Dropdown in Navbar and Header
+    if (!this._inNavbar && !this._inHeader) {
       /**
        * Check for Popper dependency
        * Popper - https://popper.js.org
@@ -195,6 +198,12 @@ class Dropdown {
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
     if ('ontouchstart' in document.documentElement &&
       !makeArray(SelectorEngine.closest(parent, Selector.NAVBAR_NAV)).length) {
+      makeArray(document.body.children)
+        .forEach(elem => EventHandler.on(elem, 'mouseover', null, noop()))
+    }
+
+    if ('ontouchstart' in document.documentElement &&
+      !makeArray(SelectorEngine.closest(parent, Selector.HEADER_NAV)).length) {
       makeArray(document.body.children)
         .forEach(elem => EventHandler.on(elem, 'mouseover', null, noop()))
     }
@@ -262,6 +271,7 @@ class Dropdown {
 
   update() {
     this._inNavbar = this._detectNavbar()
+    this._inHeader = this._detectHeader()
     if (this._popper !== null) {
       this._popper.scheduleUpdate()
     }
@@ -327,7 +337,11 @@ class Dropdown {
   }
 
   _detectNavbar() {
-    return Boolean(SelectorEngine.closest(this._element, '.navbar'))
+    return Boolean(SelectorEngine.closest(this._element, `.${BS_PREFIX}navbar`))
+  }
+
+  _detectHeader() {
+    return Boolean(SelectorEngine.closest(this._element, `.${PREFIX}header`))
   }
 
   _getOffset() {

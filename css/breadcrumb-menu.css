@@ -1,38 +1,38 @@
-.c-breadcrumb-menu {
+.breadcrumb-menu {
   margin-left: auto;
 }
 
-.c-breadcrumb-menu::before {
+.breadcrumb-menu::before {
   display: none;
 }
 
-.c-breadcrumb-menu .c-btn-group {
+.breadcrumb-menu .btn-group {
   vertical-align: top;
 }
 
-.c-breadcrumb-menu .c-btn {
+.breadcrumb-menu .btn {
   padding: 0 0.75rem;
   color: #646470;
   vertical-align: top;
   border: 0;
 }
 
-.c-breadcrumb-menu .c-btn:hover, .c-breadcrumb-menu .c-btn.c-active {
+.breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {
   color: #373847;
   background: transparent;
 }
 
-.c-breadcrumb-menu .c-open .c-btn {
+.breadcrumb-menu .open .btn {
   color: #373847;
   background: transparent;
 }
 
-.c-breadcrumb-menu .c-dropdown-menu {
+.breadcrumb-menu .dropdown-menu {
   min-width: 180px;
   line-height: 1.5;
 }
 
-*[dir="rtl"] .c-breadcrumb-menu {
+*[dir="rtl"] .breadcrumb-menu {
   margin-right: auto;
   margin-left: initial;
 }

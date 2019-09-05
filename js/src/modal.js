@@ -37,7 +37,7 @@ const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   backdrop: true,
@@ -68,21 +68,21 @@ const Event = {
 }
 
 const ClassName = {
-  SCROLLABLE: `${PREFIX}modal-dialog-scrollable`,
-  SCROLLBAR_MEASURER: `${PREFIX}modal-scrollbar-measure`,
-  BACKDROP: `${PREFIX}modal-backdrop`,
-  OPEN: `${PREFIX}modal-open`,
-  FADE: `${PREFIX}fade`,
-  SHOW: `${PREFIX}show`
+  SCROLLABLE: `${BS_PREFIX}modal-dialog-scrollable`,
+  SCROLLBAR_MEASURER: `${BS_PREFIX}modal-scrollbar-measure`,
+  BACKDROP: `${BS_PREFIX}modal-backdrop`,
+  OPEN: `${BS_PREFIX}modal-open`,
+  FADE: `${BS_PREFIX}fade`,
+  SHOW: `${BS_PREFIX}show`
 }
 
 const Selector = {
-  DIALOG: `.${PREFIX}modal-dialog`,
-  MODAL_BODY: `.${PREFIX}modal-body`,
-  DATA_TOGGLE: `[data-toggle="${PREFIX}modal"]`,
-  DATA_DISMISS: `[data-dismiss="${PREFIX}modal"]`,
-  FIXED_CONTENT: `.${PREFIX}fixed-top, .${PREFIX}fixed-bottom, .${PREFIX}is-fixed, .${PREFIX}sticky-top`,
-  STICKY_CONTENT: `.${PREFIX}sticky-top`
+  DIALOG: `.${BS_PREFIX}modal-dialog`,
+  MODAL_BODY: `.${BS_PREFIX}modal-body`,
+  DATA_TOGGLE: `[data-toggle="${BS_PREFIX}modal"]`,
+  DATA_DISMISS: `[data-dismiss="${BS_PREFIX}modal"]`,
+  FIXED_CONTENT: `.${BS_PREFIX}fixed-top, .${BS_PREFIX}fixed-bottom, .${BS_PREFIX}is-fixed, .${BS_PREFIX}sticky-top`,
+  STICKY_CONTENT: `.${BS_PREFIX}sticky-top`
 }
 
 /**

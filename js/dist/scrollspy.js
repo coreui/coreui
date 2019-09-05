@@ -1,4 +1,6 @@
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
@@ -32,7 +34,7 @@ var VERSION = '3.0.0-alpha.13';
 var DATA_KEY = 'coreui.scrollspy';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
+var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   offset: 10,
   method: 'auto',
@@ -49,17 +51,17 @@ var Event = {
   LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_ITEM: PREFIX + "dropdown-item",
-  ACTIVE: PREFIX + "active"
+  DROPDOWN_ITEM: BS_PREFIX + "dropdown-item",
+  ACTIVE: BS_PREFIX + "active"
 };
 var Selector = {
-  DATA_SPY: "[data-spy=\"" + PREFIX + "scroll\"]",
-  NAV_LIST_GROUP: "." + PREFIX + "nav, ." + PREFIX + "list-group",
-  NAV_LINKS: "." + PREFIX + "nav-link",
-  NAV_ITEMS: "." + PREFIX + "nav-item",
-  LIST_ITEMS: "." + PREFIX + "list-group-item",
-  DROPDOWN: "." + PREFIX + "dropdown",
-  DROPDOWN_TOGGLE: "." + PREFIX + "dropdown-toggle"
+  DATA_SPY: "[data-spy=\"" + BS_PREFIX + "scroll\"]",
+  NAV_LIST_GROUP: "." + BS_PREFIX + "nav, ." + BS_PREFIX + "list-group",
+  NAV_LINKS: "." + BS_PREFIX + "nav-link",
+  NAV_ITEMS: "." + BS_PREFIX + "nav-item",
+  LIST_ITEMS: "." + BS_PREFIX + "list-group-item",
+  DROPDOWN: "." + BS_PREFIX + "dropdown",
+  DROPDOWN_TOGGLE: "." + BS_PREFIX + "dropdown-toggle"
 };
 var OffsetMethod = {
   OFFSET: 'offset',
@@ -153,7 +155,7 @@ function () {
   ;
 
   _proto._getConfig = function _getConfig(config) {
-    config = _objectSpread({}, Default, typeof config === 'object' && config ? config : {});
+    config = _objectSpread({}, Default, {}, typeof config === 'object' && config ? config : {});
 
     if (typeof config.target !== 'string') {
       var id = config.target.id;

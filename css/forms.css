@@ -1,4 +1,4 @@
-.c-form-control {
+.form-control {
   display: block;
   width: 100%;
   height: calc(1.5em + 0.75rem + 2px);
@@ -16,17 +16,17 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .c-form-control {
+  .form-control {
     transition: none;
   }
 }
 
-.c-form-control::-ms-expand {
+.form-control::-ms-expand {
   background-color: transparent;
   border: 0;
 }
 
-.c-form-control:focus {
+.form-control:focus {
   color: #646470;
   background-color: #fff;
   border-color: #958bef;
@@ -34,28 +34,28 @@
   box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
-.c-form-control::placeholder {
+.form-control::placeholder {
   color: #7a7a85;
   opacity: 1;
 }
 
-.c-form-control:disabled, .c-form-control[readonly] {
+.form-control:disabled, .form-control[readonly] {
   background-color: #d3d3d6;
   opacity: 1;
 }
 
-select.c-form-control:focus::-ms-value {
+select.form-control:focus::-ms-value {
   color: #646470;
   background-color: #fff;
 }
 
-.c-form-control-file,
-.c-form-control-range {
+.form-control-file,
+.form-control-range {
   display: block;
   width: 100%;
 }
 
-.c-col-form-label {
+.col-form-label {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);
   margin-bottom: 0;
@@ -63,21 +63,21 @@ select.c-form-control:focus::-ms-value {
   line-height: 1.5;
 }
 
-.c-col-form-label-lg {
+.col-form-label-lg {
   padding-top: calc(0.5rem + 1px);
   padding-bottom: calc(0.5rem + 1px);
   font-size: 1.09375rem;
   line-height: 1.5;
 }
 
-.c-col-form-label-sm {
+.col-form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
   font-size: 0.765625rem;
   line-height: 1.5;
 }
 
-.c-form-control-plaintext {
+.form-control-plaintext {
   display: block;
   width: 100%;
   padding-top: 0.375rem;
@@ -90,12 +90,12 @@ select.c-form-control:focus::-ms-value {
   color: #373847;
 }
 
-.c-form-control-plaintext.c-form-control-sm, .c-form-control-plaintext.c-form-control-lg {
+.form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {
   padding-right: 0;
   padding-left: 0;
 }
 
-.c-form-control-sm {
+.form-control-sm {
   height: calc(1.5em + 0.5rem + 2px);
   padding: 0.25rem 0.5rem;
   font-size: 0.765625rem;
@@ -103,7 +103,7 @@ select.c-form-control:focus::-ms-value {
   border-radius: 0.2rem;
 }
 
-.c-form-control-lg {
+.form-control-lg {
   height: calc(1.5em + 1rem + 2px);
   padding: 0.5rem 1rem;
   font-size: 1.09375rem;
@@ -111,71 +111,71 @@ select.c-form-control:focus::-ms-value {
   border-radius: 0.3rem;
 }
 
-select.c-form-control[size], select.c-form-control[multiple] {
+select.form-control[size], select.form-control[multiple] {
   height: auto;
 }
 
-textarea.c-form-control {
+textarea.form-control {
   height: auto;
 }
 
-.c-form-group {
+.form-group {
   margin-bottom: 1rem;
 }
 
-.c-form-text {
+.form-text {
   display: block;
   margin-top: 0.25rem;
 }
 
-.c-form-row {
+.form-row {
   display: flex;
   flex-wrap: wrap;
   margin-right: -5px;
   margin-left: -5px;
 }
 
-.c-form-row > .c-col,
-.c-form-row > [class*="col-"] {
+.form-row > .col,
+.form-row > [class*="col-"] {
   padding-right: 5px;
   padding-left: 5px;
 }
 
-.c-form-check {
+.form-check {
   position: relative;
   display: block;
   padding-left: 1.25rem;
 }
 
-.c-form-check-input {
+.form-check-input {
   position: absolute;
   margin-top: 0.3rem;
   margin-left: -1.25rem;
 }
 
-.c-form-check-input:disabled ~ .c-form-check-label {
+.form-check-input:disabled ~ .form-check-label {
   color: #646470;
 }
 
-.c-form-check-label {
+.form-check-label {
   margin-bottom: 0;
 }
 
-.c-form-check-inline {
+.form-check-inline {
   display: inline-flex;
   align-items: center;
   padding-left: 0;
   margin-right: 0.75rem;
 }
 
-.c-form-check-inline .c-form-check-input {
+.form-check-inline .form-check-input {
   position: static;
   margin-top: 0;
   margin-right: 0.3125rem;
   margin-left: 0;
 }
 
-.c-valid-feedback {
+.valid-feedback {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
@@ -183,7 +183,7 @@ textarea.c-form-control {
   color: #2eb85c;
 }
 
-.c-valid-tooltip {
+.valid-tooltip {
   position: absolute;
   top: 100%;
   z-index: 5;
@@ -198,7 +198,7 @@ textarea.c-form-control {
   border-radius: 0.25rem;
 }
 
-.c-was-validated .c-form-control:valid, .c-form-control.c-is-valid {
+.was-validated .form-control:valid, .form-control.is-valid {
   border-color: #2eb85c;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%232eb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
@@ -207,98 +207,98 @@ textarea.c-form-control {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.c-was-validated .c-form-control:valid:focus, .c-form-control.c-is-valid:focus {
+.was-validated .form-control:valid:focus, .form-control.is-valid:focus {
   border-color: #2eb85c;
   box-shadow: 0 0 0 0.2rem rgba(46, 184, 92, 0.25);
 }
 
-.c-was-validated .c-form-control:valid ~ .c-valid-feedback,
-.c-was-validated .c-form-control:valid ~ .c-valid-tooltip, .c-form-control.c-is-valid ~ .c-valid-feedback,
-.c-form-control.c-is-valid ~ .c-valid-tooltip {
+.was-validated .form-control:valid ~ .valid-feedback,
+.was-validated .form-control:valid ~ .valid-tooltip, .form-control.is-valid ~ .valid-feedback,
+.form-control.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated textarea.c-form-control:valid, textarea.c-form-control.c-is-valid {
+.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
 
-.c-was-validated .c-custom-select:valid, .c-custom-select.c-is-valid {
+.was-validated .custom-select:valid, .custom-select.is-valid {
   border-color: #2eb85c;
   padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%234d4e5c' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%232eb85c' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.c-was-validated .c-custom-select:valid:focus, .c-custom-select.c-is-valid:focus {
+.was-validated .custom-select:valid:focus, .custom-select.is-valid:focus {
   border-color: #2eb85c;
   box-shadow: 0 0 0 0.2rem rgba(46, 184, 92, 0.25);
 }
 
-.c-was-validated .c-custom-select:valid ~ .c-valid-feedback,
-.c-was-validated .c-custom-select:valid ~ .c-valid-tooltip, .c-custom-select.c-is-valid ~ .c-valid-feedback,
-.c-custom-select.c-is-valid ~ .c-valid-tooltip {
+.was-validated .custom-select:valid ~ .valid-feedback,
+.was-validated .custom-select:valid ~ .valid-tooltip, .custom-select.is-valid ~ .valid-feedback,
+.custom-select.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-form-control-file:valid ~ .c-valid-feedback,
-.c-was-validated .c-form-control-file:valid ~ .c-valid-tooltip, .c-form-control-file.c-is-valid ~ .c-valid-feedback,
-.c-form-control-file.c-is-valid ~ .c-valid-tooltip {
+.was-validated .form-control-file:valid ~ .valid-feedback,
+.was-validated .form-control-file:valid ~ .valid-tooltip, .form-control-file.is-valid ~ .valid-feedback,
+.form-control-file.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-form-check-input:valid ~ .c-form-check-label, .c-form-check-input.c-is-valid ~ .c-form-check-label {
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
   color: #2eb85c;
 }
 
-.c-was-validated .c-form-check-input:valid ~ .c-valid-feedback,
-.c-was-validated .c-form-check-input:valid ~ .c-valid-tooltip, .c-form-check-input.c-is-valid ~ .c-valid-feedback,
-.c-form-check-input.c-is-valid ~ .c-valid-tooltip {
+.was-validated .form-check-input:valid ~ .valid-feedback,
+.was-validated .form-check-input:valid ~ .valid-tooltip, .form-check-input.is-valid ~ .valid-feedback,
+.form-check-input.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-control-input:valid ~ .c-custom-control-label, .c-custom-control-input.c-is-valid ~ .c-custom-control-label {
+.was-validated .custom-control-input:valid ~ .custom-control-label, .custom-control-input.is-valid ~ .custom-control-label {
   color: #2eb85c;
 }
 
-.c-was-validated .c-custom-control-input:valid ~ .c-custom-control-label::before, .c-custom-control-input.c-is-valid ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:valid ~ .custom-control-label::before, .custom-control-input.is-valid ~ .custom-control-label::before {
   border-color: #2eb85c;
 }
 
-.c-was-validated .c-custom-control-input:valid ~ .c-valid-feedback,
-.c-was-validated .c-custom-control-input:valid ~ .c-valid-tooltip, .c-custom-control-input.c-is-valid ~ .c-valid-feedback,
-.c-custom-control-input.c-is-valid ~ .c-valid-tooltip {
+.was-validated .custom-control-input:valid ~ .valid-feedback,
+.was-validated .custom-control-input:valid ~ .valid-tooltip, .custom-control-input.is-valid ~ .valid-feedback,
+.custom-control-input.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-control-input:valid:checked ~ .c-custom-control-label::before, .c-custom-control-input.c-is-valid:checked ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:valid:checked ~ .custom-control-label::before, .custom-control-input.is-valid:checked ~ .custom-control-label::before {
   border-color: #48d176;
   background-color: #48d176;
 }
 
-.c-was-validated .c-custom-control-input:valid:focus ~ .c-custom-control-label::before, .c-custom-control-input.c-is-valid:focus ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:valid:focus ~ .custom-control-label::before, .custom-control-input.is-valid:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(46, 184, 92, 0.25);
 }
 
-.c-was-validated .c-custom-control-input:valid:focus:not(:checked) ~ .c-custom-control-label::before, .c-custom-control-input.c-is-valid:focus:not(:checked) ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:valid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-valid:focus:not(:checked) ~ .custom-control-label::before {
   border-color: #2eb85c;
 }
 
-.c-was-validated .c-custom-file-input:valid ~ .c-custom-file-label, .c-custom-file-input.c-is-valid ~ .c-custom-file-label {
+.was-validated .custom-file-input:valid ~ .custom-file-label, .custom-file-input.is-valid ~ .custom-file-label {
   border-color: #2eb85c;
 }
 
-.c-was-validated .c-custom-file-input:valid ~ .c-valid-feedback,
-.c-was-validated .c-custom-file-input:valid ~ .c-valid-tooltip, .c-custom-file-input.c-is-valid ~ .c-valid-feedback,
-.c-custom-file-input.c-is-valid ~ .c-valid-tooltip {
+.was-validated .custom-file-input:valid ~ .valid-feedback,
+.was-validated .custom-file-input:valid ~ .valid-tooltip, .custom-file-input.is-valid ~ .valid-feedback,
+.custom-file-input.is-valid ~ .valid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-file-input:valid:focus ~ .c-custom-file-label, .c-custom-file-input.c-is-valid:focus ~ .c-custom-file-label {
+.was-validated .custom-file-input:valid:focus ~ .custom-file-label, .custom-file-input.is-valid:focus ~ .custom-file-label {
   border-color: #2eb85c;
   box-shadow: 0 0 0 0.2rem rgba(46, 184, 92, 0.25);
 }
 
-.c-invalid-feedback {
+.invalid-feedback {
   display: none;
   width: 100%;
   margin-top: 0.25rem;
@@ -306,7 +306,7 @@ textarea.c-form-control {
   color: #e55353;
 }
 
-.c-invalid-tooltip {
+.invalid-tooltip {
   position: absolute;
   top: 100%;
   z-index: 5;
@@ -321,7 +321,7 @@ textarea.c-form-control {
   border-radius: 0.25rem;
 }
 
-.c-was-validated .c-form-control:invalid, .c-form-control.c-is-invalid {
+.was-validated .form-control:invalid, .form-control.is-invalid {
   border-color: #e55353;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23e55353' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23e55353' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E");
@@ -330,152 +330,152 @@ textarea.c-form-control {
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.c-was-validated .c-form-control:invalid:focus, .c-form-control.c-is-invalid:focus {
+.was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
   border-color: #e55353;
   box-shadow: 0 0 0 0.2rem rgba(229, 83, 83, 0.25);
 }
 
-.c-was-validated .c-form-control:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-form-control:invalid ~ .c-invalid-tooltip, .c-form-control.c-is-invalid ~ .c-invalid-feedback,
-.c-form-control.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .form-control:invalid ~ .invalid-feedback,
+.was-validated .form-control:invalid ~ .invalid-tooltip, .form-control.is-invalid ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated textarea.c-form-control:invalid, textarea.c-form-control.c-is-invalid {
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem);
 }
 
-.c-was-validated .c-custom-select:invalid, .c-custom-select.c-is-invalid {
+.was-validated .custom-select:invalid, .custom-select.is-invalid {
   border-color: #e55353;
   padding-right: calc((1em + 0.75rem) * 3 / 4 + 1.75rem);
   background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3e%3cpath fill='%234d4e5c' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right 0.75rem center/8px 10px, url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23e55353' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23e55353' d='M0 0l3 3m0-3L0 3'/%3e%3ccircle r='.5'/%3e%3ccircle cx='3' r='.5'/%3e%3ccircle cy='3' r='.5'/%3e%3ccircle cx='3' cy='3' r='.5'/%3e%3c/svg%3E") #fff no-repeat center right 1.75rem/calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.c-was-validated .c-custom-select:invalid:focus, .c-custom-select.c-is-invalid:focus {
+.was-validated .custom-select:invalid:focus, .custom-select.is-invalid:focus {
   border-color: #e55353;
   box-shadow: 0 0 0 0.2rem rgba(229, 83, 83, 0.25);
 }
 
-.c-was-validated .c-custom-select:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-custom-select:invalid ~ .c-invalid-tooltip, .c-custom-select.c-is-invalid ~ .c-invalid-feedback,
-.c-custom-select.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .custom-select:invalid ~ .invalid-feedback,
+.was-validated .custom-select:invalid ~ .invalid-tooltip, .custom-select.is-invalid ~ .invalid-feedback,
+.custom-select.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-form-control-file:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-form-control-file:invalid ~ .c-invalid-tooltip, .c-form-control-file.c-is-invalid ~ .c-invalid-feedback,
-.c-form-control-file.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .form-control-file:invalid ~ .invalid-feedback,
+.was-validated .form-control-file:invalid ~ .invalid-tooltip, .form-control-file.is-invalid ~ .invalid-feedback,
+.form-control-file.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-form-check-input:invalid ~ .c-form-check-label, .c-form-check-input.c-is-invalid ~ .c-form-check-label {
+.was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
   color: #e55353;
 }
 
-.c-was-validated .c-form-check-input:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-form-check-input:invalid ~ .c-invalid-tooltip, .c-form-check-input.c-is-invalid ~ .c-invalid-feedback,
-.c-form-check-input.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .form-check-input:invalid ~ .invalid-feedback,
+.was-validated .form-check-input:invalid ~ .invalid-tooltip, .form-check-input.is-invalid ~ .invalid-feedback,
+.form-check-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-control-input:invalid ~ .c-custom-control-label, .c-custom-control-input.c-is-invalid ~ .c-custom-control-label {
+.was-validated .custom-control-input:invalid ~ .custom-control-label, .custom-control-input.is-invalid ~ .custom-control-label {
   color: #e55353;
 }
 
-.c-was-validated .c-custom-control-input:invalid ~ .c-custom-control-label::before, .c-custom-control-input.c-is-invalid ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:invalid ~ .custom-control-label::before, .custom-control-input.is-invalid ~ .custom-control-label::before {
   border-color: #e55353;
 }
 
-.c-was-validated .c-custom-control-input:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-custom-control-input:invalid ~ .c-invalid-tooltip, .c-custom-control-input.c-is-invalid ~ .c-invalid-feedback,
-.c-custom-control-input.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .custom-control-input:invalid ~ .invalid-feedback,
+.was-validated .custom-control-input:invalid ~ .invalid-tooltip, .custom-control-input.is-invalid ~ .invalid-feedback,
+.custom-control-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-control-input:invalid:checked ~ .c-custom-control-label::before, .c-custom-control-input.c-is-invalid:checked ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:invalid:checked ~ .custom-control-label::before, .custom-control-input.is-invalid:checked ~ .custom-control-label::before {
   border-color: #ec7f7f;
   background-color: #ec7f7f;
 }
 
-.c-was-validated .c-custom-control-input:invalid:focus ~ .c-custom-control-label::before, .c-custom-control-input.c-is-invalid:focus ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:invalid:focus ~ .custom-control-label::before, .custom-control-input.is-invalid:focus ~ .custom-control-label::before {
   box-shadow: 0 0 0 0.2rem rgba(229, 83, 83, 0.25);
 }
 
-.c-was-validated .c-custom-control-input:invalid:focus:not(:checked) ~ .c-custom-control-label::before, .c-custom-control-input.c-is-invalid:focus:not(:checked) ~ .c-custom-control-label::before {
+.was-validated .custom-control-input:invalid:focus:not(:checked) ~ .custom-control-label::before, .custom-control-input.is-invalid:focus:not(:checked) ~ .custom-control-label::before {
   border-color: #e55353;
 }
 
-.c-was-validated .c-custom-file-input:invalid ~ .c-custom-file-label, .c-custom-file-input.c-is-invalid ~ .c-custom-file-label {
+.was-validated .custom-file-input:invalid ~ .custom-file-label, .custom-file-input.is-invalid ~ .custom-file-label {
   border-color: #e55353;
 }
 
-.c-was-validated .c-custom-file-input:invalid ~ .c-invalid-feedback,
-.c-was-validated .c-custom-file-input:invalid ~ .c-invalid-tooltip, .c-custom-file-input.c-is-invalid ~ .c-invalid-feedback,
-.c-custom-file-input.c-is-invalid ~ .c-invalid-tooltip {
+.was-validated .custom-file-input:invalid ~ .invalid-feedback,
+.was-validated .custom-file-input:invalid ~ .invalid-tooltip, .custom-file-input.is-invalid ~ .invalid-feedback,
+.custom-file-input.is-invalid ~ .invalid-tooltip {
   display: block;
 }
 
-.c-was-validated .c-custom-file-input:invalid:focus ~ .c-custom-file-label, .c-custom-file-input.c-is-invalid:focus ~ .c-custom-file-label {
+.was-validated .custom-file-input:invalid:focus ~ .custom-file-label, .custom-file-input.is-invalid:focus ~ .custom-file-label {
   border-color: #e55353;
   box-shadow: 0 0 0 0.2rem rgba(229, 83, 83, 0.25);
 }
 
-.c-form-inline {
+.form-inline {
   display: flex;
   flex-flow: row wrap;
   align-items: center;
 }
 
-.c-form-inline .c-form-check {
+.form-inline .form-check {
   width: 100%;
 }
 
 @media (min-width: 576px) {
-  .c-form-inline label {
+  .form-inline label {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;
   }
-  .c-form-inline .c-form-group {
+  .form-inline .form-group {
     display: flex;
     flex: 0 0 auto;
     flex-flow: row wrap;
     align-items: center;
     margin-bottom: 0;
   }
-  .c-form-inline .c-form-control {
+  .form-inline .form-control {
     display: inline-block;
     width: auto;
     vertical-align: middle;
   }
-  .c-form-inline .c-form-control-plaintext {
+  .form-inline .form-control-plaintext {
     display: inline-block;
   }
-  .c-form-inline .c-input-group,
-  .c-form-inline .c-custom-select {
+  .form-inline .input-group,
+  .form-inline .custom-select {
     width: auto;
   }
-  .c-form-inline .c-form-check {
+  .form-inline .form-check {
     display: flex;
     align-items: center;
     justify-content: center;
     width: auto;
     padding-left: 0;
   }
-  .c-form-inline .c-form-check-input {
+  .form-inline .form-check-input {
     position: relative;
     flex-shrink: 0;
     margin-top: 0;
     margin-right: 0.25rem;
     margin-left: 0;
   }
-  .c-form-inline .c-custom-control {
+  .form-inline .custom-control {
     align-items: center;
     justify-content: center;
   }
-  .c-form-inline .c-custom-control-label {
+  .form-inline .custom-control-label {
     margin-bottom: 0;
   }
 }

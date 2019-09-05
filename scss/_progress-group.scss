@@ -1,41 +1,41 @@
 //TODO: move all values to variables.scss
-.#{$prefix}progress-group {
+.#{$bs-prefix}progress-group {
   display: flex;
   flex-flow: row wrap;
   margin-bottom: $spacer;
 }
 
-.#{$prefix}progress-group-prepend {
+.#{$bs-prefix}progress-group-prepend {
   flex: 0 0 100px;
   align-self: center;
 }
 
-.#{$prefix}progress-group-icon {
+.#{$bs-prefix}progress-group-icon {
   margin: 0 $spacer 0 ($spacer * .25);
   font-size: $font-size-lg;
 }
 
-.#{$prefix}progress-group-text {
+.#{$bs-prefix}progress-group-text {
   font-size: $font-size-sm;
   color: $gray-700;
 }
 
-.#{$prefix}progress-group-header {
+.#{$bs-prefix}progress-group-header {
   display: flex;
   flex-basis: 100%;
   align-items: flex-end;
   margin-bottom: ($spacer * .25);
 }
 
-.#{$prefix}progress-group-bars {
+.#{$bs-prefix}progress-group-bars {
   flex-grow: 1;
   align-self: center;
 
-  .#{$prefix}progress:not(:last-child) {
+  .#{$bs-prefix}progress:not(:last-child) {
     margin-bottom: 2px;
   }
 }
 
-.#{$prefix}progress-group-header + .#{$prefix}progress-group-bars {
+.#{$bs-prefix}progress-group-header + .#{$bs-prefix}progress-group-bars {
   flex-basis: 100%;
 }

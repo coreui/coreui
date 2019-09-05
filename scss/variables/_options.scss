@@ -4,7 +4,7 @@
 // Quickly modify global styling by enabling or disabling optional features.
 
 $prefix:                                      c- !default; // CoreUI
-$bs-prefix:                                   c- !default; // CoreUI
+$bs-prefix:                                   null !default; // CoreUI
 $theme-suffix:                                -theme !default;
 $enable-rtl:                                  true !default; // CoreUI
 $enable-caret:                                true !default;

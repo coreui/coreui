@@ -47,11 +47,9 @@
 
   // CoreUI start
   i,
-  .#{$bs-prefix}btn-icon {
-    // min-width: ($btn-font-size * $btn-line-height);
+  .#{$prefix}icon {
     height: $btn-font-size;
     margin: ((($font-size-base * $line-height-base) - $font-size-base) / 2) 0;
-    fill: currentColor;
   }
   // CoreUI end
 }
@@ -155,11 +153,11 @@ input[type="button"] {
   }
 }
 
-.#{$prefix}btn-pill {
+.#{$bs-prefix}btn-pill {
   border-radius: 50em;
 }
 
-.#{$prefix}btn-square {
+.#{$bs-prefix}btn-square {
   border-radius: 0;
 }
 
@@ -168,7 +166,7 @@ input[type="button"] {
 //
 
 @include theme-variant() {
-  .#{$prefix}btn-ghost-#{$color} {
+  .#{$bs-prefix}btn-ghost-#{$color} {
     @include button-ghost-variant($value);
   }
 }

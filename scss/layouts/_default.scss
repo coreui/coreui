@@ -23,6 +23,11 @@
     .#{$prefix}main {
       flex: 1;
       min-width: 0;
+
+      > .#{$bs-prefix}container-fluid {
+        padding-right: $grid-gutter-width;
+        padding-left: $grid-gutter-width;
+      }
     }
   }
   .#{$prefix}sidebar.#{$prefix}sidebar-fixed {

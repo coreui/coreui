@@ -1,4 +1,4 @@
-.c-breadcrumb {
+.breadcrumb {
   display: flex;
   flex-wrap: wrap;
   padding: 0.75rem 1rem;
@@ -10,35 +10,35 @@
   border-color: #bcbdc2;
 }
 
-.c-breadcrumb-item + .c-breadcrumb-item {
+.breadcrumb-item + .breadcrumb-item {
   padding-left: 0.5rem;
 }
 
-.c-breadcrumb-item + .c-breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
   color: #7a7a85;
   content: "/";
 }
 
-.c-breadcrumb-item + .c-breadcrumb-item:hover::before {
+.breadcrumb-item + .breadcrumb-item:hover::before {
   text-decoration: underline;
 }
 
-.c-breadcrumb-item + .c-breadcrumb-item:hover::before {
+.breadcrumb-item + .breadcrumb-item:hover::before {
   text-decoration: none;
 }
 
-.c-breadcrumb-item.c-active {
+.breadcrumb-item.active {
   color: #7a7a85;
 }
 
-*[dir="rtl"] .c-breadcrumb-item::before {
+*[dir="rtl"] .breadcrumb-item::before {
   padding-right: 0;
   padding-left: 0.5rem;
 }
 
-*[dir="rtl"] .c-breadcrumb-item {
+*[dir="rtl"] .breadcrumb-item {
   padding-right: 0.5rem;
   padding-left: 0;
 }

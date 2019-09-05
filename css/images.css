@@ -1,9 +1,9 @@
-.c-img-fluid {
+.img-fluid {
   max-width: 100%;
   height: auto;
 }
 
-.c-img-thumbnail {
+.img-thumbnail {
   padding: 0.25rem;
   background-color: #e4e5e6;
   border: 1px solid #bcbdc2;
@@ -12,21 +12,21 @@
   height: auto;
 }
 
-.c-figure {
+.figure {
   display: inline-block;
 }
 
-.c-figure-img {
+.figure-img {
   margin-bottom: 0.5rem;
   line-height: 1;
 }
 
-.c-figure-caption {
+.figure-caption {
   font-size: 90%;
   color: #7a7a85;
 }
 
-.c-img-circle {
+.img-circle {
   max-width: 100%;
   height: auto;
   border-radius: 50em;

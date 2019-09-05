@@ -1,4 +1,4 @@
-.#{$prefix}breadcrumb-menu {
+.#{$bs-prefix}breadcrumb-menu {
   margin-left: auto;
 
   &::before {
@@ -37,7 +37,7 @@
 
 // Right-to-Left Support
 *[dir="rtl"] {
-  .#{$prefix}breadcrumb-menu {
+  .#{$bs-prefix}breadcrumb-menu {
     margin-right: auto;
     margin-left: initial;
   }

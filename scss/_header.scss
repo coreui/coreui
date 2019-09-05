@@ -111,7 +111,7 @@
     padding-right: $header-nav-link-padding-x;
     padding-left: $header-nav-link-padding-x;
 
-    .#{$prefix}badge {
+    .#{$bs-prefix}badge {
       position: absolute;
       top: 50%;
       left: 50%;
@@ -119,18 +119,18 @@
       margin-left: 0;
     }
 
-    > .#{$prefix}img-avatar {
+    > .#{$prefix}avatar-img {
       height: $header-height - 20px;
       margin: 0 10px;
     }
   }
 
-  .#{$prefix}dropdown-menu {
+  .#{$bs-prefix}dropdown-menu {
     padding-bottom: 0;
     line-height: $line-height-base;
   }
 
-  .#{$prefix}dropdown-item {
+  .#{$bs-prefix}dropdown-item {
     min-width: 180px;
   }
 }

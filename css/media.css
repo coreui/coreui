@@ -1,9 +1,9 @@
-.c-media {
+.media {
   display: flex;
   align-items: flex-start;
 }
 
-.c-media-body {
+.media-body {
   flex: 1;
 }
 

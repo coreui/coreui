@@ -73,9 +73,12 @@
   }
 
   .#{$prefix}nav:not(.#{$prefix}nav-tabs) {
+    display: flex;
     flex-direction: column;
     width: 100%;
     min-height: 100%;
+    padding: 0;
+    list-style: none;
   }
 
   .#{$prefix}nav-title {
@@ -113,7 +116,7 @@
       transition: $layout-transition-speed;
     }
 
-    .#{$prefix}badge {
+    .#{$bs-prefix}badge {
       margin-right: $sidebar-nav-link-padding-x;
       margin-left: auto;
     }

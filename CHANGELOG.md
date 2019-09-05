@@ -1,3 +1,34 @@
+## v3.0.0-alpha.14
+
+- .img-avatar ==> .c-avatar-img
+
+@babel/cli                                   7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/core                                  7.4.5   7.5.5   7.5.5  @coreui/coreui
+@babel/plugin-proposal-object-rest-spread    7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/plugin-transform-runtime              7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/preset-env                            7.4.5   7.5.5   7.5.5  @coreui/coreui
+autoprefixer                                 9.6.0   9.6.1   9.6.1  @coreui/coreui
+babel-eslint                                10.0.1  10.0.3  10.0.3  @coreui/coreui
+babel-plugin-istanbul                        5.1.4   5.2.0   5.2.0  @coreui/coreui
+bundlesize                                  0.17.2  0.17.2  0.18.0  @coreui/coreui
+copyfiles                                    2.1.0   2.1.1   2.1.1  @coreui/coreui
+eslint                                      5.16.0  5.16.0   6.2.2  @coreui/coreui
+eslint-plugin-import                        2.17.3  2.18.2  2.18.2  @coreui/coreui
+eslint-plugin-unicorn                        9.0.0   9.1.1  10.0.0  @coreui/coreui
+find-unused-sass-variables                   0.3.3   0.3.3   0.5.0  @coreui/coreui
+postcss-cli                                  6.1.2   6.1.3   6.1.3  @coreui/coreui
+postcss-combine-duplicated-selectors         7.0.0   7.0.0   8.0.2  @coreui/coreui
+rimraf                                       2.6.3   2.7.1   3.0.0  @coreui/coreui
+rollup                                      1.13.1  1.20.3  1.20.3  @coreui/coreui
+rollup-plugin-babel                          4.3.2   4.3.3   4.3.3  @coreui/coreui
+rollup-plugin-commonjs                      10.0.0  10.1.0  10.1.0  @coreui/coreui
+rollup-plugin-node-resolve                   5.0.1   5.2.0   5.2.0  @coreui/coreui
+semver                                       6.1.1   6.3.0   6.3.0  @coreui/coreui
+stylelint                                   10.0.1  10.1.0  10.1.0  @coreui/coreui
+stylelint-order                              3.0.0   3.0.1   3.0.1  @coreui/coreui
+stylelint-scss                               3.8.0  3.10.0  3.10.0  @coreui/coreui
+terser                                       4.0.0   4.2.1   4.2.1  @coreui/coreui
+
 ## v3.0.0
 - refactor: merge CoreUI and Bootstrap
 - refacror: add `c-` prefix to each css class

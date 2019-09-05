@@ -33,7 +33,7 @@ const VERSION = '3.0.0-alpha.13'
 const DATA_KEY = 'coreui.tab'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Event = {
   HIDE: `hide${EVENT_KEY}`,
@@ -44,21 +44,21 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_MENU: `${PREFIX}dropdown-menu`,
-  ACTIVE: `${PREFIX}active`,
+  DROPDOWN_MENU: `${BS_PREFIX}dropdown-menu`,
+  ACTIVE: `${BS_PREFIX}active`,
   DISABLED: 'disabled',
-  FADE: `${PREFIX}fade`,
-  SHOW: `${PREFIX}show`
+  FADE: `${BS_PREFIX}fade`,
+  SHOW: `${BS_PREFIX}show`
 }
 
 const Selector = {
-  DROPDOWN: `.${PREFIX}dropdown`,
-  NAV_LIST_GROUP: `.${PREFIX}nav, .${PREFIX}list-group`,
-  ACTIVE: `.${PREFIX}active`,
-  ACTIVE_UL: `:scope > li > .${PREFIX}active`,
-  DATA_TOGGLE: `[data-toggle="${PREFIX}tab"], [data-toggle="${PREFIX}pill"], [data-toggle="${PREFIX}list"]`,
-  DROPDOWN_TOGGLE: `.${PREFIX}dropdown-toggle`,
-  DROPDOWN_ACTIVE_CHILD: `:scope > .${PREFIX}dropdown-menu .${PREFIX}active`
+  DROPDOWN: `.${BS_PREFIX}dropdown`,
+  NAV_LIST_GROUP: `.${BS_PREFIX}nav, .${BS_PREFIX}list-group`,
+  ACTIVE: `.${BS_PREFIX}active`,
+  ACTIVE_UL: `:scope > li > .${BS_PREFIX}active`,
+  DATA_TOGGLE: `[data-toggle="${BS_PREFIX}tab"], [data-toggle="${BS_PREFIX}pill"], [data-toggle="${BS_PREFIX}list"]`,
+  DROPDOWN_TOGGLE: `.${BS_PREFIX}dropdown-toggle`,
+  DROPDOWN_ACTIVE_CHILD: `:scope > .${BS_PREFIX}dropdown-menu .${BS_PREFIX}active`
 }
 
 /**

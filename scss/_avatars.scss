@@ -1,4 +1,4 @@
-.#{$prefix}img-avatar {
+.#{$prefix}avatar-img {
   max-width: 100%;
   height: auto;
   border-radius: 50em;
@@ -8,7 +8,7 @@
   @include avatar($avatar-width,$avatar-status-width);
 
   > img {
-    @extend .#{$prefix}img-avatar;
+    @extend .#{$prefix}avatar-img;
     vertical-align: initial;
   }
 }

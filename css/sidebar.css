@@ -70,9 +70,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-fixed.c-sidebar-right {
 }
 
 .c-sidebar .c-nav:not(.c-nav-tabs) {
+  display: flex;
   flex-direction: column;
   width: 100%;
   min-height: 100%;
+  padding: 0;
+  list-style: none;
 }
 
 .c-sidebar .c-nav-title {
@@ -110,7 +113,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-fixed.c-sidebar-right {
   transition: 0.25s;
 }
 
-.c-sidebar .c-nav-link .c-badge {
+.c-sidebar .c-nav-link .badge {
   margin-right: 1rem;
   margin-left: auto;
 }

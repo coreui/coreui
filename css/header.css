@@ -141,8 +141,8 @@
   padding-left: 0.5rem;
 }
 
-.c-header-nav .c-nav-link .c-badge,
-.c-header-nav .c-nav-btn .c-badge {
+.c-header-nav .c-nav-link .badge,
+.c-header-nav .c-nav-btn .badge {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -150,18 +150,18 @@
   margin-left: 0;
 }
 
-.c-header-nav .c-nav-link > .c-img-avatar,
-.c-header-nav .c-nav-btn > .c-img-avatar {
+.c-header-nav .c-nav-link > .c-avatar-img,
+.c-header-nav .c-nav-btn > .c-avatar-img {
   height: 35px;
   margin: 0 10px;
 }
 
-.c-header-nav .c-dropdown-menu {
+.c-header-nav .dropdown-menu {
   padding-bottom: 0;
   line-height: 1.5;
 }
 
-.c-header-nav .c-dropdown-item {
+.c-header-nav .dropdown-item {
   min-width: 180px;
 }
 
