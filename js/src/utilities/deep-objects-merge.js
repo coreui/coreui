@@ -1,3 +1,10 @@
+/**
+ * --------------------------------------------------------------------------
+ * CoreUI Utilities (v3.0.0-alpha.13): deep-objects-merge.js
+ * Licensed under MIT (https://coreui.io/license)
+ * --------------------------------------------------------------------------
+ */
+
 const deepObjectsMerge = (target, source) => {
   // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
   for (const key of Object.keys(source)) {
