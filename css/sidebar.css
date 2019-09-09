@@ -81,6 +81,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-fixed.c-sidebar-right {
 
 .c-sidebar .c-nav-title {
   padding: 0.75rem 1rem;
+  margin-top: 1rem;
   font-size: 80%;
   font-weight: 700;
   text-transform: uppercase;
