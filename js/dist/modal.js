@@ -77,13 +77,12 @@ var Selector = {
   DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX + "modal\"]",
   FIXED_CONTENT: "." + BS_PREFIX + "fixed-top, ." + BS_PREFIX + "fixed-bottom, ." + BS_PREFIX + "is-fixed, ." + BS_PREFIX + "sticky-top",
   STICKY_CONTENT: "." + BS_PREFIX + "sticky-top"
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
-
 };
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */
 
 var Modal =
 /*#__PURE__*/

@@ -50,13 +50,12 @@ var Selector = {
   DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "tab\"], [data-toggle=\"" + BS_PREFIX + "pill\"], [data-toggle=\"" + BS_PREFIX + "list\"]",
   DROPDOWN_TOGGLE: "." + BS_PREFIX + "dropdown-toggle",
   DROPDOWN_ACTIVE_CHILD: ":scope > ." + BS_PREFIX + "dropdown-menu ." + BS_PREFIX + "active"
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
-
 };
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */
 
 var Tab =
 /*#__PURE__*/

@@ -100,13 +100,12 @@ var DefaultType = {
   boundary: '(string|element)',
   reference: '(string|element)',
   display: 'string'
-  /**
-   * ------------------------------------------------------------------------
-   * Class Definition
-   * ------------------------------------------------------------------------
-   */
-
 };
+/**
+ * ------------------------------------------------------------------------
+ * Class Definition
+ * ------------------------------------------------------------------------
+ */
 
 var Dropdown =
 /*#__PURE__*/
@@ -360,9 +359,8 @@ function () {
         preventOverflow: {
           boundariesElement: this._config.boundary
         }
-      } // Disable Popper.js if we have a static display
-
-    };
+      }
+    }; // Disable Popper.js if we have a static display
 
     if (this._config.display === 'static') {
       popperConfig.modifiers.applyStyle = {
