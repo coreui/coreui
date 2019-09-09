@@ -54,7 +54,7 @@ const Selector = {
   NAV_DROPDOWN_TOGGLE: `.${PREFIX}nav-dropdown-toggle`,
   NAV_DROPDOWN: `.${PREFIX}nav-dropdown`,
   NAV_LINK: `.${PREFIX}nav-link`,
-  NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
+  // NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
   NAVIGATION_CONTAINER: `.${PREFIX}sidebar-nav`,
   SIDEBAR: `.${PREFIX}sidebar`
 }
@@ -192,10 +192,17 @@ class Sidebar {
     // eslint-disable-next-line unicorn/prefer-spread
     Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(element => {
       let currentUrl
-      if (element.classList.contains(Selector.NAV_LINK_QUERIED)) {
-        currentUrl = String(window.location)
-      } else {
+
+      const urlHasParams = new RegExp('\\?.*=')
+      const urlHasQueryString = new RegExp('\\?.')
+      const urlHasHash = new RegExp('#.')
+
+      if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
         currentUrl = String(window.location).split('?')[0]
+      } else if (urlHasHash.test(String(window.location))) {
+        currentUrl = String(window.location).split('#')[0]
+      } else {
+        currentUrl = String(window.location)
       }
 
       if (currentUrl.substr(currentUrl.length - 1) === '#') {
