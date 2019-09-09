@@ -41,17 +41,17 @@
 }
 
 .alert-secondary {
-  color: #52565c;
-  background-color: #ebedef;
-  border-color: #e4e6e9;
+  color: #6b6d70;
+  background-color: #f5f6f7;
+  border-color: #f1f2f4;
 }
 
 .alert-secondary hr {
-  border-top-color: #d6d9de;
+  border-top-color: #e3e5e9;
 }
 
 .alert-secondary .alert-link {
-  color: #3a3d41;
+  color: #525456;
 }
 
 .alert-success {

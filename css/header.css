@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  height: 55px;
+  height: 60px;
 }
 
 .c-header[class*="bg-"] {
@@ -16,15 +16,15 @@
 }
 
 .c-header.c-header-fixed ~ .c-body {
-  padding-top: 55px;
+  padding-top: 60px;
 }
 
 .c-header-brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 205px;
-  height: 55px;
+  width: 250px;
+  height: 60px;
   transition: width 0.25s;
 }
 
@@ -152,7 +152,7 @@
 
 .c-header-nav .c-nav-link > .c-avatar-img,
 .c-header-nav .c-nav-btn > .c-avatar-img {
-  height: 35px;
+  height: 40px;
   margin: 0 10px;
 }
 

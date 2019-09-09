@@ -50,7 +50,7 @@ var Selector = {
   NAV_DROPDOWN_TOGGLE: "." + PREFIX + "nav-dropdown-toggle",
   NAV_DROPDOWN: "." + PREFIX + "nav-dropdown",
   NAV_LINK: "." + PREFIX + "nav-link",
-  NAV_LINK_QUERIED: "." + PREFIX + "nav-link-queried",
+  // NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
   NAVIGATION_CONTAINER: "." + PREFIX + "sidebar-nav",
   SIDEBAR: "." + PREFIX + "sidebar"
   /**
@@ -203,11 +203,16 @@ function () {
     // eslint-disable-next-line unicorn/prefer-spread
     Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
       var currentUrl;
+      var urlHasParams = new RegExp('\\?.*=');
+      var urlHasQueryString = new RegExp('\\?.');
+      var urlHasHash = new RegExp('#.');
 
-      if (element.classList.contains(Selector.NAV_LINK_QUERIED)) {
-        currentUrl = String(window.location);
-      } else {
+      if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
         currentUrl = String(window.location).split('?')[0];
+      } else if (urlHasHash.test(String(window.location))) {
+        currentUrl = String(window.location).split('#')[0];
+      } else {
+        currentUrl = String(window.location);
       }
 
       if (currentUrl.substr(currentUrl.length - 1) === '#') {

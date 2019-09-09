@@ -5,7 +5,7 @@
 }
 
 .c-app.c-default-layout .c-header {
-  flex: 0 0 55px;
+  flex: 0 0 60px;
 }
 
 .c-app.c-default-layout .c-footer {
@@ -30,7 +30,7 @@
 }
 
 .c-app.c-default-layout .c-sidebar.c-sidebar-fixed {
-  top: 55px;
+  top: 60px;
 }
 
 @media all and (-ms-high-contrast: none) {

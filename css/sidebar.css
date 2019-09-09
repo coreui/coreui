@@ -41,7 +41,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-fixed.c-sidebar-right {
 }
 
 .c-sidebar.c-sidebar-fixed.c-sidebar-under-header {
-  top: 55px;
+  top: 60px;
 }
 
 .c-sidebar .c-sidebar-brand {
@@ -979,8 +979,8 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right {
 }
 
 .c-sidebar .c-nav-link.c-active .c-nav-icon {
-  color: #321fdb;
-  fill: #321fdb;
+  color: #fff;
+  fill: #fff;
 }
 
 .c-sidebar .c-nav-link:hover {
@@ -1156,7 +1156,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right {
 }
 
 .c-sidebar .c-nav-link.c-nav-link-secondary {
-  background: #9da5b1;
+  background: #ced2d8;
 }
 
 .c-sidebar .c-nav-link.c-nav-link-secondary .c-nav-icon {
@@ -1165,7 +1165,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right {
 }
 
 .c-sidebar .c-nav-link.c-nav-link-secondary:hover {
-  background: #8f98a6;
+  background: #c0c5cd;
 }
 
 .c-sidebar .c-nav-link.c-nav-link-secondary:hover .c-nav-icon {

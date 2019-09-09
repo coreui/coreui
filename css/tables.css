@@ -85,23 +85,23 @@
 .table-secondary,
 .table-secondary > th,
 .table-secondary > td {
-  background-color: #e4e6e9;
+  background-color: #f1f2f4;
 }
 
 .table-secondary th,
 .table-secondary td,
 .table-secondary thead th,
 .table-secondary tbody + tbody {
-  border-color: #ccd0d6;
+  border-color: #e6e8eb;
 }
 
 .table-hover .table-secondary:hover {
-  background-color: #d6d9de;
+  background-color: #e3e5e9;
 }
 
 .table-hover .table-secondary:hover > td,
 .table-hover .table-secondary:hover > th {
-  background-color: #d6d9de;
+  background-color: #e3e5e9;
 }
 
 .table-success,

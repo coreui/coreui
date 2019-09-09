@@ -9,51 +9,51 @@
 }
 
 .c-icon-2xl {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
+
+.c-icon-3xl {
   width: 3rem;
   height: 3rem;
   font-size: 3rem;
 }
 
-.c-icon-3xl {
-  width: 4.5rem;
-  height: 4.5rem;
-  font-size: 4.5rem;
+.c-icon-4xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
 }
 
-.c-icon-4xl {
+.c-icon-5xl {
+  width: 5rem;
+  height: 5rem;
+  font-size: 5rem;
+}
+
+.c-icon-6xl {
   width: 6rem;
   height: 6rem;
   font-size: 6rem;
 }
 
-.c-icon-5xl {
-  width: 7.5rem;
-  height: 7.5rem;
-  font-size: 7.5rem;
-}
-
-.c-icon-6xl {
-  width: 9rem;
-  height: 9rem;
-  font-size: 9rem;
-}
-
 .c-icon-7xl {
-  width: 10.5rem;
-  height: 10.5rem;
-  font-size: 10.5rem;
+  width: 7rem;
+  height: 7rem;
+  font-size: 7rem;
 }
 
 .c-icon-8xl {
-  width: 12rem;
-  height: 12rem;
-  font-size: 12rem;
+  width: 8rem;
+  height: 8rem;
+  font-size: 8rem;
 }
 
 .c-icon-9xl {
-  width: 13.5rem;
-  height: 13.5rem;
-  font-size: 13.5rem;
+  width: 9rem;
+  height: 9rem;
+  font-size: 9rem;
 }
 
 .c-icon-xl {

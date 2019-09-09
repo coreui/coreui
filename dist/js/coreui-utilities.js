@@ -22,6 +22,12 @@
     return list.indexOf(breakpoint) > -1;
   }
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v3.0.0-alpha.13): deep-objects-merge.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
   var deepObjectsMerge = function deepObjectsMerge(target, source) {
     // Iterate through `source` properties and if an `Object` set property to merge of `target` and `source` properties
     for (var _i = 0, _Object$keys = Object.keys(source); _i < _Object$keys.length; _i++) {

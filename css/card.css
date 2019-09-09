@@ -42,12 +42,12 @@
 }
 
 .card.bg-secondary {
-  border-color: #7a8495;
+  border-color: #abb1bc;
 }
 
 .card.bg-secondary .card-header {
-  background-color: #949daa;
-  border-color: #7a8495;
+  background-color: #c5cad1;
+  border-color: #abb1bc;
 }
 
 .card.bg-success {
@@ -372,7 +372,7 @@
 }
 
 .card-accent-secondary {
-  border-top-color: #9da5b1;
+  border-top-color: #ced2d8;
   border-top-width: 2px;
 }
 

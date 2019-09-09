@@ -45,11 +45,11 @@
 }
 
 .c-callout-secondary {
-  border-left-color: #9da5b1;
+  border-left-color: #ced2d8;
 }
 
 .c-callout-secondary h4 {
-  color: #9da5b1;
+  color: #ced2d8;
 }
 
 .c-callout-success {
@@ -110,7 +110,7 @@
 }
 
 *[dir="rtl"] .c-callout.c-callout-secondary {
-  border-right-color: #9da5b1;
+  border-right-color: #ced2d8;
 }
 
 *[dir="rtl"] .c-callout.c-callout-success {

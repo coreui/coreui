@@ -53,17 +53,17 @@ a.badge-primary:focus, a.badge-primary.focus {
 
 .badge-secondary {
   color: #373847;
-  background-color: #9da5b1;
+  background-color: #ced2d8;
 }
 
 a.badge-secondary:hover, a.badge-secondary:focus {
   color: #373847;
-  background-color: #818b9a;
+  background-color: #b2b8c1;
 }
 
 a.badge-secondary:focus, a.badge-secondary.focus {
   outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(157, 165, 177, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(206, 210, 216, 0.5);
 }
 
 .badge-success {
