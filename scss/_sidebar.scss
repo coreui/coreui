@@ -84,6 +84,7 @@
 
   .#{$prefix}nav-title {
     padding: $sidebar-nav-title-padding-y $sidebar-nav-title-padding-x;
+    margin-top: $sidebar-nav-title-margin-top;
     font-size: 80%;
     font-weight: 700;
     text-transform: uppercase;
