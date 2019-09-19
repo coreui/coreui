@@ -3,19 +3,20 @@
 //
 
 $white:     #fff !default;
-$black:     #000 !default;
+$black:     #000015 !default;
 
-$gray-base: #212233 !default;
 
-$gray-100:  #e9e9eb !default;
-$gray-200:  #d3d3d6 !default;
-$gray-300:  #bcbdc2 !default;
-$gray-400:  #a6a7ad !default;
-$gray-500:  #909099 !default;
-$gray-600:  #7a7a85 !default;
-$gray-700:  #646470 !default;
-$gray-800:  #4d4e5c !default;
-$gray-900:  #373847 !default;
+$gray-base: #3c4b64 !default;
+
+$gray-100:  #ebedef !default;
+$gray-200:  #d8dbe0 !default;
+$gray-300:  #c4c9d0 !default;
+$gray-400:  #b1b7c1 !default;
+$gray-500:  #9da5b1 !default;
+$gray-600:  #8a93a2 !default;
+$gray-700:  #768192 !default;
+$gray-800:  #636f83 !default;
+$gray-900:  #4f5d73 !default;
 
 $grays: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
@@ -33,36 +34,6 @@ $grays: map-merge(
   ),
   $grays
 );
-
-
-$gray-dark-theme-base: #121212 !default;
-$gray-dark-theme-100:  #383838 !default;
-$gray-dark-theme-200:  #353535 !default;
-$gray-dark-theme-300:  #333 !default;
-$gray-dark-theme-400:  #2e2e2e !default;
-$gray-dark-theme-500:  #2c2c2c !default;
-$gray-dark-theme-600:  #272727 !default;
-$gray-dark-theme-700:  #252525 !default;
-$gray-dark-theme-800:  #222 !default;
-$gray-dark-theme-900:  #1e1e1e !default;
-
-$grays-dark-theme: () !default;
-// stylelint-disable-next-line scss/dollar-variable-default
-$grays-dark-theme: map-merge(
-  (
-    "100": $gray-dark-theme-100,
-    "200": $gray-dark-theme-200,
-    "300": $gray-dark-theme-300,
-    "400": $gray-dark-theme-400,
-    "500": $gray-dark-theme-500,
-    "600": $gray-dark-theme-600,
-    "700": $gray-dark-theme-700,
-    "800": $gray-dark-theme-800,
-    "900": $gray-dark-theme-900
-  ),
-  $grays-dark-theme
-);
-
 
 $primary-base:   #321fdb !default;
 
