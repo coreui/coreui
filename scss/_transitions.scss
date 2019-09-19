@@ -38,9 +38,7 @@
 // Components
 //
 
-.#{$prefix}footer,
 .#{$prefix}sidebar,
-.#{$prefix}body,
-.#{$prefix}main {
+.#{$prefix}wrapper {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 }

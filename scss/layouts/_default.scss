@@ -1,38 +1,11 @@
 //
 // CoreUI default layout
 //
-.#{$prefix}app.#{$prefix}default-layout {
+
+.#{$prefix}app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-
-  .#{$prefix}header {
-    flex: 0 0 $header-height;
-  }
-
-  .#{$prefix}footer {
-    flex: 0 0 $footer-height;
-  }
-
-  .#{$prefix}body {
-    display: flex;
-    flex-direction: row;
-    flex-grow: 1;
-    overflow-x: hidden;
-
-    .#{$prefix}main {
-      flex: 1;
-      min-width: 0;
-
-      > .#{$bs-prefix}container-fluid {
-        padding-right: $grid-gutter-width;
-        padding-left: $grid-gutter-width;
-      }
-    }
-  }
-  .#{$prefix}sidebar.#{$prefix}sidebar-fixed {
-    top: $header-height;
-  }
 }
 
 // IE10&11 Flexbox fix
@@ -43,3 +16,62 @@
   }
 }
 
+.#{$prefix}wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .#{$prefix}header-fixed{
+    margin: inherit;
+  }
+}
+
+// if header on top
+.#{$prefix}header {
+  ~ .#{$prefix}sidebar {
+    margin-top: $header-height;
+  }
+
+  &.#{$prefix}header-fixed ~ .#{$prefix}wrapper {
+    margin-top: $header-height;
+  }
+
+  &.#{$prefix}header-with-subheader {
+    ~ .#{$prefix}sidebar {
+      margin-top: $header-height + $header-subheader-height;
+    }
+    &.#{$prefix}header-fixed ~ .#{$prefix}wrapper {
+      margin-top: $header-height + $header-subheader-height;
+    }
+  }
+}
+
+.#{$prefix}body {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  overflow-x: hidden;
+}
+
+.#{$prefix}main {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2 * $spacer;
+
+  > .#{$bs-prefix}container-fluid {
+    @include media-breakpoint-up(md) {
+      padding-right: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+    }
+  }
+}
+
+.#{$prefix}header-fixed {
+  ~ .#{$prefix}body {
+    padding-top: $header-height;
+  }
+
+  &.#{$prefix}header-with-subheader ~ .#{$prefix}body {
+    padding-top: $header-height + $header-subheader-height;
+  }
+}

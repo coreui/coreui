@@ -6,6 +6,7 @@
 $prefix:                                      c- !default; // CoreUI
 $bs-prefix:                                   null !default; // CoreUI
 $theme-suffix:                                -theme !default;
+$mobile-breakpoint:                           sm !default;
 $enable-rtl:                                  true !default; // CoreUI
 $enable-caret:                                true !default;
 $enable-rounded:                              true !default;
@@ -37,5 +38,5 @@ $default-themes: map-merge(
   $default-themes
 );
 
-$enable-elevation:                            false !default;
+// $default-theme:                               light !default;
 $enable-prefers-color-scheme:                 true !default;
