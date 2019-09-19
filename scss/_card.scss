@@ -329,7 +329,7 @@
 
 // CoreUI start
 .#{$bs-prefix}card-placeholder {
-  background: rgba(0, 0, 0, .025);
+  background: rgba($black, .025);
   border: 1px dashed $gray-300;
 }
 
