@@ -40,12 +40,3 @@
   @include font-size($figure-caption-font-size);
   color: $figure-caption-color;
 }
-
-// CoreUI start
-// ToDo: refactor
-.#{$bs-prefix}img-circle {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50em;
-}
-// CoreUI end
