@@ -123,8 +123,8 @@
     }
   }
 
-  &.c-nav-tabs-boxed-left,
-  &.c-nav-tabs-boxed-right {
+  &.#{$bs-prefix}nav-tabs-boxed-left,
+  &.#{$bs-prefix}nav-tabs-boxed-right {
     display: flex;
 
     .#{$bs-prefix}nav-item {
@@ -134,7 +134,7 @@
     }
   }
 
-  &.c-nav-tabs-boxed-left {
+  &.#{$bs-prefix}nav-tabs-boxed-left {
     display: flex;
 
     .#{$bs-prefix}nav-item {
@@ -152,7 +152,7 @@
     }
   }
 
-  &.c-nav-tabs-boxed-right {
+  &.#{$bs-prefix}nav-tabs-boxed-right {
     flex-direction: row-reverse;
 
     .#{$bs-prefix}nav-item {
@@ -194,6 +194,41 @@
   }
 }
 
+//
+// Underline
+//
+
+.#{$bs-prefix}nav-underline {
+  border-bottom: (2 * $nav-tabs-border-width) solid;
+  @include themes($nav-theme-map, $create: parent) {
+    border-color: themes-get-value("nav-tabs-border-color");
+  }
+
+  .#{$bs-prefix}nav-item {
+    margin-bottom: - (2 * $nav-tabs-border-width);
+  }
+
+  .#{$bs-prefix}nav-link {
+    border: 0;
+    border-bottom: (2 * $nav-tabs-border-width) solid transparent;
+  }
+
+  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
+  .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
+    background: transparent;
+  }
+
+  @include theme-variant() {
+    &.#{$bs-prefix}nav-underline-#{$color} {
+      .#{$bs-prefix}nav-link.#{$bs-prefix}active,
+      .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
+        color: $value;
+        border-color: $value;
+      }
+    }
+  }
+}
+
 
 //
 // Justified variants
@@ -228,58 +263,20 @@
   }
 }
 
-// CoreUI specific changes start
-// ToDo: refactor
-// .#{$bs-prefix}nav-tabs {
-//   .#{$bs-prefix}nav-link {
-//     color: $gray-600;
-//     &:hover {
-//       cursor: pointer;
-//     }
-//     &.#{$bs-prefix}active {
-//       color: $gray-800;
-//       background: #fff;
-//       border-color: $border-color;
-//       border-bottom-color: #fff;
-//       &:focus {
-//         background: #fff;
-//         border-color: $border-color;
-//         border-bottom-color: #fff;
-//       }
-//     }
-//   }
-// }
+// Tabs in Sidebar
 
-// .#{$bs-prefix}tab-content {
-//   margin-top: -1px;
-//   background: #fff;
-//   border: 1px solid $border-color;
-//   .#{$bs-prefix}tab-pane {
-//     padding: $spacer;
-//   }
-// }
-
-// .#{$bs-prefix}card-block {
-//   .#{$bs-prefix}tab-content {
-//     margin-top: 0;
-//     border: 0;
-//   }
-// }
-
-// .#{$bs-prefix}nav-fill {
-//   .#{$bs-prefix}nav-link {
-//     background-color: #fff;
-//     border-color: $border-color;
-//   }
-//   .#{$bs-prefix}nav-link + .#{$bs-prefix}nav-link {
-//     margin-left: -1px;
-//   }
-//   .#{$bs-prefix}nav-link.#{$bs-prefix}active {
-//     margin-top: -1px;
-//     // margin-left: 0;
-//     border-top: 2px solid $primary;
-//   }
-// }
+.#{$prefix}sidebar {
+  .#{$bs-prefix}nav-tabs:first-child,
+  .#{$prefix}sidebar-close + .nav-tabs {
+    .#{$bs-prefix}nav-link {
+      display: flex;
+      align-items: center;
+      height: $sidebar-brand-height;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}
 
 // Right-to-Left Support
 *[dir="rtl"] {
