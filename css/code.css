@@ -12,7 +12,7 @@ kbd {
   padding: 0.2rem 0.4rem;
   font-size: 87.5%;
   color: #fff;
-  background-color: #373847;
+  background-color: #4f5d73;
   border-radius: 0.2rem;
 }
 
@@ -25,7 +25,7 @@ kbd kbd {
 pre {
   display: block;
   font-size: 87.5%;
-  color: #373847;
+  color: #4f5d73;
 }
 
 pre code {

@@ -6,8 +6,8 @@
   list-style: none;
   border-radius: 0;
   border-bottom: 1px solid;
-  background-color: #fff;
-  border-color: #bcbdc2;
+  background-color: transparent;
+  border-color: #d8dbe0;
 }
 
 .breadcrumb-item + .breadcrumb-item {
@@ -17,7 +17,7 @@
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
-  color: #7a7a85;
+  color: #8a93a2;
   content: "/";
 }
 
@@ -30,7 +30,7 @@
 }
 
 .breadcrumb-item.active {
-  color: #7a7a85;
+  color: #8a93a2;
 }
 
 *[dir="rtl"] .breadcrumb-item::before {

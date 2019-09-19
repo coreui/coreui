@@ -1,6 +1,6 @@
 .c-avatar {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50em;
@@ -64,6 +64,10 @@
 .c-avatar-xl .c-avatar-status {
   width: 14px;
   height: 14px;
+}
+
+.c-avatars-stack {
+  display: flex;
 }
 
 .c-avatars-stack .c-avatar {

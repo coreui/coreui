@@ -16,7 +16,7 @@
   }
   pre,
   blockquote {
-    border: 1px solid #909099;
+    border: 1px solid #9da5b1;
     page-break-inside: avoid;
   }
   thead {
@@ -49,7 +49,7 @@
     display: none;
   }
   .badge {
-    border: 1px solid #000;
+    border: 1px solid #000015;
   }
   .table {
     border-collapse: collapse !important;
@@ -60,7 +60,7 @@
   }
   .table-bordered th,
   .table-bordered td {
-    border: 1px solid #bcbdc2 !important;
+    border: 1px solid #c4c9d0 !important;
   }
   .table-dark {
     color: inherit;
@@ -69,11 +69,11 @@
   .table-dark td,
   .table-dark thead th,
   .table-dark tbody + tbody {
-    border-color: #bcbdc2;
+    border-color: #d8dbe0;
   }
   .table .thead-dark th {
     color: inherit;
-    border-color: #bcbdc2;
+    border-color: #d8dbe0;
   }
 }
 

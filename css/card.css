@@ -9,7 +9,7 @@
   border: 1px solid;
   border-radius: 0.25rem;
   background-color: #fff;
-  border-color: #bcbdc2;
+  border-color: #d8dbe0;
 }
 
 .card > hr {
@@ -87,21 +87,21 @@
 }
 
 .card.bg-light {
-  border-color: #c8c8cd;
+  border-color: #c8cdd3;
 }
 
 .card.bg-light .card-header {
-  background-color: #e1e1e4;
-  border-color: #c8c8cd;
+  background-color: #e3e5e8;
+  border-color: #c8cdd3;
 }
 
 .card.bg-dark {
-  border-color: #303139;
+  border-color: #48505f;
 }
 
 .card.bg-dark .card-header {
-  background-color: #464754;
-  border-color: #303139;
+  background-color: #5c687a;
+  border-color: #48505f;
 }
 
 .card-body {
@@ -134,8 +134,8 @@
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
   border-bottom: 1px solid;
-  background-color: #e9e9eb;
-  border-color: #bcbdc2;
+  background-color: #fff;
+  border-color: #d8dbe0;
 }
 
 .card-header:first-child {
@@ -157,8 +157,8 @@
 .card-footer {
   padding: 0.75rem 1.25rem;
   border-top: 1px solid;
-  background-color: #e9e9eb;
-  border-color: #bcbdc2;
+  background-color: #fff;
+  border-color: #d8dbe0;
 }
 
 .card-footer:last-child {
@@ -322,8 +322,8 @@
 }
 
 .card-placeholder {
-  background: rgba(0, 0, 0, 0.025);
-  border: 1px dashed #bcbdc2;
+  background: rgba(0, 0, 21, 0.025);
+  border: 1px dashed #c4c9d0;
 }
 
 *[dir="rtl"] .card-header > i {
@@ -337,11 +337,11 @@
   padding: 0.75rem 0;
   margin: -0.75rem 1.25rem -0.75rem -1.25rem;
   line-height: inherit;
-  color: #373847;
+  color: #4f5d73;
   text-align: center;
   background: transparent;
   border-right: 1px solid;
-  border-right: #bcbdc2;
+  border-right: #d8dbe0;
 }
 
 .card-header-actions {
@@ -358,11 +358,11 @@
 
 .card-header-action {
   padding: 0 0.25rem;
-  color: #7a7a85;
+  color: #8a93a2;
 }
 
 .card-header-action:hover {
-  color: #373847;
+  color: #4f5d73;
   text-decoration: none;
 }
 
@@ -397,12 +397,12 @@
 }
 
 .card-accent-light {
-  border-top-color: #e9e9eb;
+  border-top-color: #ebedef;
   border-top-width: 2px;
 }
 
 .card-accent-dark {
-  border-top-color: #4d4e5c;
+  border-top-color: #636f83;
   border-top-width: 2px;
 }
 
@@ -411,7 +411,7 @@
   margin-right: -15px;
   margin-left: -15px;
   border: 0;
-  border-bottom: 1px solid #bcbdc2;
+  border-bottom: 1px solid #d8dbe0;
 }
 
 @media (min-width: 576px) {

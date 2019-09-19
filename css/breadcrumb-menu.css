@@ -12,18 +12,18 @@
 
 .breadcrumb-menu .btn {
   padding: 0 0.75rem;
-  color: #646470;
+  color: #768192;
   vertical-align: top;
   border: 0;
 }
 
 .breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {
-  color: #373847;
+  color: #4f5d73;
   background: transparent;
 }
 
 .breadcrumb-menu .open .btn {
-  color: #373847;
+  color: #4f5d73;
   background: transparent;
 }
 

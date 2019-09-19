@@ -749,7 +749,7 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-apha.13';
+  var VERSION = '3.0.0-alpha.13';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -5510,6 +5510,7 @@
     NAV_DROPDOWN_TOGGLE: PREFIX$3 + "nav-dropdown-toggle",
     OPEN: PREFIX$3 + "open",
     SIDEBAR_MINIMIZED: PREFIX$3 + "sidebar-minimized",
+    SIDEBAR_OVERLAID: PREFIX$3 + "sidebar-overlaid",
     SIDEBAR_SHOW: PREFIX$3 + "sidebar-show"
   };
   var Event$c = {
@@ -5549,6 +5550,9 @@
       this._setActiveLink();
 
       this._breakpointTest = this._breakpointTest.bind(this);
+
+      this._toggleClickOut();
+
       this._clickOutListener = this._clickOutListener.bind(this);
 
       this._addEventListeners();
@@ -5721,8 +5725,6 @@
 
     _proto._breakpointTest = function _breakpointTest(event) {
       this.mobile = Boolean(event.matches);
-
-      this._toggleClickOut();
     };
 
     _proto._clickOutListener = function _clickOutListener(event) {
@@ -5747,6 +5749,8 @@
 
     _proto._toggleClickOut = function _toggleClickOut() {
       if (this.mobile && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
+        this._addClickOut();
+      } else if (this._element.classList.contains(ClassName$b.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
         this._addClickOut();
       } else {
         this._removeClickOut();

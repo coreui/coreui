@@ -14,15 +14,15 @@
   border: 1px solid;
   color: #321fdb;
   background-color: #fff;
-  border-color: #bcbdc2;
+  border-color: #d8dbe0;
 }
 
 .page-link:hover {
   z-index: 2;
   text-decoration: none;
   color: #231698;
-  background-color: #d3d3d6;
-  border-color: #bcbdc2;
+  background-color: #d8dbe0;
+  border-color: #c4c9d0;
 }
 
 .page-link:focus {
@@ -52,9 +52,9 @@
 .page-item.disabled .page-link {
   pointer-events: none;
   cursor: auto;
-  color: #7a7a85;
+  color: #8a93a2;
   background-color: #fff;
-  border-color: #bcbdc2;
+  border-color: #c4c9d0;
 }
 
 .pagination-lg .page-link {

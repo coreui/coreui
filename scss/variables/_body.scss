@@ -10,8 +10,8 @@ $body-theme-map: () !default;
 $body-theme-map: map-merge(
   (
     light: (
-      "body-bg":  #e4e5e6,
-      "body-color": $gray-900
+      "body-bg":  $gray-100,
+      "body-color": $gray-base
     )
   ),
   $body-theme-map

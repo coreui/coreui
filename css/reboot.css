@@ -8,7 +8,7 @@ html {
   font-family: sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 21, 0);
 }
 
 article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
@@ -22,8 +22,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   text-align: left;
-  color: #373847;
-  background-color: #e4e5e6;
+  color: #3c4b64;
+  background-color: #ebedef;
 }
 
 [tabindex="-1"]:focus {
@@ -173,7 +173,7 @@ table {
 caption {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  color: #646470;
+  color: #768192;
   text-align: left;
   caption-side: bottom;
 }

@@ -6,7 +6,7 @@
 .img-thumbnail {
   padding: 0.25rem;
   background-color: #e4e5e6;
-  border: 1px solid #bcbdc2;
+  border: 1px solid #c4c9d0;
   border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
@@ -23,13 +23,7 @@
 
 .figure-caption {
   font-size: 90%;
-  color: #7a7a85;
-}
-
-.img-circle {
-  max-width: 100%;
-  height: auto;
-  border-radius: 50em;
+  color: #8a93a2;
 }
 
 /*# sourceMappingURL=images.css.map */

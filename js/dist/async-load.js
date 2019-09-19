@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-apha.13): asyn-load.js
+ * CoreUI (v3.0.0-alpha.13): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -24,7 +24,7 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-apha.13';
+var VERSION = '3.0.0-alpha.13';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';

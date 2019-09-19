@@ -29,6 +29,19 @@ stylelint-order                              3.0.0   3.0.1   3.0.1  @coreui/core
 stylelint-scss                               3.8.0  3.10.0  3.10.0  @coreui/coreui
 terser                                       4.0.0   4.2.1   4.2.1  @coreui/coreui
 
+@babel/cli                         7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/core                        7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/plugin-transform-runtime    7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/polyfill                    7.4.4   7.6.0   7.6.0  @coreui/coreui
+@babel/preset-env                  7.5.5   7.6.0   7.6.0  @coreui/coreui
+cross-env                          5.2.0   5.2.1   5.2.1  @coreui/coreui
+eslint                             6.2.2   6.3.0   6.3.0  @coreui/coreui
+nodemon                           1.19.1  1.19.2  1.19.2  @coreui/coreui
+rollup                            1.20.3  1.21.2  1.21.2  @coreui/coreui
+stylelint-order                    3.0.1   3.1.0   3.1.0  @coreui/coreui
+stylelint-scss                    3.10.0  3.10.1  3.10.1  @coreui/coreui
+terser                             4.2.1   4.3.0   4.3.0  @coreui/coreuis
+
 ## v3.0.0
 - refactor: merge CoreUI and Bootstrap
 - refacror: add `c-` prefix to each css class

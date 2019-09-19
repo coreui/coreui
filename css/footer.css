@@ -1,18 +1,20 @@
 .c-footer {
   display: flex;
+  flex: 0 0 50px;
   flex-wrap: wrap;
   align-items: center;
+  height: 50px;
   padding: 0 1rem;
 }
 
 .c-footer[class*="bg-"] {
-  border-color: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 21, 0.1);
 }
 
 .c-footer {
-  color: #373847;
-  background: #e9e9eb;
-  border-top: 1px solid #bcbdc2;
+  color: #4f5d73;
+  background: #ebedef;
+  border-top: 1px solid #d8dbe0;
 }
 
 /*# sourceMappingURL=footer.css.map */

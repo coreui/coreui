@@ -34,6 +34,7 @@ var ClassName = {
   NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
   OPEN: PREFIX + "open",
   SIDEBAR_MINIMIZED: PREFIX + "sidebar-minimized",
+  SIDEBAR_OVERLAID: PREFIX + "sidebar-overlaid",
   SIDEBAR_SHOW: PREFIX + "sidebar-show"
 };
 var Event = {
@@ -73,6 +74,9 @@ function () {
     this._setActiveLink();
 
     this._breakpointTest = this._breakpointTest.bind(this);
+
+    this._toggleClickOut();
+
     this._clickOutListener = this._clickOutListener.bind(this);
 
     this._addEventListeners();
@@ -245,8 +249,6 @@ function () {
 
   _proto._breakpointTest = function _breakpointTest(event) {
     this.mobile = Boolean(event.matches);
-
-    this._toggleClickOut();
   };
 
   _proto._clickOutListener = function _clickOutListener(event) {
@@ -271,6 +273,8 @@ function () {
 
   _proto._toggleClickOut = function _toggleClickOut() {
     if (this.mobile && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
+      this._addClickOut();
+    } else if (this._element.classList.contains(ClassName.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
       this._addClickOut();
     } else {
       this._removeClickOut();
