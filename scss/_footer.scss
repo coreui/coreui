@@ -1,8 +1,10 @@
 
 .#{$prefix}footer {
   display: flex;
+  flex: 0 0 $footer-height;
   flex-wrap: wrap;
   align-items: center;
+  height: $footer-height;
   padding: 0 $spacer;
 
   &[class*="bg-"] {
