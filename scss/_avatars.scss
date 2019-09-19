@@ -1,6 +1,6 @@
 .#{$prefix}avatar {
   position: relative;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 50em;
@@ -40,6 +40,7 @@
 }
 
 .#{$prefix}avatars-stack {
+  display: flex;
 
   .#{$prefix}avatar {
     margin-right: - ($avatar-width / 2);
