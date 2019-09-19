@@ -15,7 +15,7 @@ $breadcrumb-borders: (
 ) !default;
 
 // Default theme
-$breadcrumb-bg:                     $white !default; // was: $gray-200
+$breadcrumb-bg:                     transparent !default; // was: $gray-200
 $breadcrumb-border-color:           $border-color !default;
 $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
