@@ -1,19 +1,20 @@
 
 // Sidebar
 
-$sidebar-width:                       250px !default;
+$sidebar-width:                       256px !default;
+$sidebar-lg-width:                    352px !default;
 $sidebar-padding:                     0 !default;
-$sidebar-minimized-width:             50px !default;
+$sidebar-minimized-width:             56px !default;
 $sidebar-minimized-height:            $sidebar-minimized-width !default;
 $sidebar-compact-width:               150px !default;
 
 $sidebar-dark-color:                  $white !default;
-$sidebar-dark-bg:                     $gray-800 !default;
+$sidebar-dark-bg:                     $gray-base !default;
 $sidebar-dark-borders:                none !default;
 
 // Sidebar Brand
 
-$sidebar-brand-height:                55px !default;
+$sidebar-brand-height:               56px !default;
 
 $sidebar-dark-brand-bg:              rgba($black, .2) !default;
 
@@ -37,9 +38,9 @@ $sidebar-dark-form-placeholder-color:      rgba($white, .7) !default;
 $sidebar-nav-title-padding-y:         .75rem !default;
 $sidebar-nav-title-padding-x:         1rem !default;
 $sidebar-nav-title-margin-top:        1rem !default;
-$sidebar-nav-link-padding-y:          .75rem !default;
+$sidebar-nav-link-padding-y:          .8445rem !default;
 $sidebar-nav-link-padding-x:          1rem !default;
-$sidebar-nav-icon-width:              50px !default;
+$sidebar-nav-icon-width:              56px !default;
 
 $sidebar-dark-nav-title-color:             rgba($white, .6) !default;
 $sidebar-dark-nav-link-color:              rgba($white, .8) !default;

@@ -1,3 +1,9 @@
+
+// stylelint-disable-next-line scss/dollar-variable-default
+$sidebar-negative-margin: - $sidebar-width;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sidebar-lg-negative-margin: - $sidebar-lg-width;
+
 // stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .#{$prefix}sidebar {
   display: flex;
@@ -6,15 +12,23 @@
   flex-direction: column;
   // put the nav on the left
   order: -1;
+  width: $sidebar-width;
   padding: $sidebar-padding;
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 
+  @include media-breakpoint-down($mobile-breakpoint) {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 1;
+  }
+
   html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right){
-    margin-left: - $sidebar-width;
+    margin-left: $sidebar-negative-margin;
   }
   html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
     order: 99;
-    margin-right: - $sidebar-width;
+    margin-right: $sidebar-negative-margin;
   }
 
   &[class*="bg-"]  {
@@ -25,23 +39,43 @@
     }
   }
 
-  &.#{$prefix}sidebar-fixed {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: $zindex-sticky - 1;
-    width: $sidebar-width;
+  &.#{$prefix}sidebar-lg {
+    width: $sidebar-lg-width;
 
-    html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right) {
-      left: 0;
+    html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right){
+      margin-left: $sidebar-lg-negative-margin;
     }
-
     html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-      right: 0;
+      margin-right: $sidebar-lg-negative-margin;
     }
+  }
 
-    &.#{$prefix}sidebar-under-header {
-      top: $header-height;
+  &.#{$prefix}sidebar-fixed {
+    @include media-breakpoint-up(md) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      z-index: $zindex-fixed;
+
+      html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right) {
+        left: 0;
+      }
+
+      html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+        right: 0;
+      }
+    }
+  }
+
+  .#{$prefix}sidebar-close {
+    position: absolute;
+    width: $sidebar-brand-height;
+    height: $sidebar-brand-height;
+    background: transparent;
+    border: 0;
+
+    html:not([dir="rtl"]) &{
+      right: 0;
     }
   }
 
@@ -95,9 +129,11 @@
     height: 10px;
     transition: height $layout-transition-speed;
   }
+
   .#{$prefix}nav-item {
     width: inherit;
   }
+
   .#{$prefix}nav-link {
     display: flex;
     flex: 1;
@@ -110,14 +146,6 @@
       border-radius: $border-radius;
     }
 
-    .#{$prefix}nav-icon {
-      flex: 0 0 $sidebar-nav-icon-width;
-      height: ($font-size-base * 1.25);
-      font-size: $font-size-base;
-      text-align: center;
-      transition: $layout-transition-speed;
-    }
-
     .#{$bs-prefix}badge {
       margin-right: $sidebar-nav-link-padding-x;
       margin-left: auto;
@@ -126,6 +154,15 @@
     &.#{$prefix}disabled {
       cursor: $cursor-disabled;
     }
+  }
+
+  .#{$prefix}nav-icon {
+    flex: 0 0 $sidebar-nav-icon-width;
+    height: ($font-size-base * 1.25);
+    font-size: $font-size-base;
+    text-align: center;
+    transition: $layout-transition-speed;
+    fill: currentColor;
   }
 
   .#{$prefix}nav-dropdown {
@@ -143,10 +180,15 @@
       > .#{$prefix}nav-dropdown-toggle::after {
         transform: rotate(-90deg);
       }
+
+      + .#{$prefix}nav-dropdown.#{$prefix}open {
+        margin-top: 1px;
+      }
     }
   }
 
   .#{$prefix}nav-dropdown-toggle {
+    cursor: pointer;
 
     &::after {
       display: block;
@@ -187,46 +229,6 @@
       font-size: 10px;
       text-align: center;
       vertical-align: middle;
-    }
-  }
-
-  // TODO: refactor
-  // @if (lightness( $sidebar-bg ) < 40) {
-  //   .#{$prefix}progress {
-  //     background-color: lighten($sidebar-bg, 15%) !important;
-  //   }
-  // }
-
-  // Tabs
-
-  .#{$prefix}nav-tabs {
-    // border-color: $border-color;
-    .#{$prefix}nav-link {
-      display: block;
-      padding: $sidebar-nav-tabs-link-padding-y $sidebar-nav-tabs-link-padding-x;
-      // color: $body-color;
-      border-top: 0;
-      @include border-radius(0);
-      &.#{$prefix}active {
-        // color: theme-color("primary");
-      }
-    }
-    .#{$prefix}nav-item:first-child {
-      .#{$prefix}nav-link {
-        border-left: 0;
-      }
-    }
-  }
-
-  .#{$prefix}tab-content {
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: transparent;
-    border: 0;
-
-    .#{$prefix}tab-pane {
-      padding: 0;
     }
   }
 
@@ -274,155 +276,158 @@
   // Minimized Sidebar
 
   &.#{$prefix}sidebar-minimized {
-    z-index: $zindex-sticky - 1;
-    flex: 0 0 $sidebar-minimized-width;
+    @include media-breakpoint-up(md) {
+      z-index: $zindex-fixed - 1;
+      flex: 0 0 $sidebar-minimized-width;
 
-    &.#{$prefix}sidebar-fixed {
-      width: $sidebar-minimized-width;
-    }
-
-    &:not(.#{$prefix}sidebar-right){
-      margin-left: - $sidebar-minimized-width;
-    }
-    &.#{$prefix}sidebar-right {
-      margin-right: - $sidebar-minimized-width;
-    }
-
-    .#{$prefix}sidebar-brand-full {
-      display: none;
-    }
-
-    .#{$prefix}sidebar-brand-minimized {
-      display: initial;
-    }
-
-    .#{$prefix}sidebar-nav {
-      padding-bottom: $sidebar-minimizer-height;
-      overflow: visible;
-    }
-
-    .#{$prefix}d-minimized-none,
-    .#{$prefix}nav-divider,
-    .#{$prefix}nav-label,
-    .#{$prefix}nav-title,
-    .#{$prefix}sidebar-footer,
-    .#{$prefix}sidebar-form,
-    .#{$prefix}sidebar-header {
-      height: 0;
-      padding: 0;
-      margin: 0;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
-    // TODO: find better solution
-    .#{$prefix}sidebar-minimizer {
-      position: fixed;
-      bottom: 0;
-      width: inherit;
-
-      &::before {
-        transform: rotate(-180deg);
+      &.#{$prefix}sidebar-fixed {
+        width: $sidebar-minimized-width;
       }
-    }
 
-    &.#{$prefix}sidebar-right .#{$prefix}sidebar-minimizer::before {
-      transform: rotate(0deg);
-    }
+      &:not(.#{$prefix}sidebar-right){
+        margin-left: - $sidebar-minimized-width;
+      }
+      &.#{$prefix}sidebar-right {
+        margin-right: - $sidebar-minimized-width;
+      }
 
-    .#{$prefix}nav-dropdown {
-      position: relative;
-      overflow: hidden;
+      .#{$prefix}sidebar-brand-full {
+        display: none;
+      }
 
-      &:hover {
-        width: $sidebar-width + $sidebar-minimized-width;
+      .#{$prefix}sidebar-brand-minimized {
+        display: initial;
+      }
+
+      .#{$prefix}sidebar-nav {
+        padding-bottom: $sidebar-minimizer-height;
         overflow: visible;
       }
-    }
 
-    &.#{$prefix}sidebar-right .#{$prefix}sidebar-nav > .#{$prefix}nav > .#{$prefix}nav-item:hover {
-      margin-left: - $sidebar-width;
-    }
-
-    .#{$prefix}nav-link {
-      overflow: hidden;
-      white-space: nowrap;
-      border-left: 0;
-
-      .#{$prefix}nav-icon {
-        display: block;
-        float: left;
-        width: $sidebar-minimized-height;
-        font-size: 18px;
+      .#{$prefix}d-minimized-none,
+      .#{$prefix}nav-divider,
+      .#{$prefix}nav-label,
+      .#{$prefix}nav-title,
+      .#{$prefix}sidebar-footer,
+      .#{$prefix}sidebar-form,
+      .#{$prefix}sidebar-header {
+        height: 0;
+        padding: 0;
+        margin: 0;
+        visibility: hidden;
+        opacity: 0;
       }
 
-      .#{$prefix}badge {
-        display: none;
+      // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
+      // TODO: find better solution
+      .#{$prefix}sidebar-minimizer {
+        position: fixed;
+        bottom: 0;
+        width: inherit;
+
+        &::before {
+          transform: rotate(-180deg);
+        }
       }
 
-      &:hover {
-        width: $sidebar-width + $sidebar-minimized-width;
+      &.#{$prefix}sidebar-right .#{$prefix}sidebar-minimizer::before {
+        transform: rotate(0deg);
+      }
+
+      .#{$prefix}nav-dropdown {
+        position: relative;
+        overflow: hidden;
+
+        &:hover {
+          width: $sidebar-width + $sidebar-minimized-width;
+          overflow: visible;
+        }
+      }
+
+      &.#{$prefix}sidebar-right .#{$prefix}sidebar-nav > .#{$prefix}nav > .#{$prefix}nav-item:hover {
+        margin-left: - $sidebar-width;
+      }
+
+      .#{$prefix}nav-link {
+        overflow: hidden;
+        white-space: nowrap;
+        border-left: 0;
+
+        .#{$prefix}nav-icon {
+          display: block;
+          float: left;
+          width: $sidebar-minimized-height;
+          font-size: 18px;
+        }
 
         .#{$prefix}badge {
-          display: inline;
+          display: none;
+        }
+
+        &:hover {
+          width: $sidebar-width + $sidebar-minimized-width;
+
+          .#{$prefix}badge {
+            display: inline;
+          }
+        }
+
+        &.#{$prefix}nav-dropdown-toggle::after {
+          display: none;
         }
       }
 
-      &.#{$prefix}nav-dropdown-toggle::after {
-        display: none;
-      }
-    }
-
-    .#{$prefix}nav-dropdown-items {
-      .#{$prefix}nav-link {
-        width: $sidebar-width;
-      }
-    }
-
-    .#{$prefix}nav > .#{$prefix}nav-dropdown {
-      > .#{$prefix}nav-dropdown-items {
-        display: none;
-        max-height: 1000px;
+      .#{$prefix}nav-dropdown-items {
+        .#{$prefix}nav-link {
+          width: $sidebar-width;
+        }
       }
 
-      &:hover {
+      .#{$prefix}nav > .#{$prefix}nav-dropdown {
         > .#{$prefix}nav-dropdown-items {
-          position: absolute;
-          left: $sidebar-minimized-width;
-          display: inline;
+          display: none;
+          max-height: 1000px;
+        }
+
+        &:hover {
+          > .#{$prefix}nav-dropdown-items {
+            position: absolute;
+            left: $sidebar-minimized-width;
+            display: inline;
+          }
         }
       }
-    }
 
-    &.#{$prefix}sidebar-right .#{$prefix}nav > .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
-      left: 0;
-    }
+      &.#{$prefix}sidebar-right .#{$prefix}nav > .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
+        left: 0;
+      }
 
-    // Right-to-Left Support
-    @if $enable-rtl {
-      *[dir="rtl"] {
-        .#{$prefix}sidebar-minimized {
-          .#{$prefix}sidebar {
-            .#{$prefix}nav {
-              list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-              .#{$prefix}nav-divider {
-                height: 0;
+      // Right-to-Left Support
+      @if $enable-rtl {
+        *[dir="rtl"] {
+          .#{$prefix}sidebar-minimized {
+            .#{$prefix}sidebar {
+              .#{$prefix}nav {
+                list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+                .#{$prefix}nav-divider {
+                  height: 0;
+                }
               }
-            }
 
-            .#{$prefix}sidebar-minimizer::before {
-              transform: rotate(0deg);
-            }
+              .#{$prefix}sidebar-minimizer::before {
+                transform: rotate(0deg);
+              }
 
-            .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
-              left: 0;
+              .#{$prefix}nav-dropdown:hover > .#{$prefix}nav-dropdown-items {
+                left: 0;
+              }
             }
           }
         }
       }
     }
   }
+
   @include media-breakpoint-up(lg) {
     &.#{$prefix}sidebar-compact {
       width: $sidebar-compact-width;
@@ -470,40 +475,43 @@
         &:not(.#{$prefix}sidebar-right){
           margin-left: 0;
           @if $breakpoint != "xs" {
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-              margin-left: $sidebar-width;
-            }
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-              margin-left: $sidebar-compact-width;
-            }
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-              margin-left: $sidebar-minimized-width;
+            &.#{$prefix}sidebar-fixed {
+              ~ .#{$prefix}wrapper {
+                margin-left: $sidebar-width;
+              }
+              &.#{$prefix}sidebar-compact {
+                ~ .#{$prefix}wrapper {
+                  margin-left: $sidebar-compact-width;
+                }
+              }
+              &.#{$prefix}sidebar-minimized,
+              &.#{$prefix}sidebar-minimized-unfoldable {
+                ~ .#{$prefix}wrapper {
+                  margin-left: $sidebar-minimized-width;
+                }
+              }
             }
           }
         }
         &.#{$prefix}sidebar-right {
           margin-right: 0;
           @if $breakpoint != "xs" {
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-              margin-right: $sidebar-width;
-            }
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-              margin-right: $sidebar-compact-width;
-            }
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-            &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-              margin-right: $sidebar-minimized-width;
+            &.#{$prefix}sidebar-fixed {
+              ~ .#{$prefix}wrapper {
+                margin-right: $sidebar-width;
+              }
+              &.#{$prefix}sidebar-compact {
+                ~ .#{$prefix}wrapper {
+                  margin-right: $sidebar-compact-width;
+                }
+              }
+              &.#{$prefix}sidebar-minimized,
+              &.#{$prefix}sidebar-minimized-unfoldable {
+                ~ .#{$prefix}wrapper {
+                  margin-right: $sidebar-minimized-width;
+                }
+              }
+
             }
           }
         }
@@ -518,11 +526,21 @@
     .#{$prefix}sidebar {
 
       &:not(.#{$prefix}sidebar-right){
-        margin-right: - $sidebar-width;
+        margin-right: $sidebar-negative-margin;
       }
       &.#{$prefix}sidebar-right {
         order: 99;
-        margin-left: - $sidebar-width;
+        margin-left: $sidebar-negative-margin;
+      }
+
+      &.#{$prefix}sidebar-lg {
+
+        &:not(.#{$prefix}sidebar-right){
+          margin-right: $sidebar-lg-negative-margin;
+        }
+        &.#{$prefix}sidebar-right {
+          margin-left: $sidebar-lg-negative-margin;
+        }
       }
 
       &.#{$prefix}sidebar-fixed {
@@ -533,6 +551,20 @@
         &.#{$prefix}sidebar-right {
           left: 0;
         }
+      }
+
+      &.#{$prefix}sidebar-overlaid {
+        &:not(.#{$prefix}sidebar-right) {
+          right: 0;
+        }
+
+        &.#{$prefix}sidebar-right {
+          left: 0;
+        }
+      }
+
+      .#{$prefix}sidebar-close {
+        left: 0;
       }
 
       .#{$prefix}nav-dropdown-toggle::after {
@@ -596,40 +628,42 @@
             &:not(.#{$prefix}sidebar-right){
               margin-right: 0;
               @if $breakpoint != "xs" {
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-                  margin-right: $sidebar-width;
-                }
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-                  margin-right: $sidebar-compact-width;
-                }
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-                  margin-right: $sidebar-minimized-width;
+                &.#{$prefix}sidebar-fixed {
+                  ~ .#{$prefix}wrapper {
+                    margin-right: $sidebar-width;
+                  }
+                  &.#{$prefix}sidebar-compact {
+                    ~ .#{$prefix}wrapper {
+                      margin-right: $sidebar-compact-width;
+                    }
+                  }
+                  &.#{$prefix}sidebar-minimized,
+                  &.#{$prefix}sidebar-minimized-unfoldable {
+                    ~ .#{$prefix}wrapper {
+                      margin-right: $sidebar-minimized-width;
+                    }
+                  }
                 }
               }
             }
             &.#{$prefix}sidebar-right {
               margin-left: 0;
               @if $breakpoint != "xs" {
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed ~ .#{$prefix}footer {
-                  margin-left: $sidebar-width;
-                }
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-compact ~ .#{$prefix}footer {
-                  margin-left: $sidebar-compact-width;
-                }
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}main,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}body,
-                &.#{$prefix}sidebar-fixed.#{$prefix}sidebar-minimized ~ .#{$prefix}footer {
-                  margin-left: $sidebar-minimized-width;
+                &.#{$prefix}sidebar-fixed {
+                  ~ .#{$prefix}wrapper {
+                    margin-left: $sidebar-width;
+                  }
+                  &.#{$prefix}sidebar-compact {
+                    ~ .#{$prefix}wrapper {
+                      margin-left: $sidebar-compact-width;
+                    }
+                  }
+                  &.#{$prefix}sidebar-minimized,
+                  &.#{$prefix}sidebar-minimized-unfoldable {
+                    ~ .#{$prefix}wrapper {
+                      margin-left: $sidebar-minimized-width;
+                    }
+                  }
                 }
               }
             }
@@ -784,22 +818,6 @@
 
     .#{$prefix}nav-icon {
       color: themes-get-value("sidebar-nav-link-icon-color");
-    }
-  }
-
-  .#{$prefix}nav-tabs {
-    border-color: themes-get-value("sidebar-nav-tabs-border-color");
-
-    .#{$prefix}nav-link {
-      &:hover,
-      &:focus {
-        background: themes-get-value("sidebar-nav-tabs-link-hover-bg");
-        border-color: themes-get-value("sidebar-nav-tabs-link-hover-border-color");
-      }
-      &.#{$prefix}active {
-        background: themes-get-value("sidebar-nav-tabs-link-active-bg");
-        border-color: themes-get-value("sidebar-nav-tabs-link-active-border-color");
-      }
     }
   }
 
