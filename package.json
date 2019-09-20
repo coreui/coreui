@@ -83,9 +83,6 @@
     "watch-js": "nodemon --ignore js/dist/ --ignore dist/ -e js -x \"npm-run-all js-compile* js-minify*\"",
     "watch-css": "nodemon --ignore dist/ --ignore css/ --ignore scss/partials/ -e scss -x \"npm run css\""
   },
-  "dependencies": {
-    "bootstrap": "^4.2.1"
-  },
   "peerDependencies": {
     "perfect-scrollbar": "^1.3.0",
     "popper.js": "^1.15.0"
@@ -114,7 +111,6 @@
     "eslint-plugin-unicorn": "^10.0.0",
     "find-unused-sass-variables": "^0.5.0",
     "foreach-cli": "^1.8.1",
-    "list-selectors": "^2.0.0",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.2",
     "npm-run-all": "^4.1.5",
