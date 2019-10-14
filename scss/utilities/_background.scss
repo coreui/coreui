@@ -19,13 +19,8 @@
 }
 
 // CoreUI start
-.#{$bs-prefix}bg-primary,
-.#{$bs-prefix}bg-success,
-.#{$bs-prefix}bg-info,
-.#{$bs-prefix}bg-warning,
-.#{$bs-prefix}bg-danger,
-.#{$bs-prefix}bg-dark {
-  color: #fff;
+[class^="#{$bs-prefix}bg-"] {
+  color: $white;
 }
 
 @each $color, $value in $brands-colors {

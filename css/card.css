@@ -367,43 +367,35 @@
 }
 
 .card-accent-primary {
-  border-top-color: #321fdb;
-  border-top-width: 2px;
+  border-top: 2px solid #321fdb !important;
 }
 
 .card-accent-secondary {
-  border-top-color: #ced2d8;
-  border-top-width: 2px;
+  border-top: 2px solid #ced2d8 !important;
 }
 
 .card-accent-success {
-  border-top-color: #2eb85c;
-  border-top-width: 2px;
+  border-top: 2px solid #2eb85c !important;
 }
 
 .card-accent-info {
-  border-top-color: #39f;
-  border-top-width: 2px;
+  border-top: 2px solid #39f !important;
 }
 
 .card-accent-warning {
-  border-top-color: #f9b115;
-  border-top-width: 2px;
+  border-top: 2px solid #f9b115 !important;
 }
 
 .card-accent-danger {
-  border-top-color: #e55353;
-  border-top-width: 2px;
+  border-top: 2px solid #e55353 !important;
 }
 
 .card-accent-light {
-  border-top-color: #ebedef;
-  border-top-width: 2px;
+  border-top: 2px solid #ebedef !important;
 }
 
 .card-accent-dark {
-  border-top-color: #636f83;
-  border-top-width: 2px;
+  border-top: 2px solid #636f83 !important;
 }
 
 .card-full {

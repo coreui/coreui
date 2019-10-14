@@ -110,12 +110,7 @@ button.bg-dark:focus {
   background-color: transparent !important;
 }
 
-.bg-primary,
-.bg-success,
-.bg-info,
-.bg-warning,
-.bg-danger,
-.bg-dark {
+[class^="bg-"] {
   color: #fff;
 }
 
@@ -428,34 +423,42 @@ button.bg-gray-900:focus {
 }
 
 .border-primary {
+  border: 1px solid !important;
   border-color: #321fdb !important;
 }
 
 .border-secondary {
+  border: 1px solid !important;
   border-color: #ced2d8 !important;
 }
 
 .border-success {
+  border: 1px solid !important;
   border-color: #2eb85c !important;
 }
 
 .border-info {
+  border: 1px solid !important;
   border-color: #39f !important;
 }
 
 .border-warning {
+  border: 1px solid !important;
   border-color: #f9b115 !important;
 }
 
 .border-danger {
+  border: 1px solid !important;
   border-color: #e55353 !important;
 }
 
 .border-light {
+  border: 1px solid !important;
   border-color: #ebedef !important;
 }
 
 .border-dark {
+  border: 1px solid !important;
   border-color: #636f83 !important;
 }
 
@@ -1620,7 +1623,7 @@ button.bg-gray-900:focus {
   z-index: 1;
   pointer-events: auto;
   content: "";
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 21, 0);
 }
 
 .m-0 {

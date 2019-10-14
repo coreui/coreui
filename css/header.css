@@ -191,6 +191,78 @@
   height: 48px;
 }
 
+.c-header.c-header-dark {
+  background: #636f83;
+  border-bottom: 1px solid #636f83;
+}
+
+.c-header.c-header-dark .c-header-brand {
+  color: #fff;
+  background-color: transparent;
+}
+
+.c-header.c-header-dark .c-header-brand:hover, .c-header.c-header-dark .c-header-brand:focus {
+  color: #fff;
+}
+
+@media (min-width: 992px) {
+  .c-header.c-header-dark .c-header-brand.c-header-brand-minimized {
+    background-color: transparent;
+  }
+}
+
+.c-header.c-header-dark .c-header-nav .c-header-nav-link,
+.c-header.c-header-dark .c-header-nav .c-header-nav-btn {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.c-header.c-header-dark .c-header-nav .c-header-nav-link:hover, .c-header.c-header-dark .c-header-nav .c-header-nav-link:focus,
+.c-header.c-header-dark .c-header-nav .c-header-nav-btn:hover,
+.c-header.c-header-dark .c-header-nav .c-header-nav-btn:focus {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.c-header.c-header-dark .c-header-nav .c-header-nav-link.c-disabled,
+.c-header.c-header-dark .c-header-nav .c-header-nav-btn.c-disabled {
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.c-header.c-header-dark .c-header-nav .c-show > .c-header-nav-link,
+.c-header.c-header-dark .c-header-nav .c-active > .c-header-nav-link,
+.c-header.c-header-dark .c-header-nav .c-header-nav-link.c-show,
+.c-header.c-header-dark .c-header-nav .c-header-nav-link.c-active {
+  color: #fff;
+}
+
+.c-header.c-header-dark .c-header-toggler {
+  color: rgba(255, 255, 255, 0.75);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.c-header.c-header-dark .c-header-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.c-header.c-header-dark .c-header-toggler-icon:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.c-header.c-header-dark .c-header-text {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.c-header.c-header-dark .c-header-text a {
+  color: #fff;
+}
+
+.c-header.c-header-dark .c-header-text a:hover, .c-header.c-header-dark .c-header-text a:focus {
+  color: #fff;
+}
+
+.c-header.c-header-dark .c-subheader {
+  border-top: 1px solid #636f83;
+}
+
 .c-header {
   background: #fff;
   border-bottom: 1px solid #d8dbe0;

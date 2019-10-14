@@ -9,20 +9,13 @@ $link-hover-decoration:                   underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
 
-$link-dark-theme-color:                   $primary-50 !default;
-$link-dark-theme-hover-color:             darken($link-dark-theme-color, 15%) !default;
-
 $link-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $link-theme-map: map-merge(
   (
     light: (
-      "link-color":                       $link-color,
-      "link-hover-color":                 $link-hover-color
-    ),
-    dark: (
-      "link-color":                       $link-dark-theme-color,
-      "link-hover-color":                 $link-dark-theme-hover-color
+      "link-color":       $link-color,
+      "link-hover-color": $link-hover-color
     )
   ),
   $link-theme-map

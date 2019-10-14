@@ -38,7 +38,13 @@
 // Components
 //
 
-.#{$prefix}sidebar,
 .#{$prefix}wrapper {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
+}
+
+.#{$prefix}sidebar {
+  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
+  &.#{$prefix}sidebar-unfoldable {
+    transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease 0s;
+  }
 }

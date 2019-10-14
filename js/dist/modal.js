@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): modal.js
+ * CoreUI (v3.0.0-alpha.14): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'modal';
-var VERSION = '3.0.0-alpha.13';
+var VERSION = '3.0.0-alpha.14';
 var DATA_KEY = 'coreui.modal';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';

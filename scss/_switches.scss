@@ -24,7 +24,7 @@
     width: $switch-width;
     height: $switch-height;
     cursor: pointer;
-    background-color: #fff;
+    background-color: $white;
     border: $border-width solid $border-color;
     transition: .15s ease-out;
     @include border-radius($border-radius);
@@ -35,7 +35,7 @@
     box-sizing: border-box;
     width: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
     height: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid $border-color;
     transition: .15s ease-out;
     @include border-radius($border-radius / 2);
@@ -117,7 +117,7 @@
   display: block;
   height: inherit;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $white;
   border: $border-width solid $border-color;
   transition: .15s ease-out;
   @include border-radius($border-radius);
@@ -130,7 +130,7 @@
     width: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
     height: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
     content: "";
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid $border-color;
     transition: .15s ease-out;
     @include border-radius($border-radius / 2);
@@ -209,7 +209,7 @@
     }
     &::after {
       left: 1px;
-      color: #fff;
+      color: $white;
       content: attr(data-checked);
     }
   }

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v3.0.0-alpha.13): get-css-custom-properties.js
+ * CoreUI Utilities (v3.0.0-alpha.14): get-css-custom-properties.js
  * Licensed under MIT (https://coreui.io/license)
  * @returns {string} css custom property name
  * --------------------------------------------------------------------------
@@ -24,7 +24,8 @@ var getCssCustomProperties = function getCssCustomProperties() {
     if (cssText) {
       break;
     }
-  }
+  } // eslint-disable-next-line unicorn/prefer-string-slice
+
 
   cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
   cssText.split(';').forEach(function (property) {

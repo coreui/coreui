@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.13 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.14 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): classes.js
+   * CoreUI Utilities (v3.0.0-alpha.14): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -24,7 +24,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): deep-objects-merge.js
+   * CoreUI Utilities (v3.0.0-alpha.14): deep-objects-merge.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -45,7 +45,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.14): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -69,7 +69,8 @@
       if (cssText) {
         break;
       }
-    }
+    } // eslint-disable-next-line unicorn/prefer-string-slice
+
 
     cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
     cssText.split(';').forEach(function (property) {
@@ -87,7 +88,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.14): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -120,7 +121,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): get-color.js
+   * CoreUI Utilities (v3.0.0-alpha.14): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -137,7 +138,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -173,7 +174,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -213,7 +214,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.13): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.14): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

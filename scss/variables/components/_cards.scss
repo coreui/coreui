@@ -34,11 +34,11 @@ $card-theme-map: () !default;
 $card-theme-map: map-merge(
   (
     light: (
-      "card-border-color":   $card-border-color,
-      "card-cap-bg":         $card-cap-bg,
-      "card-cap-color":      $card-cap-color,
-      "card-color":          $card-color,
-      "card-bg":             $card-bg
+      "card-border-color": $card-border-color,
+      "card-cap-bg":       $card-cap-bg,
+      "card-cap-color":    $card-cap-color,
+      "card-color":        $card-color,
+      "card-bg":           $card-bg
     )
   ),
   $card-theme-map

@@ -211,6 +211,7 @@ var EventHandler = {
 
     if (isNamespace) {
       Object.keys(events).forEach(function (elementEvent) {
+        // eslint-disable-next-line unicorn/prefer-string-slice
         removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.substr(1));
       });
     }

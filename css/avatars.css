@@ -14,11 +14,7 @@
   height: 10px;
 }
 
-.c-avatar > img {
-  vertical-align: initial;
-}
-
-.c-avatar-img, .c-avatar > img {
+.c-avatar-img {
   max-width: 100%;
   height: auto;
   border-radius: 50em;

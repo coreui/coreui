@@ -259,6 +259,7 @@ const EventHandler = {
     if (isNamespace) {
       Object.keys(events)
         .forEach(elementEvent => {
+          // eslint-disable-next-line unicorn/prefer-string-slice
           removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.substr(1))
         })
     }

@@ -43,9 +43,16 @@
   animation-duration: 1s;
 }
 
-.c-sidebar,
 .c-wrapper {
   transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
+}
+
+.c-sidebar {
+  transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0.25s;
+}
+
+.c-sidebar.c-sidebar-unfoldable {
+  transition: margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0s;
 }
 
 /*# sourceMappingURL=transitions.css.map */

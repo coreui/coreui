@@ -8,7 +8,7 @@ $nav-tabs-border-radius:            $border-radius !default;
 
 $nav-tabs-boxed-content-padding-y:          .75rem !default;
 $nav-tabs-boxed-content-padding-x:           1.25rem !default;
-$nav-tabs-boxed-content-border-width:             $border-width !default;
+$nav-tabs-boxed-content-border-width:        $border-width !default;
 
 $nav-pills-border-radius:           $border-radius !default;
 
@@ -25,33 +25,32 @@ $nav-tabs-link-active-border-color: $gray-300 $gray-300 $nav-tabs-link-active-bg
 $nav-tabs-boxed-link-active-bg:                  $white !default;
 $nav-tabs-boxed-content-bg:                 $white !default;
 $nav-tabs-boxed-content-border-color:       $border-color !default;
-$nav-tabs-boxed-content-border-radius:       $border-radius !default;
+$nav-tabs-boxed-content-border-radius:      $border-radius !default;
 
-$nav-tabs-boxed-left-active-border-color:  $border-color $white $border-color $border-color !default;
+$nav-tabs-boxed-left-active-border-color:   $border-color $white $border-color $border-color !default;
 $nav-tabs-boxed-right-active-border-color:  $border-color $border-color $border-color $white !default;
 
 $nav-pills-link-active-color:       $component-active-color !default;
 $nav-pills-link-active-bg:          $component-active-bg !default;
 $nav-divider-color:                 $gray-200 !default;
 
-
 $nav-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $nav-theme-map: map-merge(
   (
     light: (
-      "nav-link-disabled-color":              $nav-link-disabled-color,
-      "nav-tabs-border-color":                $nav-tabs-border-color,
-      "nav-tabs-link-hover-border-color":     $nav-tabs-link-hover-border-color,
-      "nav-tabs-link-active-color":           $nav-tabs-link-active-color,
-      "nav-tabs-link-active-bg":              $nav-tabs-link-active-bg,
-      "nav-tabs-link-active-border-color":    $nav-tabs-link-active-border-color,
-      "nav-pills-link-active-color":          $nav-pills-link-active-color,
-      "nav-pills-link-active-bg":             $nav-pills-link-active-bg,
-      "nav-divider-color":                    $nav-divider-color,
-      "nav-tabs-boxed-link-active-bg":        $nav-tabs-boxed-link-active-bg,
-      "nav-tabs-boxed-content-bg":            $nav-tabs-boxed-content-bg,
-      "nav-tabs-boxed-content-border-color":  $nav-tabs-boxed-content-border-color,
+      "nav-link-disabled-color":                  $nav-link-disabled-color,
+      "nav-tabs-border-color":                    $nav-tabs-border-color,
+      "nav-tabs-link-hover-border-color":         $nav-tabs-link-hover-border-color,
+      "nav-tabs-link-active-color":               $nav-tabs-link-active-color,
+      "nav-tabs-link-active-bg":                  $nav-tabs-link-active-bg,
+      "nav-tabs-link-active-border-color":        $nav-tabs-link-active-border-color,
+      "nav-pills-link-active-color":              $nav-pills-link-active-color,
+      "nav-pills-link-active-bg":                 $nav-pills-link-active-bg,
+      "nav-divider-color":                        $nav-divider-color,
+      "nav-tabs-boxed-link-active-bg":            $nav-tabs-boxed-link-active-bg,
+      "nav-tabs-boxed-content-bg":                $nav-tabs-boxed-content-bg,
+      "nav-tabs-boxed-content-border-color":      $nav-tabs-boxed-content-border-color,
       "nav-tabs-boxed-left-active-border-color":  $nav-tabs-boxed-left-active-border-color,
       "nav-tabs-boxed-right-active-border-color": $nav-tabs-boxed-right-active-border-color
     )

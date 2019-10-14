@@ -96,7 +96,7 @@ var supportScopeQuery = function () {
   var element = document.createElement('div');
 
   try {
-    element.querySelectorAll(':scope *');
+    element.querySelectorAll(':scope *'); // eslint-disable-next-line no-unused-vars
   } catch (error) {
     return false;
   }

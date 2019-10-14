@@ -20,6 +20,7 @@
 
 @include theme-variant() {
   .#{$bs-prefix}border-#{$color} {
+    border: 1px solid !important;
     border-color: $value !important;
   }
 }

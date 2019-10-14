@@ -5,11 +5,6 @@
   justify-content: center;
   border-radius: 50em;
   @include avatar($avatar-width,$avatar-status-width);
-
-  > img {
-    @extend .#{$prefix}avatar-img;
-    vertical-align: initial;
-  }
 }
 
 .#{$prefix}avatar-img {

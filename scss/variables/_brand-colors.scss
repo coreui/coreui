@@ -4,28 +4,19 @@
 $facebook:       #3b5998 !default;
 $twitter:        #00aced !default;
 $linkedin:       #4875b4 !default;
-// $google-plus:    #d34836 !default;
 $flickr:         #ff0084 !default;
 $tumblr:         #32506d !default;
 $xing:           #026466 !default;
 $github:         #4183c4 !default;
-// $html5:          #e34f26 !default;
-// $openid:         #f78c40 !default;
 $stack-overflow: #fe7a15 !default;
 $youtube:        #b00 !default;
-// $css3:           #0170ba !default;
 $dribbble:       #ea4c89 !default;
-// $google-plus:    #bb4b39 !default;
 $instagram:      #517fa4 !default;
 $pinterest:      #cb2027 !default;
 $vk:             #45668e !default;
 $yahoo:          #400191 !default;
 $behance:        #1769ff !default;
-// $dropbox:        #007ee5 !default;
 $reddit:         #ff4500 !default;
-// $spotify:        #7ab800 !default;
-// $vine:           #00bf8f !default;
-// $foursquare:     #1073af !default;
 $vimeo:          #aad450 !default;
 
 $brands-colors: () !default;
@@ -35,27 +26,19 @@ $brands-colors: map-merge(
     "facebook":       $facebook,
     "twitter":        $twitter,
     "linkedin":       $linkedin,
-    // "google-plus":    $google-plus,
     "flickr":         $flickr,
     "tumblr":         $tumblr,
     "xing":           $xing,
     "github":         $github,
-    // "html5":          $html5,
-    // "openid":         $openid,
     "stack-overflow": $stack-overflow,
     "youtube":        $youtube,
-    // "css3":           $css3,
     "dribbble":       $dribbble,
     "instagram":      $instagram,
     "pinterest":      $pinterest,
     "vk":             $vk,
     "yahoo":          $yahoo,
     "behance":        $behance,
-    // "dropbox":        $dropbox,
     "reddit":         $reddit,
-    // "spotify":        $spotify,
-    // "vine":           $vine,
-    // "foursquare":     $foursquare,
     "vimeo":          $vimeo
   ),
   $brands-colors

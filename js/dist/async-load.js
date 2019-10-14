@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): asyn-load.js
+ * CoreUI (v3.0.0-alpha.14): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -24,7 +24,7 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-alpha.13';
+var VERSION = '3.0.0-alpha.14';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -32,10 +32,10 @@ var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreU
 
 var ClassName = {
   ACTIVE: PREFIX + "active",
-  NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
-  NAV_PILLS: PREFIX + "nav-pills",
-  NAV_TABS: PREFIX + "nav-tabs",
-  OPEN: PREFIX + "open",
+  NAV_DROPDOWN_TOGGLE: PREFIX + "sidebar-nav-dropdown-toggle",
+  // NAV_PILLS: `${PREFIX}nav-pills`,
+  // NAV_TABS: `${PREFIX}nav-tabs`,
+  SHOW: PREFIX + "show",
   VIEW_SCRIPT: 'view-script'
 };
 var Event = {
@@ -43,9 +43,9 @@ var Event = {
   XHR_STATUS: 'xhr'
 };
 var Selector = {
-  NAV_DROPDOWN: "." + PREFIX + "nav ." + PREFIX + "nav-dropdown",
-  NAV_LINK: "." + PREFIX + "dropdown-nav-link, ." + PREFIX + "nav ." + PREFIX + "nav-link",
-  NAV_ITEM: "." + PREFIX + "nav ." + PREFIX + "nav-item",
+  NAV_DROPDOWN: "." + PREFIX + "sidebar-nav-dropdown",
+  NAV_LINK: "." + PREFIX + "xhr-link, ." + PREFIX + "sidebar-nav-link",
+  NAV_ITEM: "." + PREFIX + "sidebar-nav-item",
   VIEW_SCRIPT: '.view-script'
 };
 var Default = {
@@ -176,13 +176,13 @@ function () {
     }); // eslint-disable-next-line unicorn/prefer-spread
 
     Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
-      element.classList.remove(ClassName.OPEN);
+      element.classList.remove(ClassName.SHOW);
     }); // eslint-disable-next-line unicorn/prefer-spread
 
     Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
       // eslint-disable-next-line unicorn/prefer-spread
       if (Array.from(element.querySelectorAll("a[href*=\"" + url + "\"]")).length > 0) {
-        element.classList.add(ClassName.OPEN);
+        element.classList.add(ClassName.SHOW);
       }
     }); // eslint-disable-next-line unicorn/prefer-spread
 

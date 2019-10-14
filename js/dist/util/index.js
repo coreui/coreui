@@ -38,7 +38,7 @@ var getSelectorFromElement = function getSelectorFromElement(element) {
   }
 
   try {
-    return document.querySelector(selector) ? selector : null;
+    return document.querySelector(selector) ? selector : null; // eslint-disable-next-line no-unused-vars
   } catch (error) {
     return null;
   }

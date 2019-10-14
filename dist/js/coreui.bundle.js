@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.13 (https://coreui.io)
+  * CoreUI v3.0.0-alpha.14 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -120,7 +120,7 @@
     }
 
     try {
-      return document.querySelector(selector) ? selector : null;
+      return document.querySelector(selector) ? selector : null; // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return null;
     }
@@ -398,7 +398,7 @@
     var element = document.createElement('div');
 
     try {
-      element.querySelectorAll(':scope *');
+      element.querySelectorAll(':scope *'); // eslint-disable-next-line no-unused-vars
     } catch (error) {
       return false;
     }
@@ -658,6 +658,7 @@
 
       if (isNamespace) {
         Object.keys(events).forEach(function (elementEvent) {
+          // eslint-disable-next-line unicorn/prefer-string-slice
           removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.substr(1));
         });
       }
@@ -746,7 +747,7 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-alpha.13';
+  var VERSION = '3.0.0-alpha.14';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -754,10 +755,10 @@
 
   var ClassName = {
     ACTIVE: PREFIX + "active",
-    NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
-    NAV_PILLS: PREFIX + "nav-pills",
-    NAV_TABS: PREFIX + "nav-tabs",
-    OPEN: PREFIX + "open",
+    NAV_DROPDOWN_TOGGLE: PREFIX + "sidebar-nav-dropdown-toggle",
+    // NAV_PILLS: `${PREFIX}nav-pills`,
+    // NAV_TABS: `${PREFIX}nav-tabs`,
+    SHOW: PREFIX + "show",
     VIEW_SCRIPT: 'view-script'
   };
   var Event$1 = {
@@ -765,9 +766,9 @@
     XHR_STATUS: 'xhr'
   };
   var Selector = {
-    NAV_DROPDOWN: "." + PREFIX + "nav ." + PREFIX + "nav-dropdown",
-    NAV_LINK: "." + PREFIX + "dropdown-nav-link, ." + PREFIX + "nav ." + PREFIX + "nav-link",
-    NAV_ITEM: "." + PREFIX + "nav ." + PREFIX + "nav-item",
+    NAV_DROPDOWN: "." + PREFIX + "sidebar-nav-dropdown",
+    NAV_LINK: "." + PREFIX + "xhr-link, ." + PREFIX + "sidebar-nav-link",
+    NAV_ITEM: "." + PREFIX + "sidebar-nav-item",
     VIEW_SCRIPT: '.view-script'
   };
   var Default = {
@@ -898,13 +899,13 @@
       }); // eslint-disable-next-line unicorn/prefer-spread
 
       Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
-        element.classList.remove(ClassName.OPEN);
+        element.classList.remove(ClassName.SHOW);
       }); // eslint-disable-next-line unicorn/prefer-spread
 
       Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
         // eslint-disable-next-line unicorn/prefer-spread
         if (Array.from(element.querySelectorAll("a[href*=\"" + url + "\"]")).length > 0) {
-          element.classList.add(ClassName.OPEN);
+          element.classList.add(ClassName.SHOW);
         }
       }); // eslint-disable-next-line unicorn/prefer-spread
 
@@ -1115,7 +1116,7 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '3.0.0-alpha.13';
+  var VERSION$1 = '3.0.0-alpha.14';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -1292,7 +1293,7 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '3.0.0-alpha.13';
+  var VERSION$2 = '3.0.0-alpha.14';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
@@ -1552,7 +1553,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '3.0.0-alpha.13';
+  var VERSION$3 = '3.0.0-alpha.14';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -2175,7 +2176,7 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0-alpha.13';
+  var VERSION$4 = '3.0.0-alpha.14';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -2319,7 +2320,8 @@
     };
 
     _proto._getToggleDetails = function _getToggleDetails(classNames, responsive, breakpoints, postfix) {
-      var ToggleDetails = function ToggleDetails(className, responsive, breakpoints, postfix) {
+      var ToggleDetails = // eslint-disable-next-line default-param-last
+      function ToggleDetails(className, responsive, breakpoints, postfix) {
         if (responsive === void 0) {
           responsive = Default$2.responsive;
         }
@@ -2455,7 +2457,7 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '3.0.0-alpha.13';
+  var VERSION$5 = '3.0.0-alpha.14';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -5479,7 +5481,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '3.0.0-alpha.13';
+  var VERSION$6 = '3.0.0-alpha.14';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -6035,7 +6037,7 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '3.0.0-alpha.13';
+  var VERSION$7 = '3.0.0-alpha.14';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
@@ -6761,7 +6763,7 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '3.0.0-alpha.13';
+  var VERSION$8 = '3.0.0-alpha.14';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var BS_PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -7251,7 +7253,7 @@
       var titleType = typeof this.element.getAttribute('data-original-title');
 
       if (this.element.getAttribute('title') || titleType !== 'string') {
-        this.element.setAttribute('data-original-title', this.element.getAttribute('title') || '');
+        this.element.dataset.originalTitle = this.element.getAttribute('title') || '';
         this.element.setAttribute('title', '');
       }
     };
@@ -7514,7 +7516,7 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '3.0.0-alpha.13';
+  var VERSION$9 = '3.0.0-alpha.14';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var BS_PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -7707,7 +7709,7 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '3.0.0-alpha.13';
+  var VERSION$a = '3.0.0-alpha.14';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
@@ -9330,7 +9332,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-alpha.14): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -9354,7 +9356,8 @@
       if (cssText) {
         break;
       }
-    }
+    } // eslint-disable-next-line unicorn/prefer-string-slice
+
 
     cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
     cssText.split(';').forEach(function (property) {
@@ -9372,7 +9375,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): get-style.js
+   * CoreUI Utilities (v3.0.0-alpha.14): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -9410,19 +9413,25 @@
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0-alpha.13';
+  var VERSION$b = '3.0.0-alpha.14';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
-  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
+  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
+  // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
+  var DefaultType$7 = {
+    dropdownAccordion: 'boolean'
+  };
   var Default$9 = {
-    transition: 400
+    transition: 400 // dropdownAccordion: false
+
   };
   var ClassName$b = {
     ACTIVE: PREFIX$3 + "active",
-    NAV_DROPDOWN_TOGGLE: PREFIX$3 + "nav-dropdown-toggle",
-    OPEN: PREFIX$3 + "open",
+    NAV_DROPDOWN: PREFIX$3 + "sidebar-nav-dropdown",
+    NAV_DROPDOWN_TOGGLE: PREFIX$3 + "sidebar-nav-dropdown-toggle",
+    SHOW: PREFIX$3 + "show",
     SIDEBAR_MINIMIZED: PREFIX$3 + "sidebar-minimized",
     SIDEBAR_OVERLAID: PREFIX$3 + "sidebar-overlaid",
     SIDEBAR_SHOW: PREFIX$3 + "sidebar-show"
@@ -9438,10 +9447,10 @@
     UPDATE: 'update'
   };
   var Selector$b = {
-    NAV_DROPDOWN_TOGGLE: "." + PREFIX$3 + "nav-dropdown-toggle",
-    NAV_DROPDOWN: "." + PREFIX$3 + "nav-dropdown",
-    NAV_LINK: "." + PREFIX$3 + "nav-link",
-    // NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
+    NAV_DROPDOWN_TOGGLE: "." + PREFIX$3 + "sidebar-nav-dropdown-toggle",
+    NAV_DROPDOWN: "." + PREFIX$3 + "sidebar-nav-dropdown",
+    NAV_LINK: "." + PREFIX$3 + "sidebar-nav-link",
+    // NAV_LINK_QUERIED: `.${PREFIX}sidebar-nav-link-queried`,
     NAVIGATION_CONTAINER: "." + PREFIX$3 + "sidebar-nav",
     SIDEBAR: "." + PREFIX$3 + "sidebar"
   };
@@ -9478,6 +9487,24 @@
     var _proto = Sidebar.prototype;
 
     // Private
+    _proto._getAllSiblings = function _getAllSiblings(element, filter) {
+      var siblings = [];
+      element = element.parentNode.firstChild;
+
+      do {
+        if (element.nodeType === 3) {
+          continue; // text node
+        }
+
+        if (!filter || filter(element)) {
+          siblings.push(element);
+        } // eslint-disable-next-line no-cond-assign
+
+      } while (element = element.nextSibling);
+
+      return siblings;
+    };
+
     _proto._toggleDropdown = function _toggleDropdown(event) {
       var toggler = event.target;
 
@@ -9485,7 +9512,25 @@
         toggler = toggler.closest(Selector$b.NAV_DROPDOWN_TOGGLE);
       }
 
-      toggler.parentNode.classList.toggle(ClassName$b.OPEN);
+      var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
+
+      if (dataAttributes.drodpownAccordion) {
+        // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
+        //   if (element !== toggler.parentNode) {
+        //     element.classList.remove(ClassName.SHOW)
+        //   }
+        // })
+        // toggler.parentElement
+        this._getAllSiblings(toggler.parentElement).forEach(function (element) {
+          if (element !== toggler.parentNode) {
+            if (element.classList.contains(ClassName$b.NAV_DROPDOWN)) {
+              element.classList.remove(ClassName$b.SHOW);
+            }
+          }
+        });
+      }
+
+      toggler.parentNode.classList.toggle(ClassName$b.SHOW); // TODO: Set the toggler's position near to cursor after the click.
 
       this._perfectScrollbar(Event$c.UPDATE);
     };
@@ -9542,12 +9587,14 @@
         container = Selector$b.NAVIGATION_CONTAINER;
       }
 
-      var ps = new PerfectScrollbar(document.querySelector(container), {
-        suppressScrollX: true
-      }); // TODO: find real fix for ps rtl
+      if (this._element.querySelector(container)) {
+        var ps = new PerfectScrollbar(this._element.querySelector(container), {
+          suppressScrollX: true
+        }); // TODO: find real fix for ps rtl
 
-      ps.isRtl = false;
-      return ps;
+        ps.isRtl = false;
+        return ps;
+      }
     };
 
     _proto._destroyScrollbar = function _destroyScrollbar() {
@@ -9595,9 +9642,12 @@
 
       // eslint-disable-next-line unicorn/prefer-spread
       Array.from(this._element.querySelectorAll(Selector$b.NAV_LINK)).forEach(function (element) {
-        var currentUrl;
-        var urlHasParams = new RegExp('\\?.*=');
-        var urlHasQueryString = new RegExp('\\?.');
+        var currentUrl; // eslint-disable-next-line prefer-regex-literals
+
+        var urlHasParams = new RegExp('\\?.*='); // eslint-disable-next-line prefer-regex-literals
+
+        var urlHasQueryString = new RegExp('\\?.'); // eslint-disable-next-line prefer-regex-literals
+
         var urlHasHash = new RegExp('#.');
 
         if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
@@ -9606,7 +9656,8 @@
           currentUrl = String(window.location).split('#')[0];
         } else {
           currentUrl = String(window.location);
-        }
+        } // eslint-disable-next-line unicorn/prefer-string-slice
+
 
         if (currentUrl.substr(currentUrl.length - 1) === '#') {
           currentUrl = currentUrl.slice(0, -1);
@@ -9616,7 +9667,7 @@
           element.classList.add(ClassName$b.ACTIVE); // eslint-disable-next-line unicorn/prefer-spread
 
           Array.from(_this2._getParents(element, Selector$b.NAV_DROPDOWN)).forEach(function (element) {
-            element.classList.add(ClassName$b.OPEN);
+            element.classList.add(ClassName$b.SHOW);
           });
         }
       });
@@ -9723,6 +9774,11 @@
       get: function get() {
         return VERSION$b;
       }
+    }, {
+      key: "DefaultType",
+      get: function get() {
+        return DefaultType$7;
+      }
     }]);
 
     return Sidebar;
@@ -9765,7 +9821,7 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '3.0.0-alpha.13';
+  var VERSION$c = '3.0.0-alpha.14';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
@@ -10002,7 +10058,7 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '3.0.0-alpha.13';
+  var VERSION$d = '3.0.0-alpha.14';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var BS_PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -10019,7 +10075,7 @@
     SHOW: BS_PREFIX$a + "show",
     SHOWING: BS_PREFIX$a + "showing"
   };
-  var DefaultType$7 = {
+  var DefaultType$8 = {
     animation: 'boolean',
     autohide: 'boolean',
     delay: 'number'
@@ -10189,7 +10245,7 @@
     }, {
       key: "DefaultType",
       get: function get() {
-        return DefaultType$7;
+        return DefaultType$8;
       }
     }, {
       key: "Default",
@@ -10221,7 +10277,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10257,7 +10313,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.13): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10297,7 +10353,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.13): rgb-to-hex.js
+   * CoreUI (v3.0.0-alpha.14): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10326,7 +10382,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.13): index.umd.js
+   * CoreUI (v3.0.0-alpha.14): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

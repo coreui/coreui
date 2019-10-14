@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): class-toggler.js
+ * CoreUI (v3.0.0-alpha.14): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'class-toggler';
-var VERSION = '3.0.0-alpha.13';
+var VERSION = '3.0.0-alpha.14';
 var DATA_KEY = 'coreui.class-toggler';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -162,7 +162,8 @@ function () {
   };
 
   _proto._getToggleDetails = function _getToggleDetails(classNames, responsive, breakpoints, postfix) {
-    var ToggleDetails = function ToggleDetails(className, responsive, breakpoints, postfix) {
+    var ToggleDetails = // eslint-disable-next-line default-param-last
+    function ToggleDetails(className, responsive, breakpoints, postfix) {
       if (responsive === void 0) {
         responsive = Default.responsive;
       }

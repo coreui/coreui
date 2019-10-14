@@ -34,23 +34,21 @@
     }
   }
 
-  // CoreUI start
   &.drag,
   .drag {
     cursor: move;
   }
+}
 
-  // Cards with color accent
-  @include theme-variant() {
-    &.#{$bs-prefix}bg-#{$color} {
+// Cards with color accent
+@include theme-variant() {
+  .#{$bs-prefix}card.#{$bs-prefix}bg-#{$color} {
+    border-color: darken($value, 12.5%);
+    .#{$bs-prefix}card-header {
+      background-color: darken($value, 3%);
       border-color: darken($value, 12.5%);
-      .#{$bs-prefix}card-header {
-        background-color: darken($value, 3%);
-        border-color: darken($value, 12.5%);
-      }
     }
   }
-  // CoreUI end
 }
 
 .#{$bs-prefix}card-body {
@@ -332,34 +330,6 @@
   background: rgba($black, .025);
   border: 1px dashed $gray-300;
 }
-
-// TODO: check and refactor
-// .#{$bs-prefix}card-header {
-//   > i {
-//     margin-right: $spacer / 2;
-//   }
-
-//   .#{$bs-prefix}nav-tabs {
-//     margin-top: -$card-spacer-y;
-//     margin-bottom: -$card-spacer-y;
-//     border-bottom: 0;
-
-//     .#{$bs-prefix}nav-item {
-//       border-top: 0;
-//     }
-
-//     .#{$bs-prefix}nav-link {
-//       padding: $card-spacer-y ($card-spacer-x / 2);
-//       color: $text-muted;
-//       border-top: 0;
-
-//       &.#{$bs-prefix}active {
-//         color: $body-color;
-//         background: #fff;
-//       }
-//     }
-//   }
-// }
 
 *[dir="rtl"] .#{$bs-prefix}card-header > i {
   margin-right: 0;

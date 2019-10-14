@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): tooltip.js
+ * CoreUI (v3.0.0-alpha.14): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -32,7 +32,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'tooltip';
-var VERSION = '3.0.0-alpha.13';
+var VERSION = '3.0.0-alpha.14';
 var DATA_KEY = 'coreui.tooltip';
 var EVENT_KEY = "." + DATA_KEY;
 var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -522,7 +522,7 @@ function () {
     var titleType = typeof this.element.getAttribute('data-original-title');
 
     if (this.element.getAttribute('title') || titleType !== 'string') {
-      this.element.setAttribute('data-original-title', this.element.getAttribute('title') || '');
+      this.element.dataset.originalTitle = this.element.getAttribute('title') || '';
       this.element.setAttribute('title', '');
     }
   };

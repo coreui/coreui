@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): sidebar.js
+ * CoreUI (v3.0.0-alpha.14): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -10,6 +10,7 @@ import {
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
+// import Manipulator from './dom/manipulator'
 import PerfectScrollbar from 'perfect-scrollbar'
 import getStyle from './utilities/get-style'
 
@@ -20,21 +21,28 @@ import getStyle from './utilities/get-style'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-alpha.13'
+const VERSION = '3.0.0-alpha.14'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
+// const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
 // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
+
+const DefaultType = {
+  dropdownAccordion: 'boolean'
+}
 
 const Default = {
   transition: 400
+  // dropdownAccordion: false
 }
 
 const ClassName = {
   ACTIVE: `${PREFIX}active`,
-  NAV_DROPDOWN_TOGGLE: `${PREFIX}nav-dropdown-toggle`,
-  OPEN: `${PREFIX}open`,
+  NAV_DROPDOWN: `${PREFIX}sidebar-nav-dropdown`,
+  NAV_DROPDOWN_TOGGLE: `${PREFIX}sidebar-nav-dropdown-toggle`,
+  SHOW: `${PREFIX}show`,
   SIDEBAR_MINIMIZED: `${PREFIX}sidebar-minimized`,
   SIDEBAR_OVERLAID: `${PREFIX}sidebar-overlaid`,
   SIDEBAR_SHOW: `${PREFIX}sidebar-show`
@@ -52,10 +60,10 @@ const Event = {
 }
 
 const Selector = {
-  NAV_DROPDOWN_TOGGLE: `.${PREFIX}nav-dropdown-toggle`,
-  NAV_DROPDOWN: `.${PREFIX}nav-dropdown`,
-  NAV_LINK: `.${PREFIX}nav-link`,
-  // NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
+  NAV_DROPDOWN_TOGGLE: `.${PREFIX}sidebar-nav-dropdown-toggle`,
+  NAV_DROPDOWN: `.${PREFIX}sidebar-nav-dropdown`,
+  NAV_LINK: `.${PREFIX}sidebar-nav-link`,
+  // NAV_LINK_QUERIED: `.${PREFIX}sidebar-nav-link-queried`,
   NAVIGATION_CONTAINER: `.${PREFIX}sidebar-nav`,
   SIDEBAR: `.${PREFIX}sidebar`
 }
@@ -86,7 +94,29 @@ class Sidebar {
     return VERSION
   }
 
+  static get DefaultType() {
+    return DefaultType
+  }
+
   // Private
+
+  _getAllSiblings(element, filter) {
+    const siblings = []
+    element = element.parentNode.firstChild
+    do {
+      if (element.nodeType === 3) {
+        continue // text node
+      }
+
+      if (!filter || filter(element)) {
+        siblings.push(element)
+      }
+
+    // eslint-disable-next-line no-cond-assign
+    } while (element = element.nextSibling)
+
+    return siblings
+  }
 
   _toggleDropdown(event) {
     let toggler = event.target
@@ -94,7 +124,28 @@ class Sidebar {
       toggler = toggler.closest(Selector.NAV_DROPDOWN_TOGGLE)
     }
 
-    toggler.parentNode.classList.toggle(ClassName.OPEN)
+    const dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset
+
+    // TODO: find better solution
+    if (dataAttributes.drodpownAccordion) {
+      // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
+      //   if (element !== toggler.parentNode) {
+      //     element.classList.remove(ClassName.SHOW)
+      //   }
+      // })
+      // toggler.parentElement
+      this._getAllSiblings(toggler.parentElement).forEach(element => {
+        if (element !== toggler.parentNode) {
+          if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
+            element.classList.remove(ClassName.SHOW)
+          }
+        }
+      })
+    }
+
+    toggler.parentNode.classList.toggle(ClassName.SHOW)
+    // TODO: Set the toggler's position near to cursor after the click.
+
     this._perfectScrollbar(Event.UPDATE)
   }
 
@@ -140,12 +191,14 @@ class Sidebar {
   }
 
   _makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
-    const ps = new PerfectScrollbar(document.querySelector(container), {
-      suppressScrollX: true
-    })
-    // TODO: find real fix for ps rtl
-    ps.isRtl = false
-    return ps
+    if (this._element.querySelector(container)) {
+      const ps = new PerfectScrollbar(this._element.querySelector(container), {
+        suppressScrollX: true
+      })
+      // TODO: find real fix for ps rtl
+      ps.isRtl = false
+      return ps
+    }
   }
 
   _destroyScrollbar() {
@@ -195,8 +248,11 @@ class Sidebar {
     Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(element => {
       let currentUrl
 
+      // eslint-disable-next-line prefer-regex-literals
       const urlHasParams = new RegExp('\\?.*=')
+      // eslint-disable-next-line prefer-regex-literals
       const urlHasQueryString = new RegExp('\\?.')
+      // eslint-disable-next-line prefer-regex-literals
       const urlHasHash = new RegExp('#.')
 
       if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
@@ -207,6 +263,7 @@ class Sidebar {
         currentUrl = String(window.location)
       }
 
+      // eslint-disable-next-line unicorn/prefer-string-slice
       if (currentUrl.substr(currentUrl.length - 1) === '#') {
         currentUrl = currentUrl.slice(0, -1)
       }
@@ -215,7 +272,7 @@ class Sidebar {
         element.classList.add(ClassName.ACTIVE)
         // eslint-disable-next-line unicorn/prefer-spread
         Array.from(this._getParents(element, Selector.NAV_DROPDOWN)).forEach(element => {
-          element.classList.add(ClassName.OPEN)
+          element.classList.add(ClassName.SHOW)
         })
       }
     })

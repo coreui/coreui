@@ -50,7 +50,7 @@
 
 @mixin switch-outline-variant($color) {
   .#{$prefix}switch-input:checked + .#{$prefix}switch-slider {
-    background-color: #fff;
+    background-color: $white;
     border-color: $color;
 
     &::before {
@@ -64,7 +64,7 @@
 
 @mixin switch-outline-variant-alt($color) {
   .#{$prefix}switch-input:checked + .#{$prefix}switch-slider {
-    background-color: #fff;
+    background-color: $white;
     border-color: $color;
 
     &::before {

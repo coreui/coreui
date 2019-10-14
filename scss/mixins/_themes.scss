@@ -43,8 +43,13 @@ $theme-has-variants: false !default;
     $value: map-get($current-variant-map, $key);
     @return $value;
   } @else {
-    $value: map-get($current-theme-map, $key);
-    @return $value;
+    @if map-has-key($current-theme-map, $key) {
+      $value: map-get($current-theme-map, $key);
+      @return $value;
+    } @else {
+      $value: map-get(map-get($map, $default-theme), $key);
+      @return $value;
+    }
   }
 
   //TODO: find solution when $key is `null`
@@ -125,6 +130,15 @@ $theme-has-variants: false !default;
   $themes-map: $loop !global;
   $parent-element: $parent !global;
 
+  $default-theme: null !global;
+
+  @each $key in map-keys($default-themes) {
+
+    @if map-get(map-get($default-themes, $key), "default") == true {
+      $default-theme: $key !global;
+    }
+  }
+
   // Get list of themes
   $themes: map-keys($themes-map);
 
@@ -180,7 +194,7 @@ $theme-has-variants: false !default;
         @content;
       } @else {
         @at-root{
-          .#{$bs-prefix}#{$theme}#{$theme-suffix} & {
+          .#{$prefix}#{$theme}#{$theme-suffix} {
             @content;
           }
         }
@@ -198,7 +212,7 @@ $theme-has-variants: false !default;
       @content;
     } @else {
       @at-root{
-        .#{$bs-prefix}#{$theme}#{$theme-suffix} & {
+        .#{$prefix}#{$theme}#{$theme-suffix} & {
           @content;
         }
       }

@@ -1,0 +1,12 @@
+@mixin elevation($level, $direction: false) {
+  @if $enable-elevations {
+    .c-app:not(.c-dark-theme) & {
+      border: 0;
+      box-shadow: unquote(map-get($elevations, $level));
+
+      @if $direction == "bottom" {
+        clip-path: inset(0 0 -1000px 0);
+      }
+    }
+  }
+}

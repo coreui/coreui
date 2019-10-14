@@ -268,18 +268,18 @@ $form-theme-map: () !default;
 $form-theme-map: map-merge(
   (
     light: (
-      "input-bg":                              $input-bg,
-      "input-disabled-bg":                     $input-disabled-bg,
-      "input-color":                           $input-color,
-      "input-border-color":                    $input-border-color,
-      "input-focus-bg":                        $input-focus-bg,
-      "input-focus-border-color":              $input-focus-border-color,
-      "input-focus-color":                     $input-focus-color,
-      "input-placeholder-color":               $input-placeholder-color,
-      "input-plaintext-color":                 $input-plaintext-color,
-      "input-group-addon-color":               $input-group-addon-color,
-      "input-group-addon-bg":                  $input-group-addon-bg,
-      "input-group-addon-border-color":        $input-group-addon-border-color
+      "input-bg":                       $input-bg,
+      "input-disabled-bg":              $input-disabled-bg,
+      "input-color":                    $input-color,
+      "input-border-color":             $input-border-color,
+      "input-focus-bg":                 $input-focus-bg,
+      "input-focus-border-color":       $input-focus-border-color,
+      "input-focus-color":              $input-focus-color,
+      "input-placeholder-color":        $input-placeholder-color,
+      "input-plaintext-color":          $input-plaintext-color,
+      "input-group-addon-color":        $input-group-addon-color,
+      "input-group-addon-bg":           $input-group-addon-bg,
+      "input-group-addon-border-color": $input-group-addon-border-color
     )
   ),
   $form-theme-map

@@ -4,13 +4,14 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.13): sidebar.js
+ * CoreUI (v3.0.0-alpha.14): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 import { jQuery as $ } from './util/index';
 import Data from './dom/data';
-import EventHandler from './dom/event-handler';
+import EventHandler from './dom/event-handler'; // import Manipulator from './dom/manipulator'
+
 import PerfectScrollbar from 'perfect-scrollbar';
 import getStyle from './utilities/get-style';
 /**
@@ -20,19 +21,25 @@ import getStyle from './utilities/get-style';
  */
 
 var NAME = 'sidebar';
-var VERSION = '3.0.0-alpha.13';
+var VERSION = '3.0.0-alpha.14';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
+var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
+// const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
+var DefaultType = {
+  dropdownAccordion: 'boolean'
+};
 var Default = {
-  transition: 400
+  transition: 400 // dropdownAccordion: false
+
 };
 var ClassName = {
   ACTIVE: PREFIX + "active",
-  NAV_DROPDOWN_TOGGLE: PREFIX + "nav-dropdown-toggle",
-  OPEN: PREFIX + "open",
+  NAV_DROPDOWN: PREFIX + "sidebar-nav-dropdown",
+  NAV_DROPDOWN_TOGGLE: PREFIX + "sidebar-nav-dropdown-toggle",
+  SHOW: PREFIX + "show",
   SIDEBAR_MINIMIZED: PREFIX + "sidebar-minimized",
   SIDEBAR_OVERLAID: PREFIX + "sidebar-overlaid",
   SIDEBAR_SHOW: PREFIX + "sidebar-show"
@@ -48,10 +55,10 @@ var Event = {
   UPDATE: 'update'
 };
 var Selector = {
-  NAV_DROPDOWN_TOGGLE: "." + PREFIX + "nav-dropdown-toggle",
-  NAV_DROPDOWN: "." + PREFIX + "nav-dropdown",
-  NAV_LINK: "." + PREFIX + "nav-link",
-  // NAV_LINK_QUERIED: `.${PREFIX}nav-link-queried`,
+  NAV_DROPDOWN_TOGGLE: "." + PREFIX + "sidebar-nav-dropdown-toggle",
+  NAV_DROPDOWN: "." + PREFIX + "sidebar-nav-dropdown",
+  NAV_LINK: "." + PREFIX + "sidebar-nav-link",
+  // NAV_LINK_QUERIED: `.${PREFIX}sidebar-nav-link-queried`,
   NAVIGATION_CONTAINER: "." + PREFIX + "sidebar-nav",
   SIDEBAR: "." + PREFIX + "sidebar"
 };
@@ -88,6 +95,24 @@ function () {
   var _proto = Sidebar.prototype;
 
   // Private
+  _proto._getAllSiblings = function _getAllSiblings(element, filter) {
+    var siblings = [];
+    element = element.parentNode.firstChild;
+
+    do {
+      if (element.nodeType === 3) {
+        continue; // text node
+      }
+
+      if (!filter || filter(element)) {
+        siblings.push(element);
+      } // eslint-disable-next-line no-cond-assign
+
+    } while (element = element.nextSibling);
+
+    return siblings;
+  };
+
   _proto._toggleDropdown = function _toggleDropdown(event) {
     var toggler = event.target;
 
@@ -95,7 +120,25 @@ function () {
       toggler = toggler.closest(Selector.NAV_DROPDOWN_TOGGLE);
     }
 
-    toggler.parentNode.classList.toggle(ClassName.OPEN);
+    var dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
+
+    if (dataAttributes.drodpownAccordion) {
+      // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
+      //   if (element !== toggler.parentNode) {
+      //     element.classList.remove(ClassName.SHOW)
+      //   }
+      // })
+      // toggler.parentElement
+      this._getAllSiblings(toggler.parentElement).forEach(function (element) {
+        if (element !== toggler.parentNode) {
+          if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
+            element.classList.remove(ClassName.SHOW);
+          }
+        }
+      });
+    }
+
+    toggler.parentNode.classList.toggle(ClassName.SHOW); // TODO: Set the toggler's position near to cursor after the click.
 
     this._perfectScrollbar(Event.UPDATE);
   };
@@ -152,12 +195,14 @@ function () {
       container = Selector.NAVIGATION_CONTAINER;
     }
 
-    var ps = new PerfectScrollbar(document.querySelector(container), {
-      suppressScrollX: true
-    }); // TODO: find real fix for ps rtl
+    if (this._element.querySelector(container)) {
+      var ps = new PerfectScrollbar(this._element.querySelector(container), {
+        suppressScrollX: true
+      }); // TODO: find real fix for ps rtl
 
-    ps.isRtl = false;
-    return ps;
+      ps.isRtl = false;
+      return ps;
+    }
   };
 
   _proto._destroyScrollbar = function _destroyScrollbar() {
@@ -205,9 +250,12 @@ function () {
 
     // eslint-disable-next-line unicorn/prefer-spread
     Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
-      var currentUrl;
-      var urlHasParams = new RegExp('\\?.*=');
-      var urlHasQueryString = new RegExp('\\?.');
+      var currentUrl; // eslint-disable-next-line prefer-regex-literals
+
+      var urlHasParams = new RegExp('\\?.*='); // eslint-disable-next-line prefer-regex-literals
+
+      var urlHasQueryString = new RegExp('\\?.'); // eslint-disable-next-line prefer-regex-literals
+
       var urlHasHash = new RegExp('#.');
 
       if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
@@ -216,7 +264,8 @@ function () {
         currentUrl = String(window.location).split('#')[0];
       } else {
         currentUrl = String(window.location);
-      }
+      } // eslint-disable-next-line unicorn/prefer-string-slice
+
 
       if (currentUrl.substr(currentUrl.length - 1) === '#') {
         currentUrl = currentUrl.slice(0, -1);
@@ -226,7 +275,7 @@ function () {
         element.classList.add(ClassName.ACTIVE); // eslint-disable-next-line unicorn/prefer-spread
 
         Array.from(_this2._getParents(element, Selector.NAV_DROPDOWN)).forEach(function (element) {
-          element.classList.add(ClassName.OPEN);
+          element.classList.add(ClassName.SHOW);
         });
       }
     });
@@ -332,6 +381,11 @@ function () {
     key: "VERSION",
     get: function get() {
       return VERSION;
+    }
+  }, {
+    key: "DefaultType",
+    get: function get() {
+      return DefaultType;
     }
   }]);
 
