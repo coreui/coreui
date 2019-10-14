@@ -1,0 +1,19 @@
+{
+  "name": "coreui/coreui",
+  "description": "Open Source UI Kit built on top of Bootstrap 4.",
+  "keywords": [
+    "css",
+    "js",
+    "sass",
+    "mobile-first",
+    "responsive",
+    "front-end",
+    "framework",
+    "web"
+  ],
+  "homepage": "https://coreui.io/",
+  "support": {
+    "issues": "https://github.com/coreui/coreui/issues"
+  },
+  "license": "MIT"
+}
