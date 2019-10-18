@@ -8,9 +8,14 @@
   position: relative;
   display: block;
   padding: $pagination-padding-y $pagination-padding-x;
-  margin-left: -$pagination-border-width;
   line-height: $pagination-line-height;
   border: $pagination-border-width solid;
+  @include ltr {
+    margin-left: -$pagination-border-width;
+  }
+  @include rtl {
+    margin-right: -$pagination-border-width;
+  }
   @include themes($pagination-theme-map, $create: parent) {
     color: themes-get-value("pagination-color");
     background-color: themes-get-value("pagination-bg");
@@ -37,13 +42,24 @@
 .#{$bs-prefix}page-item {
   &:first-child {
     .#{$bs-prefix}page-link {
-      margin-left: 0;
-      @include border-left-radius($border-radius);
+      @include ltr {
+        margin-left: 0;
+        @include border-left-radius($border-radius);
+      }
+      @include rtl {
+        margin-right: 0;
+        @include border-right-radius($border-radius);
+      }
     }
   }
   &:last-child {
     .#{$bs-prefix}page-link {
-      @include border-right-radius($border-radius);
+      @include ltr {
+        @include border-right-radius($border-radius);
+      }
+      @include rtl {
+        @include border-left-radius($border-radius);
+      }
     }
   }
 

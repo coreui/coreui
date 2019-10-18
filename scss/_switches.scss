@@ -2,104 +2,6 @@
 // Base styles
 //
 
-// TODO: replace old switches.
-.#{$prefix}switch-new {
-  position: relative;
-  height: $switch-height;
-  padding-left: $switch-width + 10px;
-}
-
-.#{$prefix}switch-new-label {
-  position: relative;
-  margin: 0;
-  line-height: $switch-height;
-  &::before,
-  &::after {
-    position: absolute;
-    display: block;
-    margin-left: - ($switch-width + 10px);
-    content: "";
-  }
-  &::before {
-    width: $switch-width;
-    height: $switch-height;
-    cursor: pointer;
-    background-color: $white;
-    border: $border-width solid $border-color;
-    transition: .15s ease-out;
-    @include border-radius($border-radius);
-  }
-  &::after {
-    top: $switch-handle-margin + 1px;
-    left: $switch-handle-margin + 1px;
-    box-sizing: border-box;
-    width: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
-    height: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
-    background-color: $white;
-    border: 1px solid $border-color;
-    transition: .15s ease-out;
-    @include border-radius($border-radius / 2);
-  }
-}
-
-.#{$prefix}switch-new-input:checked ~ .#{$prefix}switch-new-label::after {
-  transform: translateX($switch-width - $switch-height);
-}
-
-.#{$prefix}switch-new-input:focus ~ .#{$prefix}switch-new-label::before {
-  @include themes($form-theme-map) {
-    color: themes-get-value("input-focus-color");
-    background-color: themes-get-value("input-focus-bg");
-    border-color: themes-get-value("input-focus-border-color");
-  }
-  outline: 0;
-  // Avoid using mixin so we can pass custom focus shadow properly
-  @if $enable-shadows {
-    box-shadow: $input-box-shadow, $input-focus-box-shadow;
-  } @else {
-    box-shadow: $input-focus-box-shadow;
-  }
-}
-
-.#{$prefix}switch-new-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: $switch-width;
-  height: $switch-height;
-  opacity: 0;
-}
-
-.#{$prefix}switch-new-with-label {
-  .#{$prefix}switch-new-label {
-    &::before {
-      width: $switch-label-width;
-      padding: 0 2px;
-      font-size: $switch-font-size;
-      font-weight: 600;
-      line-height: $switch-height - 2px;
-      color: $gray-300;
-      text-align: right;
-      text-transform: uppercase;
-      content: attr(data-unchecked);
-      transition: inherit;
-    }
-  }
-  .#{$prefix}switch-new-input {
-    width: $switch-label-width;
-  }
-
-  .#{$prefix}switch-new-input:checked ~ .#{$prefix}switch-new-label::before {
-    text-align: left;
-    content: attr(data-checked);
-  }
-
-  .#{$prefix}switch-new-input:checked ~ .#{$prefix}switch-new-label::after {
-    transform: translateX($switch-label-width - $switch-height);
-  }
-}
-
 .#{$prefix}switch {
   display: inline-block;
   width: $switch-width;
@@ -188,7 +90,6 @@
     &::after {
       position: absolute;
       top: 50%;
-      right: 1px;
       z-index: 1;
       width: 50%;
       margin-top: -.5em;
@@ -200,6 +101,10 @@
       text-transform: uppercase;
       content: attr(data-unchecked);
       transition: inherit;
+
+      @include ltr {
+        right: 1px;
+      }
     }
   }
 

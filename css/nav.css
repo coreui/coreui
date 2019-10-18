@@ -1,9 +1,16 @@
 .nav {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+}
+
+html:not([dir="rtl"]) .nav {
+  padding-left: 0;
+}
+
+*[dir="rtl"] .nav {
+  padding-right: 0;
 }
 
 .nav-link {
@@ -96,8 +103,8 @@
   margin-bottom: 0;
 }
 
-.nav-tabs-boxed.nav-tabs-boxed-left {
-  display: flex;
+*[dir="rtl"] .nav-tabs-boxed.nav-tabs-boxed-left {
+  flex-direction: row-reverse;
 }
 
 .nav-tabs-boxed.nav-tabs-boxed-left .nav-item {
@@ -112,12 +119,20 @@
   border-color: #d8dbe0 #fff #d8dbe0 #d8dbe0;
 }
 
-.nav-tabs-boxed.nav-tabs-boxed-right {
+html:not([dir="rtl"]) .nav-tabs-boxed.nav-tabs-boxed-right {
   flex-direction: row-reverse;
 }
 
-.nav-tabs-boxed.nav-tabs-boxed-right .nav-item {
+*[dir="rtl"] .nav-tabs-boxed.nav-tabs-boxed-right {
+  flex-direction: row;
+}
+
+html:not([dir="rtl"]) .nav-tabs-boxed.nav-tabs-boxed-right .nav-item {
   margin-left: -1px;
+}
+
+*[dir="rtl"] .nav-tabs-boxed.nav-tabs-boxed-right .nav-item {
+  margin-right: -1px;
 }
 
 .nav-tabs-boxed.nav-tabs-boxed-right .nav-link {
@@ -235,10 +250,6 @@
   height: 56px;
   padding-top: 0;
   padding-bottom: 0;
-}
-
-*[dir="rtl"] .nav {
-  padding-right: 0;
 }
 
 /*# sourceMappingURL=nav.css.map */

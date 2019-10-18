@@ -1,92 +1,3 @@
-.c-switch-new {
-  position: relative;
-  height: 26px;
-  padding-left: 50px;
-}
-
-.c-switch-new-label {
-  position: relative;
-  margin: 0;
-  line-height: 26px;
-}
-
-.c-switch-new-label::before, .c-switch-new-label::after {
-  position: absolute;
-  display: block;
-  margin-left: -50px;
-  content: "";
-}
-
-.c-switch-new-label::before {
-  width: 40px;
-  height: 26px;
-  cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #d8dbe0;
-  transition: .15s ease-out;
-  border-radius: 0.25rem;
-}
-
-.c-switch-new-label::after {
-  top: 3px;
-  left: 3px;
-  box-sizing: border-box;
-  width: 20px;
-  height: 20px;
-  background-color: #fff;
-  border: 1px solid #d8dbe0;
-  transition: .15s ease-out;
-  border-radius: 0.125rem;
-}
-
-.c-switch-new-input:checked ~ .c-switch-new-label::after {
-  transform: translateX(14px);
-}
-
-.c-switch-new-input:focus ~ .c-switch-new-label::before {
-  color: #768192;
-  background-color: #fff;
-  border-color: #958bef;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
-}
-
-.c-switch-new-input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 40px;
-  height: 26px;
-  opacity: 0;
-}
-
-.c-switch-new-with-label .c-switch-new-label::before {
-  width: 48px;
-  padding: 0 2px;
-  font-size: 10px;
-  font-weight: 600;
-  line-height: 24px;
-  color: #c4c9d0;
-  text-align: right;
-  text-transform: uppercase;
-  content: attr(data-unchecked);
-  transition: inherit;
-}
-
-.c-switch-new-with-label .c-switch-new-input {
-  width: 48px;
-}
-
-.c-switch-new-with-label .c-switch-new-input:checked ~ .c-switch-new-label::before {
-  text-align: left;
-  content: attr(data-checked);
-}
-
-.c-switch-new-with-label .c-switch-new-input:checked ~ .c-switch-new-label::after {
-  transform: translateX(22px);
-}
-
 .c-switch {
   display: inline-block;
   width: 40px;
@@ -196,7 +107,6 @@
 .c-switch-label .c-switch-slider::after {
   position: absolute;
   top: 50%;
-  right: 1px;
   z-index: 1;
   width: 50%;
   margin-top: -.5em;
@@ -208,6 +118,10 @@
   text-transform: uppercase;
   content: attr(data-unchecked);
   transition: inherit;
+}
+
+html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
+  right: 1px;
 }
 
 .c-switch-label .c-switch-input:checked ~ .c-switch-slider::before {

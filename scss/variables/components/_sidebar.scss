@@ -32,7 +32,7 @@ $sidebar-light-borders: (
 $sidebar-brand-height:               56px !default;
 
 $sidebar-dark-brand-bg:              rgba($black, .2) !default;
-$sidebar-light-brand-bg:             rgba($black, .2) !default;
+$sidebar-light-brand-bg:             $primary !default;
 
 // Sidebar Header
 
@@ -94,9 +94,9 @@ $sidebar-dark-nav-link-active-bg:          rgba($white, .05) !default;
 $sidebar-dark-nav-link-active-icon-color:  $white !default;
 $sidebar-dark-nav-link-active-borders:     0 !default;
 
-$sidebar-light-nav-link-active-color:       theme-color("primary") !default;
+$sidebar-light-nav-link-active-color:       rgba($black, .8) !default;
 $sidebar-light-nav-link-active-bg:          rgba($black, .05) !default;
-$sidebar-light-nav-link-active-icon-color:  $white !default;
+$sidebar-light-nav-link-active-icon-color:  $primary !default;
 $sidebar-light-nav-link-active-borders:     0 !default;
 
 
@@ -118,8 +118,8 @@ $sidebar-dark-nav-dropdown-indicator:             str-replace(url("data:image/sv
 $sidebar-dark-nav-dropdown-indicator-hover-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-dark-nav-dropdown-indicator-hover:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
-$sidebar-light-nav-dropdown-color:                 $white !default;
-$sidebar-light-nav-dropdown-bg:                  rgba(0, 0, 0, .2) !default;
+$sidebar-light-nav-dropdown-color:                 rgba($black, .8) !default;
+$sidebar-light-nav-dropdown-bg:                  rgba(0, 0, 0, .05) !default;
 $sidebar-light-nav-dropdown-borders:               0 !default;
 $sidebar-light-nav-dropdown-indicator-color:       $gray-600 !default;
 $sidebar-light-nav-dropdown-indicator:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -173,11 +173,11 @@ $sidebar-dark-minimizer-hover-indicator-color:  $sidebar-dark-nav-link-hover-col
 $sidebar-dark-minimizer-hover-indicator:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 $sidebar-light-minimizer-borders:               0 !default;
-$sidebar-light-minimizer-bg:                    rgba($black, .2) !default;
+$sidebar-light-minimizer-bg:                    rgba(0, 0, 0, .05) !default;
 $sidebar-light-minimizer-indicator-color:       $gray-600 !default;
 $sidebar-light-minimizer-indicator:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
-$sidebar-light-minimizer-hover-bg:             rgba(0, 0, 0, .3) !default;
-$sidebar-light-minimizer-hover-indicator-color: $sidebar-dark-nav-link-hover-color !default;
+$sidebar-light-minimizer-hover-bg:             rgba(0, 0, 0, .1) !default;
+$sidebar-light-minimizer-hover-indicator-color: $gray-700 !default;
 $sidebar-light-minimizer-hover-indicator:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 
 $sidebar-variants-map: () !default;

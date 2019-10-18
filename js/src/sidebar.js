@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.14): sidebar.js
+ * CoreUI (v3.0.0-beta.0): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -21,7 +21,7 @@ import getStyle from './utilities/get-style'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-alpha.14'
+const VERSION = '3.0.0-beta.0'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -128,12 +128,6 @@ class Sidebar {
 
     // TODO: find better solution
     if (dataAttributes.drodpownAccordion) {
-      // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
-      //   if (element !== toggler.parentNode) {
-      //     element.classList.remove(ClassName.SHOW)
-      //   }
-      // })
-      // toggler.parentElement
       this._getAllSiblings(toggler.parentElement).forEach(element => {
         if (element !== toggler.parentNode) {
           if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
@@ -195,8 +189,6 @@ class Sidebar {
       const ps = new PerfectScrollbar(this._element.querySelector(container), {
         suppressScrollX: true
       })
-      // TODO: find real fix for ps rtl
-      ps.isRtl = false
       return ps
     }
   }
@@ -209,22 +201,6 @@ class Sidebar {
   }
 
   _getParents(element, selector) {
-    // Element.matches() polyfill
-    // if (!Element.prototype.matches) {
-    //   Element.prototype.matches =
-    //     Element.prototype.matchesSelector ||
-    //     Element.prototype.mozMatchesSelector ||
-    //     Element.prototype.msMatchesSelector ||
-    //     Element.prototype.oMatchesSelector ||
-    //     Element.prototype.webkitMatchesSelector ||
-    //     function(s) {
-    //       var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-    //         i = matches.length;
-    //       while (--i >= 0 && matches.item(i) !== this) {}
-    //       return i > -1;
-    //     };
-    // }
-
     // Setup parents array
     const parents = []
 

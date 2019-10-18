@@ -50,16 +50,28 @@
 .c-header-brand.c-header-brand-centered {
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+}
+
+html:not([dir="rtl"]) .c-header-brand.c-header-brand-centered {
+  left: 50%;
+}
+
+*[dir="rtl"] .c-header-brand.c-header-brand-centered {
+  right: 50%;
 }
 
 @media (max-width: 575.98px) {
   .c-header-brand.c-header-brand-xs-down-centered {
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+  }
+  html:not([dir="rtl"]) .c-header-brand.c-header-brand-xs-down-centered {
+    left: 50%;
+  }
+  *[dir="rtl"] .c-header-brand.c-header-brand-xs-down-centered {
+    right: 50%;
   }
 }
 
@@ -67,8 +79,13 @@
   .c-header-brand.c-header-brand-sm-down-centered {
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+  }
+  html:not([dir="rtl"]) .c-header-brand.c-header-brand-sm-down-centered {
+    left: 50%;
+  }
+  *[dir="rtl"] .c-header-brand.c-header-brand-sm-down-centered {
+    right: 50%;
   }
 }
 
@@ -76,8 +93,13 @@
   .c-header-brand.c-header-brand-md-down-centered {
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+  }
+  html:not([dir="rtl"]) .c-header-brand.c-header-brand-md-down-centered {
+    left: 50%;
+  }
+  *[dir="rtl"] .c-header-brand.c-header-brand-md-down-centered {
+    right: 50%;
   }
 }
 
@@ -85,16 +107,28 @@
   .c-header-brand.c-header-brand-lg-down-centered {
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+  }
+  html:not([dir="rtl"]) .c-header-brand.c-header-brand-lg-down-centered {
+    left: 50%;
+  }
+  *[dir="rtl"] .c-header-brand.c-header-brand-lg-down-centered {
+    right: 50%;
   }
 }
 
 .c-header-brand.c-header-brand-xl-down-centered {
   position: absolute;
   top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+}
+
+html:not([dir="rtl"]) .c-header-brand.c-header-brand-xl-down-centered {
+  left: 50%;
+}
+
+*[dir="rtl"] .c-header-brand.c-header-brand-xl-down-centered {
+  right: 50%;
 }
 
 @media (min-width: 992px) {
@@ -137,7 +171,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 0;
+  padding: 0;
   margin-bottom: 0;
   list-style: none;
 }
@@ -163,9 +197,19 @@
 .c-header-nav .c-header-nav-btn .badge {
   position: absolute;
   top: 50%;
-  left: 50%;
   margin-top: -16px;
+}
+
+html:not([dir="rtl"]) .c-header-nav .c-header-nav-link .badge, html:not([dir="rtl"])
+.c-header-nav .c-header-nav-btn .badge {
+  left: 50%;
   margin-left: 0;
+}
+
+*[dir="rtl"] .c-header-nav .c-header-nav-link .badge, *[dir="rtl"]
+.c-header-nav .c-header-nav-btn .badge {
+  right: 50%;
+  margin-right: 0;
 }
 
 .c-header-nav .c-header-nav-link:hover,

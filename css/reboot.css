@@ -81,7 +81,14 @@ dt {
 
 dd {
   margin-bottom: .5rem;
+}
+
+html:not([dir="rtl"]) dd {
   margin-left: 0;
+}
+
+*[dir="rtl"] dd {
+  margin-right: 0;
 }
 
 blockquote {

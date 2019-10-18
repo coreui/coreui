@@ -1,8 +1,15 @@
 .list-group {
   display: flex;
   flex-direction: column;
-  padding-left: 0;
   margin-bottom: 0;
+}
+
+html:not([dir="rtl"]) .list-group {
+  padding-left: 0;
+}
+
+*[dir="rtl"] .list-group {
+  padding-right: 0;
 }
 
 .list-group-item-action {
@@ -325,11 +332,18 @@
 .list-group-accent .list-group-item.list-group-item-divider::before {
   position: absolute;
   bottom: -1px;
-  left: 5%;
   width: 90%;
   height: 1px;
   content: "";
   background-color: rgba(0, 0, 21, 0.125);
+}
+
+html:not([dir="rtl"]) .list-group-accent .list-group-item.list-group-item-divider::before {
+  left: 5%;
+}
+
+*[dir="rtl"] .list-group-accent .list-group-item.list-group-item-divider::before {
+  right: 5%;
 }
 
 .list-group-accent .list-group-item-accent-primary {

@@ -25,7 +25,12 @@
     + .#{$bs-prefix}form-control,
     + .#{$bs-prefix}custom-select,
     + .#{$bs-prefix}custom-file {
-      margin-left: -$input-border-width;
+      @include ltr {
+        margin-left: -$input-border-width;
+      }
+      @include rtl {
+        margin-right: -$input-border-width;
+      }
     }
   }
 
@@ -43,8 +48,22 @@
 
   > .#{$bs-prefix}form-control,
   > .#{$bs-prefix}custom-select {
-    &:not(:last-child) { @include border-right-radius(0); }
-    &:not(:first-child) { @include border-left-radius(0); }
+    &:not(:last-child) {
+      @include ltr {
+        @include border-right-radius(0);
+      }
+      @include rtl {
+        @include border-left-radius(0);
+      }
+    }
+    &:not(:first-child) {
+      @include ltr {
+        @include border-left-radius(0);
+      }
+      @include rtl {
+        @include border-right-radius(0);
+      }
+    }
   }
 
   // Custom file inputs have more complex markup, thus requiring different
@@ -54,8 +73,22 @@
     align-items: center;
 
     &:not(:last-child) .#{$bs-prefix}custom-file-label,
-    &:not(:last-child) .#{$bs-prefix}custom-file-label::after { @include border-right-radius(0); }
-    &:not(:first-child) .#{$bs-prefix}custom-file-label { @include border-left-radius(0); }
+    &:not(:last-child) .#{$bs-prefix}custom-file-label::after {
+      @include ltr {
+        @include border-right-radius(0);
+      }
+      @include rtl {
+        @include border-left-radius(0);
+      }
+    }
+    &:not(:first-child) .#{$bs-prefix}custom-file-label {
+      @include ltr {
+        @include border-left-radius(0);
+      }
+      @include rtl {
+        @include border-right-radius(0);
+      }
+    }
   }
 }
 
@@ -86,19 +119,34 @@
   .#{$bs-prefix}btn + .#{$bs-prefix}input-group-text,
   .#{$bs-prefix}input-group-text + .#{$bs-prefix}input-group-text,
   .#{$bs-prefix}input-group-text + .#{$bs-prefix}btn {
-    margin-left: -$input-border-width;
+    @include ltr {
+      margin-left: -$input-border-width;
+    }
+    @include rtl {
+      margin-right: -$input-border-width;
+    }
   }
 }
 
 .#{$bs-prefix}input-group-prepend {
-  margin-right: -$input-border-width;
+  @include ltr {
+    margin-right: -$input-border-width;
+  }
+  @include rtl {
+    margin-left: -$input-border-width;
+  }
   // CoreUI start
   white-space: nowrap;
   vertical-align: middle; // Match the inputs
   // CoreUI end
 }
 .#{$bs-prefix}input-group-append {
-  margin-left: -$input-border-width;
+  @include ltr {
+    margin-left: -$input-border-width;
+  }
+  @include rtl {
+    margin-right: -$input-border-width;
+  }
   // CoreUI start
   white-space: nowrap;
   vertical-align: middle; // Match the inputs
@@ -179,7 +227,12 @@
 
 .#{$bs-prefix}input-group-lg > .#{$bs-prefix}custom-select,
 .#{$bs-prefix}input-group-sm > .#{$bs-prefix}custom-select {
-  padding-right: $custom-select-padding-x + $custom-select-indicator-padding;
+  @include ltr {
+    padding-right: $custom-select-padding-x + $custom-select-indicator-padding;
+  }
+  @include rtl {
+    padding-left: $custom-select-padding-x + $custom-select-indicator-padding;
+  }
 }
 
 
@@ -196,7 +249,12 @@
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-append:not(:last-child) > .#{$bs-prefix}input-group-text,
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-append:last-child > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-append:last-child > .#{$bs-prefix}input-group-text:not(:last-child) {
-  @include border-right-radius(0);
+  @include ltr {
+    @include border-right-radius(0);
+  }
+  @include rtl {
+    @include border-left-radius(0);
+  }
 }
 
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-append > .#{$bs-prefix}btn,
@@ -205,5 +263,10 @@
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-prepend:not(:first-child) > .#{$bs-prefix}input-group-text,
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-prepend:first-child > .#{$bs-prefix}btn:not(:first-child),
 .#{$bs-prefix}input-group > .#{$bs-prefix}input-group-prepend:first-child > .#{$bs-prefix}input-group-text:not(:first-child) {
-  @include border-left-radius(0);
+  @include ltr {
+    @include border-left-radius(0);
+  }
+  @include rtl {
+    @include border-right-radius(0);
+  }
 }

@@ -61,7 +61,14 @@
 .#{$bs-prefix}navbar-nav {
   display: flex;
   flex-direction: column; // cannot use `inherit` to get the `.#{$bs-prefix}navbar`s value
-  padding-left: 0;
+
+  @include ltr {
+    padding-left: 0; // reset padding because ul and ol
+  }
+  @include rtl {
+    padding-right: 0; // reset padding because ul and ol
+  }
+
   margin-bottom: 0;
   list-style: none;
 

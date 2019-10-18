@@ -27,13 +27,23 @@
 // Expand the right padding and account for the close button's positioning.#{$bs-prefix}
 
 .#{$bs-prefix}alert-dismissible {
-  padding-right: $close-font-size + $alert-padding-x * 2;
+  @include ltr {
+    padding-right: $close-font-size + $alert-padding-x * 2;
+  }
+  @include rtl {
+    padding-left: $close-font-size + $alert-padding-x * 2;
+  }
 
   // Adjust close link position
   .#{$bs-prefix}close {
     position: absolute;
     top: 0;
-    right: 0;
+    @include ltr {
+      right: 0;
+    }
+    @include rtl {
+      left: 0;
+    }
     padding: $alert-padding-y $alert-padding-x;
     color: inherit;
   }

@@ -22,11 +22,18 @@
 
 .c-avatar-status {
   position: absolute;
-  right: 0;
   bottom: 0;
   display: block;
   border: 1px solid #fff;
   border-radius: 50em;
+}
+
+html:not([dir="rtl"]) .c-avatar-status {
+  right: 0;
+}
+
+*[dir="rtl"] .c-avatar-status {
+  left: 0;
 }
 
 .c-avatar-sm {

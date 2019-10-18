@@ -4,12 +4,6 @@
   @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
 }
 
-@if $enable-gradients {
-  @include theme-variant() {
-    @include bg-gradient-variant(".#{$bs-prefix}bg-gradient-#{$color}", $value);
-  }
-}
-
 .#{$bs-prefix}bg-white {
   background-color: $white !important;
 }

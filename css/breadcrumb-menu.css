@@ -1,5 +1,9 @@
-.breadcrumb-menu {
+html:not([dir="rtl"]) .breadcrumb-menu {
   margin-left: auto;
+}
+
+html:not([dir="rtl"]) .breadcrumb-menu {
+  margin-right: auto;
 }
 
 .breadcrumb-menu::before {
@@ -30,11 +34,6 @@
 .breadcrumb-menu .dropdown-menu {
   min-width: 180px;
   line-height: 1.5;
-}
-
-*[dir="rtl"] .breadcrumb-menu {
-  margin-right: auto;
-  margin-left: initial;
 }
 
 /*# sourceMappingURL=breadcrumb-menu.css.map */

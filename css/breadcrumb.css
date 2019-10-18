@@ -10,15 +10,26 @@
   border-color: #d8dbe0;
 }
 
-.breadcrumb-item + .breadcrumb-item {
+html:not([dir="rtl"]) .breadcrumb-item + .breadcrumb-item {
   padding-left: 0.5rem;
+}
+
+*[dir="rtl"] .breadcrumb-item + .breadcrumb-item {
+  padding-right: 0.5rem;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
-  padding-right: 0.5rem;
   color: #8a93a2;
   content: "/";
+}
+
+html:not([dir="rtl"]) .breadcrumb-item + .breadcrumb-item::before {
+  padding-right: 0.5rem;
+}
+
+*[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+  padding-left: 0.5rem;
 }
 
 .breadcrumb-item + .breadcrumb-item:hover::before {
@@ -31,16 +42,6 @@
 
 .breadcrumb-item.active {
   color: #8a93a2;
-}
-
-*[dir="rtl"] .breadcrumb-item::before {
-  padding-right: 0;
-  padding-left: 0.5rem;
-}
-
-*[dir="rtl"] .breadcrumb-item {
-  padding-right: 0.5rem;
-  padding-left: 0;
 }
 
 /*# sourceMappingURL=breadcrumb.css.map */

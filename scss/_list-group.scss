@@ -7,7 +7,13 @@
   flex-direction: column;
 
   // No need to set list-style: none; since .#{$bs-prefix}list-group-item is block level
-  padding-left: 0; // reset padding because ul and ol
+  @include ltr {
+    padding-left: 0; // reset padding because ul and ol
+  }
+  @include rtl {
+    padding-right: 0; // reset padding because ul and ol
+  }
+
   margin-bottom: 0;
 }
 
@@ -181,10 +187,16 @@
       &::before {
         position: absolute;
         bottom: -1px;
-        left: 5%;
         width: 90%;
         height: 1px;
         content: "";
+
+        @include ltr {
+          left: 5%;
+        }
+        @include rtl {
+          right: 5%;
+        }
         @include themes($list-group-theme-map) {
           background-color: themes-get-value("list-group-border-color");
         }

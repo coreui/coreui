@@ -17,11 +17,18 @@
 
 .ps__rail-y {
   position: absolute;
-  right: 0;
   display: none;
   width: 15px;
   opacity: 0;
   transition: background-color .2s linear, opacity .2s linear;
+}
+
+html:not([dir="rtl"]) .ps__rail-y {
+  right: 0;
+}
+
+*[dir="rtl"] .ps__rail-y {
+  left: 0;
 }
 
 .ps--active-x > .ps__rail-x,
@@ -61,11 +68,18 @@
 
 .ps__thumb-y {
   position: absolute;
-  right: 2px;
   width: 6px;
   background-color: #aaa;
   border-radius: 6px;
   transition: background-color .2s linear, width .2s ease-in-out;
+}
+
+html:not([dir="rtl"]) .ps__thumb-y {
+  right: 2px;
+}
+
+*[dir="rtl"] .ps__thumb-y {
+  left: 2px;
 }
 
 .ps__rail-x:hover > .ps__thumb-x,

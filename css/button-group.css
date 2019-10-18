@@ -33,9 +33,14 @@
   width: auto;
 }
 
-.btn-group > .btn:not(:first-child),
+html:not([dir="rtl"]) .btn-group > .btn:not(:first-child), html:not([dir="rtl"])
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px;
+}
+
+*[dir="rtl"] .btn-group > .btn:not(:first-child), *[dir="rtl"]
+.btn-group > .btn-group:not(:first-child) {
+  margin-right: -1px;
 }
 
 html:not([dir="rtl"]) .btn-group > .btn:not(:last-child):not(.dropdown-toggle),
@@ -67,14 +72,24 @@ html:not([dir="rtl"]) .btn-group > .btn-group:not(:first-child) > .btn {
   padding-left: 0.5625rem;
 }
 
-.dropdown-toggle-split::after,
-.dropup .dropdown-toggle-split::after,
+html:not([dir="rtl"]) .dropdown-toggle-split::after, html:not([dir="rtl"])
+.dropup .dropdown-toggle-split::after, html:not([dir="rtl"])
 .dropright .dropdown-toggle-split::after {
   margin-left: 0;
 }
 
-.dropleft .dropdown-toggle-split::before {
+*[dir="rtl"] .dropdown-toggle-split::after, *[dir="rtl"]
+.dropup .dropdown-toggle-split::after, *[dir="rtl"]
+.dropright .dropdown-toggle-split::after {
   margin-right: 0;
+}
+
+html:not([dir="rtl"]) .dropleft .dropdown-toggle-split::before {
+  margin-right: 0;
+}
+
+*[dir="rtl"] .dropleft .dropdown-toggle-split::before {
+  margin-left: 0;
 }
 
 .btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split {

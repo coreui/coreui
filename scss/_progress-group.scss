@@ -11,8 +11,14 @@
 }
 
 .#{$bs-prefix}progress-group-icon {
-  margin: 0 $spacer 0 ($spacer * .25);
   font-size: $font-size-lg;
+
+  @include ltr {
+    margin: 0 $spacer 0 ($spacer * .25);
+  }
+  @include rtl {
+    margin: 0 ($spacer * .25) 0 $spacer;
+  }
 }
 
 .#{$bs-prefix}progress-group-text {

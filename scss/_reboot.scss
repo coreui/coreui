@@ -144,7 +144,12 @@ dt {
 
 dd {
   margin-bottom: .5rem;
-  margin-left: 0; // Undo browser default
+  @include ltr {
+    margin-left: 0; // Undo browser default
+  }
+  @include rtl {
+    margin-right: 0; // Undo browser default
+  }
 }
 
 blockquote {

@@ -10,12 +10,22 @@
   .#{$bs-prefix}page-item {
     &:first-child {
       .#{$bs-prefix}page-link {
-        @include border-left-radius($border-radius);
+        @include ltr {
+          @include border-left-radius($border-radius);
+        }
+        @include rtl {
+          @include border-right-radius($border-radius);
+        }
       }
     }
     &:last-child {
       .#{$bs-prefix}page-link {
-        @include border-right-radius($border-radius);
+        @include ltr {
+          @include border-right-radius($border-radius);
+        }
+        @include rtl {
+          @include border-left-radius($border-radius);
+        }
       }
     }
   }

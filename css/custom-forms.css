@@ -2,7 +2,14 @@
   position: relative;
   display: block;
   min-height: 1.3125rem;
+}
+
+html:not([dir="rtl"]) .custom-control {
   padding-left: 1.5rem;
+}
+
+*[dir="rtl"] .custom-control {
+  padding-right: 1.5rem;
 }
 
 .custom-control-inline {
@@ -53,7 +60,6 @@
 .custom-control-label::before {
   position: absolute;
   top: 0.15625rem;
-  left: -1.5rem;
   display: block;
   width: 1rem;
   height: 1rem;
@@ -63,15 +69,30 @@
   border: #9da5b1 solid 1px;
 }
 
+html:not([dir="rtl"]) .custom-control-label::before {
+  left: -1.5rem;
+}
+
+*[dir="rtl"] .custom-control-label::before {
+  right: -1.5rem;
+}
+
 .custom-control-label::after {
   position: absolute;
   top: 0.15625rem;
-  left: -1.5rem;
   display: block;
   width: 1rem;
   height: 1rem;
   content: "";
   background: no-repeat 50% / 50% 50%;
+}
+
+html:not([dir="rtl"]) .custom-control-label::after {
+  left: -1.5rem;
+}
+
+*[dir="rtl"] .custom-control-label::after {
+  right: -1.5rem;
 }
 
 .custom-checkbox .custom-control-label::before {
@@ -111,25 +132,43 @@
   background-color: rgba(50, 31, 219, 0.5);
 }
 
-.custom-switch {
+html:not([dir="rtl"]) .custom-switch {
   padding-left: 2.25rem;
 }
 
+*[dir="rtl"] .custom-switch {
+  padding-right: 2.25rem;
+}
+
 .custom-switch .custom-control-label::before {
-  left: -2.25rem;
   width: 1.75rem;
   pointer-events: all;
   border-radius: 0.5rem;
 }
 
+html:not([dir="rtl"]) .custom-switch .custom-control-label::before {
+  left: -2.25rem;
+}
+
+*[dir="rtl"] .custom-switch .custom-control-label::before {
+  right: -2.25rem;
+}
+
 .custom-switch .custom-control-label::after {
   top: calc(0.15625rem + 2px);
-  left: calc(-2.25rem + 2px);
   width: calc(1rem - 4px);
   height: calc(1rem - 4px);
   background-color: #9da5b1;
   border-radius: 0.5rem;
   transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+html:not([dir="rtl"]) .custom-switch .custom-control-label::after {
+  left: calc(-2.25rem + 2px);
+}
+
+*[dir="rtl"] .custom-switch .custom-control-label::after {
+  right: calc(-2.25rem + 2px);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -177,8 +216,15 @@
 
 .custom-select[multiple], .custom-select[size]:not([size="1"]) {
   height: auto;
-  padding-right: 0.75rem;
   background-image: none;
+}
+
+html:not([dir="rtl"]) .custom-select[multiple], html:not([dir="rtl"]) .custom-select[size]:not([size="1"]) {
+  padding-right: 0.75rem;
+}
+
+*[dir="rtl"] .custom-select[multiple], *[dir="rtl"] .custom-select[size]:not([size="1"]) {
+  padding-left: 0.75rem;
 }
 
 .custom-select:disabled {
@@ -194,16 +240,30 @@
   height: calc(1.5em + 0.5rem + 2px);
   padding-top: 0.25rem;
   padding-bottom: 0.25rem;
-  padding-left: 0.5rem;
   font-size: 0.765625rem;
+}
+
+html:not([dir="rtl"]) .custom-select-sm {
+  padding-left: 0.5rem;
+}
+
+*[dir="rtl"] .custom-select-sm {
+  padding-right: 0.5rem;
 }
 
 .custom-select-lg {
   height: calc(1.5em + 1rem + 2px);
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  padding-left: 1rem;
   font-size: 1.09375rem;
+}
+
+html:not([dir="rtl"]) .custom-select-lg {
+  padding-left: 1rem;
+}
+
+*[dir="rtl"] .custom-select-lg {
+  padding-right: 1rem;
 }
 
 .custom-file {
@@ -259,7 +319,6 @@
 .custom-file-label::after {
   position: absolute;
   top: 0;
-  right: 0;
   bottom: 0;
   z-index: 3;
   display: block;
@@ -271,6 +330,14 @@
   background-color: #ebedef;
   border-left: inherit;
   border-radius: 0 0.25rem 0.25rem 0;
+}
+
+html:not([dir="rtl"]) .custom-file-label::after {
+  right: 0;
+}
+
+*[dir="rtl"] .custom-file-label::after {
+  left: 0;
 }
 
 .custom-range {

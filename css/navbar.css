@@ -32,9 +32,16 @@
 .navbar-nav {
   display: flex;
   flex-direction: column;
-  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+}
+
+html:not([dir="rtl"]) .navbar-nav {
+  padding-left: 0;
+}
+
+*[dir="rtl"] .navbar-nav {
+  padding-right: 0;
 }
 
 .navbar-nav .nav-link {

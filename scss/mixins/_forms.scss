@@ -58,10 +58,21 @@
       border-color: $color;
 
       @if $enable-validation-icons {
-        padding-right: $input-height-inner;
+        @include ltr {
+          padding-right: $input-height-inner;
+        }
+        @include rtl {
+          padding-left: $input-height-inner;
+        }
+
         background-image: $icon;
         background-repeat: no-repeat;
-        background-position: center right $input-height-inner-quarter;
+        @include ltr {
+          background-position: center right $input-height-inner-quarter;
+        }
+        @include rtl {
+          background-position: center left $input-height-inner-quarter;
+        }
         background-size: $input-height-inner-half $input-height-inner-half;
       }
 
@@ -82,8 +93,14 @@
     .#{$bs-prefix}was-validated &:#{$state},
     &.#{$bs-prefix}is-#{$state} {
       @if $enable-validation-icons {
-        padding-right: $input-height-inner;
-        background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+        @include ltr {
+          padding-right: $input-height-inner;
+          background-position: top $input-height-inner-quarter right $input-height-inner-quarter;
+        }
+        @include rtl {
+          padding-left: $input-height-inner;
+          background-position: top $input-height-inner-quarter left $input-height-inner-quarter;
+        }
       }
     }
   }
@@ -94,7 +111,12 @@
       border-color: $color;
 
       @if $enable-validation-icons {
-        padding-right: $custom-select-feedback-icon-padding-right;
+        @include ltr {
+          padding-right: $custom-select-feedback-icon-padding-right;
+        }
+        @include rtl {
+          padding-left: $custom-select-feedback-icon-padding-right;
+        }
         background: $custom-select-background, $icon $custom-select-bg no-repeat $custom-select-feedback-icon-position / $custom-select-feedback-icon-size;
       }
 

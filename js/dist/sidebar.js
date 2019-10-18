@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.14): sidebar.js
+ * CoreUI (v3.0.0-beta.0): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -21,7 +21,7 @@ import getStyle from './utilities/get-style';
  */
 
 var NAME = 'sidebar';
-var VERSION = '3.0.0-alpha.14';
+var VERSION = '3.0.0-beta.0';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -123,12 +123,6 @@ function () {
     var dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
 
     if (dataAttributes.drodpownAccordion) {
-      // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
-      //   if (element !== toggler.parentNode) {
-      //     element.classList.remove(ClassName.SHOW)
-      //   }
-      // })
-      // toggler.parentElement
       this._getAllSiblings(toggler.parentElement).forEach(function (element) {
         if (element !== toggler.parentNode) {
           if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
@@ -198,9 +192,7 @@ function () {
     if (this._element.querySelector(container)) {
       var ps = new PerfectScrollbar(this._element.querySelector(container), {
         suppressScrollX: true
-      }); // TODO: find real fix for ps rtl
-
-      ps.isRtl = false;
+      });
       return ps;
     }
   };
@@ -213,21 +205,6 @@ function () {
   };
 
   _proto._getParents = function _getParents(element, selector) {
-    // Element.matches() polyfill
-    // if (!Element.prototype.matches) {
-    //   Element.prototype.matches =
-    //     Element.prototype.matchesSelector ||
-    //     Element.prototype.mozMatchesSelector ||
-    //     Element.prototype.msMatchesSelector ||
-    //     Element.prototype.oMatchesSelector ||
-    //     Element.prototype.webkitMatchesSelector ||
-    //     function(s) {
-    //       var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-    //         i = matches.length;
-    //       while (--i >= 0 && matches.item(i) !== this) {}
-    //       return i > -1;
-    //     };
-    // }
     // Setup parents array
     var parents = []; // Get matching parent elements
 

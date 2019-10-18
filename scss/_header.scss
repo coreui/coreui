@@ -48,8 +48,14 @@
   &.#{$prefix}header-brand-centered {
     position: absolute;
     top: 50%;
-    left: 50%;
     transform: translate(-50%, -50%);
+
+    @include ltr {
+      left: 50%;
+    }
+    @include rtl {
+      right: 50%;
+    }
   }
 
   @each $breakpoint in map-keys($grid-breakpoints) {
@@ -57,8 +63,13 @@
       &.#{$prefix}header-brand-#{$breakpoint}-down-centered {
         position: absolute;
         top: 50%;
-        left: 50%;
         transform: translate(-50%, -50%);
+        @include ltr {
+          left: 50%;
+        }
+        @include rtl {
+          right: 50%;
+        }
       }
     }
   }
@@ -107,7 +118,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 0;
+  padding: 0;
   margin-bottom: 0;
   list-style: none;
 
@@ -130,9 +141,15 @@
     .#{$bs-prefix}badge {
       position: absolute;
       top: 50%;
-      left: 50%;
       margin-top: -16px;
-      margin-left: 0;
+      @include ltr {
+        left: 50%;
+        margin-left: 0;
+      }
+      @include rtl {
+        right: 50%;
+        margin-right: 0;
+      }
     }
 
     &:hover {

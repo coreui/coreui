@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-alpha.14): ajax-load.js
+ * CoreUI (v3.0.0-beta.0): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

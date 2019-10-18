@@ -11,7 +11,13 @@
   position: relative;
   display: block;
   min-height: $font-size-base * $line-height-base;
-  padding-left: $custom-control-gutter + $custom-control-indicator-size;
+
+  @include ltr {
+    padding-left: $custom-control-gutter + $custom-control-indicator-size;
+  }
+  @include rtl {
+    padding-right: $custom-control-gutter + $custom-control-indicator-size;
+  }
 }
 
 .#{$bs-prefix}custom-control-inline {
@@ -75,7 +81,12 @@
   &::before {
     position: absolute;
     top: ($font-size-base * $line-height-base - $custom-control-indicator-size) / 2;
-    left: -($custom-control-gutter + $custom-control-indicator-size);
+    @include ltr {
+      left: -($custom-control-gutter + $custom-control-indicator-size);
+    }
+    @include rtl {
+      right: -($custom-control-gutter + $custom-control-indicator-size);
+    }
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
@@ -90,7 +101,12 @@
   &::after {
     position: absolute;
     top: ($font-size-base * $line-height-base - $custom-control-indicator-size) / 2;
-    left: -($custom-control-gutter + $custom-control-indicator-size);
+    @include ltr {
+      left: -($custom-control-gutter + $custom-control-indicator-size);
+    }
+    @include rtl {
+      right: -($custom-control-gutter + $custom-control-indicator-size);
+    }
     display: block;
     width: $custom-control-indicator-size;
     height: $custom-control-indicator-size;
@@ -165,11 +181,21 @@
 // Tweak a few things for switches
 
 .#{$bs-prefix}custom-switch {
-  padding-left: $custom-switch-width + $custom-control-gutter;
+  @include ltr {
+    padding-left: $custom-switch-width + $custom-control-gutter;
+  }
+  @include rtl {
+    padding-right: $custom-switch-width + $custom-control-gutter;
+  }
 
   .#{$bs-prefix}custom-control-label {
     &::before {
-      left: -($custom-switch-width + $custom-control-gutter);
+      @include ltr {
+        left: -($custom-switch-width + $custom-control-gutter);
+      }
+      @include rtl {
+        right: -($custom-switch-width + $custom-control-gutter);
+      }
       width: $custom-switch-width;
       pointer-events: all;
       // stylelint-disable-next-line property-blacklist
@@ -178,7 +204,12 @@
 
     &::after {
       top: calc(#{(($font-size-base * $line-height-base - $custom-control-indicator-size) / 2)} + #{$custom-control-indicator-border-width * 2});
-      left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
+      @include ltr {
+        left: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
+      }
+      @include rtl {
+        right: calc(#{-($custom-switch-width + $custom-control-gutter)} + #{$custom-control-indicator-border-width * 2});
+      }
       width: $custom-switch-indicator-size;
       height: $custom-switch-indicator-size;
       background-color: $custom-control-indicator-border-color;
@@ -250,8 +281,13 @@
   &[multiple],
   &[size]:not([size="1"]) {
     height: auto;
-    padding-right: $custom-select-padding-x;
     background-image: none;
+    @include ltr {
+      padding-right: $custom-select-padding-x;
+    }
+    @include rtl {
+      padding-left: $custom-select-padding-x;
+    }
   }
 
   &:disabled {
@@ -269,7 +305,12 @@
   height: $custom-select-height-sm;
   padding-top: $custom-select-padding-y-sm;
   padding-bottom: $custom-select-padding-y-sm;
-  padding-left: $custom-select-padding-x-sm;
+  @include ltr {
+    padding-left: $custom-select-padding-x-sm;
+  }
+  @include rtl {
+    padding-right: $custom-select-padding-x-sm;
+  }
   @include font-size($custom-select-font-size-sm);
 }
 
@@ -277,7 +318,12 @@
   height: $custom-select-height-lg;
   padding-top: $custom-select-padding-y-lg;
   padding-bottom: $custom-select-padding-y-lg;
-  padding-left: $custom-select-padding-x-lg;
+  @include ltr {
+    padding-left: $custom-select-padding-x-lg;
+  }
+  @include rtl {
+    padding-right: $custom-select-padding-x-lg;
+  }
   @include font-size($custom-select-font-size-lg);
 }
 
@@ -342,7 +388,12 @@
   &::after {
     position: absolute;
     top: 0;
-    right: 0;
+    @include ltr {
+      right: 0;
+    }
+    @include rtl {
+      left: 0;
+    }
     bottom: 0;
     z-index: 3;
     display: block;

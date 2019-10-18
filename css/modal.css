@@ -131,7 +131,14 @@
 
 .modal-header .close {
   padding: 1rem 1rem;
+}
+
+html:not([dir="rtl"]) .modal-header .close {
   margin: -1rem -1rem -1rem auto;
+}
+
+*[dir="rtl"] .modal-header .close {
+  margin: -1rem auto -1rem -1rem;
 }
 
 .modal-title {
@@ -156,12 +163,20 @@
   border-color: #d8dbe0;
 }
 
-.modal-footer > :not(:first-child) {
+html:not([dir="rtl"]) .modal-footer > :not(:first-child) {
   margin-left: .25rem;
 }
 
-.modal-footer > :not(:last-child) {
+*[dir="rtl"] .modal-footer > :not(:first-child) {
   margin-right: .25rem;
+}
+
+html:not([dir="rtl"]) .modal-footer > :not(:last-child) {
+  margin-right: .25rem;
+}
+
+*[dir="rtl"] .modal-footer > :not(:last-child) {
+  margin-left: .25rem;
 }
 
 .modal-scrollbar-measure {

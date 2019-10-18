@@ -83,13 +83,27 @@ mark,
 }
 
 .list-unstyled {
-  padding-left: 0;
   list-style: none;
 }
 
-.list-inline {
+html:not([dir="rtl"]) .list-unstyled {
   padding-left: 0;
+}
+
+*[dir="rtl"] .list-unstyled {
+  padding-right: 0;
+}
+
+.list-inline {
   list-style: none;
+}
+
+html:not([dir="rtl"]) .list-inline {
+  padding-left: 0;
+}
+
+*[dir="rtl"] .list-inline {
+  padding-right: 0;
 }
 
 .list-inline-item {

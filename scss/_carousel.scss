@@ -150,7 +150,14 @@
   z-index: 15;
   display: flex;
   justify-content: center;
-  padding-left: 0; // override <ol> default
+
+  @include ltr {
+    padding-left: 0; // override <ol> default
+  }
+  @include rtl {
+    padding-right: 0; // override <ol> default
+  }
+
   // Use the .#{$bs-prefix}carousel-control's width as margin so we don't overlay those
   margin-right: $carousel-control-width;
   margin-left: $carousel-control-width;

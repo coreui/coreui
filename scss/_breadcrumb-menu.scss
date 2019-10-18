@@ -1,5 +1,11 @@
 .#{$bs-prefix}breadcrumb-menu {
-  margin-left: auto;
+  @include ltr {
+    margin-left: auto;
+  }
+  @include ltr {
+    margin-right: auto;
+  }
+
 
   &::before {
     display: none;
@@ -32,13 +38,5 @@
   .#{$bs-prefix}dropdown-menu {
     min-width: 180px;
     line-height: $line-height-base;
-  }
-}
-
-// Right-to-Left Support
-*[dir="rtl"] {
-  .#{$bs-prefix}breadcrumb-menu {
-    margin-right: auto;
-    margin-left: initial;
   }
 }

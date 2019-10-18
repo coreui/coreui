@@ -148,8 +148,15 @@
 
   .#{$bs-prefix}close {
     padding: $modal-header-padding;
-    // auto on the left force icon to the right even when there is no .#{$bs-prefix}modal-title
-    margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
+
+    @include ltr {
+      // auto on the left force icon to the right even when there is no .#{$bs-prefix}modal-title
+      margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
+    }
+    @include rtl {
+      // auto on the left force icon to the left even when there is no .#{$bs-prefix}modal-title
+      margin: (-$modal-header-padding-y) auto (-$modal-header-padding-y) (-$modal-header-padding-x);
+    }
   }
 }
 
@@ -182,8 +189,22 @@
   }
 
   // Easily place margin between footer elements
-  > :not(:first-child) { margin-left: .25rem; }
-  > :not(:last-child) { margin-right: .25rem; }
+  > :not(:first-child) {
+    @include ltr {
+      margin-left: .25rem;
+    }
+    @include rtl {
+      margin-right: .25rem;
+    }
+  }
+  > :not(:last-child) {
+    @include ltr {
+      margin-right: .25rem;
+    }
+    @include rtl {
+      margin-left: .25rem;
+    }
+  }
 }
 
 // Measure scrollbar width for padding body during modal show/hide

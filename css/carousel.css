@@ -141,10 +141,17 @@
   z-index: 15;
   display: flex;
   justify-content: center;
-  padding-left: 0;
   margin-right: 15%;
   margin-left: 15%;
   list-style: none;
+}
+
+html:not([dir="rtl"]) .carousel-indicators {
+  padding-left: 0;
+}
+
+*[dir="rtl"] .carousel-indicators {
+  padding-right: 0;
 }
 
 .carousel-indicators li {

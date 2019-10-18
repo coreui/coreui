@@ -20,13 +20,24 @@
 .#{$bs-prefix}breadcrumb-item {
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .#{$bs-prefix}breadcrumb-item {
-    padding-left: $breadcrumb-item-padding;
+    @include ltr {
+      padding-left: $breadcrumb-item-padding;
+    }
+    @include rtl {
+      padding-right: $breadcrumb-item-padding;
+    }
 
     &::before {
       display: inline-block; // Suppress underlining of the separator in modern browsers
-      padding-right: $breadcrumb-item-padding;
       color: $breadcrumb-divider-color;
       content: $breadcrumb-divider;
+
+      @include ltr {
+        padding-right: $breadcrumb-item-padding;
+      }
+      @include rtl {
+        padding-left: $breadcrumb-item-padding;
+      }
     }
   }
 
@@ -48,16 +59,3 @@
     color: $breadcrumb-active-color;
   }
 }
-
-// CoreUI start
-*[dir="rtl"] {
-  .#{$bs-prefix}breadcrumb-item::before {
-    padding-right: 0;
-    padding-left: $breadcrumb-item-padding;
-  }
-  .#{$bs-prefix}breadcrumb-item {
-    padding-right: $breadcrumb-item-padding;
-    padding-left: 0;
-  }
-}
-// CoreUI end

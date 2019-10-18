@@ -25,6 +25,23 @@
         .#{$bs-prefix}#{$abbrev}x#{$infix}-#{$size} {
           #{$prop}-left: $length !important;
         }
+
+        .#{$bs-prefix}#{$abbrev}fs#{$infix}-#{$size} {
+          @include ltr {
+            #{$prop}-left: $length !important;
+          }
+          @include rtl {
+            #{$prop}-right: $length !important;
+          }
+        }
+        .#{$bs-prefix}#{$abbrev}fe#{$infix}-#{$size} {
+          @include ltr {
+            #{$prop}-right: $length !important;
+          }
+          @include rtl {
+            #{$prop}-left: $length !important;
+          }
+        }
       }
     }
 
@@ -48,6 +65,23 @@
         .#{$bs-prefix}mx#{$infix}-n#{$size} {
           margin-left: -$length !important;
         }
+
+        .#{$bs-prefix}mfs#{$infix}-n#{$size} {
+          @include ltr {
+            margin-left: -$length !important;
+          }
+          @include rtl {
+            margin-right: -$length !important;
+          }
+        }
+        .#{$bs-prefix}mfe#{$infix}-n#{$size} {
+          @include ltr {
+            margin-right: -$length !important;
+          }
+          @include rtl {
+            margin-left: -$length !important;
+          }
+        }
       }
     }
 
@@ -68,6 +102,24 @@
     .#{$bs-prefix}ml#{$infix}-auto,
     .#{$bs-prefix}mx#{$infix}-auto {
       margin-left: auto !important;
+    }
+
+    // Some special margin utils for flex, work only with flex-direction: row
+    .#{$bs-prefix}mfs#{$infix}-auto {
+      @include ltr {
+        margin-left: auto !important;
+      }
+      @include rtl {
+        margin-right: auto !important;
+      }
+    }
+    .#{$bs-prefix}mfe#{$infix}-auto {
+      @include ltr {
+        margin-right: auto !important;
+      }
+      @include rtl {
+        margin-left: auto !important;
+      }
     }
   }
 }

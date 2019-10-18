@@ -1,3 +1,6 @@
+
+$sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $sidebar-width) !default;
+
 // stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .#{$prefix}sidebar {
   display: flex;
@@ -11,18 +14,31 @@
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 
   @include media-breakpoint-down($mobile-breakpoint) {
+    // Some of our components use this property to detect if the sidebar has mobile behavior.
+    --is-mobile: true;
     position: fixed;
     top: 0;
     bottom: 0;
     z-index: $zindex-fixed + 1;
   }
 
-  html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right){
-    margin-left: - $sidebar-width;
+  @include ltr {
+    &:not(.#{$prefix}sidebar-right){
+      margin-left: $sidebar-negative-margin;
+    }
+    &.#{$prefix}sidebar-right {
+      order: 99;
+      margin-right: $sidebar-negative-margin;
+    }
   }
-  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-    order: 99;
-    margin-right: - $sidebar-width;
+
+  @include rtl {
+    &:not(.#{$prefix}sidebar-right){
+      margin-right: $sidebar-negative-margin;
+    }
+    &.#{$prefix}sidebar-right {
+      margin-left: $sidebar-negative-margin;
+    }
   }
 
   &[class*="bg-"]  {
@@ -36,12 +52,24 @@
   @each $width, $value in $sidebar-widths {
     &.#{$prefix}sidebar-#{$width} {
       width: $value;
+      $sidebar-negative-margin: if($enable-elevations, - ($value + 5px), - $value);
 
-      html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right){
-        margin-left: - $value;
+      @include ltr {
+        &:not(.#{$prefix}sidebar-right){
+          margin-left: $sidebar-negative-margin;
+        }
+        &.#{$prefix}sidebar-right {
+          margin-right: $sidebar-negative-margin;
+        }
       }
-      html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-        margin-right: - $value;
+
+      @include rtl {
+        &:not(.#{$prefix}sidebar-right){
+          margin-right: $sidebar-negative-margin;
+        }
+        &.#{$prefix}sidebar-right {
+          margin-left: $sidebar-negative-margin;
+        }
       }
     }
   }
@@ -53,12 +81,51 @@
       bottom: 0;
       z-index: $zindex-fixed;
 
-      html:not([dir="rtl"]) &:not(.#{$prefix}sidebar-right) {
+      @include ltr {
+        &:not(.#{$prefix}sidebar-right) {
+          left: 0;
+        }
+
+        &.#{$prefix}sidebar-right {
+          right: 0;
+        }
+      }
+
+      @include rtl {
+        &:not(.#{$prefix}sidebar-right) {
+          right: 0;
+        }
+
+        &.#{$prefix}sidebar-right {
+          left: 0;
+        }
+      }
+    }
+  }
+
+  &.#{$prefix}sidebar-overlaid {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 2;
+
+    @include ltr {
+      &:not(.#{$prefix}sidebar-right) {
         left: 0;
       }
 
-      html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
+      &.#{$prefix}sidebar-right {
         right: 0;
+      }
+    }
+
+    @include rtl {
+      &:not(.#{$prefix}sidebar-right) {
+        right: 0;
+      }
+
+      &.#{$prefix}sidebar-right {
+        left: 0;
       }
     }
   }
@@ -75,8 +142,12 @@
   background: transparent;
   border: 0;
 
-  html:not([dir="rtl"]) &{
+  @include ltr {
     right: 0;
+  }
+
+  @include rtl {
+    left: 0;
   }
 }
 
@@ -145,8 +216,11 @@
   }
 
   .#{$bs-prefix}badge {
-    html:not([dir="rtl"]) & {
+    @include ltr {
       margin-left: auto;
+    }
+    @include rtl {
+      margin-right: auto;
     }
   }
 
@@ -168,8 +242,11 @@
   fill: currentColor;
 
   &:first-child {
-    html:not([dir="rtl"]) & {
+    @include ltr {
       margin-left: - $sidebar-nav-link-padding-x;
+    }
+    @include rtl {
+      margin-right: - $sidebar-nav-link-padding-x;
     }
   }
 }
@@ -187,7 +264,12 @@
     }
 
     > .#{$prefix}sidebar-nav-dropdown-toggle::after {
-      transform: rotate(-90deg);
+      @include ltr {
+        transform: rotate(-90deg);
+      }
+      @include rtl {
+        transform: rotate(270deg);
+      }
     }
 
     + .#{$prefix}sidebar-nav-dropdown.#{$prefix}show {
@@ -204,15 +286,27 @@
     display: block;
     flex: 0 8px;
     height: 8px;
-    margin-left: auto;
     content: "";
     background-repeat: no-repeat;
     background-position: center;
     transition: transform $layout-transition-speed;
+
+    @include ltr {
+      margin-left: auto;
+    }
+    @include rtl {
+      margin-right: auto;
+      transform: rotate(180deg);
+    }
   }
 
   .#{$prefix}badge {
-    margin-right: $sidebar-nav-link-padding-x;
+    @include ltr {
+      margin-right: $sidebar-nav-link-padding-x;
+    }
+    @include rtl {
+      margin-left: $sidebar-nav-link-padding-x;
+    }
   }
 }
 
@@ -261,6 +355,10 @@
     background-position: center;
     background-size: $sidebar-minimizer-height / 4;
     transition: $layout-transition-speed;
+
+    @include rtl {
+      transform: rotate(180deg);
+    }
   }
 
   &:focus,
@@ -271,7 +369,12 @@
   .#{$prefix}sidebar-right & {
     justify-content: flex-start;
     &::before {
-      transform: rotate(-180deg);
+      @include ltr {
+        transform: rotate(-180deg);
+      }
+      @include rtl {
+        transform: rotate(0deg);
+      }
     }
   }
 }
@@ -288,10 +391,20 @@
     }
 
     &:not(.#{$prefix}sidebar-right){
-      margin-left: - $sidebar-minimized-width;
+      @include ltr {
+        margin-left: - $sidebar-minimized-width;
+      }
+      @include rtl {
+        margin-right: - $sidebar-minimized-width;
+      }
     }
     &.#{$prefix}sidebar-right {
-      margin-right: - $sidebar-minimized-width;
+      @include ltr {
+        margin-right: - $sidebar-minimized-width;
+      }
+      @include ltr {
+        margin-left: - $sidebar-minimized-width;
+      }
     }
 
     .#{$prefix}sidebar-brand-full {
@@ -329,12 +442,22 @@
       width: inherit;
 
       &::before {
-        transform: rotate(-180deg);
+        @include ltr {
+          transform: rotate(-180deg);
+        }
+        @include rtl {
+          transform: rotate(0deg);
+        }
       }
     }
 
     &.#{$prefix}sidebar-right .#{$prefix}sidebar-minimizer::before {
-      transform: rotate(0deg);
+      @include ltr {
+        transform: rotate(0deg);
+      }
+      @include rtl {
+        transform: rotate(180deg);
+      }
     }
 
     .#{$prefix}sidebar-nav-dropdown {
@@ -350,7 +473,12 @@
     &.#{$prefix}sidebar-right .#{$prefix}sidebar-nav {
       > .#{$prefix}sidebar-nav-item:hover,
       > .#{$prefix}sidebar-nav-dropdown:hover {
-        margin-left: - $sidebar-width;
+        @include ltr {
+          margin-left: - $sidebar-width;
+        }
+        @include rtl {
+          margin-right: - $sidebar-width;
+        }
       }
     }
 
@@ -401,247 +529,117 @@
       &:hover {
         > .#{$prefix}sidebar-nav-dropdown-items {
           position: absolute;
-          left: $sidebar-minimized-width;
           display: inline;
+
+          @include ltr {
+            left: $sidebar-minimized-width;
+          }
+          @include rtl {
+            right: $sidebar-minimized-width;
+          }
         }
       }
     }
 
     &.#{$prefix}sidebar-right > .#{$prefix}sidebar-nav-dropdown:hover > .#{$prefix}sidebar-nav-dropdown-items {
-      left: 0;
-    }
-
-    // Right-to-Left Support
-    @if $enable-rtl {
-      *[dir="rtl"] {
-        .#{$prefix}sidebar-minimized {
-          .#{$prefix}sidebar {
-            .#{$prefix}sidebar-nav {
-              list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-              .#{$prefix}sidebar-nav-divider {
-                height: 0;
-              }
-            }
-
-            .#{$prefix}sidebar-minimizer::before {
-              transform: rotate(0deg);
-            }
-
-            .#{$prefix}sidebar-nav-dropdown:hover > .#{$prefix}sidebar-nav-dropdown-items {
-              left: 0;
-            }
-          }
-        }
+      @include ltr {
+        left: 0;
+      }
+      @include rtl {
+        right: 0;
       }
     }
   }
 }
-
 
 // Responsive behavior
 
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-    html:not([dir="rtl"]) .#{$prefix}sidebar.#{$prefix}sidebar#{$infix}-show,
-    html:not([dir="rtl"]) .#{$prefix}sidebar.#{$prefix}sidebar-show {
+    .#{$prefix}sidebar.#{$prefix}sidebar#{$infix}-show,
+    .#{$prefix}sidebar.#{$prefix}sidebar-show {
       &:not(.#{$prefix}sidebar-right){
-        margin-left: 0;
+        @include ltr {
+          margin-left: 0;
+        }
+        @include rtl {
+          margin-right: 0;
+        }
+
         @if $breakpoint != "xs" {
           &.#{$prefix}sidebar-fixed {
             ~ .#{$prefix}wrapper {
-              margin-left: $sidebar-width;
-            }
-            // &.#{$prefix}sidebar-compact {
-            //   ~ .#{$prefix}wrapper {
-            //     margin-left: $sidebar-compact-width;
-            //   }
-            // }
-            &.#{$prefix}sidebar-minimized {
-              ~ .#{$prefix}wrapper {
-                margin-left: $sidebar-minimized-width;
+              @include ltr {
+                margin-left: $sidebar-width;
+              }
+              @include rtl {
+                margin-right: $sidebar-width;
               }
             }
-          }
-        }
-      }
-      &.#{$prefix}sidebar-right {
-        margin-right: 0;
-        @if $breakpoint != "xs" {
-          &.#{$prefix}sidebar-fixed {
-            ~ .#{$prefix}wrapper {
-              margin-right: $sidebar-width;
-            }
-            // &.#{$prefix}sidebar-compact {
-            //   ~ .#{$prefix}wrapper {
-            //     margin-right: $sidebar-compact-width;
-            //   }
-            // }
-            &.#{$prefix}sidebar-minimized {
-              ~ .#{$prefix}wrapper {
-                margin-right: $sidebar-minimized-width;
-              }
-            }
-
-          }
-        }
-      }
-    }
-  }
-}
-
-// Right-to-Left Support
-@if $enable-rtl {
-  *[dir="rtl"] {
-    .#{$prefix}sidebar {
-
-      &:not(.#{$prefix}sidebar-right){
-        margin-right: - $sidebar-width;
-      }
-      &.#{$prefix}sidebar-right {
-        order: 99;
-        margin-left: - $sidebar-width;
-      }
-
-      @each $width, $value in $sidebar-widths {
-        &.#{$prefix}sidebar-#{$width} {
-
-          &:not(.#{$prefix}sidebar-right){
-            margin-right: - $value;
-          }
-          &.#{$prefix}sidebar-right {
-            margin-left: - $value;
-          }
-        }
-      }
-
-      &.#{$prefix}sidebar-fixed {
-        &:not(.#{$prefix}sidebar-right) {
-          right: 0;
-        }
-
-        &.#{$prefix}sidebar-right {
-          left: 0;
-        }
-      }
-
-      &.#{$prefix}sidebar-overlaid {
-        &:not(.#{$prefix}sidebar-right) {
-          right: 0;
-        }
-
-        &.#{$prefix}sidebar-right {
-          left: 0;
-        }
-      }
-
-      .#{$prefix}sidebar-close {
-        left: 0;
-      }
-
-      .#{$bs-prefix}badge {
-        margin-right: auto;
-      }
-
-      .#{$prefix}sidebar-nav-icon {
-        margin-right: - $sidebar-nav-link-padding-x;
-      }
-
-      .#{$prefix}sidebar-nav-dropdown-toggle::after {
-        margin-right: auto;
-        margin-left: initial;
-        transform: rotate(180deg);
-      }
-
-      .#{$prefix}sidebar-nav-dropdown.#{$prefix}show {
-        > .#{$prefix}sidebar-nav-dropdown-toggle::after {
-          transform: rotate(270deg);
-        }
-      }
-
-      .#{$prefix}sidebar-minimizer::before {
-        transform: rotate(180deg);
-      }
-
-      &.#{$prefix}sidebar-right .#{$prefix}sidebar-minimizer::before {
-        transform: rotate(0deg);
-      }
-
-      &.#{$prefix}sidebar-minimized {
-        .#{$prefix}sidebar-nav {
-          list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
-          .#{$prefix}sidebar-nav-divider {
-            height: 0;
-          }
-        }
-
-        .#{$prefix}sidebar-minimizer::before {
-          transform: rotate(0deg);
-        }
-
-        &.#{$prefix}sidebar-right {
-          .#{$prefix}sidebar-minimizer::before {
-            transform: rotate(180deg);
-          }
-
-          .#{$prefix}sidebar-nav {
-            > .#{$prefix}sidebar-nav-item:hover {
-              margin-right: - $sidebar-width;
-            }
-            > .#{$prefix}sidebar-nav-dropdown:hover .#{$prefix}sidebar-nav-dropdown-items {
-              right: 0;
-              // left: auto;
-            }
-          }
-        }
-
-        .#{$prefix}sidebar-nav-dropdown:hover > .#{$prefix}sidebar-nav-dropdown-items {
-          left: 0;
-        }
-      }
-
-      @each $breakpoint in map-keys($grid-breakpoints) {
-        @include media-breakpoint-up($breakpoint) {
-          $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-          &.#{$prefix}sidebar#{$infix}-show,
-          &.#{$prefix}sidebar-show {
-            &:not(.#{$prefix}sidebar-right){
-              margin-right: 0;
-              @if $breakpoint != "xs" {
-                &.#{$prefix}sidebar-fixed {
-                  ~ .#{$prefix}wrapper {
-                    margin-right: $sidebar-width;
+            @each $width, $value in $sidebar-widths {
+              &.#{$prefix}sidebar-#{$width} {
+                ~ .#{$prefix}wrapper {
+                  @include ltr {
+                    margin-left: $value;
                   }
-                  // &.#{$prefix}sidebar-compact {
-                  //   ~ .#{$prefix}wrapper {
-                  //     margin-right: $sidebar-compact-width;
-                  //   }
-                  // }
-                  &.#{$prefix}sidebar-minimized {
-                    ~ .#{$prefix}wrapper {
-                      margin-right: $sidebar-minimized-width;
-                    }
+                  @include rtl {
+                    margin-right: $value;
                   }
                 }
               }
             }
-            &.#{$prefix}sidebar-right {
-              margin-left: 0;
-              @if $breakpoint != "xs" {
-                &.#{$prefix}sidebar-fixed {
-                  ~ .#{$prefix}wrapper {
-                    margin-left: $sidebar-width;
+
+            &.#{$prefix}sidebar-minimized {
+              ~ .#{$prefix}wrapper {
+                @include ltr {
+                  margin-left: $sidebar-minimized-width;
+                }
+                @include rtl {
+                  margin-right: $sidebar-minimized-width;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.#{$prefix}sidebar-right {
+        @include ltr {
+          margin-right: 0;
+        }
+        @include rtl {
+          margin-left: 0;
+        }
+        @if $breakpoint != "xs" {
+          &.#{$prefix}sidebar-fixed {
+            ~ .#{$prefix}wrapper {
+              @include ltr {
+                margin-right: $sidebar-width;
+              }
+              @include rtl {
+                margin-left: $sidebar-width;
+              }
+            }
+            @each $width, $value in $sidebar-widths {
+              &.#{$prefix}sidebar-#{$width} {
+                ~ .#{$prefix}wrapper {
+                  @include ltr {
+                    margin-right: $value;
                   }
-                  // &.#{$prefix}sidebar-compact {
-                  //   ~ .#{$prefix}wrapper {
-                  //     margin-left: $sidebar-compact-width;
-                  //   }
-                  // }
-                  &.#{$prefix}sidebar-minimized {
-                    ~ .#{$prefix}wrapper {
-                      margin-left: $sidebar-minimized-width;
-                    }
+                  @include rtl {
+                    margin-left: $value;
                   }
+                }
+              }
+            }
+
+            &.#{$prefix}sidebar-minimized {
+              ~ .#{$prefix}wrapper {
+                @include ltr {
+                  margin-right: $sidebar-minimized-width;
+                }
+                @include rtl {
+                  margin-left: $sidebar-minimized-width;
                 }
               }
             }
@@ -658,11 +656,13 @@
 
   @include borders(themes-get-value("sidebar-borders"));
 
-  html:not([dir="rtl"]) &.#{$prefix}sidebar-right {
-    @include borders(themes-get-value("sidebar-borders"),true);
+  @include ltr {
+    &.#{$prefix}sidebar-right {
+      @include borders(themes-get-value("sidebar-borders"),true);
+    }
   }
 
-  *[dir="rtl"] & {
+  @include rtl {
     @include borders(themes-get-value("sidebar-borders"),true);
     &.#{$prefix}sidebar-right {
       border: 0;

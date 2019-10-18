@@ -80,7 +80,12 @@
   }
 
   + .#{$bs-prefix}card-link {
-    margin-left: $card-spacer-x;
+    @include ltr {
+      margin-left: $card-spacer-x;
+    }
+    @include rtl {
+      margin-right: $card-spacer-x;
+    }
   }
 }
 
@@ -226,8 +231,14 @@
       margin-bottom: 0;
 
       + .#{$bs-prefix}card {
-        margin-left: 0;
-        border-left: 0;
+        @include ltr {
+          margin-left: 0;
+          border-left: 0;
+        }
+        @include rtl {
+          margin-right: 0;
+          border-right: 0;
+        }
       }
 
       // Handle rounded corners
@@ -331,11 +342,6 @@
   border: 1px dashed $gray-300;
 }
 
-*[dir="rtl"] .#{$bs-prefix}card-header > i {
-  margin-right: 0;
-  margin-left: $spacer / 2;
-}
-
 .#{$bs-prefix}card-header-icon-bg {
   display: inline-block;
   width: ($card-spacer-y * 2) + ($font-size-base * $line-height-base);
@@ -353,14 +359,13 @@
 
 .#{$bs-prefix}card-header-actions {
   display: inline-block;
-  float: right;
-  margin-right: - ($spacer / 4);
-}
 
-*[dir="rtl"] {
-  .#{$bs-prefix}card-header-actions {
+  @include ltr {
+    float: right;
+    margin-right: - ($spacer / 4);
+  }
+  @include rtl {
     float: left;
-    margin-right: auto;
     margin-left: - ($spacer / 4);
   }
 }

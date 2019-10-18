@@ -215,13 +215,23 @@ textarea.#{$bs-prefix}form-control {
 .#{$bs-prefix}form-check {
   position: relative;
   display: block;
-  padding-left: $form-check-input-gutter;
+  @include ltr {
+    padding-left: $form-check-input-gutter;
+  }
+  @include rtl {
+    padding-right: $form-check-input-gutter;
+  }
 }
 
 .#{$bs-prefix}form-check-input {
   position: absolute;
   margin-top: $form-check-input-margin-y;
-  margin-left: -$form-check-input-gutter;
+  @include ltr {
+    margin-left: -$form-check-input-gutter;
+  }
+  @include rtl {
+    margin-right: -$form-check-input-gutter;
+  }
 
   &:disabled ~ .#{$bs-prefix}form-check-label {
     color: $text-muted;
@@ -235,15 +245,27 @@ textarea.#{$bs-prefix}form-control {
 .#{$bs-prefix}form-check-inline {
   display: inline-flex;
   align-items: center;
-  padding-left: 0; // Override base .#{$bs-prefix}form-check
-  margin-right: $form-check-inline-margin-x;
+  @include ltr {
+    padding-left: 0; // Override base .#{$bs-prefix}form-check
+    margin-right: $form-check-inline-margin-x;
+  }
+  @include rtl {
+    padding-right: 0; // Override base .#{$bs-prefix}form-check
+    margin-left: $form-check-inline-margin-x;
+  }
 
   // Undo .#{$bs-prefix}form-check-input defaults and add some `margin-right`.
   .#{$bs-prefix}form-check-input {
     position: static;
     margin-top: 0;
-    margin-right: $form-check-inline-input-margin-x;
-    margin-left: 0;
+    @include ltr {
+      margin-right: $form-check-inline-input-margin-x;
+      margin-left: 0;
+    }
+    @include rtl {
+      margin-right: 0;
+      margin-left: $form-check-inline-input-margin-x;
+    }
   }
 }
 
@@ -322,14 +344,26 @@ textarea.#{$bs-prefix}form-control {
       align-items: center;
       justify-content: center;
       width: auto;
-      padding-left: 0;
+
+      @include ltr {
+        padding-left: 0;
+      }
+      @include rtl {
+        padding-right: 0;
+      }
     }
     .#{$bs-prefix}form-check-input {
       position: relative;
       flex-shrink: 0;
       margin-top: 0;
-      margin-right: $form-check-input-margin-x;
-      margin-left: 0;
+      @include ltr {
+        margin-right: $form-check-input-margin-x;
+        margin-left: 0;
+      }
+      @include rtl {
+        margin-right: 0;
+        margin-left: $form-check-input-margin-x;
+      }
     }
 
     .#{$bs-prefix}custom-control {

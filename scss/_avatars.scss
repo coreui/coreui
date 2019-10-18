@@ -15,11 +15,17 @@
 
 .#{$prefix}avatar-status {
   position: absolute;
-  right: 0;
   bottom: 0;
   display: block;
   border: 1px solid $white;
   border-radius: 50em;
+
+  @include ltr {
+    right: 0;
+  }
+  @include rtl {
+    left: 0;
+  }
 }
 
 .#{$prefix}avatar-sm {

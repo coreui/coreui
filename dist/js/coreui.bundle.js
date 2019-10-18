@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-alpha.14 (https://coreui.io)
+  * CoreUI v3.0.0-beta.0 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -747,7 +747,7 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-alpha.14';
+  var VERSION = '3.0.0-beta.0';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -1116,7 +1116,7 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '3.0.0-alpha.14';
+  var VERSION$1 = '3.0.0-beta.0';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -1293,7 +1293,7 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '3.0.0-alpha.14';
+  var VERSION$2 = '3.0.0-beta.0';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
@@ -1553,7 +1553,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '3.0.0-alpha.14';
+  var VERSION$3 = '3.0.0-beta.0';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -1895,8 +1895,6 @@
           event.preventDefault();
           this.next();
           break;
-
-        default:
       }
     };
 
@@ -2176,7 +2174,7 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0-alpha.14';
+  var VERSION$4 = '3.0.0-beta.0';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -2457,7 +2455,7 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '3.0.0-alpha.14';
+  var VERSION$5 = '3.0.0-beta.0';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -2874,7 +2872,7 @@
 
   /**!
    * @fileOverview Kickass library to create and place poppers near their reference elements.
-   * @version 1.15.0
+   * @version 1.16.0
    * @license
    * Copyright (c) 2016 Federico Zivolo and contributors
    *
@@ -2896,16 +2894,17 @@
    * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
    * SOFTWARE.
    */
-  var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined';
+  var isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined' && typeof navigator !== 'undefined';
 
-  var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
-  var timeoutDuration = 0;
-  for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
-    if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
-      timeoutDuration = 1;
-      break;
+  var timeoutDuration = function () {
+    var longerTimeoutBrowsers = ['Edge', 'Trident', 'Firefox'];
+    for (var i = 0; i < longerTimeoutBrowsers.length; i += 1) {
+      if (isBrowser && navigator.userAgent.indexOf(longerTimeoutBrowsers[i]) >= 0) {
+        return 1;
+      }
     }
-  }
+    return 0;
+  }();
 
   function microtaskDebounce(fn) {
     var called = false;
@@ -3023,6 +3022,17 @@
     }
 
     return getScrollParent(getParentNode(element));
+  }
+
+  /**
+   * Returns the reference node of the reference object, or the reference object itself.
+   * @method
+   * @memberof Popper.Utils
+   * @param {Element|Object} reference - the reference element (the popper will be relative to this)
+   * @returns {Element} parent
+   */
+  function getReferenceNode(reference) {
+    return reference && reference.referenceNode ? reference.referenceNode : reference;
   }
 
   var isIE11 = isBrowser && !!(window.MSInputMethodContext && document.documentMode);
@@ -3333,8 +3343,8 @@
 
     // subtract scrollbar size from sizes
     var sizes = element.nodeName === 'HTML' ? getWindowSizes(element.ownerDocument) : {};
-    var width = sizes.width || element.clientWidth || result.right - result.left;
-    var height = sizes.height || element.clientHeight || result.bottom - result.top;
+    var width = sizes.width || element.clientWidth || result.width;
+    var height = sizes.height || element.clientHeight || result.height;
 
     var horizScrollbar = element.offsetWidth - width;
     var vertScrollbar = element.offsetHeight - height;
@@ -3486,7 +3496,7 @@
     // NOTE: 1 DOM access here
 
     var boundaries = { top: 0, left: 0 };
-    var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+    var offsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
 
     // Handle viewport case
     if (boundariesElement === 'viewport') {
@@ -3614,7 +3624,7 @@
   function getReferenceOffsets(state, popper, reference) {
     var fixedPosition = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : null;
 
-    var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, reference);
+    var commonOffsetParent = fixedPosition ? getFixedPositionOffsetParent(popper) : findCommonOffsetParent(popper, getReferenceNode(reference));
     return getOffsetRectRelativeToArbitraryNode(reference, commonOffsetParent, fixedPosition);
   }
 
@@ -3876,7 +3886,7 @@
 
     this.disableEventListeners();
 
-    // remove the popper if user explicity asked for the deletion on destroy
+    // remove the popper if user explicitly asked for the deletion on destroy
     // do not use `remove` because IE11 doesn't support it
     if (this.options.removeOnDestroy) {
       this.popper.parentNode.removeChild(this.popper);
@@ -5481,7 +5491,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '3.0.0-alpha.14';
+  var VERSION$6 = '3.0.0-beta.0';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -6037,7 +6047,7 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '3.0.0-alpha.14';
+  var VERSION$7 = '3.0.0-beta.0';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
@@ -6763,7 +6773,7 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '3.0.0-alpha.14';
+  var VERSION$8 = '3.0.0-beta.0';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var BS_PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -7516,7 +7526,7 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '3.0.0-alpha.14';
+  var VERSION$9 = '3.0.0-beta.0';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var BS_PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -7709,7 +7719,7 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '3.0.0-alpha.14';
+  var VERSION$a = '3.0.0-beta.0';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
@@ -9332,7 +9342,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.14): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-beta.0): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -9375,7 +9385,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.14): get-style.js
+   * CoreUI Utilities (v3.0.0-beta.0): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -9413,7 +9423,7 @@
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0-alpha.14';
+  var VERSION$b = '3.0.0-beta.0';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
@@ -9515,12 +9525,6 @@
       var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
 
       if (dataAttributes.drodpownAccordion) {
-        // toggler.closest(Selector.NAVIGATION_CONTAINER).querySelectorAll(Selector.NAV_DROPDOWN).forEach(element => {
-        //   if (element !== toggler.parentNode) {
-        //     element.classList.remove(ClassName.SHOW)
-        //   }
-        // })
-        // toggler.parentElement
         this._getAllSiblings(toggler.parentElement).forEach(function (element) {
           if (element !== toggler.parentNode) {
             if (element.classList.contains(ClassName$b.NAV_DROPDOWN)) {
@@ -9590,9 +9594,7 @@
       if (this._element.querySelector(container)) {
         var ps = new PerfectScrollbar(this._element.querySelector(container), {
           suppressScrollX: true
-        }); // TODO: find real fix for ps rtl
-
-        ps.isRtl = false;
+        });
         return ps;
       }
     };
@@ -9605,21 +9607,6 @@
     };
 
     _proto._getParents = function _getParents(element, selector) {
-      // Element.matches() polyfill
-      // if (!Element.prototype.matches) {
-      //   Element.prototype.matches =
-      //     Element.prototype.matchesSelector ||
-      //     Element.prototype.mozMatchesSelector ||
-      //     Element.prototype.msMatchesSelector ||
-      //     Element.prototype.oMatchesSelector ||
-      //     Element.prototype.webkitMatchesSelector ||
-      //     function(s) {
-      //       var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-      //         i = matches.length;
-      //       while (--i >= 0 && matches.item(i) !== this) {}
-      //       return i > -1;
-      //     };
-      // }
       // Setup parents array
       var parents = []; // Get matching parent elements
 
@@ -9821,7 +9808,7 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '3.0.0-alpha.14';
+  var VERSION$c = '3.0.0-beta.0';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
@@ -10058,7 +10045,7 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '3.0.0-alpha.14';
+  var VERSION$d = '3.0.0-beta.0';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var BS_PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
@@ -10277,7 +10264,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-beta.0): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10313,7 +10300,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-alpha.14): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-beta.0): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10353,7 +10340,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.14): rgb-to-hex.js
+   * CoreUI (v3.0.0-beta.0): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10382,7 +10369,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-alpha.14): index.umd.js
+   * CoreUI (v3.0.0-beta.0): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

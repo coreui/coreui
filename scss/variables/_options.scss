@@ -7,6 +7,7 @@ $prefix:                                      c- !default; // CoreUI
 $bs-prefix:                                   null !default; // CoreUI
 $theme-suffix:                                -theme !default;
 $mobile-breakpoint:                           sm !default;
+$enable-ltr:                                  true !default; // CoreUI
 $enable-rtl:                                  true !default; // CoreUI
 $enable-caret:                                true !default;
 $enable-rounded:                              true !default;
@@ -24,6 +25,7 @@ $enable-deprecation-messages:                 true !default;
 // CoreUI
 $enable-sidebar-nav-rounded:                  false !default;
 $layout-transition-speed:                     .25s !default;
+$enable-elevations:                           true !default;
 $default-themes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $default-themes: map-merge(

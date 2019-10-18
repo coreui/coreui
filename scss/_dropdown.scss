@@ -17,7 +17,12 @@
 .#{$bs-prefix}dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  @include ltr {
+    left: 0;
+  }
+  @include rtl {
+    right: 0;
+  }
   z-index: $zindex-dropdown;
   display: none; // none by default, but block on "open" of the menu
   float: left;
@@ -44,13 +49,25 @@
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .#{$bs-prefix}dropdown-menu#{$infix}-left {
-      right: auto;
-      left: 0;
+      @include ltr {
+        right: auto;
+        left: 0;
+      }
+      @include rtl {
+        right: 0;
+        left: auto;
+      }
     }
 
     .#{$bs-prefix}dropdown-menu#{$infix}-right {
-      right: 0;
-      left: auto;
+      @include ltr {
+        right: 0;
+        left: auto;
+      }
+      @include rtl {
+        right: auto;
+        left: 0;
+      }
     }
   }
 }
@@ -73,10 +90,17 @@
 .#{$bs-prefix}dropright {
   .#{$bs-prefix}dropdown-menu {
     top: 0;
-    right: auto;
-    left: 100%;
     margin-top: 0;
-    margin-left: $dropdown-spacer;
+    @include ltr {
+      right: auto;
+      left: 100%;
+      margin-left: $dropdown-spacer;
+    }
+    @include rtl {
+      right: 100%;
+      left: auto;
+      margin-right: $dropdown-spacer;
+    }
   }
 
   .#{$bs-prefix}dropdown-toggle {
@@ -90,10 +114,18 @@
 .#{$bs-prefix}dropleft {
   .#{$bs-prefix}dropdown-menu {
     top: 0;
-    right: 100%;
-    left: auto;
     margin-top: 0;
-    margin-right: $dropdown-spacer;
+
+    @include ltr {
+      right: 100%;
+      left: auto;
+      margin-right: $dropdown-spacer;
+    }
+    @include rtl {
+      right: auto;
+      left: 100%;
+      margin-left: $dropdown-spacer;
+    }
   }
 
   .#{$bs-prefix}dropdown-toggle {
