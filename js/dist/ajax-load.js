@@ -12,7 +12,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.12): ajax-load.js
+ * CoreUI (v2.1.15): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -23,7 +23,7 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.1.12';
+  var VERSION = '2.1.15';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
@@ -147,7 +147,7 @@ var AjaxLoad = function ($) {
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = Object.assign({}, Default, config);
+      config = Object.assign({}, Default, {}, config);
       return config;
     };
 
