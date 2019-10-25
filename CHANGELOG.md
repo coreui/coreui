@@ -1,6 +1,10 @@
-## v2.1.14
+## v2.1.15
+- fix(sidebar): Selector.NAV_LINK_QUERIED must be "nav-link-queried" #83 - thanks @expressiveco @gtruini
 
+
+## v2.1.14
 ###### Dependencies update:
+- chore(deps): bump lodash from 4.17.11 to 4.17.14
 - update `rollup` to `^1.15.4`
 - update `rollup-plugin-node-resolve` to `^5.0.2` 
 

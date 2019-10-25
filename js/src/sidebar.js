@@ -32,6 +32,7 @@ const Sidebar = (($) => {
     ACTIVE              : 'active',
     BRAND_MINIMIZED     : 'brand-minimized',
     NAV_DROPDOWN_TOGGLE : 'nav-dropdown-toggle',
+    NAV_LINK_QUERIED    : 'nav-link-queried',
     OPEN                : 'open',
     SIDEBAR_FIXED       : 'sidebar-fixed',
     SIDEBAR_MINIMIZED   : 'sidebar-minimized',
@@ -159,7 +160,7 @@ const Sidebar = (($) => {
         let link = value
         let cUrl
 
-        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+        if (link.classList.contains(ClassName.NAV_LINK_QUERIED)) {
           cUrl = String(window.location)
         } else {
           cUrl = String(window.location).split('?')[0]
