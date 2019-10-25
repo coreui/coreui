@@ -8,7 +8,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.12): sidebar.js
+ * CoreUI (v2.1.15): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -19,7 +19,7 @@ var Sidebar = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'sidebar';
-  var VERSION = '2.1.12';
+  var VERSION = '2.1.15';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -31,6 +31,7 @@ var Sidebar = function ($) {
     ACTIVE: 'active',
     BRAND_MINIMIZED: 'brand-minimized',
     NAV_DROPDOWN_TOGGLE: 'nav-dropdown-toggle',
+    NAV_LINK_QUERIED: 'nav-link-queried',
     OPEN: 'open',
     SIDEBAR_FIXED: 'sidebar-fixed',
     SIDEBAR_MINIMIZED: 'sidebar-minimized',
@@ -152,7 +153,7 @@ var Sidebar = function ($) {
         var link = value;
         var cUrl;
 
-        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+        if (link.classList.contains(ClassName.NAV_LINK_QUERIED)) {
           cUrl = String(window.location);
         } else {
           cUrl = String(window.location).split('?')[0];

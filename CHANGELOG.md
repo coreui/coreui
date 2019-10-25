@@ -1,6 +1,40 @@
-## v2.1.14
+## v2.1.15
+- fix(sidebar): Selector.NAV_LINK_QUERIED must be "nav-link-queried" - thanks @expressiveco @gtruini closes #83
 
 ###### Dependencies update:
+- update `core-js` to `^3.3.3`
+- update `regenerator-runtime` to `^0.13.3`
+- update `@babel/cli` to `^7.6.4`
+- update `@babel/core` to `^7.6.4`
+- update `@babel/plugin-proposal-object-rest-spread` to `^7.6.2`
+- update `@babel/plugin-transform-runtime` to `^7.6.2`
+- update `@babel/preset-env` to `^7.6.3`
+- update `autoprefixer` to `^9.7.0`
+- update `babel-eslint` to `^10.0.3`
+- update `babel-plugin-istanbul` to `^5.2.0`
+- update `copyfiles` to `^2.1.1`
+- update `cross-env` to `^5.2.1`
+- update `eslint` to `^6.5.1`
+- update `eslint-plugin-compat` to `^3.3.0`
+- update `node-sass` to `^4.13.0`
+- update `nodemon` to `^1.19.4`
+- update `postcss-cli` to `^6.1.3`
+- update `rimraf` to `^2.7.1`
+- update `rollup` to `^1.25.2`
+- update `rollup-plugin-babel` to `^4.3.3`
+- update `rollup-plugin-commonjs` to `^10.1.0`
+- update `rollup-plugin-node-resolve` to `^5.2.0`
+- update `semver` to `^6.3.0`
+- update `stylelint` to `^11.1.1`
+- update `stylelint-config-recommended-scss` to `^4.0.0`
+- update `stylelint-config-standard` to `^19.0.0`
+- update `stylelint-order` to `^3.1.1`
+- update `stylelint-scss` to `^3.12.0`
+- update `uglify-js` to `^3.6.4`
+   
+## v2.1.14
+###### Dependencies update:
+- chore(deps): bump lodash from 4.17.11 to 4.17.14
 - update `rollup` to `^1.15.4`
 - update `rollup-plugin-node-resolve` to `^5.0.2` 
 

@@ -5,7 +5,7 @@ import toggleClasses from './toggle-classes'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.12): sidebar.js
+ * CoreUI (v2.1.15): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ const Sidebar = (($) => {
    */
 
   const NAME                = 'sidebar'
-  const VERSION             = '2.1.12'
+  const VERSION             = '2.1.15'
   const DATA_KEY            = 'coreui.sidebar'
   const EVENT_KEY           = `.${DATA_KEY}`
   const DATA_API_KEY        = '.data-api'
@@ -32,6 +32,7 @@ const Sidebar = (($) => {
     ACTIVE              : 'active',
     BRAND_MINIMIZED     : 'brand-minimized',
     NAV_DROPDOWN_TOGGLE : 'nav-dropdown-toggle',
+    NAV_LINK_QUERIED    : 'nav-link-queried',
     OPEN                : 'open',
     SIDEBAR_FIXED       : 'sidebar-fixed',
     SIDEBAR_MINIMIZED   : 'sidebar-minimized',
@@ -159,7 +160,7 @@ const Sidebar = (($) => {
         let link = value
         let cUrl
 
-        if (link.classList.contains(Selector.NAV_LINK_QUERIED)) {
+        if (link.classList.contains(ClassName.NAV_LINK_QUERIED)) {
           cUrl = String(window.location)
         } else {
           cUrl = String(window.location).split('?')[0]
