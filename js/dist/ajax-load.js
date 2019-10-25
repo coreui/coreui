@@ -12,7 +12,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.15): ajax-load.js
+ * CoreUI (v2.1.16): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -23,7 +23,7 @@ var AjaxLoad = function ($) {
    * ------------------------------------------------------------------------
    */
   var NAME = 'ajaxLoad';
-  var VERSION = '2.1.15';
+  var VERSION = '2.1.16';
   var DATA_KEY = 'coreui.ajaxLoad';
   var JQUERY_NO_CONFLICT = $.fn[NAME];
   var ClassName = {
@@ -62,6 +62,8 @@ var AjaxLoad = function ($) {
       } else {
         this.setUpUrl(this._config.defaultPage);
       }
+
+      this._removeEventListeners();
 
       this._addEventListeners();
     } // Getters
@@ -166,6 +168,10 @@ var AjaxLoad = function ($) {
           _this.setUpUrl(event.currentTarget.getAttribute('href'));
         }
       });
+    };
+
+    _proto._removeEventListeners = function _removeEventListeners() {
+      $(document).off(Event.CLICK, Selector.NAV_LINK + "[href!=\"#\"]");
     } // Static
     ;
 

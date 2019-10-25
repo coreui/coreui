@@ -4,7 +4,7 @@ import "core-js/modules/web.dom-collections.for-each";
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.15): get-css-custom-properties.js
+ * CoreUI Utilities (v2.1.16): get-css-custom-properties.js
  * Licensed under MIT (https://coreui.io/license)
  * @returns {string} css custom property name
  * --------------------------------------------------------------------------

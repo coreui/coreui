@@ -1,9 +1,12 @@
-[![npm package][npm-badge]][npm]
 [![NPM downloads][npm-download]][npm]
+[![npm package][npm-badge]][npm] 
+[![npm-coreui-coreui-next][npm-coreui-coreui-next]][npm-coreui-coreui]    
 
 [npm-badge]: https://img.shields.io/npm/v/@coreui/coreui.png?style=flat-square
 [npm-download]: https://img.shields.io/npm/dm/@coreui/coreui.svg?style=flat-square
 [npm]: https://www.npmjs.com/package/@coreui/coreui
+[npm-coreui-coreui]: https://www.npmjs.com/package/@coreui/coreui 
+[npm-coreui-coreui-next]: https://img.shields.io/npm/v/@coreui/coreui/next.png?style=flat-square
 
 # CoreUI - Free WebApp UI Kit built on top of Bootstrap 4 [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20Bootstrap%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
 
@@ -59,13 +62,13 @@ $ npm install @coreui/coreui --save
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/coreui@2.1.15
+$ yarn add @coreui/coreui@2.1.16
 ```
 
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:2.1.15
+$ composer require coreui/coreui:2.1.16
 ```
 
 ## Usage

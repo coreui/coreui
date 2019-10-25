@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "2.1.15",
+  "version": "2.1.16",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -74,7 +74,7 @@
   "dependencies": {
     "@coreui/coreui-plugin-npm-postinstall": "^1.0.2",
     "bootstrap": "^4.3.1",
-    "core-js": "^3.3.3",
+    "core-js": "^3.3.4",
     "regenerator-runtime": "^0.13.3"
   },
   "devDependencies": {
