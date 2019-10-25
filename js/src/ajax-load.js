@@ -2,7 +2,7 @@ import $ from 'jquery'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.15): ajax-load.js
+ * CoreUI (v2.1.16): ajax-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -16,7 +16,7 @@ const AjaxLoad = (($) => {
    */
 
   const NAME                       = 'ajaxLoad'
-  const VERSION                    = '2.1.15'
+  const VERSION                    = '2.1.16'
   const DATA_KEY                   = 'coreui.ajaxLoad'
   const JQUERY_NO_CONFLICT         = $.fn[NAME]
 
@@ -58,6 +58,7 @@ const AjaxLoad = (($) => {
       } else {
         this.setUpUrl(this._config.defaultPage)
       }
+      this._removeEventListeners()
       this._addEventListeners()
     }
 
@@ -165,6 +166,10 @@ const AjaxLoad = (($) => {
           this.setUpUrl(event.currentTarget.getAttribute('href'))
         }
       })
+    }
+
+    _removeEventListeners() {
+      $(document).off(Event.CLICK, `${Selector.NAV_LINK}[href!="#"]`)
     }
 
     // Static

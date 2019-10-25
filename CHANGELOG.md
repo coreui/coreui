@@ -1,3 +1,9 @@
+## v2.1.16
+- fix: Event listeners for Sidebar and AsideMenu plugins persist in jQuery instance - thanks @nesterow closes #77
+
+###### Dependencies update:
+- update `core-js` to `^3.3.4`
+
 ## v2.1.15
 - fix(sidebar): Selector.NAV_LINK_QUERIED must be "nav-link-queried" - thanks @expressiveco @gtruini closes #83
 

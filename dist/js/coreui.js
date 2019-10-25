@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v2.1.15 (https://coreui.io)
+  * CoreUI v2.1.16 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -136,7 +136,7 @@
   (module.exports = function (key, value) {
     return sharedStore[key] || (sharedStore[key] = value !== undefined ? value : {});
   })('versions', []).push({
-    version: '3.3.3',
+    version: '3.3.4',
     mode:  'global',
     copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
   });
@@ -376,14 +376,21 @@
       // Symbol-named RegExp methods call .exec
       var execCalled = false;
       var re = /a/;
-      re.exec = function () { execCalled = true; return null; };
 
       if (KEY === 'split') {
+        // We can't use real regex here since it causes deoptimization
+        // and serious performance degradation in V8
+        // https://github.com/zloirock/core-js/issues/306
+        re = {};
         // RegExp[@@split] doesn't call the regex's exec method, but first creates
         // a new one. We need to return the patched regex when creating the new one.
         re.constructor = {};
         re.constructor[SPECIES] = function () { return re; };
+        re.flags = '';
+        re[SYMBOL] = /./[SYMBOL];
       }
+
+      re.exec = function () { execCalled = true; return null; };
 
       re[SYMBOL]('');
       return !execCalled;
@@ -1146,10 +1153,30 @@
     findIndex: createMethod$2(6)
   };
 
+  var userAgent = getBuiltIn('navigator', 'userAgent') || '';
+
+  var process = global_1.process;
+  var versions = process && process.versions;
+  var v8 = versions && versions.v8;
+  var match, version;
+
+  if (v8) {
+    match = v8.split('.');
+    version = match[0] + match[1];
+  } else if (userAgent) {
+    match = userAgent.match(/Chrome\/(\d+)/);
+    if (match) version = match[1];
+  }
+
+  var v8Version = version && +version;
+
   var SPECIES$3 = wellKnownSymbol('species');
 
   var arrayMethodHasSpeciesSupport = function (METHOD_NAME) {
-    return !fails(function () {
+    // We can't use this feature detection in V8 since it causes
+    // deoptimization and serious performance degradation
+    // https://github.com/zloirock/core-js/issues/677
+    return v8Version >= 51 || !fails(function () {
       var array = [];
       var constructor = array.constructor = {};
       constructor[SPECIES$3] = function () {
@@ -1684,7 +1711,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): ajax-load.js
+   * CoreUI (v2.1.16): ajax-load.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1696,7 +1723,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'ajaxLoad';
-    var VERSION = '2.1.15';
+    var VERSION = '2.1.16';
     var DATA_KEY = 'coreui.ajaxLoad';
     var JQUERY_NO_CONFLICT = $.fn[NAME];
     var ClassName = {
@@ -1735,6 +1762,8 @@
         } else {
           this.setUpUrl(this._config.defaultPage);
         }
+
+        this._removeEventListeners();
 
         this._addEventListeners();
       } // Getters
@@ -1839,6 +1868,10 @@
             _this.setUpUrl(event.currentTarget.getAttribute('href'));
           }
         });
+      };
+
+      _proto._removeEventListeners = function _removeEventListeners() {
+        $(document).off(Event.CLICK, Selector.NAV_LINK + "[href!=\"#\"]");
       } // Static
       ;
 
@@ -1924,7 +1957,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): toggle-classes.js
+   * CoreUI (v2.1.16): toggle-classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1949,7 +1982,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): aside-menu.js
+   * CoreUI (v2.1.16): aside-menu.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -1961,7 +1994,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'aside-menu';
-    var VERSION = '2.1.15';
+    var VERSION = '2.1.16';
     var DATA_KEY = 'coreui.aside-menu';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -1989,6 +2022,8 @@
       function AsideMenu(element) {
         this._element = element;
 
+        this._removeEventListeners();
+
         this._addEventListeners();
       } // Getters
 
@@ -2003,6 +2038,10 @@
           var toggle = event.currentTarget.dataset ? event.currentTarget.dataset.toggle : $(event.currentTarget).data('toggle');
           toggleClasses(toggle, ShowClassNames);
         });
+      };
+
+      _proto._removeEventListeners = function _removeEventListeners() {
+        $(document).off(Event.CLICK, Selector.ASIDE_MENU_TOGGLER);
       } // Static
       ;
 
@@ -2034,7 +2073,7 @@
      */
 
 
-    $(window).on(Event.LOAD_DATA_API, function () {
+    $(window).one(Event.LOAD_DATA_API, function () {
       var asideMenu = $(Selector.ASIDE_MENU);
 
       AsideMenu._jQueryInterface.call(asideMenu);
@@ -2180,7 +2219,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.15): get-css-custom-properties.js
+   * CoreUI Utilities (v2.1.16): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -2248,7 +2287,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): sidebar.js
+   * CoreUI (v2.1.16): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2260,7 +2299,7 @@
      * ------------------------------------------------------------------------
      */
     var NAME = 'sidebar';
-    var VERSION = '2.1.15';
+    var VERSION = '2.1.16';
     var DATA_KEY = 'coreui.sidebar';
     var EVENT_KEY = "." + DATA_KEY;
     var DATA_API_KEY = '.data-api';
@@ -2319,6 +2358,8 @@
         this.setActiveLink();
         this._breakpointTest = this._breakpointTest.bind(this);
         this._clickOutListener = this._clickOutListener.bind(this);
+
+        this._removeEventListeners();
 
         this._addEventListeners();
 
@@ -2501,6 +2542,14 @@
 
           document.body.classList.remove('sidebar-show');
         });
+      };
+
+      _proto._removeEventListeners = function _removeEventListeners() {
+        $(document).off(Event.CLICK, Selector.BRAND_MINIMIZER);
+        $(document).off(Event.CLICK, Selector.NAV_DROPDOWN_TOGGLE);
+        $(document).off(Event.CLICK, Selector.SIDEBAR_MINIMIZER);
+        $(document).off(Event.CLICK, Selector.SIDEBAR_TOGGLER);
+        $(Selector.NAVIGATION + " > " + Selector.NAV_ITEM + " " + Selector.NAV_LINK + ":not(" + Selector.NAV_DROPDOWN_TOGGLE + ")").off(Event.CLICK);
       } // Static
       ;
 
@@ -2532,7 +2581,7 @@
      */
 
 
-    $(window).on(Event.LOAD_DATA_API, function () {
+    $(window).one(Event.LOAD_DATA_API, function () {
       var sidebar = $(Selector.SIDEBAR);
 
       Sidebar._jQueryInterface.call(sidebar);
@@ -2556,7 +2605,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.15): hex-to-rgb.js
+   * CoreUI Utilities (v2.1.16): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2592,7 +2641,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v2.1.15): hex-to-rgba.js
+   * CoreUI Utilities (v2.1.16): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2671,7 +2720,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): rgb-to-hex.js
+   * CoreUI (v2.1.16): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2700,7 +2749,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v2.1.15): index.js
+   * CoreUI (v2.1.16): index.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

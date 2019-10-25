@@ -5,7 +5,7 @@ import "core-js/modules/es.string.match";
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v2.1.15): rgb-to-hex.js
+ * CoreUI (v2.1.16): rgb-to-hex.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

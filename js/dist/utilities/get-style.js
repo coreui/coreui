@@ -3,7 +3,7 @@ import "core-js/modules/es.string.replace";
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.15): get-style.js
+ * CoreUI Utilities (v2.1.16): get-style.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

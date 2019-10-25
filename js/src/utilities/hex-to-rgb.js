@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v2.1.15): hex-to-rgb.js
+ * CoreUI Utilities (v2.1.16): hex-to-rgb.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
