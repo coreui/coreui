@@ -236,7 +236,7 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
 .#{$prefix}sidebar-nav-icon {
   flex: 0 0 $sidebar-nav-icon-width;
   height: ($font-size-base * 1.25);
-  font-size: $font-size-base;
+  font-size: ($font-size-base * 1.25);
   text-align: center;
   transition: $layout-transition-speed;
   fill: currentColor;
@@ -383,10 +383,11 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
 
 .#{$prefix}sidebar-minimized {
   @include media-breakpoint-up(md) {
-    z-index: $zindex-fixed - 1;
+    z-index: $zindex-fixed + 1;
     flex: 0 0 $sidebar-minimized-width;
 
     &.#{$prefix}sidebar-fixed {
+      z-index: $zindex-fixed + 1;
       width: $sidebar-minimized-width;
     }
 
@@ -488,23 +489,23 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
       white-space: nowrap;
       border-left: 0;
 
-      .#{$prefix}sidebar-nav-icon {
-        display: block;
-        float: left;
-        width: $sidebar-minimized-height;
-        font-size: 18px;
-      }
+      // .#{$prefix}sidebar-nav-icon {
+      //   display: block;
+      //   float: left;
+      //   width: $sidebar-minimized-height;
+      //   font-size: 18px;
+      // }
 
-      .#{$prefix}badge {
-        display: none;
-      }
+      // .#{$prefix}badge {
+      //   display: none;
+      // }
 
       &:hover {
         width: $sidebar-width + $sidebar-minimized-width;
 
-        .#{$prefix}badge {
-          display: inline;
-        }
+        // .#{$prefix}badge {
+        //   display: inline;
+        // }
       }
     }
 
