@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "version": "3.0.0-beta.0",
+  "version": "3.0.0-beta.1",
   "description": "Open Source UI Kit built on top of Bootstrap 4",
   "keywords": [
     "bootstrap",
@@ -48,9 +48,6 @@
   },
   "scripts": {
     "bundlesize": "bundlesize",
-    "copy-bootstrap-scss": "rimraf scss/bootstrap && copyfiles -a \"node_modules/bootstrap/scss/**/*\" -u 3 diff/bootstrap",
-    "copy-bootstrap-js": "rimraf js/src/bootstrap && copyfiles -a \"node_modules/bootstrap/js/src/**/*\" -u 4 js/src/bootstrap",
-    "copy-bootstrap": "npm-run-all copy-bootstrap-*",
     "css": "npm-run-all --parallel css-lint css-compile* --sequential css-prefix* css-minify*",
     "css-compile": "node-sass --output-style expanded --source-map true --source-map-contents true --precision 8 scss/coreui.scss dist/css/coreui.css",
     "css-combine-duplicated-selectors": "postcss dist/css/coreui.css --use postcss-combine-duplicated-selectors --output dist/css/coreui.css",
@@ -63,8 +60,6 @@
     "css-minify": "cleancss --level 2 --format breaksWith=lf --source-map --source-map-inline-sources --output dist/css/coreui.min.css dist/css/coreui.css",
     "css-minify-partials": "foreach -g \"css/*.css\" -x \"cleancss --level 1 --format breaksWith=lf --source-map --source-map-inline-sources --output css/#{name}.min.css css/#{name}.css\"",
     "dist": "npm-run-all --parallel css js",
-    "dist-without-lint": "npm-run-all --parallel css-compile* js-compile* --sequential css-prefix* css-minify* js-compile* js-minify*",
-    "extract-css-details": "node build/extract-css.js",
     "js": "npm-run-all js-lint js-compile* js-minify*",
     "js-lint": "eslint js/ --quiet",
     "js-lint-build": "eslint build/",
