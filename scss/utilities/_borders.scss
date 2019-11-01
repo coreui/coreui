@@ -5,27 +5,27 @@
 //
 
 @include themes($border-theme-map) {
-  .#{$bs-prefix}border         { border: $border-width solid themes-get-value("border-color") !important; }
-  .#{$bs-prefix}border-top     { border-top: $border-width solid themes-get-value("border-color") !important; }
-  .#{$bs-prefix}border-right   { border-right: $border-width solid themes-get-value("border-color") !important; }
-  .#{$bs-prefix}border-bottom  { border-bottom: $border-width solid themes-get-value("border-color") !important; }
-  .#{$bs-prefix}border-left    { border-left: $border-width solid themes-get-value("border-color") !important; }
+  .border         { border: $border-width solid themes-get-value("border-color") !important; }
+  .border-top     { border-top: $border-width solid themes-get-value("border-color") !important; }
+  .border-right   { border-right: $border-width solid themes-get-value("border-color") !important; }
+  .border-bottom  { border-bottom: $border-width solid themes-get-value("border-color") !important; }
+  .border-left    { border-left: $border-width solid themes-get-value("border-color") !important; }
 }
 
-.#{$bs-prefix}border-0        { border: 0 !important; }
-.#{$bs-prefix}border-top-0    { border-top: 0 !important; }
-.#{$bs-prefix}border-right-0  { border-right: 0 !important; }
-.#{$bs-prefix}border-bottom-0 { border-bottom: 0 !important; }
-.#{$bs-prefix}border-left-0   { border-left: 0 !important; }
+.border-0        { border: 0 !important; }
+.border-top-0    { border-top: 0 !important; }
+.border-right-0  { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-left-0   { border-left: 0 !important; }
 
 @include theme-variant() {
-  .#{$bs-prefix}border-#{$color} {
+  .border-#{$color} {
     border: 1px solid !important;
     border-color: $value !important;
   }
 }
 
-.#{$bs-prefix}border-white {
+.border-white {
   border-color: $white !important;
 }
 
@@ -33,47 +33,47 @@
 // Border-radius
 //
 
-.#{$bs-prefix}rounded-sm {
+.rounded-sm {
   border-radius: $border-radius-sm !important;
 }
 
-.#{$bs-prefix}rounded {
+.rounded {
   border-radius: $border-radius !important;
 }
 
-.#{$bs-prefix}rounded-top {
+.rounded-top {
   border-top-left-radius: $border-radius !important;
   border-top-right-radius: $border-radius !important;
 }
 
-.#{$bs-prefix}rounded-right {
+.rounded-right {
   border-top-right-radius: $border-radius !important;
   border-bottom-right-radius: $border-radius !important;
 }
 
-.#{$bs-prefix}rounded-bottom {
+.rounded-bottom {
   border-bottom-right-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-.#{$bs-prefix}rounded-left {
+.rounded-left {
   border-top-left-radius: $border-radius !important;
   border-bottom-left-radius: $border-radius !important;
 }
 
-.#{$bs-prefix}rounded-lg {
+.rounded-lg {
   border-radius: $border-radius-lg !important;
 }
 
-.#{$bs-prefix}rounded-circle {
+.rounded-circle {
   border-radius: 50% !important;
 }
 
-.#{$bs-prefix}rounded-pill {
+.rounded-pill {
   border-radius: $rounded-pill !important;
 }
 
-.#{$bs-prefix}rounded-0 {
+.rounded-0 {
   border-radius: 0 !important;
 }
 
@@ -81,17 +81,17 @@
 @each $prop, $abbrev in (border: b) {
   @each $size in (0,1,2) {
     @if $size == 0 {
-      .#{$bs-prefix}#{$abbrev}-a-#{$size} { #{$prop}: 0 !important; } // a = All sides
-      .#{$bs-prefix}#{$abbrev}-t-#{$size} { #{$prop}-top: 0 !important; }
-      .#{$bs-prefix}#{$abbrev}-r-#{$size} { #{$prop}-right: 0 !important; }
-      .#{$bs-prefix}#{$abbrev}-b-#{$size} { #{$prop}-bottom: 0 !important; }
-      .#{$bs-prefix}#{$abbrev}-l-#{$size} { #{$prop}-left: 0 !important; }
+      .#{$abbrev}-a-#{$size} { #{$prop}: 0 !important; } // a = All sides
+      .#{$abbrev}-t-#{$size} { #{$prop}-top: 0 !important; }
+      .#{$abbrev}-r-#{$size} { #{$prop}-right: 0 !important; }
+      .#{$abbrev}-b-#{$size} { #{$prop}-bottom: 0 !important; }
+      .#{$abbrev}-l-#{$size} { #{$prop}-left: 0 !important; }
     } @else {
-      .#{$bs-prefix}#{$abbrev}-a-#{$size} { #{$prop}: $size * $border-width solid $border-color; } // a = All sides
-      .#{$bs-prefix}#{$abbrev}-t-#{$size} { #{$prop}-top: $size * $border-width solid $border-color; }
-      .#{$bs-prefix}#{$abbrev}-r-#{$size} { #{$prop}-right: $size * $border-width solid $border-color; }
-      .#{$bs-prefix}#{$abbrev}-b-#{$size} { #{$prop}-bottom: $size * $border-width solid $border-color; }
-      .#{$bs-prefix}#{$abbrev}-l-#{$size} { #{$prop}-left: $size * $border-width solid $border-color; }
+      .#{$abbrev}-a-#{$size} { #{$prop}: $size * $border-width solid $border-color; } // a = All sides
+      .#{$abbrev}-t-#{$size} { #{$prop}-top: $size * $border-width solid $border-color; }
+      .#{$abbrev}-r-#{$size} { #{$prop}-right: $size * $border-width solid $border-color; }
+      .#{$abbrev}-b-#{$size} { #{$prop}-bottom: $size * $border-width solid $border-color; }
+      .#{$abbrev}-l-#{$size} { #{$prop}-left: $size * $border-width solid $border-color; }
     }
   }
 }

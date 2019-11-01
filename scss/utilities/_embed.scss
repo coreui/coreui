@@ -1,6 +1,6 @@
 // Credit: Nicolas Gallagher and SUIT CSS.
 
-.#{$bs-prefix}embed-responsive {
+.embed-responsive {
   position: relative;
   display: block;
   width: 100%;
@@ -12,7 +12,7 @@
     content: "";
   }
 
-  .#{$bs-prefix}embed-responsive-item,
+  .embed-responsive-item,
   iframe,
   embed,
   object,
@@ -31,7 +31,7 @@
   $embed-responsive-aspect-ratio-x: nth($embed-responsive-aspect-ratio, 1);
   $embed-responsive-aspect-ratio-y: nth($embed-responsive-aspect-ratio, 2);
 
-  .#{$bs-prefix}embed-responsive-#{$embed-responsive-aspect-ratio-x}by#{$embed-responsive-aspect-ratio-y} {
+  .embed-responsive-#{$embed-responsive-aspect-ratio-x}by#{$embed-responsive-aspect-ratio-y} {
     &::before {
       padding-top: percentage($embed-responsive-aspect-ratio-y / $embed-responsive-aspect-ratio-x);
     }

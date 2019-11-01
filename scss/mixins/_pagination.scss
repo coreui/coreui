@@ -1,15 +1,15 @@
 // Pagination
 
 @mixin pagination-size($padding-y, $padding-x, $font-size, $line-height, $border-radius) {
-  .#{$bs-prefix}page-link {
+  .page-link {
     padding: $padding-y $padding-x;
     @include font-size($font-size);
     line-height: $line-height;
   }
 
-  .#{$bs-prefix}page-item {
+  .page-item {
     &:first-child {
-      .#{$bs-prefix}page-link {
+      .page-link {
         @include ltr {
           @include border-left-radius($border-radius);
         }
@@ -19,7 +19,7 @@
       }
     }
     &:last-child {
-      .#{$bs-prefix}page-link {
+      .page-link {
         @include ltr {
           @include border-right-radius($border-radius);
         }

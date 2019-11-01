@@ -1,4 +1,4 @@
-.#{$prefix}avatar {
+.c-avatar {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -7,13 +7,13 @@
   @include avatar($avatar-width,$avatar-status-width);
 }
 
-.#{$prefix}avatar-img {
+.c-avatar-img {
   max-width: 100%;
   height: auto;
   border-radius: 50em;
 }
 
-.#{$prefix}avatar-status {
+.c-avatar-status {
   position: absolute;
   bottom: 0;
   display: block;
@@ -28,22 +28,22 @@
   }
 }
 
-.#{$prefix}avatar-sm {
+.c-avatar-sm {
   @include avatar($avatar-sm-width,$avatar-sm-status-width);
 }
 
-.#{$prefix}avatar-lg {
+.c-avatar-lg {
   @include avatar($avatar-lg-width,$avatar-lg-status-width);
 }
 
-.#{$prefix}avatar-xl {
+.c-avatar-xl {
   @include avatar($avatar-xl-width,$avatar-xl-status-width);
 }
 
-.#{$prefix}avatars-stack {
+.c-avatars-stack {
   display: flex;
 
-  .#{$prefix}avatar {
+  .c-avatar {
     margin-right: - ($avatar-width / 2);
     transition: margin-right $layout-transition-speed;
 
@@ -52,23 +52,23 @@
     }
   }
 
-  .#{$prefix}avatar-sm {
+  .c-avatar-sm {
     margin-right: - ($avatar-sm-width / 2);
   }
 
-  .#{$prefix}avatar-lg {
+  .c-avatar-lg {
     margin-right: - ($avatar-lg-width / 2);
   }
 
-  .#{$prefix}avatar-xl {
+  .c-avatar-xl {
     margin-right: - ($avatar-xl-width / 2);
   }
 }
 
-.#{$prefix}avatar-rounded {
+.c-avatar-rounded {
   border-radius: $border-radius;
 }
 
-.#{$prefix}avatar-square {
+.c-avatar-square {
   border-radius: 0;
 }

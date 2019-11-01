@@ -1,18 +1,18 @@
-.#{$bs-prefix}fade {
+.fade {
   @include transition($transition-fade);
 
-  &:not(.#{$bs-prefix}show) {
+  &:not(.show) {
     opacity: 0;
   }
 }
 
-.#{$bs-prefix}collapse {
-  &:not(.#{$bs-prefix}show) {
+.collapse {
+  &:not(.show) {
     display: none;
   }
 }
 
-.#{$bs-prefix}collapsing {
+.collapsing {
   position: relative;
   height: 0;
   overflow: hidden;
@@ -29,7 +29,7 @@
   }
 }
 
-.#{$bs-prefix}fade-in {
+.fade-in {
   animation-name: fadeIn;
   animation-duration: 1s;
 }
@@ -38,13 +38,13 @@
 // Components
 //
 
-.#{$prefix}wrapper {
+.c-wrapper {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 }
 
-.#{$prefix}sidebar {
+.c-sidebar {
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
-  &.#{$prefix}sidebar-unfoldable {
+  &.c-sidebar-unfoldable {
     transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease 0s;
   }
 }

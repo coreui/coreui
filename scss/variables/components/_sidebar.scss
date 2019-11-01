@@ -17,6 +17,9 @@ $sidebar-minimized-width:             56px !default;
 $sidebar-minimized-height:            $sidebar-minimized-width !default;
 $sidebar-compact-width:               150px !default;
 
+$sidebar-backdrop-bg:                 $black !default;
+$sidebar-backdrop-opacity:            .5 !default;
+
 $sidebar-dark-color:                  $white !default;
 $sidebar-dark-bg:                     $gray-base !default;
 $sidebar-dark-borders:                none !default;

@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.#{$bs-prefix}alert {
+.alert {
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
@@ -11,22 +11,22 @@
 }
 
 // Headings for larger alerts
-.#{$bs-prefix}alert-heading {
+.alert-heading {
   // Specified to prevent conflicts of changing $headings-color
   color: inherit;
 }
 
 // Provide class for links that match alerts
-.#{$bs-prefix}alert-link {
+.alert-link {
   font-weight: $alert-link-font-weight;
 }
 
 
 // Dismissible alerts
 //
-// Expand the right padding and account for the close button's positioning.#{$bs-prefix}
+// Expand the right padding and account for the close button's positioning.
 
-.#{$bs-prefix}alert-dismissible {
+.alert-dismissible {
   @include ltr {
     padding-right: $close-font-size + $alert-padding-x * 2;
   }
@@ -35,7 +35,7 @@
   }
 
   // Adjust close link position
-  .#{$bs-prefix}close {
+  .close {
     position: absolute;
     top: 0;
     @include ltr {
@@ -55,7 +55,7 @@
 // Generate contextual modifier classes for colorizing the alert.
 
 @include theme-variant() {
-  .#{$bs-prefix}alert-#{$color} {
+  .alert-#{$color} {
     @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
   }
 }

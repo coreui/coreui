@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.#{$bs-prefix}card {
+.card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -22,14 +22,14 @@
     margin-left: 0;
   }
 
-  > .#{$bs-prefix}list-group:first-child {
-    .#{$bs-prefix}list-group-item:first-child {
+  > .list-group:first-child {
+    .list-group-item:first-child {
       @include border-top-radius($card-border-radius);
     }
   }
 
-  > .#{$bs-prefix}list-group:last-child {
-    .#{$bs-prefix}list-group-item:last-child {
+  > .list-group:last-child {
+    .list-group-item:last-child {
       @include border-bottom-radius($card-border-radius);
     }
   }
@@ -42,16 +42,16 @@
 
 // Cards with color accent
 @include theme-variant() {
-  .#{$bs-prefix}card.#{$bs-prefix}bg-#{$color} {
+  .card.bg-#{$color} {
     border-color: darken($value, 12.5%);
-    .#{$bs-prefix}card-header {
+    .card-header {
       background-color: darken($value, 3%);
       border-color: darken($value, 12.5%);
     }
   }
 }
 
-.#{$bs-prefix}card-body {
+.card-body {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
@@ -61,25 +61,25 @@
   }
 }
 
-.#{$bs-prefix}card-title {
+.card-title {
   margin-bottom: $card-spacer-y;
 }
 
-.#{$bs-prefix}card-subtitle {
+.card-subtitle {
   margin-top: -$card-spacer-y / 2;
   margin-bottom: 0;
 }
 
-.#{$bs-prefix}card-text:last-child {
+.card-text:last-child {
   margin-bottom: 0;
 }
 
-.#{$bs-prefix}card-link {
+.card-link {
   @include hover {
     text-decoration: none;
   }
 
-  + .#{$bs-prefix}card-link {
+  + .card-link {
     @include ltr {
       margin-left: $card-spacer-x;
     }
@@ -93,7 +93,7 @@
 // Optional textual caps
 //
 
-.#{$bs-prefix}card-header {
+.card-header {
   padding: $card-spacer-y $card-spacer-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
   border-bottom: $card-border-width solid;
@@ -107,13 +107,13 @@
     @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
   }
 
-  + .#{$bs-prefix}list-group {
-    .#{$bs-prefix}list-group-item:first-child {
+  + .list-group {
+    .list-group-item:first-child {
       border-top: 0;
     }
   }
 
-  .#{$prefix}chart-wrapper {
+  .c-chart-wrapper {
     position: absolute;
     top: 0;
     right: 0;
@@ -122,7 +122,7 @@
   }
 }
 
-.#{$bs-prefix}card-footer {
+.card-footer {
   padding: $card-spacer-y $card-spacer-x;
   border-top: $card-border-width solid;
   @include themes($card-theme-map, $create: parent) {
@@ -141,20 +141,20 @@
 // Header navs
 //
 
-.#{$bs-prefix}card-header-tabs {
+.card-header-tabs {
   margin-right: -$card-spacer-x / 2;
   margin-bottom: -$card-spacer-y;
   margin-left: -$card-spacer-x / 2;
   border-bottom: 0;
 }
 
-.#{$bs-prefix}card-header-pills {
+.card-header-pills {
   margin-right: -$card-spacer-x / 2;
   margin-left: -$card-spacer-x / 2;
 }
 
 // Card image
-.#{$bs-prefix}card-img-overlay {
+.card-img-overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -163,29 +163,29 @@
   padding: $card-img-overlay-padding;
 }
 
-.#{$bs-prefix}card-img {
+.card-img {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-radius($card-inner-border-radius);
 }
 
 // Card image caps
-.#{$bs-prefix}card-img-top {
+.card-img-top {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-top-radius($card-inner-border-radius);
 }
 
-.#{$bs-prefix}card-img-bottom {
+.card-img-bottom {
   width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
   @include border-bottom-radius($card-inner-border-radius);
 }
 
 // Card deck
 
-.#{$bs-prefix}card-deck {
+.card-deck {
   display: flex;
   flex-direction: column;
 
-  .#{$bs-prefix}card {
+  .card {
     margin-bottom: $card-deck-margin;
   }
 
@@ -194,7 +194,7 @@
     margin-right: -$card-deck-margin;
     margin-left: -$card-deck-margin;
 
-    .#{$bs-prefix}card {
+    .card {
       display: flex;
       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       flex: 1 0 0%;
@@ -211,13 +211,13 @@
 // Card groups
 //
 
-.#{$bs-prefix}card-group {
+.card-group {
   display: flex;
   flex-direction: column;
 
   // The child selector allows nested `.card` within `.card-group`
   // to display properly.
-  > .#{$bs-prefix}card {
+  > .card {
     margin-bottom: $card-group-margin;
   }
 
@@ -225,12 +225,12 @@
     flex-flow: row wrap;
     // The child selector allows nested `.card` within `.card-group`
     // to display properly.
-    > .#{$bs-prefix}card {
+    > .card {
       // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
       flex: 1 0 0%;
       margin-bottom: 0;
 
-      + .#{$bs-prefix}card {
+      + .card {
         @include ltr {
           margin-left: 0;
           border-left: 0;
@@ -246,13 +246,13 @@
         &:not(:last-child) {
           @include border-right-radius(0);
 
-          .#{$bs-prefix}card-img-top,
-          .#{$bs-prefix}card-header {
+          .card-img-top,
+          .card-header {
             // stylelint-disable-next-line property-blacklist
             border-top-right-radius: 0;
           }
-          .#{$bs-prefix}card-img-bottom,
-          .#{$bs-prefix}card-footer {
+          .card-img-bottom,
+          .card-footer {
             // stylelint-disable-next-line property-blacklist
             border-bottom-right-radius: 0;
           }
@@ -261,13 +261,13 @@
         &:not(:first-child) {
           @include border-left-radius(0);
 
-          .#{$bs-prefix}card-img-top,
-          .#{$bs-prefix}card-header {
+          .card-img-top,
+          .card-header {
             // stylelint-disable-next-line property-blacklist
             border-top-left-radius: 0;
           }
-          .#{$bs-prefix}card-img-bottom,
-          .#{$bs-prefix}card-footer {
+          .card-img-bottom,
+          .card-footer {
             // stylelint-disable-next-line property-blacklist
             border-bottom-left-radius: 0;
           }
@@ -282,8 +282,8 @@
 // Columns
 //
 
-.#{$bs-prefix}card-columns {
-  .#{$bs-prefix}card {
+.card-columns {
+  .card {
     margin-bottom: $card-columns-margin;
   }
 
@@ -293,7 +293,7 @@
     orphans: 1;
     widows: 1;
 
-    .#{$bs-prefix}card {
+    .card {
       display: inline-block; // Don't let them vertically span multiple columns
       width: 100%; // Don't let their width change
     }
@@ -305,13 +305,13 @@
 // Accordion
 //
 
-.#{$bs-prefix}accordion {
-  > .#{$bs-prefix}card {
+.accordion {
+  > .card {
     margin-bottom: 0;
     overflow: hidden;
 
     &:not(:first-of-type) {
-      .#{$bs-prefix}card-header:first-child {
+      .card-header:first-child {
         @include border-radius(0);
       }
 
@@ -330,19 +330,19 @@
       @include border-top-radius(0);
     }
 
-    .#{$bs-prefix}card-header {
+    .card-header {
       margin-bottom: -$card-border-width;
     }
   }
 }
 
 // CoreUI start
-.#{$bs-prefix}card-placeholder {
+.card-placeholder {
   background: rgba($black, .025);
   border: 1px dashed $gray-300;
 }
 
-.#{$bs-prefix}card-header-icon-bg {
+.card-header-icon-bg {
   display: inline-block;
   width: ($card-spacer-y * 2) + ($font-size-base * $line-height-base);
   padding: $card-spacer-y 0;
@@ -357,7 +357,7 @@
   }
 }
 
-.#{$bs-prefix}card-header-actions {
+.card-header-actions {
   display: inline-block;
 
   @include ltr {
@@ -370,7 +370,7 @@
   }
 }
 
-.#{$bs-prefix}card-header-action {
+.card-header-action {
   padding: 0 ($spacer / 4);
   color: $gray-600;
 
@@ -383,12 +383,12 @@
 
 // Cards with color accent
 @include theme-variant() {
-  .#{$bs-prefix}card-accent-#{$color} {
+  .card-accent-#{$color} {
     @include card-accent-variant($value);
   }
 }
 
-.#{$bs-prefix}card-full {
+.card-full {
   margin-top: - $spacer;
   margin-right: - $grid-gutter-width / 2;
   margin-left: - $grid-gutter-width / 2;
@@ -397,9 +397,9 @@
 }
 
 @include media-breakpoint-up(sm) {
-  .#{$bs-prefix}card-columns {
+  .card-columns {
 
-    &.#{$bs-prefix}cols-2 {
+    &.cols-2 {
       column-count: 2;
     }
   }

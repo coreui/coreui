@@ -3,8 +3,6 @@
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$prefix:                                      c- !default; // CoreUI
-$bs-prefix:                                   null !default; // CoreUI
 $theme-suffix:                                -theme !default;
 $mobile-breakpoint:                           sm !default;
 $enable-ltr:                                  true !default; // CoreUI
@@ -26,6 +24,7 @@ $enable-deprecation-messages:                 true !default;
 $enable-sidebar-nav-rounded:                  false !default;
 $layout-transition-speed:                     .25s !default;
 $enable-elevations:                           true !default;
+
 $default-themes: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $default-themes: map-merge(
@@ -38,5 +37,6 @@ $default-themes: map-merge(
   ),
   $default-themes
 );
+
 // TODO: add this feature
 // $enable-prefers-color-scheme:                 true !default;

@@ -1,31 +1,51 @@
 // stylelint-disable declaration-no-important
 
 @include theme-variant() {
-  @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
+  @include bg-variant(".bg-#{$color}", $value);
 }
 
-.#{$bs-prefix}bg-white {
+// @each $color, $value in $theme-colors-dark-theme {
+//   .c-dark-theme {
+//     @include bg-variant(".bg-#{$color}", $value);
+//   }
+// }
+
+@if $enable-gradients {
+  @include theme-variant() {
+    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+}
+
+@each $color, $value in $theme-gradients {
+  @include coreui-bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  .c-dark-theme {
+    @include coreui-bg-gradient-variant-dark-theme(".bg-gradient-#{$color}", $value);
+  }
+}
+
+
+.bg-white {
   background-color: $white !important;
 }
 
-.#{$bs-prefix}bg-transparent {
+.bg-transparent {
   background-color: transparent !important;
 }
 
 // CoreUI start
-[class^="#{$bs-prefix}bg-"] {
+[class^="bg-"] {
   color: $white;
 }
 
 @each $color, $value in $brands-colors {
-  @include bg-variant(".#{$bs-prefix}bg-#{$color}", $value);
+  @include bg-variant(".bg-#{$color}", $value);
 }
 
 @each $color, $value in $grays {
-  @include bg-variant(".#{$bs-prefix}bg-gray-#{$color}", $value);
+  @include bg-variant(".bg-gray-#{$color}", $value);
 }
 
-.#{$bs-prefix}bg-box {
+.bg-box {
   display: flex;
   align-items: center;
   justify-content: center;

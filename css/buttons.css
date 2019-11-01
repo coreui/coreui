@@ -15,7 +15,8 @@
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn .btn-icon {
+.btn i,
+.btn .c-icon {
   width: 0.875rem;
   height: 0.875rem;
   margin: 0.21875rem 0;
@@ -616,7 +617,8 @@ fieldset:disabled a.btn {
   border-radius: 0.3rem;
 }
 
-.btn-lg .btn-icon {
+.btn-lg i,
+.btn-lg .c-icon {
   width: 1.09375rem;
   height: 1.09375rem;
   margin: 0.273438rem 0;
@@ -629,7 +631,8 @@ fieldset:disabled a.btn {
   border-radius: 0.2rem;
 }
 
-.btn-sm .btn-icon {
+.btn-sm i,
+.btn-sm .c-icon {
   width: 0.765625rem;
   height: 0.765625rem;
   margin: 0.191406rem 0;

@@ -1,4 +1,5 @@
-.#{$bs-prefix}toast {
+.toast {
+  width: $toast-max-width;
   max-width: $toast-max-width;
   overflow: hidden; // cheap rounded corners on nested items
   @include font-size($toast-font-size);
@@ -15,21 +16,26 @@
     margin-bottom: $toast-padding-x;
   }
 
-  &.#{$bs-prefix}showing {
+  &.showing {
     opacity: 1;
   }
 
-  &.#{$bs-prefix}show {
+  &.show {
     display: block;
     opacity: 1;
   }
 
-  &.#{$bs-prefix}hide {
+  &.hide {
     display: none;
   }
 }
 
-.#{$bs-prefix}toast-header {
+.toast-full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.toast-header {
   display: flex;
   align-items: center;
   padding: $toast-padding-y $toast-padding-x;
@@ -39,6 +45,26 @@
   border-bottom: $toast-border-width solid $toast-header-border-color;
 }
 
-.#{$bs-prefix}toast-body {
+.toast-body {
   padding: $toast-padding-x; // apply to both vertical and horizontal
 }
+
+.toaster {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.toaster-reverse {
+  flex-direction: column;
+}
+
+/*
+.top-center
+.top-right
+.top-left
+.bottom-center
+.bottom-right
+.bottom-left
+.center
+*/

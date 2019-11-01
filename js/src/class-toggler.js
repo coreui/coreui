@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): class-toggler.js
+ * CoreUI (v3.0.0-beta.1): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,11 +18,10 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'class-toggler'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.class-toggler'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Default = {
   breakpoints: '-sm,-md,-lg,-xl',
@@ -32,7 +31,7 @@ const Default = {
 }
 
 const ClassName = {
-  CLASS_TOGGLER: `${PREFIX}class-toggler`
+  CLASS_TOGGLER: 'c-class-toggler'
 }
 
 const Event = {
@@ -41,7 +40,7 @@ const Event = {
 }
 
 const Selector = {
-  CLASS_TOGGLER: `.${PREFIX}class-toggler`
+  CLASS_TOGGLER: '.c-class-toggler'
 }
 
 /**
@@ -267,7 +266,7 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, event =>
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .${PREFIX}class-toggler to jQuery only if jQuery is present
+ * add .c-class-toggler to jQuery only if jQuery is present
  */
 
 if (typeof $ !== 'undefined') {

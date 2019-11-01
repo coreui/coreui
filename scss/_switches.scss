@@ -2,19 +2,19 @@
 // Base styles
 //
 
-.#{$prefix}switch {
+.c-switch {
   display: inline-block;
   width: $switch-width;
   height: $switch-height;
 }
 
-.#{$prefix}switch-input {
+.c-switch-input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-.#{$prefix}switch-slider {
+.c-switch-slider {
   position: relative;
   display: block;
   height: inherit;
@@ -39,13 +39,13 @@
   }
 }
 
-.#{$prefix}switch-input:checked ~ .#{$prefix}switch-slider {
+.c-switch-input:checked ~ .c-switch-slider {
   &::before {
     transform: translateX($switch-width - $switch-height);
   }
 }
 
-.#{$prefix}switch-input:focus ~ .#{$prefix}switch-slider {
+.c-switch-input:focus ~ .c-switch-slider {
   @include themes($form-theme-map) {
     color: themes-get-value("input-focus-color");
     background-color: themes-get-value("input-focus-bg");
@@ -60,7 +60,7 @@
   }
 }
 
-.#{$prefix}switch-input:disabled ~ .#{$prefix}switch-slider {
+.c-switch-input:disabled ~ .c-switch-slider {
   cursor: not-allowed;
   opacity: .5;
 }
@@ -69,21 +69,21 @@
 // Switch Sizes
 //
 
-.#{$prefix}switch-lg {
+.c-switch-lg {
   @include switch-size($switch-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
 }
 
-.#{$prefix}switch-sm {
+.c-switch-sm {
   @include switch-size($switch-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
 }
 
 //
 // Switch with label
 //
-.#{$prefix}switch-label {
+.c-switch-label {
   width: $switch-label-width;
 
-  .#{$prefix}switch-slider {
+  .c-switch-slider {
     &::before {
       z-index: 2;
     }
@@ -108,7 +108,7 @@
     }
   }
 
-  .#{$prefix}switch-input:checked ~ .#{$prefix}switch-slider {
+  .c-switch-input:checked ~ .c-switch-slider {
     &::before {
       transform: translateX($switch-label-width - $switch-height);
     }
@@ -120,11 +120,11 @@
   }
 
   // Sizes
-  &.#{$prefix}switch-lg {
+  &.c-switch-lg {
     @include switch-size($switch-label-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
   }
 
-  &.#{$prefix}switch-sm {
+  &.c-switch-sm {
     @include switch-size($switch-label-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
   }
 }
@@ -133,8 +133,8 @@
 // Switch 3d
 //
 
-.#{$prefix}switch-3d {
-  .#{$prefix}switch-slider {
+.c-switch-3d {
+  .c-switch-slider {
     background-color: $gray-100;
     border-radius: 50em;
 
@@ -150,11 +150,11 @@
   }
 
   // Sizes
-  &.#{$prefix}switch-lg {
+  &.c-switch-lg {
     @include switch-3d-size($switch-lg-width, $switch-lg-height);
   }
 
-  &.#{$prefix}switch-sm {
+  &.c-switch-sm {
     @include switch-3d-size($switch-sm-width, $switch-sm-height);
   }
 }
@@ -165,16 +165,16 @@
 
 @include theme-variant() {
   //normal style
-  .#{$prefix}switch-#{$color} {
+  .c-switch-#{$color} {
     @include switch-variant($value);
   }
   //outline style
-  .#{$prefix}switch-outline-#{$color} {
+  .c-switch-outline-#{$color} {
     @include switch-outline-variant($value);
   }
   //outline alternative style
-  .#{$prefix}switch-outline-#{$color}-alt {
-    @include switch-outline-variant-alt($value);
+  .c-switch-opposite-#{$color} {
+    @include switch-opposite-variant($value);
   }
 }
 
@@ -182,12 +182,22 @@
 // Pill Style
 //
 
-.#{$prefix}switch-pill {
-  .#{$prefix}switch-slider {
+.c-switch-pill {
+  .c-switch-slider {
     border-radius: 50em;
 
     &::before {
       border-radius: 50em;
+    }
+  }
+}
+
+.c-switch-square {
+  .c-switch-slider {
+    border-radius: 0;
+
+    &::before {
+      border-radius: 0;
     }
   }
 }

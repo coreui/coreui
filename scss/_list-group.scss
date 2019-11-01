@@ -2,11 +2,11 @@
 //
 // Easily usable on <ul>, <ol>, or <div>.
 
-.#{$bs-prefix}list-group {
+.list-group {
   display: flex;
   flex-direction: column;
 
-  // No need to set list-style: none; since .#{$bs-prefix}list-group-item is block level
+  // No need to set list-style: none; since .list-group-item is block level
   @include ltr {
     padding-left: 0; // reset padding because ul and ol
   }
@@ -21,9 +21,9 @@
 // Interactive list items
 //
 // Use anchor or button elements instead of `li`s or `div`s to create interactive
-// list items. Includes an extra `.#{$bs-prefix}active` modifier class for selected items.
+// list items. Includes an extra `.active` modifier class for selected items.
 
-.#{$bs-prefix}list-group-item-action {
+.list-group-item-action {
   width: 100%; // For `<button>`s (anchors become 100% by default though)
   text-align: inherit; // For `<button>`s (anchors inherit)
   @include themes($list-group-theme-map, $create: parent) {
@@ -52,9 +52,9 @@
 
 // Individual list items
 //
-// Use on `li`s or `div`s within the `.#{$bs-prefix}list-group` parent.
+// Use on `li`s or `div`s within the `.list-group` parent.
 
-.#{$bs-prefix}list-group-item {
+.list-group-item {
   position: relative;
   display: block;
   padding: $list-group-item-padding-y $list-group-item-padding-x;
@@ -77,7 +77,7 @@
     @include border-bottom-radius($list-group-border-radius);
   }
 
-  &.#{$bs-prefix}disabled,
+  &.disabled,
   &:disabled {
     pointer-events: none;
     @include themes($list-group-theme-map, $create: parent) {
@@ -87,7 +87,7 @@
   }
 
   // Include both here for `<a>`s and `<button>`s
-  &.#{$bs-prefix}active {
+  &.active {
     z-index: 2; // Place active items above their siblings for proper border styling
     color: $list-group-active-color;
     background-color: $list-group-active-bg;
@@ -104,10 +104,10 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .#{$bs-prefix}list-group-horizontal#{$infix} {
+    .list-group-horizontal#{$infix} {
       flex-direction: row;
 
-      .#{$bs-prefix}list-group-item {
+      .list-group-item {
         margin-right: -$list-group-border-width;
         margin-bottom: 0;
 
@@ -132,8 +132,8 @@
 // Remove borders and border-radius to keep list group items edge-to-edge. Most
 // useful within other components (e.g., cards).
 
-.#{$bs-prefix}list-group-flush {
-  .#{$bs-prefix}list-group-item {
+.list-group-flush {
+  .list-group-item {
     border-right: 0;
     border-left: 0;
     @include border-radius(0);
@@ -144,13 +144,13 @@
   }
 
   &:first-child {
-    .#{$bs-prefix}list-group-item:first-child {
+    .list-group-item:first-child {
       border-top: 0;
     }
   }
 
   &:last-child {
-    .#{$bs-prefix}list-group-item:last-child {
+    .list-group-item:last-child {
       margin-bottom: 0;
       border-bottom: 0;
     }
@@ -173,15 +173,15 @@
 //
 // Remove top, bottome and right borders and border-radius.
 
-.#{$bs-prefix}list-group-accent {
-  .#{$bs-prefix}list-group-item {
+.list-group-accent {
+  .list-group-item {
     margin-bottom: 1px;
     border-top: 0;
     border-right: 0;
     border-bottom: 0;
     @include border-radius(0);
 
-    &.#{$bs-prefix}list-group-item-divider {
+    &.list-group-item-divider {
       position: relative;
 
       &::before {

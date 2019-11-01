@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): modal.js
+ * CoreUI (v3.0.0-beta.1): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -30,13 +30,12 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'modal';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.modal';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
 var ESCAPE_KEYCODE = 27; // KeyboardEvent.which value for Escape (Esc) key
 
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   backdrop: true,
   keyboard: true,
@@ -63,20 +62,20 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  SCROLLABLE: BS_PREFIX + "modal-dialog-scrollable",
-  SCROLLBAR_MEASURER: BS_PREFIX + "modal-scrollbar-measure",
-  BACKDROP: BS_PREFIX + "modal-backdrop",
-  OPEN: BS_PREFIX + "modal-open",
-  FADE: BS_PREFIX + "fade",
-  SHOW: BS_PREFIX + "show"
+  SCROLLABLE: 'modal-dialog-scrollable',
+  SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+  BACKDROP: 'modal-backdrop',
+  OPEN: 'modal-open',
+  FADE: 'fade',
+  SHOW: 'show'
 };
 var Selector = {
-  DIALOG: "." + BS_PREFIX + "modal-dialog",
-  MODAL_BODY: "." + BS_PREFIX + "modal-body",
-  DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "modal\"]",
-  DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX + "modal\"]",
-  FIXED_CONTENT: "." + BS_PREFIX + "fixed-top, ." + BS_PREFIX + "fixed-bottom, ." + BS_PREFIX + "is-fixed, ." + BS_PREFIX + "sticky-top",
-  STICKY_CONTENT: "." + BS_PREFIX + "sticky-top"
+  DIALOG: '.modal-dialog',
+  MODAL_BODY: '.modal-body',
+  DATA_TOGGLE: '[data-toggle="modal"]',
+  DATA_DISMISS: '[data-dismiss="modal"]',
+  FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+  STICKY_CONTENT: '.sticky-top'
 };
 /**
  * ------------------------------------------------------------------------

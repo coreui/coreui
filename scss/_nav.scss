@@ -3,7 +3,7 @@
 // Kickstart any navigation component with a set of style resets. Works with
 // `<nav>`s or `<ul>`s.
 
-.#{$bs-prefix}nav {
+.nav {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 0;
@@ -17,7 +17,7 @@
   }
 }
 
-.#{$bs-prefix}nav-link {
+.nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
 
@@ -26,7 +26,7 @@
   }
 
   // Disabled state lightens text
-  &.#{$bs-prefix}disabled {
+  &.disabled {
     color: $nav-link-disabled-color;
     pointer-events: none;
     cursor: default;
@@ -40,17 +40,17 @@
 // Tabs
 //
 
-.#{$bs-prefix}nav-tabs {
+.nav-tabs {
   border-bottom: $nav-tabs-border-width solid;
   @include themes($nav-theme-map, $create: parent) {
     border-color: themes-get-value("nav-tabs-border-color");
   }
 
-  .#{$bs-prefix}nav-item {
+  .nav-item {
     margin-bottom: -$nav-tabs-border-width;
   }
 
-  .#{$bs-prefix}nav-link {
+  .nav-link {
     border: $nav-tabs-border-width solid transparent;
     @include border-top-radius($nav-tabs-border-radius);
 
@@ -60,7 +60,7 @@
       }
     }
 
-    &.#{$bs-prefix}disabled {
+    &.disabled {
       background-color: transparent;
       border-color: transparent;
       @include themes($nav-theme-map, $create: parent) {
@@ -69,8 +69,8 @@
     }
   }
 
-  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
-  .#{$bs-prefix}nav-item.#{$bs-prefix}show .#{$bs-prefix}nav-link {
+  .nav-link.active,
+  .nav-item.show .nav-link {
     @include themes($nav-theme-map, $create: parent) {
       color: themes-get-value("nav-tabs-link-active-color");
       background-color: themes-get-value("nav-tabs-link-active-bg");
@@ -78,16 +78,16 @@
     }
   }
 
-  .#{$bs-prefix}dropdown-menu {
+  .dropdown-menu {
     // Make dropdown border overlap tab border
     margin-top: -$nav-tabs-border-width;
     // Remove the top rounded corners here since there is a hard edge above the menu
     @include border-top-radius(0);
   }
 
-  // &.#{$bs-prefix}nav-tabs-boxed {
+  // &.nav-tabs-boxed {
   //   border-color: $nav-tabs-boxed-border-color;
-  //   + .#{$bs-prefix}tab-content {
+  //   + .tab-content {
 
   //     border: $nav-tabs-border-width solid;
   //     border-color: $nav-tabs-boxed-border-color;
@@ -96,12 +96,12 @@
   // }
 }
 
-.#{$bs-prefix}nav-tabs-boxed {
-  .#{$bs-prefix}nav-tabs {
+.nav-tabs-boxed {
+  .nav-tabs {
     border: 0;
 
-    .#{$bs-prefix}nav-link {
-      &.#{$bs-prefix}active {
+    .nav-link {
+      &.active {
         @include themes($nav-theme-map, $create: parent) {
           background-color: themes-get-value("nav-tabs-boxed-link-active-bg");
           border-bottom-color: themes-get-value("nav-tabs-boxed-link-active-bg");
@@ -109,7 +109,7 @@
       }
     }
   }
-  .#{$bs-prefix}tab-content {
+  .tab-content {
     padding: $nav-tabs-boxed-content-padding-y $nav-tabs-boxed-content-padding-x;
     border: $nav-tabs-boxed-content-border-width solid;
     @include border-radius(0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
@@ -120,39 +120,39 @@
     }
   }
 
-  &.#{$bs-prefix}nav-tabs-boxed-top-right {
-    .#{$bs-prefix}nav-tabs {
+  &.nav-tabs-boxed-top-right {
+    .nav-tabs {
       justify-content: flex-end;
     }
-    .#{$bs-prefix}tab-content {
+    .tab-content {
       @include border-radius($nav-tabs-boxed-content-border-radius 0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
     }
   }
 
-  &.#{$bs-prefix}nav-tabs-boxed-left,
-  &.#{$bs-prefix}nav-tabs-boxed-right {
+  &.nav-tabs-boxed-left,
+  &.nav-tabs-boxed-right {
     display: flex;
 
-    .#{$bs-prefix}nav-item {
+    .nav-item {
       z-index: 1;
       flex-grow: 1;
       margin-bottom: 0;
     }
   }
 
-  &.#{$bs-prefix}nav-tabs-boxed-left {
+  &.nav-tabs-boxed-left {
     @include rtl {
       flex-direction: row-reverse;
     }
 
-    .#{$bs-prefix}nav-item {
+    .nav-item {
       margin-right: -$nav-tabs-border-width;
     }
 
-    .#{$bs-prefix}nav-link {
+    .nav-link {
       @include border-radius($nav-tabs-boxed-content-border-radius 0 0 $nav-tabs-boxed-content-border-radius);
 
-      &.#{$bs-prefix}active {
+      &.active {
         @include themes($nav-theme-map) {
           border-color: themes-get-value("nav-tabs-boxed-left-active-border-color");
         }
@@ -160,7 +160,7 @@
     }
   }
 
-  &.#{$bs-prefix}nav-tabs-boxed-right {
+  &.nav-tabs-boxed-right {
     @include ltr {
       flex-direction: row-reverse;
     }
@@ -168,7 +168,7 @@
       flex-direction: row;
     }
 
-    .#{$bs-prefix}nav-item {
+    .nav-item {
       @include ltr {
         margin-left: -$nav-tabs-border-width;
       }
@@ -177,17 +177,17 @@
       }
     }
 
-    .#{$bs-prefix}nav-link {
+    .nav-link {
       @include border-radius(0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius 0);
 
-      &.#{$bs-prefix}active {
+      &.active {
         @include themes($nav-theme-map) {
           border-color: themes-get-value("nav-tabs-boxed-right-active-border-color");
         }
       }
     }
 
-    .#{$bs-prefix}tab-content {
+    .tab-content {
       @include border-radius($nav-tabs-boxed-content-border-radius 0 $nav-tabs-boxed-content-border-radius $nav-tabs-boxed-content-border-radius);
     }
   }
@@ -198,13 +198,13 @@
 // Pills
 //
 
-.#{$bs-prefix}nav-pills {
-  .#{$bs-prefix}nav-link {
+.nav-pills {
+  .nav-link {
     @include border-radius($nav-pills-border-radius);
   }
 
-  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
-  .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     @include themes($nav-theme-map, $create: parent) {
       color: themes-get-value("nav-pills-link-active-color");
       background-color: themes-get-value("nav-pills-link-active-bg");
@@ -216,30 +216,30 @@
 // Underline
 //
 
-.#{$bs-prefix}nav-underline {
+.nav-underline {
   border-bottom: (2 * $nav-tabs-border-width) solid;
   @include themes($nav-theme-map, $create: parent) {
     border-color: themes-get-value("nav-tabs-border-color");
   }
 
-  .#{$bs-prefix}nav-item {
+  .nav-item {
     margin-bottom: - (2 * $nav-tabs-border-width);
   }
 
-  .#{$bs-prefix}nav-link {
+  .nav-link {
     border: 0;
     border-bottom: (2 * $nav-tabs-border-width) solid transparent;
   }
 
-  .#{$bs-prefix}nav-link.#{$bs-prefix}active,
-  .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
+  .nav-link.active,
+  .show > .nav-link {
     background: transparent;
   }
 
   @include theme-variant() {
-    &.#{$bs-prefix}nav-underline-#{$color} {
-      .#{$bs-prefix}nav-link.#{$bs-prefix}active,
-      .#{$bs-prefix}show > .#{$bs-prefix}nav-link {
+    &.nav-underline-#{$color} {
+      .nav-link.active,
+      .show > .nav-link {
         color: $value;
         border-color: $value;
       }
@@ -252,15 +252,15 @@
 // Justified variants
 //
 
-.#{$bs-prefix}nav-fill {
-  .#{$bs-prefix}nav-item {
+.nav-fill {
+  .nav-item {
     flex: 1 1 auto;
     text-align: center;
   }
 }
 
-.#{$bs-prefix}nav-justified {
-  .#{$bs-prefix}nav-item {
+.nav-justified {
+  .nav-item {
     flex-basis: 0;
     flex-grow: 1;
     text-align: center;
@@ -270,23 +270,23 @@
 
 // Tabbable tabs
 //
-// Hide tabbable panes to start, show them when `.#{$bs-prefix}active`
+// Hide tabbable panes to start, show them when `.active`
 
-.#{$bs-prefix}tab-content {
-  > .#{$bs-prefix}tab-pane {
+.tab-content {
+  > .tab-pane {
     display: none;
   }
-  > .#{$bs-prefix}active {
+  > .active {
     display: block;
   }
 }
 
 // Tabs in Sidebar
 
-.#{$prefix}sidebar {
-  .#{$bs-prefix}nav-tabs:first-child,
-  .#{$prefix}sidebar-close + .nav-tabs {
-    .#{$bs-prefix}nav-link {
+.c-sidebar {
+  .nav-tabs:first-child,
+  .c-sidebar-close + .nav-tabs {
+    .nav-link {
       display: flex;
       align-items: center;
       height: $sidebar-brand-height;

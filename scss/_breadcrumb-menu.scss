@@ -1,4 +1,4 @@
-.#{$bs-prefix}breadcrumb-menu {
+.breadcrumb-menu {
   @include ltr {
     margin-left: auto;
   }
@@ -11,31 +11,31 @@
     display: none;
   }
 
-  .#{$bs-prefix}btn-group {
+  .btn-group {
     vertical-align: top;
   }
 
-  .#{$bs-prefix}btn {
+  .btn {
     padding: 0 $input-btn-padding-x;
     color: $text-muted;
     vertical-align: top;
     border: 0;
 
     &:hover,
-    &.#{$bs-prefix}active {
+    &.active {
       color: $body-color;
       background: transparent;
     }
   }
 
-  .#{$bs-prefix}show {
-    .#{$bs-prefix}btn {
+  .show {
+    .btn {
       color: $body-color;
       background: transparent;
     }
   }
 
-  .#{$bs-prefix}dropdown-menu {
+  .dropdown-menu {
     min-width: 180px;
     line-height: $line-height-base;
   }

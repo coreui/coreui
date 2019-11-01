@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): scrollspy.js
+ * CoreUI (v3.0.0-beta.1): scrollspy.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's scrollspy.js
@@ -30,11 +30,10 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'scrollspy';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.scrollspy';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   offset: 10,
   method: 'auto',
@@ -51,17 +50,17 @@ var Event = {
   LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_ITEM: BS_PREFIX + "dropdown-item",
-  ACTIVE: BS_PREFIX + "active"
+  DROPDOWN_ITEM: 'dropdown-item',
+  ACTIVE: 'active'
 };
 var Selector = {
-  DATA_SPY: "[data-spy=\"" + BS_PREFIX + "scroll\"]",
-  NAV_LIST_GROUP: "." + BS_PREFIX + "nav, ." + BS_PREFIX + "list-group",
-  NAV_LINKS: "." + BS_PREFIX + "nav-link",
-  NAV_ITEMS: "." + BS_PREFIX + "nav-item",
-  LIST_ITEMS: "." + BS_PREFIX + "list-group-item",
-  DROPDOWN: "." + BS_PREFIX + "dropdown",
-  DROPDOWN_TOGGLE: "." + BS_PREFIX + "dropdown-toggle"
+  DATA_SPY: '[data-spy="scroll"]',
+  NAV_LIST_GROUP: '.nav, .list-group',
+  NAV_LINKS: '.nav-link',
+  NAV_ITEMS: '.nav-item',
+  LIST_ITEMS: '.list-group-item',
+  DROPDOWN: '.dropdown',
+  DROPDOWN_TOGGLE: '.dropdown-toggle'
 };
 var OffsetMethod = {
   OFFSET: 'offset',

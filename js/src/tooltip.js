@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): tooltip.js
+ * CoreUI (v3.0.0-beta.1): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -38,11 +38,10 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'tooltip'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-const CLASS_PREFIX = `${BS_PREFIX}bs-tooltip`
+const CLASS_PREFIX = 'bs-tooltip'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
 
@@ -74,9 +73,9 @@ const AttachmentMap = {
 
 const Default = {
   animation: true,
-  template: `<div class="${BS_PREFIX}tooltip" role="tooltip">
-               <div class="${BS_PREFIX}tooltip-arrow"></div>
-               <div class="${BS_PREFIX}tooltip-inner"></div>
+  template: `<div class="tooltip" role="tooltip">
+               <div class="tooltip-arrow"></div>
+               <div class="tooltip-inner"></div>
              </div>`,
   trigger: 'hover focus',
   title: '',
@@ -112,13 +111,13 @@ const Event = {
 }
 
 const ClassName = {
-  FADE: `${BS_PREFIX}fade`,
-  SHOW: `${BS_PREFIX}show`
+  FADE: 'fade',
+  SHOW: 'show'
 }
 
 const Selector = {
-  TOOLTIP_INNER: `.${BS_PREFIX}tooltip-inner`,
-  TOOLTIP_ARROW: `.${BS_PREFIX}tooltip-arrow`
+  TOOLTIP_INNER: '.tooltip-inner',
+  TOOLTIP_ARROW: '.tooltip-arrow'
 }
 
 const Trigger = {

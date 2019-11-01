@@ -1,13 +1,13 @@
 // stylelint-disable selector-no-qualifying-type
 
 // Make the div behave like a button
-.#{$bs-prefix}btn-group,
-.#{$bs-prefix}btn-group-vertical {
+.btn-group,
+.btn-group-vertical {
   position: relative;
   display: inline-flex;
-  vertical-align: middle; // match .#{$bs-prefix}btn alignment given font-size hack above
+  vertical-align: middle; // match .btn alignment given font-size hack above
 
-  > .#{$bs-prefix}btn {
+  > .btn {
     position: relative;
     flex: 1 1 auto;
 
@@ -18,27 +18,27 @@
     }
     &:focus,
     &:active,
-    &.#{$bs-prefix}active {
+    &.active {
       z-index: 1;
     }
   }
 }
 
 // Optional: Group multiple button groups together for a toolbar
-.#{$bs-prefix}btn-toolbar {
+.btn-toolbar {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
 
-  .#{$bs-prefix}input-group {
+  .input-group {
     width: auto;
   }
 }
 
-.#{$bs-prefix}btn-group {
+.btn-group {
   // Prevent double borders when buttons are next to each other
-  > .#{$bs-prefix}btn:not(:first-child),
-  > .#{$bs-prefix}btn-group:not(:first-child) {
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
     @include ltr {
       margin-left: -$btn-border-width;
     }
@@ -49,25 +49,25 @@
 
   // Reset rounded corners
   @include ltr {
-    > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
-    > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn-group:not(:last-child) > .btn {
       @include border-right-radius(0);
     }
 
-    > .#{$bs-prefix}btn:not(:first-child),
-    > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
+    > .btn:not(:first-child),
+    > .btn-group:not(:first-child) > .btn {
       @include border-left-radius(0);
     }
   }
 
   @include rtl {
-    > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
-    > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
+    > .btn:not(:last-child):not(.dropdown-toggle),
+    > .btn-group:not(:last-child) > .btn {
       @include border-left-radius(0);
     }
 
-    > .#{$bs-prefix}btn:not(:first-child),
-    > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
+    > .btn:not(:first-child),
+    > .btn-group:not(:first-child) > .btn {
       @include border-right-radius(0);
     }
   }
@@ -77,21 +77,21 @@
 //
 // Remix the default button sizing classes into new ones for easier manipulation.
 
-.#{$bs-prefix}btn-group-sm > .#{$bs-prefix}btn { @extend .#{$bs-prefix}btn-sm; }
-.#{$bs-prefix}btn-group-lg > .#{$bs-prefix}btn { @extend .#{$bs-prefix}btn-lg; }
+.btn-group-sm > .btn { @extend .btn-sm; }
+.btn-group-lg > .btn { @extend .btn-lg; }
 
 
 //
 // Split button dropdowns
 //
 
-.#{$bs-prefix}dropdown-toggle-split {
+.dropdown-toggle-split {
   padding-right: $btn-padding-x * .75;
   padding-left: $btn-padding-x * .75;
 
   &::after,
-  .#{$bs-prefix}dropup &::after,
-  .#{$bs-prefix}dropright &::after {
+  .dropup &::after,
+  .dropright &::after {
     @include ltr {
       margin-left: 0;
     }
@@ -100,7 +100,7 @@
     }
   }
 
-  .#{$bs-prefix}dropleft &::before {
+  .dropleft &::before {
     @include ltr {
       margin-right: 0;
     }
@@ -110,12 +110,12 @@
   }
 }
 
-.#{$bs-prefix}btn-sm + .#{$bs-prefix}dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split {
   padding-right: $btn-padding-x-sm * .75;
   padding-left: $btn-padding-x-sm * .75;
 }
 
-.#{$bs-prefix}btn-lg + .#{$bs-prefix}dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split {
   padding-right: $btn-padding-x-lg * .75;
   padding-left: $btn-padding-x-lg * .75;
 }
@@ -123,11 +123,11 @@
 
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
-.#{$bs-prefix}btn-group.#{$bs-prefix}show .#{$bs-prefix}dropdown-toggle {
+.btn-group.show .dropdown-toggle {
   @include box-shadow($btn-active-box-shadow);
 
-  // Show no shadow for `.#{$bs-prefix}btn-link` since it has no other button styles.
-  &.#{$bs-prefix}btn-link {
+  // Show no shadow for `.btn-link` since it has no other button styles.
+  &.btn-link {
     @include box-shadow(none);
   }
 }
@@ -137,29 +137,29 @@
 // Vertical button groups
 //
 
-.#{$bs-prefix}btn-group-vertical {
+.btn-group-vertical {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  > .#{$bs-prefix}btn,
-  > .#{$bs-prefix}btn-group {
+  > .btn,
+  > .btn-group {
     width: 100%;
   }
 
-  > .#{$bs-prefix}btn:not(:first-child),
-  > .#{$bs-prefix}btn-group:not(:first-child) {
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
     margin-top: -$btn-border-width;
   }
 
   // Reset rounded corners
-  > .#{$bs-prefix}btn:not(:last-child):not(.#{$bs-prefix}dropdown-toggle),
-  > .#{$bs-prefix}btn-group:not(:last-child) > .#{$bs-prefix}btn {
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn {
     @include border-bottom-radius(0);
   }
 
-  > .#{$bs-prefix}btn:not(:first-child),
-  > .#{$bs-prefix}btn-group:not(:first-child) > .#{$bs-prefix}btn {
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) > .btn {
     @include border-top-radius(0);
   }
 }
@@ -177,9 +177,9 @@
 // See https://github.com/twbs/bootstrap/pull/12794 and
 // https://github.com/twbs/bootstrap/pull/14559 for more information.
 
-.#{$bs-prefix}btn-group-toggle {
-  > .#{$bs-prefix}btn,
-  > .#{$bs-prefix}btn-group > .#{$bs-prefix}btn {
+.btn-group-toggle {
+  > .btn,
+  > .btn-group > .btn {
     margin-bottom: 0; // Override default `<label>` value
 
     input[type="radio"],

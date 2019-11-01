@@ -16,7 +16,7 @@
   }
 
   &:focus,
-  &.#{$bs-prefix}focus {
+  &.focus {
     // Avoid using mixin so we can pass custom focus shadow properly
     @if $enable-shadows {
       box-shadow: $btn-box-shadow, 0 0 0 $btn-focus-width rgba(mix(color-yiq($background), $border, 15%), .5);
@@ -26,7 +26,7 @@
   }
 
   // Disabled comes first so active can properly restyle
-  &.#{$bs-prefix}disabled,
+  &.disabled,
   &:disabled {
     color: color-yiq($background);
     background-color: $background;
@@ -37,9 +37,9 @@
     }
   }
 
-  &:not(:disabled):not(.#{$bs-prefix}disabled):active,
-  &:not(:disabled):not(.#{$bs-prefix}disabled).#{$bs-prefix}active,
-  .#{$bs-prefix}show > &.#{$bs-prefix}dropdown-toggle {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
     @if $enable-gradients {
@@ -69,19 +69,19 @@
   }
 
   &:focus,
-  &.#{$bs-prefix}focus {
+  &.focus {
     box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
   }
 
-  &.#{$bs-prefix}disabled,
+  &.disabled,
   &:disabled {
     color: $color;
     background-color: transparent;
   }
 
-  &:not(:disabled):not(.#{$bs-prefix}disabled):active,
-  &:not(:disabled):not(.#{$bs-prefix}disabled).#{$bs-prefix}active,
-  .#{$bs-prefix}show > &.#{$bs-prefix}dropdown-toggle {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
     border-color: $active-border;
@@ -105,7 +105,8 @@
   // Manually declare to provide an override to the browser default
   @include border-radius($border-radius, 0);
 
-  .#{$bs-prefix}btn-icon {
+  i,
+  .c-icon {
     width: $font-size;
     height: $font-size;
     margin: ((($font-size * $line-height) - $font-size) / 2) 0;
@@ -129,20 +130,20 @@
   }
 
   &:focus,
-  &.#{$bs-prefix}focus {
+  &.focus {
     box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
   }
 
-  &.#{$bs-prefix}disabled,
+  &.disabled,
   &:disabled {
     color: $color;
     background-color: transparent;
     border-color: transparent;
   }
 
-  &:not(:disabled):not(.#{$bs-prefix}disabled):active,
-  &:not(:disabled):not(.#{$bs-prefix}disabled).#{$bs-prefix}active,
-  .#{$bs-prefix}show > &.#{$bs-prefix}dropdown-toggle {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active,
+  .show > &.dropdown-toggle {
     color: color-yiq($active-background);
     background-color: $active-background;
     border-color: $active-border;

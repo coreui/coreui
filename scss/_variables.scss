@@ -6,6 +6,7 @@
 // Color system
 @import "variables/colors";
 @import "variables/brand-colors";
+@import "variables/gradients";
 
 // Options
 @import "variables/options";
@@ -16,6 +17,7 @@
 @import "variables/components/shared";
 @import "variables/typography";
 @import "variables/grid";
+@import "variables/elevation";
 
 // Components
 @import "variables/components/links";
@@ -56,3 +58,6 @@
 
 // Cursor
 $cursor-disabled: default !default;
+
+// Apps
+@import "variables/apps/email";

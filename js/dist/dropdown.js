@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): dropdown.js
+ * CoreUI (v3.0.0-beta.1): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -31,7 +31,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'dropdown';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.dropdown';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -48,8 +48,6 @@ var ARROW_DOWN_KEYCODE = 40; // KeyboardEvent.which value for down arrow key
 var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
 var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Event = {
   HIDE: "hide" + EVENT_KEY,
   HIDDEN: "hidden" + EVENT_KEY,
@@ -62,20 +60,20 @@ var Event = {
 };
 var ClassName = {
   DISABLED: 'disabled',
-  SHOW: BS_PREFIX + "show",
-  DROPUP: BS_PREFIX + "dropup",
-  DROPRIGHT: BS_PREFIX + "dropright",
-  DROPLEFT: BS_PREFIX + "dropleft",
-  MENURIGHT: BS_PREFIX + "dropdown-menu-right",
+  SHOW: 'show',
+  DROPUP: 'dropup',
+  DROPRIGHT: 'dropright',
+  DROPLEFT: 'dropleft',
+  MENURIGHT: 'dropdown-menu-right',
   POSITION_STATIC: 'position-static'
 };
 var Selector = {
-  DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "dropdown\"]",
-  FORM_CHILD: "." + BS_PREFIX + "dropdown form",
-  MENU: "." + BS_PREFIX + "dropdown-menu",
-  NAVBAR_NAV: "." + BS_PREFIX + "navbar-nav",
-  HEADER_NAV: "." + PREFIX + "header-nav",
-  VISIBLE_ITEMS: "." + BS_PREFIX + "dropdown-menu ." + BS_PREFIX + "dropdown-item:not(.disabled):not(:disabled)"
+  DATA_TOGGLE: '[data-toggle="dropdown"]',
+  FORM_CHILD: '.dropdown form',
+  MENU: '.dropdown-menu',
+  NAVBAR_NAV: '.navbar-nav',
+  HEADER_NAV: '.c-header-nav',
+  VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
 };
 var AttachmentMap = {
   TOP: 'top-start',
@@ -324,11 +322,11 @@ function () {
   };
 
   _proto._detectNavbar = function _detectNavbar() {
-    return Boolean(SelectorEngine.closest(this._element, "." + BS_PREFIX + "navbar"));
+    return Boolean(SelectorEngine.closest(this._element, '.navbar'));
   };
 
   _proto._detectHeader = function _detectHeader() {
-    return Boolean(SelectorEngine.closest(this._element, "." + PREFIX + "header"));
+    return Boolean(SelectorEngine.closest(this._element, '.c-header'));
   };
 
   _proto._getOffset = function _getOffset() {

@@ -1,16 +1,16 @@
 //TODO: move all values to variables.scss
-.#{$bs-prefix}progress-group {
+.progress-group {
   display: flex;
   flex-flow: row wrap;
   margin-bottom: $spacer;
 }
 
-.#{$bs-prefix}progress-group-prepend {
+.progress-group-prepend {
   flex: 0 0 100px;
   align-self: center;
 }
 
-.#{$bs-prefix}progress-group-icon {
+.progress-group-icon {
   font-size: $font-size-lg;
 
   @include ltr {
@@ -21,27 +21,27 @@
   }
 }
 
-.#{$bs-prefix}progress-group-text {
+.progress-group-text {
   font-size: $font-size-sm;
   color: $gray-700;
 }
 
-.#{$bs-prefix}progress-group-header {
+.progress-group-header {
   display: flex;
   flex-basis: 100%;
   align-items: flex-end;
   margin-bottom: ($spacer * .25);
 }
 
-.#{$bs-prefix}progress-group-bars {
+.progress-group-bars {
   flex-grow: 1;
   align-self: center;
 
-  .#{$bs-prefix}progress:not(:last-child) {
+  .progress:not(:last-child) {
     margin-bottom: 2px;
   }
 }
 
-.#{$bs-prefix}progress-group-header + .#{$bs-prefix}progress-group-bars {
+.progress-group-header + .progress-group-bars {
   flex-basis: 100%;
 }

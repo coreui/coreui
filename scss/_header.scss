@@ -1,19 +1,19 @@
-.#{$prefix}header {
+.c-header {
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   height: $header-height;
 
-  &.#{$prefix}header-with-subheader {
+  &.c-header-with-subheader {
     height: $header-height + $header-subheader-height;
 
-    .#{$prefix}header-nav {
+    .c-header-nav {
       height: $header-height;
     }
 
-    .#{$prefix}subheader {
-      .#{$prefix}header-nav {
+    .c-subheader {
+      .c-header-nav {
         height: $header-subheader-height;
       }
     }
@@ -23,7 +23,7 @@
     border-color: rgba($black, .1);
   }
 
-  &.#{$prefix}header-fixed {
+  &.c-header-fixed {
     position: fixed;
     right: 0;
     left: 0;
@@ -31,7 +31,7 @@
   }
 }
 
-.#{$prefix}header-brand {
+.c-header-brand {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,11 +41,11 @@
   height: $header-height;
   transition: width $layout-transition-speed;
 
-  .#{$prefix}header-brand-minimized {
+  .c-header-brand-minimized {
     display: none;
   }
 
-  &.#{$prefix}header-brand-centered {
+  &.c-header-brand-centered {
     position: absolute;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -60,7 +60,7 @@
 
   @each $breakpoint in map-keys($grid-breakpoints) {
     @include media-breakpoint-down($breakpoint) {
-      &.#{$prefix}header-brand-#{$breakpoint}-down-centered {
+      &.c-header-brand-#{$breakpoint}-down-centered {
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
@@ -75,20 +75,20 @@
   }
 
   @include media-breakpoint-up(lg) {
-    &.#{$prefix}header-brand-minimized {
+    &.c-header-brand-minimized {
       width: $header-brand-minimized-width;
 
-      .#{$prefix}header-brand-full {
+      .c-header-brand-full {
         display: none;
       }
-      .#{$prefix}header-brand-minimized {
+      .c-header-brand-minimized {
         display: block;
       }
     }
   }
 }
 
-.#{$prefix}header-toggler {
+.c-header-toggler {
   min-width: 50px;
   font-size: $header-toggler-font-size;
   background-color: $header-toggler-bg;
@@ -101,12 +101,12 @@
   }
 
   // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
-  &:not(:disabled):not(.#{$prefix}disabled) {
+  &:not(:disabled):not(.c-disabled) {
     cursor: pointer;
   }
 }
 
-.#{$prefix}header-toggler-icon {
+.c-header-toggler-icon {
   display: block;
   height: $header-toggler-font-size * 1.25;
   background-repeat: no-repeat;
@@ -114,7 +114,7 @@
   background-size: 100% 100%;
 }
 
-.#{$prefix}header-nav {
+.c-header-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -122,23 +122,23 @@
   margin-bottom: 0;
   list-style: none;
 
-  .#{$prefix}header-nav-item {
+  .c-header-nav-item {
     position: relative;
   }
 
-  .#{$prefix}header-nav-btn {
+  .c-header-nav-btn {
     background-color: transparent;
     border: $btn-border-width solid transparent;
   }
 
-  .#{$prefix}header-nav-link,
-  .#{$prefix}header-nav-btn {
+  .c-header-nav-link,
+  .c-header-nav-btn {
     display: flex;
     align-items: center;
     padding-right: $header-nav-link-padding-x;
     padding-left: $header-nav-link-padding-x;
 
-    .#{$bs-prefix}badge {
+    .badge {
       position: absolute;
       top: 50%;
       margin-top: -16px;
@@ -157,18 +157,18 @@
     }
   }
 
-  .#{$bs-prefix}dropdown-menu {
+  .dropdown-menu {
     padding-bottom: 0;
     line-height: $line-height-base;
   }
 
-  .#{$bs-prefix}dropdown-item {
+  .dropdown-item {
     min-width: 180px;
   }
 }
 
 
-.#{$prefix}subheader {
+.c-subheader {
   display: flex;
   flex-basis: 100%;
   flex-shrink: 0;
@@ -182,11 +182,11 @@
 // Header variants
 //
 
-@include themes($header-theme-map, $create: append, $parent: ".#{$prefix}header") {
+@include themes($header-theme-map, $create: append, $parent: ".c-header") {
   background: themes-get-value("header-bg");
   @include borders(themes-get-value("header-border"));
 
-  .#{$prefix}header-brand {
+  .c-header-brand {
     color: themes-get-value("header-brand-color");
     background-color: themes-get-value("header-brand-bg");
     @include borders(themes-get-value("header-brand-border"));
@@ -196,41 +196,41 @@
     }
 
     @include media-breakpoint-up(lg) {
-      &.#{$prefix}header-brand-minimized {
+      &.c-header-brand-minimized {
         background-color: themes-get-value("header-brand-minimized-bg");
         @include borders(themes-get-value("header-brand-minimized-border"));
       }
     }
   }
 
-  .#{$prefix}header-nav {
-    .#{$prefix}header-nav-link,
-    .#{$prefix}header-nav-btn {
+  .c-header-nav {
+    .c-header-nav-link,
+    .c-header-nav-btn {
       color: themes-get-value("header-color");
 
       @include hover-focus {
         color: themes-get-value("header-hover-color");
       }
 
-      &.#{$prefix}disabled {
+      &.c-disabled {
         color: themes-get-value("header-disabled-color");
       }
     }
 
-    .#{$prefix}show > .#{$prefix}header-nav-link,
-    .#{$prefix}active > .#{$prefix}header-nav-link,
-    .#{$prefix}header-nav-link.#{$prefix}show,
-    .#{$prefix}header-nav-link.#{$prefix}active {
+    .c-show > .c-header-nav-link,
+    .c-active > .c-header-nav-link,
+    .c-header-nav-link.c-show,
+    .c-header-nav-link.c-active {
       color: themes-get-value("header-active-color");
     }
   }
 
-  .#{$prefix}header-toggler {
+  .c-header-toggler {
     color: themes-get-value("header-color");
     border-color: themes-get-value("header-toggler-border-color");
   }
 
-  .#{$prefix}header-toggler-icon {
+  .c-header-toggler-icon {
     background-image: themes-get-value("header-toggler-icon-bg");
 
     &:hover {
@@ -238,7 +238,7 @@
     }
   }
 
-  .#{$prefix}header-text {
+  .c-header-text {
     color: themes-get-value("header-color");
     a {
       color: themes-get-value("header-active-color");
@@ -249,7 +249,7 @@
     }
   }
 
-  .#{$prefix}subheader {
+  .c-subheader {
     @include borders(themes-get-value("subheader-border"));
   }
 }

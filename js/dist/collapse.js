@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): collapse.js
+ * CoreUI (v3.0.0-beta.1): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -30,11 +30,10 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'collapse';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.collapse';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   toggle: true,
   parent: ''
@@ -51,18 +50,18 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  SHOW: BS_PREFIX + "show",
-  COLLAPSE: BS_PREFIX + "collapse",
-  COLLAPSING: BS_PREFIX + "collapsing",
-  COLLAPSED: BS_PREFIX + "collapsed"
+  SHOW: 'show',
+  COLLAPSE: 'collapse',
+  COLLAPSING: 'collapsing',
+  COLLAPSED: 'collapsed'
 };
 var Dimension = {
   WIDTH: 'width',
   HEIGHT: 'height'
 };
 var Selector = {
-  ACTIVES: "." + BS_PREFIX + "show, ." + BS_PREFIX + "collapsing",
-  DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "collapse\"]"
+  ACTIVES: '.show, .collapsing',
+  DATA_TOGGLE: '[data-toggle="collapse"]'
 };
 /**
  * ------------------------------------------------------------------------

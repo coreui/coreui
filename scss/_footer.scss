@@ -1,5 +1,4 @@
-
-.#{$prefix}footer {
+.c-footer {
   display: flex;
   flex: 0 0 $footer-height;
   flex-wrap: wrap;
@@ -12,7 +11,7 @@
   }
 }
 
-@include themes($footer-theme-map, $parent: ".#{$prefix}footer") {
+@include themes($footer-theme-map, $parent: ".c-footer") {
   color: themes-get-value("footer-color");
   background: themes-get-value("footer-bg");
   @include borders(themes-get-value("footer-borders"));

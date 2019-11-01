@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): alerj.js
+ * CoreUI (v3.0.0-beta.1): alerj.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
@@ -23,13 +23,12 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'alert';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.alert';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Selector = {
-  DISMISS: "[data-dismiss=\"" + BS_PREFIX + "alert\"]"
+  DISMISS: '[data-dismiss="alert"]'
 };
 var Event = {
   CLOSE: "close" + EVENT_KEY,
@@ -37,9 +36,9 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  ALERT: BS_PREFIX + "alert",
-  FADE: BS_PREFIX + "fade",
-  SHOW: BS_PREFIX + "show"
+  ALERT: 'alert',
+  FADE: 'fade',
+  SHOW: 'show'
 };
 /**
  * ------------------------------------------------------------------------

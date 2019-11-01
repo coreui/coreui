@@ -1,5 +1,5 @@
 // Base class
-.#{$bs-prefix}tooltip {
+.tooltip {
   position: absolute;
   z-index: $zindex-tooltip;
   display: block;
@@ -12,9 +12,9 @@
   word-wrap: break-word;
   opacity: 0;
 
-  &.#{$bs-prefix}show { opacity: $tooltip-opacity; }
+  &.show { opacity: $tooltip-opacity; }
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     position: absolute;
     display: block;
     width: $tooltip-arrow-width;
@@ -29,10 +29,10 @@
   }
 }
 
-.#{$bs-prefix}bs-tooltip-top {
+.bs-tooltip-top {
   padding: $tooltip-arrow-height 0;
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     bottom: 0;
 
     &::before {
@@ -43,10 +43,10 @@
   }
 }
 
-.#{$bs-prefix}bs-tooltip-right {
+.bs-tooltip-right {
   padding: 0 $tooltip-arrow-height;
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     left: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
@@ -59,10 +59,10 @@
   }
 }
 
-.#{$bs-prefix}bs-tooltip-bottom {
+.bs-tooltip-bottom {
   padding: $tooltip-arrow-height 0;
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     top: 0;
 
     &::before {
@@ -73,10 +73,10 @@
   }
 }
 
-.#{$bs-prefix}bs-tooltip-left {
+.bs-tooltip-left {
   padding: 0 $tooltip-arrow-height;
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     right: 0;
     width: $tooltip-arrow-height;
     height: $tooltip-arrow-width;
@@ -89,23 +89,23 @@
   }
 }
 
-.#{$bs-prefix}bs-tooltip-auto {
+.bs-tooltip-auto {
   &[x-placement^="top"] {
-    @extend .#{$bs-prefix}bs-tooltip-top;
+    @extend .bs-tooltip-top;
   }
   &[x-placement^="right"] {
-    @extend .#{$bs-prefix}bs-tooltip-right;
+    @extend .bs-tooltip-right;
   }
   &[x-placement^="bottom"] {
-    @extend .#{$bs-prefix}bs-tooltip-bottom;
+    @extend .bs-tooltip-bottom;
   }
   &[x-placement^="left"] {
-    @extend .#{$bs-prefix}bs-tooltip-left;
+    @extend .bs-tooltip-left;
   }
 }
 
 // Wrapper for the tooltip content
-.#{$bs-prefix}tooltip-inner {
+.tooltip-inner {
   max-width: $tooltip-max-width;
   padding: $tooltip-padding-y $tooltip-padding-x;
   color: $tooltip-color;

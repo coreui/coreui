@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): carousel.js
+ * CoreUI (v3.0.0-beta.1): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'carousel';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.carousel';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -41,7 +41,6 @@ var ARROW_RIGHT_KEYCODE = 39; // KeyboardEvent.which value for right arrow key
 var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
 var SWIPE_THRESHOLD = 40;
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Default = {
   interval: 5000,
   keyboard: true,
@@ -80,23 +79,23 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  CAROUSEL: BS_PREFIX + "carousel",
-  ACTIVE: BS_PREFIX + "active",
+  CAROUSEL: 'carousel',
+  ACTIVE: 'active',
   SLIDE: 'slide',
-  RIGHT: BS_PREFIX + "carousel-item-right",
-  LEFT: BS_PREFIX + "carousel-item-left",
-  NEXT: BS_PREFIX + "carousel-item-next",
-  PREV: BS_PREFIX + "carousel-item-prev",
-  ITEM: BS_PREFIX + "carousel-item",
-  POINTER_EVENT: BS_PREFIX + "pointer-event"
+  RIGHT: 'carousel-item-right',
+  LEFT: 'carousel-item-left',
+  NEXT: 'carousel-item-next',
+  PREV: 'carousel-item-prev',
+  ITEM: 'carousel-item',
+  POINTER_EVENT: 'pointer-event'
 };
 var Selector = {
-  ACTIVE: "." + BS_PREFIX + "active",
-  ACTIVE_ITEM: "." + BS_PREFIX + "active." + BS_PREFIX + "carousel-item",
-  ITEM: "." + BS_PREFIX + "carousel-item",
-  ITEM_IMG: "." + BS_PREFIX + "carousel-item img",
-  NEXT_PREV: "." + BS_PREFIX + "carousel-item-next, ." + BS_PREFIX + "carousel-item-prev",
-  INDICATORS: "." + BS_PREFIX + "carousel-indicators",
+  ACTIVE: '.active',
+  ACTIVE_ITEM: '.active.carousel-item',
+  ITEM: '.carousel-item',
+  ITEM_IMG: '.carousel-item img',
+  NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
+  INDICATORS: '.carousel-indicators',
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 };

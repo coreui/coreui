@@ -1,4 +1,5 @@
 .toast {
+  width: 350px;
   max-width: 350px;
   overflow: hidden;
   font-size: 0.875rem;
@@ -28,6 +29,11 @@
   display: none;
 }
 
+.toast-full {
+  width: 100%;
+  max-width: 100%;
+}
+
 .toast-header {
   display: flex;
   align-items: center;
@@ -41,5 +47,25 @@
 .toast-body {
   padding: 0.75rem;
 }
+
+.toaster {
+  position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.toaster-reverse {
+  flex-direction: column;
+}
+
+/*
+.top-center
+.top-right
+.top-left
+.bottom-center
+.bottom-right
+.bottom-left
+.center
+*/
 
 /*# sourceMappingURL=toasts.css.map */

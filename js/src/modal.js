@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): modal.js
+ * CoreUI (v3.0.0-beta.1): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -32,12 +32,11 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'modal'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEYCODE = 27 // KeyboardEvent.which value for Escape (Esc) key
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   backdrop: true,
@@ -68,21 +67,21 @@ const Event = {
 }
 
 const ClassName = {
-  SCROLLABLE: `${BS_PREFIX}modal-dialog-scrollable`,
-  SCROLLBAR_MEASURER: `${BS_PREFIX}modal-scrollbar-measure`,
-  BACKDROP: `${BS_PREFIX}modal-backdrop`,
-  OPEN: `${BS_PREFIX}modal-open`,
-  FADE: `${BS_PREFIX}fade`,
-  SHOW: `${BS_PREFIX}show`
+  SCROLLABLE: 'modal-dialog-scrollable',
+  SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+  BACKDROP: 'modal-backdrop',
+  OPEN: 'modal-open',
+  FADE: 'fade',
+  SHOW: 'show'
 }
 
 const Selector = {
-  DIALOG: `.${BS_PREFIX}modal-dialog`,
-  MODAL_BODY: `.${BS_PREFIX}modal-body`,
-  DATA_TOGGLE: `[data-toggle="${BS_PREFIX}modal"]`,
-  DATA_DISMISS: `[data-dismiss="${BS_PREFIX}modal"]`,
-  FIXED_CONTENT: `.${BS_PREFIX}fixed-top, .${BS_PREFIX}fixed-bottom, .${BS_PREFIX}is-fixed, .${BS_PREFIX}sticky-top`,
-  STICKY_CONTENT: `.${BS_PREFIX}sticky-top`
+  DIALOG: '.modal-dialog',
+  MODAL_BODY: '.modal-body',
+  DATA_TOGGLE: '[data-toggle="modal"]',
+  DATA_DISMISS: '[data-dismiss="modal"]',
+  FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+  STICKY_CONTENT: '.sticky-top'
 }
 
 /**

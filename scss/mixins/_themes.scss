@@ -84,11 +84,11 @@ $theme-has-variants: false !default;
   }  @else {
     @at-root{
       @if $variant == $default-variant {
-        .#{$prefix}#{$theme}#{$themes-default-post-class} #{$parent-element} {
+        .c-#{$theme}#{$themes-default-post-class} #{$parent-element} {
           @content;
         }
       } @else {
-        .#{$prefix}#{$theme}#{$themes-default-post-class} #{$parent-element}#{$parent-element}-#{$variant} {
+        .c-#{$theme}#{$themes-default-post-class} #{$parent-element}#{$parent-element}-#{$variant} {
           @content;
         }
       }
@@ -104,7 +104,7 @@ $theme-has-variants: false !default;
     @error "No selector found. I need a selector to append the class to.";
   }
 
-  &.#{$prefix}#{$theme}#{$themes-default-post-class} {
+  &.c-#{$theme}#{$themes-default-post-class} {
     @content;
   }
 }
@@ -115,11 +115,11 @@ $theme-has-variants: false !default;
 
   @at-root{
     @if & {
-      .#{$prefix}#{$theme}#{$themes-default-post-class} & {
+      .c-#{$theme}#{$themes-default-post-class} & {
         @content;
       }
     } @else {
-      .#{$prefix}#{$theme}#{$themes-default-post-class} {
+      .c-#{$theme}#{$themes-default-post-class} {
         @content;
       }
     }
@@ -194,7 +194,7 @@ $theme-has-variants: false !default;
         @content;
       } @else {
         @at-root{
-          .#{$prefix}#{$theme}#{$theme-suffix} {
+          .c-#{$theme}#{$theme-suffix} {
             @content;
           }
         }
@@ -212,7 +212,7 @@ $theme-has-variants: false !default;
       @content;
     } @else {
       @at-root{
-        .#{$prefix}#{$theme}#{$theme-suffix} & {
+        .c-#{$theme}#{$theme-suffix} & {
           @content;
         }
       }

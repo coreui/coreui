@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): class-toggler.js
+ * CoreUI (v3.0.0-beta.1): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,11 +18,10 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'class-toggler';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.class-toggler';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
 var Default = {
   breakpoints: '-sm,-md,-lg,-xl',
   postfix: '-show',
@@ -30,14 +29,14 @@ var Default = {
   target: 'body'
 };
 var ClassName = {
-  CLASS_TOGGLER: PREFIX + "class-toggler"
+  CLASS_TOGGLER: 'c-class-toggler'
 };
 var Event = {
   CLASS_TOGGLE: 'classtoggle',
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var Selector = {
-  CLASS_TOGGLER: "." + PREFIX + "class-toggler"
+  CLASS_TOGGLER: '.c-class-toggler'
 };
 /**
  * ------------------------------------------------------------------------
@@ -278,7 +277,7 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, function
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
- * add .${PREFIX}class-toggler to jQuery only if jQuery is present
+ * add .c-class-toggler to jQuery only if jQuery is present
  */
 
 if (typeof $ !== 'undefined') {

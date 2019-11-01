@@ -2,7 +2,7 @@
 // CoreUI default layout
 //
 
-.#{$prefix}app {
+.c-app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -16,48 +16,48 @@
   }
 }
 
-.#{$prefix}wrapper {
+.c-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
-  .#{$prefix}header-fixed{
+  .c-header-fixed{
     margin: inherit;
   }
 }
 
 // if header on top
-.#{$prefix}header {
-  ~ .#{$prefix}sidebar {
+.c-header {
+  ~ .c-sidebar {
     margin-top: $header-height;
   }
 
-  &.#{$prefix}header-fixed ~ .#{$prefix}wrapper {
+  &.c-header-fixed ~ .c-wrapper {
     margin-top: $header-height;
   }
 
-  &.#{$prefix}header-with-subheader {
-    ~ .#{$prefix}sidebar {
+  &.c-header-with-subheader {
+    ~ .c-sidebar {
       margin-top: $header-height + $header-subheader-height;
     }
-    &.#{$prefix}header-fixed ~ .#{$prefix}wrapper {
+    &.c-header-fixed ~ .c-wrapper {
       margin-top: $header-height + $header-subheader-height;
     }
   }
 }
 
-.#{$prefix}body {
+.c-body {
   display: flex;
   flex-direction: row;
   flex-grow: 1;
 }
 
-.#{$prefix}main {
+.c-main {
   flex: 1;
   min-width: 0;
   padding-top: 2 * $spacer;
 
-  > .#{$bs-prefix}container-fluid {
+  > .container-fluid {
     @include media-breakpoint-up(md) {
       padding-right: $grid-gutter-width;
       padding-left: $grid-gutter-width;
@@ -65,12 +65,12 @@
   }
 }
 
-.#{$prefix}header-fixed {
-  ~ .#{$prefix}body {
+.c-header-fixed {
+  ~ .c-body {
     padding-top: $header-height;
   }
 
-  &.#{$prefix}header-with-subheader ~ .#{$prefix}body {
+  &.c-header-with-subheader ~ .c-body {
     padding-top: $header-height + $header-subheader-height;
   }
 }

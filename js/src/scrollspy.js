@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): scrollspy.js
+ * CoreUI (v3.0.0-beta.1): scrollspy.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's scrollspy.js
@@ -28,11 +28,10 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'scrollspy'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   offset: 10,
@@ -53,18 +52,18 @@ const Event = {
 }
 
 const ClassName = {
-  DROPDOWN_ITEM: `${BS_PREFIX}dropdown-item`,
-  ACTIVE: `${BS_PREFIX}active`
+  DROPDOWN_ITEM: 'dropdown-item',
+  ACTIVE: 'active'
 }
 
 const Selector = {
-  DATA_SPY: `[data-spy="${BS_PREFIX}scroll"]`,
-  NAV_LIST_GROUP: `.${BS_PREFIX}nav, .${BS_PREFIX}list-group`,
-  NAV_LINKS: `.${BS_PREFIX}nav-link`,
-  NAV_ITEMS: `.${BS_PREFIX}nav-item`,
-  LIST_ITEMS: `.${BS_PREFIX}list-group-item`,
-  DROPDOWN: `.${BS_PREFIX}dropdown`,
-  DROPDOWN_TOGGLE: `.${BS_PREFIX}dropdown-toggle`
+  DATA_SPY: '[data-spy="scroll"]',
+  NAV_LIST_GROUP: '.nav, .list-group',
+  NAV_LINKS: '.nav-link',
+  NAV_ITEMS: '.nav-item',
+  LIST_ITEMS: '.list-group-item',
+  DROPDOWN: '.dropdown',
+  DROPDOWN_TOGGLE: '.dropdown-toggle'
 }
 
 const OffsetMethod = {

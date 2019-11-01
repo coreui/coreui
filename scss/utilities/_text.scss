@@ -4,14 +4,14 @@
 // Text
 //
 
-.#{$bs-prefix}text-monospace { font-family: $font-family-monospace !important; }
+.text-monospace { font-family: $font-family-monospace !important; }
 
 // Alignment
 
-.#{$bs-prefix}text-justify  { text-align: justify !important; }
-.#{$bs-prefix}text-wrap     { white-space: normal !important; }
-.#{$bs-prefix}text-nowrap   { white-space: nowrap !important; }
-.#{$bs-prefix}text-truncate { @include text-truncate; }
+.text-justify  { text-align: justify !important; }
+.text-wrap     { white-space: normal !important; }
+.text-nowrap   { white-space: nowrap !important; }
+.text-truncate { @include text-truncate; }
 
 // Responsive alignment
 
@@ -19,54 +19,54 @@
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
-    .#{$bs-prefix}text#{$infix}-left   { text-align: left !important; }
-    .#{$bs-prefix}text#{$infix}-right  { text-align: right !important; }
-    .#{$bs-prefix}text#{$infix}-center { text-align: center !important; }
+    .text#{$infix}-left   { text-align: left !important; }
+    .text#{$infix}-right  { text-align: right !important; }
+    .text#{$infix}-center { text-align: center !important; }
   }
 }
 
 // Transformation
 
-.#{$bs-prefix}text-lowercase  { text-transform: lowercase !important; }
-.#{$bs-prefix}text-uppercase  { text-transform: uppercase !important; }
-.#{$bs-prefix}text-capitalize { text-transform: capitalize !important; }
+.text-lowercase  { text-transform: lowercase !important; }
+.text-uppercase  { text-transform: uppercase !important; }
+.text-capitalize { text-transform: capitalize !important; }
 
 // Weight and italics
 
-.#{$bs-prefix}font-weight-light   { font-weight: $font-weight-light !important; }
-.#{$bs-prefix}font-weight-lighter { font-weight: $font-weight-lighter !important; }
-.#{$bs-prefix}font-weight-normal  { font-weight: $font-weight-normal !important; }
-.#{$bs-prefix}font-weight-bold    { font-weight: $font-weight-bold !important; }
-.#{$bs-prefix}font-weight-bolder  { font-weight: $font-weight-bolder !important; }
-.#{$bs-prefix}font-italic         { font-style: italic !important; }
+.font-weight-light   { font-weight: $font-weight-light !important; }
+.font-weight-lighter { font-weight: $font-weight-lighter !important; }
+.font-weight-normal  { font-weight: $font-weight-normal !important; }
+.font-weight-bold    { font-weight: $font-weight-bold !important; }
+.font-weight-bolder  { font-weight: $font-weight-bolder !important; }
+.font-italic         { font-style: italic !important; }
 
 // Contextual colors
 
-.#{$bs-prefix}text-white { color: $white !important; }
+.text-white { color: $white !important; }
 
 @include theme-variant() {
-  @include text-emphasis-variant(".#{$bs-prefix}text-#{$color}", $value);
+  @include text-emphasis-variant(".text-#{$color}", $value);
 }
 
-.#{$bs-prefix}text-body { color: $body-color !important; }
-.#{$bs-prefix}text-muted { color: $text-muted !important; }
+.text-body { color: $body-color !important; }
+.text-muted { color: $text-muted !important; }
 
-.#{$bs-prefix}text-black-50 { color: rgba($black, .5) !important; }
-.#{$bs-prefix}text-white-50 { color: rgba($white, .5) !important; }
+.text-black-50 { color: rgba($black, .5) !important; }
+.text-white-50 { color: rgba($white, .5) !important; }
 
 // Misc
 
-.#{$bs-prefix}text-hide {
+.text-hide {
   @include text-hide($ignore-warning: true);
 }
 
-.#{$bs-prefix}text-decoration-none { text-decoration: none !important; }
+.text-decoration-none { text-decoration: none !important; }
 
-.#{$bs-prefix}text-break {
+.text-break {
   word-break: break-word !important; // IE & < Edge 18
   overflow-wrap: break-word !important;
 }
 
 // Reset
 
-.#{$bs-prefix}text-reset { color: inherit !important; }
+.text-reset { color: inherit !important; }

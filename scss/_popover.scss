@@ -1,4 +1,4 @@
-.#{$bs-prefix}popover {
+.popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,7 +20,7 @@
     border-color: themes-get-value("popover-border-color");
   }
 
-  .#{$bs-prefix}arrow {
+  .arrow {
     position: absolute;
     display: block;
     width: $popover-arrow-width;
@@ -38,10 +38,10 @@
   }
 }
 
-.#{$bs-prefix}bs-popover-top {
+.bs-popover-top {
   margin-bottom: $popover-arrow-height;
 
-  > .#{$bs-prefix}arrow {
+  > .arrow {
     bottom: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
 
     &::before {
@@ -62,10 +62,10 @@
   }
 }
 
-.#{$bs-prefix}bs-popover-right {
+.bs-popover-right {
   margin-left: $popover-arrow-height;
 
-  > .#{$bs-prefix}arrow {
+  > .arrow {
     left: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
@@ -89,10 +89,10 @@
   }
 }
 
-.#{$bs-prefix}bs-popover-bottom {
+.bs-popover-bottom {
   margin-top: $popover-arrow-height;
 
-  > .#{$bs-prefix}arrow {
+  > .arrow {
     top: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
 
     &::before {
@@ -113,7 +113,7 @@
   }
 
   // This will remove the popover-header's border just below the arrow
-  .#{$bs-prefix}popover-header::before {
+  .popover-header::before {
     position: absolute;
     top: 0;
     left: 50%;
@@ -128,10 +128,10 @@
   }
 }
 
-.#{$bs-prefix}bs-popover-left {
+.bs-popover-left {
   margin-right: $popover-arrow-height;
 
-  > .#{$bs-prefix}arrow {
+  > .arrow {
     right: calc((#{$popover-arrow-height} + #{$popover-border-width}) * -1);
     width: $popover-arrow-height;
     height: $popover-arrow-width;
@@ -155,24 +155,24 @@
   }
 }
 
-.#{$bs-prefix}bs-popover-auto {
+.bs-popover-auto {
   &[x-placement^="top"] {
-    @extend .#{$bs-prefix}bs-popover-top;
+    @extend .bs-popover-top;
   }
   &[x-placement^="right"] {
-    @extend .#{$bs-prefix}bs-popover-right;
+    @extend .bs-popover-right;
   }
   &[x-placement^="bottom"] {
-    @extend .#{$bs-prefix}bs-popover-bottom;
+    @extend .bs-popover-bottom;
   }
   &[x-placement^="left"] {
-    @extend .#{$bs-prefix}bs-popover-left;
+    @extend .bs-popover-left;
   }
 }
 
 
 // Offset the popover to account for the popover arrow
-.#{$bs-prefix}popover-header {
+.popover-header {
   padding: $popover-header-padding-y $popover-header-padding-x;
   margin-bottom: 0; // Reset the default from Reboot
   @include font-size($font-size-base);
@@ -190,7 +190,7 @@
   }
 }
 
-.#{$bs-prefix}popover-body {
+.popover-body {
   padding: $popover-body-padding-y $popover-body-padding-x;
   @include themes($popover-theme-map) {
     color: themes-get-value("popover-body-color");

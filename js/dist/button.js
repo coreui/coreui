@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): button.js
+ * CoreUI (v3.0.0-beta.1): button.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's buttons.js
@@ -23,22 +23,21 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'button';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.button';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var ClassName = {
-  ACTIVE: BS_PREFIX + "active",
-  BUTTON: BS_PREFIX + "btn",
+  ACTIVE: 'active',
+  BUTTON: 'btn',
   FOCUS: 'focus'
 };
 var Selector = {
   DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
   DATA_TOGGLE: '[data-toggle="buttons"]',
   INPUT: 'input:not([type="hidden"])',
-  ACTIVE: "." + BS_PREFIX + "active",
-  BUTTON: "." + BS_PREFIX + "btn"
+  ACTIVE: '.active',
+  BUTTON: '.btn'
 };
 var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,

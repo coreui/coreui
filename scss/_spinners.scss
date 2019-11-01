@@ -6,7 +6,7 @@
   to { transform: rotate(360deg); }
 }
 
-.#{$bs-prefix}spinner-border {
+.spinner-border {
   display: inline-block;
   width: $spinner-width;
   height: $spinner-height;
@@ -18,7 +18,7 @@
   animation: spinner-border .75s linear infinite;
 }
 
-.#{$bs-prefix}spinner-border-sm {
+.spinner-border-sm {
   width: $spinner-width-sm;
   height: $spinner-height-sm;
   border-width: $spinner-border-width-sm;
@@ -37,7 +37,7 @@
   }
 }
 
-.#{$bs-prefix}spinner-grow {
+.spinner-grow {
   display: inline-block;
   width: $spinner-width;
   height: $spinner-height;
@@ -49,7 +49,7 @@
   animation: spinner-grow .75s linear infinite;
 }
 
-.#{$bs-prefix}spinner-grow-sm {
+.spinner-grow-sm {
   width: $spinner-width-sm;
   height: $spinner-height-sm;
 }

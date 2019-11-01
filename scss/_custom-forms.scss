@@ -7,7 +7,7 @@
 //
 // Base class takes care of all the key behavioral aspects.
 
-.#{$bs-prefix}custom-control {
+.custom-control {
   position: relative;
   display: block;
   min-height: $font-size-base * $line-height-base;
@@ -20,24 +20,24 @@
   }
 }
 
-.#{$bs-prefix}custom-control-inline {
+.custom-control-inline {
   display: inline-flex;
   margin-right: $custom-control-spacer-x;
 }
 
-.#{$bs-prefix}custom-control-input {
+.custom-control-input {
   position: absolute;
   z-index: -1; // Put the input behind the label so it doesn't overlay text
   opacity: 0;
 
-  &:checked ~ .#{$bs-prefix}custom-control-label::before {
+  &:checked ~ .custom-control-label::before {
     color: $custom-control-indicator-checked-color;
     border-color: $custom-control-indicator-checked-border-color;
     @include gradient-bg($custom-control-indicator-checked-bg);
     @include box-shadow($custom-control-indicator-checked-box-shadow);
   }
 
-  &:focus ~ .#{$bs-prefix}custom-control-label::before {
+  &:focus ~ .custom-control-label::before {
     // the mixin is not used here to make sure there is feedback
     @if $enable-shadows {
       box-shadow: $input-box-shadow, $input-focus-box-shadow;
@@ -46,11 +46,11 @@
     }
   }
 
-  &:focus:not(:checked) ~ .#{$bs-prefix}custom-control-label::before {
+  &:focus:not(:checked) ~ .custom-control-label::before {
     border-color: $custom-control-indicator-focus-border-color;
   }
 
-  &:not(:disabled):active ~ .#{$bs-prefix}custom-control-label::before {
+  &:not(:disabled):active ~ .custom-control-label::before {
     color: $custom-control-indicator-active-color;
     background-color: $custom-control-indicator-active-bg;
     border-color: $custom-control-indicator-active-border-color;
@@ -58,7 +58,7 @@
   }
 
   &:disabled {
-    ~ .#{$bs-prefix}custom-control-label {
+    ~ .custom-control-label {
       color: $custom-control-label-disabled-color;
 
       &::before {
@@ -72,7 +72,7 @@
 //
 // Build the custom controls out of pseudo-elements.
 
-.#{$bs-prefix}custom-control-label {
+.custom-control-label {
   position: relative;
   margin-bottom: 0;
   vertical-align: top;
@@ -120,18 +120,18 @@
 //
 // Tweak just a few things for checkboxes.
 
-.#{$bs-prefix}custom-checkbox {
-  .#{$bs-prefix}custom-control-label::before {
+.custom-checkbox {
+  .custom-control-label::before {
     @include border-radius($custom-checkbox-indicator-border-radius);
   }
 
-  .#{$bs-prefix}custom-control-input:checked ~ .#{$bs-prefix}custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::after {
       background-image: $custom-checkbox-indicator-icon-checked;
     }
   }
 
-  .#{$bs-prefix}custom-control-input:indeterminate ~ .#{$bs-prefix}custom-control-label {
+  .custom-control-input:indeterminate ~ .custom-control-label {
     &::before {
       border-color: $custom-checkbox-indicator-indeterminate-border-color;
       @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
@@ -142,11 +142,11 @@
     }
   }
 
-  .#{$bs-prefix}custom-control-input:disabled {
-    &:checked ~ .#{$bs-prefix}custom-control-label::before {
+  .custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
-    &:indeterminate ~ .#{$bs-prefix}custom-control-label::before {
+    &:indeterminate ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
@@ -156,20 +156,20 @@
 //
 // Tweak just a few things for radios.
 
-.#{$bs-prefix}custom-radio {
-  .#{$bs-prefix}custom-control-label::before {
+.custom-radio {
+  .custom-control-label::before {
     // stylelint-disable-next-line property-blacklist
     border-radius: $custom-radio-indicator-border-radius;
   }
 
-  .#{$bs-prefix}custom-control-input:checked ~ .#{$bs-prefix}custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::after {
       background-image: $custom-radio-indicator-icon-checked;
     }
   }
 
-  .#{$bs-prefix}custom-control-input:disabled {
-    &:checked ~ .#{$bs-prefix}custom-control-label::before {
+  .custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
@@ -180,7 +180,7 @@
 //
 // Tweak a few things for switches
 
-.#{$bs-prefix}custom-switch {
+.custom-switch {
   @include ltr {
     padding-left: $custom-switch-width + $custom-control-gutter;
   }
@@ -188,7 +188,7 @@
     padding-right: $custom-switch-width + $custom-control-gutter;
   }
 
-  .#{$bs-prefix}custom-control-label {
+  .custom-control-label {
     &::before {
       @include ltr {
         left: -($custom-switch-width + $custom-control-gutter);
@@ -219,15 +219,15 @@
     }
   }
 
-  .#{$bs-prefix}custom-control-input:checked ~ .#{$bs-prefix}custom-control-label {
+  .custom-control-input:checked ~ .custom-control-label {
     &::after {
       background-color: $custom-control-indicator-bg;
       transform: translateX($custom-switch-width - $custom-control-indicator-size);
     }
   }
 
-  .#{$bs-prefix}custom-control-input:disabled {
-    &:checked ~ .#{$bs-prefix}custom-control-label::before {
+  .custom-control-input:disabled {
+    &:checked ~ .custom-control-label::before {
       background-color: $custom-control-indicator-checked-disabled-bg;
     }
   }
@@ -240,7 +240,7 @@
 // https://primer.github.io/.
 //
 
-.#{$bs-prefix}custom-select {
+.custom-select {
   display: inline-block;
   width: 100%;
   height: $custom-select-height;
@@ -301,7 +301,7 @@
   }
 }
 
-.#{$bs-prefix}custom-select-sm {
+.custom-select-sm {
   height: $custom-select-height-sm;
   padding-top: $custom-select-padding-y-sm;
   padding-bottom: $custom-select-padding-y-sm;
@@ -314,7 +314,7 @@
   @include font-size($custom-select-font-size-sm);
 }
 
-.#{$bs-prefix}custom-select-lg {
+.custom-select-lg {
   height: $custom-select-height-lg;
   padding-top: $custom-select-padding-y-lg;
   padding-bottom: $custom-select-padding-y-lg;
@@ -332,7 +332,7 @@
 //
 // Custom file input.
 
-.#{$bs-prefix}custom-file {
+.custom-file {
   position: relative;
   display: inline-block;
   width: 100%;
@@ -340,7 +340,7 @@
   margin-bottom: 0;
 }
 
-.#{$bs-prefix}custom-file-input {
+.custom-file-input {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -348,27 +348,27 @@
   margin: 0;
   opacity: 0;
 
-  &:focus ~ .#{$bs-prefix}custom-file-label {
+  &:focus ~ .custom-file-label {
     border-color: $custom-file-focus-border-color;
     box-shadow: $custom-file-focus-box-shadow;
   }
 
-  &:disabled ~ .#{$bs-prefix}custom-file-label {
+  &:disabled ~ .custom-file-label {
     background-color: $custom-file-disabled-bg;
   }
 
   @each $lang, $value in $custom-file-text {
-    &:lang(#{$lang}) ~ .#{$bs-prefix}custom-file-label::after {
+    &:lang(#{$lang}) ~ .custom-file-label::after {
       content: $value;
     }
   }
 
-  ~ .#{$bs-prefix}custom-file-label[data-browse]::after {
+  ~ .custom-file-label[data-browse]::after {
     content: attr(data-browse);
   }
 }
 
-.#{$bs-prefix}custom-file-label {
+.custom-file-label {
   position: absolute;
   top: 0;
   right: 0;
@@ -414,7 +414,7 @@
 // elements cannot be mixed. As such, there are no shared styles for focus or
 // active states on prefixed selectors.
 
-.#{$bs-prefix}custom-range {
+.custom-range {
   width: 100%;
   height: calc(#{$custom-range-thumb-height} + #{$custom-range-thumb-focus-box-shadow-width * 2});
   padding: 0; // Need to reset padding
@@ -551,8 +551,8 @@
   }
 }
 
-.#{$bs-prefix}custom-control-label::before,
-.#{$bs-prefix}custom-file-label,
-.#{$bs-prefix}custom-select {
+.custom-control-label::before,
+.custom-file-label,
+.custom-select {
   @include transition($custom-forms-transition);
 }

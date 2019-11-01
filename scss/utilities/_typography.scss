@@ -4,62 +4,62 @@ body {
 }
 
 // stylelint-disable declaration-no-important
-.#{$bs-prefix}font-xs {
+.font-xs {
   font-size: .75rem !important;
 }
 
-.#{$bs-prefix}font-sm {
+.font-sm {
   font-size: .85rem !important;
 }
 
-.#{$bs-prefix}font-lg {
+.font-lg {
   font-size: 1rem !important;
 }
 
-.#{$bs-prefix}font-xl {
+.font-xl {
   font-size: 1.25rem !important;
 }
 
-.#{$bs-prefix}font-2xl {
+.font-2xl {
   font-size: 1.5rem !important;
 }
 
-.#{$bs-prefix}font-3xl {
+.font-3xl {
   font-size: 1.75rem !important;
 }
 
-.#{$bs-prefix}font-4xl {
+.font-4xl {
   font-size: 2rem !important;
 }
 
-.#{$bs-prefix}font-5xl {
+.font-5xl {
   font-size: 2.5rem !important;
 }
 
-[class^="#{$bs-prefix}text-value"] {
+[class^="text-value"] {
   font-weight: 600;
 }
 
-.#{$bs-prefix}text-value-xs {
+.text-value-xs {
   font-size: ($font-size-base * .75);
 }
 
-.#{$bs-prefix}text-value-sm {
+.text-value-sm {
   font-size: ($font-size-base * .85);
 }
 
-.#{$bs-prefix}text-value {
+.text-value {
   font-size: $font-size-base;
 }
 
-.#{$bs-prefix}text-value-lg {
+.text-value-lg {
   font-size: ($font-size-base * 1.5);
 }
 
-.#{$bs-prefix}text-value-xl {
+.text-value-xl {
   font-size: ($font-size-base * 1.75);
 }
 
-.#{$bs-prefix}text-white .#{$bs-prefix}text-muted {
+.text-white .text-muted {
   color: rgba(255, 255, 255, .6) !important;
 }

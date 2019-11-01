@@ -1,10 +1,10 @@
-.#{$bs-prefix}pagination {
+.pagination {
   display: flex;
   @include list-unstyled();
   @include border-radius();
 }
 
-.#{$bs-prefix}page-link {
+.page-link {
   position: relative;
   display: block;
   padding: $pagination-padding-y $pagination-padding-x;
@@ -39,9 +39,9 @@
   }
 }
 
-.#{$bs-prefix}page-item {
+.page-item {
   &:first-child {
-    .#{$bs-prefix}page-link {
+    .page-link {
       @include ltr {
         margin-left: 0;
         @include border-left-radius($border-radius);
@@ -53,7 +53,7 @@
     }
   }
   &:last-child {
-    .#{$bs-prefix}page-link {
+    .page-link {
       @include ltr {
         @include border-right-radius($border-radius);
       }
@@ -63,7 +63,7 @@
     }
   }
 
-  &.#{$bs-prefix}active .#{$bs-prefix}page-link {
+  &.active .page-link {
     z-index: 1;
     @include themes($pagination-theme-map, $create: parent) {
       color: themes-get-value("pagination-active-color");
@@ -72,9 +72,9 @@
     }
   }
 
-  &.#{$bs-prefix}disabled .#{$bs-prefix}page-link {
+  &.disabled .page-link {
     pointer-events: none;
-    // Opinionated: remove the "hand" cursor set previously for .#{$bs-prefix}page-link
+    // Opinionated: remove the "hand" cursor set previously for .page-link
     cursor: auto;
     @include themes($pagination-theme-map, $create: parent) {
       color: themes-get-value("pagination-disabled-color");
@@ -89,10 +89,10 @@
 // Sizing
 //
 
-.#{$bs-prefix}pagination-lg {
+.pagination-lg {
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
 }
 
-.#{$bs-prefix}pagination-sm {
+.pagination-sm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
 }

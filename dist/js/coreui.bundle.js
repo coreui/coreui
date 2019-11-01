@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-beta.0 (https://coreui.io)
+  * CoreUI v3.0.0-beta.1 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.coreui = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -747,18 +747,14 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-beta.0';
+  var VERSION = '3.0.0-beta.1';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
-  var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-
   var ClassName = {
-    ACTIVE: PREFIX + "active",
-    NAV_DROPDOWN_TOGGLE: PREFIX + "sidebar-nav-dropdown-toggle",
-    // NAV_PILLS: `${PREFIX}nav-pills`,
-    // NAV_TABS: `${PREFIX}nav-tabs`,
-    SHOW: PREFIX + "show",
+    ACTIVE: 'c-active',
+    NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
+    SHOW: 'c-show',
     VIEW_SCRIPT: 'view-script'
   };
   var Event$1 = {
@@ -766,9 +762,9 @@
     XHR_STATUS: 'xhr'
   };
   var Selector = {
-    NAV_DROPDOWN: "." + PREFIX + "sidebar-nav-dropdown",
-    NAV_LINK: "." + PREFIX + "xhr-link, ." + PREFIX + "sidebar-nav-link",
-    NAV_ITEM: "." + PREFIX + "sidebar-nav-item",
+    NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+    NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
+    NAV_ITEM: '.c-sidebar-nav-item',
     VIEW_SCRIPT: '.view-script'
   };
   var Default = {
@@ -1116,13 +1112,12 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '3.0.0-beta.0';
+  var VERSION$1 = '3.0.0-beta.1';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
-  var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Selector$1 = {
-    DISMISS: "[data-dismiss=\"" + BS_PREFIX + "alert\"]"
+    DISMISS: '[data-dismiss="alert"]'
   };
   var Event$2 = {
     CLOSE: "close" + EVENT_KEY$1,
@@ -1130,9 +1125,9 @@
     CLICK_DATA_API: "click" + EVENT_KEY$1 + DATA_API_KEY$1
   };
   var ClassName$1 = {
-    ALERT: BS_PREFIX + "alert",
-    FADE: BS_PREFIX + "fade",
-    SHOW: BS_PREFIX + "show"
+    ALERT: 'alert',
+    FADE: 'fade',
+    SHOW: 'show'
   };
   /**
    * ------------------------------------------------------------------------
@@ -1293,22 +1288,21 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '3.0.0-beta.0';
+  var VERSION$2 = '3.0.0-beta.1';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
-  var BS_PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var ClassName$2 = {
-    ACTIVE: BS_PREFIX$1 + "active",
-    BUTTON: BS_PREFIX$1 + "btn",
+    ACTIVE: 'active',
+    BUTTON: 'btn',
     FOCUS: 'focus'
   };
   var Selector$2 = {
     DATA_TOGGLE_CARROT: '[data-toggle^="button"]',
     DATA_TOGGLE: '[data-toggle="buttons"]',
     INPUT: 'input:not([type="hidden"])',
-    ACTIVE: "." + BS_PREFIX$1 + "active",
-    BUTTON: "." + BS_PREFIX$1 + "btn"
+    ACTIVE: '.active',
+    BUTTON: '.btn'
   };
   var Event$3 = {
     CLICK_DATA_API: "click" + EVENT_KEY$2 + DATA_API_KEY$2,
@@ -1553,7 +1547,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '3.0.0-beta.0';
+  var VERSION$3 = '3.0.0-beta.1';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -1564,7 +1558,6 @@
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
   var SWIPE_THRESHOLD = 40;
-  var BS_PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$1 = {
     interval: 5000,
     keyboard: true,
@@ -1603,23 +1596,23 @@
     CLICK_DATA_API: "click" + EVENT_KEY$3 + DATA_API_KEY$3
   };
   var ClassName$3 = {
-    CAROUSEL: BS_PREFIX$2 + "carousel",
-    ACTIVE: BS_PREFIX$2 + "active",
+    CAROUSEL: 'carousel',
+    ACTIVE: 'active',
     SLIDE: 'slide',
-    RIGHT: BS_PREFIX$2 + "carousel-item-right",
-    LEFT: BS_PREFIX$2 + "carousel-item-left",
-    NEXT: BS_PREFIX$2 + "carousel-item-next",
-    PREV: BS_PREFIX$2 + "carousel-item-prev",
-    ITEM: BS_PREFIX$2 + "carousel-item",
-    POINTER_EVENT: BS_PREFIX$2 + "pointer-event"
+    RIGHT: 'carousel-item-right',
+    LEFT: 'carousel-item-left',
+    NEXT: 'carousel-item-next',
+    PREV: 'carousel-item-prev',
+    ITEM: 'carousel-item',
+    POINTER_EVENT: 'pointer-event'
   };
   var Selector$3 = {
-    ACTIVE: "." + BS_PREFIX$2 + "active",
-    ACTIVE_ITEM: "." + BS_PREFIX$2 + "active." + BS_PREFIX$2 + "carousel-item",
-    ITEM: "." + BS_PREFIX$2 + "carousel-item",
-    ITEM_IMG: "." + BS_PREFIX$2 + "carousel-item img",
-    NEXT_PREV: "." + BS_PREFIX$2 + "carousel-item-next, ." + BS_PREFIX$2 + "carousel-item-prev",
-    INDICATORS: "." + BS_PREFIX$2 + "carousel-indicators",
+    ACTIVE: '.active',
+    ACTIVE_ITEM: '.active.carousel-item',
+    ITEM: '.carousel-item',
+    ITEM_IMG: '.carousel-item img',
+    NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
+    INDICATORS: '.carousel-indicators',
     DATA_SLIDE: '[data-slide], [data-slide-to]',
     DATA_RIDE: '[data-ride="carousel"]'
   };
@@ -2174,11 +2167,10 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0-beta.0';
+  var VERSION$4 = '3.0.0-beta.1';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
-  var PREFIX$1 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Default$2 = {
     breakpoints: '-sm,-md,-lg,-xl',
     postfix: '-show',
@@ -2186,14 +2178,14 @@
     target: 'body'
   };
   var ClassName$4 = {
-    CLASS_TOGGLER: PREFIX$1 + "class-toggler"
+    CLASS_TOGGLER: 'c-class-toggler'
   };
   var Event$5 = {
     CLASS_TOGGLE: 'classtoggle',
     CLICK_DATA_API: "click" + EVENT_KEY$4 + DATA_API_KEY$4
   };
   var Selector$4 = {
-    CLASS_TOGGLER: "." + PREFIX$1 + "class-toggler"
+    CLASS_TOGGLER: '.c-class-toggler'
   };
   /**
    * ------------------------------------------------------------------------
@@ -2434,7 +2426,7 @@
    * ------------------------------------------------------------------------
    * jQuery
    * ------------------------------------------------------------------------
-   * add .${PREFIX}class-toggler to jQuery only if jQuery is present
+   * add .c-class-toggler to jQuery only if jQuery is present
    */
 
   if (typeof jQuery !== 'undefined') {
@@ -2455,11 +2447,10 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '3.0.0-beta.0';
+  var VERSION$5 = '3.0.0-beta.1';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
-  var BS_PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$3 = {
     toggle: true,
     parent: ''
@@ -2476,18 +2467,18 @@
     CLICK_DATA_API: "click" + EVENT_KEY$5 + DATA_API_KEY$5
   };
   var ClassName$5 = {
-    SHOW: BS_PREFIX$3 + "show",
-    COLLAPSE: BS_PREFIX$3 + "collapse",
-    COLLAPSING: BS_PREFIX$3 + "collapsing",
-    COLLAPSED: BS_PREFIX$3 + "collapsed"
+    SHOW: 'show',
+    COLLAPSE: 'collapse',
+    COLLAPSING: 'collapsing',
+    COLLAPSED: 'collapsed'
   };
   var Dimension = {
     WIDTH: 'width',
     HEIGHT: 'height'
   };
   var Selector$5 = {
-    ACTIVES: "." + BS_PREFIX$3 + "show, ." + BS_PREFIX$3 + "collapsing",
-    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$3 + "collapse\"]"
+    ACTIVES: '.show, .collapsing',
+    DATA_TOGGLE: '[data-toggle="collapse"]'
   };
   /**
    * ------------------------------------------------------------------------
@@ -5491,7 +5482,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '3.0.0-beta.0';
+  var VERSION$6 = '3.0.0-beta.1';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -5508,8 +5499,6 @@
   var RIGHT_MOUSE_BUTTON_WHICH = 3; // MouseEvent.which value for the right button (assuming a right-handed mouse)
 
   var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
-  var BS_PREFIX$4 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
-  var PREFIX$2 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-';
   var Event$7 = {
     HIDE: "hide" + EVENT_KEY$6,
     HIDDEN: "hidden" + EVENT_KEY$6,
@@ -5522,20 +5511,20 @@
   };
   var ClassName$6 = {
     DISABLED: 'disabled',
-    SHOW: BS_PREFIX$4 + "show",
-    DROPUP: BS_PREFIX$4 + "dropup",
-    DROPRIGHT: BS_PREFIX$4 + "dropright",
-    DROPLEFT: BS_PREFIX$4 + "dropleft",
-    MENURIGHT: BS_PREFIX$4 + "dropdown-menu-right",
+    SHOW: 'show',
+    DROPUP: 'dropup',
+    DROPRIGHT: 'dropright',
+    DROPLEFT: 'dropleft',
+    MENURIGHT: 'dropdown-menu-right',
     POSITION_STATIC: 'position-static'
   };
   var Selector$6 = {
-    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$4 + "dropdown\"]",
-    FORM_CHILD: "." + BS_PREFIX$4 + "dropdown form",
-    MENU: "." + BS_PREFIX$4 + "dropdown-menu",
-    NAVBAR_NAV: "." + BS_PREFIX$4 + "navbar-nav",
-    HEADER_NAV: "." + PREFIX$2 + "header-nav",
-    VISIBLE_ITEMS: "." + BS_PREFIX$4 + "dropdown-menu ." + BS_PREFIX$4 + "dropdown-item:not(.disabled):not(:disabled)"
+    DATA_TOGGLE: '[data-toggle="dropdown"]',
+    FORM_CHILD: '.dropdown form',
+    MENU: '.dropdown-menu',
+    NAVBAR_NAV: '.navbar-nav',
+    HEADER_NAV: '.c-header-nav',
+    VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
   };
   var AttachmentMap = {
     TOP: 'top-start',
@@ -5784,11 +5773,11 @@
     };
 
     _proto._detectNavbar = function _detectNavbar() {
-      return Boolean(SelectorEngine.closest(this._element, "." + BS_PREFIX$4 + "navbar"));
+      return Boolean(SelectorEngine.closest(this._element, '.navbar'));
     };
 
     _proto._detectHeader = function _detectHeader() {
-      return Boolean(SelectorEngine.closest(this._element, "." + PREFIX$2 + "header"));
+      return Boolean(SelectorEngine.closest(this._element, '.c-header'));
     };
 
     _proto._getOffset = function _getOffset() {
@@ -6047,13 +6036,12 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '3.0.0-beta.0';
+  var VERSION$7 = '3.0.0-beta.1';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
   var ESCAPE_KEYCODE$1 = 27; // KeyboardEvent.which value for Escape (Esc) key
 
-  var BS_PREFIX$5 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$5 = {
     backdrop: true,
     keyboard: true,
@@ -6080,20 +6068,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$7 + DATA_API_KEY$7
   };
   var ClassName$7 = {
-    SCROLLABLE: BS_PREFIX$5 + "modal-dialog-scrollable",
-    SCROLLBAR_MEASURER: BS_PREFIX$5 + "modal-scrollbar-measure",
-    BACKDROP: BS_PREFIX$5 + "modal-backdrop",
-    OPEN: BS_PREFIX$5 + "modal-open",
-    FADE: BS_PREFIX$5 + "fade",
-    SHOW: BS_PREFIX$5 + "show"
+    SCROLLABLE: 'modal-dialog-scrollable',
+    SCROLLBAR_MEASURER: 'modal-scrollbar-measure',
+    BACKDROP: 'modal-backdrop',
+    OPEN: 'modal-open',
+    FADE: 'fade',
+    SHOW: 'show'
   };
   var Selector$7 = {
-    DIALOG: "." + BS_PREFIX$5 + "modal-dialog",
-    MODAL_BODY: "." + BS_PREFIX$5 + "modal-body",
-    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$5 + "modal\"]",
-    DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX$5 + "modal\"]",
-    FIXED_CONTENT: "." + BS_PREFIX$5 + "fixed-top, ." + BS_PREFIX$5 + "fixed-bottom, ." + BS_PREFIX$5 + "is-fixed, ." + BS_PREFIX$5 + "sticky-top",
-    STICKY_CONTENT: "." + BS_PREFIX$5 + "sticky-top"
+    DIALOG: '.modal-dialog',
+    MODAL_BODY: '.modal-body',
+    DATA_TOGGLE: '[data-toggle="modal"]',
+    DATA_DISMISS: '[data-dismiss="modal"]',
+    FIXED_CONTENT: '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top',
+    STICKY_CONTENT: '.sticky-top'
   };
   /**
    * ------------------------------------------------------------------------
@@ -6773,11 +6761,10 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '3.0.0-beta.0';
+  var VERSION$8 = '3.0.0-beta.1';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
-  var BS_PREFIX$6 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
-  var CLASS_PREFIX = BS_PREFIX$6 + "bs-tooltip";
+  var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var DefaultType$4 = {
@@ -6806,7 +6793,7 @@
   };
   var Default$6 = {
     animation: true,
-    template: "<div class=\"" + BS_PREFIX$6 + "tooltip\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX$6 + "tooltip-arrow\"></div>\n               <div class=\"" + BS_PREFIX$6 + "tooltip-inner\"></div>\n             </div>",
+    template: "<div class=\"tooltip\" role=\"tooltip\">\n               <div class=\"tooltip-arrow\"></div>\n               <div class=\"tooltip-inner\"></div>\n             </div>",
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -6838,12 +6825,12 @@
     MOUSELEAVE: "mouseleave" + EVENT_KEY$8
   };
   var ClassName$8 = {
-    FADE: BS_PREFIX$6 + "fade",
-    SHOW: BS_PREFIX$6 + "show"
+    FADE: 'fade',
+    SHOW: 'show'
   };
   var Selector$8 = {
-    TOOLTIP_INNER: "." + BS_PREFIX$6 + "tooltip-inner",
-    TOOLTIP_ARROW: "." + BS_PREFIX$6 + "tooltip-arrow"
+    TOOLTIP_INNER: '.tooltip-inner',
+    TOOLTIP_ARROW: '.tooltip-arrow'
   };
   var Trigger = {
     HOVER: 'hover',
@@ -7526,18 +7513,17 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '3.0.0-beta.0';
+  var VERSION$9 = '3.0.0-beta.1';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
-  var BS_PREFIX$7 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
-  var CLASS_PREFIX$1 = BS_PREFIX$7 + "bs-popover";
+  var CLASS_PREFIX$1 = 'bs-popover';
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
 
   var Default$7 = _objectSpread2({}, Tooltip.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: "<div class=\"" + BS_PREFIX$7 + "popover\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX$7 + "popover-arrow\"></div>\n               <h3 class=\"" + BS_PREFIX$7 + "popover-header\"></h3>\n               <div class=\"" + BS_PREFIX$7 + "popover-body\"></div>\n             </div>"
+    template: "<div class=\"popover\" role=\"tooltip\">\n               <div class=\"popover-arrow\"></div>\n               <h3 class=\"popover-header\"></h3>\n               <div class=\"popover-body\"></div>\n             </div>"
   });
 
   var DefaultType$5 = _objectSpread2({}, Tooltip.DefaultType, {
@@ -7545,12 +7531,12 @@
   });
 
   var ClassName$9 = {
-    FADE: BS_PREFIX$7 + "fade",
-    SHOW: BS_PREFIX$7 + "show"
+    FADE: 'fade',
+    SHOW: 'show'
   };
   var Selector$9 = {
-    TITLE: "." + BS_PREFIX$7 + "popover-header",
-    CONTENT: "." + BS_PREFIX$7 + "popover-body"
+    TITLE: '.popover-header',
+    CONTENT: '.popover-body'
   };
   var Event$a = {
     HIDE: "hide" + EVENT_KEY$9,
@@ -7719,11 +7705,10 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '3.0.0-beta.0';
+  var VERSION$a = '3.0.0-beta.1';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
-  var BS_PREFIX$8 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Default$8 = {
     offset: 10,
     method: 'auto',
@@ -7740,17 +7725,17 @@
     LOAD_DATA_API: "load" + EVENT_KEY$a + DATA_API_KEY$8
   };
   var ClassName$a = {
-    DROPDOWN_ITEM: BS_PREFIX$8 + "dropdown-item",
-    ACTIVE: BS_PREFIX$8 + "active"
+    DROPDOWN_ITEM: 'dropdown-item',
+    ACTIVE: 'active'
   };
   var Selector$a = {
-    DATA_SPY: "[data-spy=\"" + BS_PREFIX$8 + "scroll\"]",
-    NAV_LIST_GROUP: "." + BS_PREFIX$8 + "nav, ." + BS_PREFIX$8 + "list-group",
-    NAV_LINKS: "." + BS_PREFIX$8 + "nav-link",
-    NAV_ITEMS: "." + BS_PREFIX$8 + "nav-item",
-    LIST_ITEMS: "." + BS_PREFIX$8 + "list-group-item",
-    DROPDOWN: "." + BS_PREFIX$8 + "dropdown",
-    DROPDOWN_TOGGLE: "." + BS_PREFIX$8 + "dropdown-toggle"
+    DATA_SPY: '[data-spy="scroll"]',
+    NAV_LIST_GROUP: '.nav, .list-group',
+    NAV_LINKS: '.nav-link',
+    NAV_ITEMS: '.nav-item',
+    LIST_ITEMS: '.list-group-item',
+    DROPDOWN: '.dropdown',
+    DROPDOWN_TOGGLE: '.dropdown-toggle'
   };
   var OffsetMethod = {
     OFFSET: 'offset',
@@ -9342,7 +9327,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.0): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-beta.1): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -9385,7 +9370,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.0): get-style.js
+   * CoreUI Utilities (v3.0.0-beta.1): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -9423,28 +9408,26 @@
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0-beta.0';
+  var VERSION$b = '3.0.0-beta.1';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
-  var PREFIX$3 = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
-  // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-
   var DefaultType$7 = {
     dropdownAccordion: 'boolean'
   };
   var Default$9 = {
-    transition: 400 // dropdownAccordion: false
-
+    transition: 400
   };
   var ClassName$b = {
-    ACTIVE: PREFIX$3 + "active",
-    NAV_DROPDOWN: PREFIX$3 + "sidebar-nav-dropdown",
-    NAV_DROPDOWN_TOGGLE: PREFIX$3 + "sidebar-nav-dropdown-toggle",
-    SHOW: PREFIX$3 + "show",
-    SIDEBAR_MINIMIZED: PREFIX$3 + "sidebar-minimized",
-    SIDEBAR_OVERLAID: PREFIX$3 + "sidebar-overlaid",
-    SIDEBAR_SHOW: PREFIX$3 + "sidebar-show"
+    ACTIVE: 'c-active',
+    BACKDROP: 'c-sidebar-backdrop',
+    FADE: 'c-fade',
+    NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+    NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
+    SHOW: 'c-show',
+    SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
+    SIDEBAR_OVERLAID: 'c-sidebar-overlaid',
+    SIDEBAR_SHOW: 'c-sidebar-show'
   };
   var Event$c = {
     CLASS_TOGGLE: 'classtoggle',
@@ -9457,12 +9440,12 @@
     UPDATE: 'update'
   };
   var Selector$b = {
-    NAV_DROPDOWN_TOGGLE: "." + PREFIX$3 + "sidebar-nav-dropdown-toggle",
-    NAV_DROPDOWN: "." + PREFIX$3 + "sidebar-nav-dropdown",
-    NAV_LINK: "." + PREFIX$3 + "sidebar-nav-link",
-    // NAV_LINK_QUERIED: `.${PREFIX}sidebar-nav-link-queried`,
-    NAVIGATION_CONTAINER: "." + PREFIX$3 + "sidebar-nav",
-    SIDEBAR: "." + PREFIX$3 + "sidebar"
+    NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
+    NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
+    NAV_LINK: '.c-sidebar-nav-link',
+    // NAV_LINK_QUERIED: `.c-sidebar-nav-link-queried`,
+    NAVIGATION_CONTAINER: '.c-sidebar-nav',
+    SIDEBAR: '.c-sidebar'
   };
   /**
    * ------------------------------------------------------------------------
@@ -9477,6 +9460,7 @@
       this._element = element;
       this.mobile = false;
       this.ps = null;
+      this._backdrop = null;
 
       this._perfectScrollbar(Event$c.INIT);
 
@@ -9697,15 +9681,41 @@
 
     _proto._removeClickOut = function _removeClickOut() {
       document.removeEventListener(Event$c.CLICK, this._clickOutListener, true);
+
+      this._removeBackdrop();
     };
 
     _proto._toggleClickOut = function _toggleClickOut() {
       if (this.mobile && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
         this._addClickOut();
+
+        this._showBackdrop();
       } else if (this._element.classList.contains(ClassName$b.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
         this._addClickOut();
       } else {
         this._removeClickOut();
+      }
+    };
+
+    _proto._removeBackdrop = function _removeBackdrop() {
+      if (this._backdrop) {
+        this._backdrop.parentNode.removeChild(this._backdrop);
+
+        this._backdrop = null;
+      }
+    };
+
+    _proto._showBackdrop = function _showBackdrop() {
+      if (!this._backdrop) {
+        this._backdrop = document.createElement('div');
+        this._backdrop.className = ClassName$b.BACKDROP;
+
+        this._backdrop.classList.add(ClassName$b.FADE);
+
+        document.body.appendChild(this._backdrop);
+        reflow(this._backdrop);
+
+        this._backdrop.classList.add(ClassName$b.SHOW);
       }
     };
 
@@ -9808,11 +9818,10 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '3.0.0-beta.0';
+  var VERSION$c = '3.0.0-beta.1';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
-  var BS_PREFIX$9 = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Event$d = {
     HIDE: "hide" + EVENT_KEY$c,
     HIDDEN: "hidden" + EVENT_KEY$c,
@@ -9821,20 +9830,20 @@
     CLICK_DATA_API: "click" + EVENT_KEY$c + DATA_API_KEY$a
   };
   var ClassName$c = {
-    DROPDOWN_MENU: BS_PREFIX$9 + "dropdown-menu",
-    ACTIVE: BS_PREFIX$9 + "active",
+    DROPDOWN_MENU: 'dropdown-menu',
+    ACTIVE: 'active',
     DISABLED: 'disabled',
-    FADE: BS_PREFIX$9 + "fade",
-    SHOW: BS_PREFIX$9 + "show"
+    FADE: 'fade',
+    SHOW: 'show'
   };
   var Selector$c = {
-    DROPDOWN: "." + BS_PREFIX$9 + "dropdown",
-    NAV_LIST_GROUP: "." + BS_PREFIX$9 + "nav, ." + BS_PREFIX$9 + "list-group",
-    ACTIVE: "." + BS_PREFIX$9 + "active",
-    ACTIVE_UL: ":scope > li > ." + BS_PREFIX$9 + "active",
-    DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX$9 + "tab\"], [data-toggle=\"" + BS_PREFIX$9 + "pill\"], [data-toggle=\"" + BS_PREFIX$9 + "list\"]",
-    DROPDOWN_TOGGLE: "." + BS_PREFIX$9 + "dropdown-toggle",
-    DROPDOWN_ACTIVE_CHILD: ":scope > ." + BS_PREFIX$9 + "dropdown-menu ." + BS_PREFIX$9 + "active"
+    DROPDOWN: '.dropdown',
+    NAV_LIST_GROUP: '.nav, .list-group',
+    ACTIVE: '.active',
+    ACTIVE_UL: ':scope > li > .active',
+    DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+    DROPDOWN_TOGGLE: '.dropdown-toggle',
+    DROPDOWN_ACTIVE_CHILD: ':scope > .dropdown-menu .active'
   };
   /**
    * ------------------------------------------------------------------------
@@ -10045,10 +10054,9 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '3.0.0-beta.0';
+  var VERSION$d = '3.0.0-beta.1';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
-  var BS_PREFIX$a = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
   var Event$e = {
     CLICK_DISMISS: "click.dismiss" + EVENT_KEY$d,
     HIDE: "hide" + EVENT_KEY$d,
@@ -10057,10 +10065,10 @@
     SHOWN: "shown" + EVENT_KEY$d
   };
   var ClassName$d = {
-    FADE: BS_PREFIX$a + "fade",
-    HIDE: BS_PREFIX$a + "hide",
-    SHOW: BS_PREFIX$a + "show",
-    SHOWING: BS_PREFIX$a + "showing"
+    FADE: 'fade',
+    HIDE: 'hide',
+    SHOW: 'show',
+    SHOWING: 'showing'
   };
   var DefaultType$8 = {
     animation: 'boolean',
@@ -10073,7 +10081,7 @@
     delay: 500
   };
   var Selector$d = {
-    DATA_DISMISS: "[data-dismiss=\"" + BS_PREFIX$a + "toast\"]"
+    DATA_DISMISS: '[data-dismiss="toast"]'
   };
   /**
    * ------------------------------------------------------------------------
@@ -10264,7 +10272,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.0): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-beta.1): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10300,7 +10308,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.0): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-beta.1): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10340,7 +10348,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.0): rgb-to-hex.js
+   * CoreUI (v3.0.0-beta.1): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10369,7 +10377,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.0): index.umd.js
+   * CoreUI (v3.0.0-beta.1): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -10396,5 +10404,5 @@
 
   return index_umd;
 
-}));
+})));
 //# sourceMappingURL=coreui.bundle.js.map

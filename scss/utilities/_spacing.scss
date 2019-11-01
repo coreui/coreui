@@ -8,25 +8,25 @@
 
     @each $prop, $abbrev in (margin: m, padding: p) {
       @each $size, $length in $spacers {
-        .#{$bs-prefix}#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
-        .#{$bs-prefix}#{$abbrev}t#{$infix}-#{$size},
-        .#{$bs-prefix}#{$abbrev}y#{$infix}-#{$size} {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
           #{$prop}-top: $length !important;
         }
-        .#{$bs-prefix}#{$abbrev}r#{$infix}-#{$size},
-        .#{$bs-prefix}#{$abbrev}x#{$infix}-#{$size} {
+        .#{$abbrev}r#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
           #{$prop}-right: $length !important;
         }
-        .#{$bs-prefix}#{$abbrev}b#{$infix}-#{$size},
-        .#{$bs-prefix}#{$abbrev}y#{$infix}-#{$size} {
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
           #{$prop}-bottom: $length !important;
         }
-        .#{$bs-prefix}#{$abbrev}l#{$infix}-#{$size},
-        .#{$bs-prefix}#{$abbrev}x#{$infix}-#{$size} {
+        .#{$abbrev}l#{$infix}-#{$size},
+        .#{$abbrev}x#{$infix}-#{$size} {
           #{$prop}-left: $length !important;
         }
 
-        .#{$bs-prefix}#{$abbrev}fs#{$infix}-#{$size} {
+        .#{$abbrev}fs#{$infix}-#{$size} {
           @include ltr {
             #{$prop}-left: $length !important;
           }
@@ -34,7 +34,7 @@
             #{$prop}-right: $length !important;
           }
         }
-        .#{$bs-prefix}#{$abbrev}fe#{$infix}-#{$size} {
+        .#{$abbrev}fe#{$infix}-#{$size} {
           @include ltr {
             #{$prop}-right: $length !important;
           }
@@ -45,28 +45,28 @@
       }
     }
 
-    // Negative margins (e.#{$bs-prefix}g., where `.#{$bs-prefix}mb-n1` is negative version of `.#{$bs-prefix}mb-1`)
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
     @each $size, $length in $spacers {
       @if $size != 0 {
-        .#{$bs-prefix}m#{$infix}-n#{$size} { margin: -$length !important; }
-        .#{$bs-prefix}mt#{$infix}-n#{$size},
-        .#{$bs-prefix}my#{$infix}-n#{$size} {
+        .m#{$infix}-n#{$size} { margin: -$length !important; }
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
           margin-top: -$length !important;
         }
-        .#{$bs-prefix}mr#{$infix}-n#{$size},
-        .#{$bs-prefix}mx#{$infix}-n#{$size} {
+        .mr#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
           margin-right: -$length !important;
         }
-        .#{$bs-prefix}mb#{$infix}-n#{$size},
-        .#{$bs-prefix}my#{$infix}-n#{$size} {
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
           margin-bottom: -$length !important;
         }
-        .#{$bs-prefix}ml#{$infix}-n#{$size},
-        .#{$bs-prefix}mx#{$infix}-n#{$size} {
+        .ml#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
           margin-left: -$length !important;
         }
 
-        .#{$bs-prefix}mfs#{$infix}-n#{$size} {
+        .mfs#{$infix}-n#{$size} {
           @include ltr {
             margin-left: -$length !important;
           }
@@ -74,7 +74,7 @@
             margin-right: -$length !important;
           }
         }
-        .#{$bs-prefix}mfe#{$infix}-n#{$size} {
+        .mfe#{$infix}-n#{$size} {
           @include ltr {
             margin-right: -$length !important;
           }
@@ -86,26 +86,26 @@
     }
 
     // Some special margin utils
-    .#{$bs-prefix}m#{$infix}-auto { margin: auto !important; }
-    .#{$bs-prefix}mt#{$infix}-auto,
-    .#{$bs-prefix}my#{$infix}-auto {
+    .m#{$infix}-auto { margin: auto !important; }
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
       margin-top: auto !important;
     }
-    .#{$bs-prefix}mr#{$infix}-auto,
-    .#{$bs-prefix}mx#{$infix}-auto {
+    .mr#{$infix}-auto,
+    .mx#{$infix}-auto {
       margin-right: auto !important;
     }
-    .#{$bs-prefix}mb#{$infix}-auto,
-    .#{$bs-prefix}my#{$infix}-auto {
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
       margin-bottom: auto !important;
     }
-    .#{$bs-prefix}ml#{$infix}-auto,
-    .#{$bs-prefix}mx#{$infix}-auto {
+    .ml#{$infix}-auto,
+    .mx#{$infix}-auto {
       margin-left: auto !important;
     }
 
     // Some special margin utils for flex, work only with flex-direction: row
-    .#{$bs-prefix}mfs#{$infix}-auto {
+    .mfs#{$infix}-auto {
       @include ltr {
         margin-left: auto !important;
       }
@@ -113,7 +113,7 @@
         margin-right: auto !important;
       }
     }
-    .#{$bs-prefix}mfe#{$infix}-auto {
+    .mfe#{$infix}-auto {
       @include ltr {
         margin-right: auto !important;
       }

@@ -2,7 +2,7 @@
 // Base styles
 //
 
-.#{$prefix}callout {
+.c-callout {
   position: relative;
   padding: 0 $spacer;
   margin: $spacer 0;
@@ -19,21 +19,21 @@
   }
 }
 
-.#{$prefix}callout-bordered {
+.c-callout-bordered {
   border: 1px solid $border-color;
   border-left-width: 4px;
 }
-.#{$prefix}callout code {
+.c-callout code {
   border-radius: $border-radius;
 }
-.#{$prefix}callout h4 {
+.c-callout h4 {
   margin-top: 0;
   margin-bottom: .25rem;
 }
-.#{$prefix}callout p:last-child {
+.c-callout p:last-child {
   margin-bottom: 0;
 }
-.#{$prefix}callout + .#{$prefix}callout {
+.c-callout + .c-callout {
   margin-top: - .25rem;
 }
 
@@ -42,7 +42,7 @@
 //
 
 @include theme-variant() {
-  .#{$prefix}callout-#{$color} {
+  .c-callout-#{$color} {
     @include ltr {
       border-left-color: $value;
     }

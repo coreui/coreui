@@ -5,7 +5,7 @@
 //
 
 h1, h2, h3, h4, h5, h6,
-.#{$bs-prefix}h1, .#{$bs-prefix}h2, .#{$bs-prefix}h3, .#{$bs-prefix}h4, .#{$bs-prefix}h5, .#{$bs-prefix}h6 {
+.h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: $headings-margin-bottom;
   font-family: $headings-font-family;
   font-weight: $headings-font-weight;
@@ -13,35 +13,35 @@ h1, h2, h3, h4, h5, h6,
   color: $headings-color;
 }
 
-h1, .#{$bs-prefix}h1 { @include font-size($h1-font-size); }
-h2, .#{$bs-prefix}h2 { @include font-size($h2-font-size); }
-h3, .#{$bs-prefix}h3 { @include font-size($h3-font-size); }
-h4, .#{$bs-prefix}h4 { @include font-size($h4-font-size); }
-h5, .#{$bs-prefix}h5 { @include font-size($h5-font-size); }
-h6, .#{$bs-prefix}h6 { @include font-size($h6-font-size); }
+h1, .h1 { @include font-size($h1-font-size); }
+h2, .h2 { @include font-size($h2-font-size); }
+h3, .h3 { @include font-size($h3-font-size); }
+h4, .h4 { @include font-size($h4-font-size); }
+h5, .h5 { @include font-size($h5-font-size); }
+h6, .h6 { @include font-size($h6-font-size); }
 
-.#{$bs-prefix}lead {
+.lead {
   @include font-size($lead-font-size);
   font-weight: $lead-font-weight;
 }
 
 // Type display classes
-.#{$bs-prefix}display-1 {
+.display-1 {
   @include font-size($display1-size);
   font-weight: $display1-weight;
   line-height: $display-line-height;
 }
-.#{$bs-prefix}display-2 {
+.display-2 {
   @include font-size($display2-size);
   font-weight: $display2-weight;
   line-height: $display-line-height;
 }
-.#{$bs-prefix}display-3 {
+.display-3 {
   @include font-size($display3-size);
   font-weight: $display3-weight;
   line-height: $display-line-height;
 }
-.#{$bs-prefix}display-4 {
+.display-4 {
   @include font-size($display4-size);
   font-weight: $display4-weight;
   line-height: $display-line-height;
@@ -63,7 +63,7 @@ hr {
 // Vertical rules
 //
 
-.#{$prefix}vr {
+.c-vr {
   width: $vr-width;
   background-color: $vr-color-bg;
 }
@@ -74,13 +74,13 @@ hr {
 //
 
 small,
-.#{$bs-prefix}small {
+.small {
   @include font-size($small-font-size);
   font-weight: $font-weight-normal;
 }
 
 mark,
-.#{$bs-prefix}mark {
+.mark {
   padding: $mark-padding;
   background-color: $mark-bg;
 }
@@ -90,15 +90,15 @@ mark,
 // Lists
 //
 
-.#{$bs-prefix}list-unstyled {
+.list-unstyled {
   @include list-unstyled;
 }
 
 // Inline turns list items into inline-block
-.#{$bs-prefix}list-inline {
+.list-inline {
   @include list-unstyled;
 }
-.#{$bs-prefix}list-inline-item {
+.list-inline-item {
   display: inline-block;
 
   &:not(:last-child) {
@@ -112,18 +112,18 @@ mark,
 //
 
 // Builds on `abbr`
-.#{$bs-prefix}initialism {
+.initialism {
   @include font-size(90%);
   text-transform: uppercase;
 }
 
 // Blockquotes
-.#{$bs-prefix}blockquote {
+.blockquote {
   margin-bottom: $spacer;
   @include font-size($blockquote-font-size);
 }
 
-.#{$bs-prefix}blockquote-footer {
+.blockquote-footer {
   display: block;
   @include font-size($blockquote-small-font-size);
   color: $blockquote-small-color;
@@ -133,8 +133,8 @@ mark,
   }
 }
 
-.#{$bs-prefix}icon,
-.#{$bs-prefix}btn-icon {
+.icon,
+.btn-icon {
   color: inherit;
   fill: currentColor;
 }

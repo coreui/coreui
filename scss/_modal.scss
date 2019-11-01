@@ -1,21 +1,21 @@
-// .#{$bs-prefix}modal-open      - body class for killing the scroll
-// .#{$bs-prefix}modal           - container to scroll within
-// .#{$bs-prefix}modal-dialog    - positioning shell for the actual modal
-// .#{$bs-prefix}modal-content   - actual modal w/ bg and corners and stuff
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
 
 
-.#{$bs-prefix}modal-open {
+.modal-open {
   // Kill the scroll on the body
   overflow: hidden;
 
-  .#{$bs-prefix}modal {
+  .modal {
     overflow-x: hidden;
     overflow-y: auto;
   }
 }
 
 // Container that the modal scrolls within
-.#{$bs-prefix}modal {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@
 }
 
 // Shell div to position the modal with bottom padding
-.#{$bs-prefix}modal-dialog {
+.modal-dialog {
   position: relative;
   width: auto;
   margin: $modal-dialog-margin;
@@ -41,35 +41,35 @@
   pointer-events: none;
 
   // When fading in the modal, animate it to slide down
-  .#{$bs-prefix}modal.#{$bs-prefix}fade & {
+  .modal.fade & {
     @include transition($modal-transition);
     transform: $modal-fade-transform;
   }
-  .#{$bs-prefix}modal.#{$bs-prefix}show & {
+  .modal.show & {
     transform: $modal-show-transform;
   }
 }
 
-.#{$bs-prefix}modal-dialog-scrollable {
+.modal-dialog-scrollable {
   display: flex; // IE10/11
   max-height: calc(100% - #{$modal-dialog-margin * 2});
 
-  .#{$bs-prefix}modal-content {
+  .modal-content {
     max-height: calc(100vh - #{$modal-dialog-margin * 2}); // IE10/11
     overflow: hidden;
   }
 
-  .#{$bs-prefix}modal-header,
-  .#{$bs-prefix}modal-footer {
+  .modal-header,
+  .modal-footer {
     flex-shrink: 0;
   }
 
-  .#{$bs-prefix}modal-body {
+  .modal-body {
     overflow-y: auto;
   }
 }
 
-.#{$bs-prefix}modal-dialog-centered {
+.modal-dialog-centered {
   display: flex;
   align-items: center;
   min-height: calc(100% - #{$modal-dialog-margin * 2});
@@ -81,13 +81,13 @@
     content: "";
   }
 
-  // Ensure `.#{$bs-prefix}modal-body` shows scrollbar (IE10/11)
-  &.#{$bs-prefix}modal-dialog-scrollable {
+  // Ensure `.modal-body` shows scrollbar (IE10/11)
+  &.modal-dialog-scrollable {
     flex-direction: column;
     justify-content: center;
     height: 100%;
 
-    .#{$bs-prefix}modal-content {
+    .modal-content {
       max-height: none;
     }
 
@@ -98,12 +98,12 @@
 }
 
 // Actual modal
-.#{$bs-prefix}modal-content {
+.modal-content {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 100%; // Ensure `.#{$bs-prefix}modal-content` extends the full width of the parent `.#{$bs-prefix}modal-dialog`
-  // counteract the pointer-events: none; in the .#{$bs-prefix}modal-dialog
+  width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+  // counteract the pointer-events: none; in the .modal-dialog
   pointer-events: auto;
   background-clip: padding-box;
   border: $modal-content-border-width solid;
@@ -119,7 +119,7 @@
 }
 
 // Modal background
-.#{$bs-prefix}modal-backdrop {
+.modal-backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -129,13 +129,13 @@
   background-color: $modal-backdrop-bg;
 
   // Fade for backdrop
-  &.#{$bs-prefix}fade { opacity: 0; }
-  &.#{$bs-prefix}show { opacity: $modal-backdrop-opacity; }
+  &.fade { opacity: 0; }
+  &.show { opacity: $modal-backdrop-opacity; }
 }
 
 // Modal header
 // Top section of the modal w/ title and dismiss
-.#{$bs-prefix}modal-header {
+.modal-header {
   display: flex;
   align-items: flex-start; // so the close btn always stays on the upper right corner
   justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
@@ -146,38 +146,38 @@
     border-color: themes-get-value("modal-header-border-color");
   }
 
-  .#{$bs-prefix}close {
+  .close {
     padding: $modal-header-padding;
 
     @include ltr {
-      // auto on the left force icon to the right even when there is no .#{$bs-prefix}modal-title
+      // auto on the left force icon to the right even when there is no .modal-title
       margin: (-$modal-header-padding-y) (-$modal-header-padding-x) (-$modal-header-padding-y) auto;
     }
     @include rtl {
-      // auto on the left force icon to the left even when there is no .#{$bs-prefix}modal-title
+      // auto on the left force icon to the left even when there is no .modal-title
       margin: (-$modal-header-padding-y) auto (-$modal-header-padding-y) (-$modal-header-padding-x);
     }
   }
 }
 
 // Title text within header
-.#{$bs-prefix}modal-title {
+.modal-title {
   margin-bottom: 0;
   line-height: $modal-title-line-height;
 }
 
 // Modal body
-// Where all modal content resides (sibling of .#{$bs-prefix}modal-header and .#{$bs-prefix}modal-footer)
-.#{$bs-prefix}modal-body {
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
   position: relative;
   // Enable `flex-grow: 1` so that the body take up as much space as possible
-  // when should there be a fixed height on `.#{$bs-prefix}modal-dialog`.
+  // when should there be a fixed height on `.modal-dialog`.
   flex: 1 1 auto;
   padding: $modal-inner-padding;
 }
 
 // Footer (for actions)
-.#{$bs-prefix}modal-footer {
+.modal-footer {
   display: flex;
   align-items: center; // vertically center
   justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
@@ -208,7 +208,7 @@
 }
 
 // Measure scrollbar width for padding body during modal show/hide
-.#{$bs-prefix}modal-scrollbar-measure {
+.modal-scrollbar-measure {
   position: absolute;
   top: -9999px;
   width: 50px;
@@ -219,20 +219,20 @@
 // Scale up the modal
 @include media-breakpoint-up(sm) {
   // Automatically set modal's width for larger viewports
-  .#{$bs-prefix}modal-dialog {
+  .modal-dialog {
     max-width: $modal-md;
     margin: $modal-dialog-margin-y-sm-up auto;
   }
 
-  .#{$bs-prefix}modal-dialog-scrollable {
+  .modal-dialog-scrollable {
     max-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
 
-    .#{$bs-prefix}modal-content {
+    .modal-content {
       max-height: calc(100vh - #{$modal-dialog-margin-y-sm-up * 2});
     }
   }
 
-  .#{$bs-prefix}modal-dialog-centered {
+  .modal-dialog-centered {
     min-height: calc(100% - #{$modal-dialog-margin-y-sm-up * 2});
 
     &::before {
@@ -240,34 +240,34 @@
     }
   }
 
-  .#{$bs-prefix}modal-content {
+  .modal-content {
     @include box-shadow($modal-content-box-shadow-sm-up);
   }
 
-  .#{$bs-prefix}modal-sm { max-width: $modal-sm; }
+  .modal-sm { max-width: $modal-sm; }
 }
 
 @include media-breakpoint-up(lg) {
-  .#{$bs-prefix}modal-lg,
-  .#{$bs-prefix}modal-xl {
+  .modal-lg,
+  .modal-xl {
     max-width: $modal-lg;
   }
 }
 
 @include media-breakpoint-up(xl) {
-  .#{$bs-prefix}modal-xl { max-width: $modal-xl; }
+  .modal-xl { max-width: $modal-xl; }
 }
 
 // CoreUI specific changes start
 
 @include theme-variant() {
-  .#{$bs-prefix}modal-#{$color} {
+  .modal-#{$color} {
 
-    .#{$bs-prefix}modal-content {
+    .modal-content {
       border-color: $value;
     }
 
-    .#{$bs-prefix}modal-header {
+    .modal-header {
       color: $white;
       background-color: $value;
     }

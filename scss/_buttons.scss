@@ -4,7 +4,7 @@
 // Base styles
 //
 
-.#{$bs-prefix}btn {
+.btn {
   display: inline-flex;
   align-items: center;
   font-family: $btn-font-family;
@@ -18,27 +18,26 @@
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
 
-
   @include hover {
     color: $body-color;
     text-decoration: none;
   }
 
   &:focus,
-  &.#{$bs-prefix}focus {
+  &.focus {
     outline: 0;
     box-shadow: $btn-focus-box-shadow;
   }
 
   // Disabled comes first so active can properly restyle
-  &.#{$bs-prefix}disabled,
+  &.disabled,
   &:disabled {
     opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
 
-  &:not(:disabled):not(.#{$bs-prefix}disabled):active,
-  &:not(:disabled):not(.#{$bs-prefix}disabled).#{$bs-prefix}active {
+  &:not(:disabled):not(.disabled):active,
+  &:not(:disabled):not(.disabled).active {
     @include box-shadow($btn-active-box-shadow);
 
     &:focus {
@@ -48,7 +47,7 @@
 
   // CoreUI start
   i,
-  .#{$prefix}icon {
+  .c-icon {
     height: $btn-font-size;
     margin: ((($font-size-base * $line-height-base) - $font-size-base) / 2) 0;
   }
@@ -56,8 +55,8 @@
 }
 
 // Future-proof disabling of clicks on `<a>` elements
-a.#{$bs-prefix}btn.#{$bs-prefix}disabled,
-fieldset:disabled a.#{$bs-prefix}btn {
+a.btn.disabled,
+fieldset:disabled a.btn {
   pointer-events: none;
 }
 
@@ -67,12 +66,12 @@ fieldset:disabled a.#{$bs-prefix}btn {
 //
 
 @include theme-variant() {
-  .#{$bs-prefix}btn-#{$color} {
+  .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
-.#{$bs-prefix}btn-transparent {
+.btn-transparent {
   color: rgba(255, 255, 255, .8);
 
   &:hover {
@@ -81,7 +80,7 @@ fieldset:disabled a.#{$bs-prefix}btn {
 }
 
 @include theme-variant() {
-  .#{$bs-prefix}btn-outline-#{$color} {
+  .btn-outline-#{$color} {
     @include button-outline-variant($value);
   }
 }
@@ -92,7 +91,7 @@ fieldset:disabled a.#{$bs-prefix}btn {
 //
 
 // Make a button look and behave like a link
-.#{$bs-prefix}btn-link {
+.btn-link {
   font-weight: $font-weight-normal;
   color: $link-color;
   text-decoration: $link-decoration;
@@ -103,13 +102,13 @@ fieldset:disabled a.#{$bs-prefix}btn {
   }
 
   &:focus,
-  &.#{$bs-prefix}focus {
+  &.focus {
     text-decoration: $link-hover-decoration;
     box-shadow: none;
   }
 
   &:disabled,
-  &.#{$bs-prefix}disabled {
+  &.disabled {
     color: $btn-link-disabled-color;
     pointer-events: none;
   }
@@ -122,11 +121,11 @@ fieldset:disabled a.#{$bs-prefix}btn {
 // Button Sizes
 //
 
-.#{$bs-prefix}btn-lg {
+.btn-lg {
   @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
 }
 
-.#{$bs-prefix}btn-sm {
+.btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
 }
 
@@ -135,12 +134,12 @@ fieldset:disabled a.#{$bs-prefix}btn {
 // Block button
 //
 
-.#{$bs-prefix}btn-block {
+.btn-block {
   display: block;
   width: 100%;
 
   // Vertically space out multiple block buttons
-  + .#{$bs-prefix}btn-block {
+  + .btn-block {
     margin-top: $btn-block-spacing-y;
   }
 }
@@ -149,16 +148,16 @@ fieldset:disabled a.#{$bs-prefix}btn {
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
-  &.#{$bs-prefix}btn-block {
+  &.btn-block {
     width: 100%;
   }
 }
 
-.#{$bs-prefix}btn-pill {
+.btn-pill {
   border-radius: 50em;
 }
 
-.#{$bs-prefix}btn-square {
+.btn-square {
   border-radius: 0;
 }
 
@@ -167,7 +166,7 @@ input[type="button"] {
 //
 
 @include theme-variant() {
-  .#{$bs-prefix}btn-ghost-#{$color} {
+  .btn-ghost-#{$color} {
     @include button-ghost-variant($value);
   }
 }
@@ -177,13 +176,13 @@ input[type="button"] {
 //
 
 @each $color, $value in $brands-colors {
-  .#{$bs-prefix}btn-#{$color} {
+  .btn-#{$color} {
     @include button-variant($value, $value);
   }
 }
 
 // @each $color, $value in $brands-colors {
-//   .#{$bs-prefix}btn-outline-#{$color} {
+//   .btn-outline-#{$color} {
 //     @include button-outline-variant($value);
 //   }
 // }

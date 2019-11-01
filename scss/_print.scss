@@ -21,7 +21,7 @@
     }
 
     a {
-      &:not(.#{$bs-prefix}btn) {
+      &:not(.btn) {
         text-decoration: underline;
       }
     }
@@ -92,19 +92,19 @@
     body {
       min-width: $print-body-min-width !important;
     }
-    .#{$bs-prefix}container {
+    .container {
       min-width: $print-body-min-width !important;
     }
 
     // Bootstrap components
-    .#{$bs-prefix}navbar {
+    .navbar {
       display: none;
     }
-    .#{$bs-prefix}badge {
+    .badge {
       border: $border-width solid $black;
     }
 
-    .#{$bs-prefix}table {
+    .table {
       border-collapse: collapse !important;
 
       td,
@@ -113,14 +113,14 @@
       }
     }
 
-    .#{$bs-prefix}table-bordered {
+    .table-bordered {
       th,
       td {
         border: 1px solid $gray-300 !important;
       }
     }
 
-    .#{$bs-prefix}table-dark {
+    .table-dark {
       color: inherit;
 
       th,
@@ -131,7 +131,7 @@
       }
     }
 
-    .#{$bs-prefix}table .#{$bs-prefix}thead-dark th {
+    .table .thead-dark th {
       color: inherit;
       border-color: $table-border-color;
     }

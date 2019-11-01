@@ -1,0 +1,22 @@
+// Email App
+
+$email-app-bg:                 $white !default;
+$email-app-border-color:       $border-color !default;
+$email-app-message-color:      $body-color !default;
+$email-app-message-read-color: $gray-700 !default;
+$email-app-message-body-color: $gray-800 !default;
+
+$email-app-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$email-app-theme-map: map-merge(
+  (
+    light: (
+      "email-app-bg":                    $email-app-bg,
+      "email-app-border-color":          $email-app-border-color,
+      "email-app-message-color":         $email-app-message-color,
+      "email-app-message-read-color":    $email-app-message-read-color,
+      "email-app-message-body-color":    $email-app-message-body-color
+    )
+  ),
+  $email-app-theme-map
+);

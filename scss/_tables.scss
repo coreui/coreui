@@ -2,7 +2,7 @@
 // Basic Bootstrap table
 //
 
-.#{$bs-prefix}table {
+.table {
   width: 100%;
   margin-bottom: $spacer;
 
@@ -45,7 +45,7 @@
 // Condensed table w/ half padding
 //
 
-.#{$bs-prefix}table-sm {
+.table-sm {
   th,
   td {
     padding: $table-cell-padding-sm;
@@ -57,7 +57,7 @@
 //
 // Add or remove borders all around the table and between all the columns.
 
-.#{$bs-prefix}table-bordered {
+.table-bordered {
   border: $table-border-width solid;
 
   @include themes($table-theme-map, $create: parent) {
@@ -81,7 +81,7 @@
   }
 }
 
-.#{$bs-prefix}table-borderless {
+.table-borderless {
   th,
   td,
   thead th,
@@ -94,7 +94,7 @@
 //
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
-.#{$bs-prefix}table-striped {
+.table-striped {
   tbody tr:nth-of-type(#{$table-striped-order}) {
 
     @include themes($table-theme-map, $create: parent) {
@@ -108,7 +108,7 @@
 //
 // Placed here since it has to come after the potential zebra striping
 
-.#{$bs-prefix}table-hover {
+.table-hover {
   tbody tr {
     @include hover {
       @include themes($table-theme-map, $create: parent) {
@@ -122,7 +122,7 @@
 
 // Table backgrounds
 //
-// Exact selectors below required to override `.#{$bs-prefix}table-striped` and prevent
+// Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 
 @include theme-variant() {
@@ -139,8 +139,8 @@
 // Same table markup, but inverted color scheme: dark background and light text.
 
 // stylelint-disable-next-line no-duplicate-selectors
-.#{$bs-prefix}table {
-  .#{$bs-prefix}thead-dark {
+.table {
+  .thead-dark {
     th {
       // color: $table-dark-color;
       // background-color: $table-dark-bg;
@@ -153,7 +153,7 @@
     }
   }
 
-  .#{$bs-prefix}thead-light {
+  .thead-light {
     th {
       // color: $table-head-color;
       // background-color: $table-head-bg;
@@ -167,7 +167,7 @@
   }
 }
 
-.#{$bs-prefix}table-dark {
+.table-dark {
   // color: $table-dark-color;
   // background-color: $table-dark-bg;
   @include themes($table-theme-map) {
@@ -184,11 +184,11 @@
     }
   }
 
-  &.#{$bs-prefix}table-bordered {
+  &.table-bordered {
     border: 0;
   }
 
-  &.#{$bs-prefix}table-striped {
+  &.table-striped {
     tbody tr:nth-of-type(odd) {
       // background-color: $table-dark-accent-bg;
       @include themes($table-theme-map) {
@@ -197,7 +197,7 @@
     }
   }
 
-  &.#{$bs-prefix}table-hover {
+  &.table-hover {
     tbody tr {
       @include hover {
         // color: $table-dark-hover-color;
@@ -214,10 +214,10 @@
 
 // Responsive tables
 //
-// Generate series of `.#{$bs-prefix}table-responsive-*` classes for configuring the screen
+// Generate series of `.table-responsive-*` classes for configuring the screen
 // size of where your table will overflow.
 
-.#{$bs-prefix}table-responsive {
+.table-responsive {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
@@ -230,7 +230,7 @@
         -webkit-overflow-scrolling: touch;
 
         // Prevent double border on horizontal scroll due to use of `display: block;`
-        > .#{$bs-prefix}table-bordered {
+        > .table-bordered {
           border: 0;
         }
       }
@@ -240,7 +240,7 @@
 
 // CoreUI start
 
-.#{$bs-prefix}table-outline {
+.table-outline {
   border: 1px solid;
 
   @include themes($table-theme-map, $create: parent) {
@@ -252,14 +252,14 @@
   }
 }
 
-.#{$bs-prefix}table-align-middle {
+.table-align-middle {
 
   td {
     vertical-align: middle;
   }
 }
 
-.#{$bs-prefix}table-clear {
+.table-clear {
   td {
     border: 0;
   }

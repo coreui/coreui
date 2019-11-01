@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): dropdown.js
+ * CoreUI (v3.0.0-beta.1): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'dropdown'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -41,8 +41,6 @@ const ARROW_UP_KEYCODE = 38 // KeyboardEvent.which value for up arrow key
 const ARROW_DOWN_KEYCODE = 40 // KeyboardEvent.which value for down arrow key
 const RIGHT_MOUSE_BUTTON_WHICH = 3 // MouseEvent.which value for the right button (assuming a right-handed mouse)
 const REGEXP_KEYDOWN = new RegExp(`${ARROW_UP_KEYCODE}|${ARROW_DOWN_KEYCODE}|${ESCAPE_KEYCODE}`)
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
 
 const Event = {
   HIDE: `hide${EVENT_KEY}`,
@@ -57,21 +55,21 @@ const Event = {
 
 const ClassName = {
   DISABLED: 'disabled',
-  SHOW: `${BS_PREFIX}show`,
-  DROPUP: `${BS_PREFIX}dropup`,
-  DROPRIGHT: `${BS_PREFIX}dropright`,
-  DROPLEFT: `${BS_PREFIX}dropleft`,
-  MENURIGHT: `${BS_PREFIX}dropdown-menu-right`,
+  SHOW: 'show',
+  DROPUP: 'dropup',
+  DROPRIGHT: 'dropright',
+  DROPLEFT: 'dropleft',
+  MENURIGHT: 'dropdown-menu-right',
   POSITION_STATIC: 'position-static'
 }
 
 const Selector = {
-  DATA_TOGGLE: `[data-toggle="${BS_PREFIX}dropdown"]`,
-  FORM_CHILD: `.${BS_PREFIX}dropdown form`,
-  MENU: `.${BS_PREFIX}dropdown-menu`,
-  NAVBAR_NAV: `.${BS_PREFIX}navbar-nav`,
-  HEADER_NAV: `.${PREFIX}header-nav`,
-  VISIBLE_ITEMS: `.${BS_PREFIX}dropdown-menu .${BS_PREFIX}dropdown-item:not(.disabled):not(:disabled)`
+  DATA_TOGGLE: '[data-toggle="dropdown"]',
+  FORM_CHILD: '.dropdown form',
+  MENU: '.dropdown-menu',
+  NAVBAR_NAV: '.navbar-nav',
+  HEADER_NAV: '.c-header-nav',
+  VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
 }
 
 const AttachmentMap = {
@@ -337,11 +335,11 @@ class Dropdown {
   }
 
   _detectNavbar() {
-    return Boolean(SelectorEngine.closest(this._element, `.${BS_PREFIX}navbar`))
+    return Boolean(SelectorEngine.closest(this._element, '.navbar'))
   }
 
   _detectHeader() {
-    return Boolean(SelectorEngine.closest(this._element, `.${PREFIX}header`))
+    return Boolean(SelectorEngine.closest(this._element, '.c-header'))
   }
 
   _getOffset() {

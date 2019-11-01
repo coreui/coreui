@@ -1,17 +1,17 @@
 // List Groups
 
 @mixin list-group-item-variant($state, $background, $color) {
-  .#{$bs-prefix}list-group-item-#{$state} {
+  .list-group-item-#{$state} {
     color: $color;
     background-color: $background;
 
-    &.#{$bs-prefix}list-group-item-action {
+    &.list-group-item-action {
       @include hover-focus {
         color: $color;
         background-color: darken($background, 5%);
       }
 
-      &.#{$bs-prefix}active {
+      &.active {
         color: $white;
         background-color: $color;
         border-color: $color;
@@ -22,7 +22,7 @@
 
 // CoreUI start
 @mixin list-group-item-accent-variant($state, $color) {
-  .#{$bs-prefix}list-group-item-accent-#{$state} {
+  .list-group-item-accent-#{$state} {
     border-left: 4px solid $color;
   }
 }

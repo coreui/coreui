@@ -12,7 +12,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): popover.js
+ * CoreUI (v3.0.0-beta.1): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -31,18 +31,17 @@ import Tooltip from './tooltip';
  */
 
 var NAME = 'popover';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.popover';
 var EVENT_KEY = "." + DATA_KEY;
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
-var CLASS_PREFIX = BS_PREFIX + "bs-popover";
+var CLASS_PREFIX = 'bs-popover';
 var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
 var Default = _objectSpread({}, Tooltip.Default, {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: "<div class=\"" + BS_PREFIX + "popover\" role=\"tooltip\">\n               <div class=\"" + BS_PREFIX + "popover-arrow\"></div>\n               <h3 class=\"" + BS_PREFIX + "popover-header\"></h3>\n               <div class=\"" + BS_PREFIX + "popover-body\"></div>\n             </div>"
+  template: "<div class=\"popover\" role=\"tooltip\">\n               <div class=\"popover-arrow\"></div>\n               <h3 class=\"popover-header\"></h3>\n               <div class=\"popover-body\"></div>\n             </div>"
 });
 
 var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
@@ -50,12 +49,12 @@ var DefaultType = _objectSpread({}, Tooltip.DefaultType, {
 });
 
 var ClassName = {
-  FADE: BS_PREFIX + "fade",
-  SHOW: BS_PREFIX + "show"
+  FADE: 'fade',
+  SHOW: 'show'
 };
 var Selector = {
-  TITLE: "." + BS_PREFIX + "popover-header",
-  CONTENT: "." + BS_PREFIX + "popover-body"
+  TITLE: '.popover-header',
+  CONTENT: '.popover-body'
 };
 var Event = {
   HIDE: "hide" + EVENT_KEY,

@@ -1,16 +1,19 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): sidebar.js
+ * CoreUI (v3.0.0-beta.1): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
-  jQuery as $
+  jQuery as $,
+  // TRANSITION_END,
+  // emulateTransitionEnd,
+  // getTransitionDurationFromElement,
+  reflow
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
-// import Manipulator from './dom/manipulator'
 import PerfectScrollbar from 'perfect-scrollbar'
 import getStyle from './utilities/get-style'
 
@@ -21,13 +24,10 @@ import getStyle from './utilities/get-style'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
-const PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'
-// const DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn']
-// const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const DefaultType = {
   dropdownAccordion: 'boolean'
@@ -35,17 +35,18 @@ const DefaultType = {
 
 const Default = {
   transition: 400
-  // dropdownAccordion: false
 }
 
 const ClassName = {
-  ACTIVE: `${PREFIX}active`,
-  NAV_DROPDOWN: `${PREFIX}sidebar-nav-dropdown`,
-  NAV_DROPDOWN_TOGGLE: `${PREFIX}sidebar-nav-dropdown-toggle`,
-  SHOW: `${PREFIX}show`,
-  SIDEBAR_MINIMIZED: `${PREFIX}sidebar-minimized`,
-  SIDEBAR_OVERLAID: `${PREFIX}sidebar-overlaid`,
-  SIDEBAR_SHOW: `${PREFIX}sidebar-show`
+  ACTIVE: 'c-active',
+  BACKDROP: 'c-sidebar-backdrop',
+  FADE: 'c-fade',
+  NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+  NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
+  SHOW: 'c-show',
+  SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
+  SIDEBAR_OVERLAID: 'c-sidebar-overlaid',
+  SIDEBAR_SHOW: 'c-sidebar-show'
 }
 
 const Event = {
@@ -60,12 +61,12 @@ const Event = {
 }
 
 const Selector = {
-  NAV_DROPDOWN_TOGGLE: `.${PREFIX}sidebar-nav-dropdown-toggle`,
-  NAV_DROPDOWN: `.${PREFIX}sidebar-nav-dropdown`,
-  NAV_LINK: `.${PREFIX}sidebar-nav-link`,
-  // NAV_LINK_QUERIED: `.${PREFIX}sidebar-nav-link-queried`,
-  NAVIGATION_CONTAINER: `.${PREFIX}sidebar-nav`,
-  SIDEBAR: `.${PREFIX}sidebar`
+  NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
+  NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
+  NAV_LINK: '.c-sidebar-nav-link',
+  // NAV_LINK_QUERIED: `.c-sidebar-nav-link-queried`,
+  NAVIGATION_CONTAINER: '.c-sidebar-nav',
+  SIDEBAR: '.c-sidebar'
 }
 
 /**
@@ -79,6 +80,7 @@ class Sidebar {
     this._element = element
     this.mobile = false
     this.ps = null
+    this._backdrop = null
     this._perfectScrollbar(Event.INIT)
     this._setActiveLink()
     this._breakpointTest = this._breakpointTest.bind(this)
@@ -287,15 +289,35 @@ class Sidebar {
 
   _removeClickOut() {
     document.removeEventListener(Event.CLICK, this._clickOutListener, true)
+    this._removeBackdrop()
   }
 
   _toggleClickOut() {
     if (this.mobile && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
       this._addClickOut()
+      this._showBackdrop()
     } else if (this._element.classList.contains(ClassName.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
       this._addClickOut()
     } else {
       this._removeClickOut()
+    }
+  }
+
+  _removeBackdrop() {
+    if (this._backdrop) {
+      this._backdrop.parentNode.removeChild(this._backdrop)
+      this._backdrop = null
+    }
+  }
+
+  _showBackdrop() {
+    if (!this._backdrop) {
+      this._backdrop = document.createElement('div')
+      this._backdrop.className = ClassName.BACKDROP
+      this._backdrop.classList.add(ClassName.FADE)
+      document.body.appendChild(this._backdrop)
+      reflow(this._backdrop)
+      this._backdrop.classList.add(ClassName.SHOW)
     }
   }
 

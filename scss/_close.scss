@@ -1,4 +1,4 @@
-.#{$bs-prefix}close {
+.close {
   float: right;
   @include font-size($close-font-size);
   font-weight: $close-font-weight;
@@ -13,7 +13,7 @@
     text-decoration: none;
   }
 
-  &:not(:disabled):not(.#{$bs-prefix}disabled) {
+  &:not(:disabled):not(.disabled) {
     @include hover-focus {
       opacity: .75;
     }
@@ -26,7 +26,7 @@
 // See https://developer.mozilla.org/en-US/docs/Web/Events/click#Safari_Mobile
 
 // stylelint-disable-next-line selector-no-qualifying-type
-button.#{$bs-prefix}close {
+button.close {
   padding: 0;
   background-color: transparent;
   border: 0;
@@ -36,6 +36,6 @@ button.#{$bs-prefix}close {
 // Future-proof disabling of clicks on `<a>` elements
 
 // stylelint-disable-next-line selector-no-qualifying-type
-a.#{$bs-prefix}close.#{$bs-prefix}disabled {
+a.close.disabled {
   pointer-events: none;
 }

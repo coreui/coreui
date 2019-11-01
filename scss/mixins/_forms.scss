@@ -29,7 +29,7 @@
 
 
 @mixin form-validation-state($state, $color, $icon) {
-  .#{$bs-prefix}#{$state}-feedback {
+  .#{$state}-feedback {
     display: none;
     width: 100%;
     margin-top: $form-feedback-margin-top;
@@ -37,7 +37,7 @@
     color: $color;
   }
 
-  .#{$bs-prefix}#{$state}-tooltip {
+  .#{$state}-tooltip {
     position: absolute;
     top: 100%;
     z-index: 5;
@@ -52,9 +52,9 @@
     @include border-radius($form-feedback-tooltip-border-radius);
   }
 
-  .#{$bs-prefix}form-control {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
+  .form-control {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
       border-color: $color;
 
       @if $enable-validation-icons {
@@ -81,17 +81,17 @@
         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
       }
 
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
     }
   }
 
   // stylelint-disable-next-line selector-no-qualifying-type
-  textarea.#{$bs-prefix}form-control {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
+  textarea.form-control {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
       @if $enable-validation-icons {
         @include ltr {
           padding-right: $input-height-inner;
@@ -105,9 +105,9 @@
     }
   }
 
-  .#{$bs-prefix}custom-select {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
+  .custom-select {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
       border-color: $color;
 
       @if $enable-validation-icons {
@@ -125,42 +125,42 @@
         box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
       }
 
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
     }
   }
 
 
-  .#{$bs-prefix}form-control-file {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+  .form-control-file {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
     }
   }
 
-  .#{$bs-prefix}form-check-input {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
-      ~ .#{$bs-prefix}form-check-label {
+  .form-check-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .form-check-label {
         color: $color;
       }
 
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
     }
   }
 
-  .#{$bs-prefix}custom-control-input {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
-      ~ .#{$bs-prefix}custom-control-label {
+  .custom-control-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .custom-control-label {
         color: $color;
 
         &::before {
@@ -168,24 +168,24 @@
         }
       }
 
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
 
       &:checked {
-        ~ .#{$bs-prefix}custom-control-label::before {
+        ~ .custom-control-label::before {
           border-color: lighten($color, 10%);
           @include gradient-bg(lighten($color, 10%));
         }
       }
 
       &:focus {
-        ~ .#{$bs-prefix}custom-control-label::before {
+        ~ .custom-control-label::before {
           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
         }
 
-        &:not(:checked) ~ .#{$bs-prefix}custom-control-label::before {
+        &:not(:checked) ~ .custom-control-label::before {
           border-color: $color;
         }
       }
@@ -193,20 +193,20 @@
   }
 
   // custom file
-  .#{$bs-prefix}custom-file-input {
-    .#{$bs-prefix}was-validated &:#{$state},
-    &.#{$bs-prefix}is-#{$state} {
-      ~ .#{$bs-prefix}custom-file-label {
+  .custom-file-input {
+    .was-validated &:#{$state},
+    &.is-#{$state} {
+      ~ .custom-file-label {
         border-color: $color;
       }
 
-      ~ .#{$bs-prefix}#{$state}-feedback,
-      ~ .#{$bs-prefix}#{$state}-tooltip {
+      ~ .#{$state}-feedback,
+      ~ .#{$state}-tooltip {
         display: block;
       }
 
       &:focus {
-        ~ .#{$bs-prefix}custom-file-label {
+        ~ .custom-file-label {
           border-color: $color;
           box-shadow: 0 0 0 $input-focus-width rgba($color, .25);
         }

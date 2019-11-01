@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): carousel.js
+ * CoreUI (v3.0.0-beta.1): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -33,7 +33,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'carousel'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -41,7 +41,6 @@ const ARROW_LEFT_KEYCODE = 37 // KeyboardEvent.which value for left arrow key
 const ARROW_RIGHT_KEYCODE = 39 // KeyboardEvent.which value for right arrow key
 const TOUCHEVENT_COMPAT_WAIT = 500 // Time for mouse compat events to fire after touch
 const SWIPE_THRESHOLD = 40
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
 
 const Default = {
   interval: 5000,
@@ -85,24 +84,24 @@ const Event = {
 }
 
 const ClassName = {
-  CAROUSEL: `${BS_PREFIX}carousel`,
-  ACTIVE: `${BS_PREFIX}active`,
+  CAROUSEL: 'carousel',
+  ACTIVE: 'active',
   SLIDE: 'slide',
-  RIGHT: `${BS_PREFIX}carousel-item-right`,
-  LEFT: `${BS_PREFIX}carousel-item-left`,
-  NEXT: `${BS_PREFIX}carousel-item-next`,
-  PREV: `${BS_PREFIX}carousel-item-prev`,
-  ITEM: `${BS_PREFIX}carousel-item`,
-  POINTER_EVENT: `${BS_PREFIX}pointer-event`
+  RIGHT: 'carousel-item-right',
+  LEFT: 'carousel-item-left',
+  NEXT: 'carousel-item-next',
+  PREV: 'carousel-item-prev',
+  ITEM: 'carousel-item',
+  POINTER_EVENT: 'pointer-event'
 }
 
 const Selector = {
-  ACTIVE: `.${BS_PREFIX}active`,
-  ACTIVE_ITEM: `.${BS_PREFIX}active.${BS_PREFIX}carousel-item`,
-  ITEM: `.${BS_PREFIX}carousel-item`,
-  ITEM_IMG: `.${BS_PREFIX}carousel-item img`,
-  NEXT_PREV: `.${BS_PREFIX}carousel-item-next, .${BS_PREFIX}carousel-item-prev`,
-  INDICATORS: `.${BS_PREFIX}carousel-indicators`,
+  ACTIVE: '.active',
+  ACTIVE_ITEM: '.active.carousel-item',
+  ITEM: '.carousel-item',
+  ITEM_IMG: '.carousel-item img',
+  NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
+  INDICATORS: '.carousel-indicators',
   DATA_SLIDE: '[data-slide], [data-slide-to]',
   DATA_RIDE: '[data-ride="carousel"]'
 }

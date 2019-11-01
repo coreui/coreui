@@ -2,7 +2,7 @@
 // Stretched link
 //
 
-.#{$bs-prefix}stretched-link {
+.stretched-link {
   &::after {
     position: absolute;
     top: 0;
@@ -13,7 +13,7 @@
     // Just in case `pointer-events: none` is set on a parent
     pointer-events: auto;
     content: "";
-    // IE10 bugfix, see https://stackoverflow.#{$bs-prefix}com/questions/16947967/ie10-hover-pseudo-class-doesnt-work-without-background-color
+    // IE10 bugfix, see https://stackoverflow.com/questions/16947967/ie10-hover-pseudo-class-doesnt-work-without-background-color
     background-color: rgba($black, 0);
   }
 }

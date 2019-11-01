@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): tab.js
+ * CoreUI (v3.0.0-beta.1): tab.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tab.js
@@ -23,11 +23,10 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'tab';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.tab';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : '';
 var Event = {
   HIDE: "hide" + EVENT_KEY,
   HIDDEN: "hidden" + EVENT_KEY,
@@ -36,20 +35,20 @@ var Event = {
   CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
 };
 var ClassName = {
-  DROPDOWN_MENU: BS_PREFIX + "dropdown-menu",
-  ACTIVE: BS_PREFIX + "active",
+  DROPDOWN_MENU: 'dropdown-menu',
+  ACTIVE: 'active',
   DISABLED: 'disabled',
-  FADE: BS_PREFIX + "fade",
-  SHOW: BS_PREFIX + "show"
+  FADE: 'fade',
+  SHOW: 'show'
 };
 var Selector = {
-  DROPDOWN: "." + BS_PREFIX + "dropdown",
-  NAV_LIST_GROUP: "." + BS_PREFIX + "nav, ." + BS_PREFIX + "list-group",
-  ACTIVE: "." + BS_PREFIX + "active",
-  ACTIVE_UL: ":scope > li > ." + BS_PREFIX + "active",
-  DATA_TOGGLE: "[data-toggle=\"" + BS_PREFIX + "tab\"], [data-toggle=\"" + BS_PREFIX + "pill\"], [data-toggle=\"" + BS_PREFIX + "list\"]",
-  DROPDOWN_TOGGLE: "." + BS_PREFIX + "dropdown-toggle",
-  DROPDOWN_ACTIVE_CHILD: ":scope > ." + BS_PREFIX + "dropdown-menu ." + BS_PREFIX + "active"
+  DROPDOWN: '.dropdown',
+  NAV_LIST_GROUP: '.nav, .list-group',
+  ACTIVE: '.active',
+  ACTIVE_UL: ':scope > li > .active',
+  DATA_TOGGLE: '[data-toggle="tab"], [data-toggle="pill"], [data-toggle="list"]',
+  DROPDOWN_TOGGLE: '.dropdown-toggle',
+  DROPDOWN_ACTIVE_CHILD: ':scope > .dropdown-menu .active'
 };
 /**
  * ------------------------------------------------------------------------

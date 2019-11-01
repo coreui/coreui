@@ -102,6 +102,102 @@ button.bg-dark:focus {
   background-color: #4d5666 !important;
 }
 
+.bg-gradient-primary {
+  background: #1f1498;
+  background: linear-gradient(45deg, #321fdb 0%, #1f1498 100%);
+  border-color: #1f1498;
+}
+
+.c-dark-theme .bg-gradient-primary {
+  background: #2d2587;
+  background: linear-gradient(45deg, #4638c2 0%, #2d2587 100%);
+  border-color: #2d2587;
+}
+
+.bg-gradient-secondary {
+  background: #fff;
+  background: linear-gradient(45deg, #c8d2dc 0%, #fff 100%);
+  border-color: #fff;
+}
+
+.c-dark-theme .bg-gradient-secondary {
+  background: white;
+  background: linear-gradient(45deg, #d1d2d3 0%, white 100%);
+  border-color: white;
+}
+
+.bg-gradient-success {
+  background: #1b9e3e;
+  background: linear-gradient(45deg, #2eb85c 0%, #1b9e3e 100%);
+  border-color: #1b9e3e;
+}
+
+.c-dark-theme .bg-gradient-success {
+  background: #2e8c47;
+  background: linear-gradient(45deg, #45a164 0%, #2e8c47 100%);
+  border-color: #2e8c47;
+}
+
+.bg-gradient-info {
+  background: #2982cc;
+  background: linear-gradient(45deg, #39f 0%, #2982cc 100%);
+  border-color: #2982cc;
+}
+
+.c-dark-theme .bg-gradient-info {
+  background: #4280b4;
+  background: linear-gradient(45deg, #4799eb 0%, #4280b4 100%);
+  border-color: #4280b4;
+}
+
+.bg-gradient-warning {
+  background: #f6960b;
+  background: linear-gradient(45deg, #f9b115 0%, #f6960b 100%);
+  border-color: #f6960b;
+}
+
+.c-dark-theme .bg-gradient-warning {
+  background: #dd9124;
+  background: linear-gradient(45deg, #e1a82d 0%, #dd9124 100%);
+  border-color: #dd9124;
+}
+
+.bg-gradient-danger {
+  background: #d93737;
+  background: linear-gradient(45deg, #e55353 0%, #d93737 100%);
+  border-color: #d93737;
+}
+
+.c-dark-theme .bg-gradient-danger {
+  background: #c14f4f;
+  background: linear-gradient(45deg, #d16767 0%, #c14f4f 100%);
+  border-color: #c14f4f;
+}
+
+.bg-gradient-light {
+  background: #fff;
+  background: linear-gradient(45deg, #e3e8ed 0%, #fff 100%);
+  border-color: #fff;
+}
+
+.c-dark-theme .bg-gradient-light {
+  background: white;
+  background: linear-gradient(45deg, #e8e8e8 0%, white 100%);
+  border-color: white;
+}
+
+.bg-gradient-dark {
+  background: #212333;
+  background: linear-gradient(45deg, #3c4b64 0%, #212333 100%);
+  border-color: #212333;
+}
+
+.c-dark-theme .bg-gradient-dark {
+  background: #292a2b;
+  background: linear-gradient(45deg, #4c4f54 0%, #292a2b 100%);
+  border-color: #292a2b;
+}
+
 .bg-white {
   background-color: #fff !important;
 }

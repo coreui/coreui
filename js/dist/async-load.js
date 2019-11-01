@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): asyn-load.js
+ * CoreUI (v3.0.0-beta.1): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -24,18 +24,14 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-beta.0';
+var VERSION = '3.0.0-beta.1';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
-var PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.prefix ? window.CoreUIDefaults.prefix : 'c-' : 'c-'; // const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-
 var ClassName = {
-  ACTIVE: PREFIX + "active",
-  NAV_DROPDOWN_TOGGLE: PREFIX + "sidebar-nav-dropdown-toggle",
-  // NAV_PILLS: `${PREFIX}nav-pills`,
-  // NAV_TABS: `${PREFIX}nav-tabs`,
-  SHOW: PREFIX + "show",
+  ACTIVE: 'c-active',
+  NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
+  SHOW: 'c-show',
   VIEW_SCRIPT: 'view-script'
 };
 var Event = {
@@ -43,9 +39,9 @@ var Event = {
   XHR_STATUS: 'xhr'
 };
 var Selector = {
-  NAV_DROPDOWN: "." + PREFIX + "sidebar-nav-dropdown",
-  NAV_LINK: "." + PREFIX + "xhr-link, ." + PREFIX + "sidebar-nav-link",
-  NAV_ITEM: "." + PREFIX + "sidebar-nav-item",
+  NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+  NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
+  NAV_ITEM: '.c-sidebar-nav-item',
   VIEW_SCRIPT: '.view-script'
 };
 var Default = {

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.0): popover.js
+ * CoreUI (v3.0.0-beta.1): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -21,11 +21,10 @@ import Tooltip from './tooltip'
  */
 
 const NAME = 'popover'
-const VERSION = '3.0.0-beta.0'
+const VERSION = '3.0.0-beta.1'
 const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
-const BS_PREFIX = window.CoreUIDefaults ? window.CoreUIDefaults.bsPrefix ? window.CoreUIDefaults.bsPrefix : '' : ''
-const CLASS_PREFIX = `${BS_PREFIX}bs-popover`
+const CLASS_PREFIX = 'bs-popover'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
 
 const Default = {
@@ -33,10 +32,10 @@ const Default = {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: `<div class="${BS_PREFIX}popover" role="tooltip">
-               <div class="${BS_PREFIX}popover-arrow"></div>
-               <h3 class="${BS_PREFIX}popover-header"></h3>
-               <div class="${BS_PREFIX}popover-body"></div>
+  template: `<div class="popover" role="tooltip">
+               <div class="popover-arrow"></div>
+               <h3 class="popover-header"></h3>
+               <div class="popover-body"></div>
              </div>`
 }
 
@@ -46,13 +45,13 @@ const DefaultType = {
 }
 
 const ClassName = {
-  FADE: `${BS_PREFIX}fade`,
-  SHOW: `${BS_PREFIX}show`
+  FADE: 'fade',
+  SHOW: 'show'
 }
 
 const Selector = {
-  TITLE: `.${BS_PREFIX}popover-header`,
-  CONTENT: `.${BS_PREFIX}popover-body`
+  TITLE: '.popover-header',
+  CONTENT: '.popover-body'
 }
 
 const Event = {
