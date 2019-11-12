@@ -52,19 +52,33 @@
 .toaster {
   position: fixed;
   display: flex;
-  flex-direction: column-reverse;
-}
+  margin: $spacer;
 
-.toaster-reverse {
-  flex-direction: column;
-}
+  &-top-center,
+  &-top-right,
+  &-top-left {
+    top: 0;
+    flex-direction: column-reverse;
 
-/*
-.top-center
-.top-right
-.top-left
-.bottom-center
-.bottom-right
-.bottom-left
-.center
-*/
+    .toast:last-child {
+      margin-bottom: $toast-padding-x;
+    }
+  }
+
+  &-bottom-center,
+  &-bottom-right,
+  &-bottom-left {
+    bottom: 0;
+    flex-direction: column;
+  }
+
+  &-top-right,
+  &-bottom-right {
+    right: 0;
+  }
+
+  &-top-left,
+  &-bottom-left {
+    left: 0;
+  }
+}

@@ -83,14 +83,14 @@
     "popper.js": "^1.16.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "@babel/plugin-transform-runtime": "^7.6.2",
-    "@babel/polyfill": "^7.6.0",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
     "autoprefixer": "^9.7.1",
     "babel-eslint": "^10.0.3",
     "babel-plugin-istanbul": "^5.2.0",
@@ -115,7 +115,7 @@
     "postcss-combine-duplicated-selectors": "^8.0.3",
     "postcss-merge-rules": "^4.0.3",
     "rimraf": "^3.0.0",
-    "rollup": "^1.26.2",
+    "rollup": "^1.26.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
@@ -126,7 +126,7 @@
     "stylelint-config-recommended-scss": "^4.0.0",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-order": "^3.1.1",
-    "stylelint-scss": "^3.12.0",
+    "stylelint-scss": "^3.12.1",
     "terser": "^4.3.9"
   },
   "engines": {

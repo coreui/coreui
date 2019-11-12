@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.1): asyn-load.js
+ * CoreUI (v3.0.0-beta.2): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'asyncLoad'
-const VERSION = '3.0.0-beta.1'
+const VERSION = '3.0.0-beta.2'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -36,7 +36,7 @@ const Event = {
 }
 
 const Selector = {
-  NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+  NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
   NAV_ITEM: '.c-sidebar-nav-item',
   VIEW_SCRIPT: '.view-script'

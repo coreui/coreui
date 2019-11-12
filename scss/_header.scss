@@ -47,8 +47,8 @@
 
   &.c-header-brand-centered {
     position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    top: $header-height;
+    transform: translate(-50%, -100%);
 
     @include ltr {
       left: 50%;
@@ -62,8 +62,8 @@
     @include media-breakpoint-down($breakpoint) {
       &.c-header-brand-#{$breakpoint}-down-centered {
         position: absolute;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        top: $header-height;
+        transform: translate(-50%, -100%);
         @include ltr {
           left: 50%;
         }

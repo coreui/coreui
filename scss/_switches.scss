@@ -133,7 +133,7 @@
 // Switch 3d
 //
 
-.c-switch-3d {
+.c-switch[class*="-3d"] {
   .c-switch-slider {
     background-color: $gray-100;
     border-radius: 50em;
@@ -168,11 +168,15 @@
   .c-switch-#{$color} {
     @include switch-variant($value);
   }
-  //outline style
+  // 3s style
+  .c-switch-3d-#{$color} {
+    @include switch-3d-variant($value);
+  }
+  // outline style
   .c-switch-outline-#{$color} {
     @include switch-outline-variant($value);
   }
-  //outline alternative style
+  // oposite
   .c-switch-opposite-#{$color} {
     @include switch-opposite-variant($value);
   }

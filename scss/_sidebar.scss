@@ -13,7 +13,7 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
   padding: $sidebar-padding;
   transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 
-  @include media-breakpoint-down($mobile-breakpoint) {
+  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
     --is-mobile: true;
     position: fixed;
@@ -288,6 +288,24 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
   padding: 0;
   overflow-y: hidden;
   transition: max-height $layout-transition-speed ease-in-out;
+
+  .c-sidebar-nav-link {
+    @include ltr {
+      padding-left: $sidebar-nav-icon-width;
+    }
+    @include rtl {
+      padding-right: $sidebar-nav-icon-width;
+    }
+
+    .c-sidebar-nav-icon {
+      @include ltr {
+        margin-left: - $sidebar-nav-icon-width;
+      }
+      @include rtl {
+        margin-right: - $sidebar-nav-icon-width;
+      }
+    }
+  }
 }
 
 .c-sidebar-nav-label {
@@ -354,18 +372,20 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
 
 // Modal background
 .c-sidebar-backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: $zindex-fixed;
-  width: 100vw;
-  height: 100vh;
-  background-color: $sidebar-backdrop-bg;
-  transition: $layout-transition-speed;
+  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $sidebar-backdrop-bg;
+    transition: $layout-transition-speed;
 
-  // Fade for backdrop
-  &.c-fade { opacity: 0; }
-  &.c-show { opacity: $sidebar-backdrop-opacity; }
+    // Fade for backdrop
+    &.c-fade { opacity: 0; }
+    &.c-show { opacity: $sidebar-backdrop-opacity; }
+  }
 }
 
 // Minimized Sidebar
@@ -450,16 +470,6 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
       }
     }
 
-    .c-sidebar-nav-dropdown {
-      position: relative;
-      overflow: hidden;
-
-      &:hover {
-        width: $sidebar-width + $sidebar-minimized-width;
-        overflow: visible;
-      }
-    }
-
     &.c-sidebar-right .c-sidebar-nav {
       > .c-sidebar-nav-item:hover,
       > .c-sidebar-nav-dropdown:hover {
@@ -478,25 +488,8 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
       white-space: nowrap;
       border-left: 0;
 
-      // TODO: clean-up
-      // .c-sidebar-nav-icon {
-      //   display: block;
-      //   float: left;
-      //   width: $sidebar-minimized-height;
-      //   font-size: 18px;
-      // }
-
-      // .badge {
-      //   display: none;
-      // }
-
       &:hover {
         width: $sidebar-width + $sidebar-minimized-width;
-
-        // TODO: clean-up
-        // .badge {
-        //   display: inline;
-        // }
       }
     }
 
@@ -511,14 +504,27 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
     }
 
     // stylelint-disable-next-line no-duplicate-selectors
-    .c-sidebar-nav-dropdown {
+    .c-sidebar-nav > .c-sidebar-nav-dropdown {
+      position: relative;
+      // overflow: hidden;
+
       > .c-sidebar-nav-dropdown-items {
         display: none;
-        max-height: 1000px;
+
+        .c-sidebar-nav-dropdown:not(.c-show) > .c-sidebar-nav-dropdown-items {
+          display: none;
+        }
       }
+      .c-sidebar-nav-dropdown-items {
+        max-height: 1500px;
+      }
+
 
       // stylelint-disable-next-line no-duplicate-selectors
       &:hover {
+        width: $sidebar-width + $sidebar-minimized-width;
+        overflow: visible;
+
         > .c-sidebar-nav-dropdown-items {
           position: absolute;
           display: inline;
@@ -558,8 +564,7 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
         @include rtl {
           margin-right: 0;
         }
-
-        @if $breakpoint != "xs" {
+        @include media-breakpoint-up($mobile-breakpoint) {
           &.c-sidebar-fixed {
             ~ .c-wrapper {
               @include ltr {
@@ -581,7 +586,6 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
                 }
               }
             }
-
             &.c-sidebar-minimized {
               ~ .c-wrapper {
                 @include ltr {
@@ -602,7 +606,7 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
         @include rtl {
           margin-left: 0;
         }
-        @if $breakpoint != "xs" {
+        @include media-breakpoint-up($mobile-breakpoint) {
           &.c-sidebar-fixed {
             ~ .c-wrapper {
               @include ltr {
@@ -624,7 +628,6 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
                 }
               }
             }
-
             &.c-sidebar-minimized {
               ~ .c-wrapper {
                 @include ltr {
@@ -849,9 +852,9 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
       }
     }
 
-    .c-sidebar-nav-link:hover {
-      background: themes-get-value("sidebar-nav-link-hover-bg");
-    }
+    // .c-sidebar-nav-link:hover {
+    //   background: themes-get-value("sidebar-nav-link-hover-bg");
+    // }
     .c-sidebar-nav {
       > .c-sidebar-nav-dropdown {
         > .c-sidebar-nav-dropdown-items {
