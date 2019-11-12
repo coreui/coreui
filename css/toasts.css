@@ -51,21 +51,29 @@
 .toaster {
   position: fixed;
   display: flex;
+  margin: 1rem;
+}
+
+.toaster-top-center, .toaster-top-right, .toaster-top-left {
+  top: 0;
   flex-direction: column-reverse;
 }
 
-.toaster-reverse {
+.toaster-top-center .toast:last-child, .toaster-top-right .toast:last-child, .toaster-top-left .toast:last-child {
+  margin-bottom: 0.75rem;
+}
+
+.toaster-bottom-center, .toaster-bottom-right, .toaster-bottom-left {
+  bottom: 0;
   flex-direction: column;
 }
 
-/*
-.top-center
-.top-right
-.top-left
-.bottom-center
-.bottom-right
-.bottom-left
-.center
-*/
+.toaster-top-right, .toaster-bottom-right {
+  right: 0;
+}
+
+.toaster-top-left, .toaster-bottom-left {
+  left: 0;
+}
 
 /*# sourceMappingURL=toasts.css.map */

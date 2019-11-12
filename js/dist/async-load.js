@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.1): asyn-load.js
+ * CoreUI (v3.0.0-beta.2): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -24,7 +24,7 @@ import EventHandler from './dom/event-handler';
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-beta.1';
+var VERSION = '3.0.0-beta.2';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -39,7 +39,7 @@ var Event = {
   XHR_STATUS: 'xhr'
 };
 var Selector = {
-  NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+  NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
   NAV_ITEM: '.c-sidebar-nav-item',
   VIEW_SCRIPT: '.view-script'

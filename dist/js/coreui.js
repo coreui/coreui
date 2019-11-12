@@ -750,7 +750,7 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-beta.1';
+  var VERSION = '3.0.0-beta.2';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -765,7 +765,7 @@
     XHR_STATUS: 'xhr'
   };
   var Selector = {
-    NAV_DROPDOWN: 'c-sidebar-nav-dropdown',
+    NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
     NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
     NAV_ITEM: '.c-sidebar-nav-item',
     VIEW_SCRIPT: '.view-script'
@@ -1115,7 +1115,7 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '3.0.0-beta.1';
+  var VERSION$1 = '3.0.0-beta.2';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -1291,7 +1291,7 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '3.0.0-beta.1';
+  var VERSION$2 = '3.0.0-beta.2';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
@@ -1550,7 +1550,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '3.0.0-beta.1';
+  var VERSION$3 = '3.0.0-beta.2';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -2170,7 +2170,7 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0-beta.1';
+  var VERSION$4 = '3.0.0-beta.2';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -2450,7 +2450,7 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '3.0.0-beta.1';
+  var VERSION$5 = '3.0.0-beta.2';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -2871,7 +2871,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '3.0.0-beta.1';
+  var VERSION$6 = '3.0.0-beta.2';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -3425,7 +3425,7 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '3.0.0-beta.1';
+  var VERSION$7 = '3.0.0-beta.2';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
@@ -4150,7 +4150,7 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '3.0.0-beta.1';
+  var VERSION$8 = '3.0.0-beta.2';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var CLASS_PREFIX = 'bs-tooltip';
@@ -4902,7 +4902,7 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '3.0.0-beta.1';
+  var VERSION$9 = '3.0.0-beta.2';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var CLASS_PREFIX$1 = 'bs-popover';
@@ -5094,7 +5094,7 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '3.0.0-beta.1';
+  var VERSION$a = '3.0.0-beta.2';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
@@ -5400,89 +5400,13 @@
   }
 
   /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.1): get-css-custom-properties.js
-   * Licensed under MIT (https://coreui.io/license)
-   * @returns {string} css custom property name
-   * --------------------------------------------------------------------------
-   */
-  var getCssCustomProperties = function getCssCustomProperties() {
-    var cssCustomProperties = {};
-    var sheets = document.styleSheets;
-    var cssText = '';
-
-    for (var i = sheets.length - 1; i > -1; i--) {
-      var rules = sheets[i].cssRules;
-
-      for (var j = rules.length - 1; j > -1; j--) {
-        if (rules[j].selectorText === '.ie-custom-properties') {
-          // eslint-disable-next-line prefer-destructuring
-          cssText = rules[j].cssText;
-          break;
-        }
-      }
-
-      if (cssText) {
-        break;
-      }
-    } // eslint-disable-next-line unicorn/prefer-string-slice
-
-
-    cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
-    cssText.split(';').forEach(function (property) {
-      if (property) {
-        var name = property.split(': ')[0];
-        var value = property.split(': ')[1];
-
-        if (name && value) {
-          cssCustomProperties["--" + name.trim()] = value.trim();
-        }
-      }
-    });
-    return cssCustomProperties;
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.1): get-style.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-  var minIEVersion = 10;
-
-  var isIE1x = function isIE1x() {
-    return Boolean(document.documentMode) && document.documentMode >= minIEVersion;
-  };
-
-  var isCustomProperty = function isCustomProperty(property) {
-    return property.match(/^--.*/i);
-  };
-
-  var getStyle = function getStyle(property, element) {
-    if (element === void 0) {
-      element = document.body;
-    }
-
-    var style;
-
-    if (isCustomProperty(property) && isIE1x()) {
-      var cssCustomProperties = getCssCustomProperties();
-      style = cssCustomProperties[property];
-    } else {
-      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
-    }
-
-    return style;
-  };
-
-  /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0-beta.1';
+  var VERSION$b = '3.0.0-beta.2';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
@@ -5532,7 +5456,7 @@
   function () {
     function Sidebar(element) {
       this._element = element;
-      this.mobile = false;
+      this.mobile = this._isMobile.bind(this);
       this.ps = null;
       this._backdrop = null;
 
@@ -5540,15 +5464,11 @@
 
       this._setActiveLink();
 
-      this._breakpointTest = this._breakpointTest.bind(this);
-
       this._toggleClickOut();
 
       this._clickOutListener = this._clickOutListener.bind(this);
 
       this._addEventListeners();
-
-      this._addMediaQuery();
     } // Getters
 
 
@@ -5718,23 +5638,8 @@
       });
     };
 
-    _proto._addMediaQuery = function _addMediaQuery() {
-      var sm = getStyle('--breakpoint-sm');
-
-      if (!sm) {
-        return;
-      }
-
-      var smValue = parseInt(sm, 10) - 1;
-      var mediaQueryList = window.matchMedia("(max-width: " + smValue + "px)");
-
-      this._breakpointTest(mediaQueryList);
-
-      mediaQueryList.addListener(this._breakpointTest);
-    };
-
-    _proto._breakpointTest = function _breakpointTest(event) {
-      this.mobile = Boolean(event.matches);
+    _proto._isMobile = function _isMobile(event) {
+      return Boolean(window.getComputedStyle(event.target, null).getPropertyValue('--is-mobile'));
     };
 
     _proto._clickOutListener = function _clickOutListener(event) {
@@ -5892,7 +5797,7 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '3.0.0-beta.1';
+  var VERSION$c = '3.0.0-beta.2';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
@@ -6128,7 +6033,7 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '3.0.0-beta.1';
+  var VERSION$d = '3.0.0-beta.2';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var Event$e = {
@@ -6346,7 +6251,83 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.1): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-beta.2): get-css-custom-properties.js
+   * Licensed under MIT (https://coreui.io/license)
+   * @returns {string} css custom property name
+   * --------------------------------------------------------------------------
+   */
+  var getCssCustomProperties = function getCssCustomProperties() {
+    var cssCustomProperties = {};
+    var sheets = document.styleSheets;
+    var cssText = '';
+
+    for (var i = sheets.length - 1; i > -1; i--) {
+      var rules = sheets[i].cssRules;
+
+      for (var j = rules.length - 1; j > -1; j--) {
+        if (rules[j].selectorText === '.ie-custom-properties') {
+          // eslint-disable-next-line prefer-destructuring
+          cssText = rules[j].cssText;
+          break;
+        }
+      }
+
+      if (cssText) {
+        break;
+      }
+    } // eslint-disable-next-line unicorn/prefer-string-slice
+
+
+    cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
+    cssText.split(';').forEach(function (property) {
+      if (property) {
+        var name = property.split(': ')[0];
+        var value = property.split(': ')[1];
+
+        if (name && value) {
+          cssCustomProperties["--" + name.trim()] = value.trim();
+        }
+      }
+    });
+    return cssCustomProperties;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v3.0.0-beta.2): get-style.js
+   * Licensed under MIT (https://coreui.io/license)
+   * --------------------------------------------------------------------------
+   */
+  var minIEVersion = 10;
+
+  var isIE1x = function isIE1x() {
+    return Boolean(document.documentMode) && document.documentMode >= minIEVersion;
+  };
+
+  var isCustomProperty = function isCustomProperty(property) {
+    return property.match(/^--.*/i);
+  };
+
+  var getStyle = function getStyle(property, element) {
+    if (element === void 0) {
+      element = document.body;
+    }
+
+    var style;
+
+    if (isCustomProperty(property) && isIE1x()) {
+      var cssCustomProperties = getCssCustomProperties();
+      style = cssCustomProperties[property];
+    } else {
+      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
+    }
+
+    return style;
+  };
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI Utilities (v3.0.0-beta.2): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6382,7 +6363,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.1): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-beta.2): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6422,7 +6403,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.1): rgb-to-hex.js
+   * CoreUI (v3.0.0-beta.2): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6451,7 +6432,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.1): index.umd.js
+   * CoreUI (v3.0.0-beta.2): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

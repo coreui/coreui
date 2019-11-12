@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.1): toast.js
+ * CoreUI (v3.0.0-beta.2): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js
@@ -29,7 +29,7 @@ import Manipulator from './dom/manipulator';
  */
 
 var NAME = 'toast';
-var VERSION = '3.0.0-beta.1';
+var VERSION = '3.0.0-beta.2';
 var DATA_KEY = 'coreui.toast';
 var EVENT_KEY = "." + DATA_KEY;
 var Event = {

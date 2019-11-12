@@ -4,7 +4,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.1): sidebar.js
+ * CoreUI (v3.0.0-beta.2): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -14,8 +14,8 @@ import { jQuery as $ // TRANSITION_END,
 , reflow } from './util/index';
 import Data from './dom/data';
 import EventHandler from './dom/event-handler';
-import PerfectScrollbar from 'perfect-scrollbar';
-import getStyle from './utilities/get-style';
+import PerfectScrollbar from 'perfect-scrollbar'; // import getStyle from './utilities/get-style'
+
 /**
  * ------------------------------------------------------------------------
  * Constants
@@ -23,7 +23,7 @@ import getStyle from './utilities/get-style';
  */
 
 var NAME = 'sidebar';
-var VERSION = '3.0.0-beta.1';
+var VERSION = '3.0.0-beta.2';
 var DATA_KEY = 'coreui.sidebar';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -73,7 +73,7 @@ var Sidebar =
 function () {
   function Sidebar(element) {
     this._element = element;
-    this.mobile = false;
+    this.mobile = this._isMobile.bind(this);
     this.ps = null;
     this._backdrop = null;
 
@@ -81,15 +81,11 @@ function () {
 
     this._setActiveLink();
 
-    this._breakpointTest = this._breakpointTest.bind(this);
-
     this._toggleClickOut();
 
     this._clickOutListener = this._clickOutListener.bind(this);
 
     this._addEventListeners();
-
-    this._addMediaQuery();
   } // Getters
 
 
@@ -259,23 +255,8 @@ function () {
     });
   };
 
-  _proto._addMediaQuery = function _addMediaQuery() {
-    var sm = getStyle('--breakpoint-sm');
-
-    if (!sm) {
-      return;
-    }
-
-    var smValue = parseInt(sm, 10) - 1;
-    var mediaQueryList = window.matchMedia("(max-width: " + smValue + "px)");
-
-    this._breakpointTest(mediaQueryList);
-
-    mediaQueryList.addListener(this._breakpointTest);
-  };
-
-  _proto._breakpointTest = function _breakpointTest(event) {
-    this.mobile = Boolean(event.matches);
+  _proto._isMobile = function _isMobile(event) {
+    return Boolean(window.getComputedStyle(event.target, null).getPropertyValue('--is-mobile'));
   };
 
   _proto._clickOutListener = function _clickOutListener(event) {

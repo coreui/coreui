@@ -1,6 +1,5 @@
 .btn {
-  display: inline-flex;
-  align-items: center;
+  display: inline-block;
   font-weight: 400;
   color: #4f5d73;
   text-align: center;
