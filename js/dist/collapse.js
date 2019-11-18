@@ -10,7 +10,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.2): collapse.js
+ * CoreUI (v3.0.0-beta.3): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine';
  */
 
 var NAME = 'collapse';
-var VERSION = '3.0.0-beta.2';
+var VERSION = '3.0.0-beta.3';
 var DATA_KEY = 'coreui.collapse';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';

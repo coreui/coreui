@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v3.0.0-beta.2): deep-objects-merge.js
+ * CoreUI Utilities (v3.0.0-beta.3): deep-objects-merge.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

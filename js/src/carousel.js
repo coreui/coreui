@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.2): carousel.js
+ * CoreUI (v3.0.0-beta.3): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -33,7 +33,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'carousel'
-const VERSION = '3.0.0-beta.2'
+const VERSION = '3.0.0-beta.3'
 const DATA_KEY = 'coreui.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.2): toast.js
+ * CoreUI (v3.0.0-beta.3): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js
@@ -27,7 +27,7 @@ import Manipulator from './dom/manipulator'
  */
 
 const NAME = 'toast'
-const VERSION = '3.0.0-beta.2'
+const VERSION = '3.0.0-beta.3'
 const DATA_KEY = 'coreui.toast'
 const EVENT_KEY = `.${DATA_KEY}`
 

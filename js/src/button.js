@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.2): button.js
+ * CoreUI (v3.0.0-beta.3): button.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's buttons.js
@@ -21,7 +21,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'button'
-const VERSION = '3.0.0-beta.2'
+const VERSION = '3.0.0-beta.3'
 const DATA_KEY = 'coreui.button'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
