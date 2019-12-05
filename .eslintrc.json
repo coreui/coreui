@@ -27,35 +27,26 @@
       "always-multiline"
     ],
     "new-cap": "off",
-    "no-mixed-operators": "off",
+    "no-console": "error",
     "object-curly-spacing": [
       "error",
       "always"
-    ],
-    "prefer-destructuring": [
-      "error",
-      {
-        "object": true,
-        "array": false
-      }
     ],
     "semi": [
       "error",
       "never"
     ],
+    "unicorn/consistent-function-scoping": "off",
     "unicorn/explicit-length-check": "off",
     "unicorn/import-index": "off",
     "unicorn/no-for-loop": "off",
     "unicorn/no-unused-properties": "error",
+    "unicorn/prefer-dataset": "off",
     "unicorn/prefer-includes": "off",
     "unicorn/prefer-node-append": "off",
     "unicorn/prefer-node-remove": "off",
     "unicorn/prefer-query-selector": "off",
     "unicorn/prefer-text-content": "off",
-    "unicorn/prevent-abbreviations": "off",
-    "unicorn/no-nested-ternary": "off",
-    "unicorn/consistent-function-scoping": "off",
-    "unicorn/expiring-todo-comments": "off",
-    "unicorn/prefer-string-slice": "off"
+    "unicorn/prevent-abbreviations": "off"
   }
 }
