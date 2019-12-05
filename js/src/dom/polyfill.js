@@ -95,8 +95,7 @@ const supportScopeQuery = (() => {
 
   try {
     element.querySelectorAll(':scope *')
-  // eslint-disable-next-line no-unused-vars
-  } catch (error) {
+  } catch (_) {
     return false
   }
 

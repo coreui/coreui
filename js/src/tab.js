@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): tab.js
+ * CoreUI (v3.0.0-beta.4): tab.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tab.js
@@ -10,10 +10,10 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
-  getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement,
   makeArray,
   reflow
@@ -29,7 +29,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'tab'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.tab'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -82,17 +82,16 @@ class Tab {
   // Public
 
   show() {
-    if (this._element.parentNode &&
+    if ((this._element.parentNode &&
       this._element.parentNode.nodeType === Node.ELEMENT_NODE &&
-      this._element.classList.contains(ClassName.ACTIVE) ||
+      this._element.classList.contains(ClassName.ACTIVE)) ||
       this._element.classList.contains(ClassName.DISABLED)) {
       return
     }
 
-    let target
     let previous
+    const target = getElementFromSelector(this._element)
     const listElement = SelectorEngine.closest(this._element, Selector.NAV_LIST_GROUP)
-    const selector = getSelectorFromElement(this._element)
 
     if (listElement) {
       const itemSelector = listElement.nodeName === 'UL' || listElement.nodeName === 'OL' ? Selector.ACTIVE_UL : Selector.ACTIVE
@@ -113,12 +112,8 @@ class Tab {
     })
 
     if (showEvent.defaultPrevented ||
-      hideEvent !== null && hideEvent.defaultPrevented) {
+      (hideEvent !== null && hideEvent.defaultPrevented)) {
       return
-    }
-
-    if (selector) {
-      target = SelectorEngine.findOne(selector)
     }
 
     this._activate(
@@ -219,7 +214,7 @@ class Tab {
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       const data = Data.getData(this, DATA_KEY) || new Tab(this)
 
@@ -233,7 +228,7 @@ class Tab {
     })
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
@@ -251,20 +246,22 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (
   data.show()
 })
 
+const $ = getjQuery()
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
  * add .tab to jQuery only if jQuery is present
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Tab._jQueryInterface
+  $.fn[NAME] = Tab.jQueryInterface
   $.fn[NAME].Constructor = Tab
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Tab._jQueryInterface
+    return Tab.jQueryInterface
   }
 }
 

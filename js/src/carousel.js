@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): carousel.js
+ * CoreUI (v3.0.0-beta.4): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -10,10 +10,10 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
-  getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement,
   isVisible,
   makeArray,
@@ -33,7 +33,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'carousel'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.carousel'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -287,16 +287,12 @@ class Carousel {
         .on(this._element, Event.MOUSELEAVE, event => this.cycle(event))
     }
 
-    if (this._config.touch) {
+    if (this._config.touch && this._touchSupported) {
       this._addTouchEventListeners()
     }
   }
 
   _addTouchEventListeners() {
-    if (!this._touchSupported) {
-      return
-    }
-
     const start = event => {
       if (this._pointerEvent && PointerType[event.pointerType.toUpperCase()]) {
         this.touchStartX = event.clientX
@@ -385,8 +381,8 @@ class Carousel {
     const isPrevDirection = direction === Direction.PREV
     const activeIndex = this._getItemIndex(activeElement)
     const lastItemIndex = this._items.length - 1
-    const isGoingToWrap = isPrevDirection && activeIndex === 0 ||
-                            isNextDirection && activeIndex === lastItemIndex
+    const isGoingToWrap = (isPrevDirection && activeIndex === 0) ||
+                            (isNextDirection && activeIndex === lastItemIndex)
 
     if (isGoingToWrap && !this._config.wrap) {
       return activeElement
@@ -432,8 +428,8 @@ class Carousel {
   _slide(direction, element) {
     const activeElement = SelectorEngine.findOne(Selector.ACTIVE_ITEM, this._element)
     const activeElementIndex = this._getItemIndex(activeElement)
-    const nextElement = element || activeElement &&
-      this._getItemByDirection(direction, activeElement)
+    const nextElement = element || (activeElement &&
+      this._getItemByDirection(direction, activeElement))
 
     const nextElementIndex = this._getItemIndex(nextElement)
     const isCycling = Boolean(this._interval)
@@ -536,7 +532,7 @@ class Carousel {
 
   // Static
 
-  static _carouselInterface(element, config) {
+  static carouselInterface(element, config) {
     let data = Data.getData(element, DATA_KEY)
     let _config = {
       ...Default,
@@ -570,20 +566,14 @@ class Carousel {
     }
   }
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
-      Carousel._carouselInterface(this, config)
+      Carousel.carouselInterface(this, config)
     })
   }
 
-  static _dataApiClickHandler(event) {
-    const selector = getSelectorFromElement(this)
-
-    if (!selector) {
-      return
-    }
-
-    const target = SelectorEngine.findOne(selector)
+  static dataApiClickHandler(event) {
+    const target = getElementFromSelector(this)
 
     if (!target || !target.classList.contains(ClassName.CAROUSEL)) {
       return
@@ -599,7 +589,7 @@ class Carousel {
       config.interval = false
     }
 
-    Carousel._carouselInterface(target, config)
+    Carousel.carouselInterface(target, config)
 
     if (slideIndex) {
       Data.getData(target, DATA_KEY).to(slideIndex)
@@ -608,7 +598,7 @@ class Carousel {
     event.preventDefault()
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
@@ -620,14 +610,16 @@ class Carousel {
  */
 
 EventHandler
-  .on(document, Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler)
+  .on(document, Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel.dataApiClickHandler)
 
 EventHandler.on(window, Event.LOAD_DATA_API, () => {
   const carousels = makeArray(SelectorEngine.find(Selector.DATA_RIDE))
   for (let i = 0, len = carousels.length; i < len; i++) {
-    Carousel._carouselInterface(carousels[i], Data.getData(carousels[i], DATA_KEY))
+    Carousel.carouselInterface(carousels[i], Data.getData(carousels[i], DATA_KEY))
   }
 })
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
@@ -635,14 +627,14 @@ EventHandler.on(window, Event.LOAD_DATA_API, () => {
  * ------------------------------------------------------------------------
  * add .carousel to jQuery only if jQuery is present
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Carousel._jQueryInterface
+  $.fn[NAME] = Carousel.jQueryInterface
   $.fn[NAME].Constructor = Carousel
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Carousel._jQueryInterface
+    return Carousel.jQueryInterface
   }
 }
 

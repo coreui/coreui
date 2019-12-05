@@ -1,12 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): class-toggler.js
+ * CoreUI (v3.0.0-beta.4): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
-  jQuery as $
+  getjQuery
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'class-toggler'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.class-toggler'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -175,8 +175,8 @@ class ClassToggler {
     if (Array.isArray(classNames)) {
       classNames.forEach((className, index) => {
         responsive = Array.isArray(responsive) ? responsive[index] : responsive
-        breakpoints = responsive ? Array.isArray(breakpoints) ? breakpoints[index] : breakpoints : null
-        postfix = responsive ? Array.isArray(postfix) ? postfix[index] : postfix : null
+        breakpoints = responsive ? (Array.isArray(breakpoints) ? breakpoints[index] : breakpoints) : null
+        postfix = responsive ? (Array.isArray(postfix) ? postfix[index] : postfix) : null
         toggle.push(new ToggleDetails(className, responsive, breakpoints, postfix))
       })
     } else {
@@ -239,7 +239,7 @@ class ClassToggler {
     }
   }
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       ClassToggler._classTogglerInterface(this, config)
     })
@@ -262,6 +262,8 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, event =>
   ClassToggler._classTogglerInterface(toggler, 'toggle')
 })
 
+const $ = getjQuery()
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
@@ -269,13 +271,13 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.CLASS_TOGGLER, event =>
  * add .c-class-toggler to jQuery only if jQuery is present
  */
 
-if (typeof $ !== 'undefined') {
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = ClassToggler._jQueryInterface
+  $.fn[NAME] = ClassToggler.jQueryInterface
   $.fn[NAME].Constructor = ClassToggler
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return ClassToggler._jQueryInterface
+    return ClassToggler.jQueryInterface
   }
 }
 

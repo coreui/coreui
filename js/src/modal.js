@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): modal.js
+ * CoreUI (v3.0.0-beta.4): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -10,10 +10,10 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
-  getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement,
   isVisible,
   makeArray,
@@ -32,7 +32,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'modal'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -54,6 +54,7 @@ const DefaultType = {
 
 const Event = {
   HIDE: `hide${EVENT_KEY}`,
+  HIDE_PREVENTED: `hidePrevented${EVENT_KEY}`,
   HIDDEN: `hidden${EVENT_KEY}`,
   SHOW: `show${EVENT_KEY}`,
   SHOWN: `shown${EVENT_KEY}`,
@@ -72,7 +73,8 @@ const ClassName = {
   BACKDROP: 'modal-backdrop',
   OPEN: 'modal-open',
   FADE: 'fade',
-  SHOW: 'show'
+  SHOW: 'show',
+  STATIC: 'modal-static'
 }
 
 const Selector = {
@@ -175,7 +177,7 @@ class Modal {
 
     const hideEvent = EventHandler.trigger(this._element, Event.HIDE)
 
-    if (!this._isShown || hideEvent.defaultPrevented) {
+    if (hideEvent.defaultPrevented) {
       return
     }
 
@@ -247,6 +249,7 @@ class Modal {
 
   _showElement(relatedTarget) {
     const transition = this._element.classList.contains(ClassName.FADE)
+    const modalBody = SelectorEngine.findOne(Selector.MODAL_BODY, this._dialog)
 
     if (!this._element.parentNode ||
         this._element.parentNode.nodeType !== Node.ELEMENT_NODE) {
@@ -258,8 +261,8 @@ class Modal {
     this._element.removeAttribute('aria-hidden')
     this._element.setAttribute('aria-modal', true)
 
-    if (this._dialog.classList.contains(ClassName.SCROLLABLE)) {
-      SelectorEngine.findOne(Selector.MODAL_BODY, this._dialog).scrollTop = 0
+    if (this._dialog.classList.contains(ClassName.SCROLLABLE) && modalBody) {
+      modalBody.scrollTop = 0
     } else {
       this._element.scrollTop = 0
     }
@@ -310,18 +313,17 @@ class Modal {
     if (this._isShown && this._config.keyboard) {
       EventHandler.on(this._element, Event.KEYDOWN_DISMISS, event => {
         if (event.which === ESCAPE_KEYCODE) {
-          event.preventDefault()
-          this.hide()
+          this._triggerBackdropTransition()
         }
       })
-    } else if (!this._isShown) {
+    } else {
       EventHandler.off(this._element, Event.KEYDOWN_DISMISS)
     }
   }
 
   _setResizeEvent() {
     if (this._isShown) {
-      EventHandler.on(window, Event.RESIZE, event => this.handleUpdate(event))
+      EventHandler.on(window, Event.RESIZE, () => this._adjustDialog())
     } else {
       EventHandler.off(window, Event.RESIZE)
     }
@@ -341,10 +343,8 @@ class Modal {
   }
 
   _removeBackdrop() {
-    if (this._backdrop) {
-      this._backdrop.parentNode.removeChild(this._backdrop)
-      this._backdrop = null
-    }
+    this._backdrop.parentNode.removeChild(this._backdrop)
+    this._backdrop = null
   }
 
   _showBackdrop(callback) {
@@ -372,11 +372,7 @@ class Modal {
           return
         }
 
-        if (this._config.backdrop === 'static') {
-          this._element.focus()
-        } else {
-          this.hide()
-        }
+        this._triggerBackdropTransition()
       })
 
       if (animate) {
@@ -384,10 +380,6 @@ class Modal {
       }
 
       this._backdrop.classList.add(ClassName.SHOW)
-
-      if (!callback) {
-        return
-      }
 
       if (!animate) {
         callback()
@@ -403,9 +395,7 @@ class Modal {
 
       const callbackRemove = () => {
         this._removeBackdrop()
-        if (callback) {
-          callback()
-        }
+        callback()
       }
 
       if (this._element.classList.contains(ClassName.FADE)) {
@@ -415,8 +405,27 @@ class Modal {
       } else {
         callbackRemove()
       }
-    } else if (callback) {
+    } else {
       callback()
+    }
+  }
+
+  _triggerBackdropTransition() {
+    if (this._config.backdrop === 'static') {
+      const hideEvent = EventHandler.trigger(this._element, Event.HIDE_PREVENTED)
+      if (hideEvent.defaultPrevented) {
+        return
+      }
+
+      this._element.classList.add(ClassName.STATIC)
+      const modalTransitionDuration = getTransitionDurationFromElement(this._element)
+      EventHandler.one(this._element, TRANSITION_END, () => {
+        this._element.classList.remove(ClassName.STATIC)
+      })
+      emulateTransitionEnd(this._element, modalTransitionDuration)
+      this._element.focus()
+    } else {
+      this.hide()
     }
   }
 
@@ -524,7 +533,7 @@ class Modal {
 
   // Static
 
-  static _jQueryInterface(config, relatedTarget) {
+  static jQueryInterface(config, relatedTarget) {
     return this.each(function () {
       let data = Data.getData(this, DATA_KEY)
       const _config = {
@@ -549,7 +558,7 @@ class Modal {
     })
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
@@ -561,19 +570,7 @@ class Modal {
  */
 
 EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (event) {
-  let target
-  const selector = getSelectorFromElement(this)
-
-  if (selector) {
-    target = SelectorEngine.findOne(selector)
-  }
-
-  const config = Data.getData(target, DATA_KEY) ?
-    'toggle' :
-    {
-      ...Manipulator.getDataAttributes(target),
-      ...Manipulator.getDataAttributes(this)
-    }
+  const target = getElementFromSelector(this)
 
   if (this.tagName === 'A' || this.tagName === 'AREA') {
     event.preventDefault()
@@ -594,25 +591,33 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (
 
   let data = Data.getData(target, DATA_KEY)
   if (!data) {
+    const config = {
+      ...Manipulator.getDataAttributes(target),
+      ...Manipulator.getDataAttributes(this)
+    }
+
     data = new Modal(target, config)
   }
 
   data.show(this)
 })
 
+const $ = getjQuery()
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
+ * add .modal to jQuery only if jQuery is present
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Modal._jQueryInterface
+  $.fn[NAME] = Modal.jQueryInterface
   $.fn[NAME].Constructor = Modal
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Modal._jQueryInterface
+    return Modal.jQueryInterface
   }
 }
 

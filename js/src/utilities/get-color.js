@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI Utilities (v3.0.0-beta.3): get-color.js
+ * CoreUI Utilities (v3.0.0-beta.4): get-color.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */

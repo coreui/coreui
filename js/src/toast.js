@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): toast.js
+ * CoreUI (v3.0.0-beta.4): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js
@@ -10,10 +10,11 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
   getTransitionDurationFromElement,
+  reflow,
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
@@ -27,7 +28,7 @@ import Manipulator from './dom/manipulator'
  */
 
 const NAME = 'toast'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.toast'
 const EVENT_KEY = `.${DATA_KEY}`
 
@@ -94,7 +95,11 @@ class Toast {
   // Public
 
   show() {
-    EventHandler.trigger(this._element, Event.SHOW)
+    const showEvent = EventHandler.trigger(this._element, Event.SHOW)
+
+    if (showEvent.defaultPrevented) {
+      return
+    }
 
     if (this._config.animation) {
       this._element.classList.add(ClassName.FADE)
@@ -107,11 +112,14 @@ class Toast {
       EventHandler.trigger(this._element, Event.SHOWN)
 
       if (this._config.autohide) {
-        this.hide()
+        this._timeout = setTimeout(() => {
+          this.hide()
+        }, this._config.delay)
       }
     }
 
     this._element.classList.remove(ClassName.HIDE)
+    reflow(this._element)
     this._element.classList.add(ClassName.SHOWING)
     if (this._config.animation) {
       const transitionDuration = getTransitionDurationFromElement(this._element)
@@ -123,19 +131,30 @@ class Toast {
     }
   }
 
-  hide(withoutTimeout) {
+  hide() {
     if (!this._element.classList.contains(ClassName.SHOW)) {
       return
     }
 
-    EventHandler.trigger(this._element, Event.HIDE)
+    const hideEvent = EventHandler.trigger(this._element, Event.HIDE)
 
-    if (withoutTimeout) {
-      this._close()
+    if (hideEvent.defaultPrevented) {
+      return
+    }
+
+    const complete = () => {
+      this._element.classList.add(ClassName.HIDE)
+      EventHandler.trigger(this._element, Event.HIDDEN)
+    }
+
+    this._element.classList.remove(ClassName.SHOW)
+    if (this._config.animation) {
+      const transitionDuration = getTransitionDurationFromElement(this._element)
+
+      EventHandler.one(this._element, TRANSITION_END, complete)
+      emulateTransitionEnd(this._element, transitionDuration)
     } else {
-      this._timeout = setTimeout(() => {
-        this._close()
-      }, this._config.delay)
+      complete()
     }
   }
 
@@ -177,30 +196,13 @@ class Toast {
       this._element,
       Event.CLICK_DISMISS,
       Selector.DATA_DISMISS,
-      () => this.hide(true)
+      () => this.hide()
     )
-  }
-
-  _close() {
-    const complete = () => {
-      this._element.classList.add(ClassName.HIDE)
-      EventHandler.trigger(this._element, Event.HIDDEN)
-    }
-
-    this._element.classList.remove(ClassName.SHOW)
-    if (this._config.animation) {
-      const transitionDuration = getTransitionDurationFromElement(this._element)
-
-      EventHandler.one(this._element, TRANSITION_END, complete)
-      emulateTransitionEnd(this._element, transitionDuration)
-    } else {
-      complete()
-    }
   }
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       let data = Data.getData(this, DATA_KEY)
       const _config = typeof config === 'object' && config
@@ -219,10 +221,12 @@ class Toast {
     })
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
@@ -230,14 +234,14 @@ class Toast {
  * ------------------------------------------------------------------------
  *  add .toast to jQuery only if jQuery is present
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Toast._jQueryInterface
+  $.fn[NAME] = Toast.jQueryInterface
   $.fn[NAME].Constructor = Toast
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Toast._jQueryInterface
+    return Toast.jQueryInterface
   }
 }
 

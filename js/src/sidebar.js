@@ -1,12 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): sidebar.js
+ * CoreUI (v3.0.0-beta.4): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   // TRANSITION_END,
   // emulateTransitionEnd,
   // getTransitionDurationFromElement,
@@ -24,7 +24,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -224,12 +224,9 @@ class Sidebar {
     Array.from(this._element.querySelectorAll(Selector.NAV_LINK)).forEach(element => {
       let currentUrl
 
-      // eslint-disable-next-line prefer-regex-literals
-      const urlHasParams = new RegExp('\\?.*=')
-      // eslint-disable-next-line prefer-regex-literals
-      const urlHasQueryString = new RegExp('\\?.')
-      // eslint-disable-next-line prefer-regex-literals
-      const urlHasHash = new RegExp('#.')
+      const urlHasParams = /\\?.*=/
+      const urlHasQueryString = /\\?./
+      const urlHasHash = /#./
 
       if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
         currentUrl = String(window.location).split('?')[0]
@@ -239,8 +236,7 @@ class Sidebar {
         currentUrl = String(window.location)
       }
 
-      // eslint-disable-next-line unicorn/prefer-string-slice
-      if (currentUrl.substr(currentUrl.length - 1) === '#') {
+      if (currentUrl.slice(currentUrl.length - 1) === '#') {
         currentUrl = currentUrl.slice(0, -1)
       }
 
@@ -345,7 +341,7 @@ class Sidebar {
     }
   }
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       Sidebar._sidebarInterface(this, config)
     })
@@ -365,6 +361,8 @@ EventHandler.on(window, Event.LOAD_DATA_API, () => {
   })
 })
 
+const $ = getjQuery()
+
 /**
  * ------------------------------------------------------------------------
  * jQuery
@@ -372,13 +370,13 @@ EventHandler.on(window, Event.LOAD_DATA_API, () => {
 * add .asyncLoad to jQuery only if jQuery is present
  */
 
-if (typeof $ !== 'undefined') {
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Sidebar._jQueryInterface
+  $.fn[NAME] = Sidebar.jQueryInterface
   $.fn[NAME].Constructor = Sidebar
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Sidebar._jQueryInterface
+    return Sidebar.jQueryInterface
   }
 }
 

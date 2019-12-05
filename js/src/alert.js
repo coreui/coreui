@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): alerj.js
+ * CoreUI (v3.0.0-beta.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
@@ -10,10 +10,10 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
-  getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement
 } from './util/index'
 import Data from './dom/data'
@@ -27,7 +27,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'alert'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -57,6 +57,7 @@ const ClassName = {
 class Alert {
   constructor(element) {
     this._element = element
+
     if (this._element) {
       Data.setData(element, DATA_KEY, this)
     }
@@ -93,12 +94,7 @@ class Alert {
   // Private
 
   _getRootElement(element) {
-    const selector = getSelectorFromElement(element)
-    let parent = false
-
-    if (selector) {
-      parent = SelectorEngine.findOne(selector)
-    }
+    let parent = getElementFromSelector(element)
 
     if (!parent) {
       parent = SelectorEngine.closest(element, `.${ClassName.ALERT}`)
@@ -122,7 +118,7 @@ class Alert {
     const transitionDuration = getTransitionDurationFromElement(element)
 
     EventHandler
-      .one(element, TRANSITION_END, event => this._destroyElement(element, event))
+      .one(element, TRANSITION_END, () => this._destroyElement(element))
     emulateTransitionEnd(element, transitionDuration)
   }
 
@@ -136,7 +132,7 @@ class Alert {
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       let data = Data.getData(this, DATA_KEY)
 
@@ -150,7 +146,7 @@ class Alert {
     })
   }
 
-  static _handleDismiss(alertInstance) {
+  static handleDismiss(alertInstance) {
     return function (event) {
       if (event) {
         event.preventDefault()
@@ -160,7 +156,7 @@ class Alert {
     }
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
@@ -171,7 +167,9 @@ class Alert {
  * ------------------------------------------------------------------------
  */
 EventHandler
-  .on(document, Event.CLICK_DATA_API, Selector.DISMISS, Alert._handleDismiss(new Alert()))
+  .on(document, Event.CLICK_DATA_API, Selector.DISMISS, Alert.handleDismiss(new Alert()))
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
@@ -180,13 +178,14 @@ EventHandler
  * add .alert to jQuery only if jQuery is present
  */
 
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Alert._jQueryInterface
+  $.fn[NAME] = Alert.jQueryInterface
   $.fn[NAME].Constructor = Alert
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Alert._jQueryInterface
+    return Alert.jQueryInterface
   }
 }
 

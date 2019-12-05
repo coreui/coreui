@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): collapse.js
+ * CoreUI (v3.0.0-beta.4): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -10,10 +10,11 @@
  */
 
 import {
-  jQuery as $,
+  getjQuery,
   TRANSITION_END,
   emulateTransitionEnd,
   getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement,
   isElement,
   makeArray,
@@ -32,7 +33,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'collapse'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.collapse'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -176,7 +177,7 @@ class Collapse {
     if (actives) {
       actives.forEach(elemActive => {
         if (container !== elemActive) {
-          Collapse._collapseInterface(elemActive, 'hide')
+          Collapse.collapseInterface(elemActive, 'hide')
         }
 
         if (!activesData) {
@@ -248,15 +249,11 @@ class Collapse {
     if (triggerArrayLength > 0) {
       for (let i = 0; i < triggerArrayLength; i++) {
         const trigger = this._triggerArray[i]
-        const selector = getSelectorFromElement(trigger)
+        const elem = getElementFromSelector(trigger)
 
-        if (selector !== null) {
-          const elem = SelectorEngine.findOne(selector)
-
-          if (!elem.classList.contains(ClassName.SHOW)) {
-            trigger.classList.add(ClassName.COLLAPSED)
-            trigger.setAttribute('aria-expanded', false)
-          }
+        if (elem && !elem.classList.contains(ClassName.SHOW)) {
+          trigger.classList.add(ClassName.COLLAPSED)
+          trigger.setAttribute('aria-expanded', false)
         }
       }
     }
@@ -324,8 +321,10 @@ class Collapse {
 
     makeArray(SelectorEngine.find(selector, parent))
       .forEach(element => {
+        const selected = getElementFromSelector(element)
+
         this._addAriaAndCollapsedClass(
-          Collapse._getTargetFromElement(element),
+          selected,
           [element]
         )
       })
@@ -353,12 +352,7 @@ class Collapse {
 
   // Static
 
-  static _getTargetFromElement(element) {
-    const selector = getSelectorFromElement(element)
-    return selector ? SelectorEngine.findOne(selector) : null
-  }
-
-  static _collapseInterface(element, config) {
+  static collapseInterface(element, config) {
     let data = Data.getData(element, DATA_KEY)
     const _config = {
       ...Default,
@@ -383,13 +377,13 @@ class Collapse {
     }
   }
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
-      Collapse._collapseInterface(this, config)
+      Collapse.collapseInterface(this, config)
     })
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
@@ -425,9 +419,11 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (
       config = triggerData
     }
 
-    Collapse._collapseInterface(element, config)
+    Collapse.collapseInterface(element, config)
   })
 })
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
@@ -435,14 +431,14 @@ EventHandler.on(document, Event.CLICK_DATA_API, Selector.DATA_TOGGLE, function (
  * ------------------------------------------------------------------------
  * add .collapse to jQuery only if jQuery is present
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Collapse._jQueryInterface
+  $.fn[NAME] = Collapse.jQueryInterface
   $.fn[NAME].Constructor = Collapse
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Collapse._jQueryInterface
+    return Collapse.jQueryInterface
   }
 }
 

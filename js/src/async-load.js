@@ -1,12 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): asyn-load.js
+ * CoreUI (v3.0.0-beta.4): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
-  jQuery as $
+  getjQuery
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'asyncLoad'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -248,12 +248,14 @@ class AsyncLoad {
     }
   }
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       AsyncLoad._asyncLoadInterface(this, config)
     })
   }
 }
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
@@ -262,13 +264,13 @@ class AsyncLoad {
  * add .asyncLoad to jQuery only if jQuery is present
  */
 
-if (typeof $ !== 'undefined') {
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = AsyncLoad._jQueryInterface
+  $.fn[NAME] = AsyncLoad.jQueryInterface
   $.fn[NAME].Constructor = AsyncLoad
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return AsyncLoad._jQueryInterface
+    return AsyncLoad.jQueryInterface
   }
 }
 

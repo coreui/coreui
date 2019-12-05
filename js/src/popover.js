@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.3): popover.js
+ * CoreUI (v3.0.0-beta.4): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -9,7 +9,7 @@
  * --------------------------------------------------------------------------
  */
 
-import { jQuery as $ } from './util/index'
+import { getjQuery } from './util/index'
 import Data from './dom/data'
 import SelectorEngine from './dom/selector-engine'
 import Tooltip from './tooltip'
@@ -21,7 +21,7 @@ import Tooltip from './tooltip'
  */
 
 const NAME = 'popover'
-const VERSION = '3.0.0-beta.3'
+const VERSION = '3.0.0-beta.4'
 const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-popover'
@@ -32,11 +32,10 @@ const Default = {
   placement: 'right',
   trigger: 'click',
   content: '',
-  template: `<div class="popover" role="tooltip">
-               <div class="popover-arrow"></div>
-               <h3 class="popover-header"></h3>
-               <div class="popover-body"></div>
-             </div>`
+  template: '<div class="popover" role="tooltip">' +
+              '<div class="popover-arrow"></div>' +
+              '<h3 class="popover-header"></h3>' +
+              '<div class="popover-body"></div></div>'
 }
 
 const DefaultType = {
@@ -110,10 +109,6 @@ class Popover extends Tooltip {
     return this.getTitle() || this._getContent()
   }
 
-  addAttachmentClass(attachment) {
-    this.getTipElement().classList.add(`${CLASS_PREFIX}-${attachment}`)
-  }
-
   setContent() {
     const tip = this.getTipElement()
 
@@ -128,6 +123,10 @@ class Popover extends Tooltip {
 
     tip.classList.remove(ClassName.FADE)
     tip.classList.remove(ClassName.SHOW)
+  }
+
+  _addAttachmentClass(attachment) {
+    this.getTipElement().classList.add(`${CLASS_PREFIX}-${attachment}`)
   }
 
   // Private
@@ -149,7 +148,7 @@ class Popover extends Tooltip {
 
   // Static
 
-  static _jQueryInterface(config) {
+  static jQueryInterface(config) {
     return this.each(function () {
       let data = Data.getData(this, DATA_KEY)
       const _config = typeof config === 'object' ? config : null
@@ -173,24 +172,26 @@ class Popover extends Tooltip {
     })
   }
 
-  static _getInstance(element) {
+  static getInstance(element) {
     return Data.getData(element, DATA_KEY)
   }
 }
+
+const $ = getjQuery()
 
 /**
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
  */
-
-if (typeof $ !== 'undefined') {
+/* istanbul ignore if */
+if ($) {
   const JQUERY_NO_CONFLICT = $.fn[NAME]
-  $.fn[NAME] = Popover._jQueryInterface
+  $.fn[NAME] = Popover.jQueryInterface
   $.fn[NAME].Constructor = Popover
   $.fn[NAME].noConflict = () => {
     $.fn[NAME] = JQUERY_NO_CONFLICT
-    return Popover._jQueryInterface
+    return Popover.jQueryInterface
   }
 }
 

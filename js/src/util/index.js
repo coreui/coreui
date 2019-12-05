@@ -8,7 +8,6 @@
 const MAX_UID = 1000000
 const MILLISECONDS_MULTIPLIER = 1000
 const TRANSITION_END = 'transitionend'
-const { jQuery } = window
 
 // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 const toType = obj => ({}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase())
@@ -21,28 +20,38 @@ const toType = obj => ({}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase
 
 const getUID = prefix => {
   do {
-    // eslint-disable-next-line no-bitwise
     prefix += ~~(Math.random() * MAX_UID) // "~~" acts like a faster Math.floor() here
   } while (document.getElementById(prefix))
 
   return prefix
 }
 
-const getSelectorFromElement = element => {
+const getSelector = element => {
   let selector = element.getAttribute('data-target')
 
   if (!selector || selector === '#') {
     const hrefAttr = element.getAttribute('href')
 
-    selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : ''
+    selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null
   }
 
-  try {
+  return selector
+}
+
+const getSelectorFromElement = element => {
+  const selector = getSelector(element)
+
+  if (selector) {
     return document.querySelector(selector) ? selector : null
-  // eslint-disable-next-line no-unused-vars
-  } catch (error) {
-    return null
   }
+
+  return null
+}
+
+const getElementFromSelector = element => {
+  const selector = getSelector(element)
+
+  return selector ? document.querySelector(selector) : null
 }
 
 const getTransitionDurationFromElement = element => {
@@ -129,9 +138,12 @@ const isVisible = element => {
   }
 
   if (element.style && element.parentNode && element.parentNode.style) {
-    return element.style.display !== 'none' &&
-      element.parentNode.style.display !== 'none' &&
-      element.style.visibility !== 'hidden'
+    const elementStyle = getComputedStyle(element)
+    const parentNodeStyle = getComputedStyle(element.parentNode)
+
+    return elementStyle.display !== 'none' &&
+      parentNodeStyle.display !== 'none' &&
+      elementStyle.visibility !== 'hidden'
   }
 
   return false
@@ -160,16 +172,26 @@ const findShadowRoot = element => {
   return findShadowRoot(element.parentNode)
 }
 
-// eslint-disable-next-line no-empty-function
 const noop = () => function () {}
 
 const reflow = element => element.offsetHeight
 
+const getjQuery = () => {
+  const { jQuery } = window
+
+  if (jQuery && !document.body.hasAttribute('data-no-jquery')) {
+    return jQuery
+  }
+
+  return null
+}
+
 export {
-  jQuery,
+  getjQuery,
   TRANSITION_END,
   getUID,
   getSelectorFromElement,
+  getElementFromSelector,
   getTransitionDurationFromElement,
   triggerTransitionEnd,
   isElement,
