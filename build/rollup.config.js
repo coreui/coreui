@@ -1,39 +1,17 @@
 'use strict'
 
-const path    = require('path')
-const babel   = require('rollup-plugin-babel')
+const path = require('path')
+const babel = require('rollup-plugin-babel')
 const resolve = require('rollup-plugin-node-resolve')
-const banner  = require('./banner.js')
+const banner = require('./banner.js')
 
 const BUNDLE = process.env.BUNDLE === 'true'
 const ESM = process.env.ESM === 'true'
 
-let fileDest  = `coreui${ESM ? '.esm' : ''}`
+let fileDest = `coreui${ESM ? '.esm' : ''}`
 const external = ['perfect-scrollbar', 'popper.js']
 const plugins = [
-  babel(ESM ? {
-    // Only transpile our source code
-    exclude: 'node_modules/**',
-    babelrc: false,
-    presets: [
-      [
-        '@babel/env',
-        {
-          loose: true,
-          modules: false,
-          targets: {
-            browsers: [
-              'Chrome >= 60',
-              'Safari >= 10.1',
-              'iOS >= 10.3',
-              'Firefox >= 54',
-              'Edge >= 15'
-            ]
-          }
-        }
-      ]
-    ]
-  } : {
+  babel({
     // Only transpile our source code
     exclude: 'node_modules/**',
     // Include only required helpers
