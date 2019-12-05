@@ -110,7 +110,7 @@
 
 .table-hover {
   tbody tr {
-    @include hover {
+    @include hover() {
       @include themes($table-theme-map, $create: parent) {
         color: themes-get-value("table-hover-color");
         background-color: themes-get-value("table-hover-bg");
@@ -142,9 +142,6 @@
 .table {
   .thead-dark {
     th {
-      // color: $table-dark-color;
-      // background-color: $table-dark-bg;
-      // border-color: $table-dark-border-color;
       @include themes($table-theme-map) {
         color: themes-get-value("table-dark-color");
         background-color: themes-get-value("table-dark-bg");
@@ -155,9 +152,6 @@
 
   .thead-light {
     th {
-      // color: $table-head-color;
-      // background-color: $table-head-bg;
-      // border-color: $table-border-color;
       @include themes($table-theme-map) {
         color: themes-get-value("table-head-color");
         background-color: themes-get-value("table-head-bg");
@@ -168,8 +162,6 @@
 }
 
 .table-dark {
-  // color: $table-dark-color;
-  // background-color: $table-dark-bg;
   @include themes($table-theme-map) {
     color: themes-get-value("table-dark-color");
     background-color: themes-get-value("table-dark-bg");
@@ -178,7 +170,6 @@
   th,
   td,
   thead th {
-    // border-color: $table-dark-border-color;
     @include themes($table-theme-map) {
       border-color: themes-get-value("table-dark-border-color");
     }
@@ -189,8 +180,7 @@
   }
 
   &.table-striped {
-    tbody tr:nth-of-type(odd) {
-      // background-color: $table-dark-accent-bg;
+    tbody tr:nth-of-type(#{$table-striped-order}) {
       @include themes($table-theme-map) {
         background-color: themes-get-value("table-dark-accent-bg");
       }
@@ -199,9 +189,7 @@
 
   &.table-hover {
     tbody tr {
-      @include hover {
-        // color: $table-dark-hover-color;
-        // background-color: $table-dark-hover-bg;
+      @include hover() {
         @include themes($table-theme-map) {
           color: themes-get-value("table-dark-hover-color");
           background-color: themes-get-value("table-dark-hover-bg");
@@ -238,8 +226,6 @@
   }
 }
 
-// CoreUI start
-
 .table-outline {
   border: 1px solid;
 
@@ -264,5 +250,3 @@
     border: 0;
   }
 }
-
-// CoreUI end

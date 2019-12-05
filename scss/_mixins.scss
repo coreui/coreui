@@ -23,7 +23,7 @@
 @import "mixins/text-truncate";
 @import "mixins/visibility";
 
-// // Components
+// Components
 @import "mixins/alert";
 @import "mixins/avatars"; // CoreUI specific changes start
 @import "mixins/buttons";
@@ -39,14 +39,14 @@
 @import "mixins/table-row";
 @import "mixins/icon";
 
-// // Skins
+// Skins
 @import "mixins/background-variant";
 @import "mixins/border-radius";
 @import "mixins/box-shadow";
 @import "mixins/gradients";
 @import "mixins/transition";
 
-// // Layout
+// Layout
 @import "mixins/clearfix";
 @import "mixins/grid-framework";
 @import "mixins/grid";
@@ -54,7 +54,5 @@
 @import "mixins/ltr";
 @import "mixins/rtl";
 
-// // Themes
+// Themes
 @import "mixins/themes";
-//TODO: implement
-@import "mixins/color-scheme";

@@ -6,7 +6,7 @@
     background-color: $background;
 
     &.list-group-item-action {
-      @include hover-focus {
+      @include hover-focus() {
         color: $color;
         background-color: darken($background, 5%);
       }
@@ -20,10 +20,8 @@
   }
 }
 
-// CoreUI start
 @mixin list-group-item-accent-variant($state, $color) {
   .list-group-item-accent-#{$state} {
     border-left: 4px solid $color;
   }
 }
-// CoreUI end

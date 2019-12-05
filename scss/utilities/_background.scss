@@ -1,14 +1,7 @@
 // stylelint-disable declaration-no-important
-
 @include theme-variant() {
-  @include bg-variant(".bg-#{$color}", $value);
+  @include bg-variant(".bg-#{$color}", $value, trur);
 }
-
-// @each $color, $value in $theme-colors-dark-theme {
-//   .c-dark-theme {
-//     @include bg-variant(".bg-#{$color}", $value);
-//   }
-// }
 
 @if $enable-gradients {
   @include theme-variant() {
@@ -22,8 +15,6 @@
     @include coreui-bg-gradient-variant-dark-theme(".bg-gradient-#{$color}", $value);
   }
 }
-
-
 .bg-white {
   background-color: $white !important;
 }
@@ -32,7 +23,6 @@
   background-color: transparent !important;
 }
 
-// CoreUI start
 [class^="bg-"] {
   color: $white;
 }
@@ -52,4 +42,3 @@
   width: ($spacer * 2.5);
   height: ($spacer * 2.5);
 }
-// CoreUI end

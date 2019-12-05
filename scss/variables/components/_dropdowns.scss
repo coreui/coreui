@@ -9,7 +9,7 @@ $dropdown-spacer:              .125rem !default;
 $dropdown-font-size:           $font-size-base !default;
 $dropdown-border-radius:       $border-radius !default;
 $dropdown-border-width:        $border-width !default;
-$dropdown-inner-border-radius: calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default;
+$dropdown-inner-border-radius: subtract($dropdown-border-radius, $dropdown-border-width) !default;
 $dropdown-divider-margin-y:    $nav-divider-margin-y !default;
 $dropdown-box-shadow:          0 .5rem 1rem rgba($black, .175) !default;
 $dropdown-item-padding-y:      .5rem !default;

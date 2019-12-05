@@ -33,7 +33,7 @@
   }
 
   &:focus {
-    z-index: 2;
+    z-index: 3;
     outline: $pagination-focus-outline;
     box-shadow: $pagination-focus-box-shadow;
   }
@@ -64,7 +64,7 @@
   }
 
   &.active .page-link {
-    z-index: 1;
+    z-index: 3;
     @include themes($pagination-theme-map, $create: parent) {
       color: themes-get-value("pagination-active-color");
       background-color: themes-get-value("pagination-active-bg");

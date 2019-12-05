@@ -1,5 +1,5 @@
 
-$sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $sidebar-width) !default;
+$sidebar-negative-margin: - $sidebar-width !default;
 
 // stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .c-sidebar {
@@ -52,7 +52,7 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
   @each $width, $value in $sidebar-widths {
     &.c-sidebar-#{$width} {
       width: $value;
-      $sidebar-negative-margin: if($enable-elevations, - ($value + 5px), - $value);
+      $sidebar-negative-margin: - $value;
 
       @include ltr {
         &:not(.c-sidebar-right){
@@ -99,6 +99,33 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
         &.c-sidebar-right {
           left: 0;
         }
+      }
+    }
+  }
+
+  &.c-sidebar-overlaid {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 2;
+
+    @include ltr {
+      &:not(.c-sidebar-right) {
+        left: 0;
+      }
+
+      &.c-sidebar-right {
+        right: 0;
+      }
+    }
+
+    @include rtl {
+      &:not(.c-sidebar-right) {
+        right: 0;
+      }
+
+      &.c-sidebar-right {
+        left: 0;
       }
     }
   }
@@ -550,6 +577,31 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
   }
 }
 
+.c-sidebar-unfoldable:not(:hover) {
+  @extend .c-sidebar-minimized;
+
+  // fix for perfect scrollbar
+  .ps {
+    overflow: initial !important;
+  }
+}
+.c-sidebar-unfoldable {
+  @include media-breakpoint-up(md) {
+    z-index: $zindex-fixed + 1 !important;
+    &:hover {
+
+      .c-sidebar-minimizer::before {
+        @include ltr {
+          transform: rotate(-180deg);
+        }
+        @include rtl {
+          transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}
+
 // Responsive behavior
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -586,7 +638,8 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
                 }
               }
             }
-            &.c-sidebar-minimized {
+            &.c-sidebar-minimized,
+            &.c-sidebar-unfoldable {
               ~ .c-wrapper {
                 @include ltr {
                   margin-left: $sidebar-minimized-width;
@@ -628,7 +681,8 @@ $sidebar-negative-margin: if($enable-elevations, - ($sidebar-width + 5px), - $si
                 }
               }
             }
-            &.c-sidebar-minimized {
+            &.c-sidebar-minimized,
+            &.c-sidebar-unfoldable {
               ~ .c-wrapper {
                 @include ltr {
                   margin-right: $sidebar-minimized-width;

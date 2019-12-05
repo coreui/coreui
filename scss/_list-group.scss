@@ -13,7 +13,6 @@
   @include rtl {
     padding-right: 0; // reset padding because ul and ol
   }
-
   margin-bottom: 0;
 }
 
@@ -31,14 +30,13 @@
   }
 
   // Hover state
-  @include hover-focus {
+  @include hover-focus() {
     z-index: 1; // Place hover/focus items above their siblings for proper border styling
     text-decoration: none;
     @include themes($list-group-theme-map, $create: parent) {
       color: themes-get-value("list-group-action-hover-color");
       background-color: themes-get-value("list-group-hover-bg");
     }
-
   }
 
   &:active {
@@ -58,10 +56,8 @@
   position: relative;
   display: block;
   padding: $list-group-item-padding-y $list-group-item-padding-x;
-  // Place the border on the list items and negative margin up for better styling
-  margin-bottom: -$list-group-border-width;
-  border: $list-group-border-width solid;
 
+  border: $list-group-border-width solid;
   @include themes($list-group-theme-map, $create: parent) {
     color: themes-get-value("list-group-color");
     background-color: themes-get-value("list-group-bg");
@@ -73,7 +69,6 @@
   }
 
   &:last-child {
-    margin-bottom: 0;
     @include border-bottom-radius($list-group-border-radius);
   }
 
@@ -89,9 +84,20 @@
   // Include both here for `<a>`s and `<button>`s
   &.active {
     z-index: 2; // Place active items above their siblings for proper border styling
-    color: $list-group-active-color;
-    background-color: $list-group-active-bg;
-    border-color: $list-group-active-border-color;
+    @include themes($list-group-theme-map, $create: parent) {
+      color: themes-get-value("list-group-active-color");
+      background-color: themes-get-value("list-group-active-bg");
+      border-color: themes-get-value("list-group-active-border-color");
+    }
+  }
+
+  & + & {
+    border-top-width: 0;
+
+    &.active {
+      margin-top: -$list-group-border-width;
+      border-top-width: $list-group-border-width;
+    }
   }
 }
 
@@ -108,18 +114,28 @@
       flex-direction: row;
 
       .list-group-item {
-        margin-right: -$list-group-border-width;
-        margin-bottom: 0;
-
         &:first-child {
-          @include border-left-radius($list-group-border-radius);
+          @include border-bottom-left-radius($list-group-border-radius);
           @include border-top-right-radius(0);
         }
 
         &:last-child {
-          margin-right: 0;
-          @include border-right-radius($list-group-border-radius);
+          @include border-top-right-radius($list-group-border-radius);
           @include border-bottom-left-radius(0);
+        }
+
+        &.active {
+          margin-top: 0;
+        }
+
+        & + .list-group-item {
+          border-top-width: $list-group-border-width;
+          border-left-width: 0;
+
+          &.active {
+            margin-left: -$list-group-border-width;
+            border-left-width: $list-group-border-width;
+          }
         }
       }
     }
@@ -134,25 +150,18 @@
 
 .list-group-flush {
   .list-group-item {
-    border-right: 0;
-    border-left: 0;
+    border-right-width: 0;
+    border-left-width: 0;
     @include border-radius(0);
 
-    &:last-child {
-      margin-bottom: -$list-group-border-width;
-    }
-  }
-
-  &:first-child {
-    .list-group-item:first-child {
-      border-top: 0;
+    &:first-child {
+      border-top-width: 0;
     }
   }
 
   &:last-child {
     .list-group-item:last-child {
-      margin-bottom: 0;
-      border-bottom: 0;
+      border-bottom-width: 0;
     }
   }
 }
@@ -166,8 +175,6 @@
 @include theme-variant() {
   @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
 }
-
-// CoreUI specific changes start
 
 // List items with accent
 //

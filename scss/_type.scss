@@ -68,7 +68,6 @@ hr {
   background-color: $vr-color-bg;
 }
 
-
 //
 // Emphasis
 //
@@ -91,12 +90,12 @@ mark,
 //
 
 .list-unstyled {
-  @include list-unstyled;
+  @include list-unstyled();
 }
 
 // Inline turns list items into inline-block
 .list-inline {
-  @include list-unstyled;
+  @include list-unstyled();
 }
 .list-inline-item {
   display: inline-block;
@@ -131,10 +130,4 @@ mark,
   &::before {
     content: "\2014\00A0"; // em dash, nbsp
   }
-}
-
-.icon,
-.btn-icon {
-  color: inherit;
-  fill: currentColor;
 }

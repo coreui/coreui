@@ -7,7 +7,7 @@ $card-spacer-y:            .75rem !default;
 $card-spacer-x:            1.25rem !default;
 $card-border-width:        $border-width !default;
 $card-border-radius:       $border-radius !default;
-$card-inner-border-radius: calc(#{$card-border-radius} - #{$card-border-width}) !default;
+$card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
 $card-margin-bottom:       $spacer * 1.5 !default; // CoreUI
 
 $card-img-overlay-padding: 1.25rem !default;
@@ -26,6 +26,7 @@ $card-icon-color:          $body-color !default;
 $card-border-color:        $border-color !default; // was: rgba($black, .125) !default;
 $card-cap-bg:              $white !default; // was: rgba($black, .03) !default;
 $card-cap-color:           null !default;
+$card-height:              null !default;
 $card-color:               null !default;
 $card-bg:                  $white !default;
 

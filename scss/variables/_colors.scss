@@ -135,3 +135,10 @@ $yiq-contrasted-threshold:  150 !default;
 // Customize the light and dark text colors for use in our YIQ color contrast function.
 $yiq-text-dark:             $gray-900 !default;
 $yiq-text-light:            $white !default;
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters: (
+  ("<","%3c"),
+  (">","%3e"),
+  ("#","%23"),
+) !default;
