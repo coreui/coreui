@@ -134,10 +134,4 @@ html:not([dir="rtl"]) .list-inline {
   content: "\2014\00A0";
 }
 
-.icon,
-.btn-icon {
-  color: inherit;
-  fill: currentColor;
-}
-
 /*# sourceMappingURL=type.css.map */

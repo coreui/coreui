@@ -41,6 +41,10 @@
   transform: none;
 }
 
+.modal.modal-static .modal-dialog {
+  transform: scale(1.02);
+}
+
 .modal-dialog-scrollable {
   display: flex;
   max-height: calc(100% - 1rem);
@@ -124,8 +128,8 @@
   justify-content: space-between;
   padding: 1rem 1rem;
   border-bottom: 1px solid;
-  border-top-left-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
   border-color: #d8dbe0;
 }
 
@@ -154,29 +158,18 @@ html:not([dir="rtl"]) .modal-header .close {
 
 .modal-footer {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
-  padding: 1rem;
+  padding: 0.75rem;
   border-top: 1px solid;
-  border-bottom-right-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
+  border-bottom-right-radius: calc(0.3rem - 1px);
+  border-bottom-left-radius: calc(0.3rem - 1px);
   border-color: #d8dbe0;
 }
 
-html:not([dir="rtl"]) .modal-footer > :not(:first-child) {
-  margin-left: .25rem;
-}
-
-*[dir="rtl"] .modal-footer > :not(:first-child) {
-  margin-right: .25rem;
-}
-
-html:not([dir="rtl"]) .modal-footer > :not(:last-child) {
-  margin-right: .25rem;
-}
-
-*[dir="rtl"] .modal-footer > :not(:last-child) {
-  margin-left: .25rem;
+.modal-footer > * {
+  margin: 0.25rem;
 }
 
 .modal-scrollbar-measure {

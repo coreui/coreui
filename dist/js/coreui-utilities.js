@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-beta.3 (https://coreui.io)
+  * CoreUI v3.0.0-beta.4 (https://coreui.io)
   * Copyright 2019 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): classes.js
+   * CoreUI Utilities (v3.0.0-beta.4): classes.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -24,7 +24,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): deep-objects-merge.js
+   * CoreUI Utilities (v3.0.0-beta.4): deep-objects-merge.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -45,7 +45,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): get-css-custom-properties.js
+   * CoreUI Utilities (v3.0.0-beta.4): get-css-custom-properties.js
    * Licensed under MIT (https://coreui.io/license)
    * @returns {string} css custom property name
    * --------------------------------------------------------------------------
@@ -88,7 +88,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): get-style.js
+   * CoreUI Utilities (v3.0.0-beta.4): get-style.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -121,7 +121,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): get-color.js
+   * CoreUI Utilities (v3.0.0-beta.4): get-color.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -138,7 +138,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): hex-to-rgb.js
+   * CoreUI Utilities (v3.0.0-beta.4): hex-to-rgb.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -160,13 +160,13 @@
     var b;
 
     if (color.length === 7) {
-      r = parseInt(color.substring(1, 3), 16);
-      g = parseInt(color.substring(3, 5), 16);
-      b = parseInt(color.substring(5, 7), 16);
+      r = parseInt(color.slice(1, 3), 16);
+      g = parseInt(color.slice(3, 5), 16);
+      b = parseInt(color.slice(5, 7), 16);
     } else {
-      r = parseInt(color.substring(1, 2), 16);
-      g = parseInt(color.substring(2, 3), 16);
-      b = parseInt(color.substring(3, 5), 16);
+      r = parseInt(color.slice(1, 2), 16);
+      g = parseInt(color.slice(2, 3), 16);
+      b = parseInt(color.slice(3, 5), 16);
     }
 
     return "rgba(" + r + ", " + g + ", " + b + ")";
@@ -174,7 +174,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.3): hex-to-rgba.js
+   * CoreUI Utilities (v3.0.0-beta.4): hex-to-rgba.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -200,13 +200,13 @@
     var b;
 
     if (color.length === 7) {
-      r = parseInt(color.substring(1, 3), 16);
-      g = parseInt(color.substring(3, 5), 16);
-      b = parseInt(color.substring(5, 7), 16);
+      r = parseInt(color.slice(1, 3), 16);
+      g = parseInt(color.slice(3, 5), 16);
+      b = parseInt(color.slice(5, 7), 16);
     } else {
-      r = parseInt(color.substring(1, 2), 16);
-      g = parseInt(color.substring(2, 3), 16);
-      b = parseInt(color.substring(3, 5), 16);
+      r = parseInt(color.slice(1, 2), 16);
+      g = parseInt(color.slice(2, 3), 16);
+      b = parseInt(color.slice(3, 5), 16);
     }
 
     return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100 + ")";
@@ -214,7 +214,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.3): rgb-to-hex.js
+   * CoreUI (v3.0.0-beta.4): rgb-to-hex.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

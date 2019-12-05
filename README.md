@@ -47,19 +47,19 @@ $ git clone https://github.com/coreui/coreui.git
 ### NPM
 
 ``` bash
-$ npm install @coreui/coreui@3.0.0-beta.3 --save
+$ npm install @coreui/coreui@3.0.0-beta.4 --save
 ```
 
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/coreui@3.0.0-beta.3
+$ yarn add @coreui/coreui@3.0.0-beta.4
 ```
 
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:3.0.0-beta.3
+$ composer require coreui/coreui:3.0.0-beta.4
 ```
 
 ## Usage

@@ -1,149 +1,178 @@
-/* istanbul ignore file */
+/*!
+  * CoreUI polyfill.js v3.0.0-beta.4 (https://coreui.io)
+  * Copyright 2019 Łukasz Holeczek
+  * Licensed under MIT (https://coreui.io)
+  */
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (global = global || self, factory(global.Polyfill = {}));
+}(this, (function (exports) { 'use strict';
 
-/**
- * --------------------------------------------------------------------------
- * Bootstrap (v4.3.1): dom/polyfill.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- * --------------------------------------------------------------------------
- */
-import { getUID } from '../util/index';
-var _Element$prototype = Element.prototype,
-    matches = _Element$prototype.matches,
-    closest = _Element$prototype.closest;
-var find = Element.prototype.querySelectorAll;
-var findOne = Element.prototype.querySelector;
-
-var createCustomEvent = function createCustomEvent(eventName, params) {
-  var cEvent = new CustomEvent(eventName, params);
-  return cEvent;
-};
-
-if (typeof window.CustomEvent !== 'function') {
-  createCustomEvent = function createCustomEvent(eventName, params) {
-    params = params || {
-      bubbles: false,
-      cancelable: false,
-      detail: null
-    };
-    var evt = document.createEvent('CustomEvent');
-    evt.initCustomEvent(eventName, params.bubbles, params.cancelable, params.detail);
-    return evt;
-  };
-}
-
-var workingDefaultPrevented = function () {
-  var e = document.createEvent('CustomEvent');
-  e.initEvent('Bootstrap', true, true);
-  e.preventDefault();
-  return e.defaultPrevented;
-}();
-
-if (!workingDefaultPrevented) {
-  var origPreventDefault = Event.prototype.preventDefault;
-
-  Event.prototype.preventDefault = function () {
-    if (!this.cancelable) {
-      return;
-    }
-
-    origPreventDefault.call(this);
-    Object.defineProperty(this, 'defaultPrevented', {
-      get: function get() {
-        return true;
-      },
-      configurable: true
-    });
-  };
-} // MSEdge resets defaultPrevented flag upon dispatchEvent call if at least one listener is attached
+  /**
+   * --------------------------------------------------------------------------
+   * Bootstrap (v4.3.1): util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  var MAX_UID = 1000000;
+  /**
+   * --------------------------------------------------------------------------
+   * Public Util Api
+   * --------------------------------------------------------------------------
+   */
 
 
-var defaultPreventedPreservedOnDispatch = function () {
-  var e = createCustomEvent('Bootstrap', {
-    cancelable: true
-  });
-  var element = document.createElement('div');
-  element.addEventListener('Bootstrap', function () {
-    return null;
-  });
-  e.preventDefault();
-  element.dispatchEvent(e);
-  return e.defaultPrevented;
-}();
-
-if (!matches) {
-  matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-}
-
-if (!closest) {
-  closest = function closest(selector) {
-    var element = this;
-
+  var getUID = function getUID(prefix) {
     do {
-      if (matches.call(element, selector)) {
-        return element;
-      }
+      prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+    } while (document.getElementById(prefix));
 
-      element = element.parentElement || element.parentNode;
-    } while (element !== null && element.nodeType === 1);
-
-    return null;
+    return prefix;
   };
-}
 
-var scopeSelectorRegex = /:scope\b/;
+  /* istanbul ignore file */
+  var _Element$prototype = Element.prototype;
+      exports.matches = _Element$prototype.matches;
+      exports.closest = _Element$prototype.closest;
+  exports.find = Element.prototype.querySelectorAll;
+  exports.findOne = Element.prototype.querySelector;
 
-var supportScopeQuery = function () {
-  var element = document.createElement('div');
+  exports.createCustomEvent = function createCustomEvent(eventName, params) {
+    var cEvent = new CustomEvent(eventName, params);
+    return cEvent;
+  };
 
-  try {
-    element.querySelectorAll(':scope *'); // eslint-disable-next-line no-unused-vars
-  } catch (error) {
-    return false;
+  if (typeof window.CustomEvent !== 'function') {
+    exports.createCustomEvent = function createCustomEvent(eventName, params) {
+      params = params || {
+        bubbles: false,
+        cancelable: false,
+        detail: null
+      };
+      var evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent(eventName, params.bubbles, params.cancelable, params.detail);
+      return evt;
+    };
   }
 
-  return true;
-}();
+  var workingDefaultPrevented = function () {
+    var e = document.createEvent('CustomEvent');
+    e.initEvent('Bootstrap', true, true);
+    e.preventDefault();
+    return e.defaultPrevented;
+  }();
 
-if (!supportScopeQuery) {
-  find = function find(selector) {
-    if (!scopeSelectorRegex.test(selector)) {
-      return this.querySelectorAll(selector);
-    }
+  if (!workingDefaultPrevented) {
+    var origPreventDefault = Event.prototype.preventDefault;
 
-    var hasId = Boolean(this.id);
+    Event.prototype.preventDefault = function () {
+      if (!this.cancelable) {
+        return;
+      }
 
-    if (!hasId) {
-      this.id = getUID('scope');
-    }
+      origPreventDefault.call(this);
+      Object.defineProperty(this, 'defaultPrevented', {
+        get: function get() {
+          return true;
+        },
+        configurable: true
+      });
+    };
+  } // MSEdge resets defaultPrevented flag upon dispatchEvent call if at least one listener is attached
 
-    var nodeList = null;
+
+  var defaultPreventedPreservedOnDispatch = function () {
+    var e = exports.createCustomEvent('Bootstrap', {
+      cancelable: true
+    });
+    var element = document.createElement('div');
+    element.addEventListener('Bootstrap', function () {
+      return null;
+    });
+    e.preventDefault();
+    element.dispatchEvent(e);
+    return e.defaultPrevented;
+  }();
+
+  if (!exports.matches) {
+    exports.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  }
+
+  if (!exports.closest) {
+    exports.closest = function closest(selector) {
+      var element = this;
+
+      do {
+        if (exports.matches.call(element, selector)) {
+          return element;
+        }
+
+        element = element.parentElement || element.parentNode;
+      } while (element !== null && element.nodeType === 1);
+
+      return null;
+    };
+  }
+
+  var scopeSelectorRegex = /:scope\b/;
+
+  var supportScopeQuery = function () {
+    var element = document.createElement('div');
 
     try {
-      selector = selector.replace(scopeSelectorRegex, "#" + this.id);
-      nodeList = this.querySelectorAll(selector);
-    } finally {
-      if (!hasId) {
-        this.removeAttribute('id');
+      element.querySelectorAll(':scope *');
+    } catch (_) {
+      return false;
+    }
+
+    return true;
+  }();
+
+  if (!supportScopeQuery) {
+    exports.find = function find(selector) {
+      if (!scopeSelectorRegex.test(selector)) {
+        return this.querySelectorAll(selector);
       }
-    }
 
-    return nodeList;
-  };
+      var hasId = Boolean(this.id);
 
-  findOne = function findOne(selector) {
-    if (!scopeSelectorRegex.test(selector)) {
-      return this.querySelector(selector);
-    }
+      if (!hasId) {
+        this.id = getUID('scope');
+      }
 
-    var matches = find.call(this, selector);
+      var nodeList = null;
 
-    if (typeof matches[0] !== 'undefined') {
-      return matches[0];
-    }
+      try {
+        selector = selector.replace(scopeSelectorRegex, "#" + this.id);
+        nodeList = this.querySelectorAll(selector);
+      } finally {
+        if (!hasId) {
+          this.removeAttribute('id');
+        }
+      }
 
-    return null;
-  };
-}
+      return nodeList;
+    };
 
-export { createCustomEvent, find, findOne, matches, closest, defaultPreventedPreservedOnDispatch };
+    exports.findOne = function findOne(selector) {
+      if (!scopeSelectorRegex.test(selector)) {
+        return this.querySelector(selector);
+      }
+
+      var matches = exports.find.call(this, selector);
+
+      if (typeof matches[0] !== 'undefined') {
+        return matches[0];
+      }
+
+      return null;
+    };
+  }
+
+  exports.defaultPreventedPreservedOnDispatch = defaultPreventedPreservedOnDispatch;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
 //# sourceMappingURL=polyfill.js.map
