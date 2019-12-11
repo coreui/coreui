@@ -74,7 +74,7 @@ Copy-paste the stylesheet `<link>` into your `<head>` before all other styleshee
 
 ### JS
 
-Many of our components require the use of JavaScript to function. Specifically, they require [jQuery](https://jquery.com), [Popper.js](https://popper.js.org/), [Bootstrap](https://getbootstrap.com) and our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them. jQuery must come first, then Popper.js, then Bootstrap, and then our JavaScript plugins.
+Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them. jQuery must come first, then Popper.js, then Bootstrap, and then our JavaScript plugins.
 
 ``` html
 <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
