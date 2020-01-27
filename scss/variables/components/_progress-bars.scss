@@ -18,7 +18,7 @@ $progress-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $progress-theme-map: map-merge(
   (
-    light: (
+    default: (
       "progress-bg":        $progress-bg,
       "progress-bar-color": $progress-bar-color,
       "progress-bar-bg":    $progress-bar-bg

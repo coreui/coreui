@@ -1,6 +1,3 @@
-
-$sidebar-negative-margin: - $sidebar-width !default;
-
 // stylelint-disable selector-max-class, declaration-no-important, selector-max-compound-selectors, function-url-quotes, selector-max-combinators
 .c-sidebar {
   display: flex;
@@ -11,7 +8,6 @@ $sidebar-negative-margin: - $sidebar-width !default;
   order: -1;
   width: $sidebar-width;
   padding: $sidebar-padding;
-  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 
   @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
@@ -24,58 +20,53 @@ $sidebar-negative-margin: - $sidebar-width !default;
 
   @include ltr {
     &:not(.c-sidebar-right){
-      margin-left: $sidebar-negative-margin;
+      margin-left: - $sidebar-width;
     }
     &.c-sidebar-right {
       order: 99;
-      margin-right: $sidebar-negative-margin;
+      margin-right: - $sidebar-width;
     }
   }
 
   @include rtl {
     &:not(.c-sidebar-right){
-      margin-right: $sidebar-negative-margin;
+      margin-right: - $sidebar-width;
     }
     &.c-sidebar-right {
-      margin-left: $sidebar-negative-margin;
+      margin-left: - $sidebar-width;
     }
   }
 
   &[class*="bg-"]  {
     border-color: rgba($black, .1);
-
-    .c-sidebar-nav-link .c-sidebar-nav-icon {
-      color: rgba($black, .3);
-    }
   }
 
   @each $width, $value in $sidebar-widths {
     &.c-sidebar-#{$width} {
       width: $value;
-      $sidebar-negative-margin: - $value;
 
       @include ltr {
         &:not(.c-sidebar-right){
-          margin-left: $sidebar-negative-margin;
+          margin-left: - $sidebar-width;
         }
         &.c-sidebar-right {
-          margin-right: $sidebar-negative-margin;
+          margin-right: - $sidebar-width;
         }
       }
 
       @include rtl {
         &:not(.c-sidebar-right){
-          margin-right: $sidebar-negative-margin;
+          margin-right: - $sidebar-width;
         }
         &.c-sidebar-right {
-          margin-left: $sidebar-negative-margin;
+          margin-left: - $sidebar-width;
         }
       }
     }
   }
 
   &.c-sidebar-fixed {
-    @include media-breakpoint-up(md) {
+    @include media-breakpoint-up($mobile-breakpoint) {
       position: fixed;
       top: 0;
       bottom: 0;
@@ -724,6 +715,7 @@ $sidebar-negative-margin: - $sidebar-width !default;
   }
 
   .c-sidebar-brand {
+    color: themes-get-value("sidebar-brand-color");
     background: themes-get-value("sidebar-brand-bg");
   }
 
@@ -843,7 +835,7 @@ $sidebar-negative-margin: - $sidebar-width !default;
     }
   }
 
-  @if (lightness( themes-get-value("sidebar-bg") ) < 40) {
+  @if (lightness(themes-get-value("sidebar-bg")) < 40) {
     .c-progress {
       background-color: lighten(themes-get-value("sidebar-bg"), 15%) !important;
     }

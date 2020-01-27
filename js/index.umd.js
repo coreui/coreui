@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.4): index.umd.js
+ * CoreUI (v3.0.0-rc.0): index.umd.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -19,6 +19,7 @@ import Sidebar from './src/sidebar'
 import Tab from './src/tab'
 import Toast from './src/toast'
 import Tooltip from './src/tooltip'
+import './src/polyfills'
 
 export default {
   AsyncLoad,
@@ -36,16 +37,3 @@ export default {
   Toast,
   Tooltip
 }
-
-// Global functions
-import getStyle from './src/utilities/get-style'
-window.getStyle = getStyle
-
-import hexToRgb from './src/utilities/hex-to-rgb'
-window.hexToRgb = hexToRgb
-
-import hexToRgba from './src/utilities/hex-to-rgba'
-window.hexToRgba = hexToRgba
-
-import rgbToHex from './src/utilities/rgb-to-hex'
-window.rgbToHex = rgbToHex

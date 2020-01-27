@@ -1,6 +1,6 @@
 /*!
-  * CoreUI dropdown.js v3.0.0-beta.4 (https://coreui.io)
-  * Copyright 2019 Łukasz Holeczek
+  * CoreUI dropdown.js v3.0.0-rc.0 (https://coreui.io)
+  * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -167,7 +167,7 @@
    */
 
   var NAME = 'dropdown';
-  var VERSION = '3.0.0-beta.4';
+  var VERSION = '3.0.0-rc.0';
   var DATA_KEY = 'coreui.dropdown';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -208,6 +208,7 @@
     FORM_CHILD: '.dropdown form',
     MENU: '.dropdown-menu',
     NAVBAR_NAV: '.navbar-nav',
+    HEADER_NAV: '.c-header-nav',
     VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
   };
   var AttachmentMap = {
@@ -251,6 +252,7 @@
       this._config = this._getConfig(config);
       this._menu = this._getMenuElement();
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       this._addEventListeners();
 
@@ -293,7 +295,7 @@
       } // Disable totally Popper.js for Dropdown in Navbar
 
 
-      if (!this._inNavbar) {
+      if (!this._inNavbar && !this._inHeader) {
         if (typeof Popper === 'undefined') {
           throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)');
         }
@@ -325,6 +327,12 @@
 
 
       if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector.NAVBAR_NAV)).length) {
+        makeArray(document.body.children).forEach(function (elem) {
+          return EventHandler.on(elem, 'mouseover', null, noop());
+        });
+      }
+
+      if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector.HEADER_NAV)).length) {
         makeArray(document.body.children).forEach(function (elem) {
           return EventHandler.on(elem, 'mouseover', null, noop());
         });
@@ -378,6 +386,7 @@
 
     _proto.update = function update() {
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       if (this._popper) {
         this._popper.scheduleUpdate();
@@ -430,6 +439,10 @@
 
     _proto._detectNavbar = function _detectNavbar() {
       return Boolean(SelectorEngine.closest(this._element, '.navbar'));
+    };
+
+    _proto._detectHeader = function _detectHeader() {
+      return Boolean(SelectorEngine.closest(this._element, '.c-header'));
     };
 
     _proto._getOffset = function _getOffset() {

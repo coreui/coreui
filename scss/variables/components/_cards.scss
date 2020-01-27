@@ -34,7 +34,7 @@ $card-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $card-theme-map: map-merge(
   (
-    light: (
+    default: (
       "card-border-color": $card-border-color,
       "card-cap-bg":       $card-cap-bg,
       "card-cap-color":    $card-cap-color,

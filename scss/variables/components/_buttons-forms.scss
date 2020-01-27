@@ -271,7 +271,7 @@ $form-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $form-theme-map: map-merge(
   (
-    light: (
+    default: (
       "input-bg":                       $input-bg,
       "input-disabled-bg":              $input-disabled-bg,
       "input-color":                    $input-color,

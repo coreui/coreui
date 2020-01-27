@@ -31,7 +31,7 @@ $popover-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $popover-theme-map: map-merge(
   (
-    light: (
+    default: (
       "popover-bg":                $popover-bg,
       "popover-border-color":      $popover-border-color,
       "popover-header-bg":         $popover-header-bg,

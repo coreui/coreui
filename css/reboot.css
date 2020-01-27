@@ -26,6 +26,11 @@ body {
   background-color: #ebedef;
 }
 
+.c-app {
+  color: #3c4b64;
+  background-color: #ebedef;
+}
+
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }

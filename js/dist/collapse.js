@@ -1,6 +1,6 @@
 /*!
-  * CoreUI collapse.js v3.0.0-beta.4 (https://coreui.io)
-  * Copyright 2019 Łukasz Holeczek
+  * CoreUI collapse.js v3.0.0-rc.0 (https://coreui.io)
+  * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -211,7 +211,7 @@
    */
 
   var NAME = 'collapse';
-  var VERSION = '3.0.0-beta.4';
+  var VERSION = '3.0.0-rc.0';
   var DATA_KEY = 'coreui.collapse';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';

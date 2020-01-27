@@ -39,12 +39,14 @@
 //
 
 .c-wrapper {
-  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
+  will-change: auto;
+  transition: transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
 }
 
 .c-sidebar {
-  transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
+  will-change: auto;
+  transition: transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
   &.c-sidebar-unfoldable {
-    transition: margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease 0s;
+    transition: transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease 0s;
   }
 }

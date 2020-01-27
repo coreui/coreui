@@ -57,8 +57,8 @@ html:not([dir="rtl"]) .nav {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #768192;
-  background-color: #e4e5e6;
-  border-color: #c4c9d0 #c4c9d0 #e4e5e6;
+  background-color: #ebedef;
+  border-color: #c4c9d0 #c4c9d0 #ebedef;
 }
 
 .nav-tabs .dropdown-menu {

@@ -1,6 +1,6 @@
 /*!
   * CoreUI v3.0.0-beta.4 (https://coreui.io)
-  * Copyright 2019 Łukasz Holeczek
+  * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {

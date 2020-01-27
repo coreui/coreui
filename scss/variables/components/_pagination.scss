@@ -30,7 +30,7 @@ $pagination-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $pagination-theme-map: map-merge(
   (
-    light: (
+    default: (
       "pagination-color":                 $pagination-color,
       "pagination-bg":                    $pagination-bg,
       "pagination-border-color":          $pagination-border-color,

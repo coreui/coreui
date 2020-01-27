@@ -41,7 +41,7 @@ $footer-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $footer-theme-map: map-merge(
   (
-    light: $footer-variants,
+    default: $footer-variants,
   ),
   $footer-theme-map
 );

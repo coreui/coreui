@@ -1,10 +1,10 @@
 
 // Sidebar
 
-$sidebar-width:                       256px !default;
-$sidebar-sm-width:                    192px !default;
-$sidebar-lg-width:                    320px !default;
-$sidebar-xl-width:                    384px !default;
+$sidebar-width:    256px !default;
+$sidebar-sm-width: 192px !default;
+$sidebar-lg-width: 320px !default;
+$sidebar-xl-width: 384px !default;
 
 $sidebar-widths: (
   sm: 192px,
@@ -12,10 +12,10 @@ $sidebar-widths: (
   xl: 384px
 ) !default;
 
-$sidebar-padding:                     0 !default;
-$sidebar-minimized-width:             56px !default;
-$sidebar-minimized-height:            $sidebar-minimized-width !default;
-$sidebar-compact-width:               150px !default;
+$sidebar-padding:          0 !default;
+$sidebar-minimized-width:  56px !default;
+$sidebar-minimized-height: $sidebar-minimized-width !default;
+$sidebar-compact-width:    150px !default;
 
 $sidebar-backdrop-bg:                 $black !default;
 $sidebar-backdrop-opacity:            .5 !default;
@@ -34,7 +34,10 @@ $sidebar-light-borders: (
 
 $sidebar-brand-height:               56px !default;
 
+$sidebar-dark-brand-color:           $white !default;
 $sidebar-dark-brand-bg:              rgba($black, .2) !default;
+
+$sidebar-light-brand-color:          $white !default;
 $sidebar-light-brand-bg:             $primary !default;
 
 // Sidebar Header
@@ -71,13 +74,13 @@ $sidebar-nav-icon-width:              56px !default;
 $sidebar-dark-nav-title-color:             rgba($white, .6) !default;
 $sidebar-dark-nav-link-color:              rgba($white, .8) !default;
 $sidebar-dark-nav-link-bg:                 transparent !default;
-$sidebar-dark-nav-link-icon-color:         $gray-600 !default;
+$sidebar-dark-nav-link-icon-color:         rgba($white, .5) !default;
 $sidebar-dark-nav-link-borders:            0 !default;
 
 $sidebar-light-nav-title-color:             rgba($black, .4) !default;
 $sidebar-light-nav-link-color:              rgba($black, .8) !default;
 $sidebar-light-nav-link-bg:                 transparent !default;
-$sidebar-light-nav-link-icon-color:         $gray-600 !default;
+$sidebar-light-nav-link-icon-color:         rgba($black, .5) !default;
 $sidebar-light-nav-link-borders:            0 !default;
 
 
@@ -116,7 +119,7 @@ $sidebar-light-nav-link-disabled-borders:     0 !default;
 $sidebar-dark-nav-dropdown-color:                 $white !default;
 $sidebar-dark-nav-dropdown-bg:                   rgba(0, 0, 0, .2) !default;
 $sidebar-dark-nav-dropdown-borders:               0 !default;
-$sidebar-dark-nav-dropdown-indicator-color:       $gray-600 !default;
+$sidebar-dark-nav-dropdown-indicator-color:       rgba($white, .5) !default;
 $sidebar-dark-nav-dropdown-indicator:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $sidebar-dark-nav-dropdown-indicator-hover-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-dark-nav-dropdown-indicator-hover:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -124,7 +127,7 @@ $sidebar-dark-nav-dropdown-indicator-hover:       str-replace(url("data:image/sv
 $sidebar-light-nav-dropdown-color:                 rgba($black, .8) !default;
 $sidebar-light-nav-dropdown-bg:                  rgba(0, 0, 0, .05) !default;
 $sidebar-light-nav-dropdown-borders:               0 !default;
-$sidebar-light-nav-dropdown-indicator-color:       $gray-600 !default;
+$sidebar-light-nav-dropdown-indicator-color:       rgba($black, .5) !default;
 $sidebar-light-nav-dropdown-indicator:             str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $sidebar-light-nav-dropdown-indicator-hover-color: $sidebar-dark-nav-link-hover-color !default;
 $sidebar-light-nav-dropdown-indicator-hover:       str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -193,6 +196,7 @@ $sidebar-variants-map: map-merge(
       "dark-theme-sidebar-bg":                      0,
       "sidebar-borders":                            $sidebar-dark-borders,
       "dark-theme-sidebar-borders":                 0,
+      "sidebar-brand-color":                        $sidebar-dark-brand-color,
       "sidebar-brand-bg":                           $sidebar-dark-brand-bg,
       "sidebar-header-bg":                          $sidebar-dark-header-bg,
       "sidebar-form-border":                        $sidebar-dark-form-border,
@@ -245,6 +249,7 @@ $sidebar-variants-map: map-merge(
       "dark-theme-sidebar-bg":                      0,
       "sidebar-borders":                            $sidebar-light-borders,
       "dark-theme-sidebar-borders":                 0,
+      "sidebar-brand-color":                        $sidebar-light-brand-color,
       "sidebar-brand-bg":                           $sidebar-light-brand-bg,
       "sidebar-header-bg":                          $sidebar-light-header-bg,
       "sidebar-form-border":                        $sidebar-light-form-border,
@@ -305,7 +310,7 @@ $sidebar-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $sidebar-theme-map: map-merge(
   (
-    light: $sidebar-variants,
+    default: $sidebar-variants,
   ),
   $sidebar-theme-map
 );

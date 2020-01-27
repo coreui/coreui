@@ -56,6 +56,13 @@ body {
   }
 }
 
+.c-app {
+  @include themes($body-theme-map, $create: append) {
+    color: themes-get-value("body-color");
+    background-color: themes-get-value("body-bg");
+  }
+}
+
 // Future-proof rule: in browsers that support :focus-visible, suppress the focus outline
 // on elements that programmatically receive focus but wouldn't normally show a visible
 // focus outline. In general, this would mean that the outline is only applied if the

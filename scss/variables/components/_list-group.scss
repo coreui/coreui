@@ -25,7 +25,7 @@ $list-group-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $list-group-theme-map: map-merge(
   (
-    light: (
+    default: (
       "list-group-color":               $list-group-color,
       "list-group-bg":                  $list-group-bg,
       "list-group-border-color":        $list-group-border-color,

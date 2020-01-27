@@ -33,7 +33,7 @@ $dropdown-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $dropdown-theme-map: map-merge(
   (
-    light: (
+    default: (
       "dropdown-color":               $dropdown-color,
       "dropdown-border-color":        $dropdown-border-color,
       "dropdown-bg":                  $dropdown-bg,

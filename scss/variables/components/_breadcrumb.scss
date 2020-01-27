@@ -24,7 +24,7 @@ $breadcrumb-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $breadcrumb-theme-map: map-merge(
   (
-    light: (
+    default: (
       "breadcrumb-bg":   $breadcrumb-bg,
       "breadcrumb-border-color":  $breadcrumb-border-color,
       "breadcrumb-divider-color": $breadcrumb-divider-color,

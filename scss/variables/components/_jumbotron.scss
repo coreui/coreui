@@ -11,7 +11,7 @@ $jumbotron-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $jumbotron-theme-map: map-merge(
   (
-    light: (
+    default: (
       "jumbotron-color": $jumbotron-color,
       "jumbotron-bg":    $jumbotron-bg
     )

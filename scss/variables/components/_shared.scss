@@ -14,7 +14,7 @@ $border-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $border-theme-map: map-merge(
   (
-    light: (
+    default: (
       "border-color": $border-color
     )
   ),

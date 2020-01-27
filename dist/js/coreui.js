@@ -1,6 +1,6 @@
 /*!
-  * CoreUI v3.0.0-beta.4 (https://coreui.io)
-  * Copyright 2019 Łukasz Holeczek
+  * CoreUI v3.0.0-rc.0 (https://coreui.io)
+  * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -770,7 +770,7 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0-beta.4';
+  var VERSION = '3.0.0-rc.0';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -1112,7 +1112,7 @@
    */
 
   var NAME$1 = 'alert';
-  var VERSION$1 = '3.0.0-beta.4';
+  var VERSION$1 = '3.0.0-rc.0';
   var DATA_KEY$1 = 'coreui.alert';
   var EVENT_KEY$1 = "." + DATA_KEY$1;
   var DATA_API_KEY$1 = '.data-api';
@@ -1286,7 +1286,7 @@
    */
 
   var NAME$2 = 'button';
-  var VERSION$2 = '3.0.0-beta.4';
+  var VERSION$2 = '3.0.0-rc.0';
   var DATA_KEY$2 = 'coreui.button';
   var EVENT_KEY$2 = "." + DATA_KEY$2;
   var DATA_API_KEY$2 = '.data-api';
@@ -1545,7 +1545,7 @@
    */
 
   var NAME$3 = 'carousel';
-  var VERSION$3 = '3.0.0-beta.4';
+  var VERSION$3 = '3.0.0-rc.0';
   var DATA_KEY$3 = 'coreui.carousel';
   var EVENT_KEY$3 = "." + DATA_KEY$3;
   var DATA_API_KEY$3 = '.data-api';
@@ -2158,7 +2158,7 @@
    */
 
   var NAME$4 = 'class-toggler';
-  var VERSION$4 = '3.0.0-beta.4';
+  var VERSION$4 = '3.0.0-rc.0';
   var DATA_KEY$4 = 'coreui.class-toggler';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var DATA_API_KEY$4 = '.data-api';
@@ -2439,7 +2439,7 @@
    */
 
   var NAME$5 = 'collapse';
-  var VERSION$5 = '3.0.0-beta.4';
+  var VERSION$5 = '3.0.0-rc.0';
   var DATA_KEY$5 = 'coreui.collapse';
   var EVENT_KEY$5 = "." + DATA_KEY$5;
   var DATA_API_KEY$5 = '.data-api';
@@ -2856,7 +2856,7 @@
    */
 
   var NAME$6 = 'dropdown';
-  var VERSION$6 = '3.0.0-beta.4';
+  var VERSION$6 = '3.0.0-rc.0';
   var DATA_KEY$6 = 'coreui.dropdown';
   var EVENT_KEY$6 = "." + DATA_KEY$6;
   var DATA_API_KEY$6 = '.data-api';
@@ -2897,6 +2897,7 @@
     FORM_CHILD: '.dropdown form',
     MENU: '.dropdown-menu',
     NAVBAR_NAV: '.navbar-nav',
+    HEADER_NAV: '.c-header-nav',
     VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
   };
   var AttachmentMap = {
@@ -2940,6 +2941,7 @@
       this._config = this._getConfig(config);
       this._menu = this._getMenuElement();
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       this._addEventListeners();
 
@@ -2982,7 +2984,7 @@
       } // Disable totally Popper.js for Dropdown in Navbar
 
 
-      if (!this._inNavbar) {
+      if (!this._inNavbar && !this._inHeader) {
         if (typeof Popper === 'undefined') {
           throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)');
         }
@@ -3014,6 +3016,12 @@
 
 
       if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector$6.NAVBAR_NAV)).length) {
+        makeArray(document.body.children).forEach(function (elem) {
+          return EventHandler.on(elem, 'mouseover', null, noop());
+        });
+      }
+
+      if ('ontouchstart' in document.documentElement && !makeArray(SelectorEngine.closest(parent, Selector$6.HEADER_NAV)).length) {
         makeArray(document.body.children).forEach(function (elem) {
           return EventHandler.on(elem, 'mouseover', null, noop());
         });
@@ -3067,6 +3075,7 @@
 
     _proto.update = function update() {
       this._inNavbar = this._detectNavbar();
+      this._inHeader = this._detectHeader();
 
       if (this._popper) {
         this._popper.scheduleUpdate();
@@ -3119,6 +3128,10 @@
 
     _proto._detectNavbar = function _detectNavbar() {
       return Boolean(SelectorEngine.closest(this._element, '.navbar'));
+    };
+
+    _proto._detectHeader = function _detectHeader() {
+      return Boolean(SelectorEngine.closest(this._element, '.c-header'));
     };
 
     _proto._getOffset = function _getOffset() {
@@ -3374,7 +3387,7 @@
    */
 
   var NAME$7 = 'modal';
-  var VERSION$7 = '3.0.0-beta.4';
+  var VERSION$7 = '3.0.0-rc.0';
   var DATA_KEY$7 = 'coreui.modal';
   var EVENT_KEY$7 = "." + DATA_KEY$7;
   var DATA_API_KEY$7 = '.data-api';
@@ -4112,7 +4125,7 @@
    */
 
   var NAME$8 = 'tooltip';
-  var VERSION$8 = '3.0.0-beta.4';
+  var VERSION$8 = '3.0.0-rc.0';
   var DATA_KEY$8 = 'coreui.tooltip';
   var EVENT_KEY$8 = "." + DATA_KEY$8;
   var CLASS_PREFIX = 'bs-tooltip';
@@ -4868,7 +4881,7 @@
    */
 
   var NAME$9 = 'popover';
-  var VERSION$9 = '3.0.0-beta.4';
+  var VERSION$9 = '3.0.0-rc.0';
   var DATA_KEY$9 = 'coreui.popover';
   var EVENT_KEY$9 = "." + DATA_KEY$9;
   var CLASS_PREFIX$1 = 'bs-popover';
@@ -5063,7 +5076,7 @@
    */
 
   var NAME$a = 'scrollspy';
-  var VERSION$a = '3.0.0-beta.4';
+  var VERSION$a = '3.0.0-rc.0';
   var DATA_KEY$a = 'coreui.scrollspy';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
@@ -5378,7 +5391,7 @@
    */
 
   var NAME$b = 'sidebar';
-  var VERSION$b = '3.0.0-beta.4';
+  var VERSION$b = '3.0.0-rc.0';
   var DATA_KEY$b = 'coreui.sidebar';
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
@@ -5766,7 +5779,7 @@
    */
 
   var NAME$c = 'tab';
-  var VERSION$c = '3.0.0-beta.4';
+  var VERSION$c = '3.0.0-rc.0';
   var DATA_KEY$c = 'coreui.tab';
   var EVENT_KEY$c = "." + DATA_KEY$c;
   var DATA_API_KEY$a = '.data-api';
@@ -6000,7 +6013,7 @@
    */
 
   var NAME$d = 'toast';
-  var VERSION$d = '3.0.0-beta.4';
+  var VERSION$d = '3.0.0-rc.0';
   var DATA_KEY$d = 'coreui.toast';
   var EVENT_KEY$d = "." + DATA_KEY$d;
   var Event$e = {
@@ -6219,190 +6232,148 @@
     };
   }
 
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.4): get-css-custom-properties.js
-   * Licensed under MIT (https://coreui.io/license)
-   * @returns {string} css custom property name
-   * --------------------------------------------------------------------------
-   */
-  var getCssCustomProperties = function getCssCustomProperties() {
-    var cssCustomProperties = {};
-    var sheets = document.styleSheets;
-    var cssText = '';
+  /* eslint-disable */
+  // Production steps of ECMA-262, Edition 6, 22.1.2.1
+  // Reference: https://people.mozilla.org/~jorendorff/es6-draft.html#sec-array.from
+  if (!Array.from) {
+    Array.from = function () {
+      var toStr = Object.prototype.toString;
 
-    for (var i = sheets.length - 1; i > -1; i--) {
-      var rules = sheets[i].cssRules;
+      var isCallable = function isCallable(fn) {
+        return typeof fn === 'function' || toStr.call(fn) === '[object Function]';
+      };
 
-      for (var j = rules.length - 1; j > -1; j--) {
-        if (rules[j].selectorText === '.ie-custom-properties') {
-          // eslint-disable-next-line prefer-destructuring
-          cssText = rules[j].cssText;
-          break;
+      var toInteger = function toInteger(value) {
+        var number = Number(value);
+
+        if (isNaN(number)) {
+          return 0;
         }
-      }
 
-      if (cssText) {
-        break;
-      }
-    } // eslint-disable-next-line unicorn/prefer-string-slice
-
-
-    cssText = cssText.substring(cssText.lastIndexOf('{') + 1, cssText.lastIndexOf('}'));
-    cssText.split(';').forEach(function (property) {
-      if (property) {
-        var name = property.split(': ')[0];
-        var value = property.split(': ')[1];
-
-        if (name && value) {
-          cssCustomProperties["--" + name.trim()] = value.trim();
+        if (number === 0 || !isFinite(number)) {
+          return number;
         }
-      }
-    });
-    return cssCustomProperties;
-  };
+
+        return (number > 0 ? 1 : -1) * Math.floor(Math.abs(number));
+      };
+
+      var maxSafeInteger = Math.pow(2, 53) - 1;
+
+      var toLength = function toLength(value) {
+        var len = toInteger(value);
+        return Math.min(Math.max(len, 0), maxSafeInteger);
+      }; // The length property of the from method is 1.
+
+
+      return function from(arrayLike
+      /*, mapFn, thisArg */
+      ) {
+        // 1. Let C be the this value.
+        var C = this; // 2. Let items be ToObject(arrayLike).
+
+        var items = Object(arrayLike); // 3. ReturnIfAbrupt(items).
+
+        if (arrayLike == null) {
+          throw new TypeError("Array.from requires an array-like object - not null or undefined");
+        } // 4. If mapfn is undefined, then let mapping be false.
+
+
+        var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
+        var T;
+
+        if (typeof mapFn !== 'undefined') {
+          // 5. else
+          // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
+          if (!isCallable(mapFn)) {
+            throw new TypeError('Array.from: when provided, the second argument must be a function');
+          } // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
+
+
+          if (arguments.length > 2) {
+            T = arguments[2];
+          }
+        } // 10. Let lenValue be Get(items, "length").
+        // 11. Let len be ToLength(lenValue).
+
+
+        var len = toLength(items.length); // 13. If IsConstructor(C) is true, then
+        // 13. a. Let A be the result of calling the [[Construct]] internal method of C with an argument list containing the single item len.
+        // 14. a. Else, Let A be ArrayCreate(len).
+
+        var A = isCallable(C) ? Object(new C(len)) : new Array(len); // 16. Let k be 0.
+
+        var k = 0; // 17. Repeat, while k < len… (also steps a - h)
+
+        var kValue;
+
+        while (k < len) {
+          kValue = items[k];
+
+          if (mapFn) {
+            A[k] = typeof T === 'undefined' ? mapFn(kValue, k) : mapFn.call(T, kValue, k);
+          } else {
+            A[k] = kValue;
+          }
+
+          k += 1;
+        } // 18. Let putStatus be Put(A, "length", len, true).
+
+
+        A.length = len; // 20. Return A.
+
+        return A;
+      };
+    }();
+  }
+
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+  }
+
+  if (!Element.prototype.closest) {
+    Element.prototype.closest = function (s) {
+      var el = this;
+
+      do {
+        if (el.matches(s)) return el;
+        el = el.parentElement || el.parentNode;
+      } while (el !== null && el.nodeType === 1);
+
+      return null;
+    };
+  }
+
+  (function () {
+    if (typeof window.CustomEvent === "function") return false;
+
+    function CustomEvent(event, params) {
+      params = params || {
+        bubbles: false,
+        cancelable: false,
+        detail: null
+      };
+      var evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
+      return evt;
+    }
+
+    window.CustomEvent = CustomEvent;
+  })();
+
+  if (!Element.prototype.matches) {
+    Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector || function (s) {
+      var matches = (this.document || this.ownerDocument).querySelectorAll(s);
+      var i = matches.length; // eslint-disable-next-line no-empty
+
+      while (--i >= 0 && matches.item(i) !== this) {}
+
+      return i > -1;
+    };
+  }
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.4): get-style.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-  var minIEVersion = 10;
-
-  var isIE1x = function isIE1x() {
-    return Boolean(document.documentMode) && document.documentMode >= minIEVersion;
-  };
-
-  var isCustomProperty = function isCustomProperty(property) {
-    return property.match(/^--.*/i);
-  };
-
-  var getStyle = function getStyle(property, element) {
-    if (element === void 0) {
-      element = document.body;
-    }
-
-    var style;
-
-    if (isCustomProperty(property) && isIE1x()) {
-      var cssCustomProperties = getCssCustomProperties();
-      style = cssCustomProperties[property];
-    } else {
-      style = window.getComputedStyle(element, null).getPropertyValue(property).replace(/^\s/, '');
-    }
-
-    return style;
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.4): hex-to-rgb.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-
-  /* eslint-disable no-magic-numbers */
-  var hexToRgb = function hexToRgb(color) {
-    if (typeof color === 'undefined') {
-      throw new TypeError('Hex color is not defined');
-    }
-
-    var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
-
-    if (!hex) {
-      throw new Error(color + " is not a valid hex color");
-    }
-
-    var r;
-    var g;
-    var b;
-
-    if (color.length === 7) {
-      r = parseInt(color.slice(1, 3), 16);
-      g = parseInt(color.slice(3, 5), 16);
-      b = parseInt(color.slice(5, 7), 16);
-    } else {
-      r = parseInt(color.slice(1, 2), 16);
-      g = parseInt(color.slice(2, 3), 16);
-      b = parseInt(color.slice(3, 5), 16);
-    }
-
-    return "rgba(" + r + ", " + g + ", " + b + ")";
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI Utilities (v3.0.0-beta.4): hex-to-rgba.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-
-  /* eslint-disable no-magic-numbers */
-  var hexToRgba = function hexToRgba(color, opacity) {
-    if (opacity === void 0) {
-      opacity = 100;
-    }
-
-    if (typeof color === 'undefined') {
-      throw new TypeError('Hex color is not defined');
-    }
-
-    var hex = color.match(/^#(?:[0-9a-f]{3}){1,2}$/i);
-
-    if (!hex) {
-      throw new Error(color + " is not a valid hex color");
-    }
-
-    var r;
-    var g;
-    var b;
-
-    if (color.length === 7) {
-      r = parseInt(color.slice(1, 3), 16);
-      g = parseInt(color.slice(3, 5), 16);
-      b = parseInt(color.slice(5, 7), 16);
-    } else {
-      r = parseInt(color.slice(1, 2), 16);
-      g = parseInt(color.slice(2, 3), 16);
-      b = parseInt(color.slice(3, 5), 16);
-    }
-
-    return "rgba(" + r + ", " + g + ", " + b + ", " + opacity / 100 + ")";
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.4): rgb-to-hex.js
-   * Licensed under MIT (https://coreui.io/license)
-   * --------------------------------------------------------------------------
-   */
-
-  /* eslint-disable no-magic-numbers */
-  var rgbToHex = function rgbToHex(color) {
-    if (typeof color === 'undefined') {
-      throw new TypeError('Hex color is not defined');
-    }
-
-    if (color === 'transparent') {
-      return '#00000000';
-    }
-
-    var rgb = color.match(/^rgba?[\s+]?\([\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?,[\s+]?(\d+)[\s+]?/i);
-
-    if (!rgb) {
-      throw new Error(color + " is not a valid rgb color");
-    }
-
-    var r = "0" + parseInt(rgb[1], 10).toString(16);
-    var g = "0" + parseInt(rgb[2], 10).toString(16);
-    var b = "0" + parseInt(rgb[3], 10).toString(16);
-    return "#" + r.slice(-2) + g.slice(-2) + b.slice(-2);
-  };
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI (v3.0.0-beta.4): index.umd.js
+   * CoreUI (v3.0.0-rc.0): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -6421,11 +6392,7 @@
     Tab: Tab,
     Toast: Toast,
     Tooltip: Tooltip
-  }; // Global functions
-  window.getStyle = getStyle;
-  window.hexToRgb = hexToRgb;
-  window.hexToRgba = hexToRgba;
-  window.rgbToHex = rgbToHex;
+  };
 
   return index_umd;
 

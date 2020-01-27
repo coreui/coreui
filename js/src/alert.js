@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.4): alert.js
+ * CoreUI (v3.0.0-rc.0): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
@@ -27,7 +27,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'alert'
-const VERSION = '3.0.0-beta.4'
+const VERSION = '3.0.0-rc.0'
 const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

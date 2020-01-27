@@ -58,6 +58,18 @@ $theme-has-variants: false !default;
   // }
 }
 
+@function themes-get-option($key, $fallback: null, $theme: $current-theme, $variant: $current-variant, $map: $themes-map) {
+
+  $current-theme-map: map-get($map, $theme);
+
+  @if map-has-key($current-theme-map, $key) {
+    $value: map-get($current-theme-map, $key);
+    @return $value;
+  } @else {
+    @return $fallback;
+  }
+}
+
 @mixin themes-append-variables($theme) {
   // Update global variables
   $current-theme: $theme !global;

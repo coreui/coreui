@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-beta.4): dropdown.js
+ * CoreUI (v3.0.0-rc.0): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -31,7 +31,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'dropdown'
-const VERSION = '3.0.0-beta.4'
+const VERSION = '3.0.0-rc.0'
 const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -69,6 +69,7 @@ const Selector = {
   FORM_CHILD: '.dropdown form',
   MENU: '.dropdown-menu',
   NAVBAR_NAV: '.navbar-nav',
+  HEADER_NAV: '.c-header-nav',
   VISIBLE_ITEMS: '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
 }
 
@@ -114,6 +115,7 @@ class Dropdown {
     this._config = this._getConfig(config)
     this._menu = this._getMenuElement()
     this._inNavbar = this._detectNavbar()
+    this._inHeader = this._detectHeader()
 
     this._addEventListeners()
     Data.setData(element, DATA_KEY, this)
@@ -168,7 +170,7 @@ class Dropdown {
     }
 
     // Disable totally Popper.js for Dropdown in Navbar
-    if (!this._inNavbar) {
+    if (!this._inNavbar && !this._inHeader) {
       if (typeof Popper === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)')
       }
@@ -202,6 +204,12 @@ class Dropdown {
     // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
     if ('ontouchstart' in document.documentElement &&
       !makeArray(SelectorEngine.closest(parent, Selector.NAVBAR_NAV)).length) {
+      makeArray(document.body.children)
+        .forEach(elem => EventHandler.on(elem, 'mouseover', null, noop()))
+    }
+
+    if ('ontouchstart' in document.documentElement &&
+      !makeArray(SelectorEngine.closest(parent, Selector.HEADER_NAV)).length) {
       makeArray(document.body.children)
         .forEach(elem => EventHandler.on(elem, 'mouseover', null, noop()))
     }
@@ -252,6 +260,7 @@ class Dropdown {
 
   update() {
     this._inNavbar = this._detectNavbar()
+    this._inHeader = this._detectHeader()
     if (this._popper) {
       this._popper.scheduleUpdate()
     }
@@ -312,6 +321,10 @@ class Dropdown {
 
   _detectNavbar() {
     return Boolean(SelectorEngine.closest(this._element, '.navbar'))
+  }
+
+  _detectHeader() {
+    return Boolean(SelectorEngine.closest(this._element, '.c-header'))
   }
 
   _getOffset() {

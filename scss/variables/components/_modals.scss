@@ -45,7 +45,7 @@ $modal-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $modal-theme-map: map-merge(
   (
-    light: (
+    default: (
       "modal-content-color":        $modal-content-color,
       "modal-content-bg":           $modal-content-bg,
       "modal-content-border-color": $modal-content-border-color,

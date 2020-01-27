@@ -37,7 +37,7 @@ $table-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $table-theme-map: map-merge(
   (
-    "light": (
+    default: (
       "table-color":        $table-color,
       "table-bg":           $table-bg,
       "table-accent-bg":    $table-accent-bg,

@@ -368,15 +368,15 @@ html:not([dir="rtl"]) .custom-file-label::after {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #e4e5e6, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
+  box-shadow: 0 0 0 1px #ebedef, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #e4e5e6, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
+  box-shadow: 0 0 0 1px #ebedef, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #e4e5e6, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
+  box-shadow: 0 0 0 1px #ebedef, 0 0 0 0.2rem rgba(50, 31, 219, 0.25);
 }
 
 .custom-range::-moz-focus-outer {

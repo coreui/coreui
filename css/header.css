@@ -39,7 +39,7 @@
 
 @media (min-width: 768px) {
   .c-header-brand {
-    width: 256px;
+    width: auto;
   }
 }
 
@@ -313,12 +313,12 @@ html:not([dir="rtl"]) .c-header-nav .c-header-nav-link .badge, html:not([dir="rt
 }
 
 .c-header .c-header-brand {
-  color: rgba(0, 0, 21, 0.9);
+  color: #4f5d73;
   background-color: transparent;
 }
 
 .c-header .c-header-brand:hover, .c-header .c-header-brand:focus {
-  color: rgba(0, 0, 21, 0.9);
+  color: #3a4555;
 }
 
 @media (min-width: 992px) {

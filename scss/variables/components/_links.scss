@@ -13,7 +13,7 @@ $link-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $link-theme-map: map-merge(
   (
-    light: (
+    default: (
       "link-color":       $link-color,
       "link-hover-color": $link-hover-color
     )

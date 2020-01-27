@@ -1,7 +1,7 @@
 // Header
 
 $header-height:                         56px !default;
-$header-brand-width:                    256px !default;
+$header-brand-width:                    auto !default;
 $header-brand-minimized-width:          56px !default;
 $header-subheader-height:               48px !default;
 
@@ -50,8 +50,8 @@ $header-light-toggler-border-color:   rgba($black, .1) !default;
 
 $header-light-brand-bg:               transparent !default;
 $header-light-brand-border:           0 !default;
-$header-light-brand-color:            $header-light-active-color !default;
-$header-light-brand-hover-color:      $header-light-active-color !default;
+$header-light-brand-color:            $gray-900 !default;
+$header-light-brand-hover-color:      darken($gray-900, 10%) !default;
 $header-light-brand-minimized-bg:     transparent !default;
 $header-light-brand-minimized-border: 0 !default;
 
@@ -127,7 +127,7 @@ $header-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $header-theme-map: map-merge(
   (
-    light: $header-variants
+    default: $header-variants
   ),
   $header-theme-map
 );
