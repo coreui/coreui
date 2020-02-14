@@ -38,10 +38,12 @@
   opacity: 0;
 
   &:checked ~ .custom-control-label::before {
-    color: $custom-control-indicator-checked-color;
-    border-color: $custom-control-indicator-checked-border-color;
-    @include gradient-bg($custom-control-indicator-checked-bg);
     @include box-shadow($custom-control-indicator-checked-box-shadow);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      color: themes-get-value("custom-control-indicator-checked-color");
+      border-color: themes-get-value("custom-control-indicator-checked-border-color");
+      @include gradient-bg(themes-get-value("custom-control-indicator-checked-bg"));
+    }
   }
 
   &:focus ~ .custom-control-label::before {
@@ -54,13 +56,17 @@
   }
 
   &:focus:not(:checked) ~ .custom-control-label::before {
-    border-color: $custom-control-indicator-focus-border-color;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      border-color: themes-get-value("custom-control-indicator-focus-border-color");
+    }
   }
 
   &:not(:disabled):active ~ .custom-control-label::before {
-    color: $custom-control-indicator-active-color;
-    background-color: $custom-control-indicator-active-bg;
-    border-color: $custom-control-indicator-active-border-color;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      color: themes-get-value("custom-control-indicator-active-color");
+      background-color: themes-get-value("custom-control-indicator-active-bg");
+      border-color: themes-get-value("custom-control-indicator-active-border-color");
+    }
     @include box-shadow($custom-control-indicator-active-box-shadow);
   }
 
@@ -68,10 +74,14 @@
   &[disabled],
   &:disabled {
     ~ .custom-control-label {
-      color: $custom-control-label-disabled-color;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        color: themes-get-value("custom-control-label-disabled-color");
+      }
 
       &::before {
-        background-color: $custom-control-indicator-disabled-bg;
+        @include themes($custom-forms-theme-map, $create: parent) {
+          background-color: themes-get-value("custom-control-indicator-disabled-bg");
+        }
       }
     }
   }
@@ -84,9 +94,11 @@
 .custom-control-label {
   position: relative;
   margin-bottom: 0;
-  color: $custom-control-label-color;
   vertical-align: top;
   cursor: $custom-control-cursor;
+  @include themes($custom-forms-theme-map, $create: parent) {
+    background-color: themes-get-value("custom-control-label-color");
+  }
 
   // Background-color and (when enabled) gradient
   &::before {
@@ -103,9 +115,12 @@
     height: $custom-control-indicator-size;
     pointer-events: none;
     content: "";
-    background-color: $custom-control-indicator-bg;
-    border: $custom-control-indicator-border-color solid $custom-control-indicator-border-width;
+    border: solid $custom-control-indicator-border-width;
     @include box-shadow($custom-control-indicator-box-shadow);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-control-indicator-bg");
+      border-color: themes-get-value("custom-control-indicator-border-color");
+    }
   }
 
   // Foreground (icon)
@@ -138,13 +153,17 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      background-image: escape-svg($custom-checkbox-indicator-icon-checked);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-image: escape-svg(themes-get-value("custom-checkbox-indicator-icon-checked"));
+      }
     }
   }
 
   .custom-control-input:indeterminate ~ .custom-control-label {
     &::before {
-      border-color: $custom-checkbox-indicator-indeterminate-border-color;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        border-color: themes-get-value("custom-checkbox-indicator-indeterminate-border-color");
+      }
       @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
       @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
     }
@@ -155,10 +174,14 @@
 
   .custom-control-input:disabled {
     &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-checked-disabled-bg");
+      }
     }
     &:indeterminate ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-checked-disabled-bg");
+      }
     }
   }
 }
@@ -175,13 +198,17 @@
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      background-image: escape-svg($custom-radio-indicator-icon-checked);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-image: escape-svg(themes-get-value("custom-radio-indicator-icon-checked"));
+      }
     }
   }
 
   .custom-control-input:disabled {
     &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-checked-disabled-bg");
+      }
     }
   }
 }
@@ -226,19 +253,26 @@
       // stylelint-disable-next-line property-blacklist
       border-radius: $custom-switch-indicator-border-radius;
       @include transition(transform .15s ease-in-out, $custom-forms-transition);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-border-color");
+      }
     }
   }
 
   .custom-control-input:checked ~ .custom-control-label {
     &::after {
-      background-color: $custom-control-indicator-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-bg");
+      }
       transform: translateX($custom-switch-width - $custom-control-indicator-size);
     }
   }
 
   .custom-control-input:disabled {
     &:checked ~ .custom-control-label::before {
-      background-color: $custom-control-indicator-checked-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-control-indicator-checked-disabled-bg");
+      }
     }
   }
 }
@@ -259,16 +293,21 @@
   @include font-size($custom-select-font-size);
   font-weight: $custom-select-font-weight;
   line-height: $custom-select-line-height;
-  color: $custom-select-color;
   vertical-align: middle;
-  background: $custom-select-bg $custom-select-background;
-  border: $custom-select-border-width solid $custom-select-border-color;
+  border: $custom-select-border-width solid;
   @include border-radius($custom-select-border-radius, 0);
   @include box-shadow($custom-select-box-shadow);
   appearance: none;
+  @include themes($custom-forms-theme-map, $create: parent) {
+    color: themes-get-value("custom-select-color");
+    background: themes-get-value("custom-select-bg") themes-get-value("custom-select-background");
+    border-color: themes-get-value("custom-select-border-color");
+  }
 
   &:focus {
-    border-color: $custom-select-focus-border-color;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      border-color: themes-get-value("custom-select-focus-border-color");
+    }
     outline: 0;
     @if $enable-shadows {
       box-shadow: $custom-select-box-shadow, $custom-select-focus-box-shadow;
@@ -282,8 +321,10 @@
       // the selected option text when the (still closed) <select> receives focus
       // in IE and (under certain conditions) Edge.
       // See https://github.com/twbs/bootstrap/issues/19398.
-      color: $input-color;
-      background-color: $input-bg;
+      @include themes($form-theme-map, $create: parent) {
+        color: themes-get-value("input-color");
+        background-color: themes-get-value("input-bg");
+      }
     }
   }
 
@@ -300,8 +341,10 @@
   }
 
   &:disabled {
-    color: $custom-select-disabled-color;
-    background-color: $custom-select-disabled-bg;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      color: themes-get-value("custom-select-disabled-color");
+      background-color: themes-get-value("custom-select-disabled-bg");
+    }
   }
 
   // Hides the default caret in IE11
@@ -364,14 +407,18 @@
   opacity: 0;
 
   &:focus ~ .custom-file-label {
-    border-color: $custom-file-focus-border-color;
     box-shadow: $custom-file-focus-box-shadow;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      border-color: themes-get-value("custom-file-focus-border-color");
+    }
   }
 
   // Use [disabled] and :disabled to work around https://github.com/twbs/bootstrap/issues/28247
   &[disabled] ~ .custom-file-label,
   &:disabled ~ .custom-file-label {
-    background-color: $custom-file-disabled-bg;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-file-disabled-bg");
+    }
   }
 
   @each $lang, $value in $custom-file-text {
@@ -396,11 +443,14 @@
   font-family: $custom-file-font-family;
   font-weight: $custom-file-font-weight;
   line-height: $custom-file-line-height;
-  color: $custom-file-color;
-  background-color: $custom-file-bg;
-  border: $custom-file-border-width solid $custom-file-border-color;
+  border: $custom-file-border-width solid;
   @include border-radius($custom-file-border-radius);
   @include box-shadow($custom-file-box-shadow);
+  @include themes($custom-forms-theme-map, $create: parent) {
+    color: themes-get-value("custom-file-color");
+    background-color: themes-get-value("custom-file-bg");
+    border-color: themes-get-value("custom-file-border-color");
+  }
 
   &::after {
     position: absolute;
@@ -417,11 +467,13 @@
     height: $custom-file-height-inner;
     padding: $custom-file-padding-y $custom-file-padding-x;
     line-height: $custom-file-line-height;
-    color: $custom-file-button-color;
     content: "Browse";
-    @include gradient-bg($custom-file-button-bg);
     border-left: inherit;
     @include border-radius(0 $custom-file-border-radius $custom-file-border-radius 0);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      color: themes-get-value("custom-file-button-color");
+      @include gradient-bg(themes-get-value("custom-file-button-bg"));
+    }
   }
 }
 
@@ -456,7 +508,9 @@
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
     margin-top: ($custom-range-track-height - $custom-range-thumb-height) / 2; // Webkit specific
-    @include gradient-bg($custom-range-thumb-bg);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      @include gradient-bg(themes-get-value("custom-range-thumb-bg"));
+    }
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
@@ -464,7 +518,9 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        @include gradient-bg(themes-get-value("custom-range-thumb-active-bg"));
+      }
     }
   }
 
@@ -473,16 +529,20 @@
     height: $custom-range-track-height;
     color: transparent; // Why?
     cursor: $custom-range-track-cursor;
-    background-color: $custom-range-track-bg;
     border-color: transparent;
     @include border-radius($custom-range-track-border-radius);
     @include box-shadow($custom-range-track-box-shadow);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-range-track-bg");
+    }
   }
 
   &::-moz-range-thumb {
     width: $custom-range-thumb-width;
     height: $custom-range-thumb-height;
-    @include gradient-bg($custom-range-thumb-bg);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      @include gradient-bg(themes-get-value("custom-range-thumb-bg"));
+    }
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
@@ -490,7 +550,9 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        @include gradient-bg(themes-get-value("custom-range-thumb-active-bg"));
+      }
     }
   }
 
@@ -499,7 +561,9 @@
     height: $custom-range-track-height;
     color: transparent;
     cursor: $custom-range-track-cursor;
-    background-color: $custom-range-track-bg;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-range-track-bg");
+    }
     border-color: transparent; // Firefox specific?
     @include border-radius($custom-range-track-border-radius);
     @include box-shadow($custom-range-track-box-shadow);
@@ -511,7 +575,9 @@
     margin-top: 0; // Edge specific
     margin-right: $custom-range-thumb-focus-box-shadow-width; // Workaround that overflowed box-shadow is hidden.
     margin-left: $custom-range-thumb-focus-box-shadow-width;  // Workaround that overflowed box-shadow is hidden.
-    @include gradient-bg($custom-range-thumb-bg);
+    @include themes($custom-forms-theme-map, $create: parent) {
+      @include gradient-bg(themes-get-value("custom-range-thumb-bg"));
+    }
     border: $custom-range-thumb-border;
     @include border-radius($custom-range-thumb-border-radius);
     @include box-shadow($custom-range-thumb-box-shadow);
@@ -519,7 +585,9 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg($custom-range-thumb-active-bg);
+      @include themes($custom-forms-theme-map, $create: parent) {
+        @include gradient-bg(themes-get-value("custom-range-thumb-active-bg"));
+      }
     }
   }
 
@@ -535,19 +603,25 @@
   }
 
   &::-ms-fill-lower {
-    background-color: $custom-range-track-bg;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-range-track-bg");
+    }
     @include border-radius($custom-range-track-border-radius);
   }
 
   &::-ms-fill-upper {
     margin-right: 15px; // arbitrary?
-    background-color: $custom-range-track-bg;
+    @include themes($custom-forms-theme-map, $create: parent) {
+      background-color: themes-get-value("custom-range-track-bg");
+    }
     @include border-radius($custom-range-track-border-radius);
   }
 
   &:disabled {
     &::-webkit-slider-thumb {
-      background-color: $custom-range-thumb-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-range-thumb-disabled-bg");
+      }
     }
 
     &::-webkit-slider-runnable-track {
@@ -555,7 +629,9 @@
     }
 
     &::-moz-range-thumb {
-      background-color: $custom-range-thumb-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-range-thumb-disabled-bg");
+      }
     }
 
     &::-moz-range-track {
@@ -563,7 +639,9 @@
     }
 
     &::-ms-thumb {
-      background-color: $custom-range-thumb-disabled-bg;
+      @include themes($custom-forms-theme-map, $create: parent) {
+        background-color: themes-get-value("custom-range-thumb-disabled-bg");
+      }
     }
   }
 }

@@ -7,6 +7,9 @@
     &,
     > th,
     > td {
+      @if map-has-key($yiq-theme-map, $current-theme) {
+        color: color-yiq($background, map-get(map-get($yiq-theme-map, $current-theme), "yiq-text-dark"), map-get(map-get($yiq-theme-map, $current-theme), "yiq-text-light"));
+      }
       background-color: $background;
     }
 

@@ -3,14 +3,14 @@
   font-size: 1.3125rem;
   font-weight: 700;
   line-height: 1;
+  opacity: .5;
   color: #000015;
   text-shadow: 0 1px 0 #fff;
-  opacity: .5;
 }
 
 .close:hover {
-  color: #000015;
   text-decoration: none;
+  color: #000015;
 }
 
 .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {

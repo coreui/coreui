@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-rc.0): dropdown.js
+ * CoreUI (v3.0.0-rc.3): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -21,7 +21,7 @@ import {
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
-import Popper from 'popper.js'
+import { createPopper } from '@popperjs/core'
 import SelectorEngine from './dom/selector-engine'
 
 /**
@@ -31,7 +31,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'dropdown'
-const VERSION = '3.0.0-rc.0'
+const VERSION = '3.0.0-rc.3'
 const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -85,7 +85,7 @@ const AttachmentMap = {
 }
 
 const Default = {
-  offset: 0,
+  offset: [0, 0],
   flip: true,
   boundary: 'scrollParent',
   reference: 'toggle',
@@ -94,7 +94,7 @@ const Default = {
 }
 
 const DefaultType = {
-  offset: '(number|string|function)',
+  offset: '(array|function)',
   flip: 'boolean',
   boundary: '(string|element)',
   reference: '(string|element)',
@@ -171,7 +171,7 @@ class Dropdown {
 
     // Disable totally Popper.js for Dropdown in Navbar
     if (!this._inNavbar && !this._inHeader) {
-      if (typeof Popper === 'undefined') {
+      if (typeof createPopper === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)')
       }
 
@@ -195,7 +195,7 @@ class Dropdown {
         parent.classList.add(ClassName.POSITION_STATIC)
       }
 
-      this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig())
+      this._popper = createPopper(referenceElement, this._menu, this._getPopperConfig())
     }
 
     // If this is a touch-enabled device we add extra
@@ -328,7 +328,7 @@ class Dropdown {
   }
 
   _getOffset() {
-    const offset = {}
+    const offset = []
 
     if (typeof this._config.offset === 'function') {
       offset.fn = data => {
@@ -349,15 +349,24 @@ class Dropdown {
   _getPopperConfig() {
     const popperConfig = {
       placement: this._getPlacement(),
-      modifiers: {
-        offset: this._getOffset(),
-        flip: {
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: this._getOffset()
+          }
+        },
+        {
+          name: 'flip',
           enabled: this._config.flip
         },
-        preventOverflow: {
-          boundariesElement: this._config.boundary
+        {
+          name: 'preventOverflow',
+          options: {
+            boundary: this._config.boundary
+          }
         }
-      }
+      ]
     }
 
     // Disable Popper.js if we have a static display

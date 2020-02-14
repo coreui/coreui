@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v3.0.0-rc.0 (https://coreui.io)
+  * CoreUI sidebar.js v3.0.0-rc.3 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -58,14 +58,15 @@
    */
 
   var NAME = 'sidebar';
-  var VERSION = '3.0.0-rc.0';
+  var VERSION = '3.0.0-rc.3';
   var DATA_KEY = 'coreui.sidebar';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var DefaultType = {
-    dropdownAccordion: 'boolean'
+    dropdownAccordion: '(string|boolean)'
   };
   var Default = {
+    dropdownAccordion: true,
     transition: 400
   };
   var ClassName = {
@@ -93,7 +94,6 @@
     NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
     NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
     NAV_LINK: '.c-sidebar-nav-link',
-    // NAV_LINK_QUERIED: `.c-sidebar-nav-link-queried`,
     NAVIGATION_CONTAINER: '.c-sidebar-nav',
     SIDEBAR: '.c-sidebar'
   };
@@ -152,9 +152,14 @@
         toggler = toggler.closest(Selector.NAV_DROPDOWN_TOGGLE);
       }
 
-      var dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
+      var dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset;
 
-      if (dataAttributes.drodpownAccordion) {
+      if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
+        Default.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion);
+      } // TODO: find better solution
+
+
+      if (Default.dropdownAccordion === true) {
         this._getAllSiblings(toggler.parentElement).forEach(function (element) {
           if (element !== toggler.parentNode) {
             if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
@@ -272,7 +277,7 @@
           currentUrl = String(window.location);
         }
 
-        if (currentUrl.slice(currentUrl.length - 1) === '#') {
+        if (currentUrl.slice(-1) === '#') {
           currentUrl = currentUrl.slice(0, -1);
         }
 

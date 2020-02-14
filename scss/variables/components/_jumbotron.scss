@@ -1,19 +1,19 @@
 
 // Jumbotron
 
-$jumbotron-padding: 2rem !default;
+$jumbotron-padding:  2rem !default;
 
 // Default theme
-$jumbotron-color:   null !default;
-$jumbotron-bg:      $gray-200 !default;
+$jumbotron-color:  null !default;
+$jumbotron-bg:     $gray-200 !default;
 
 $jumbotron-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $jumbotron-theme-map: map-merge(
   (
     default: (
-      "jumbotron-color": $jumbotron-color,
-      "jumbotron-bg":    $jumbotron-bg
+      "jumbotron-color":  $jumbotron-color,
+      "jumbotron-bg":     $jumbotron-bg
     )
   ),
   $jumbotron-theme-map

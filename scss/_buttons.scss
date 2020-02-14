@@ -46,13 +46,11 @@
     }
   }
 
-  // CoreUI start
   i,
   .c-icon {
     height: $btn-font-size;
     margin: ((($font-size-base * $line-height-base) - $font-size-base) / 2) 0;
   }
-  // CoreUI end
 }
 
 // Future-proof disabling of clicks on `<a>` elements

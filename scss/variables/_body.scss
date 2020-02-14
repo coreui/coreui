@@ -2,16 +2,16 @@
 //
 // Settings for the `<body>` element.
 
-$body-bg:    $gray-100 !default; // was: $white
-$body-color: $gray-900 !default;
+$body-bg:     $gray-100 !default;
+$body-color:  $gray-900 !default;
 
 $body-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $body-theme-map: map-merge(
   (
     default: (
-      "body-bg":    $body-bg,
-      "body-color": $gray-base
+      "body-bg":     $body-bg,
+      "body-color":  $gray-base
     )
   ),
   $body-theme-map

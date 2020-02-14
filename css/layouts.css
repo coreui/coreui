@@ -21,20 +21,23 @@
   margin: inherit;
 }
 
-.c-header ~ .c-sidebar {
-  margin-top: 56px;
+.c-wrapper.c-fixed-components {
+  height: 100vh;
 }
 
-.c-header.c-header-fixed ~ .c-wrapper {
-  margin-top: 56px;
+.c-wrapper.c-fixed-components .c-header-fixed {
+  margin: 0;
 }
 
-.c-header.c-header-with-subheader ~ .c-sidebar {
-  margin-top: 104px;
+.c-wrapper.c-fixed-components .c-header-fixed,
+.c-wrapper.c-fixed-components .c-subheader-fixed,
+.c-wrapper.c-fixed-components .c-footer-fixed {
+  position: relative;
 }
 
-.c-header.c-header-with-subheader.c-header-fixed ~ .c-wrapper {
-  margin-top: 104px;
+.c-wrapper.c-fixed-components .c-body {
+  flex-direction: column;
+  overflow-y: scroll;
 }
 
 .c-body {
@@ -44,7 +47,9 @@
 }
 
 .c-main {
-  flex: 1;
+  flex-basis: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
   min-width: 0;
   padding-top: 2rem;
 }
@@ -54,14 +59,6 @@
     padding-right: 30px;
     padding-left: 30px;
   }
-}
-
-.c-header-fixed ~ .c-body {
-  padding-top: 56px;
-}
-
-.c-header-fixed.c-header-with-subheader ~ .c-body {
-  padding-top: 104px;
 }
 
 /*# sourceMappingURL=layouts.css.map */

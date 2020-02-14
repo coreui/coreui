@@ -1,18 +1,17 @@
 /*!
-  * CoreUI tooltip.js v3.0.0-rc.0 (https://coreui.io)
+  * CoreUI tooltip.js v3.0.0-rc.3 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('popper.js'), require('./dom/selector-engine.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', 'popper.js', './dom/selector-engine.js'], factory) :
-  (global = global || self, global.Tooltip = factory(global.Data, global.EventHandler, global.Manipulator, global.Popper, global.SelectorEngine));
-}(this, (function (Data, EventHandler, Manipulator, Popper, SelectorEngine) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('@popperjs/core'), require('./dom/selector-engine.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', '@popperjs/core', './dom/selector-engine.js'], factory) :
+  (global = global || self, global.Tooltip = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
+}(this, (function (Data, EventHandler, Manipulator, core, SelectorEngine) { 'use strict';
 
   Data = Data && Data.hasOwnProperty('default') ? Data['default'] : Data;
   EventHandler = EventHandler && EventHandler.hasOwnProperty('default') ? EventHandler['default'] : EventHandler;
   Manipulator = Manipulator && Manipulator.hasOwnProperty('default') ? Manipulator['default'] : Manipulator;
-  Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
   SelectorEngine = SelectorEngine && SelectorEngine.hasOwnProperty('default') ? SelectorEngine['default'] : SelectorEngine;
 
   function _defineProperties(target, props) {
@@ -345,7 +344,7 @@
    */
 
   var NAME = 'tooltip';
-  var VERSION = '3.0.0-rc.0';
+  var VERSION = '3.0.0-rc.3';
   var DATA_KEY = 'coreui.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-tooltip';
@@ -387,7 +386,7 @@
     placement: 'top',
     offset: 0,
     container: false,
-    fallbackPlacement: 'flip',
+    fallbackPlacement: ['top', 'right', 'bottom', 'left'],
     boundary: 'scrollParent',
     sanitize: true,
     sanitizeFn: null,
@@ -433,7 +432,7 @@
   /*#__PURE__*/
   function () {
     function Tooltip(element, config) {
-      if (typeof Popper === 'undefined') {
+      if (typeof core.createPopper === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org)');
       } // private
 
@@ -567,7 +566,7 @@
         }
 
         EventHandler.trigger(this.element, this.constructor.Event.INSERTED);
-        this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
+        this._popper = core.createPopper(this.element, tip, this._getPopperConfig(attachment));
         tip.classList.add(ClassName.SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
         // only needed because of broken event delegation on iOS
@@ -731,18 +730,27 @@
 
       var defaultBsConfig = {
         placement: attachment,
-        modifiers: {
-          offset: this._getOffset(),
-          flip: {
-            behavior: this.config.fallbackPlacement
-          },
-          arrow: {
-            element: "." + this.constructor.NAME + "-arrow"
-          },
-          preventOverflow: {
-            boundariesElement: this.config.boundary
+        modifiers: [{
+          name: 'offset',
+          options: {
+            offset: this._getOffset()
           }
-        },
+        }, {
+          name: 'flip',
+          options: {
+            fallbackPlacements: this.config.fallbackPlacement
+          }
+        }, {
+          name: 'arrow',
+          options: {
+            element: "." + this.constructor.NAME + "-arrow"
+          }
+        }, {
+          name: 'preventOverflow',
+          options: {
+            boundary: this.config.boundary
+          }
+        }],
         onCreate: function onCreate(data) {
           if (data.originalPlacement !== data.placement) {
             _this3._handlePopperPlacementChange(data);

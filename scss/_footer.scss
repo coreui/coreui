@@ -9,6 +9,14 @@
   &[class*="bg-"] {
     border-color: rgba($black, .1);
   }
+
+  &.c-footer-fixed {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+  }
 }
 
 @include themes($footer-theme-map, $parent: ".c-footer") {

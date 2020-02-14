@@ -1,44 +1,44 @@
 // Popovers
 
-$popover-font-size:           $font-size-sm !default;
-$popover-max-width:           276px !default;
-$popover-border-width:        $border-width !default;
+$popover-font-size:     $font-size-sm !default;
+$popover-max-width:     276px !default;
+$popover-border-width:  $border-width !default;
 
-$popover-border-radius:       $border-radius-lg !default;
-$popover-inner-border-radius: subtract($popover-border-radius, $popover-border-width) !default;
-$popover-box-shadow:          0 .25rem .5rem rgba($black, .2) !default;
+$popover-border-radius:        $border-radius-lg !default;
+$popover-inner-border-radius:  subtract($popover-border-radius, $popover-border-width) !default;
+$popover-box-shadow:           0 .25rem .5rem rgba($black, .2) !default;
 
-$popover-header-padding-y:    .5rem !default;
-$popover-header-padding-x:    .75rem !default;
+$popover-header-padding-y:  .5rem !default;
+$popover-header-padding-x:  .75rem !default;
 
-$popover-body-padding-y:      $popover-header-padding-y !default;
-$popover-body-padding-x:      $popover-header-padding-x !default;
+$popover-body-padding-y:  $popover-header-padding-y !default;
+$popover-body-padding-x:  $popover-header-padding-x !default;
 
-$popover-arrow-width:         1rem !default;
-$popover-arrow-height:        .5rem !default;
+$popover-arrow-width:   1rem !default;
+$popover-arrow-height:  .5rem !default;
 
 
 // Light Theme
-$popover-bg:                  $white !default;
-$popover-border-color:        rgba($black, .2) !default;
-$popover-header-bg:           darken($popover-bg, 3%) !default;
-$popover-header-color:        $headings-color !default;
-$popover-body-color:          $body-color !default;
-$popover-arrow-color:         $popover-bg !default;
-$popover-arrow-outer-color:   fade-in($popover-border-color, .05) !default;
+$popover-bg:                 $white !default;
+$popover-border-color:       rgba($black, .2) !default;
+$popover-header-bg:          darken($popover-bg, 3%) !default;
+$popover-header-color:       $headings-color !default;
+$popover-body-color:         $body-color !default;
+$popover-arrow-color:        $popover-bg !default;
+$popover-arrow-outer-color:  fade-in($popover-border-color, .05) !default;
 
 $popover-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $popover-theme-map: map-merge(
   (
     default: (
-      "popover-bg":                $popover-bg,
-      "popover-border-color":      $popover-border-color,
-      "popover-header-bg":         $popover-header-bg,
-      "popover-header-color":      $popover-header-color,
-      "popover-body-color":        $popover-body-color,
-      "popover-arrow-color":       $popover-arrow-color,
-      "popover-arrow-outer-color": $popover-arrow-outer-color
+      "popover-bg":                 $popover-bg,
+      "popover-border-color":       $popover-border-color,
+      "popover-header-bg":          $popover-header-bg,
+      "popover-header-color":       $popover-header-color,
+      "popover-body-color":         $popover-body-color,
+      "popover-arrow-color":        $popover-arrow-color,
+      "popover-arrow-outer-color":  $popover-arrow-outer-color
     )
   ),
   $popover-theme-map

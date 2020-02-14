@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-rc.0): tooltip.js
+ * CoreUI (v3.0.0-rc.3): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -28,7 +28,7 @@ import {
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
-import Popper from 'popper.js'
+import { createPopper } from '@popperjs/core'
 import SelectorEngine from './dom/selector-engine'
 
 /**
@@ -38,7 +38,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'tooltip'
-const VERSION = '3.0.0-rc.0'
+const VERSION = '3.0.0-rc.3'
 const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-tooltip'
@@ -85,7 +85,7 @@ const Default = {
   placement: 'top',
   offset: 0,
   container: false,
-  fallbackPlacement: 'flip',
+  fallbackPlacement: ['top', 'right', 'bottom', 'left'],
   boundary: 'scrollParent',
   sanitize: true,
   sanitizeFn: null,
@@ -135,7 +135,7 @@ const Trigger = {
 
 class Tooltip {
   constructor(element, config) {
-    if (typeof Popper === 'undefined') {
+    if (typeof createPopper === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org)')
     }
 
@@ -303,7 +303,7 @@ class Tooltip {
 
       EventHandler.trigger(this.element, this.constructor.Event.INSERTED)
 
-      this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment))
+      this._popper = createPopper(this.element, tip, this._getPopperConfig(attachment))
 
       tip.classList.add(ClassName.SHOW)
 
@@ -467,18 +467,32 @@ class Tooltip {
   _getPopperConfig(attachment) {
     const defaultBsConfig = {
       placement: attachment,
-      modifiers: {
-        offset: this._getOffset(),
-        flip: {
-          behavior: this.config.fallbackPlacement
+      modifiers: [
+        {
+          name: 'offset',
+          options: {
+            offset: this._getOffset()
+          }
         },
-        arrow: {
-          element: `.${this.constructor.NAME}-arrow`
+        {
+          name: 'flip',
+          options: {
+            fallbackPlacements: this.config.fallbackPlacement
+          }
         },
-        preventOverflow: {
-          boundariesElement: this.config.boundary
+        {
+          name: 'arrow',
+          options: {
+            element: `.${this.constructor.NAME}-arrow`
+          },
+        },
+        {
+          name: 'preventOverflow',
+          options: {
+            boundary: this.config.boundary
+          }
         }
-      },
+      ],
       onCreate: data => {
         if (data.originalPlacement !== data.placement) {
           this._handlePopperPlacementChange(data)

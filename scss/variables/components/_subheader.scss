@@ -1,0 +1,65 @@
+// Subheader
+
+$subheader-height:       48px !default;
+
+$subheader-padding-y:  $spacer / 2 !default;
+$subheader-padding-x:  $spacer !default;
+
+$subheader-nav-link-padding-x:  .5rem !default;
+
+
+// Default theme
+
+$subheader-dark-bg:                     $gray-base !default;
+$subheader-dark-color:                  rgba($white, .75) !default;
+$subheader-dark-border:                 ( bottom: 1px solid $gray-800 ) !default;
+$subheader-dark-hover-color:            rgba($white, .9) !default;
+$subheader-dark-active-color:           $white !default;
+$subheader-dark-disabled-color:         rgba($white, .25) !default;
+
+$subheader-light-bg:                     $white !default;
+$subheader-light-color:                  rgba($black, .5) !default;
+$subheader-light-border:                 ( bottom: 1px solid $border-color ) !default;
+$subheader-light-hover-color:            rgba($black, .7) !default;
+$subheader-light-active-color:           rgba($black, .9) !default;
+$subheader-light-disabled-color:         rgba($black, .3) !default;
+
+
+$subheader-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$subheader-variants-map: map-merge(
+  (
+    dark: (
+      "subheader-bg":                      $subheader-dark-bg,
+      "subheader-color":                   $subheader-dark-color,
+      "subheader-border":                  $subheader-dark-border,
+      "subheader-hover-color":             $subheader-dark-hover-color,
+      "subheader-active-color":            $subheader-dark-active-color,
+      "subheader-disabled-color":          $subheader-dark-disabled-color,
+    ),
+    light: (
+      "subheader-bg":                      $subheader-light-bg,
+      "subheader-color":                   $subheader-light-color,
+      "subheader-border":                  $subheader-light-border,
+      "subheader-hover-color":             $subheader-light-hover-color,
+      "subheader-active-color":            $subheader-light-active-color,
+      "subheader-disabled-color":          $subheader-light-disabled-color,
+    )
+  ),
+  $subheader-variants-map
+);
+
+$subheader-default-variant: "light" !default;
+$subheader-variants: (
+  default:  $subheader-default-variant,
+  map:      $subheader-variants-map
+) !default;
+
+$subheader-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$subheader-theme-map: map-merge(
+  (
+    default:  $subheader-variants
+  ),
+  $subheader-theme-map
+);

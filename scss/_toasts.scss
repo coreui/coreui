@@ -3,14 +3,17 @@
   max-width: $toast-max-width;
   overflow: hidden; // cheap rounded corners on nested items
   @include font-size($toast-font-size);
-  color: $toast-color;
-  background-color: $toast-background-color;
   background-clip: padding-box;
-  border: $toast-border-width solid $toast-border-color;
+  border: $toast-border-width solid;
   box-shadow: $toast-box-shadow;
   backdrop-filter: blur(10px);
   opacity: 0;
   @include border-radius($toast-border-radius);
+  @include themes($toast-theme-map, $create: parent) {
+    color: themes-get-value("toast-color");
+    background-color: themes-get-value("toast-background-color");
+    border-color: themes-get-value("toast-border-color");
+  }
 
   &:not(:last-child) {
     margin-bottom: $toast-padding-x;
@@ -39,10 +42,13 @@
   display: flex;
   align-items: center;
   padding: $toast-padding-y $toast-padding-x;
-  color: $toast-header-color;
-  background-color: $toast-header-background-color;
   background-clip: padding-box;
-  border-bottom: $toast-border-width solid $toast-header-border-color;
+  border-bottom: $toast-border-width solid;
+  @include themes($toast-theme-map, $create: parent) {
+    color: themes-get-value("toast-header-color");
+    background-color: themes-get-value("toast-header-background-color");
+    border-color: themes-get-value("toast-header-border-color");
+  }
 }
 
 .toast-body {

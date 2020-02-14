@@ -155,6 +155,8 @@ $theme-has-variants: false !default;
   $themes: map-keys($themes-map);
 
   @each $theme in $themes {
+    $current-theme: $theme !global;
+
     @if map-has-key($default-themes, $theme) {
       $theme-map: map-get($themes-map, $theme);
       // Check if $theme-map has variants

@@ -50,7 +50,7 @@
 
 .c-sidebar {
   will-change: auto;
-  transition: transform 0.25s, margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0.25s;
+  transition: box-shadow 0.25s, transform 0.25s, margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0.25s;
 }
 
 .c-sidebar.c-sidebar-unfoldable {

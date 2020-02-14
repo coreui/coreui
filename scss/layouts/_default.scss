@@ -21,27 +21,26 @@
   flex-direction: column;
   min-height: 100vh;
 
-  .c-header-fixed{
+  .c-header-fixed {
     margin: inherit;
   }
-}
 
-// if header on top
-.c-header {
-  ~ .c-sidebar {
-    margin-top: $header-height;
-  }
+  &.c-fixed-components {
+    height: 100vh;
 
-  &.c-header-fixed ~ .c-wrapper {
-    margin-top: $header-height;
-  }
-
-  &.c-header-with-subheader {
-    ~ .c-sidebar {
-      margin-top: $header-height + $header-subheader-height;
+    .c-header-fixed {
+      margin: 0;
     }
-    &.c-header-fixed ~ .c-wrapper {
-      margin-top: $header-height + $header-subheader-height;
+
+    .c-header-fixed,
+    .c-subheader-fixed,
+    .c-footer-fixed {
+      position: relative;
+    }
+
+    .c-body {
+      flex-direction: column;
+      overflow-y: scroll;
     }
   }
 }
@@ -53,7 +52,9 @@
 }
 
 .c-main {
-  flex: 1;
+  flex-basis: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
   min-width: 0;
   padding-top: 2 * $spacer;
 
@@ -65,12 +66,3 @@
   }
 }
 
-.c-header-fixed {
-  ~ .c-body {
-    padding-top: $header-height;
-  }
-
-  &.c-header-with-subheader ~ .c-body {
-    padding-top: $header-height + $header-subheader-height;
-  }
-}

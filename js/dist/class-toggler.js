@@ -1,5 +1,5 @@
 /*!
-  * CoreUI class-toggler.js v3.0.0-rc.0 (https://coreui.io)
+  * CoreUI class-toggler.js v3.0.0-rc.3 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -53,7 +53,7 @@
    */
 
   var NAME = 'class-toggler';
-  var VERSION = '3.0.0-rc.0';
+  var VERSION = '3.0.0-rc.3';
   var DATA_KEY = 'coreui.class-toggler';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';

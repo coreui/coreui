@@ -1,18 +1,17 @@
 /*!
-  * CoreUI dropdown.js v3.0.0-rc.0 (https://coreui.io)
+  * CoreUI dropdown.js v3.0.0-rc.3 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('popper.js'), require('./dom/selector-engine.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', 'popper.js', './dom/selector-engine.js'], factory) :
-  (global = global || self, global.Dropdown = factory(global.Data, global.EventHandler, global.Manipulator, global.Popper, global.SelectorEngine));
-}(this, (function (Data, EventHandler, Manipulator, Popper, SelectorEngine) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('@popperjs/core'), require('./dom/selector-engine.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', '@popperjs/core', './dom/selector-engine.js'], factory) :
+  (global = global || self, global.Dropdown = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
+}(this, (function (Data, EventHandler, Manipulator, core, SelectorEngine) { 'use strict';
 
   Data = Data && Data.hasOwnProperty('default') ? Data['default'] : Data;
   EventHandler = EventHandler && EventHandler.hasOwnProperty('default') ? EventHandler['default'] : EventHandler;
   Manipulator = Manipulator && Manipulator.hasOwnProperty('default') ? Manipulator['default'] : Manipulator;
-  Popper = Popper && Popper.hasOwnProperty('default') ? Popper['default'] : Popper;
   SelectorEngine = SelectorEngine && SelectorEngine.hasOwnProperty('default') ? SelectorEngine['default'] : SelectorEngine;
 
   function _defineProperties(target, props) {
@@ -167,7 +166,7 @@
    */
 
   var NAME = 'dropdown';
-  var VERSION = '3.0.0-rc.0';
+  var VERSION = '3.0.0-rc.3';
   var DATA_KEY = 'coreui.dropdown';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -222,7 +221,7 @@
     LEFTEND: 'left-end'
   };
   var Default = {
-    offset: 0,
+    offset: [0, 0],
     flip: true,
     boundary: 'scrollParent',
     reference: 'toggle',
@@ -230,7 +229,7 @@
     popperConfig: null
   };
   var DefaultType = {
-    offset: '(number|string|function)',
+    offset: '(array|function)',
     flip: 'boolean',
     boundary: '(string|element)',
     reference: '(string|element)',
@@ -296,7 +295,7 @@
 
 
       if (!this._inNavbar && !this._inHeader) {
-        if (typeof Popper === 'undefined') {
+        if (typeof core.createPopper === 'undefined') {
           throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)');
         }
 
@@ -319,7 +318,7 @@
           parent.classList.add(ClassName.POSITION_STATIC);
         }
 
-        this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
+        this._popper = core.createPopper(referenceElement, this._menu, this._getPopperConfig());
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
@@ -448,7 +447,7 @@
     _proto._getOffset = function _getOffset() {
       var _this2 = this;
 
-      var offset = {};
+      var offset = [];
 
       if (typeof this._config.offset === 'function') {
         offset.fn = function (data) {
@@ -465,15 +464,20 @@
     _proto._getPopperConfig = function _getPopperConfig() {
       var popperConfig = {
         placement: this._getPlacement(),
-        modifiers: {
-          offset: this._getOffset(),
-          flip: {
-            enabled: this._config.flip
-          },
-          preventOverflow: {
-            boundariesElement: this._config.boundary
+        modifiers: [{
+          name: 'offset',
+          options: {
+            offset: this._getOffset()
           }
-        }
+        }, {
+          name: 'flip',
+          enabled: this._config.flip
+        }, {
+          name: 'preventOverflow',
+          options: {
+            boundary: this._config.boundary
+          }
+        }]
       }; // Disable Popper.js if we have a static display
 
       if (this._config.display === 'static') {

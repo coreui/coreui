@@ -133,10 +133,8 @@
   @include rtl {
     margin-left: -$input-border-width;
   }
-  // CoreUI start
   white-space: nowrap;
   vertical-align: middle; // Match the inputs
-  // CoreUI end
 }
 .input-group-append {
   @include ltr {
@@ -145,10 +143,8 @@
   @include rtl {
     margin-right: -$input-border-width;
   }
-  // CoreUI start
   white-space: nowrap;
   vertical-align: middle; // Match the inputs
-  // CoreUI end
 }
 
 

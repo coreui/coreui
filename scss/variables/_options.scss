@@ -3,27 +3,25 @@
 //
 // Quickly modify global styling by enabling or disabling optional features.
 
-$theme-suffix:                                -theme !default;
-$mobile-breakpoint:                           lg !default;
-$enable-ltr:                                  true !default; // CoreUI
-$enable-rtl:                                  true !default; // CoreUI
-$enable-caret:                                true !default;
-$enable-rounded:                              true !default;
-$enable-shadows:                              false !default;
-$enable-gradients:                            false !default;
-$enable-transitions:                          true !default;
-$enable-prefers-reduced-motion-media-query:   true !default;
-$enable-hover-media-query:                    false !default; // Deprecated, no longer affects any compiled CSS
-$enable-grid-classes:                         true !default;
-$enable-pointer-cursor-for-buttons:           true !default;
-$enable-print-styles:                         true !default;
-$enable-responsive-font-sizes:                false !default;
-$enable-validation-icons:                     true !default;
-$enable-deprecation-messages:                 false !default;
-// CoreUI
-$enable-sidebar-nav-rounded:                  false !default;
-$layout-transition-speed:                     .25s !default;
-$enable-elevations:                           true !default;
+$theme-suffix:                               -theme !default;
+$mobile-breakpoint:                          lg !default;
+$enable-ltr:                                 true !default;
+$enable-rtl:                                 true !default;
+$enable-caret:                               true !default;
+$enable-rounded:                             true !default;
+$enable-shadows:                             false !default;
+$enable-gradients:                           false !default;
+$enable-transitions:                         true !default;
+$enable-prefers-reduced-motion-media-query:  true !default;
+$enable-hover-media-query:                   false !default; // Deprecated, no longer affects any compiled CSS
+$enable-grid-classes:                        true !default;
+$enable-pointer-cursor-for-buttons:          true !default;
+$enable-print-styles:                        true !default;
+$enable-responsive-font-sizes:               false !default;
+$enable-validation-icons:                    true !default;
+$enable-deprecation-messages:                false !default;
+$enable-sidebar-nav-rounded:                 false !default;
+$layout-transition-speed:                    .25s !default;
 
 $options: () !default;
 

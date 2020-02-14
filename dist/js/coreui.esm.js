@@ -1,9 +1,9 @@
 /*!
-  * CoreUI v3.0.0-rc.0 (https://coreui.io)
+  * CoreUI v3.0.0-rc.3 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
-import Popper from 'popper.js';
+import { createPopper } from '@popperjs/core';
 import PerfectScrollbar from 'perfect-scrollbar';
 
 function _defineProperties(target, props) {
@@ -764,7 +764,7 @@ var EventHandler = {
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-rc.0';
+var VERSION = '3.0.0-rc.3';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -1106,7 +1106,7 @@ var SelectorEngine = {
  */
 
 var NAME$1 = 'alert';
-var VERSION$1 = '3.0.0-rc.0';
+var VERSION$1 = '3.0.0-rc.3';
 var DATA_KEY$1 = 'coreui.alert';
 var EVENT_KEY$1 = "." + DATA_KEY$1;
 var DATA_API_KEY$1 = '.data-api';
@@ -1280,7 +1280,7 @@ if ($$2) {
  */
 
 var NAME$2 = 'button';
-var VERSION$2 = '3.0.0-rc.0';
+var VERSION$2 = '3.0.0-rc.3';
 var DATA_KEY$2 = 'coreui.button';
 var EVENT_KEY$2 = "." + DATA_KEY$2;
 var DATA_API_KEY$2 = '.data-api';
@@ -1539,7 +1539,7 @@ var Manipulator = {
  */
 
 var NAME$3 = 'carousel';
-var VERSION$3 = '3.0.0-rc.0';
+var VERSION$3 = '3.0.0-rc.3';
 var DATA_KEY$3 = 'coreui.carousel';
 var EVENT_KEY$3 = "." + DATA_KEY$3;
 var DATA_API_KEY$3 = '.data-api';
@@ -2152,7 +2152,7 @@ if ($$4) {
  */
 
 var NAME$4 = 'class-toggler';
-var VERSION$4 = '3.0.0-rc.0';
+var VERSION$4 = '3.0.0-rc.3';
 var DATA_KEY$4 = 'coreui.class-toggler';
 var EVENT_KEY$4 = "." + DATA_KEY$4;
 var DATA_API_KEY$4 = '.data-api';
@@ -2433,7 +2433,7 @@ if ($$5) {
  */
 
 var NAME$5 = 'collapse';
-var VERSION$5 = '3.0.0-rc.0';
+var VERSION$5 = '3.0.0-rc.3';
 var DATA_KEY$5 = 'coreui.collapse';
 var EVENT_KEY$5 = "." + DATA_KEY$5;
 var DATA_API_KEY$5 = '.data-api';
@@ -2850,7 +2850,7 @@ if ($$6) {
  */
 
 var NAME$6 = 'dropdown';
-var VERSION$6 = '3.0.0-rc.0';
+var VERSION$6 = '3.0.0-rc.3';
 var DATA_KEY$6 = 'coreui.dropdown';
 var EVENT_KEY$6 = "." + DATA_KEY$6;
 var DATA_API_KEY$6 = '.data-api';
@@ -2905,7 +2905,7 @@ var AttachmentMap = {
   LEFTEND: 'left-end'
 };
 var Default$4 = {
-  offset: 0,
+  offset: [0, 0],
   flip: true,
   boundary: 'scrollParent',
   reference: 'toggle',
@@ -2913,7 +2913,7 @@ var Default$4 = {
   popperConfig: null
 };
 var DefaultType$2 = {
-  offset: '(number|string|function)',
+  offset: '(array|function)',
   flip: 'boolean',
   boundary: '(string|element)',
   reference: '(string|element)',
@@ -2979,7 +2979,7 @@ function () {
 
 
     if (!this._inNavbar && !this._inHeader) {
-      if (typeof Popper === 'undefined') {
+      if (typeof createPopper === 'undefined') {
         throw new TypeError('Bootstrap\'s dropdowns require Popper.js (https://popper.js.org)');
       }
 
@@ -3002,7 +3002,7 @@ function () {
         parent.classList.add(ClassName$6.POSITION_STATIC);
       }
 
-      this._popper = new Popper(referenceElement, this._menu, this._getPopperConfig());
+      this._popper = createPopper(referenceElement, this._menu, this._getPopperConfig());
     } // If this is a touch-enabled device we add extra
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
@@ -3131,7 +3131,7 @@ function () {
   _proto._getOffset = function _getOffset() {
     var _this2 = this;
 
-    var offset = {};
+    var offset = [];
 
     if (typeof this._config.offset === 'function') {
       offset.fn = function (data) {
@@ -3148,15 +3148,20 @@ function () {
   _proto._getPopperConfig = function _getPopperConfig() {
     var popperConfig = {
       placement: this._getPlacement(),
-      modifiers: {
-        offset: this._getOffset(),
-        flip: {
-          enabled: this._config.flip
-        },
-        preventOverflow: {
-          boundariesElement: this._config.boundary
+      modifiers: [{
+        name: 'offset',
+        options: {
+          offset: this._getOffset()
         }
-      }
+      }, {
+        name: 'flip',
+        enabled: this._config.flip
+      }, {
+        name: 'preventOverflow',
+        options: {
+          boundary: this._config.boundary
+        }
+      }]
     }; // Disable Popper.js if we have a static display
 
     if (this._config.display === 'static') {
@@ -3381,7 +3386,7 @@ if ($$7) {
  */
 
 var NAME$7 = 'modal';
-var VERSION$7 = '3.0.0-rc.0';
+var VERSION$7 = '3.0.0-rc.3';
 var DATA_KEY$7 = 'coreui.modal';
 var EVENT_KEY$7 = "." + DATA_KEY$7;
 var DATA_API_KEY$7 = '.data-api';
@@ -4119,7 +4124,7 @@ function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
  */
 
 var NAME$8 = 'tooltip';
-var VERSION$8 = '3.0.0-rc.0';
+var VERSION$8 = '3.0.0-rc.3';
 var DATA_KEY$8 = 'coreui.tooltip';
 var EVENT_KEY$8 = "." + DATA_KEY$8;
 var CLASS_PREFIX = 'bs-tooltip';
@@ -4161,7 +4166,7 @@ var Default$6 = {
   placement: 'top',
   offset: 0,
   container: false,
-  fallbackPlacement: 'flip',
+  fallbackPlacement: ['top', 'right', 'bottom', 'left'],
   boundary: 'scrollParent',
   sanitize: true,
   sanitizeFn: null,
@@ -4207,7 +4212,7 @@ var Tooltip =
 /*#__PURE__*/
 function () {
   function Tooltip(element, config) {
-    if (typeof Popper === 'undefined') {
+    if (typeof createPopper === 'undefined') {
       throw new TypeError('Bootstrap\'s tooltips require Popper.js (https://popper.js.org)');
     } // private
 
@@ -4341,7 +4346,7 @@ function () {
       }
 
       EventHandler.trigger(this.element, this.constructor.Event.INSERTED);
-      this._popper = new Popper(this.element, tip, this._getPopperConfig(attachment));
+      this._popper = createPopper(this.element, tip, this._getPopperConfig(attachment));
       tip.classList.add(ClassName$8.SHOW); // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
@@ -4505,18 +4510,27 @@ function () {
 
     var defaultBsConfig = {
       placement: attachment,
-      modifiers: {
-        offset: this._getOffset(),
-        flip: {
-          behavior: this.config.fallbackPlacement
-        },
-        arrow: {
-          element: "." + this.constructor.NAME + "-arrow"
-        },
-        preventOverflow: {
-          boundariesElement: this.config.boundary
+      modifiers: [{
+        name: 'offset',
+        options: {
+          offset: this._getOffset()
         }
-      },
+      }, {
+        name: 'flip',
+        options: {
+          fallbackPlacements: this.config.fallbackPlacement
+        }
+      }, {
+        name: 'arrow',
+        options: {
+          element: "." + this.constructor.NAME + "-arrow"
+        }
+      }, {
+        name: 'preventOverflow',
+        options: {
+          boundary: this.config.boundary
+        }
+      }],
       onCreate: function onCreate(data) {
         if (data.originalPlacement !== data.placement) {
           _this3._handlePopperPlacementChange(data);
@@ -4875,7 +4889,7 @@ if ($$9) {
  */
 
 var NAME$9 = 'popover';
-var VERSION$9 = '3.0.0-rc.0';
+var VERSION$9 = '3.0.0-rc.3';
 var DATA_KEY$9 = 'coreui.popover';
 var EVENT_KEY$9 = "." + DATA_KEY$9;
 var CLASS_PREFIX$1 = 'bs-popover';
@@ -5070,7 +5084,7 @@ if ($$a) {
  */
 
 var NAME$a = 'scrollspy';
-var VERSION$a = '3.0.0-rc.0';
+var VERSION$a = '3.0.0-rc.3';
 var DATA_KEY$a = 'coreui.scrollspy';
 var EVENT_KEY$a = "." + DATA_KEY$a;
 var DATA_API_KEY$8 = '.data-api';
@@ -5385,14 +5399,15 @@ if ($$b) {
  */
 
 var NAME$b = 'sidebar';
-var VERSION$b = '3.0.0-rc.0';
+var VERSION$b = '3.0.0-rc.3';
 var DATA_KEY$b = 'coreui.sidebar';
 var EVENT_KEY$b = "." + DATA_KEY$b;
 var DATA_API_KEY$9 = '.data-api';
 var DefaultType$7 = {
-  dropdownAccordion: 'boolean'
+  dropdownAccordion: '(string|boolean)'
 };
 var Default$9 = {
+  dropdownAccordion: true,
   transition: 400
 };
 var ClassName$b = {
@@ -5420,7 +5435,6 @@ var Selector$b = {
   NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
   NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-sidebar-nav-link',
-  // NAV_LINK_QUERIED: `.c-sidebar-nav-link-queried`,
   NAVIGATION_CONTAINER: '.c-sidebar-nav',
   SIDEBAR: '.c-sidebar'
 };
@@ -5479,9 +5493,14 @@ function () {
       toggler = toggler.closest(Selector$b.NAV_DROPDOWN_TOGGLE);
     }
 
-    var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset; // TODO: find better solution
+    var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset;
 
-    if (dataAttributes.drodpownAccordion) {
+    if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
+      Default$9.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion);
+    } // TODO: find better solution
+
+
+    if (Default$9.dropdownAccordion === true) {
       this._getAllSiblings(toggler.parentElement).forEach(function (element) {
         if (element !== toggler.parentNode) {
           if (element.classList.contains(ClassName$b.NAV_DROPDOWN)) {
@@ -5599,7 +5618,7 @@ function () {
         currentUrl = String(window.location);
       }
 
-      if (currentUrl.slice(currentUrl.length - 1) === '#') {
+      if (currentUrl.slice(-1) === '#') {
         currentUrl = currentUrl.slice(0, -1);
       }
 
@@ -5773,7 +5792,7 @@ if ($$c) {
  */
 
 var NAME$c = 'tab';
-var VERSION$c = '3.0.0-rc.0';
+var VERSION$c = '3.0.0-rc.3';
 var DATA_KEY$c = 'coreui.tab';
 var EVENT_KEY$c = "." + DATA_KEY$c;
 var DATA_API_KEY$a = '.data-api';
@@ -6007,7 +6026,7 @@ if ($$d) {
  */
 
 var NAME$d = 'toast';
-var VERSION$d = '3.0.0-rc.0';
+var VERSION$d = '3.0.0-rc.3';
 var DATA_KEY$d = 'coreui.toast';
 var EVENT_KEY$d = "." + DATA_KEY$d;
 var Event$e = {

@@ -8,7 +8,7 @@
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   height: $card-height;
-  margin-bottom: $card-margin-bottom; // CoreUI
+  margin-bottom: $card-margin-bottom;
   word-wrap: break-word;
   background-clip: border-box;
   border: $card-border-width solid;
@@ -323,7 +323,6 @@
   }
 }
 
-// CoreUI start
 .card-placeholder {
   background: rgba($black, .025);
   border: 1px dashed $gray-300;
@@ -391,4 +390,3 @@
     }
   }
 }
-// CoreUI end

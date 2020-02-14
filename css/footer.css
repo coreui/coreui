@@ -11,6 +11,14 @@
   border-color: rgba(0, 0, 21, 0.1);
 }
 
+.c-footer.c-footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1030;
+}
+
 .c-footer.c-footer-dark {
   color: #fff;
   background: #636f83;

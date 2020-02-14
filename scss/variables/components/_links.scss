@@ -2,20 +2,20 @@
 //
 // Style anchor elements.
 
-$link-color:                              theme-color("primary") !default;
-$link-decoration:                         none !default;
-$link-hover-color:                        darken($link-color, 15%) !default;
-$link-hover-decoration:                   underline !default;
+$link-color:                               theme-color("primary") !default;
+$link-decoration:                          none !default;
+$link-hover-color:                         darken($link-color, 15%) !default;
+$link-hover-decoration:                    underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
-$emphasized-link-hover-darken-percentage: 15% !default;
+$emphasized-link-hover-darken-percentage:  15% !default;
 
 $link-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $link-theme-map: map-merge(
   (
     default: (
-      "link-color":       $link-color,
-      "link-hover-color": $link-hover-color
+      "link-color":        $link-color,
+      "link-hover-color":  $link-hover-color
     )
   ),
   $link-theme-map

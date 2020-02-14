@@ -5,6 +5,7 @@
   order: -1;
   width: 256px;
   padding: 0;
+  box-shadow: none;
 }
 
 @media (max-width: 991.98px) {
@@ -43,19 +44,19 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-right {
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm:not(.c-sidebar-right) {
-  margin-left: -256px;
+  margin-left: -192px;
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm.c-sidebar-right {
-  margin-right: -256px;
+  margin-right: -192px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-sm:not(.c-sidebar-right) {
-  margin-right: -256px;
+  margin-right: -192px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-sm.c-sidebar-right {
-  margin-left: -256px;
+  margin-left: -192px;
 }
 
 .c-sidebar.c-sidebar-lg {
@@ -63,19 +64,19 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm.c-sidebar-right {
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg:not(.c-sidebar-right) {
-  margin-left: -256px;
+  margin-left: -320px;
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg.c-sidebar-right {
-  margin-right: -256px;
+  margin-right: -320px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-lg:not(.c-sidebar-right) {
-  margin-right: -256px;
+  margin-right: -320px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-lg.c-sidebar-right {
-  margin-left: -256px;
+  margin-left: -320px;
 }
 
 .c-sidebar.c-sidebar-xl {
@@ -83,19 +84,19 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg.c-sidebar-right {
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl:not(.c-sidebar-right) {
-  margin-left: -256px;
+  margin-left: -384px;
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl.c-sidebar-right {
-  margin-right: -256px;
+  margin-right: -384px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-xl:not(.c-sidebar-right) {
-  margin-right: -256px;
+  margin-right: -384px;
 }
 
 *[dir="rtl"] .c-sidebar.c-sidebar-xl.c-sidebar-right {
-  margin-left: -256px;
+  margin-left: -384px;
 }
 
 @media (min-width: 992px) {
@@ -354,6 +355,12 @@ html:not([dir="rtl"]) .c-sidebar-nav-dropdown-items .c-sidebar-nav-link .c-sideb
   border: 0;
 }
 
+@media (max-width: 991.98px) {
+  .c-sidebar-minimizer {
+    display: none;
+  }
+}
+
 .c-sidebar-minimizer::before {
   display: block;
   width: 50px;
@@ -404,49 +411,162 @@ html:not([dir="rtl"]) .c-sidebar-right .c-sidebar-minimizer::before {
   }
 }
 
-@media (min-width: 768px) {
-  .c-sidebar-minimized, .c-sidebar-unfoldable:not(:hover) {
+@media (min-width: 992px) {
+  .c-sidebar-minimized {
     z-index: 1031;
     flex: 0 0 56px;
   }
-  .c-sidebar-minimized.c-sidebar-fixed, .c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) {
+  .c-sidebar-minimized.c-sidebar-fixed {
     z-index: 1031;
     width: 56px;
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized:not(.c-sidebar-right), html:not([dir="rtl"]) .c-sidebar-unfoldable:not(.c-sidebar-right):not(:hover) {
+  html:not([dir="rtl"]) .c-sidebar-minimized:not(.c-sidebar-right) {
     margin-left: -56px;
   }
-  *[dir="rtl"] .c-sidebar-minimized:not(.c-sidebar-right), *[dir="rtl"] .c-sidebar-unfoldable:not(.c-sidebar-right):not(:hover) {
+  *[dir="rtl"] .c-sidebar-minimized:not(.c-sidebar-right) {
     margin-right: -56px;
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) {
+  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right {
     margin-right: -56px;
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) {
+  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right {
     margin-left: -56px;
   }
-  .c-sidebar-minimized .c-sidebar-brand-full, .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-full {
+  .c-sidebar-minimized .c-sidebar-brand-full {
     display: none;
   }
-  .c-sidebar-minimized .c-sidebar-brand-minimized, .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-minimized {
-    display: initial;
+  .c-sidebar-minimized .c-sidebar-brand-minimized {
+    display: block;
   }
-  .c-sidebar-minimized .c-sidebar-nav, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav {
+  .c-sidebar-minimized .c-sidebar-nav {
     padding-bottom: 50px;
     overflow: visible;
   }
-  .c-sidebar-minimized .c-d-minimized-none, .c-sidebar-unfoldable:not(:hover) .c-d-minimized-none,
+  .c-sidebar-minimized .c-d-minimized-none,
   .c-sidebar-minimized .c-sidebar-nav-divider,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-divider,
   .c-sidebar-minimized .c-sidebar-nav-label,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-label,
   .c-sidebar-minimized .c-sidebar-nav-title,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-title,
   .c-sidebar-minimized .c-sidebar-footer,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-footer,
   .c-sidebar-minimized .c-sidebar-form,
+  .c-sidebar-minimized .c-sidebar-header {
+    height: 0;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .c-sidebar-minimized .c-sidebar-minimizer {
+    position: fixed;
+    bottom: 0;
+    width: inherit;
+  }
+  html:not([dir="rtl"]) .c-sidebar-minimized .c-sidebar-minimizer::before {
+    transform: rotate(-180deg);
+  }
+  *[dir="rtl"] .c-sidebar-minimized .c-sidebar-minimizer::before {
+    transform: rotate(0deg);
+  }
+  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right .c-sidebar-minimizer::before {
+    transform: rotate(0deg);
+  }
+  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right .c-sidebar-minimizer::before {
+    transform: rotate(180deg);
+  }
+  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, html:not([dir="rtl"])
+  .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+    margin-left: -256px;
+  }
+  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, *[dir="rtl"]
+  .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+    margin-right: -256px;
+  }
+  .c-sidebar-minimized .c-sidebar-nav-link, .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle,
+  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle {
+    overflow: hidden;
+    white-space: nowrap;
+    border-left: 0;
+  }
+  .c-sidebar-minimized .c-sidebar-nav-link:hover, .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle:hover,
+  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle:hover {
+    width: 312px;
+  }
+  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle::after {
+    display: none;
+  }
+  .c-sidebar-minimized .c-sidebar-nav-dropdown-items .c-sidebar-nav-link, .c-sidebar-minimized .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown-toggle {
+    width: 256px;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown {
+    position: relative;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
+    display: none;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown:not(.c-show) > .c-sidebar-nav-dropdown-items {
+    display: none;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown .c-sidebar-nav-dropdown-items {
+    max-height: 1500px;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+    width: 312px;
+    overflow: visible;
+  }
+  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
+    position: absolute;
+    display: inline;
+  }
+  html:not([dir="rtl"]) .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
+    left: 56px;
+  }
+  *[dir="rtl"] .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
+    right: 56px;
+  }
+  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
+    left: 0;
+  }
+  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
+    right: 0;
+  }
+}
+
+@media (min-width: 992px) {
+  .c-sidebar-unfoldable:not(:hover) {
+    z-index: 1031;
+    flex: 0 0 56px;
+  }
+  .c-sidebar-unfoldable:not(:hover).c-sidebar-fixed {
+    z-index: 1031;
+    width: 56px;
+  }
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover):not(.c-sidebar-right) {
+    margin-left: -56px;
+  }
+  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover):not(.c-sidebar-right) {
+    margin-right: -56px;
+  }
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right {
+    margin-right: -56px;
+  }
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right {
+    margin-left: -56px;
+  }
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-full {
+    display: none;
+  }
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-minimized {
+    display: block;
+  }
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav {
+    padding-bottom: 50px;
+    overflow: visible;
+  }
+  .c-sidebar-unfoldable:not(:hover) .c-d-minimized-none,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-divider,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-label,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-title,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-footer,
   .c-sidebar-unfoldable:not(:hover) .c-sidebar-form,
-  .c-sidebar-minimized .c-sidebar-header,
   .c-sidebar-unfoldable:not(:hover) .c-sidebar-header {
     height: 0;
     padding: 0;
@@ -454,78 +574,46 @@ html:not([dir="rtl"]) .c-sidebar-right .c-sidebar-minimizer::before {
     visibility: hidden;
     opacity: 0;
   }
-  .c-sidebar-minimized .c-sidebar-minimizer, .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer {
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer {
     position: fixed;
     bottom: 0;
     width: inherit;
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized .c-sidebar-minimizer::before, html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
     transform: rotate(-180deg);
   }
-  *[dir="rtl"] .c-sidebar-minimized .c-sidebar-minimizer::before, *[dir="rtl"] .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
+  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
     transform: rotate(0deg);
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right .c-sidebar-minimizer::before, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-minimizer::before {
     transform: rotate(0deg);
   }
-  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right .c-sidebar-minimizer::before, *[dir="rtl"] .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
+  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-minimizer::before {
     transform: rotate(180deg);
   }
-  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-item:hover, html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, html:not([dir="rtl"])
+  .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
     margin-left: -256px;
   }
-  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, *[dir="rtl"] .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-item:hover, *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover, *[dir="rtl"] .c-sidebar-right.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, *[dir="rtl"]
+  .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
     margin-right: -256px;
   }
-  .c-sidebar-minimized .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link, .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle,
-  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle,
   .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle {
     overflow: hidden;
     white-space: nowrap;
     border-left: 0;
   }
-  .c-sidebar-minimized .c-sidebar-nav-link:hover, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link:hover, .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle:hover, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle:hover,
-  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle:hover,
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link:hover, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle:hover,
   .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle:hover {
     width: 312px;
   }
-  .c-sidebar-minimized .c-sidebar-nav-dropdown-toggle::after, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle::after {
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle::after {
     display: none;
   }
-  .c-sidebar-minimized .c-sidebar-nav-dropdown-items .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-link, .c-sidebar-minimized .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown-toggle, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown-toggle {
+  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown-toggle {
     width: 256px;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown {
-    position: relative;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
-    display: none;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown:not(.c-show) > .c-sidebar-nav-dropdown-items, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown:not(.c-show) > .c-sidebar-nav-dropdown-items {
-    display: none;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown .c-sidebar-nav-dropdown-items, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown .c-sidebar-nav-dropdown-items {
-    max-height: 1500px;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
-    width: 312px;
-    overflow: visible;
-  }
-  .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
-    position: absolute;
-    display: inline;
-  }
-  html:not([dir="rtl"]) .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items, html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
-    left: 56px;
-  }
-  *[dir="rtl"] .c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items, *[dir="rtl"] .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
-    right: 56px;
-  }
-  html:not([dir="rtl"]) .c-sidebar-minimized.c-sidebar-right > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items, html:not([dir="rtl"]) .c-sidebar-right.c-sidebar-unfoldable:not(:hover) > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
-    left: 0;
-  }
-  *[dir="rtl"] .c-sidebar-minimized.c-sidebar-right > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items, *[dir="rtl"] .c-sidebar-right.c-sidebar-unfoldable:not(:hover) > .c-sidebar-nav-dropdown:hover > .c-sidebar-nav-dropdown-items {
-    right: 0;
   }
 }
 
@@ -533,7 +621,7 @@ html:not([dir="rtl"]) .c-sidebar-right .c-sidebar-minimizer::before {
   overflow: initial !important;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .c-sidebar-unfoldable {
     z-index: 1031 !important;
   }
@@ -588,11 +676,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right), html:not(
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
@@ -641,11 +731,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
@@ -695,11 +787,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
@@ -749,11 +843,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
@@ -803,11 +899,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
@@ -857,11 +955,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
@@ -911,11 +1011,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
@@ -965,11 +1067,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
@@ -1019,11 +1123,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-unfoldable:not(.c-sidebar-right).c-sidebar-fixed:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
@@ -1073,11 +1179,13 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, html:not([dir="rtl"])
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable:not(:hover) ~ .c-wrapper, *[dir="rtl"]
+  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
     margin-left: 56px;
   }
@@ -1240,33 +1348,27 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='%23fff' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 575.98px) {
-  .c-sidebar .c-sidebar-minimizer {
-    display: none;
-  }
-}
-
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle {
   background: #321fdb;
 }
 
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
   color: #fff;
 }
 
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle {
   background: #3c4b64;
 }
 
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
   background: #3c4b64;
 }
 
-.c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover, .c-sidebar.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+.c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
   background: #321fdb;
 }
 
@@ -1435,33 +1537,27 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-light.c-sidebar-right {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='%23768192' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E");
 }
 
-@media (max-width: 575.98px) {
-  .c-sidebar.c-sidebar-light .c-sidebar-minimizer {
-    display: none;
-  }
-}
-
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle {
   background: #321fdb;
 }
 
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
   color: #fff;
 }
 
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle {
   background: #fff;
 }
 
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-sidebar-nav-link.c-disabled .c-sidebar-nav-icon, .c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav-item:hover > .c-disabled.c-sidebar-nav-dropdown-toggle .c-sidebar-nav-icon {
   color: rgba(0, 0, 21, 0.5);
 }
 
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
   background: #fff;
 }
 
-.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover, .c-sidebar.c-sidebar-light.c-sidebar-unfoldable:not(:hover) .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
+.c-sidebar.c-sidebar-light.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
   background: #321fdb;
 }
 

@@ -10,7 +10,7 @@
   @include font-size($breadcrumb-font-size);
   list-style: none;
   @include border-radius($breadcrumb-border-radius);
-  @include borders($breadcrumb-borders); // CoreUI
+  @include borders($breadcrumb-borders);
 
   @include themes($breadcrumb-theme-map, $create: parent) {
     background-color: themes-get-value("breadcrumb-bg");

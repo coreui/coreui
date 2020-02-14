@@ -2,14 +2,15 @@
 
 const path = require('path')
 const babel = require('rollup-plugin-babel')
-const resolve = require('rollup-plugin-node-resolve')
+const resolve = require('@rollup/plugin-node-resolve')
 const banner = require('./banner.js')
+const replace = require('@rollup/plugin-replace')
 
 const BUNDLE = process.env.BUNDLE === 'true'
 const ESM = process.env.ESM === 'true'
 
 let fileDest = `coreui${ESM ? '.esm' : ''}`
-const external = ['perfect-scrollbar', 'popper.js']
+const external = ['perfect-scrollbar', '@popperjs/core']
 const plugins = [
   babel({
     // Only transpile our source code
@@ -22,11 +23,14 @@ const plugins = [
       'defineProperty',
       'objectSpread2'
     ]
+  }),
+  replace({
+    'process.env.NODE_ENV': JSON.stringify('production')
   })
 ]
 const globals = {
   'perfect-scrollbar': 'PerfectScrollbar',
-  'popper.js': 'Popper'
+  '@popperjs/core': 'createPopper'
 }
 
 if (BUNDLE) {
@@ -34,7 +38,7 @@ if (BUNDLE) {
   // Remove last entry in external array to bundle Popper and Perfect Scrollbar
   external.pop()
   external.pop()
-  delete globals['popper.js']
+  delete globals['@popperjs/core']
   delete globals['perfect-scrollbar']
   plugins.push(resolve())
 }

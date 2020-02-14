@@ -1,6 +1,6 @@
 // Footer
 
-$footer-height:        50px !default;
+$footer-height:  50px !default;
 
 
 // Default Theme
@@ -8,23 +8,23 @@ $footer-dark-bg:       $gray-800 !default;
 $footer-dark-color:    $white !default;
 $footer-dark-borders:  0 !default;
 
-$footer-light-bg:      $gray-100 !default;
-$footer-light-color:   $body-color !default;
-$footer-light-borders: ( top: 1px solid $border-color ) !default;
+$footer-light-bg:       $gray-100 !default;
+$footer-light-color:    $body-color !default;
+$footer-light-borders:  ( top: 1px solid $border-color ) !default;
 
 $footer-variants-map:  () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $footer-variants-map: map-merge(
   (
     dark: (
-      "footer-bg":      $footer-dark-bg,
-      "footer-color":   $footer-dark-color,
-      "footer-borders": $footer-dark-borders
+      "footer-bg":       $footer-dark-bg,
+      "footer-color":    $footer-dark-color,
+      "footer-borders":  $footer-dark-borders
     ),
     light: (
-      "footer-bg":      $footer-light-bg,
-      "footer-color":   $footer-light-color,
-      "footer-borders": $footer-light-borders
+      "footer-bg":       $footer-light-bg,
+      "footer-color":    $footer-light-color,
+      "footer-borders":  $footer-light-borders
     )
   ),
   $footer-variants-map

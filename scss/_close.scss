@@ -3,14 +3,18 @@
   @include font-size($close-font-size);
   font-weight: $close-font-weight;
   line-height: 1;
-  color: $close-color;
-  text-shadow: $close-text-shadow;
   opacity: .5;
+  @include themes($close-theme-map, $create: parent) {
+    color: themes-get-value("close-color");
+    text-shadow: themes-get-value("close-text-shadow");
+  }
 
   // Override <a>'s hover style
   @include hover() {
-    color: $close-color;
     text-decoration: none;
+    @include themes($close-theme-map, $create: parent) {
+      color: themes-get-value("close-color");
+    }
   }
 
   &:not(:disabled):not(.disabled) {

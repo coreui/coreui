@@ -77,7 +77,6 @@
   border-radius: 0 !important;
 }
 
-// CoreUI start
 @each $prop, $abbrev in (border: b) {
   @each $size in (0,1,2) {
     @if $size == 0 {
@@ -95,4 +94,3 @@
     }
   }
 }
-// CoreUI end

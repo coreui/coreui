@@ -1,44 +1,44 @@
 // List group
 
-$list-group-border-width:        $border-width !default;
-$list-group-border-radius:       $border-radius !default;
+$list-group-border-width:   $border-width !default;
+$list-group-border-radius:  $border-radius !default;
 
-$list-group-item-padding-y:      .75rem !default;
-$list-group-item-padding-x:      1.25rem !default;
+$list-group-item-padding-y:  .75rem !default;
+$list-group-item-padding-x:  1.25rem !default;
 
 // Default theme
-$list-group-color:               null !default;
-$list-group-bg:                  inherit !default;
-$list-group-border-color:        rgba($black, .125) !default;
-$list-group-hover-bg:            $gray-100 !default;
-$list-group-active-color:        $component-active-color !default;
-$list-group-active-bg:           $component-active-bg !default;
-$list-group-active-border-color: $list-group-active-bg !default;
-$list-group-disabled-color:      $gray-600 !default;
-$list-group-disabled-bg:         $list-group-bg !default;
-$list-group-action-color:        $gray-700 !default;
-$list-group-action-hover-color:  $list-group-action-color !default;
-$list-group-action-active-color: $body-color !default;
-$list-group-action-active-bg:    $gray-200 !default;
+$list-group-color:                null !default;
+$list-group-bg:                   inherit !default;
+$list-group-border-color:         rgba($black, .125) !default;
+$list-group-hover-bg:             $gray-100 !default;
+$list-group-active-color:         $component-active-color !default;
+$list-group-active-bg:            $component-active-bg !default;
+$list-group-active-border-color:  $list-group-active-bg !default;
+$list-group-disabled-color:       $gray-600 !default;
+$list-group-disabled-bg:          $list-group-bg !default;
+$list-group-action-color:         $gray-700 !default;
+$list-group-action-hover-color:   $list-group-action-color !default;
+$list-group-action-active-color:  $body-color !default;
+$list-group-action-active-bg:     $gray-200 !default;
 
 $list-group-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $list-group-theme-map: map-merge(
   (
     default: (
-      "list-group-color":               $list-group-color,
-      "list-group-bg":                  $list-group-bg,
-      "list-group-border-color":        $list-group-border-color,
-      "list-group-hover-bg":            $list-group-hover-bg,
-      "list-group-active-color":        $list-group-active-color,
-      "list-group-active-bg":           $list-group-active-bg,
-      "list-group-active-border-color": $list-group-active-border-color,
-      "list-group-disabled-color":      $list-group-disabled-color,
-      "list-group-disabled-bg":         $list-group-disabled-bg,
-      "list-group-action-color":        $list-group-action-color,
-      "list-group-action-hover-color":  $list-group-action-hover-color,
-      "list-group-action-active-color": $list-group-action-active-color,
-      "list-group-action-active-bg":    $list-group-action-active-bg,
+      "list-group-color":                $list-group-color,
+      "list-group-bg":                   $list-group-bg,
+      "list-group-border-color":         $list-group-border-color,
+      "list-group-hover-bg":             $list-group-hover-bg,
+      "list-group-active-color":         $list-group-active-color,
+      "list-group-active-bg":            $list-group-active-bg,
+      "list-group-active-border-color":  $list-group-active-border-color,
+      "list-group-disabled-color":       $list-group-disabled-color,
+      "list-group-disabled-bg":          $list-group-disabled-bg,
+      "list-group-action-color":         $list-group-action-color,
+      "list-group-action-hover-color":   $list-group-action-hover-color,
+      "list-group-action-active-color":  $list-group-action-active-color,
+      "list-group-action-active-bg":     $list-group-action-active-bg,
     )
   ),
   $list-group-theme-map

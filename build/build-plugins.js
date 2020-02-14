@@ -103,9 +103,9 @@ function getConfigByPluginKey(pluginKey) {
 
   if (pluginKey === 'Dropdown' || pluginKey === 'Tooltip') {
     const config = Object.assign(defaultPluginConfig)
-    config.external.push(coreuiPlugins.Manipulator, 'popper.js')
+    config.external.push(coreuiPlugins.Manipulator, '@popperjs/core')
     config.globals[coreuiPlugins.Manipulator] = 'Manipulator'
-    config.globals['popper.js'] = 'Popper'
+    config.globals['@popperjs/core'] = 'createPopper'
     return config
   }
 

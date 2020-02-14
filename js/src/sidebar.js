@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-rc.0): sidebar.js
+ * CoreUI (v3.0.0-rc.3): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -20,16 +20,17 @@ import PerfectScrollbar from 'perfect-scrollbar'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-rc.0'
+const VERSION = '3.0.0-rc.3'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
 const DefaultType = {
-  dropdownAccordion: 'boolean'
+  dropdownAccordion: '(string|boolean)'
 }
 
 const Default = {
+  dropdownAccordion: true,
   transition: 400
 }
 
@@ -60,7 +61,6 @@ const Selector = {
   NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
   NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-sidebar-nav-link',
-  // NAV_LINK_QUERIED: `.c-sidebar-nav-link-queried`,
   NAVIGATION_CONTAINER: '.c-sidebar-nav',
   SIDEBAR: '.c-sidebar'
 }
@@ -122,8 +122,12 @@ class Sidebar {
 
     const dataAttributes = toggler.closest(Selector.NAVIGATION_CONTAINER).dataset
 
+    if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
+      Default.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion)
+    }
+
     // TODO: find better solution
-    if (dataAttributes.drodpownAccordion) {
+    if (Default.dropdownAccordion === true) {
       this._getAllSiblings(toggler.parentElement).forEach(element => {
         if (element !== toggler.parentNode) {
           if (element.classList.contains(ClassName.NAV_DROPDOWN)) {
@@ -232,7 +236,7 @@ class Sidebar {
         currentUrl = String(window.location)
       }
 
-      if (currentUrl.slice(currentUrl.length - 1) === '#') {
+      if (currentUrl.slice(- 1) === '#') {
         currentUrl = currentUrl.slice(0, -1)
       }
 

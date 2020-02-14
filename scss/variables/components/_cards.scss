@@ -3,43 +3,43 @@
 // Cards
 //
 
-$card-spacer-y:            .75rem !default;
-$card-spacer-x:            1.25rem !default;
-$card-border-width:        $border-width !default;
-$card-border-radius:       $border-radius !default;
-$card-inner-border-radius: subtract($card-border-radius, $card-border-width) !default;
-$card-margin-bottom:       $spacer * 1.5 !default; // CoreUI
+$card-spacer-y:             .75rem !default;
+$card-spacer-x:             1.25rem !default;
+$card-border-width:         $border-width !default;
+$card-border-radius:        $border-radius !default;
+$card-inner-border-radius:  subtract($card-border-radius, $card-border-width) !default;
+$card-margin-bottom:        $spacer * 1.5 !default;
 
-$card-img-overlay-padding: 1.25rem !default;
+$card-img-overlay-padding:  1.25rem !default;
 
-$card-group-margin:        $grid-gutter-width / 2 !default;
-$card-deck-margin:         $card-group-margin !default;
+$card-group-margin:  $grid-gutter-width / 2 !default;
+$card-deck-margin:   $card-group-margin !default;
 
-$card-columns-count:       3 !default;
-$card-columns-gap:         1.25rem !default;
-$card-columns-margin:      $card-spacer-y !default;
+$card-columns-count:   3 !default;
+$card-columns-gap:     1.25rem !default;
+$card-columns-margin:  $card-spacer-y !default;
 
-$card-icon-bg:             transparent !default;
-$card-icon-color:          $body-color !default;
+$card-icon-bg:     transparent !default;
+$card-icon-color:  $body-color !default;
 
 // Default theme
-$card-border-color:        $border-color !default; // was: rgba($black, .125) !default;
-$card-cap-bg:              $white !default; // was: rgba($black, .03) !default;
-$card-cap-color:           null !default;
-$card-height:              null !default;
-$card-color:               null !default;
-$card-bg:                  $white !default;
+$card-border-color:  $border-color !default;
+$card-cap-bg:        $white !default;
+$card-cap-color:     null !default;
+$card-height:        null !default;
+$card-color:         null !default;
+$card-bg:            $white !default;
 
 $card-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $card-theme-map: map-merge(
   (
     default: (
-      "card-border-color": $card-border-color,
-      "card-cap-bg":       $card-cap-bg,
-      "card-cap-color":    $card-cap-color,
-      "card-color":        $card-color,
-      "card-bg":           $card-bg
+      "card-border-color":  $card-border-color,
+      "card-cap-bg":        $card-cap-bg,
+      "card-cap-color":     $card-cap-color,
+      "card-color":         $card-color,
+      "card-bg":            $card-bg
     )
   ),
   $card-theme-map
