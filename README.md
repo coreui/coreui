@@ -26,6 +26,7 @@ CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the faste
 * [CoreUI Free Laravel Admin Template](https://github.com/coreui/coreui-free-laravel-admin-template)
 * [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
 * [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
+* [CoreUI Free Vue.js + Laravel Admin Template](https://github.com/coreui/coreui-free-vue-laravel-admin-template)
 
 
 ## CoreUI PRO Bootstrap Admin Templates
@@ -47,19 +48,19 @@ $ git clone https://github.com/coreui/coreui.git
 ### NPM
 
 ``` bash
-$ npm install @coreui/coreui@3.0.0-beta.4 --save
+$ npm install @coreui/coreui@ --save
 ```
 
 ### Yarn
 
 ``` bash
-$ yarn add @coreui/coreui@3.0.0-beta.4
+$ yarn add @coreui/coreui
 ```
 
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:3.0.0-beta.4
+$ composer require coreui/coreui:3.0.0
 ```
 
 ## Usage
@@ -74,10 +75,9 @@ Copy-paste the stylesheet `<link>` into your `<head>` before all other styleshee
 
 ### JS
 
-Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them. jQuery must come first, then Popper.js, then Bootstrap, and then our JavaScript plugins.
+Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them.
 
 ``` html
-<script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 <script src="node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js"></script>
 ```
 
@@ -133,6 +133,6 @@ There is only one limitation you can't can’t re-distribute the CoreUI as stock
 
 ## Support CoreUI Development
 
-CoreUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by donating on [PayPal](https://www.paypal.me/holeczek), buying [CoreUI Pro Version](https://coreui.io/pro) or buying one of our [premium admin templates](https://genesisui.com/?support=1).
+CoreUI is an MIT licensed open source project and completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by donating on [PayPal](https://www.paypal.me/holeczek) or buying [CoreUI Pro Version](https://coreui.io/pro/).
 
 We're also open to conversations regarding custom sponsorship / consulting arrangements. Get in touch on [Twitter](https://twitter.com/lukaszholeczek).
