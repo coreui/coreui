@@ -1,0 +1,67 @@
+//
+// CoreUI default layout
+//
+
+.c-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// IE10&11 Flexbox fix
+@media all and (-ms-high-contrast: none) {
+  html {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.c-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  &:not(.c-wrapper-fluid) {
+    height: 100vh;
+
+    .c-header-fixed,
+    .c-subheader-fixed,
+    .c-footer-fixed {
+      position: relative;
+    }
+
+    .c-body {
+      flex-direction: column;
+      overflow-y: auto;
+    }
+  }
+
+  &.c-wrapper-fluid {
+    min-height: 100vh;
+
+    .c-header-fixed {
+      margin: inherit;
+    }
+  }
+}
+
+.c-body {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.c-main {
+  flex-basis: auto;
+  flex-shrink: 0;
+  flex-grow: 1;
+  min-width: 0;
+  padding-top: 2 * $spacer;
+
+  > .container-fluid {
+    @include media-breakpoint-up(md) {
+      padding-right: $grid-gutter-width;
+      padding-left: $grid-gutter-width;
+    }
+  }
+}
+

@@ -1,0 +1,47 @@
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  border-radius: 0;
+  border-bottom: 1px solid;
+  background-color: transparent;
+  border-color: #d8dbe0;
+}
+
+html:not([dir="rtl"]) .breadcrumb-item + .breadcrumb-item {
+  padding-left: 0.5rem;
+}
+
+*[dir="rtl"] .breadcrumb-item + .breadcrumb-item {
+  padding-right: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  display: inline-block;
+  color: #8a93a2;
+  content: "/";
+}
+
+html:not([dir="rtl"]) .breadcrumb-item + .breadcrumb-item::before {
+  padding-right: 0.5rem;
+}
+
+*[dir="rtl"] .breadcrumb-item + .breadcrumb-item::before {
+  padding-left: 0.5rem;
+}
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: underline;
+}
+
+.breadcrumb-item + .breadcrumb-item:hover::before {
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: #8a93a2;
+}
+
+/*# sourceMappingURL=breadcrumb.css.map */

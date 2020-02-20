@@ -1,202 +1,54 @@
-## v2.1.16
-- fix: Event listeners for Sidebar and AsideMenu plugins persist in jQuery instance - thanks @nesterow closes #77
+## v3.0.0-alpha.14
 
-###### Dependencies update:
-- update `core-js` to `^3.3.4`
+- .img-avatar ==> .c-avatar-img
 
-## v2.1.15
-- fix(sidebar): Selector.NAV_LINK_QUERIED must be "nav-link-queried" - thanks @expressiveco @gtruini closes #83
+@babel/cli                                   7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/core                                  7.4.5   7.5.5   7.5.5  @coreui/coreui
+@babel/plugin-proposal-object-rest-spread    7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/plugin-transform-runtime              7.4.4   7.5.5   7.5.5  @coreui/coreui
+@babel/preset-env                            7.4.5   7.5.5   7.5.5  @coreui/coreui
+autoprefixer                                 9.6.0   9.6.1   9.6.1  @coreui/coreui
+babel-eslint                                10.0.1  10.0.3  10.0.3  @coreui/coreui
+babel-plugin-istanbul                        5.1.4   5.2.0   5.2.0  @coreui/coreui
+bundlesize                                  0.17.2  0.17.2  0.18.0  @coreui/coreui
+copyfiles                                    2.1.0   2.1.1   2.1.1  @coreui/coreui
+eslint                                      5.16.0  5.16.0   6.2.2  @coreui/coreui
+eslint-plugin-import                        2.17.3  2.18.2  2.18.2  @coreui/coreui
+eslint-plugin-unicorn                        9.0.0   9.1.1  10.0.0  @coreui/coreui
+find-unused-sass-variables                   0.3.3   0.3.3   0.5.0  @coreui/coreui
+postcss-cli                                  6.1.2   6.1.3   6.1.3  @coreui/coreui
+postcss-combine-duplicated-selectors         7.0.0   7.0.0   8.0.2  @coreui/coreui
+rimraf                                       2.6.3   2.7.1   3.0.0  @coreui/coreui
+rollup                                      1.13.1  1.20.3  1.20.3  @coreui/coreui
+rollup-plugin-babel                          4.3.2   4.3.3   4.3.3  @coreui/coreui
+rollup-plugin-commonjs                      10.0.0  10.1.0  10.1.0  @coreui/coreui
+rollup-plugin-node-resolve                   5.0.1   5.2.0   5.2.0  @coreui/coreui
+semver                                       6.1.1   6.3.0   6.3.0  @coreui/coreui
+stylelint                                   10.0.1  10.1.0  10.1.0  @coreui/coreui
+stylelint-order                              3.0.0   3.0.1   3.0.1  @coreui/coreui
+stylelint-scss                               3.8.0  3.10.0  3.10.0  @coreui/coreui
+terser                                       4.0.0   4.2.1   4.2.1  @coreui/coreui
 
-###### Dependencies update:
-- update `core-js` to `^3.3.3`
-- update `regenerator-runtime` to `^0.13.3`
-- update `@babel/cli` to `^7.6.4`
-- update `@babel/core` to `^7.6.4`
-- update `@babel/plugin-proposal-object-rest-spread` to `^7.6.2`
-- update `@babel/plugin-transform-runtime` to `^7.6.2`
-- update `@babel/preset-env` to `^7.6.3`
-- update `autoprefixer` to `^9.7.0`
-- update `babel-eslint` to `^10.0.3`
-- update `babel-plugin-istanbul` to `^5.2.0`
-- update `copyfiles` to `^2.1.1`
-- update `cross-env` to `^5.2.1`
-- update `eslint` to `^6.5.1`
-- update `eslint-plugin-compat` to `^3.3.0`
-- update `node-sass` to `^4.13.0`
-- update `nodemon` to `^1.19.4`
-- update `postcss-cli` to `^6.1.3`
-- update `rimraf` to `^2.7.1`
-- update `rollup` to `^1.25.2`
-- update `rollup-plugin-babel` to `^4.3.3`
-- update `rollup-plugin-commonjs` to `^10.1.0`
-- update `rollup-plugin-node-resolve` to `^5.2.0`
-- update `semver` to `^6.3.0`
-- update `stylelint` to `^11.1.1`
-- update `stylelint-config-recommended-scss` to `^4.0.0`
-- update `stylelint-config-standard` to `^19.0.0`
-- update `stylelint-order` to `^3.1.1`
-- update `stylelint-scss` to `^3.12.0`
-- update `uglify-js` to `^3.6.4`
-   
-## v2.1.14
-###### Dependencies update:
-- chore(deps): bump lodash from 4.17.11 to 4.17.14
-- update `rollup` to `^1.15.4`
-- update `rollup-plugin-node-resolve` to `^5.0.2` 
+@babel/cli                         7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/core                        7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/plugin-transform-runtime    7.5.5   7.6.0   7.6.0  @coreui/coreui
+@babel/polyfill                    7.4.4   7.6.0   7.6.0  @coreui/coreui
+@babel/preset-env                  7.5.5   7.6.0   7.6.0  @coreui/coreui
+cross-env                          5.2.0   5.2.1   5.2.1  @coreui/coreui
+eslint                             6.2.2   6.3.0   6.3.0  @coreui/coreui
+nodemon                           1.19.1  1.19.2  1.19.2  @coreui/coreui
+rollup                            1.20.3  1.21.2  1.21.2  @coreui/coreui
+stylelint-order                    3.0.1   3.1.0   3.1.0  @coreui/coreui
+stylelint-scss                    3.10.0  3.10.1  3.10.1  @coreui/coreui
+terser                             4.2.1   4.3.0   4.3.0  @coreui/coreuis
 
-## v2.1.12
-- fix(scss): new mobile breakpoint variables
-```scss
-// Breakpoints for mobile defaults:
-$breakpoint-mobile-up: lg !default;
-$breakpoint-mobile-down: md !default;
- ```
-usage: to shift mobile breakpoint in your template:
-1. override `_variables.scss`
-    ```scss
-    // Variable overrides
-    $breakpoint-mobile-up: md;
-    $breakpoint-mobile-down: sm;
-    ```
-
-2. and complementary changes in `index.html`  
-  - body: `sidebar-lg-show` -> `sidebar-md-show`
-  - mobile sidebar toggler button: `d-lg-none` -> `d-md-none`
-  - sidebar toggler button: 
-    - `d-md-down-none` -> `d-sm-down-none` 
-    - `data-toggle="sidebar-lg-show"` -> `data-toggle="sidebar-md-show"`  
-
-###### Dependencies update:
-- update `autoprefixer` to `^9.6.0`
-- update `rollup` to `^1.15.1`
-- update `stylelint` to `^10.1.0`
-
-## v2.1.11
-- fix(sidebar): add optional container `sidebar-scroll`. Thanks @MartijnBastiaansen
-  - fixes an issue where `sidebar-toggler` causes an error when there is no `sidebar-nav` element in it
-  - if no container is set, returns null for perfectScrollbar
-
-###### Dependencies update:
-- update `rollup` to `^1.13.1`
-- update `stylelint-scss` to `^3.8.0`
-
-## v2.1.10
-- chore: drop `@babel/polyfill` in favour of `core-js@3` and `regenerator-runtime`
-
-###### Dependencies update:
-- update `@babel/polyfill` to `^7.4.4`
-- update `@babel/cli` to `^7.4.4`
-- update `@babel/core` to `^7.4.5`
-- update `@babel/plugin-proposal-object-rest-spread` to `^7.4.4`
-- update `@babel/plugin-transform-runtime` to `^7.4.4`
-- update `@babel/preset-env` to `^7.4.5`
-- update `autoprefixer` to `^9.5.1`
-- update `babel-plugin-istanbul` to `^5.1.4`
-- update `clean-css-cli` to `^4.3.0`
-- update `eslint` to `^5.16.0`
-- update `node-sass` to `^4.12.0`
-- update `nodemon` to `^1.19.1`
-- update `rollup` to `^1.13.0`
-- update `stylelint-config-recommended-scss` to `^3.3.0`
-- update `stylelint-config-standard` to `^18.3.0`
-- update `stylelint-order` to `^2.2.1`
-- update `stylelint-scss` to `^3.7.0`
-- update `uglify-js` to `^3.6.0`
-- update `eslint-plugin-compat` to `^3.1.1`
-- update `rollup-plugin-commonjs` to `^10.0.0`
-- update `rollup-plugin-node-resolve` to `^5.0.1`
-- update `semver` to `^6.1.1`
-- update `stylelint` to `^10.0.1`
-- update `stylelint-order` to `^3.0.0`
-    
-## v2.1.9
-- fix(dropdown): rtl caret spacing
-- fix(input-group): rtl append, prepend border radius and margins
-- fix(rtl): rtl float, margin and padding
-- fix(button-group): rtl margin and border-radius
-###### Dependencies update:
-- update `@babel/core` to `^7.4.0`
-- update `@babel/plugin-proposal-object-rest-spread` to `^7.4.0`
-- update `@babel/plugin-transform-runtime` to `^7.4.0`
-- update `@babel/preset-env` to `^7.4.2`
-- update `autoprefixer` to `^9.5.0`
-- update `eslint` to `^5.15.3`
-- update `rollup` to `^1.7.0`
-- update `uglify-js` to `^3.5.1`
-
-## v2.1.8
-- fix(scss): `cssnano` mangles `background-position` temp fix (re: BS4 misplaced validation feedback icons)
-###### Dependencies update:
-- update `@babel/core` to `^7.3.4`
-- update `@babel/plugin-proposal-object-rest-spread` to `^7.3.4`
-- update `@babel/plugin-transform-runtime` to `^7.3.4`
-- update `@babel/preset-env` to `^7.3.4`
-- update `autoprefixer` to `^9.4.10`
-- update `eslint` to `^5.15.1`
-- update `postcss-cli` to `^6.1.2`
-- update `rollup` to `^1.6.0`
-- update `rollup-plugin-commonjs` to `^9.2.1`
-- update `rollup-plugin-node-resolve` to `^4.0.1`
-- update `stylelint-order` to `^2.1.0`
-- update `stylelint-scss` to `^3.5.4`
-
-## v2.1.7
-- update `bootstrap` to `^4.3.1` fixes *Class 'btn' style white-space: nowrap; has been removed creating issues with the btn with favicon* [#151](https://github.com/coreui/coreui-free-react-admin-template/issues/151) 
-###### Dependencies update:
-- update `bootstrap` to `^4.3.1` 
-- update `@babel/core` to `^7.3.3`
-- update `@babel/plugin-proposal-object-rest-spread` to `^7.3.2`
-- update `@babel/preset-env` to `^7.3.1`
-- update `autoprefixer` to `^9.4.8`
-- update `babel-plugin-istanbul` to `^5.1.1`
-- update `eslint` to `^5.14.1`
-- update `eslint-plugin-compat` to `^2.7.0`
-- update `nodemon` to `^1.18.10`
-- update `rollup` to `^1.2.2`
-- update `rollup-plugin-babel` to `^4.3.2`
-- update `rollup-plugin-node-resolve` to `^4.0.0`
-- update `stylelint` to `^9.10.1`
-- update `stylelint-scss` to `^3.5.3`
-
-## v2.1.6
-- fix: clean exit on postinstall dependency missing #25
-- chore: update `rollup-plugin-babel` to `^4.3.0`
-
-## v2.1.5
-###### Dependencies update:
-- chore: update `bootstrap` to `^4.2.1`
-- chore: update `@babel/polyfill` to `^7.2.5`
-- chore: update `@babel/cli` to `^7.2.3`
-- chore: update `@babel/core` to `^7.2.2`
-- chore: update `@babel/preset-env` to `^7.2.3`
-- chore: update `autoprefixer` to `^9.4.4`
-- chore: update `eslint` to `^5.12.0`
-- chore: update `node-sass` to `^4.11.0`
-- chore: update `nodemon` to `^1.18.9`
-- chore: update `postcss-cli` to `^6.1.1`
-- chore: update `rimraf` to `^2.6.3`
-- chore: update `rollup` to `^0.68.2`
-- chore: update `rollup-plugin-babel` to `^4.2.0`
-- chore: update `stylelint-scss` to `^3.4.4`
-###### Pull Requests:
-- Re-added composer file #35
-  - Re-added composer file so new versions can be downloaded via composer
-  - Replaced relative paths in .scss files so files can be generated correctly
-  
-## v2.1.4
-- fix(scss): .sidebar .nav-link.disabled
-- chore: update `@babel/cli` to `^7.2.0`
-- chore: update `@babel/core` to `^7.2.0`
-- chore: update `@babel/plugin-external-helpers` to `^7.2.0`
-- chore: update `@babel/plugin-proposal-object-rest-spread` to `^7.2.0`
-- chore: update `@babel/plugin-proposal-throw-expressions` to `^7.2.0`
-- chore: update `@babel/plugin-transform-runtime` to `^7.2.0`
-- chore: update `@babel/preset-env` to `^7.2.0`
-- chore: update `autoprefixer` to `^9.4.2`
-- chore: update `rollup` to `^0.67.4`
-- chore: update `stylelint` to `^9.9.0`
-- chore: update `stylelint-order` to `^2.0.0`
-- chore: update `stylelint-scss` to `^3.4.1`
+## v3.0.0
+- refactor: merge CoreUI and Bootstrap
+- refacror: add `c-` prefix to each css class
+- feat: new class toggler component, use instead of: `.sidebar-toggler`, `.aside-menu-toggler`, `.sidebar-minizer`, `.brand-minimizer`
+- refactor(sidebar, aside-menu): removed togglers
+- ref
+- deprac
 
 ## v2.1.3
 - chore: update `nodemon` to `1.18.7` (remove vulnerability)

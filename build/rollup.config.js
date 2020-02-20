@@ -1,55 +1,62 @@
 'use strict'
 
-const path    = require('path')
-const babel   = require('rollup-plugin-babel')
-const resolve = require('rollup-plugin-node-resolve')
-const commonjs = require('rollup-plugin-commonjs')
+const path = require('path')
+const babel = require('rollup-plugin-babel')
+const resolve = require('@rollup/plugin-node-resolve')
+const banner = require('./banner.js')
+const replace = require('@rollup/plugin-replace')
 
-const pkg     = require(path.resolve(__dirname, '../package.json'))
-const BUNDLE  = process.env.BUNDLE === 'true'
-const year    = new Date().getFullYear()
+const BUNDLE = process.env.BUNDLE === 'true'
+const ESM = process.env.ESM === 'true'
 
-let fileDest  = 'coreui.js'
-const external = ['jquery', 'perfect-scrollbar']
+let fileDest = `coreui${ESM ? '.esm' : ''}`
+const external = ['perfect-scrollbar', '@popperjs/core']
 const plugins = [
-  resolve(),
-  commonjs(),
   babel({
-    exclude: 'node_modules/**', // Only transpile our source code
-    externalHelpersWhitelist: [ // Include only required helpers
+    // Only transpile our source code
+    exclude: 'node_modules/**',
+    // Include only required helpers
+    externalHelpersWhitelist: [
       'defineProperties',
       'createClass',
       'inheritsLoose',
-      'objectSpread'
+      'defineProperty',
+      'objectSpread2'
     ]
+  }),
+  replace({
+    'process.env.NODE_ENV': JSON.stringify('production')
   })
 ]
 const globals = {
-  jquery: 'jQuery',
-  'perfect-scrollbar': 'PerfectScrollbar'
+  'perfect-scrollbar': 'PerfectScrollbar',
+  '@popperjs/core': 'createPopper'
 }
 
 if (BUNDLE) {
-  fileDest = 'coreui.bundle.js'
-  // Remove last entry in external array to bundle Popper
+  fileDest += '.bundle'
+  // Remove last entry in external array to bundle Popper and Perfect Scrollbar
   external.pop()
+  external.pop()
+  delete globals['@popperjs/core']
+  delete globals['perfect-scrollbar']
   plugins.push(resolve())
 }
 
-module.exports = {
-  input: path.resolve(__dirname, '../js/src/index.js'),
+const rollupConfig = {
+  input: path.resolve(__dirname, `../js/index.${ESM ? 'esm' : 'umd'}.js`),
   output: {
-    banner: `/*!
-  * CoreUI v${pkg.version} (${pkg.homepage})
-  * Copyright ${year} ${pkg.author.name}
-  * Licensed under MIT (${pkg.homepage})
-  */`,
-    sourcemap: true,
-    file: path.resolve(__dirname, `../dist/js/${fileDest}`),
-    format: 'umd',
-    globals,
-    name: 'coreui'
+    banner,
+    file: path.resolve(__dirname, `../dist/js/${fileDest}.js`),
+    format: ESM ? 'esm' : 'umd',
+    globals
   },
   external,
   plugins
 }
+
+if (!ESM) {
+  rollupConfig.output.name = 'coreui'
+}
+
+module.exports = rollupConfig

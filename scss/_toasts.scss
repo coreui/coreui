@@ -1,0 +1,123 @@
+.toast {
+  width: $toast-max-width;
+  max-width: $toast-max-width;
+  overflow: hidden; // cheap rounded corners on nested items
+  @include font-size($toast-font-size);
+  background-clip: padding-box;
+  border: $toast-border-width solid;
+  box-shadow: $toast-box-shadow;
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  @include border-radius($toast-border-radius);
+  @include themes($toast-theme-map, $create: parent) {
+    color: themes-get-value("toast-color");
+    background-color: themes-get-value("toast-background-color");
+    border-color: themes-get-value("toast-border-color");
+  }
+
+  &:not(:last-child) {
+    margin-bottom: $toast-padding-x;
+  }
+
+  &.showing {
+    opacity: 1;
+  }
+
+  &.show {
+    display: block;
+    opacity: 1;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.toast-full {
+  width: 100%;
+  max-width: 100%;
+}
+
+.toast-header {
+  display: flex;
+  align-items: center;
+  padding: $toast-padding-y $toast-padding-x;
+  background-clip: padding-box;
+  border-bottom: $toast-border-width solid;
+  @include themes($toast-theme-map, $create: parent) {
+    color: themes-get-value("toast-header-color");
+    background-color: themes-get-value("toast-header-background-color");
+    border-color: themes-get-value("toast-header-border-color");
+  }
+}
+
+.toast-body {
+  padding: $toast-padding-x; // apply to both vertical and horizontal
+}
+
+.toaster {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+  padding: ($spacer / 4) ($spacer / 2);
+
+  &-top-full,
+  &-top-center,
+  &-top-right,
+  &-top-left,
+  &-bottom-full,
+  &-bottom-center,
+  &-bottom-right,
+  &-bottom-left {
+    position: fixed;
+    z-index: $zindex-toaster;
+    width: $toast-max-width;
+  }
+
+  &-top-full,
+  &-top-center,
+  &-top-right,
+  &-top-left {
+    top: 0;
+  }
+
+  &-bottom-full,
+  &-bottom-center,
+  &-bottom-right,
+  &-bottom-left {
+    bottom: 0;
+    flex-direction: column;
+  }
+
+  &-top-full,
+  &-bottom-full {
+    width: auto;
+  }
+
+  &-top-center,
+  &-bottom-center {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &-top-full,
+  &-bottom-full,
+  &-top-right,
+  &-bottom-right {
+    right: 0;
+  }
+
+  &-top-full,
+  &-bottom-full,
+  &-top-left,
+  &-bottom-left {
+    left: 0;
+  }
+
+  .toast {
+    width: 100%;
+    max-width: 100%;
+    margin-top: ($spacer / 8);
+    margin-bottom: ($spacer / 8);
+  }
+}

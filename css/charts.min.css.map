@@ -1,0 +1,1 @@
+{"version":3,"sources":["../scss/_charts.scss"],"names":[],"mappings":"AAAiB,wBACf,MAAO,KAGC,iBACR,QAAS,MAGX,OACE,YAAa","sourcesContent":[".c-chart-wrapper canvas {\n  width: 100%;\n}\n// stylelint-disable selector-no-qualifying-type, selector-type-no-unknown\nbase-chart.chart {\n  display: block;\n}\n\ncanvas {\n  user-select: none;\n}\n"]}

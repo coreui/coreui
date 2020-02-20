@@ -18,7 +18,12 @@
 
 .ps__rail-y {
   position: absolute;
-  right: 0;
+  @include ltr {
+    right: 0;
+  }
+  @include rtl {
+    left: 0;
+  }
   display: none;
   width: 15px;
   opacity: 0;
@@ -62,7 +67,12 @@
 
 .ps__thumb-y {
   position: absolute;
-  right: 2px;
+  @include ltr {
+    right: 2px;
+  }
+  @include rtl {
+    left: 2px;
+  }
   width: 6px;
   background-color: #aaa;
   border-radius: 6px;

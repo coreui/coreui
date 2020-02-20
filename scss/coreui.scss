@@ -1,59 +1,66 @@
 /*!
- * CoreUI - Open Source Dashboard UI Kit
- * @version v2.1.16
- * @link https://coreui.io
- * Copyright (c) 2018 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI - HTML, CSS, and JavaScript UI Components Library
+ * @version v3.0.0
+ * @link https://coreui.io/
+ * Copyright (c) 2020 creativeLabs Łukasz Holeczek
+ * License MIT  (https://coreui.io/license/)
  */
 
-// Override Boostrap variables
+@import "functions";
 @import "variables";
-
-// Import Bootstrap source files
-@import "bootstrap/bootstrap"; // from bootstrap node_modules
-
-// Mixins
 @import "mixins";
-
-// Animations
-@import "animate";
+@import "root";
+@import "reboot";
 
 // Vendors
 @import "vendors";
 
 // Components
-@import "aside";
+@import "alert";
 @import "avatars";
 @import "badge";
 @import "breadcrumb-menu";
 @import "breadcrumb";
-@import "brand-card";
-@import "brand-buttons";
 @import "button-group";
 @import "buttons";
 @import "callout";
 @import "card";
+@import "carousel";
 @import "charts";
+@import "close";
+@import "code";
+@import "custom-forms";
 @import "dropdown";
 @import "footer";
+@import "forms";
 @import "grid";
 @import "header";
+@import "icon";
 @import "input-group";
 @import "images";
+@import "jumbotron";
 @import "list-group";
+@import "media";
 @import "modal";
 @import "nav";
+@import "navbar";
+@import "pagination";
+@import "popover";
 @import "progress";
 @import "progress-group";
 @import "sidebar";
+@import "spinners";
+@import "subheader";
 @import "switches";
 @import "tables";
+@import "toasts";
+@import "tooltip";
+@import "transitions";
+@import "type";
 @import "widgets";
 
 // Layout Options
-@import "layout";
-
-@import "others";
+@import "layouts";
 
 // Utility classes
 @import "utilities";
@@ -64,5 +71,4 @@
 // Custom Properties support for Internet Explorer
 @import "ie-custom-properties";
 
-// temp fixes
-@import "fixes";
+@import "print";

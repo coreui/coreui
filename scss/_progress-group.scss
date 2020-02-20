@@ -1,3 +1,4 @@
+//TODO: move all values to variables.scss
 .progress-group {
   display: flex;
   flex-flow: row wrap;
@@ -10,13 +11,19 @@
 }
 
 .progress-group-icon {
-  margin: 0 $spacer 0 ($spacer * .25);
   font-size: $font-size-lg;
+
+  @include ltr {
+    margin: 0 $spacer 0 ($spacer * .25);
+  }
+  @include rtl {
+    margin: 0 ($spacer * .25) 0 $spacer;
+  }
 }
 
 .progress-group-text {
   font-size: $font-size-sm;
-  color: $gray-600;
+  color: $gray-700;
 }
 
 .progress-group-header {

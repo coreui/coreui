@@ -1,31 +1,63 @@
-@mixin borders($borders) {
+@mixin borders($borders, $reverse: false) {
+  @each $border in $borders {
+    $direction: nth($border, 1);
+    @if $direction == "all" {
+      border: map-get($borders, $direction);
+    } @else if $direction == "top" {
+      border-top: map-get($borders, $direction);
+    } @else if $direction == "right" {
+      @if $reverse {
+        border-right: 0;
+        border-left: map-get($borders, $direction);
+      } @else {
+        border-right: map-get($borders, $direction);
+      }
+    } @else if $direction == "bottom" {
+      border-bottom: map-get($borders, $direction);
+    } @else if $direction == "left" {
+      border-left: map-get($borders, $direction);
+      @if $reverse {
+        border-right: map-get($borders, $direction);
+        border-left: 0;
+      } @else {
+        border-left: map-get($borders, $direction);
+      }
+    }
+  }
+}
+
+@mixin borders-shadow($borders, $reverse: false) {
   @each $border in $borders {
     $direction: nth($border, 1);
     @if $direction == "all" {
       $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border: $size $style $color;
+      box-shadow: $size $style $color inset;
     } @else if $direction == "top" {
       $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border-top: $size $style $color;
+      box-shadow: 0 - $size $size - $size $color inset;
     } @else if $direction == "right" {
       $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border-right: $size $style $color;
+      @if $reverse {
+        box-shadow: $size 0 $size - $size $color inset;
+      } @else {
+        box-shadow: - $size 0 $size - $size $color inset;
+      }
     } @else if $direction == "bottom" {
       $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border-bottom: $size $style $color;
+      box-shadow: 0 $size $size - $size $color inset;
     } @else if $direction == "left" {
       $size: map-get(map-get($borders, $direction), size);
-      $style: map-get(map-get($borders, $direction), style);
       $color: map-get(map-get($borders, $direction), color);
-      border-left: $size $style $color;
+      box-shadow: $size 0 $size - $size $color inset;
+      @if $reverse {
+        box-shadow: - $size 0 $size - $size $color inset;
+      } @else {
+        box-shadow: $size 0 $size - $size $color inset;
+      }
     }
   }
 }

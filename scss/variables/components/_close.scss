@@ -1,0 +1,21 @@
+// Close
+
+$close-font-size:    $font-size-base * 1.5 !default;
+$close-font-weight:  $font-weight-bold !default;
+
+
+// Default theme
+$close-color:        $black !default;
+$close-text-shadow:  0 1px 0 $white !default;
+
+$close-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$close-theme-map: map-merge(
+  (
+    default: (
+      "close-color":        $close-color,
+      "close-text-shadow":  $close-text-shadow
+    )
+  ),
+  $close-theme-map
+);

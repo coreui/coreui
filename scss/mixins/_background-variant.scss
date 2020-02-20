@@ -1,0 +1,38 @@
+// stylelint-disable declaration-no-important
+
+// Contextual backgrounds
+
+@mixin bg-variant($parent, $color, $ignore-warning: false) {
+  #{$parent} {
+    background-color: $color !important;
+  }
+  a#{$parent},
+  button#{$parent} {
+    @include hover-focus() {
+      background-color: darken($color, 10%) !important;
+    }
+  }
+  @include deprecate("The `bg-variant` mixin", "v4.4.0", "v5", $ignore-warning);
+}
+
+@mixin bg-gradient-variant($parent, $color) {
+  #{$parent} {
+    background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
+  }
+}
+
+@mixin coreui-bg-gradient-variant($parent, $colors) {
+  #{$parent} {
+    background: map-get($colors, "stop") !important;
+    background: linear-gradient(45deg, map-get($colors, "start") 0%, map-get($colors, "stop") 100%) !important;
+    border-color: map-get($colors, "stop") !important;
+  }
+}
+
+@mixin coreui-bg-gradient-variant-dark-theme($parent, $colors) {
+  #{$parent} {
+    background: desaturate(map-get($colors, "stop"), 20%) !important;
+    background: linear-gradient(45deg, desaturate(map-get($colors, "start"), 20%) 0%, desaturate(map-get($colors, "stop"), 20%) 100%) !important;
+    border-color: desaturate(map-get($colors, "stop"), 20%) !important;
+  }
+}

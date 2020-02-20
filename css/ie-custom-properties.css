@@ -1,0 +1,17 @@
+.ie-custom-properties {
+  primary: #321fdb;
+  secondary: #ced2d8;
+  success: #2eb85c;
+  info: #39f;
+  warning: #f9b115;
+  danger: #e55353;
+  light: #ebedef;
+  dark: #636f83;
+  breakpoint-xs: 0;
+  breakpoint-sm: 576px;
+  breakpoint-md: 768px;
+  breakpoint-lg: 992px;
+  breakpoint-xl: 1200px;
+}
+
+/*# sourceMappingURL=ie-custom-properties.css.map */

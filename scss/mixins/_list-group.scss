@@ -1,5 +1,25 @@
 // List Groups
 
+@mixin list-group-item-variant($state, $background, $color) {
+  .list-group-item-#{$state} {
+    color: $color;
+    background-color: $background;
+
+    &.list-group-item-action {
+      @include hover-focus() {
+        color: $color;
+        background-color: darken($background, 5%);
+      }
+
+      &.active {
+        color: $white;
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+  }
+}
+
 @mixin list-group-item-accent-variant($state, $color) {
   .list-group-item-accent-#{$state} {
     border-left: 4px solid $color;

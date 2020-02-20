@@ -1,0 +1,313 @@
+
+// Sidebar
+
+$sidebar-width:     256px !default;
+$sidebar-sm-width:  192px !default;
+$sidebar-lg-width:  320px !default;
+$sidebar-xl-width:  384px !default;
+
+$sidebar-widths: (
+  sm: 192px,
+  lg: 320px,
+  xl: 384px
+) !default;
+
+$sidebar-padding:           0 !default;
+$sidebar-minimized-width:   56px !default;
+$sidebar-minimized-height:  $sidebar-minimized-width !default;
+$sidebar-compact-width:     150px !default;
+
+$sidebar-backdrop-bg:       $black !default;
+$sidebar-backdrop-opacity:  .5 !default;
+
+$sidebar-dark-color:    $white !default;
+$sidebar-dark-bg:       $gray-base !default;
+$sidebar-dark-borders:  none !default;
+
+$sidebar-light-color:    $body-color !default;
+$sidebar-light-bg:       $white !default;
+$sidebar-light-borders:  (
+  right: 1px solid rgba(darken($border-color, 20%), .5)
+) !default;
+
+// Sidebar Brand
+
+$sidebar-brand-height:  56px !default;
+
+$sidebar-dark-brand-color:  $white !default;
+$sidebar-dark-brand-bg:     rgba($black, .2) !default;
+
+$sidebar-light-brand-color:  $white !default;
+$sidebar-light-brand-bg:     $primary !default;
+
+// Sidebar Header
+
+$sidebar-header-height:     auto !default;
+$sidebar-header-padding-y:  .75rem !default;
+$sidebar-header-padding-x:  1rem !default;
+
+$sidebar-dark-header-bg:  rgba($black, .2) !default;
+$sidebar-light-header-bg: rgba($black, .2) !default;
+
+// Sidebar Form
+
+$sidebar-dark-form-border:              0 !default;
+$sidebar-dark-form-bg:                  rgba($black, .1) !default;
+$sidebar-dark-form-color:               $white !default;
+$sidebar-dark-form-placeholder-color:   rgba($white, .7) !default;
+
+$sidebar-light-form-border:             0 !default;
+$sidebar-light-form-bg:                 rgba($black, .1) !default;
+$sidebar-light-form-color:              $white !default;
+$sidebar-light-form-placeholder-color:  rgba($white, .7) !default;
+
+
+// Sidebar Navigation
+
+$sidebar-nav-title-padding-y:   .75rem !default;
+$sidebar-nav-title-padding-x:   1rem !default;
+$sidebar-nav-title-margin-top:  1rem !default;
+$sidebar-nav-link-padding-y:    .8445rem !default;
+$sidebar-nav-link-padding-x:    1rem !default;
+$sidebar-nav-icon-width:        56px !default;
+
+$sidebar-dark-nav-title-color:      rgba($white, .6) !default;
+$sidebar-dark-nav-link-color:       rgba($white, .8) !default;
+$sidebar-dark-nav-link-bg:          transparent !default;
+$sidebar-dark-nav-link-icon-color:  rgba($white, .5) !default;
+$sidebar-dark-nav-link-borders:     0 !default;
+
+$sidebar-light-nav-title-color:      rgba($black, .4) !default;
+$sidebar-light-nav-link-color:       rgba($black, .8) !default;
+$sidebar-light-nav-link-bg:          transparent !default;
+$sidebar-light-nav-link-icon-color:  rgba($black, .5) !default;
+$sidebar-light-nav-link-borders:     0 !default;
+
+
+$sidebar-dark-nav-link-hover-color:       $white !default;
+$sidebar-dark-nav-link-hover-bg:          theme-color("primary") !default;
+$sidebar-dark-nav-link-hover-icon-color:  $white !default;
+$sidebar-dark-nav-link-hover-borders:     0 !default;
+
+$sidebar-light-nav-link-hover-color:       $white !default;
+$sidebar-light-nav-link-hover-bg:          theme-color("primary") !default;
+$sidebar-light-nav-link-hover-icon-color:  $white !default;
+$sidebar-light-nav-link-hover-borders:     0 !default;
+
+
+$sidebar-dark-nav-link-active-color:       $white !default;
+$sidebar-dark-nav-link-active-bg:          rgba($white, .05) !default;
+$sidebar-dark-nav-link-active-icon-color:  $white !default;
+$sidebar-dark-nav-link-active-borders:     0 !default;
+
+$sidebar-light-nav-link-active-color:       rgba($black, .8) !default;
+$sidebar-light-nav-link-active-bg:          rgba($black, .05) !default;
+$sidebar-light-nav-link-active-icon-color:  $primary !default;
+$sidebar-light-nav-link-active-borders:     0 !default;
+
+
+$sidebar-dark-nav-link-disabled-color:       darken($white, 30%) !default;
+$sidebar-dark-nav-link-disabled-bg:          $sidebar-dark-bg !default;
+$sidebar-dark-nav-link-disabled-icon-color:  $sidebar-dark-nav-link-icon-color !default;
+$sidebar-dark-nav-link-disabled-borders:     0 !default;
+
+$sidebar-light-nav-link-disabled-color:       darken($white, 30%) !default;
+$sidebar-light-nav-link-disabled-bg:          $sidebar-light-bg !default;
+$sidebar-light-nav-link-disabled-icon-color:  $sidebar-light-nav-link-icon-color !default;
+$sidebar-light-nav-link-disabled-borders:     0 !default;
+
+$sidebar-dark-nav-dropdown-color:                  $white !default;
+$sidebar-dark-nav-dropdown-bg:                   rgba(0, 0, 0, .2) !default;
+$sidebar-dark-nav-dropdown-borders:                0 !default;
+$sidebar-dark-nav-dropdown-indicator-color:        rgba($white, .5) !default;
+$sidebar-dark-nav-dropdown-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-dark-nav-dropdown-indicator-hover-color:  $sidebar-dark-nav-link-hover-color !default;
+$sidebar-dark-nav-dropdown-indicator-hover:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$sidebar-light-nav-dropdown-color:                  rgba($black, .8) !default;
+$sidebar-light-nav-dropdown-bg:                   rgba(0, 0, 0, .05) !default;
+$sidebar-light-nav-dropdown-borders:                0 !default;
+$sidebar-light-nav-dropdown-indicator-color:        rgba($black, .5) !default;
+$sidebar-light-nav-dropdown-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-light-nav-dropdown-indicator-hover-color:  $sidebar-dark-nav-link-hover-color !default;
+$sidebar-light-nav-dropdown-indicator-hover:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+// Sidebar Tabs
+
+$sidebar-nav-tabs-link-padding-y:  .75rem !default;
+$sidebar-nav-tabs-link-padding-x:  1rem !default;
+
+$sidebar-dark-nav-tabs-border-color:              rgba($black, .2) !default;
+$sidebar-dark-nav-tabs-link-active-bg:            rgba($white, .05) !default;
+$sidebar-dark-nav-tabs-link-active-border-color:  rgba($black, .2) rgba($black, .2) theme-color("primary") !default;
+$sidebar-dark-nav-tabs-link-hover-bg:             rgba($black, .2) !default;
+$sidebar-dark-nav-tabs-link-hover-border-color:   rgba($black, .2) rgba($black, .2) $gray-200 !default;
+$sidebar-dark-tab-content-borders:                ( top: 1px solid rgba($black, .2)) !default;
+
+$sidebar-light-nav-tabs-border-color:              rgba(darken($border-color, 20%), .5) !default;
+$sidebar-light-nav-tabs-link-active-bg:            $white !default;
+$sidebar-light-nav-tabs-link-active-border-color:  rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
+$sidebar-light-nav-tabs-link-hover-bg:             $white !default;
+$sidebar-light-nav-tabs-link-hover-border-color:   rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
+$sidebar-light-tab-content-borders:                ( top: 1px solid rgba(darken($border-color, 20%), .5)) !default;
+
+// Sidebar Footer
+
+$sidebar-footer-height:     auto !default;
+$sidebar-footer-padding-y:  .75rem !default;
+$sidebar-footer-padding-x:  1rem !default;
+
+$sidebar-dark-footer-bg:        rgba($black, .2) !default;
+$sidebar-dark-footer-borders:   0 !default;
+
+$sidebar-light-footer-bg:       rgba($black, .2) !default;
+$sidebar-light-footer-borders:  0 !default;
+
+// Sidebar Minimizer
+
+$sidebar-minimizer-height:                      50px !default;
+
+$sidebar-dark-minimizer-borders:                0 !default;
+$sidebar-dark-minimizer-bg:                     rgba($black, .2) !default;
+$sidebar-dark-minimizer-indicator-color:        $gray-600 !default;
+$sidebar-dark-minimizer-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-dark-minimizer-hover-bg:              rgba(0, 0, 0, .3) !default;
+$sidebar-dark-minimizer-hover-indicator-color:  $sidebar-dark-nav-link-hover-color !default;
+$sidebar-dark-minimizer-hover-indicator:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-dark-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$sidebar-light-minimizer-borders:                0 !default;
+$sidebar-light-minimizer-bg:                     rgba(0, 0, 0, .05) !default;
+$sidebar-light-minimizer-indicator-color:        $gray-600 !default;
+$sidebar-light-minimizer-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+$sidebar-light-minimizer-hover-bg:               rgba(0, 0, 0, .1) !default;
+$sidebar-light-minimizer-hover-indicator-color:  $gray-700 !default;
+$sidebar-light-minimizer-hover-indicator:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+
+$sidebar-variants-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sidebar-variants-map: map-merge(
+  (
+    dark: (
+      "sidebar-color":                               $sidebar-dark-color,
+      "sidebar-bg":                                  $sidebar-dark-bg,
+      "dark-theme-sidebar-bg":                       0,
+      "sidebar-borders":                             $sidebar-dark-borders,
+      "dark-theme-sidebar-borders":                  0,
+      "sidebar-brand-color":                         $sidebar-dark-brand-color,
+      "sidebar-brand-bg":                            $sidebar-dark-brand-bg,
+      "sidebar-header-bg":                           $sidebar-dark-header-bg,
+      "sidebar-form-border":                         $sidebar-dark-form-border,
+      "sidebar-form-bg":                             $sidebar-dark-form-bg,
+      "sidebar-form-color":                          $sidebar-dark-form-color,
+      "sidebar-form-placeholder-color":              $sidebar-dark-form-placeholder-color,
+      "sidebar-nav-title-color":                     $sidebar-dark-nav-title-color,
+      "sidebar-nav-link-color":                      $sidebar-dark-nav-link-color,
+      "sidebar-nav-link-bg":                         $sidebar-dark-nav-link-bg,
+      "sidebar-nav-link-icon-color":                 $sidebar-dark-nav-link-icon-color,
+      "sidebar-nav-link-borders":                    $sidebar-dark-nav-link-borders,
+      "sidebar-nav-link-hover-color":                $sidebar-dark-nav-link-hover-color,
+      "sidebar-nav-link-hover-bg":                   $sidebar-dark-nav-link-hover-bg,
+      "sidebar-nav-link-hover-icon-color":           $sidebar-dark-nav-link-hover-icon-color,
+      "sidebar-nav-link-hover-borders":              $sidebar-dark-nav-link-hover-borders,
+      "sidebar-nav-link-active-color":               $sidebar-dark-nav-link-active-color,
+      "sidebar-nav-link-active-bg":                  $sidebar-dark-nav-link-active-bg,
+      "sidebar-nav-link-active-icon-color":          $sidebar-dark-nav-link-active-icon-color,
+      "sidebar-nav-link-active-borders":             $sidebar-dark-nav-link-active-borders,
+      "sidebar-nav-link-disabled-color":             $sidebar-dark-nav-link-disabled-color,
+      "sidebar-nav-link-disabled-bg":                $sidebar-dark-nav-link-disabled-bg,
+      "sidebar-nav-link-disabled-icon-color":        $sidebar-dark-nav-link-disabled-icon-color,
+      "sidebar-nav-link-disabled-borders":           $sidebar-dark-nav-link-disabled-borders,
+      "sidebar-nav-dropdown-color":                  $sidebar-dark-nav-dropdown-color,
+      "sidebar-nav-dropdown-bg":                     $sidebar-dark-nav-dropdown-bg,
+      "sidebar-nav-dropdown-borders":                $sidebar-dark-nav-dropdown-borders,
+      "sidebar-nav-dropdown-indicator-color":        $sidebar-dark-nav-dropdown-indicator-color,
+      "sidebar-nav-dropdown-indicator":              $sidebar-dark-nav-dropdown-indicator,
+      "sidebar-nav-dropdown-indicator-hover-color":  $sidebar-dark-nav-dropdown-indicator-hover-color,
+      "sidebar-nav-dropdown-indicator-hover":        $sidebar-dark-nav-dropdown-indicator-hover,
+      "sidebar-nav-tabs-border-color":               $sidebar-dark-nav-tabs-border-color,
+      "sidebar-nav-tabs-link-active-bg":             $sidebar-dark-nav-tabs-link-active-bg,
+      "sidebar-nav-tabs-link-active-border-color":   $sidebar-dark-nav-tabs-link-active-border-color,
+      "sidebar-nav-tabs-link-hover-bg":              $sidebar-dark-nav-tabs-link-hover-bg,
+      "sidebar-nav-tabs-link-hover-border-color":    $sidebar-dark-nav-tabs-link-hover-border-color,
+      "sidebar-tab-content-borders":                 $sidebar-dark-tab-content-borders,
+      "sidebar-footer-bg":                           $sidebar-dark-footer-bg,
+      "sidebar-footer-borders":                      $sidebar-dark-footer-borders,
+      "sidebar-minimizer-borders":                   $sidebar-dark-minimizer-borders,
+      "sidebar-minimizer-bg":                        $sidebar-dark-minimizer-bg,
+      "sidebar-minimizer-indicator-color":           $sidebar-dark-minimizer-indicator-color,
+      "sidebar-minimizer-indicator":                 $sidebar-dark-minimizer-indicator,
+      "sidebar-minimizer-hover-bg":                  $sidebar-dark-minimizer-hover-bg,
+      "sidebar-minimizer-hover-indicator-color":     $sidebar-dark-minimizer-hover-indicator-color,
+      "sidebar-minimizer-hover-indicator":           $sidebar-dark-minimizer-hover-indicator
+    ),
+    light: (
+      "sidebar-color":                               $sidebar-light-color,
+      "sidebar-bg":                                  $sidebar-light-bg,
+      "dark-theme-sidebar-bg":                       0,
+      "sidebar-borders":                             $sidebar-light-borders,
+      "dark-theme-sidebar-borders":                  0,
+      "sidebar-brand-color":                         $sidebar-light-brand-color,
+      "sidebar-brand-bg":                            $sidebar-light-brand-bg,
+      "sidebar-header-bg":                           $sidebar-light-header-bg,
+      "sidebar-form-border":                         $sidebar-light-form-border,
+      "sidebar-form-bg":                             $sidebar-light-form-bg,
+      "sidebar-form-color":                          $sidebar-light-form-color,
+      "sidebar-form-placeholder-color":              $sidebar-light-form-placeholder-color,
+      "sidebar-nav-title-color":                     $sidebar-light-nav-title-color,
+      "sidebar-nav-link-color":                      $sidebar-light-nav-link-color,
+      "sidebar-nav-link-bg":                         $sidebar-light-nav-link-bg,
+      "sidebar-nav-link-icon-color":                 $sidebar-light-nav-link-icon-color,
+      "sidebar-nav-link-borders":                    $sidebar-light-nav-link-borders,
+      "sidebar-nav-link-hover-color":                $sidebar-light-nav-link-hover-color,
+      "sidebar-nav-link-hover-bg":                   $sidebar-light-nav-link-hover-bg,
+      "sidebar-nav-link-hover-icon-color":           $sidebar-light-nav-link-hover-icon-color,
+      "sidebar-nav-link-hover-borders":              $sidebar-light-nav-link-hover-borders,
+      "sidebar-nav-link-active-color":               $sidebar-light-nav-link-active-color,
+      "sidebar-nav-link-active-bg":                  $sidebar-light-nav-link-active-bg,
+      "sidebar-nav-link-active-icon-color":          $sidebar-light-nav-link-active-icon-color,
+      "sidebar-nav-link-active-borders":             $sidebar-light-nav-link-active-borders,
+      "sidebar-nav-link-disabled-color":             $sidebar-light-nav-link-disabled-color,
+      "sidebar-nav-link-disabled-bg":                $sidebar-light-nav-link-disabled-bg,
+      "sidebar-nav-link-disabled-icon-color":        $sidebar-light-nav-link-disabled-icon-color,
+      "sidebar-nav-link-disabled-borders":           $sidebar-light-nav-link-disabled-borders,
+      "sidebar-nav-dropdown-color":                  $sidebar-light-nav-dropdown-color,
+      "sidebar-nav-dropdown-bg":                     $sidebar-light-nav-dropdown-bg,
+      "sidebar-nav-dropdown-borders":                $sidebar-light-nav-dropdown-borders,
+      "sidebar-nav-dropdown-indicator-color":        $sidebar-light-nav-dropdown-indicator-color,
+      "sidebar-nav-dropdown-indicator":              $sidebar-light-nav-dropdown-indicator,
+      "sidebar-nav-dropdown-indicator-hover-color":  $sidebar-light-nav-dropdown-indicator-hover-color,
+      "sidebar-nav-dropdown-indicator-hover":        $sidebar-light-nav-dropdown-indicator-hover,
+      "sidebar-nav-tabs-border-color":               $sidebar-light-nav-tabs-border-color,
+      "sidebar-nav-tabs-link-active-bg":             $sidebar-light-nav-tabs-link-active-bg,
+      "sidebar-nav-tabs-link-active-border-color":   $sidebar-light-nav-tabs-link-active-border-color,
+      "sidebar-nav-tabs-link-hover-bg":              $sidebar-light-nav-tabs-link-hover-bg,
+      "sidebar-nav-tabs-link-hover-border-color":    $sidebar-light-nav-tabs-link-hover-border-color,
+      "sidebar-tab-content-borders":                 $sidebar-light-tab-content-borders,
+      "sidebar-footer-bg":                           $sidebar-light-footer-bg,
+      "sidebar-footer-borders":                      $sidebar-light-footer-borders,
+      "sidebar-minimizer-borders":                   $sidebar-light-minimizer-borders,
+      "sidebar-minimizer-bg":                        $sidebar-light-minimizer-bg,
+      "sidebar-minimizer-indicator-color":           $sidebar-light-minimizer-indicator-color,
+      "sidebar-minimizer-indicator":                 $sidebar-light-minimizer-indicator,
+      "sidebar-minimizer-hover-bg":                  $sidebar-light-minimizer-hover-bg,
+      "sidebar-minimizer-hover-indicator-color":     $sidebar-light-minimizer-hover-indicator-color,
+      "sidebar-minimizer-hover-indicator":           $sidebar-light-minimizer-hover-indicator,
+    )
+  ),
+  $sidebar-variants-map
+);
+
+$sidebar-default-variant: "dark" !default;
+$sidebar-variants: (
+  map: $sidebar-variants-map,
+  default: $sidebar-default-variant
+) !default;
+
+$sidebar-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$sidebar-theme-map: map-merge(
+  (
+    default: $sidebar-variants,
+  ),
+  $sidebar-theme-map
+);

@@ -1,81 +1,146 @@
-.app-header {
+.c-header {
   position: relative;
+  display: flex;
   flex-direction: row;
-  height: $navbar-height;
-  padding: 0;
-  margin: 0;
-  background-color: $navbar-bg;
-  @include borders($navbar-border);
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  min-height: $header-height;
 
-  .navbar-brand {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: $navbar-brand-width;
-    height: $navbar-height;
-    padding: 0;
-    margin-right: 0;
-    background-color: $navbar-brand-bg;
-    @include borders($navbar-brand-border);
+  &[class*="bg-"]  {
+    border-color: rgba($black, .1);
+  }
 
-    .navbar-brand-minimized {
-      display: none;
+  &.c-header-fixed {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+  }
+
+  .c-subheader {
+    border-bottom: 0;
+  }
+}
+
+.c-header-brand {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: $header-brand-width;
+  min-height: $header-height;
+  transition: width $layout-transition-speed;
+
+  &.c-header-brand-center {
+    position: absolute;
+    top: $header-height;
+    transform: translate(-50%, -100%);
+
+    @include ltr {
+      left: 50%;
+    }
+    @include rtl {
+      right: 50%;
     }
   }
 
-  .navbar-toggler {
-    min-width: 50px;
-    padding: $navbar-toggler-padding-y 0;
-
-    &:hover .navbar-toggler-icon {
-      background-image: $navbar-toggler-icon-hover;
-    }
-  }
-
-  .navbar-toggler-icon {
-    height: 23px;
-    background-image: $navbar-toggler-icon;
-  }
-
-  .navbar-nav {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .nav-item {
-    position: relative;
-    min-width: 50px;
-    margin: 0;
-    text-align: center;
-
-    button {
-      margin: 0 auto;
-    }
-
-    .nav-link {
-      padding-top: 0;
-      padding-bottom: 0;
-      background: 0;
-      border: 0;
-
-      .badge {
+  @each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-down($breakpoint) {
+      &.c-header-brand-#{$breakpoint}-down-center {
         position: absolute;
-        top: 50%;
+        top: $header-height;
+        transform: translate(-50%, -100%);
+        @include ltr {
+          left: 50%;
+        }
+        @include rtl {
+          right: 50%;
+        }
+      }
+    }
+    @include media-breakpoint-up($breakpoint) {
+      &.c-header-brand-#{$breakpoint}-up-center {
+        position: absolute;
+        top: $header-height;
+        transform: translate(-50%, -100%);
+        @include ltr {
+          left: 50%;
+        }
+        @include rtl {
+          right: 50%;
+        }
+      }
+    }
+  }
+}
+
+.c-header-toggler {
+  min-width: 50px;
+  font-size: $header-toggler-font-size;
+  background-color: $header-toggler-bg;
+  border: 0; // remove default button style
+  @include borders($header-toggler-border);
+  @include border-radius($header-toggler-border-radius);
+
+  @include hover-focus {
+    text-decoration: none;
+  }
+
+  // Opinionated: add "hand" cursor to non-disabled .navbar-toggler elements
+  &:not(:disabled):not(.c-disabled) {
+    cursor: pointer;
+  }
+}
+
+.c-header-toggler-icon {
+  display: block;
+  height: $header-toggler-font-size * 1.25;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+}
+
+.c-header-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: $header-height;
+  padding: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  .c-header-nav-item {
+    position: relative;
+  }
+
+  .c-header-nav-btn {
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+  }
+
+  .c-header-nav-link,
+  .c-header-nav-btn {
+    display: flex;
+    align-items: center;
+    padding-right: $header-nav-link-padding-x;
+    padding-left: $header-nav-link-padding-x;
+
+    .badge {
+      position: absolute;
+      top: 50%;
+      margin-top: -16px;
+      @include ltr {
         left: 50%;
-        margin-top: -16px;
         margin-left: 0;
       }
-
-      > .img-avatar {
-        height: $navbar-height - 20px;
-        margin: 0 10px;
+      @include rtl {
+        right: 50%;
+        margin-right: 0;
       }
     }
-  }
 
-  .dropdown-menu {
-    padding-bottom: 0;
-    line-height: $line-height-base;
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   .dropdown-item {
@@ -83,52 +148,71 @@
   }
 }
 
-// .navbar-brand {
-//   color: $navbar-active-color;
 //
-//   @include hover-focus {
-//     color: $navbar-active-color;
-//   }
-// }
+// Header variants
+//
 
-.navbar-nav {
-  .nav-link {
-    color: $navbar-color;
+@include themes($header-theme-map, $create: append, $parent: ".c-header") {
+  background: themes-get-value("header-bg");
+  @include borders(themes-get-value("header-border"));
+
+  .c-subheader {
+    margin-top: -1px;
+    border-top: themes-get-value("subheader-separator");
+  }
+
+  .c-header-brand {
+    color: themes-get-value("header-brand-color");
+    background-color: themes-get-value("header-brand-bg");
+    @include borders(themes-get-value("header-brand-border"));
 
     @include hover-focus {
-      color: $navbar-hover-color;
+      color: themes-get-value("header-brand-hover-color");
     }
   }
 
-  .open > .nav-link,
-  .active > .nav-link,
-  .nav-link.open,
-  .nav-link.active {
-    @include plain-hover-focus {
-      color: $navbar-active-color;
+  .c-header-nav {
+    .c-header-nav-link,
+    .c-header-nav-btn {
+      color: themes-get-value("header-color");
+
+      @include hover-focus {
+        color: themes-get-value("header-hover-color");
+      }
+
+      &.c-disabled {
+        color: themes-get-value("header-disabled-color");
+      }
+    }
+
+    .c-show > .c-header-nav-link,
+    .c-active > .c-header-nav-link,
+    .c-header-nav-link.c-show,
+    .c-header-nav-link.c-active {
+      color: themes-get-value("header-active-color");
     }
   }
-}
 
-.navbar-divider {
-  background-color: rgba(0, 0, 0, .075);
-}
+  .c-header-toggler {
+    color: themes-get-value("header-color");
+    border-color: themes-get-value("header-toggler-border-color");
+  }
 
-@include media-breakpoint-up($breakpoint-mobile-up) {
-  .brand-minimized {
-    .app-header {
-      .navbar-brand {
-        width: $navbar-brand-minimized-width;
-        background-color: $navbar-brand-minimized-bg;
-        @include borders($navbar-brand-minimized-border);
+  .c-header-toggler-icon {
+    background-image: themes-get-value("header-toggler-icon-bg");
 
-        .navbar-brand-full {
-          display: none;
-        }
+    &:hover {
+      background-image: themes-get-value("header-toggler-hover-icon-bg");
+    }
+  }
 
-        .navbar-brand-minimized {
-          display: block;
-        }
+  .c-header-text {
+    color: themes-get-value("header-color");
+    a {
+      color: themes-get-value("header-active-color");
+
+      @include hover-focus {
+        color: themes-get-value("header-active-color");
       }
     }
   }

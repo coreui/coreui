@@ -1,18 +1,55 @@
+// stylelint-disable declaration-no-important
+
 //
 // Utilities for common `display` values
 //
-// stylelint-disable declaration-no-important
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    @each $value in $displays {
+      .d#{$infix}-#{$value} { display: $value !important; }
+    }
+  }
+}
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-down($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .d#{$infix}-down-none { display: none !important; }
+  }
+}
 
-    .d#{$infix}-down-none         { display: none !important; }
-    // .d#{$infix}-inline       { display: inline !important; }
-    // .d#{$infix}-inline-block { display: inline-block !important; }
-    // .d#{$infix}-block        { display: block !important; }
-    // .d#{$infix}-table        { display: table !important; }
-    // .d#{$infix}-table-cell   { display: table-cell !important; }
-    // .d#{$infix}-flex         { display: flex !important; }
-    // .d#{$infix}-inline-flex  { display: inline-flex !important; }
+@each $theme in map-keys($default-themes) {
+  .c-#{$theme}#{$theme-suffix} {
+    .c-d-#{$theme}-none { display: none !important; }
+  }
+  @if map-get(map-get($default-themes, $theme), "default") {
+    $other-themes: map-remove($default-themes, $theme);
+
+    $selector: selector-append(".c-app");
+    @each $other-theme in map-keys($other-themes) {
+      $selector: selector-append($selector, ":not(.c-#{$other-theme}#{$theme-suffix})");
+      // .c-app {
+      //   &:not(.c-#{$other-theme}#{$theme-suffix}) {
+      //     .c-d-#{$theme}-none { display: none !important; }
+      //   }
+      // }
+    }
+    @if ($selector != selector-append(".c-app")) {
+      #{$selector} {
+        .c-d-#{$theme}-none { display: none !important; }
+      }
+    }
+  }
+}
+
+
+//
+// Utilities for toggling `display` in print
+//
+
+@media print {
+  @each $value in $displays {
+    .d-print-#{$value} { display: $value !important; }
   }
 }

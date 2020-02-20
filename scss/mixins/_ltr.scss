@@ -1,0 +1,16 @@
+@mixin ltr {
+  @if $enable-ltr {
+    @if & {
+      & {
+        html:not([dir="rtl"]) & {
+          @content;
+        }
+      }
+    }
+    @else {
+      html:not([dir="rtl"]) {
+        @content;
+      }
+    }
+  }
+}

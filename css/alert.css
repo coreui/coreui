@@ -1,0 +1,152 @@
+.alert {
+  position: relative;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.alert-heading {
+  color: inherit;
+}
+
+.alert-link {
+  font-weight: 700;
+}
+
+html:not([dir="rtl"]) .alert-dismissible {
+  padding-right: 3.8125rem;
+}
+
+*[dir="rtl"] .alert-dismissible {
+  padding-left: 3.8125rem;
+}
+
+.alert-dismissible .close {
+  position: absolute;
+  top: 0;
+  padding: 0.75rem 1.25rem;
+  color: inherit;
+}
+
+html:not([dir="rtl"]) .alert-dismissible .close {
+  right: 0;
+}
+
+*[dir="rtl"] .alert-dismissible .close {
+  left: 0;
+}
+
+.alert-primary {
+  color: #1a107c;
+  background-color: #d6d2f8;
+  border-color: #c6c0f5;
+}
+
+.alert-primary hr {
+  border-top-color: #b2aaf2;
+}
+
+.alert-primary .alert-link {
+  color: #110a4f;
+}
+
+.alert-secondary {
+  color: #6b6d7a;
+  background-color: #f5f6f7;
+  border-color: #f1f2f4;
+}
+
+.alert-secondary hr {
+  border-top-color: #e3e5e9;
+}
+
+.alert-secondary .alert-link {
+  color: #53555f;
+}
+
+.alert-success {
+  color: #18603a;
+  background-color: #d5f1de;
+  border-color: #c4ebd1;
+}
+
+.alert-success hr {
+  border-top-color: #b1e5c2;
+}
+
+.alert-success .alert-link {
+  color: #0e3721;
+}
+
+.alert-info {
+  color: #1b508f;
+  background-color: #d6ebff;
+  border-color: #c6e2ff;
+}
+
+.alert-info hr {
+  border-top-color: #add5ff;
+}
+
+.alert-info .alert-link {
+  color: #133864;
+}
+
+.alert-warning {
+  color: #815c15;
+  background-color: #feefd0;
+  border-color: #fde9bd;
+}
+
+.alert-warning hr {
+  border-top-color: #fce1a4;
+}
+
+.alert-warning .alert-link {
+  color: #553d0e;
+}
+
+.alert-danger {
+  color: #772b35;
+  background-color: #fadddd;
+  border-color: #f8cfcf;
+}
+
+.alert-danger hr {
+  border-top-color: #f5b9b9;
+}
+
+.alert-danger .alert-link {
+  color: #521d24;
+}
+
+.alert-light {
+  color: #7a7b86;
+  background-color: #fbfbfc;
+  border-color: #f9fafb;
+}
+
+.alert-light hr {
+  border-top-color: #eaedf1;
+}
+
+.alert-light .alert-link {
+  color: #62626b;
+}
+
+.alert-dark {
+  color: #333a4e;
+  background-color: #e0e2e6;
+  border-color: #d3d7dc;
+}
+
+.alert-dark hr {
+  border-top-color: #c5cad1;
+}
+
+.alert-dark .alert-link {
+  color: #1f232f;
+}
+
+/*# sourceMappingURL=alert.css.map */

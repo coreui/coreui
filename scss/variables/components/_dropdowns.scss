@@ -1,0 +1,51 @@
+
+// Dropdowns
+//
+// Dropdown menu container and contents.
+
+$dropdown-min-width:            10rem !default;
+$dropdown-padding-y:            .5rem !default;
+$dropdown-spacer:               .125rem !default;
+$dropdown-font-size:            $font-size-base !default;
+$dropdown-border-radius:        $border-radius !default;
+$dropdown-border-width:         $border-width !default;
+$dropdown-inner-border-radius:  subtract($dropdown-border-radius, $dropdown-border-width) !default;
+$dropdown-divider-margin-y:     $nav-divider-margin-y !default;
+$dropdown-box-shadow:           0 .5rem 1rem rgba($black, .175) !default;
+$dropdown-item-padding-y:       .5rem !default;
+$dropdown-item-padding-x:       1.25rem !default;
+
+// Default theme
+$dropdown-color:                $body-color !default;
+$dropdown-bg:                   $white !default;
+$dropdown-border-color:         $border-color !default;
+$dropdown-divider-bg:           $gray-200 !default;
+$dropdown-link-color:           $gray-900 !default;
+$dropdown-link-hover-color:     darken($gray-900, 5%) !default;
+$dropdown-link-hover-bg:        $gray-100 !default;
+$dropdown-link-active-color:    $component-active-color !default;
+$dropdown-link-active-bg:       $component-active-bg !default;
+$dropdown-link-disabled-color:  $gray-600 !default;
+$dropdown-header-color:         $gray-600 !default;
+
+
+$dropdown-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$dropdown-theme-map: map-merge(
+  (
+    default: (
+      "dropdown-color":                $dropdown-color,
+      "dropdown-border-color":         $dropdown-border-color,
+      "dropdown-bg":                   $dropdown-bg,
+      "dropdown-divider-bg":           $dropdown-divider-bg,
+      "dropdown-link-color":           $dropdown-link-color,
+      "dropdown-link-hover-color":     $dropdown-link-hover-color,
+      "dropdown-link-hover-bg":        $dropdown-link-hover-bg,
+      "dropdown-link-active-color":    $dropdown-link-active-color,
+      "dropdown-link-active-bg":       $dropdown-link-active-bg,
+      "dropdown-link-disabled-color":  $dropdown-link-disabled-color,
+      "dropdown-header-color":         $dropdown-header-color
+    )
+  ),
+  $dropdown-theme-map
+);

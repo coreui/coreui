@@ -1,0 +1,98 @@
+.pagination {
+  display: flex;
+  @include list-unstyled();
+  @include border-radius();
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  line-height: $pagination-line-height;
+  border: $pagination-border-width solid;
+  @include ltr {
+    margin-left: -$pagination-border-width;
+  }
+  @include rtl {
+    margin-right: -$pagination-border-width;
+  }
+  @include themes($pagination-theme-map, $create: parent) {
+    color: themes-get-value("pagination-color");
+    background-color: themes-get-value("pagination-bg");
+    border-color: themes-get-value("pagination-border-color");
+  }
+
+  &:hover {
+    z-index: 2;
+    text-decoration: none;
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-hover-color");
+      background-color: themes-get-value("pagination-hover-bg");
+      border-color: themes-get-value("pagination-hover-border-color");
+    }
+  }
+
+  &:focus {
+    z-index: 3;
+    outline: $pagination-focus-outline;
+    box-shadow: $pagination-focus-box-shadow;
+  }
+}
+
+.page-item {
+  &:first-child {
+    .page-link {
+      @include ltr {
+        margin-left: 0;
+        @include border-left-radius($border-radius);
+      }
+      @include rtl {
+        margin-right: 0;
+        @include border-right-radius($border-radius);
+      }
+    }
+  }
+  &:last-child {
+    .page-link {
+      @include ltr {
+        @include border-right-radius($border-radius);
+      }
+      @include rtl {
+        @include border-left-radius($border-radius);
+      }
+    }
+  }
+
+  &.active .page-link {
+    z-index: 3;
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-active-color");
+      background-color: themes-get-value("pagination-active-bg");
+      border-color: themes-get-value("pagination-active-border-color");
+    }
+  }
+
+  &.disabled .page-link {
+    pointer-events: none;
+    // Opinionated: remove the "hand" cursor set previously for .page-link
+    cursor: auto;
+    @include themes($pagination-theme-map, $create: parent) {
+      color: themes-get-value("pagination-disabled-color");
+      background-color: themes-get-value("pagination-disabled-bg");
+      border-color: themes-get-value("pagination-disabled-border-color");
+    }
+  }
+}
+
+
+//
+// Sizing
+//
+
+.pagination-lg {
+  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
+}
+
+.pagination-sm {
+  @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
+}

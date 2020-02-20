@@ -2,7 +2,7 @@
   width: $width;
   height: $height;
 
-  .switch-slider {
+  .c-switch-slider {
     font-size: $font-size;
 
     &::before {
@@ -14,7 +14,7 @@
     }
   }
 
-  .switch-input:checked ~ .switch-slider {
+  .c-switch-input:checked ~ .c-switch-slider {
     &::before {
       transform: translateX($width - $height);
     }
@@ -25,20 +25,26 @@
   width: $width;
   height: $height;
 
-  .switch-slider::before {
+  .c-switch-slider::before {
     width: $height;
     height: $height;
   }
 
-  .switch-input:checked ~ .switch-slider {
+  .c-switch-input:checked ~ .c-switch-slider {
     &::before {
       transform: translateX($width - $height);
     }
   }
 }
 
+@mixin switch-3d-variant($color) {
+  .c-switch-input:checked + .c-switch-slider {
+    background-color: $color;
+  }
+}
+
 @mixin switch-variant($color) {
-  .switch-input:checked + .switch-slider {
+  .c-switch-input:checked + .c-switch-slider {
     background-color: $color;
     border-color: darken($color, 10%);
 
@@ -49,8 +55,8 @@
 }
 
 @mixin switch-outline-variant($color) {
-  .switch-input:checked + .switch-slider {
-    background-color: #fff;
+  .c-switch-input:checked + .c-switch-slider {
+    background-color: $white;
     border-color: $color;
 
     &::before {
@@ -62,9 +68,9 @@
   }
 }
 
-@mixin switch-outline-variant-alt($color) {
-  .switch-input:checked + .switch-slider {
-    background-color: #fff;
+@mixin switch-opposite-variant($color) {
+  .c-switch-input:checked + .c-switch-slider {
+    background-color: $white;
     border-color: $color;
 
     &::before {

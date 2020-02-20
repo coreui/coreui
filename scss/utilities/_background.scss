@@ -1,17 +1,33 @@
-.bg-primary,
-.bg-success,
-.bg-info,
-.bg-warning,
-.bg-danger,
-.bg-dark {
-  color: #fff;
+// stylelint-disable declaration-no-important
+@include theme-variant() {
+  @include bg-variant(".bg-#{$color}", $value, trur);
+}
+
+@if $enable-gradients {
+  @include theme-variant() {
+    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  }
+}
+
+@each $color, $value in $theme-gradients {
+  @include coreui-bg-gradient-variant(".bg-gradient-#{$color}", $value);
+  .c-dark-theme {
+    @include coreui-bg-gradient-variant-dark-theme(".bg-gradient-#{$color}", $value);
+  }
+}
+.bg-white {
+  background-color: $white !important;
+}
+
+.bg-transparent {
+  background-color: transparent !important;
+}
+
+[class^="bg-"] {
+  color: $white;
 }
 
 @each $color, $value in $brands-colors {
-  @include bg-variant(".bg-#{$color}", $value);
-}
-
-@each $color, $value in $colors {
   @include bg-variant(".bg-#{$color}", $value);
 }
 

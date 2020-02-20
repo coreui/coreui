@@ -1,16 +1,61 @@
+//
+// Base styles
+//
+
 .breadcrumb {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: $breadcrumb-padding-y $breadcrumb-padding-x;
+  margin-bottom: $breadcrumb-margin-bottom;
+  @include font-size($breadcrumb-font-size);
+  list-style: none;
   @include border-radius($breadcrumb-border-radius);
   @include borders($breadcrumb-borders);
+
+  @include themes($breadcrumb-theme-map, $create: parent) {
+    background-color: themes-get-value("breadcrumb-bg");
+    border-color: themes-get-value("breadcrumb-border-color");
+  }
 }
 
-*[dir="rtl"] {
-  .breadcrumb-item::before {
-    padding-right: 0;
-    padding-left: $breadcrumb-item-padding;
+.breadcrumb-item {
+  // The separator between breadcrumbs (by default, a forward-slash: "/")
+  + .breadcrumb-item {
+    @include ltr {
+      padding-left: $breadcrumb-item-padding;
+    }
+    @include rtl {
+      padding-right: $breadcrumb-item-padding;
+    }
+
+    &::before {
+      display: inline-block; // Suppress underlining of the separator in modern browsers
+      color: $breadcrumb-divider-color;
+      content: escape-svg($breadcrumb-divider);
+      @include ltr {
+        padding-right: $breadcrumb-item-padding;
+      }
+      @include rtl {
+        padding-left: $breadcrumb-item-padding;
+      }
+    }
   }
-  .breadcrumb-item {
-    padding-right: $breadcrumb-item-padding;
-    padding-left: 0;
+
+  // IE9-11 hack to properly handle hyperlink underlines for breadcrumbs built
+  // without `<ul>`s. The `::before` pseudo-element generates an element
+  // *within* the .breadcrumb-item and thereby inherits the `text-decoration`.
+  //
+  // To trick IE into suppressing the underline, we give the pseudo-element an
+  // underline and then immediately remove it.
+  + .breadcrumb-item:hover::before {
+    text-decoration: underline;
+  }
+  // stylelint-disable-next-line no-duplicate-selectors
+  + .breadcrumb-item:hover::before {
+    text-decoration: none;
+  }
+
+  &.active {
+    color: $breadcrumb-active-color;
   }
 }

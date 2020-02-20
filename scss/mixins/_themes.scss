@@ -1,0 +1,235 @@
+@charset 'UTF-8';
+// When creating a theme's class, script will use this postfix.
+//
+// @type String
+$themes-default-post-class: "-theme" !default;
+
+/// Current _entity_ during the loop. Can be used in custom creation mode.
+///
+/// @type String
+$themes-loop-entity: "" !default;
+
+
+// @type String
+$current-variant: "" !default;
+/// Current _map_ during the loop. Can be used in custom creation.
+///
+// @type Map
+$themes-map: "" !default;
+
+// @type Boolean
+$theme-has-variants: false !default;
+
+// Gets a value from a theme-like map using the current entity and map withing the theme scope.
+//
+// @param {String} $key - Name of the variable you want to get
+// @param {String} $entity - Name of the entity you want to access
+//
+// @example scss
+//   theme-get('color-primary', user);
+//   // -> #333
+//
+// @returns {String} Value of key for that entity
+@function themes-get-value($key, $theme: $current-theme, $variant: $current-variant, $map: $themes-map) {
+
+  $current-theme-map: map-get($map, $theme);
+
+  // @if not $entity-map {
+  //   @error 'There is no `#{$entity}` entity in your variations list.';
+  // }
+
+  @if $theme-has-variants {
+    $current-variant-map: map-get(map-get($current-theme-map, "map"), $variant);
+    $value: map-get($current-variant-map, $key);
+    @return $value;
+  } @else {
+    @if map-has-key($current-theme-map, $key) {
+      $value: map-get($current-theme-map, $key);
+      @return $value;
+    } @else {
+      $value: map-get(map-get($map, $default-theme), $key);
+      @return $value;
+    }
+  }
+
+  //TODO: find solution when $key is `null`
+  // @if not $ret {
+  //   @warn 'The entity `#{$entity}` doesn\'t have a value for `#{$key}`.';
+  // }
+}
+
+@function themes-get-option($key, $fallback: null, $theme: $current-theme, $variant: $current-variant, $map: $themes-map) {
+
+  $current-theme-map: map-get($map, $theme);
+
+  @if map-has-key($current-theme-map, $key) {
+    $value: map-get($current-theme-map, $key);
+    @return $value;
+  } @else {
+    @return $fallback;
+  }
+}
+
+@mixin themes-append-variables($theme) {
+  // Update global variables
+  $current-theme: $theme !global;
+  @content;
+}
+
+@mixin themes-create-parent($theme, $variant) {
+  // Update global variables
+  $current-theme: $theme !global;
+  $current-variant: $variant !global;
+
+  @if map-get(map-get($default-themes, $current-theme), "default") {
+    @at-root{
+      @if $variant == $default-variant {
+        #{$parent-element} {
+          @content;
+        }
+      } @else {
+        #{$parent-element}#{$parent-element}-#{$variant} {
+          @content;
+        }
+      }
+    }
+  }  @else {
+    @at-root{
+      @if $variant == $default-variant {
+        .c-#{$theme}#{$themes-default-post-class} #{$parent-element} {
+          @content;
+        }
+      } @else {
+        .c-#{$theme}#{$themes-default-post-class} #{$parent-element}#{$parent-element}-#{$variant} {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-single-append($theme) {
+  // Update global variables
+  $current-theme: $theme !global;
+
+  @if not & {
+    @error "No selector found. I need a selector to append the class to.";
+  }
+
+  &.c-#{$theme}#{$themes-default-post-class} {
+    @content;
+  }
+}
+
+@mixin themes-single-parent($theme) {
+  // Update global variables
+  $current-theme: $theme !global;
+
+  @at-root{
+    @if & {
+      .c-#{$theme}#{$themes-default-post-class} & {
+        @content;
+      }
+    } @else {
+      .c-#{$theme}#{$themes-default-post-class} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin themes($loop: $themes-map, $parent: false, $create: false) {
+  $themes-map: $loop !global;
+  $parent-element: $parent !global;
+
+  $default-theme: null !global;
+
+  @each $key in map-keys($default-themes) {
+
+    @if map-get(map-get($default-themes, $key), "default") == true {
+      $default-theme: $key !global;
+    }
+  }
+
+  // Get list of themes
+  $themes: map-keys($themes-map);
+
+  @each $theme in $themes {
+    $current-theme: $theme !global;
+
+    @if map-has-key($default-themes, $theme) {
+      $theme-map: map-get($themes-map, $theme);
+      // Check if $theme-map has variants
+      @if map-has-key($theme-map, "map") {
+        $theme-has-variants: true !global;
+        // Get list of variants
+        $variants: map-keys(map-get($theme-map, "map"));
+        $default-variant: map-get($theme-map, "default") !global;
+        @each $variant in $variants {
+          @include themes-create-parent($theme, $variant) {
+            @content;
+          }
+        }
+      } @else {
+        $theme-has-variants: false !global;
+        @if map-get(map-get($default-themes, $theme), "default") {
+          @include themes-append-variables($theme) {
+            @content;
+          }
+        } @else {
+          @if $create == "parent" {
+            @include themes-single-parent($theme) {
+              @content;
+            }
+          } @else if $create == "append" {
+            @include theme-single-append($theme) {
+              @content;
+            }
+          } @else {
+            @include themes-single-parent($theme) {
+              @content;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-variant() {
+  @each $theme in map-keys($default-themes) {
+    $get-colors: map-get(map-get($default-themes, $theme), "theme-colors");
+    $get-default: map-get(map-get($default-themes, $theme), "default");
+    $get-grays: map-get(map-get($default-themes, $theme), "grays");
+    @each $color, $value in $get-colors {
+      $color: $color !global;
+      $value: $value !global;
+      @if $get-default {
+        @content;
+      } @else {
+        @at-root{
+          .c-#{$theme}#{$theme-suffix} {
+            @content;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-get-color($color) {
+  @each $theme in map-keys($default-themes) {
+    $get-color: map-get(map-get(map-get($default-themes, $theme), "theme-colors"), $color);
+    $get-default: map-get(map-get($default-themes, $theme), "default");
+    $color: $get-color !global;
+    @if $get-default {
+      @content;
+    } @else {
+      @at-root{
+        .c-#{$theme}#{$theme-suffix} & {
+          @content;
+        }
+      }
+    }
+  }
+}

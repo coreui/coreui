@@ -1,27 +1,49 @@
-.avatar {
+.c-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50em;
   @include avatar($avatar-width,$avatar-status-width);
+}
 
-  > img {
-    @extend .img-avatar;
-    vertical-align: initial;
+.c-avatar-img {
+  width: 100%;
+  height: auto;
+  border-radius: 50em;
+}
+
+.c-avatar-status {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  border: 1px solid $white;
+  border-radius: 50em;
+
+  @include ltr {
+    right: 0;
+  }
+  @include rtl {
+    left: 0;
   }
 }
 
-.avatar-lg {
-  @include avatar($avatar-lg-width,$avatar-lg-status-width);
-}
-
-.avatar-sm {
+.c-avatar-sm {
   @include avatar($avatar-sm-width,$avatar-sm-status-width);
 }
 
-.avatar-xs {
-  @include avatar($avatar-xs-width,$avatar-xs-status-width);
+.c-avatar-lg {
+  @include avatar($avatar-lg-width,$avatar-lg-status-width);
 }
 
-.avatars-stack {
+.c-avatar-xl {
+  @include avatar($avatar-xl-width,$avatar-xl-status-width);
+}
 
-  .avatar {
+.c-avatars-stack {
+  display: flex;
+
+  .c-avatar {
     margin-right: - ($avatar-width / 2);
     transition: margin-right $layout-transition-speed;
 
@@ -30,15 +52,23 @@
     }
   }
 
-  .avatar-lg {
-    margin-right: - ($avatar-lg-width / 2);
-  }
-
-  .avatar-sm {
+  .c-avatar-sm {
     margin-right: - ($avatar-sm-width / 2);
   }
 
-  .avatar-xs {
-    margin-right: - ($avatar-xs-width / 2);
+  .c-avatar-lg {
+    margin-right: - ($avatar-lg-width / 2);
   }
+
+  .c-avatar-xl {
+    margin-right: - ($avatar-xl-width / 2);
+  }
+}
+
+.c-avatar-rounded {
+  border-radius: $border-radius;
+}
+
+.c-avatar-square {
+  border-radius: 0;
 }

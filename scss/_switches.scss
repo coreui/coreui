@@ -2,22 +2,24 @@
 // Base styles
 //
 
-.switch {
+.c-switch {
   display: inline-block;
   width: $switch-width;
   height: $switch-height;
 }
 
-.switch-input {
-  display: none;
+.c-switch-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 
-.switch-slider {
+.c-switch-slider {
   position: relative;
   display: block;
   height: inherit;
   cursor: pointer;
-  background-color: #fff;
+  background-color: $white;
   border: $border-width solid $border-color;
   transition: .15s ease-out;
   @include border-radius($border-radius);
@@ -30,20 +32,35 @@
     width: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
     height: $switch-height - ($switch-handle-margin * 2) - ($border-width * 2);
     content: "";
-    background-color: #fff;
+    background-color: $white;
     border: 1px solid $border-color;
     transition: .15s ease-out;
     @include border-radius($border-radius / 2);
   }
 }
 
-.switch-input:checked ~ .switch-slider {
+.c-switch-input:checked ~ .c-switch-slider {
   &::before {
     transform: translateX($switch-width - $switch-height);
   }
 }
 
-.switch-input:disabled ~ .switch-slider {
+.c-switch-input:focus ~ .c-switch-slider {
+  @include themes($form-theme-map) {
+    color: themes-get-value("input-focus-color");
+    background-color: themes-get-value("input-focus-bg");
+    border-color: themes-get-value("input-focus-border-color");
+  }
+  outline: 0;
+  // Avoid using mixin so we can pass custom focus shadow properly
+  @if $enable-shadows {
+    box-shadow: $input-box-shadow, $input-focus-box-shadow;
+  } @else {
+    box-shadow: $input-focus-box-shadow;
+  }
+}
+
+.c-switch-input:disabled ~ .c-switch-slider {
   cursor: not-allowed;
   opacity: .5;
 }
@@ -52,28 +69,27 @@
 // Switch Sizes
 //
 
-.switch-lg {
+.c-switch-lg {
   @include switch-size($switch-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
 }
 
-.switch-sm {
+.c-switch-sm {
   @include switch-size($switch-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
 }
 
 //
 // Switch with label
 //
-.switch-label {
+.c-switch-label {
   width: $switch-label-width;
 
-  .switch-slider {
+  .c-switch-slider {
     &::before {
       z-index: 2;
     }
     &::after {
       position: absolute;
       top: 50%;
-      right: 1px;
       z-index: 1;
       width: 50%;
       margin-top: -.5em;
@@ -85,26 +101,30 @@
       text-transform: uppercase;
       content: attr(data-unchecked);
       transition: inherit;
+
+      @include ltr {
+        right: 1px;
+      }
     }
   }
 
-  .switch-input:checked ~ .switch-slider {
+  .c-switch-input:checked ~ .c-switch-slider {
     &::before {
       transform: translateX($switch-label-width - $switch-height);
     }
     &::after {
       left: 1px;
-      color: #fff;
+      color: $white;
       content: attr(data-checked);
     }
   }
 
   // Sizes
-  &.switch-lg {
+  &.c-switch-lg {
     @include switch-size($switch-label-lg-width, $switch-lg-height, $switch-lg-font-size, $switch-handle-margin);
   }
 
-  &.switch-sm {
+  &.c-switch-sm {
     @include switch-size($switch-label-sm-width, $switch-sm-height, $switch-sm-font-size, $switch-handle-margin);
   }
 }
@@ -113,8 +133,8 @@
 // Switch 3d
 //
 
-.switch-3d {
-  .switch-slider {
+.c-switch[class*="-3d"] {
+  .c-switch-slider {
     background-color: $gray-100;
     border-radius: 50em;
 
@@ -125,16 +145,16 @@
       height: $switch-height;
       border: 0;
       border-radius: 50em;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, .3);
+      box-shadow: 0 2px 5px rgba($black, .3);
     }
   }
 
   // Sizes
-  &.switch-lg {
+  &.c-switch-lg {
     @include switch-3d-size($switch-lg-width, $switch-lg-height);
   }
 
-  &.switch-sm {
+  &.c-switch-sm {
     @include switch-3d-size($switch-sm-width, $switch-sm-height);
   }
 }
@@ -143,18 +163,22 @@
 // Switch Variants
 //
 
-@each $color, $value in $theme-colors {
+@include theme-variant() {
   //normal style
-  .switch-#{$color} {
+  .c-switch-#{$color} {
     @include switch-variant($value);
   }
-  //outline style
-  .switch-outline-#{$color} {
+  // 3s style
+  .c-switch-3d-#{$color} {
+    @include switch-3d-variant($value);
+  }
+  // outline style
+  .c-switch-outline-#{$color} {
     @include switch-outline-variant($value);
   }
-  //outline alternative style
-  .switch-outline-#{$color}-alt {
-    @include switch-outline-variant-alt($value);
+  // oposite
+  .c-switch-opposite-#{$color} {
+    @include switch-opposite-variant($value);
   }
 }
 
@@ -162,12 +186,22 @@
 // Pill Style
 //
 
-.switch-pill {
-  .switch-slider {
+.c-switch-pill {
+  .c-switch-slider {
     border-radius: 50em;
 
     &::before {
       border-radius: 50em;
+    }
+  }
+}
+
+.c-switch-square {
+  .c-switch-slider {
+    border-radius: 0;
+
+    &::before {
+      border-radius: 0;
     }
   }
 }

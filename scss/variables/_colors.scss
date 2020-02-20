@@ -1,82 +1,104 @@
-// Color system
-// stylelint-disable
+//
+// CoreUI default colors
+//
 
-$white:     #fff !default;
-$gray-base: #181b1e !default;
-$gray-100:  #f0f3f5 !default; // lighten($gray-base, 85%);
-$gray-200:  #e4e7ea !default; // lighten($gray-base, 80%);
-$gray-300:  #c8ced3 !default; // lighten($gray-base, 70%);
-$gray-400:  #acb4bc !default; // lighten($gray-base, 60%);
-$gray-500:  #8f9ba6 !default; // lighten($gray-base, 50%);
-$gray-600:  #73818f !default; // lighten($gray-base, 40%);
-$gray-700:  #5c6873 !default; // lighten($gray-base, 30%);
-$gray-800:  #2f353a !default; // lighten($gray-base, 10%);
-$gray-900:  #23282c !default; // lighten($gray-base, 5%);
-$black:     #000 !default;
+$white:  #fff !default;
+$black:  #000015 !default;
+
+$gray-base:  #3c4b64 !default;
+$gray-100:   #ebedef !default;
+$gray-200:   #d8dbe0 !default;
+$gray-300:   #c4c9d0 !default;
+$gray-400:   #b1b7c1 !default;
+$gray-500:   #9da5b1 !default;
+$gray-600:   #8a93a2 !default;
+$gray-700:   #768192 !default;
+$gray-800:   #636f83 !default;
+$gray-900:   #4f5d73 !default;
 
 $grays: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $grays: map-merge(
   (
-    "100": $gray-100,
-    "200": $gray-200,
-    "300": $gray-300,
-    "400": $gray-400,
-    "500": $gray-500,
-    "600": $gray-600,
-    "700": $gray-700,
-    "800": $gray-800,
-    "900": $gray-900
+    "100":  $gray-100,
+    "200":  $gray-200,
+    "300":  $gray-300,
+    "400":  $gray-400,
+    "500":  $gray-500,
+    "600":  $gray-600,
+    "700":  $gray-700,
+    "800":  $gray-800,
+    "900":  $gray-900
   ),
   $grays
 );
 
-$blue:       #20a8d8 !default;
-$indigo:     #6610f2 !default;
-$purple:     #6f42c1 !default;
-$pink:       #e83e8c !default;
-$red:        #f86c6b !default;
-$orange:     #f8cb00 !default;
-$yellow:     #ffc107 !default;
-$green:      #4dbd74 !default;
-$teal:       #20c997 !default;
-$cyan:       #17a2b8 !default;
-$light-blue: #63c2de !default;
+$primary-base:  #321fdb !default;
+$primary-100:   #eae9fb !default;
+$primary-200:   #d6d2fb !default;
+$primary-300:   #c1bcf4 !default;
+$primary-400:   #ada5f1 !default;
+$primary-500:   #988fed !default;
+$primary-600:   #8478ea !default;
+$primary-700:   #6f62e6 !default;
+$primary-800:   #5b4ce2 !default;
+$primary-900:   #4635df !default;
 
-$colors: () !default;
-$colors: map-merge(
-  (
-    "blue":       $blue,
-    "indigo":     $indigo,
-    "purple":     $purple,
-    "pink":       $pink,
-    "red":        $red,
-    "orange":     $orange,
-    "yellow":     $yellow,
-    "green":      $green,
-    "teal":       $teal,
-    "cyan":       $cyan,
-    "light-blue": $light-blue,
-    "white":      $white,
-    "gray":       $gray-600,
-    "gray-dark":  $gray-800
-  ),
-  $colors
-);
+$primary-dark:  #1f1498 !default;
+$primary:       #321fdb !default;
+$primary-50:    #988fed !default;
+$primary-25:    #ccc7f6 !default;
 
-$primary:       $blue !default;
-$secondary:     $gray-300 !default;
-$success:       $green !default;
-$info:          $light-blue !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+
+$secondary-base:  #3c4b64 !default;
+
+$secondary-100:   #ebedef !default;
+$secondary-200:   #d8dbe0 !default;
+$secondary-300:   #c4c9d0 !default;
+$secondary-400:   #b1b7c1 !default;
+$secondary-500:   #9da5b1 !default;
+$secondary-600:   #8a93a2 !default;
+$secondary-700:   #768192 !default;
+$secondary-800:   #636f83 !default;
+$secondary-900:   #4f5d73 !default;
+
+$secondary-dark:  #212233 !default;
+$secondary:       #3c4b64 !default;
+$secondary-50:    #9da5b1 !default;
+$secondary-25:    #ced2d8 !default;
+
+
+$danger-dark:  #d93737 !default;
+$danger:       #e55353 !default;
+$danger-50:    #f2a9a9 !default;
+$danger-25:    #f9d4d4 !default;
+
+$info-dark:  #2982cc !default;
+$info:       #39f !default;
+$info-50:    #80c6ff !default;
+$info-25:    #c0e6ff !default;
+
+$success-dark:  #1b9e3e !default;
+$success:       #2eb85c !default;
+$success-50:    #96dbad !default;
+$success-25:    #cbedd6 !default;
+
+$warning-dark:  #f6960b !default;
+$warning:       #f9b115 !default;
+$warning-50:    #fcd88a !default;
+$warning-25:    #feecc5 !default;
+
+$light:  $gray-100 !default;
+$dark:   $gray-800 !default;
+
+$pink:  #e83e8c !default;
 
 $theme-colors: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
     "primary":    $primary,
-    "secondary":  $secondary,
+    "secondary":  $secondary-25,
     "success":    $success,
     "info":       $info,
     "warning":    $warning,
@@ -87,60 +109,31 @@ $theme-colors: map-merge(
   $theme-colors
 );
 
-// Brand Colors
+// Set a specific jump point for requesting color jumps
+$theme-color-interval:  8% !default;
 
-$facebook:       #3b5998 !default;
-$twitter:        #00aced !default;
-$linkedin:       #4875b4 !default;
-$google-plus:    #d34836 !default;
-$flickr:         #ff0084 !default;
-$tumblr:         #32506d !default;
-$xing:           #026466 !default;
-$github:         #4183c4 !default;
-$html5:          #e34f26 !default;
-$openid:         #f78c40 !default;
-$stack-overflow: #fe7a15 !default;
-$youtube:        #b00 !default;
-$css3:           #0170ba !default;
-$dribbble:       #ea4c89 !default;
-$google-plus:    #bb4b39 !default;
-$instagram:      #517fa4 !default;
-$pinterest:      #cb2027 !default;
-$vk:             #45668e !default;
-$yahoo:          #400191 !default;
-$behance:        #1769ff !default;
-$dropbox:        #007ee5 !default;
-$reddit:         #ff4500 !default;
-$spotify:        #7ab800 !default;
-$vine:           #00bf8f !default;
-$foursquare:     #1073af !default;
-$vimeo:          #aad450 !default;
+// The yiq lightness value that determines when the lightness of color changes from "dark" to "light". Acceptable values are between 0 and 255.
+$yiq-contrasted-threshold:  150 !default;
 
-$brands-colors: () !default;
-$brands-colors: map-merge((
-  "facebook":       $facebook,
-  "twitter":        $twitter,
-  "linkedin":       $linkedin,
-  "google-plus":    $google-plus,
-  "flickr":         $flickr,
-  "tumblr":         $tumblr,
-  "xing":           $xing,
-  "github":         $github,
-  "html5":          $html5,
-  "openid":         $openid,
-  "stack-overflow": $stack-overflow,
-  "youtube":        $youtube,
-  "css3":           $css3,
-  "dribbble":       $dribbble,
-  "instagram":      $instagram,
-  "pinterest":      $pinterest,
-  "vk":             $vk,
-  "yahoo":          $yahoo,
-  "behance":        $behance,
-  "dropbox":        $dropbox,
-  "reddit":         $reddit,
-  "spotify":        $spotify,
-  "vine":           $vine,
-  "foursquare":     $foursquare,
-  "vimeo":          $vimeo
-), $brands-colors);
+// Customize the light and dark text colors for use in our YIQ color contrast function.
+$yiq-text-dark:   $gray-900 !default;
+$yiq-text-light:  $white !default;
+
+$yiq-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$yiq-theme-map: map-merge(
+  (
+    default: (
+      "yiq-text-dark":  $yiq-text-dark,
+      "yiq-text-light":  $yiq-text-light
+    )
+  ),
+  $yiq-theme-map
+);
+
+// Characters which are escaped by the escape-svg function
+$escaped-characters:  (
+  ("<","%3c"),
+  (">","%3e"),
+  ("#","%23"),
+) !default;

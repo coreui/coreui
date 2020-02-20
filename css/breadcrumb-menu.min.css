@@ -1,0 +1,2 @@
+html:not([dir=rtl]) .breadcrumb-menu{margin-left:auto}html:not([dir=rtl]) .breadcrumb-menu{margin-right:auto}.breadcrumb-menu::before{display:none}.breadcrumb-menu .btn-group{vertical-align:top}.breadcrumb-menu .btn{padding:0 .75rem;color:#768192;vertical-align:top;border:0}.breadcrumb-menu .btn.active,.breadcrumb-menu .btn:hover{color:#4f5d73;background:0 0}.breadcrumb-menu .show .btn{color:#4f5d73;background:0 0}.breadcrumb-menu .dropdown-menu{min-width:180px;line-height:1.5}
+/*# sourceMappingURL=breadcrumb-menu.min.css.map */
