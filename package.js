@@ -3,7 +3,7 @@
 Package.describe({
   name: 'coreui:coreui', // https://atmospherejs.com/coreui/coreui
   summary: 'Open Source UI Kit built on top of Bootstrap 4',
-  version: '3.0.0-rc.3',
+  version: '3.0.0',
   git: 'https://github.com/coreui/coreui.git'
 });
 

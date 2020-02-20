@@ -344,7 +344,7 @@
    */
 
   var NAME = 'tooltip';
-  var VERSION = '3.0.0-rc.4';
+  var VERSION = '3.0.0';
   var DATA_KEY = 'coreui.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-tooltip';

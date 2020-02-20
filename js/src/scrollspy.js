@@ -28,7 +28,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'scrollspy'
-const VERSION = '3.0.0-rc.4'
+const VERSION = '3.0.0'
 const DATA_KEY = 'coreui.scrollspy'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

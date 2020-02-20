@@ -23,7 +23,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-rc.4'
+const VERSION = '3.0.0'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'

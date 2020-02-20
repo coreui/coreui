@@ -131,7 +131,7 @@
    */
 
   var NAME = 'tab';
-  var VERSION = '3.0.0-rc.4';
+  var VERSION = '3.0.0';
   var DATA_KEY = 'coreui.tab';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';

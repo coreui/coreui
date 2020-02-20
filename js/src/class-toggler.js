@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'class-toggler'
-const VERSION = '3.0.0-rc.4'
+const VERSION = '3.0.0'
 const DATA_KEY = 'coreui.class-toggler'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
