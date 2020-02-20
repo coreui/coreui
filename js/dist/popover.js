@@ -1,5 +1,5 @@
 /*!
-  * CoreUI popover.js v3.0.0-rc.3 (https://coreui.io)
+  * CoreUI popover.js v3.0.0 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -109,7 +109,7 @@
    */
 
   var NAME = 'popover';
-  var VERSION = '3.0.0-rc.3';
+  var VERSION = '3.0.0-rc.4';
   var DATA_KEY = 'coreui.popover';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-popover';

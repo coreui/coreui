@@ -14,30 +14,29 @@
 .c-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-.c-wrapper .c-header-fixed {
-  margin: inherit;
-}
-
-.c-wrapper.c-fixed-components {
+.c-wrapper:not(.c-wrapper-fluid) {
   height: 100vh;
 }
 
-.c-wrapper.c-fixed-components .c-header-fixed {
-  margin: 0;
-}
-
-.c-wrapper.c-fixed-components .c-header-fixed,
-.c-wrapper.c-fixed-components .c-subheader-fixed,
-.c-wrapper.c-fixed-components .c-footer-fixed {
+.c-wrapper:not(.c-wrapper-fluid) .c-header-fixed,
+.c-wrapper:not(.c-wrapper-fluid) .c-subheader-fixed,
+.c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
   position: relative;
 }
 
-.c-wrapper.c-fixed-components .c-body {
+.c-wrapper:not(.c-wrapper-fluid) .c-body {
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.c-wrapper.c-wrapper-fluid {
+  min-height: 100vh;
+}
+
+.c-wrapper.c-wrapper-fluid .c-header-fixed {
+  margin: inherit;
 }
 
 .c-body {

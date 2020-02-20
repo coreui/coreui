@@ -1,5 +1,5 @@
 /*!
-  * CoreUI class-toggler.js v3.0.0-rc.3 (https://coreui.io)
+  * CoreUI class-toggler.js v3.0.0 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -53,7 +53,7 @@
    */
 
   var NAME = 'class-toggler';
-  var VERSION = '3.0.0-rc.3';
+  var VERSION = '3.0.0-rc.4';
   var DATA_KEY = 'coreui.class-toggler';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -111,10 +111,11 @@
           var breakpoints = typeof object.breakpoints === 'undefined' || object.breakpoints === null ? null : _this._arrayFromString(object.breakpoints); // eslint-disable-next-line no-negated-condition
 
           if (!responsive) {
-            element.classList.toggle(className);
+            var add = element.classList.toggle(className);
             var event = new CustomEvent(Event.CLASS_TOGGLE, {
               detail: {
                 target: target,
+                add: add,
                 className: className
               }
             });
@@ -150,6 +151,7 @@
                 var event = new CustomEvent(Event.CLASS_TOGGLE, {
                   detail: {
                     target: target,
+                    add: false,
                     className: responsiveClassName
                   }
                 });
@@ -161,6 +163,7 @@
               var _event = new CustomEvent(Event.CLASS_TOGGLE, {
                 detail: {
                   target: target,
+                  add: true,
                   className: className
                 }
               });

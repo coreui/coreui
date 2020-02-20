@@ -1,16 +1,19 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-rc.3): sidebar.js
+ * CoreUI (v3.0.0): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
   getjQuery,
-  reflow
+  reflow,
+  TRANSITION_END,
+  typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
+import Manipulator from './dom/manipulator'
 import PerfectScrollbar from 'perfect-scrollbar'
 
 /**
@@ -20,18 +23,25 @@ import PerfectScrollbar from 'perfect-scrollbar'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.0.0-rc.3'
+const VERSION = '3.0.0-rc.4'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
-const DefaultType = {
-  dropdownAccordion: '(string|boolean)'
+const Default = {
+  breakpoints: {
+    xs: 'c-sidebar-show',
+    sm: 'c-sidebar-sm-show',
+    md: 'c-sidebar-md-show',
+    lg: 'c-sidebar-lg-show',
+    xl: 'c-sidebar-xl-show'
+  },
+  dropdownAccordion: true
 }
 
-const Default = {
-  dropdownAccordion: true,
-  transition: 400
+const DefaultType = {
+  breakpoints: 'object',
+  dropdownAccordion: '(string|boolean)'
 }
 
 const ClassName = {
@@ -43,18 +53,18 @@ const ClassName = {
   SHOW: 'c-show',
   SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
   SIDEBAR_OVERLAID: 'c-sidebar-overlaid',
-  SIDEBAR_SHOW: 'c-sidebar-show'
+  SIDEBAR_SHOW: 'c-sidebar-show',
+  SIDEBAR_UNFOLDABLE: 'c-sidebar-unfoldable'
 }
 
 const Event = {
   CLASS_TOGGLE: 'classtoggle',
-  CLICK: 'click',
   CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-  DESTROY: 'destroy',
-  INIT: 'init',
+  CLOSE: `close${EVENT_KEY}`,
+  CLOSED: `closed${EVENT_KEY}`,
   LOAD_DATA_API: `load${EVENT_KEY}${DATA_API_KEY}`,
-  TOGGLE: 'toggle',
-  UPDATE: 'update'
+  OPEN: `open${EVENT_KEY}`,
+  OPENED: `opened${EVENT_KEY}`
 }
 
 const Selector = {
@@ -62,6 +72,7 @@ const Selector = {
   NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-sidebar-nav-link',
   NAVIGATION_CONTAINER: '.c-sidebar-nav',
+  NAVIGATION_DROPDOWN_ITEMS: '.c-sidebar-nav-dropdown-items',
   SIDEBAR: '.c-sidebar'
 }
 
@@ -72,16 +83,25 @@ const Selector = {
  */
 
 class Sidebar {
-  constructor(element) {
+  constructor(element, config) {
+    if (typeof PerfectScrollbar === 'undefined') {
+      throw new TypeError('CoreUI\'s sidebar require Perfect Scrollbar')
+    }
+
     this._element = element
-    this.mobile = this._isMobile.bind(this)
-    this.ps = null
-    this._backdrop = null
-    this._perfectScrollbar(Event.INIT)
+    this._config = this._getConfig(config)
+    this._open = this._isVisible()
+    this._mobile = this._isMobile()
+    this._overlaid = this._isOverlaid()
+    this._minimize = this._isMinimized()
+    this._unfoldable = this._isUnfoldable()
     this._setActiveLink()
-    this._toggleClickOut()
-    this._clickOutListener = this._clickOutListener.bind(this)
+    this._ps = null
+    this._backdrop = null
+    this._psInit()
     this._addEventListeners()
+
+    Data.setData(element, DATA_KEY, this)
   }
 
   // Getters
@@ -90,11 +110,194 @@ class Sidebar {
     return VERSION
   }
 
+  static get Default() {
+    return Default
+  }
+
   static get DefaultType() {
     return DefaultType
   }
 
+  // Public
+
+  open(breakpoint) {
+    EventHandler.trigger(this._element, Event.OPEN)
+
+    if (this._isMobile()) {
+      this._addClassName(this._firstBreakpointClassName())
+      this._showBackdrop()
+      EventHandler.one(this._element, TRANSITION_END, () => {
+        this._addClickOutListener()
+      })
+    } else if (breakpoint) {
+      this._addClassName(this._getBreakpointClassName(breakpoint))
+    } else {
+      this._addClassName(this._firstBreakpointClassName())
+    }
+
+    const complete = () => {
+      if (this._isVisible() === true) {
+        this._open = true
+        EventHandler.trigger(this._element, Event.OPENED)
+      }
+    }
+
+    EventHandler.one(this._element, TRANSITION_END, complete)
+  }
+
+  close(breakpoint) {
+    EventHandler.trigger(this._element, Event.CLOSE)
+
+    if (this._isMobile()) {
+      this._element.classList.remove(this._firstBreakpointClassName())
+      this._removeBackdrop()
+      this._removeClickOutListener()
+    } else if (breakpoint) {
+      this._element.classList.remove(this._getBreakpointClassName(breakpoint))
+    } else {
+      this._element.classList.remove(this._firstBreakpointClassName())
+    }
+
+    const complete = () => {
+      if (this._isVisible() === false) {
+        this._open = false
+        EventHandler.trigger(this._element, Event.CLOSED)
+      }
+    }
+
+    EventHandler.one(this._element, TRANSITION_END, complete)
+  }
+
+  toggle(breakpoint) {
+    if (this._open) {
+      this.close(breakpoint)
+    } else {
+      this.open(breakpoint)
+    }
+  }
+
+  minimize() {
+    if (!this._isMobile()) {
+      this._addClassName(ClassName.SIDEBAR_MINIMIZED)
+      this._minimize = true
+      this._psDestroy()
+    }
+  }
+
+  unfoldable() {
+    if (!this._isMobile()) {
+      this._addClassName(ClassName.SIDEBAR_UNFOLDABLE)
+      this._unfoldable = true
+    }
+  }
+
+  reset() {
+    if (this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+      this._element.classList.remove(ClassName.SIDEBAR_MINIMIZED)
+      this._minimize = false
+      EventHandler.one(this._element, TRANSITION_END, this._psInit())
+    }
+
+    if (this._element.classList.contains(ClassName.SIDEBAR_UNFOLDABLE)) {
+      this._element.classList.remove(ClassName.SIDEBAR_UNFOLDABLE)
+      this._unfoldable = false
+    }
+  }
+
   // Private
+
+  _getConfig(config) {
+    config = {
+      ...this.constructor.Default,
+      ...Manipulator.getDataAttributes(this._element),
+      ...config
+    }
+
+    typeCheckConfig(
+      NAME,
+      config,
+      this.constructor.DefaultType
+    )
+
+    return config
+  }
+
+  _isMobile() {
+    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--is-mobile'))
+  }
+
+  _isMinimized() {
+    return this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)
+  }
+
+  _isOverlaid() {
+    return this._element.classList.contains(ClassName.SIDEBAR_OVERLAID)
+  }
+
+  _isUnfoldable() {
+    return this._element.classList.contains(ClassName.SIDEBAR_UNFOLDABLE)
+  }
+
+  _isVisible() {
+    const rect = this._element.getBoundingClientRect()
+
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+    )
+  }
+
+  _addClassName(className) {
+    this._element.classList.add(className)
+  }
+
+  _firstBreakpointClassName() {
+    return Object.keys(Default.breakpoints).map(key => Default.breakpoints[key])[0]
+  }
+
+  _getBreakpointClassName(breakpoint) {
+    return Default.breakpoints[breakpoint]
+  }
+
+  _removeBackdrop() {
+    if (this._backdrop) {
+      this._backdrop.parentNode.removeChild(this._backdrop)
+      this._backdrop = null
+    }
+  }
+
+  _showBackdrop() {
+    if (!this._backdrop) {
+      this._backdrop = document.createElement('div')
+      this._backdrop.className = ClassName.BACKDROP
+      this._backdrop.classList.add(ClassName.FADE)
+      document.body.appendChild(this._backdrop)
+      reflow(this._backdrop)
+      this._backdrop.classList.add(ClassName.SHOW)
+    }
+  }
+
+  _clickOutListener(event, sidebar) {
+    if (event.target.closest(Selector.SIDEBAR) === null) { // or use:
+      event.preventDefault()
+      event.stopPropagation()
+      sidebar.close()
+    }
+  }
+
+  _addClickOutListener() {
+    EventHandler.on(document, Event.CLICK_DATA_API, event => {
+      this._clickOutListener(event, this)
+    })
+  }
+
+  _removeClickOutListener() {
+    EventHandler.off(document, Event.CLICK_DATA_API)
+  }
+
+  // Sidebar navigation
 
   _getAllSiblings(element, filter) {
     const siblings = []
@@ -114,7 +317,7 @@ class Sidebar {
     return siblings
   }
 
-  _toggleDropdown(event) {
+  _toggleDropdown(event, sidebar) {
     let toggler = event.target
     if (!toggler.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE)) {
       toggler = toggler.closest(Selector.NAV_DROPDOWN_TOGGLE)
@@ -140,63 +343,30 @@ class Sidebar {
     toggler.parentNode.classList.toggle(ClassName.SHOW)
     // TODO: Set the toggler's position near to cursor after the click.
 
-    this._perfectScrollbar(Event.UPDATE)
+    // TODO: add transition end
+    sidebar._psUpdate()
   }
 
-  _closeSidebar(event) {
-    let link = event.target
-    if (!link.classList.contains(ClassName.NAV_LINK)) {
-      link = link.closest(Selector.NAV_LINK)
-    }
+  // PerfectScrollbar
 
-    if (this.mobile && !link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE)) {
-      this._removeClickOut()
-      this._element.classList.remove(ClassName.SIDEBAR_SHOW)
-    }
-  }
-
-  _perfectScrollbar(event) {
-    if (typeof PerfectScrollbar !== 'undefined') {
-      if (event === Event.INIT && !this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-        this.ps = this._makeScrollbar()
-      }
-
-      if (event === Event.DESTROY) {
-        this._destroyScrollbar()
-      }
-
-      if (event === Event.TOGGLE) {
-        if (this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-          this._destroyScrollbar()
-        } else {
-          this._destroyScrollbar()
-          this.ps = this._makeScrollbar()
-        }
-      }
-
-      if (event === Event.UPDATE && !this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
-        // TODO: Add smooth transition
-        setTimeout(() => {
-          this._destroyScrollbar()
-          this.ps = this._makeScrollbar()
-        }, Default.transition)
-      }
-    }
-  }
-
-  _makeScrollbar(container = Selector.NAVIGATION_CONTAINER) {
-    if (this._element.querySelector(container)) {
-      const ps = new PerfectScrollbar(this._element.querySelector(container), {
+  _psInit() {
+    if (this._element.querySelector(Selector.NAVIGATION_CONTAINER)) {
+      this._ps = new PerfectScrollbar(this._element.querySelector(Selector.NAVIGATION_CONTAINER), {
         suppressScrollX: true
       })
-      return ps
     }
   }
 
-  _destroyScrollbar() {
-    if (this.ps) {
-      this.ps.destroy()
-      this.ps = null
+  _psUpdate() {
+    if (this._ps) {
+      this._ps.update()
+    }
+  }
+
+  _psDestroy() {
+    if (this._ps) {
+      this._ps.destroy()
+      this._ps = null
     }
   }
 
@@ -250,75 +420,53 @@ class Sidebar {
     })
   }
 
-  _isMobile(event) {
-    return Boolean(window.getComputedStyle(event.target, null).getPropertyValue('--is-mobile'))
-  }
-
-  _clickOutListener(event) {
-    if (!this._element.contains(event.target)) { // or use: event.target.closest(Selector.SIDEBAR) === null
-      event.preventDefault()
-      event.stopPropagation()
-      this._removeClickOut()
-      this._element.classList.remove(ClassName.SIDEBAR_SHOW)
-    }
-  }
-
-  _addClickOut() {
-    document.addEventListener(Event.CLICK, this._clickOutListener, true)
-  }
-
-  _removeClickOut() {
-    document.removeEventListener(Event.CLICK, this._clickOutListener, true)
-    this._removeBackdrop()
-  }
-
-  _toggleClickOut() {
-    if (this.mobile && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
-      this._addClickOut()
-      this._showBackdrop()
-    } else if (this._element.classList.contains(ClassName.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName.SIDEBAR_SHOW)) {
-      this._addClickOut()
-    } else {
-      this._removeClickOut()
-    }
-  }
-
-  _removeBackdrop() {
-    if (this._backdrop) {
-      this._backdrop.parentNode.removeChild(this._backdrop)
-      this._backdrop = null
-    }
-  }
-
-  _showBackdrop() {
-    if (!this._backdrop) {
-      this._backdrop = document.createElement('div')
-      this._backdrop.className = ClassName.BACKDROP
-      this._backdrop.classList.add(ClassName.FADE)
-      document.body.appendChild(this._backdrop)
-      reflow(this._backdrop)
-      this._backdrop.classList.add(ClassName.SHOW)
-    }
-  }
-
   _addEventListeners() {
+    if (this._mobile && this._open) {
+      this._addClickOutListener()
+    }
+
+    if (this._overlaid && this._open) {
+      this._addClickOutListener()
+    }
+
     EventHandler.on(this._element, Event.CLASS_TOGGLE, event => {
       if (event.detail.className === ClassName.SIDEBAR_MINIMIZED) {
-        this._perfectScrollbar(Event.TOGGLE)
+        if (this._element.classList.contains(ClassName.SIDEBAR_MINIMIZED)) {
+          this.minimize()
+        } else {
+          this.reset()
+        }
       }
 
-      if (event.detail.className === ClassName.SIDEBAR_SHOW) {
-        this._toggleClickOut()
+      if (event.detail.className === ClassName.SIDEBAR_UNFOLDABLE) {
+        if (this._element.classList.contains(ClassName.SIDEBAR_UNFOLDABLE)) {
+          this.unfoldable()
+        } else {
+          this.reset()
+        }
+      }
+
+      if (typeof Object.keys(Default.breakpoints).find(key => Default.breakpoints[key] === event.detail.className) !== 'undefined') {
+        const { className } = event.detail
+        const breakpoint = Object.keys(Default.breakpoints).find(key => Default.breakpoints[key] === className)
+
+        if (event.detail.add) {
+          this.open(breakpoint)
+        } else {
+          this.close(breakpoint)
+        }
       }
     })
 
     EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_DROPDOWN_TOGGLE, event => {
       event.preventDefault()
-      this._toggleDropdown(event)
+      this._toggleDropdown(event, this)
     })
 
-    EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_LINK, event => {
-      this._closeSidebar(event)
+    EventHandler.on(this._element, Event.CLICK_DATA_API, Selector.NAV_LINK, () => {
+      if (this._isMobile()) {
+        this.close()
+      }
     })
   }
 
@@ -346,6 +494,10 @@ class Sidebar {
       Sidebar._sidebarInterface(this, config)
     })
   }
+
+  static getInstance(element) {
+    return Data.getData(element, DATA_KEY)
+  }
 }
 
 /**
@@ -367,7 +519,6 @@ const $ = getjQuery()
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
-* add .asyncLoad to jQuery only if jQuery is present
  */
 
 if ($) {

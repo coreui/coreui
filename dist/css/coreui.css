@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /*!
- * CoreUI Open Source UI Kit
- * @version v3.0.0-rc.3
+ * CoreUI - HTML, CSS, and JavaScript UI Components Library
+ * @version v3.0.0
  * @link https://coreui.io/
  * Copyright (c) 2020 creativeLabs Łukasz Holeczek
-  License MIT (https://coreui.io/)
+ * License MIT  (https://coreui.io/license/)
  */
 :root {
   --primary: #321fdb;
@@ -9256,110 +9256,6 @@ html:not([dir="rtl"]) .c-sidebar-right .c-sidebar-minimizer::before {
   }
 }
 
-@media (min-width: 992px) {
-  .c-sidebar-unfoldable:not(:hover) {
-    z-index: 1031;
-    -ms-flex: 0 0 56px;
-    flex: 0 0 56px;
-  }
-  .c-sidebar-unfoldable:not(:hover).c-sidebar-fixed {
-    z-index: 1031;
-    width: 56px;
-  }
-  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover):not(.c-sidebar-right) {
-    margin-left: -56px;
-  }
-  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover):not(.c-sidebar-right) {
-    margin-right: -56px;
-  }
-  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right {
-    margin-right: -56px;
-    margin-left: -56px;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-full {
-    display: none;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-brand-minimized {
-    display: block;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav {
-    padding-bottom: 50px;
-    overflow: visible;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-d-minimized-none,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-divider,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-label,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-title,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-footer,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-form,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-header {
-    height: 0;
-    padding: 0;
-    margin: 0;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer {
-    position: fixed;
-    bottom: 0;
-    width: inherit;
-  }
-  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before {
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-  }
-  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover) .c-sidebar-minimizer::before,html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-minimizer::before {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-minimizer::before {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-  }
-  html:not([dir="rtl"]) .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, html:not([dir="rtl"])
-  .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
-    margin-left: -256px;
-  }
-  *[dir="rtl"] .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-item:hover, *[dir="rtl"]
-  .c-sidebar-unfoldable:not(:hover).c-sidebar-right .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {
-    margin-right: -256px;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle {
-    overflow: hidden;
-    white-space: nowrap;
-    border-left: 0;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-link:hover, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle:hover,
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle:hover {
-    width: 312px;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-toggle::after {
-    display: none;
-  }
-  .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-link, .c-sidebar-unfoldable:not(:hover) .c-sidebar-nav-dropdown-items .c-sidebar-nav-dropdown-toggle {
-    width: 256px;
-  }
-}
-
-.c-sidebar-unfoldable:not(:hover) .ps {
-  overflow: initial !important;
-}
-
-@media (min-width: 992px) {
-  .c-sidebar-unfoldable {
-    z-index: 1031 !important;
-  }
-  html:not([dir="rtl"]) .c-sidebar-unfoldable:hover .c-sidebar-minimizer::before {
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
-  }
-  *[dir="rtl"] .c-sidebar-unfoldable:hover .c-sidebar-minimizer::before {
-    -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right), html:not([dir="rtl"])
 .c-sidebar.c-sidebar-show:not(.c-sidebar-right) {
   margin-left: 0;
@@ -9403,14 +9299,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right), html:not(
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
 }
@@ -9458,14 +9352,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
 }
@@ -9514,14 +9406,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
 }
@@ -9570,14 +9460,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-sm-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
 }
@@ -9626,14 +9514,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-md-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
 }
@@ -9682,14 +9568,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-md-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
 }
@@ -9738,14 +9622,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
 }
@@ -9794,14 +9676,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-lg-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
 }
@@ -9850,14 +9730,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-right: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show:not(.c-sidebar-right).c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
 }
@@ -9906,14 +9784,12 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
   .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-xl ~ .c-wrapper {
     margin-left: 384px;
   }
-  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, html:not([dir="rtl"])
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-right: 56px;
   }
-  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
-  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-unfoldable ~ .c-wrapper {
+  *[dir="rtl"] .c-sidebar.c-sidebar-xl-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper, *[dir="rtl"]
+  .c-sidebar.c-sidebar-show.c-sidebar-right.c-sidebar-fixed.c-sidebar-minimized ~ .c-wrapper {
     margin-left: 56px;
   }
 }
@@ -11811,7 +11687,6 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
   display: flex;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-height: 100vh;
 }
 
 .c-sidebar.c-sidebar-unfoldable {
@@ -11960,28 +11835,28 @@ html:not([dir="rtl"]) .list-inline {
   }
 }
 
-.c-wrapper .c-header-fixed {
-  margin: inherit;
-}
-
-.c-wrapper.c-fixed-components {
+.c-wrapper:not(.c-wrapper-fluid) {
   height: 100vh;
 }
 
-.c-wrapper.c-fixed-components .c-header-fixed {
-  margin: 0;
-}
-
-.c-wrapper.c-fixed-components .c-header-fixed,
-.c-wrapper.c-fixed-components .c-subheader-fixed,
-.c-wrapper.c-fixed-components .c-footer-fixed {
+.c-wrapper:not(.c-wrapper-fluid) .c-header-fixed,
+.c-wrapper:not(.c-wrapper-fluid) .c-subheader-fixed,
+.c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
   position: relative;
 }
 
-.c-wrapper.c-fixed-components .c-body {
+.c-wrapper:not(.c-wrapper-fluid) .c-body {
   -ms-flex-direction: column;
   flex-direction: column;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
+
+.c-wrapper.c-wrapper-fluid {
+  min-height: 100vh;
+}
+
+.c-wrapper.c-wrapper-fluid .c-header-fixed {
+  margin: inherit;
 }
 
 .c-body {

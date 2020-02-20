@@ -19,18 +19,9 @@
 .c-wrapper {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 
-  .c-header-fixed {
-    margin: inherit;
-  }
-
-  &.c-fixed-components {
+  &:not(.c-wrapper-fluid) {
     height: 100vh;
-
-    .c-header-fixed {
-      margin: 0;
-    }
 
     .c-header-fixed,
     .c-subheader-fixed,
@@ -40,7 +31,15 @@
 
     .c-body {
       flex-direction: column;
-      overflow-y: scroll;
+      overflow-y: auto;
+    }
+  }
+
+  &.c-wrapper-fluid {
+    min-height: 100vh;
+
+    .c-header-fixed {
+      margin: inherit;
     }
   }
 }

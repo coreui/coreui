@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.0.0-rc.3 (https://coreui.io)
+  * CoreUI v3.0.0 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -764,7 +764,7 @@ var EventHandler = {
  */
 
 var NAME = 'asyncLoad';
-var VERSION = '3.0.0-rc.3';
+var VERSION = '3.0.0-rc.4';
 var DATA_KEY = 'coreui.asyncLoad';
 var EVENT_KEY = "." + DATA_KEY;
 var DATA_API_KEY = '.data-api';
@@ -1106,7 +1106,7 @@ var SelectorEngine = {
  */
 
 var NAME$1 = 'alert';
-var VERSION$1 = '3.0.0-rc.3';
+var VERSION$1 = '3.0.0-rc.4';
 var DATA_KEY$1 = 'coreui.alert';
 var EVENT_KEY$1 = "." + DATA_KEY$1;
 var DATA_API_KEY$1 = '.data-api';
@@ -1280,7 +1280,7 @@ if ($$2) {
  */
 
 var NAME$2 = 'button';
-var VERSION$2 = '3.0.0-rc.3';
+var VERSION$2 = '3.0.0-rc.4';
 var DATA_KEY$2 = 'coreui.button';
 var EVENT_KEY$2 = "." + DATA_KEY$2;
 var DATA_API_KEY$2 = '.data-api';
@@ -1539,7 +1539,7 @@ var Manipulator = {
  */
 
 var NAME$3 = 'carousel';
-var VERSION$3 = '3.0.0-rc.3';
+var VERSION$3 = '3.0.0-rc.4';
 var DATA_KEY$3 = 'coreui.carousel';
 var EVENT_KEY$3 = "." + DATA_KEY$3;
 var DATA_API_KEY$3 = '.data-api';
@@ -2152,7 +2152,7 @@ if ($$4) {
  */
 
 var NAME$4 = 'class-toggler';
-var VERSION$4 = '3.0.0-rc.3';
+var VERSION$4 = '3.0.0-rc.4';
 var DATA_KEY$4 = 'coreui.class-toggler';
 var EVENT_KEY$4 = "." + DATA_KEY$4;
 var DATA_API_KEY$4 = '.data-api';
@@ -2210,10 +2210,11 @@ function () {
         var breakpoints = typeof object.breakpoints === 'undefined' || object.breakpoints === null ? null : _this._arrayFromString(object.breakpoints); // eslint-disable-next-line no-negated-condition
 
         if (!responsive) {
-          element.classList.toggle(className);
+          var add = element.classList.toggle(className);
           var event = new CustomEvent(Event$5.CLASS_TOGGLE, {
             detail: {
               target: target,
+              add: add,
               className: className
             }
           });
@@ -2249,6 +2250,7 @@ function () {
               var event = new CustomEvent(Event$5.CLASS_TOGGLE, {
                 detail: {
                   target: target,
+                  add: false,
                   className: responsiveClassName
                 }
               });
@@ -2260,6 +2262,7 @@ function () {
             var _event = new CustomEvent(Event$5.CLASS_TOGGLE, {
               detail: {
                 target: target,
+                add: true,
                 className: className
               }
             });
@@ -2433,7 +2436,7 @@ if ($$5) {
  */
 
 var NAME$5 = 'collapse';
-var VERSION$5 = '3.0.0-rc.3';
+var VERSION$5 = '3.0.0-rc.4';
 var DATA_KEY$5 = 'coreui.collapse';
 var EVENT_KEY$5 = "." + DATA_KEY$5;
 var DATA_API_KEY$5 = '.data-api';
@@ -2850,7 +2853,7 @@ if ($$6) {
  */
 
 var NAME$6 = 'dropdown';
-var VERSION$6 = '3.0.0-rc.3';
+var VERSION$6 = '3.0.0-rc.4';
 var DATA_KEY$6 = 'coreui.dropdown';
 var EVENT_KEY$6 = "." + DATA_KEY$6;
 var DATA_API_KEY$6 = '.data-api';
@@ -3386,7 +3389,7 @@ if ($$7) {
  */
 
 var NAME$7 = 'modal';
-var VERSION$7 = '3.0.0-rc.3';
+var VERSION$7 = '3.0.0-rc.4';
 var DATA_KEY$7 = 'coreui.modal';
 var EVENT_KEY$7 = "." + DATA_KEY$7;
 var DATA_API_KEY$7 = '.data-api';
@@ -4124,7 +4127,7 @@ function sanitizeHtml(unsafeHtml, whiteList, sanitizeFn) {
  */
 
 var NAME$8 = 'tooltip';
-var VERSION$8 = '3.0.0-rc.3';
+var VERSION$8 = '3.0.0-rc.4';
 var DATA_KEY$8 = 'coreui.tooltip';
 var EVENT_KEY$8 = "." + DATA_KEY$8;
 var CLASS_PREFIX = 'bs-tooltip';
@@ -4889,7 +4892,7 @@ if ($$9) {
  */
 
 var NAME$9 = 'popover';
-var VERSION$9 = '3.0.0-rc.3';
+var VERSION$9 = '3.0.0-rc.4';
 var DATA_KEY$9 = 'coreui.popover';
 var EVENT_KEY$9 = "." + DATA_KEY$9;
 var CLASS_PREFIX$1 = 'bs-popover';
@@ -5084,7 +5087,7 @@ if ($$a) {
  */
 
 var NAME$a = 'scrollspy';
-var VERSION$a = '3.0.0-rc.3';
+var VERSION$a = '3.0.0-rc.4';
 var DATA_KEY$a = 'coreui.scrollspy';
 var EVENT_KEY$a = "." + DATA_KEY$a;
 var DATA_API_KEY$8 = '.data-api';
@@ -5399,16 +5402,23 @@ if ($$b) {
  */
 
 var NAME$b = 'sidebar';
-var VERSION$b = '3.0.0-rc.3';
+var VERSION$b = '3.0.0-rc.4';
 var DATA_KEY$b = 'coreui.sidebar';
 var EVENT_KEY$b = "." + DATA_KEY$b;
 var DATA_API_KEY$9 = '.data-api';
-var DefaultType$7 = {
-  dropdownAccordion: '(string|boolean)'
-};
 var Default$9 = {
-  dropdownAccordion: true,
-  transition: 400
+  breakpoints: {
+    xs: 'c-sidebar-show',
+    sm: 'c-sidebar-sm-show',
+    md: 'c-sidebar-md-show',
+    lg: 'c-sidebar-lg-show',
+    xl: 'c-sidebar-xl-show'
+  },
+  dropdownAccordion: true
+};
+var DefaultType$7 = {
+  breakpoints: 'object',
+  dropdownAccordion: '(string|boolean)'
 };
 var ClassName$b = {
   ACTIVE: 'c-active',
@@ -5419,23 +5429,24 @@ var ClassName$b = {
   SHOW: 'c-show',
   SIDEBAR_MINIMIZED: 'c-sidebar-minimized',
   SIDEBAR_OVERLAID: 'c-sidebar-overlaid',
-  SIDEBAR_SHOW: 'c-sidebar-show'
+  SIDEBAR_SHOW: 'c-sidebar-show',
+  SIDEBAR_UNFOLDABLE: 'c-sidebar-unfoldable'
 };
 var Event$c = {
   CLASS_TOGGLE: 'classtoggle',
-  CLICK: 'click',
   CLICK_DATA_API: "click" + EVENT_KEY$b + DATA_API_KEY$9,
-  DESTROY: 'destroy',
-  INIT: 'init',
+  CLOSE: "close" + EVENT_KEY$b,
+  CLOSED: "closed" + EVENT_KEY$b,
   LOAD_DATA_API: "load" + EVENT_KEY$b + DATA_API_KEY$9,
-  TOGGLE: 'toggle',
-  UPDATE: 'update'
+  OPEN: "open" + EVENT_KEY$b,
+  OPENED: "opened" + EVENT_KEY$b
 };
 var Selector$b = {
   NAV_DROPDOWN_TOGGLE: '.c-sidebar-nav-dropdown-toggle',
   NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
   NAV_LINK: '.c-sidebar-nav-link',
   NAVIGATION_CONTAINER: '.c-sidebar-nav',
+  NAVIGATION_DROPDOWN_ITEMS: '.c-sidebar-nav-dropdown-items',
   SIDEBAR: '.c-sidebar'
 };
 /**
@@ -5447,227 +5458,177 @@ var Selector$b = {
 var Sidebar =
 /*#__PURE__*/
 function () {
-  function Sidebar(element) {
-    this._element = element;
-    this.mobile = this._isMobile.bind(this);
-    this.ps = null;
-    this._backdrop = null;
+  function Sidebar(element, config) {
+    if (typeof PerfectScrollbar === 'undefined') {
+      throw new TypeError('CoreUI\'s sidebar require Perfect Scrollbar');
+    }
 
-    this._perfectScrollbar(Event$c.INIT);
+    this._element = element;
+    this._config = this._getConfig(config);
+    this._open = this._isVisible();
+    this._mobile = this._isMobile();
+    this._overlaid = this._isOverlaid();
+    this._minimize = this._isMinimized();
+    this._unfoldable = this._isUnfoldable();
 
     this._setActiveLink();
 
-    this._toggleClickOut();
+    this._ps = null;
+    this._backdrop = null;
 
-    this._clickOutListener = this._clickOutListener.bind(this);
+    this._psInit();
 
     this._addEventListeners();
+
+    Data.setData(element, DATA_KEY$b, this);
   } // Getters
 
 
   var _proto = Sidebar.prototype;
 
-  // Private
-  _proto._getAllSiblings = function _getAllSiblings(element, filter) {
-    var siblings = [];
-    element = element.parentNode.firstChild;
-
-    do {
-      if (element.nodeType === 3) {
-        continue; // text node
-      }
-
-      if (!filter || filter(element)) {
-        siblings.push(element);
-      } // eslint-disable-next-line no-cond-assign
-
-    } while (element = element.nextSibling);
-
-    return siblings;
-  };
-
-  _proto._toggleDropdown = function _toggleDropdown(event) {
-    var toggler = event.target;
-
-    if (!toggler.classList.contains(ClassName$b.NAV_DROPDOWN_TOGGLE)) {
-      toggler = toggler.closest(Selector$b.NAV_DROPDOWN_TOGGLE);
-    }
-
-    var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset;
-
-    if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
-      Default$9.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion);
-    } // TODO: find better solution
-
-
-    if (Default$9.dropdownAccordion === true) {
-      this._getAllSiblings(toggler.parentElement).forEach(function (element) {
-        if (element !== toggler.parentNode) {
-          if (element.classList.contains(ClassName$b.NAV_DROPDOWN)) {
-            element.classList.remove(ClassName$b.SHOW);
-          }
-        }
-      });
-    }
-
-    toggler.parentNode.classList.toggle(ClassName$b.SHOW); // TODO: Set the toggler's position near to cursor after the click.
-
-    this._perfectScrollbar(Event$c.UPDATE);
-  };
-
-  _proto._closeSidebar = function _closeSidebar(event) {
-    var link = event.target;
-
-    if (!link.classList.contains(ClassName$b.NAV_LINK)) {
-      link = link.closest(Selector$b.NAV_LINK);
-    }
-
-    if (this.mobile && !link.classList.contains(ClassName$b.NAV_DROPDOWN_TOGGLE)) {
-      this._removeClickOut();
-
-      this._element.classList.remove(ClassName$b.SIDEBAR_SHOW);
-    }
-  };
-
-  _proto._perfectScrollbar = function _perfectScrollbar(event) {
+  // Public
+  _proto.open = function open(breakpoint) {
     var _this = this;
 
-    if (typeof PerfectScrollbar !== 'undefined') {
-      if (event === Event$c.INIT && !this._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED)) {
-        this.ps = this._makeScrollbar();
-      }
+    EventHandler.trigger(this._element, Event$c.OPEN);
 
-      if (event === Event$c.DESTROY) {
-        this._destroyScrollbar();
-      }
-
-      if (event === Event$c.TOGGLE) {
-        if (this._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED)) {
-          this._destroyScrollbar();
-        } else {
-          this._destroyScrollbar();
-
-          this.ps = this._makeScrollbar();
-        }
-      }
-
-      if (event === Event$c.UPDATE && !this._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED)) {
-        // TODO: Add smooth transition
-        setTimeout(function () {
-          _this._destroyScrollbar();
-
-          _this.ps = _this._makeScrollbar();
-        }, Default$9.transition);
-      }
-    }
-  };
-
-  _proto._makeScrollbar = function _makeScrollbar(container) {
-    if (container === void 0) {
-      container = Selector$b.NAVIGATION_CONTAINER;
-    }
-
-    if (this._element.querySelector(container)) {
-      var ps = new PerfectScrollbar(this._element.querySelector(container), {
-        suppressScrollX: true
-      });
-      return ps;
-    }
-  };
-
-  _proto._destroyScrollbar = function _destroyScrollbar() {
-    if (this.ps) {
-      this.ps.destroy();
-      this.ps = null;
-    }
-  };
-
-  _proto._getParents = function _getParents(element, selector) {
-    // Setup parents array
-    var parents = []; // Get matching parent elements
-
-    for (; element && element !== document; element = element.parentNode) {
-      // Add matching parents to array
-      if (selector) {
-        if (element.matches(selector)) {
-          parents.push(element);
-        }
-      } else {
-        parents.push(element);
-      }
-    }
-
-    return parents;
-  };
-
-  _proto._setActiveLink = function _setActiveLink() {
-    var _this2 = this;
-
-    // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(this._element.querySelectorAll(Selector$b.NAV_LINK)).forEach(function (element) {
-      var currentUrl;
-      var urlHasParams = /\\?.*=/;
-      var urlHasQueryString = /\\?./;
-      var urlHasHash = /#./;
-
-      if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
-        currentUrl = String(window.location).split('?')[0];
-      } else if (urlHasHash.test(String(window.location))) {
-        currentUrl = String(window.location).split('#')[0];
-      } else {
-        currentUrl = String(window.location);
-      }
-
-      if (currentUrl.slice(-1) === '#') {
-        currentUrl = currentUrl.slice(0, -1);
-      }
-
-      if (element.href === currentUrl) {
-        element.classList.add(ClassName$b.ACTIVE); // eslint-disable-next-line unicorn/prefer-spread
-
-        Array.from(_this2._getParents(element, Selector$b.NAV_DROPDOWN)).forEach(function (element) {
-          element.classList.add(ClassName$b.SHOW);
-        });
-      }
-    });
-  };
-
-  _proto._isMobile = function _isMobile(event) {
-    return Boolean(window.getComputedStyle(event.target, null).getPropertyValue('--is-mobile'));
-  };
-
-  _proto._clickOutListener = function _clickOutListener(event) {
-    if (!this._element.contains(event.target)) {
-      // or use: event.target.closest(Selector.SIDEBAR) === null
-      event.preventDefault();
-      event.stopPropagation();
-
-      this._removeClickOut();
-
-      this._element.classList.remove(ClassName$b.SIDEBAR_SHOW);
-    }
-  };
-
-  _proto._addClickOut = function _addClickOut() {
-    document.addEventListener(Event$c.CLICK, this._clickOutListener, true);
-  };
-
-  _proto._removeClickOut = function _removeClickOut() {
-    document.removeEventListener(Event$c.CLICK, this._clickOutListener, true);
-
-    this._removeBackdrop();
-  };
-
-  _proto._toggleClickOut = function _toggleClickOut() {
-    if (this.mobile && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
-      this._addClickOut();
+    if (this._isMobile()) {
+      this._addClassName(this._firstBreakpointClassName());
 
       this._showBackdrop();
-    } else if (this._element.classList.contains(ClassName$b.SIDEBAR_OVERLAID) && this._element.classList.contains(ClassName$b.SIDEBAR_SHOW)) {
-      this._addClickOut();
+
+      EventHandler.one(this._element, TRANSITION_END, function () {
+        _this._addClickOutListener();
+      });
+    } else if (breakpoint) {
+      this._addClassName(this._getBreakpointClassName(breakpoint));
     } else {
-      this._removeClickOut();
+      this._addClassName(this._firstBreakpointClassName());
     }
+
+    var complete = function complete() {
+      if (_this._isVisible() === true) {
+        _this._open = true;
+        EventHandler.trigger(_this._element, Event$c.OPENED);
+      }
+    };
+
+    EventHandler.one(this._element, TRANSITION_END, complete);
+  };
+
+  _proto.close = function close(breakpoint) {
+    var _this2 = this;
+
+    EventHandler.trigger(this._element, Event$c.CLOSE);
+
+    if (this._isMobile()) {
+      this._element.classList.remove(this._firstBreakpointClassName());
+
+      this._removeBackdrop();
+
+      this._removeClickOutListener();
+    } else if (breakpoint) {
+      this._element.classList.remove(this._getBreakpointClassName(breakpoint));
+    } else {
+      this._element.classList.remove(this._firstBreakpointClassName());
+    }
+
+    var complete = function complete() {
+      if (_this2._isVisible() === false) {
+        _this2._open = false;
+        EventHandler.trigger(_this2._element, Event$c.CLOSED);
+      }
+    };
+
+    EventHandler.one(this._element, TRANSITION_END, complete);
+  };
+
+  _proto.toggle = function toggle(breakpoint) {
+    if (this._open) {
+      this.close(breakpoint);
+    } else {
+      this.open(breakpoint);
+    }
+  };
+
+  _proto.minimize = function minimize() {
+    if (!this._isMobile()) {
+      this._addClassName(ClassName$b.SIDEBAR_MINIMIZED);
+
+      this._minimize = true;
+
+      this._psDestroy();
+    }
+  };
+
+  _proto.unfoldable = function unfoldable() {
+    if (!this._isMobile()) {
+      this._addClassName(ClassName$b.SIDEBAR_UNFOLDABLE);
+
+      this._unfoldable = true;
+    }
+  };
+
+  _proto.reset = function reset() {
+    if (this._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED)) {
+      this._element.classList.remove(ClassName$b.SIDEBAR_MINIMIZED);
+
+      this._minimize = false;
+      EventHandler.one(this._element, TRANSITION_END, this._psInit());
+    }
+
+    if (this._element.classList.contains(ClassName$b.SIDEBAR_UNFOLDABLE)) {
+      this._element.classList.remove(ClassName$b.SIDEBAR_UNFOLDABLE);
+
+      this._unfoldable = false;
+    }
+  } // Private
+  ;
+
+  _proto._getConfig = function _getConfig(config) {
+    config = _objectSpread2({}, this.constructor.Default, {}, Manipulator.getDataAttributes(this._element), {}, config);
+    typeCheckConfig(NAME$b, config, this.constructor.DefaultType);
+    return config;
+  };
+
+  _proto._isMobile = function _isMobile() {
+    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--is-mobile'));
+  };
+
+  _proto._isMinimized = function _isMinimized() {
+    return this._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED);
+  };
+
+  _proto._isOverlaid = function _isOverlaid() {
+    return this._element.classList.contains(ClassName$b.SIDEBAR_OVERLAID);
+  };
+
+  _proto._isUnfoldable = function _isUnfoldable() {
+    return this._element.classList.contains(ClassName$b.SIDEBAR_UNFOLDABLE);
+  };
+
+  _proto._isVisible = function _isVisible() {
+    var rect = this._element.getBoundingClientRect();
+
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    /* or $(window).height() */
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    /* or $(window).width() */
+    ;
+  };
+
+  _proto._addClassName = function _addClassName(className) {
+    this._element.classList.add(className);
+  };
+
+  _proto._firstBreakpointClassName = function _firstBreakpointClassName() {
+    return Object.keys(Default$9.breakpoints).map(function (key) {
+      return Default$9.breakpoints[key];
+    })[0];
+  };
+
+  _proto._getBreakpointClassName = function _getBreakpointClassName(breakpoint) {
+    return Default$9.breakpoints[breakpoint];
   };
 
   _proto._removeBackdrop = function _removeBackdrop() {
@@ -5692,25 +5653,201 @@ function () {
     }
   };
 
-  _proto._addEventListeners = function _addEventListeners() {
+  _proto._clickOutListener = function _clickOutListener(event, sidebar) {
+    if (event.target.closest(Selector$b.SIDEBAR) === null) {
+      // or use:
+      event.preventDefault();
+      event.stopPropagation();
+      sidebar.close();
+    }
+  };
+
+  _proto._addClickOutListener = function _addClickOutListener() {
     var _this3 = this;
+
+    EventHandler.on(document, Event$c.CLICK_DATA_API, function (event) {
+      _this3._clickOutListener(event, _this3);
+    });
+  };
+
+  _proto._removeClickOutListener = function _removeClickOutListener() {
+    EventHandler.off(document, Event$c.CLICK_DATA_API);
+  } // Sidebar navigation
+  ;
+
+  _proto._getAllSiblings = function _getAllSiblings(element, filter) {
+    var siblings = [];
+    element = element.parentNode.firstChild;
+
+    do {
+      if (element.nodeType === 3) {
+        continue; // text node
+      }
+
+      if (!filter || filter(element)) {
+        siblings.push(element);
+      } // eslint-disable-next-line no-cond-assign
+
+    } while (element = element.nextSibling);
+
+    return siblings;
+  };
+
+  _proto._toggleDropdown = function _toggleDropdown(event, sidebar) {
+    var toggler = event.target;
+
+    if (!toggler.classList.contains(ClassName$b.NAV_DROPDOWN_TOGGLE)) {
+      toggler = toggler.closest(Selector$b.NAV_DROPDOWN_TOGGLE);
+    }
+
+    var dataAttributes = toggler.closest(Selector$b.NAVIGATION_CONTAINER).dataset;
+
+    if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
+      Default$9.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion);
+    } // TODO: find better solution
+
+
+    if (Default$9.dropdownAccordion === true) {
+      this._getAllSiblings(toggler.parentElement).forEach(function (element) {
+        if (element !== toggler.parentNode) {
+          if (element.classList.contains(ClassName$b.NAV_DROPDOWN)) {
+            element.classList.remove(ClassName$b.SHOW);
+          }
+        }
+      });
+    }
+
+    toggler.parentNode.classList.toggle(ClassName$b.SHOW); // TODO: Set the toggler's position near to cursor after the click.
+    // TODO: add transition end
+
+    sidebar._psUpdate();
+  } // PerfectScrollbar
+  ;
+
+  _proto._psInit = function _psInit() {
+    if (this._element.querySelector(Selector$b.NAVIGATION_CONTAINER)) {
+      this._ps = new PerfectScrollbar(this._element.querySelector(Selector$b.NAVIGATION_CONTAINER), {
+        suppressScrollX: true
+      });
+    }
+  };
+
+  _proto._psUpdate = function _psUpdate() {
+    if (this._ps) {
+      this._ps.update();
+    }
+  };
+
+  _proto._psDestroy = function _psDestroy() {
+    if (this._ps) {
+      this._ps.destroy();
+
+      this._ps = null;
+    }
+  };
+
+  _proto._getParents = function _getParents(element, selector) {
+    // Setup parents array
+    var parents = []; // Get matching parent elements
+
+    for (; element && element !== document; element = element.parentNode) {
+      // Add matching parents to array
+      if (selector) {
+        if (element.matches(selector)) {
+          parents.push(element);
+        }
+      } else {
+        parents.push(element);
+      }
+    }
+
+    return parents;
+  };
+
+  _proto._setActiveLink = function _setActiveLink() {
+    var _this4 = this;
+
+    // eslint-disable-next-line unicorn/prefer-spread
+    Array.from(this._element.querySelectorAll(Selector$b.NAV_LINK)).forEach(function (element) {
+      var currentUrl;
+      var urlHasParams = /\\?.*=/;
+      var urlHasQueryString = /\\?./;
+      var urlHasHash = /#./;
+
+      if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
+        currentUrl = String(window.location).split('?')[0];
+      } else if (urlHasHash.test(String(window.location))) {
+        currentUrl = String(window.location).split('#')[0];
+      } else {
+        currentUrl = String(window.location);
+      }
+
+      if (currentUrl.slice(-1) === '#') {
+        currentUrl = currentUrl.slice(0, -1);
+      }
+
+      if (element.href === currentUrl) {
+        element.classList.add(ClassName$b.ACTIVE); // eslint-disable-next-line unicorn/prefer-spread
+
+        Array.from(_this4._getParents(element, Selector$b.NAV_DROPDOWN)).forEach(function (element) {
+          element.classList.add(ClassName$b.SHOW);
+        });
+      }
+    });
+  };
+
+  _proto._addEventListeners = function _addEventListeners() {
+    var _this5 = this;
+
+    if (this._mobile && this._open) {
+      this._addClickOutListener();
+    }
+
+    if (this._overlaid && this._open) {
+      this._addClickOutListener();
+    }
 
     EventHandler.on(this._element, Event$c.CLASS_TOGGLE, function (event) {
       if (event.detail.className === ClassName$b.SIDEBAR_MINIMIZED) {
-        _this3._perfectScrollbar(Event$c.TOGGLE);
+        if (_this5._element.classList.contains(ClassName$b.SIDEBAR_MINIMIZED)) {
+          _this5.minimize();
+        } else {
+          _this5.reset();
+        }
       }
 
-      if (event.detail.className === ClassName$b.SIDEBAR_SHOW) {
-        _this3._toggleClickOut();
+      if (event.detail.className === ClassName$b.SIDEBAR_UNFOLDABLE) {
+        if (_this5._element.classList.contains(ClassName$b.SIDEBAR_UNFOLDABLE)) {
+          _this5.unfoldable();
+        } else {
+          _this5.reset();
+        }
+      }
+
+      if (typeof Object.keys(Default$9.breakpoints).find(function (key) {
+        return Default$9.breakpoints[key] === event.detail.className;
+      }) !== 'undefined') {
+        var className = event.detail.className;
+        var breakpoint = Object.keys(Default$9.breakpoints).find(function (key) {
+          return Default$9.breakpoints[key] === className;
+        });
+
+        if (event.detail.add) {
+          _this5.open(breakpoint);
+        } else {
+          _this5.close(breakpoint);
+        }
       }
     });
     EventHandler.on(this._element, Event$c.CLICK_DATA_API, Selector$b.NAV_DROPDOWN_TOGGLE, function (event) {
       event.preventDefault();
 
-      _this3._toggleDropdown(event);
+      _this5._toggleDropdown(event, _this5);
     });
-    EventHandler.on(this._element, Event$c.CLICK_DATA_API, Selector$b.NAV_LINK, function (event) {
-      _this3._closeSidebar(event);
+    EventHandler.on(this._element, Event$c.CLICK_DATA_API, Selector$b.NAV_LINK, function () {
+      if (_this5._isMobile()) {
+        _this5.close();
+      }
     });
   } // Static
   ;
@@ -5739,10 +5876,19 @@ function () {
     });
   };
 
+  Sidebar.getInstance = function getInstance(element) {
+    return Data.getData(element, DATA_KEY$b);
+  };
+
   _createClass(Sidebar, null, [{
     key: "VERSION",
     get: function get() {
       return VERSION$b;
+    }
+  }, {
+    key: "Default",
+    get: function get() {
+      return Default$9;
     }
   }, {
     key: "DefaultType",
@@ -5771,7 +5917,6 @@ var $$c = getjQuery();
  * ------------------------------------------------------------------------
  * jQuery
  * ------------------------------------------------------------------------
-* add .asyncLoad to jQuery only if jQuery is present
  */
 
 if ($$c) {
@@ -5792,7 +5937,7 @@ if ($$c) {
  */
 
 var NAME$c = 'tab';
-var VERSION$c = '3.0.0-rc.3';
+var VERSION$c = '3.0.0-rc.4';
 var DATA_KEY$c = 'coreui.tab';
 var EVENT_KEY$c = "." + DATA_KEY$c;
 var DATA_API_KEY$a = '.data-api';
@@ -6026,7 +6171,7 @@ if ($$d) {
  */
 
 var NAME$d = 'toast';
-var VERSION$d = '3.0.0-rc.3';
+var VERSION$d = '3.0.0-rc.4';
 var DATA_KEY$d = 'coreui.toast';
 var EVENT_KEY$d = "." + DATA_KEY$d;
 var Event$e = {

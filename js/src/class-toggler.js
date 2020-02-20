@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0-rc.3): class-toggler.js
+ * CoreUI (v3.0.0): class-toggler.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,7 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'class-toggler'
-const VERSION = '3.0.0-rc.3'
+const VERSION = '3.0.0-rc.4'
 const DATA_KEY = 'coreui.class-toggler'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -77,10 +77,11 @@ class ClassToggler {
 
         // eslint-disable-next-line no-negated-condition
         if (!responsive) {
-          element.classList.toggle(className)
+          const add = element.classList.toggle(className)
           const event = new CustomEvent(Event.CLASS_TOGGLE, {
             detail: {
               target,
+              add,
               className
             }
           })
@@ -115,6 +116,7 @@ class ClassToggler {
               const event = new CustomEvent(Event.CLASS_TOGGLE, {
                 detail: {
                   target,
+                  add: false,
                   className: responsiveClassName
                 }
               })
@@ -125,6 +127,7 @@ class ClassToggler {
             const event = new CustomEvent(Event.CLASS_TOGGLE, {
               detail: {
                 target,
+                add: true,
                 className
               }
             })

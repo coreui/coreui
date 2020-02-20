@@ -1,5 +1,5 @@
 /*!
-  * CoreUI manipulator.js v3.0.0-rc.3 (https://coreui.io)
+  * CoreUI manipulator.js v3.0.0 (https://coreui.io)
   * Copyright 2020 Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */

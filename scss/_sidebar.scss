@@ -104,6 +104,7 @@
     bottom: 0;
     z-index: $zindex-fixed + 2;
 
+
     @include ltr {
       &:not(.c-sidebar-right) {
         left: 0;
@@ -576,143 +577,6 @@
   }
 }
 
-.c-sidebar-unfoldable:not(:hover) {
-  @include media-breakpoint-up($mobile-breakpoint) {
-    z-index: $zindex-fixed + 1;
-    flex: 0 0 $sidebar-minimized-width;
-
-    &.c-sidebar-fixed {
-      z-index: $zindex-fixed + 1;
-      width: $sidebar-minimized-width;
-    }
-
-    &:not(.c-sidebar-right){
-      @include ltr {
-        margin-left: - $sidebar-minimized-width;
-      }
-      @include rtl {
-        margin-right: - $sidebar-minimized-width;
-      }
-    }
-    &.c-sidebar-right {
-      @include ltr {
-        margin-right: - $sidebar-minimized-width;
-      }
-      @include ltr {
-        margin-left: - $sidebar-minimized-width;
-      }
-    }
-
-    .c-sidebar-brand-full {
-      display: none;
-    }
-
-    .c-sidebar-brand-minimized {
-      display: block;
-    }
-
-    .c-sidebar-nav {
-      padding-bottom: $sidebar-minimizer-height;
-      overflow: visible;
-    }
-
-    .c-d-minimized-none,
-    .c-sidebar-nav-divider,
-    .c-sidebar-nav-label,
-    .c-sidebar-nav-title,
-    .c-sidebar-footer,
-    .c-sidebar-form,
-    .c-sidebar-header {
-      height: 0;
-      padding: 0;
-      margin: 0;
-      visibility: hidden;
-      opacity: 0;
-    }
-
-    // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
-    // TODO: find better solution
-    .c-sidebar-minimizer {
-      position: fixed;
-      bottom: 0;
-      width: inherit;
-
-      &::before {
-        @include ltr {
-          transform: rotate(-180deg);
-        }
-        @include rtl {
-          transform: rotate(0deg);
-        }
-      }
-    }
-
-    &.c-sidebar-right .c-sidebar-minimizer::before {
-      @include ltr {
-        transform: rotate(0deg);
-      }
-      @include rtl {
-        transform: rotate(180deg);
-      }
-    }
-
-    &.c-sidebar-right .c-sidebar-nav {
-      > .c-sidebar-nav-item:hover,
-      > .c-sidebar-nav-dropdown:hover {
-        @include ltr {
-          margin-left: - $sidebar-width;
-        }
-        @include rtl {
-          margin-right: - $sidebar-width;
-        }
-      }
-    }
-
-    .c-sidebar-nav-link,
-    .c-sidebar-nav-dropdown-toggle {
-      overflow: hidden;
-      white-space: nowrap;
-      border-left: 0;
-
-      &:hover {
-        width: $sidebar-width + $sidebar-minimized-width;
-      }
-    }
-
-    .c-sidebar-nav-dropdown-toggle::after {
-      display: none;
-    }
-
-    .c-sidebar-nav-dropdown-items {
-      .c-sidebar-nav-link {
-        width: $sidebar-width;
-      }
-    }
-  }
-
-  // fix for perfect scrollbar
-  .ps {
-    overflow: initial !important;
-  }
-}
-.c-sidebar-unfoldable {
-  @include media-breakpoint-up($mobile-breakpoint) {
-    z-index: $zindex-fixed + 1 !important;
-
-    &:hover {
-
-      .c-sidebar-minimizer::before {
-        @include ltr {
-          transform: rotate(-180deg);
-        }
-        @include rtl {
-          transform: rotate(0deg);
-        }
-      }
-    }
-  }
-}
-
 // Responsive behavior
 
 @each $breakpoint in map-keys($grid-breakpoints) {
@@ -749,8 +613,7 @@
                 }
               }
             }
-            &.c-sidebar-minimized,
-            &.c-sidebar-unfoldable {
+            &.c-sidebar-minimized {
               ~ .c-wrapper {
                 @include ltr {
                   margin-left: $sidebar-minimized-width;
@@ -792,8 +655,7 @@
                 }
               }
             }
-            &.c-sidebar-minimized,
-            &.c-sidebar-unfoldable {
+            &.c-sidebar-minimized {
               ~ .c-wrapper {
                 @include ltr {
                   margin-right: $sidebar-minimized-width;
