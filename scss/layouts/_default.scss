@@ -30,7 +30,6 @@
     }
 
     .c-body {
-      flex-direction: column;
       overflow-y: auto;
     }
   }
@@ -46,7 +45,7 @@
 
 .c-body {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-grow: 1;
 }
 
