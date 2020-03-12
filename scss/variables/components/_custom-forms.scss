@@ -132,7 +132,7 @@ $custom-select-focus-border-color:  $input-focus-border-color !default;
 
 $custom-range-track-bg:           $gray-300 !default;
 $custom-range-thumb-bg:           $component-active-bg !default;
-$custom-range-thumb-active-bg:    ghten($component-active-bg, 35%) !default;
+$custom-range-thumb-active-bg:    lighten($component-active-bg, 35%) !default;
 $custom-range-thumb-disabled-bg:  $gray-500 !default;
 
 $custom-file-focus-border-color:  $input-focus-border-color !default;
