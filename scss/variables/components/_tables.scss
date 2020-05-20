@@ -20,7 +20,7 @@ $table-bg:            null !default;
 $table-accent-bg:     rgba($black, .05) !default;
 $table-hover-color:   $table-color !default;
 $table-hover-bg:      rgba($black, .075) !default;
-$table-active-bg:     $table-hover-bg !default;
+$table-active-bg:     $gray-200 !default;
 $table-border-color:  $border-color !default;
 $table-head-bg:       $gray-200 !default;
 $table-head-color:    $gray-700 !default;

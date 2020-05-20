@@ -126,11 +126,25 @@
 // inheritance to nested tables.
 
 @include theme-variant() {
-  @include table-row-variant($color, theme-color-level($color, $table-bg-level), theme-color-level($color, $table-border-level));
+  @include table-row-variant($color,  theme-color-level($value, $table-bg-level),  theme-color-level($value, $table-border-level));
 }
 
 @include themes($table-theme-map, $create: parent) {
   @include table-row-variant(active, themes-get-value("table-active-bg"));
+  @include table-row-variant(selected, themes-get-value("table-active-bg"), themes-get-value("table-active-bg"));
+}
+
+// stylelint-disable-next-line no-duplicate-selectors
+.table {
+  tbody tr {
+    &:focus {
+      outline: 0;
+      @include themes($table-theme-map, $create: parent) {
+        color: themes-get-value("table-hover-color");
+        background-color: themes-get-value("table-hover-bg");
+      }
+    }
+  }
 }
 
 

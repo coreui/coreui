@@ -15,10 +15,11 @@
   @include deprecate("The `bg-variant` mixin", "v4.4.0", "v5", $ignore-warning);
 }
 
-@mixin bg-gradient-variant($parent, $color) {
+@mixin bg-gradient-variant($parent, $color, $ignore-warning: false) {
   #{$parent} {
     background: $color linear-gradient(180deg, mix($body-bg, $color, 15%), $color) repeat-x !important;
   }
+  @include deprecate("The `bg-gradient-variant` mixin", "v4.5.0", "v5", $ignore-warning);
 }
 
 @mixin coreui-bg-gradient-variant($parent, $colors) {
@@ -26,13 +27,5 @@
     background: map-get($colors, "stop") !important;
     background: linear-gradient(45deg, map-get($colors, "start") 0%, map-get($colors, "stop") 100%) !important;
     border-color: map-get($colors, "stop") !important;
-  }
-}
-
-@mixin coreui-bg-gradient-variant-dark-theme($parent, $colors) {
-  #{$parent} {
-    background: desaturate(map-get($colors, "stop"), 20%) !important;
-    background: linear-gradient(45deg, desaturate(map-get($colors, "start"), 20%) 0%, desaturate(map-get($colors, "stop"), 20%) 100%) !important;
-    border-color: desaturate(map-get($colors, "stop"), 20%) !important;
   }
 }

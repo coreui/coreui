@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0): asyn-load.js
+ * CoreUI (v3.2.0): asyn-load.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -16,29 +16,24 @@ import EventHandler from './dom/event-handler'
  */
 
 const NAME = 'asyncLoad'
-const VERSION = '3.0.0'
+const VERSION = '3.2.0'
 const DATA_KEY = 'coreui.asyncLoad'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
-const ClassName = {
-  ACTIVE: 'c-active',
-  NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
-  SHOW: 'c-show',
-  VIEW_SCRIPT: 'view-script'
-}
+const CLASS_NAME_ACTIVE = 'c-active'
+const CLASS_NAME_NAV_DROPDOWN_TOGGLE = 'c-sidebar-nav-dropdown-toggle'
+const CLASS_NAME_NAV_LINK = 'c-sidebar-nav-link'
+const CLASS_NAME_SHOW = 'c-show'
+const CLASS_NAME_VIEW_SCRIPT = 'view-script'
 
-const Event = {
-  CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`,
-  XHR_STATUS: 'xhr'
-}
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
+const EVENT_XHR_STATUS = 'xhr'
 
-const Selector = {
-  NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
-  NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
-  NAV_ITEM: '.c-sidebar-nav-item',
-  VIEW_SCRIPT: '.view-script'
-}
+const SELECTOR_NAV_DROPDOWN = '.c-sidebar-nav-dropdown'
+const SELECTOR_NAV_LINK = '.c-xhr-link, .c-sidebar-nav-link'
+const SELECTOR_NAV_ITEM = '.c-sidebar-nav-item'
+const SELECTOR_VIEW_SCRIPT = '.view-script'
 
 const Default = {
   defaultPage: 'main.html',
@@ -50,6 +45,7 @@ class AsyncLoad {
   constructor(element, config) {
     this._config = this._getConfig(config)
     this._element = element
+    // eslint-disable-next-line no-restricted-globals
     const url = location.hash.replace(/^#/, '')
 
     // eslint-disable-next-line no-negated-condition
@@ -90,7 +86,7 @@ class AsyncLoad {
       const script = document.createElement('script')
       script.type = 'text/javascript'
       script.src = src[element]
-      script.className = ClassName.VIEW_SCRIPT
+      script.className = CLASS_NAME_VIEW_SCRIPT
       // eslint-disable-next-line no-multi-assign, unicorn/prefer-add-event-listener
       script.onload = script.onreadystatechange = () => {
         if (!this.readyState || this.readyState === 'complete') {
@@ -105,7 +101,7 @@ class AsyncLoad {
     }
 
     const removeScripts = () => {
-      const oldScripts = document.querySelectorAll(Selector.VIEW_SCRIPT)
+      const oldScripts = document.querySelectorAll(SELECTOR_VIEW_SCRIPT)
       if (oldScripts.length) {
         oldScripts.forEach(oldScript => {
           oldScript.remove()
@@ -115,7 +111,7 @@ class AsyncLoad {
 
     const xhr = new XMLHttpRequest()
     xhr.open('GET', config.subpagesDirectory + url)
-    let event = new CustomEvent(Event.XHR_STATUS, {
+    let event = new CustomEvent(EVENT_XHR_STATUS, {
       detail: {
         url,
         status: xhr.status
@@ -125,7 +121,7 @@ class AsyncLoad {
     // eslint-disable-next-line unicorn/prefer-add-event-listener
     xhr.onload = result => {
       if (xhr.status === 200) {
-        event = new CustomEvent(Event.XHR_STATUS, {
+        event = new CustomEvent(EVENT_XHR_STATUS, {
           detail: {
             url,
             status: xhr.status
@@ -161,31 +157,31 @@ class AsyncLoad {
     url = url.replace(/^\//, '').split('?')[0]
 
     // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(document.querySelectorAll(Selector.NAV_LINK)).forEach(element => {
-      element.classList.remove(ClassName.ACTIVE)
+    Array.from(document.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
+      element.classList.remove(CLASS_NAME_ACTIVE)
     })
 
     // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(document.querySelectorAll(Selector.NAV_LINK)).forEach(element => {
-      element.classList.remove(ClassName.ACTIVE)
+    Array.from(document.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
+      element.classList.remove(CLASS_NAME_ACTIVE)
     })
 
     // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(element => {
-      element.classList.remove(ClassName.SHOW)
+    Array.from(document.querySelectorAll(SELECTOR_NAV_DROPDOWN)).forEach(element => {
+      element.classList.remove(CLASS_NAME_SHOW)
     })
 
     // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(element => {
+    Array.from(document.querySelectorAll(SELECTOR_NAV_DROPDOWN)).forEach(element => {
       // eslint-disable-next-line unicorn/prefer-spread
       if (Array.from(element.querySelectorAll(`a[href*="${url}"]`)).length > 0) {
-        element.classList.add(ClassName.SHOW)
+        element.classList.add(CLASS_NAME_SHOW)
       }
     })
 
     // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(document.querySelectorAll(`${Selector.NAV_ITEM} a[href*="${url}"]`)).forEach(element => {
-      element.classList.add(ClassName.ACTIVE)
+    Array.from(document.querySelectorAll(`${SELECTOR_NAV_ITEM} a[href*="${url}"]`)).forEach(element => {
+      element.classList.add(CLASS_NAME_ACTIVE)
     })
 
     this._loadPage(url)
@@ -214,14 +210,14 @@ class AsyncLoad {
   }
 
   _addEventListeners() {
-    EventHandler.on(document, Event.CLICK_DATA_API, Selector.NAV_LINK, event => {
+    EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, event => {
       event.preventDefault()
       let link = event.target
-      if (!link.classList.contains(ClassName.NAV_LINK)) {
-        link = link.closest(Selector.NAV_LINK)
+      if (!link.classList.contains(CLASS_NAME_NAV_LINK)) {
+        link = link.closest(SELECTOR_NAV_LINK)
       }
 
-      if (!link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
+      if (!link.classList.contains(CLASS_NAME_NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
         this._update(link)
       }
     })

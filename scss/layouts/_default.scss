@@ -4,7 +4,7 @@
 
 .c-app {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
 }
 
@@ -18,23 +18,57 @@
 
 .c-wrapper {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
 
   &:not(.c-wrapper-fluid) {
-    height: 100vh;
 
-    .c-header-fixed,
-    .c-subheader-fixed,
-    .c-footer-fixed {
+    .c-subheader-fixed {
       position: relative;
     }
 
+    .c-header-fixed {
+      position: sticky;
+      top: 0;
+
+      @media all and (-ms-high-contrast: none) {
+        position: fixed;
+        margin: inherit;
+
+        ~ .c-body {
+          margin-top: 104px;
+        }
+      }
+    }
+
+    .c-footer-fixed {
+      position: sticky;
+      bottom: 0;
+
+      @media all and (-ms-high-contrast: none) {
+        position: fixed;
+        margin: inherit;
+
+        ~ .c-body {
+          margin-bottom: 49px;
+        }
+      }
+    }
+
     .c-body {
+      // deprecate v4
+      // fix footer position to avoid breaking change.
+      display: flex;
       flex-direction: column;
-      overflow-y: auto;
+      // ---
+
+      flex-grow: 1;
     }
   }
 
+  // deprecate v4
   &.c-wrapper-fluid {
     min-height: 100vh;
 
@@ -42,12 +76,6 @@
       margin: inherit;
     }
   }
-}
-
-.c-body {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
 }
 
 .c-main {

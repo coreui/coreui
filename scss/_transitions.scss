@@ -39,14 +39,37 @@
 //
 
 .c-wrapper {
-  will-change: auto;
-  transition: transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, flex $layout-transition-speed;
+  transition: margin $layout-transition-speed;
 }
 
 .c-sidebar {
-  will-change: auto;
-  transition: box-shadow $layout-transition-speed, transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
+  transition: box-shadow $layout-transition-speed $layout-transition-speed / 2, transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease $layout-transition-speed;
   &.c-sidebar-unfoldable {
     transition: transform $layout-transition-speed, margin-left $layout-transition-speed, margin-right $layout-transition-speed, width $layout-transition-speed, z-index 0s ease 0s;
   }
+}
+
+.c-no-layout-transition {
+  .c-wrapper,
+  .c-sidebar {
+    transition: none;
+
+    .c-sidebar-header,
+    .c-sidebar-nav-title,
+    .c-sidebar-nav-divider,
+    .c-sidebar-nav-link,
+    .c-sidebar-nav-icon,
+    .c-sidebar-nav-dropdown,
+    .c-sidebar-nav-dropdown-toggle,
+    .c-sidebar-nav-dropdown-items,
+    .c-sidebar-nav-label,
+    .c-sidebar-footer,
+    .c-sidebar-minimizer  {
+      transition: none;
+    }
+  }
+}
+
+.c-no-transition {
+  transition: none;
 }

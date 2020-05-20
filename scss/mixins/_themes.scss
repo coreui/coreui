@@ -4,14 +4,9 @@
 // @type String
 $themes-default-post-class: "-theme" !default;
 
-/// Current _entity_ during the loop. Can be used in custom creation mode.
-///
-/// @type String
-$themes-loop-entity: "" !default;
-
-
 // @type String
 $current-variant: "" !default;
+
 /// Current _map_ during the loop. Can be used in custom creation.
 ///
 // @type Map
@@ -56,6 +51,37 @@ $theme-has-variants: false !default;
   // @if not $ret {
   //   @warn 'The entity `#{$entity}` doesn\'t have a value for `#{$key}`.';
   // }
+}
+
+@function default-theme() {
+  @each $key in map-keys($default-themes) {
+    // Check if the theme is default
+    @if map-get(map-get($default-themes, $key), "default") == true {
+      @return $key;
+    }
+  }
+}
+
+@mixin property($property, $key, $theme: $current-theme, $variant: $current-variant, $map: $themes-map) {
+  $current-theme-map: map-get($map, $theme);
+
+  @if $theme-has-variants {
+    $current-variant-map: map-get(map-get($current-theme-map, "map"), $variant);
+    $value: map-get($current-variant-map, $key);
+
+    // @return $value;
+    #{$property}: $value;
+  } @else {
+    @if map-has-key($current-theme-map, $key) {
+      $value: map-get($current-theme-map, $key);
+      // @return $value;
+      #{$property}: $value;
+    } @else {
+      $value: map-get(map-get($map, $default-theme), $key);
+      // @return $value;
+      #{$property}: $value;
+    }
+  }
 }
 
 @function themes-get-option($key, $fallback: null, $theme: $current-theme, $variant: $current-variant, $map: $themes-map) {
@@ -141,11 +167,11 @@ $theme-has-variants: false !default;
 @mixin themes($loop: $themes-map, $parent: false, $create: false) {
   $themes-map: $loop !global;
   $parent-element: $parent !global;
-
   $default-theme: null !global;
 
   @each $key in map-keys($default-themes) {
 
+    // Check if the theme is default
     @if map-get(map-get($default-themes, $key), "default") == true {
       $default-theme: $key !global;
     }
@@ -196,7 +222,7 @@ $theme-has-variants: false !default;
   }
 }
 
-@mixin theme-variant() {
+@mixin theme-variant($extend-class: false) {
   @each $theme in map-keys($default-themes) {
     $get-colors: map-get(map-get($default-themes, $theme), "theme-colors");
     $get-default: map-get(map-get($default-themes, $theme), "default");
@@ -207,9 +233,41 @@ $theme-has-variants: false !default;
       @if $get-default {
         @content;
       } @else {
-        @at-root{
-          .c-#{$theme}#{$theme-suffix} {
-            @content;
+        $default-color: map-get(map-get(map-get($default-themes, default-theme()), "theme-colors"), $color);
+        @if $default-color != $value {
+          @if $extend-class {
+            &.c-#{$theme}#{$theme-suffix} {
+              @content;
+            }
+          } @else {
+            @at-root{
+              .c-#{$theme}#{$theme-suffix} {
+                @content;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin theme-gradients() {
+  @each $theme in map-keys($default-themes) {
+    $get-default: map-get(map-get($default-themes, $theme), "default");
+    $get-gradients: map-get(map-get($default-themes, $theme), "gradients");
+    @each $gradient, $value in $get-gradients {
+      $gradient: $gradient !global;
+      $value: $value !global;
+      @if $get-default {
+        @content;
+      } @else {
+        $default-gradient: map-get(map-get(map-get($default-themes, default-theme()), "gradients"), $gradient);
+        @if $default-gradient != $value {
+          @at-root{
+            .c-#{$theme}#{$theme-suffix} {
+              @content;
+            }
           }
         }
       }

@@ -1,8 +1,8 @@
-@mixin badge-variant($bg) {
+@mixin badge-variant($bg, $color) {
   color: color-yiq($bg);
   background-color: $bg;
 
-  @at-root a#{&} {
+  @at-root #{str-replace(#{&}, ".badge-#{$color}", " ")} a.badge-#{$color} {
     @include hover-focus() {
       color: color-yiq($bg);
       background-color: darken($bg, 10%);

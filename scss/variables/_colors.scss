@@ -131,9 +131,12 @@ $yiq-theme-map: map-merge(
   $yiq-theme-map
 );
 
+// TODO: Move to better place
 // Characters which are escaped by the escape-svg function
-$escaped-characters:  (
+$escaped-characters: (
   ("<","%3c"),
   (">","%3e"),
   ("#","%23"),
+  ("(","%28"),
+  (")","%29"),
 ) !default;

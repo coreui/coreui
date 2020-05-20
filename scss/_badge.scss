@@ -49,6 +49,6 @@
 
 @include theme-variant() {
   .badge-#{$color} {
-    @include badge-variant($value);
+    @include badge-variant($value, $color);
   }
 }

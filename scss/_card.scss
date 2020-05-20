@@ -23,15 +23,18 @@
     margin-left: 0;
   }
 
-  > .list-group:first-child {
-    .list-group-item:first-child {
-      @include border-top-radius($card-border-radius);
-    }
-  }
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
 
-  > .list-group:last-child {
-    .list-group-item:last-child {
-      @include border-bottom-radius($card-border-radius);
+    &:first-child {
+      border-top-width: 0;
+      @include border-top-radius($card-inner-border-radius);
+    }
+
+    &:last-child  {
+      border-bottom-width: 0;
+      @include border-bottom-radius($card-inner-border-radius);
     }
   }
 
@@ -42,15 +45,15 @@
 }
 
 // Cards with color accent
-@include theme-variant() {
-  .card.bg-#{$color} {
-    border-color: darken($value, 12.5%);
-    .card-header {
-      background-color: darken($value, 3%);
-      border-color: darken($value, 12.5%);
-    }
+.card[class^="bg-"],
+.card[class*=" bg-"] {
+  border-color: rgba(0, 0, 0, .125); //darken($value, 12.5%);
+  .card-header {
+    background-color: rgba(0, 0, 0, .05); //darken($value, 3%);
+    border-color: rgba(0, 0, 0, .125); //darken($value, 12.5%);
   }
 }
+
 .card-body {
   // Enable `flex-grow: 1` for decks and groups so that card blocks take up
   // as much space as possible, ensuring footers are aligned to the bottom.

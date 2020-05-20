@@ -1,5 +1,5 @@
 /*!
-  * CoreUI manipulator.js v3.0.0 (https://coreui.io)
+  * CoreUI manipulator.js v3.2.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -60,7 +60,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): dom/manipulator.js
+   * Bootstrap (v5.0.0-alpha1): dom/manipulator.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */

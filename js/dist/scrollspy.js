@@ -1,5 +1,5 @@
 /*!
-  * CoreUI scrollspy.js v3.0.0 (https://coreui.io)
+  * CoreUI scrollspy.js v3.2.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,10 +9,10 @@
   (global = global || self, global.ScrollSpy = factory(global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine));
 }(this, (function (Data, EventHandler, Manipulator, SelectorEngine) { 'use strict';
 
-  Data = Data && Data.hasOwnProperty('default') ? Data['default'] : Data;
-  EventHandler = EventHandler && EventHandler.hasOwnProperty('default') ? EventHandler['default'] : EventHandler;
-  Manipulator = Manipulator && Manipulator.hasOwnProperty('default') ? Manipulator['default'] : Manipulator;
-  SelectorEngine = SelectorEngine && SelectorEngine.hasOwnProperty('default') ? SelectorEngine['default'] : SelectorEngine;
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
+  Manipulator = Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default') ? Manipulator['default'] : Manipulator;
+  SelectorEngine = SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default') ? SelectorEngine['default'] : SelectorEngine;
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -81,13 +81,17 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
   var MAX_UID = 1000000;
 
   var toType = function toType(obj) {
+    if (obj === null || obj === undefined) {
+      return "" + obj;
+    }
+
     return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
   };
   /**
@@ -99,7 +103,7 @@
 
   var getUID = function getUID(prefix) {
     do {
-      prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+      prefix += Math.floor(Math.random() * MAX_UID);
     } while (document.getElementById(prefix));
 
     return prefix;
@@ -142,14 +146,6 @@
     });
   };
 
-  var makeArray = function makeArray(nodeList) {
-    if (!nodeList) {
-      return [];
-    }
-
-    return [].slice.call(nodeList);
-  };
-
   var getjQuery = function getjQuery() {
     var _window = window,
         jQuery = _window.jQuery;
@@ -168,7 +164,7 @@
    */
 
   var NAME = 'scrollspy';
-  var VERSION = '3.0.0';
+  var VERSION = '3.2.0';
   var DATA_KEY = 'coreui.scrollspy';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
@@ -182,49 +178,39 @@
     method: 'string',
     target: '(string|element)'
   };
-  var Event = {
-    ACTIVATE: "activate" + EVENT_KEY,
-    SCROLL: "scroll" + EVENT_KEY,
-    LOAD_DATA_API: "load" + EVENT_KEY + DATA_API_KEY
-  };
-  var ClassName = {
-    DROPDOWN_ITEM: 'dropdown-item',
-    ACTIVE: 'active'
-  };
-  var Selector = {
-    DATA_SPY: '[data-spy="scroll"]',
-    NAV_LIST_GROUP: '.nav, .list-group',
-    NAV_LINKS: '.nav-link',
-    NAV_ITEMS: '.nav-item',
-    LIST_ITEMS: '.list-group-item',
-    DROPDOWN: '.dropdown',
-    DROPDOWN_TOGGLE: '.dropdown-toggle'
-  };
-  var OffsetMethod = {
-    OFFSET: 'offset',
-    POSITION: 'position'
-  };
+  var EVENT_ACTIVATE = "activate" + EVENT_KEY;
+  var EVENT_SCROLL = "scroll" + EVENT_KEY;
+  var EVENT_LOAD_DATA_API = "load" + EVENT_KEY + DATA_API_KEY;
+  var CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
+  var CLASS_NAME_ACTIVE = 'active';
+  var SELECTOR_DATA_SPY = '[data-spy="scroll"]';
+  var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
+  var SELECTOR_NAV_LINKS = '.nav-link';
+  var SELECTOR_NAV_ITEMS = '.nav-item';
+  var SELECTOR_LIST_ITEMS = '.list-group-item';
+  var SELECTOR_DROPDOWN = '.dropdown';
+  var SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
+  var METHOD_OFFSET = 'offset';
+  var METHOD_POSITION = 'position';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var ScrollSpy =
-  /*#__PURE__*/
-  function () {
+  var ScrollSpy = /*#__PURE__*/function () {
     function ScrollSpy(element, config) {
       var _this = this;
 
       this._element = element;
       this._scrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
-      this._selector = this._config.target + " " + Selector.NAV_LINKS + "," + (this._config.target + " " + Selector.LIST_ITEMS + ",") + (this._config.target + " ." + ClassName.DROPDOWN_ITEM);
+      this._selector = this._config.target + " " + SELECTOR_NAV_LINKS + "," + (this._config.target + " " + SELECTOR_LIST_ITEMS + ",") + (this._config.target + " ." + CLASS_NAME_DROPDOWN_ITEM);
       this._offsets = [];
       this._targets = [];
       this._activeTarget = null;
       this._scrollHeight = 0;
-      EventHandler.on(this._scrollElement, Event.SCROLL, function (event) {
+      EventHandler.on(this._scrollElement, EVENT_SCROLL, function (event) {
         return _this._process(event);
       });
       this.refresh();
@@ -241,13 +227,13 @@
     _proto.refresh = function refresh() {
       var _this2 = this;
 
-      var autoMethod = this._scrollElement === this._scrollElement.window ? OffsetMethod.OFFSET : OffsetMethod.POSITION;
+      var autoMethod = this._scrollElement === this._scrollElement.window ? METHOD_OFFSET : METHOD_POSITION;
       var offsetMethod = this._config.method === 'auto' ? autoMethod : this._config.method;
-      var offsetBase = offsetMethod === OffsetMethod.POSITION ? this._getScrollTop() : 0;
+      var offsetBase = offsetMethod === METHOD_POSITION ? this._getScrollTop() : 0;
       this._offsets = [];
       this._targets = [];
       this._scrollHeight = this._getScrollHeight();
-      var targets = makeArray(SelectorEngine.find(this._selector));
+      var targets = SelectorEngine.find(this._selector);
       targets.map(function (element) {
         var target;
         var targetSelector = getSelectorFromElement(element);
@@ -291,9 +277,9 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2({}, Default, {}, typeof config === 'object' && config ? config : {});
+      config = _objectSpread2(_objectSpread2({}, Default), typeof config === 'object' && config ? config : {});
 
-      if (typeof config.target !== 'string') {
+      if (typeof config.target !== 'string' && isElement(config.target)) {
         var id = config.target.id;
 
         if (!id) {
@@ -349,9 +335,7 @@
         return;
       }
 
-      var offsetLength = this._offsets.length;
-
-      for (var i = offsetLength; i--;) {
+      for (var i = this._offsets.length; i--;) {
         var isActiveTarget = this._activeTarget !== this._targets[i] && scrollTop >= this._offsets[i] && (typeof this._offsets[i + 1] === 'undefined' || scrollTop < this._offsets[i + 1]);
 
         if (isActiveTarget) {
@@ -371,37 +355,37 @@
 
       var link = SelectorEngine.findOne(queries.join(','));
 
-      if (link.classList.contains(ClassName.DROPDOWN_ITEM)) {
-        SelectorEngine.findOne(Selector.DROPDOWN_TOGGLE, SelectorEngine.closest(link, Selector.DROPDOWN)).classList.add(ClassName.ACTIVE);
-        link.classList.add(ClassName.ACTIVE);
+      if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
+        SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE, link.closest(SELECTOR_DROPDOWN)).classList.add(CLASS_NAME_ACTIVE);
+        link.classList.add(CLASS_NAME_ACTIVE);
       } else {
         // Set triggered link as active
-        link.classList.add(ClassName.ACTIVE);
-        SelectorEngine.parents(link, Selector.NAV_LIST_GROUP).forEach(function (listGroup) {
+        link.classList.add(CLASS_NAME_ACTIVE);
+        SelectorEngine.parents(link, SELECTOR_NAV_LIST_GROUP).forEach(function (listGroup) {
           // Set triggered links parents as active
           // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
-          SelectorEngine.prev(listGroup, Selector.NAV_LINKS + ", " + Selector.LIST_ITEMS).forEach(function (item) {
-            return item.classList.add(ClassName.ACTIVE);
+          SelectorEngine.prev(listGroup, SELECTOR_NAV_LINKS + ", " + SELECTOR_LIST_ITEMS).forEach(function (item) {
+            return item.classList.add(CLASS_NAME_ACTIVE);
           }); // Handle special case when .nav-link is inside .nav-item
 
-          SelectorEngine.prev(listGroup, Selector.NAV_ITEMS).forEach(function (navItem) {
-            SelectorEngine.children(navItem, Selector.NAV_LINKS).forEach(function (item) {
-              return item.classList.add(ClassName.ACTIVE);
+          SelectorEngine.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(function (navItem) {
+            SelectorEngine.children(navItem, SELECTOR_NAV_LINKS).forEach(function (item) {
+              return item.classList.add(CLASS_NAME_ACTIVE);
             });
           });
         });
       }
 
-      EventHandler.trigger(this._scrollElement, Event.ACTIVATE, {
+      EventHandler.trigger(this._scrollElement, EVENT_ACTIVATE, {
         relatedTarget: target
       });
     };
 
     _proto._clear = function _clear() {
-      makeArray(SelectorEngine.find(this._selector)).filter(function (node) {
-        return node.classList.contains(ClassName.ACTIVE);
+      SelectorEngine.find(this._selector).filter(function (node) {
+        return node.classList.contains(CLASS_NAME_ACTIVE);
       }).forEach(function (node) {
-        return node.classList.remove(ClassName.ACTIVE);
+        return node.classList.remove(CLASS_NAME_ACTIVE);
       });
     } // Static
     ;
@@ -451,8 +435,8 @@
    */
 
 
-  EventHandler.on(window, Event.LOAD_DATA_API, function () {
-    makeArray(SelectorEngine.find(Selector.DATA_SPY)).forEach(function (spy) {
+  EventHandler.on(window, EVENT_LOAD_DATA_API, function () {
+    SelectorEngine.find(SELECTOR_DATA_SPY).forEach(function (spy) {
       return new ScrollSpy(spy, Manipulator.getDataAttributes(spy));
     });
   });

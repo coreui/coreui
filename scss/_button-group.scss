@@ -22,6 +22,15 @@
       z-index: 1;
     }
   }
+  @if $enable-elevations {
+    &:not(.show) {
+      z-index: 1;
+    }
+    .btn-group,
+    .btn-group-vertical {
+      z-index: initial;
+    }
+  }
 }
 
 // Optional: Group multiple button groups together for a toolbar
@@ -123,6 +132,7 @@
 
 // The clickable button for toggling the menu
 // Set the same inset shadow as the :active state
+
 .btn-group.show .dropdown-toggle {
   @include box-shadow($btn-active-box-shadow);
 

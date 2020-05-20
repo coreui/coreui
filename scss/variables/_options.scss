@@ -21,7 +21,7 @@ $enable-responsive-font-sizes:               false !default;
 $enable-validation-icons:                    true !default;
 $enable-deprecation-messages:                false !default;
 $enable-sidebar-nav-rounded:                 false !default;
-$layout-transition-speed:                    .25s !default;
+$layout-transition-speed:                    .3s !default;
 $enable-elevations:                          true !default;
 
 $options: () !default;
@@ -31,9 +31,10 @@ $default-themes: () !default;
 $default-themes: map-merge(
   (
     default: (
-      "default":      true,
-      "theme-colors": $theme-colors,
-      "grays":        $grays
+      "default":       true,
+      "theme-colors":  $theme-colors,
+      "grays":         $grays,
+      "gradients":     $theme-gradients
     )
   ),
   $default-themes

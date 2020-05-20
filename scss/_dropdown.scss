@@ -47,26 +47,29 @@
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .c-header .dropdown-menu,
+    .navbar .dropdown-menu,
+    .dropdown-menu[data-display^="static"] {
+      &.dropdown-menu#{$infix}-left {
+        @include ltr {
+          right: auto;
+          left: 0;
+        }
+        @include rtl {
+          right: 0;
+          left: auto;
+        }
+      }
 
-    .dropdown-menu#{$infix}-left {
-      @include ltr {
-        right: auto;
-        left: 0;
-      }
-      @include rtl {
-        right: 0;
-        left: auto;
-      }
-    }
-
-    .dropdown-menu#{$infix}-right {
-      @include ltr {
-        right: 0;
-        left: auto;
-      }
-      @include rtl {
-        right: auto;
-        left: 0;
+      &.dropdown-menu#{$infix}-right {
+        @include ltr {
+          right: 0;
+          left: auto;
+        }
+        @include rtl {
+          right: auto;
+          left: 0;
+        }
       }
     }
   }
@@ -136,18 +139,6 @@
   }
 }
 
-// When enabled Popper.js, reset basic dropdown position
-// stylelint-disable-next-line no-duplicate-selectors
-.dropdown-menu {
-  &[x-placement^="top"],
-  &[x-placement^="right"],
-  &[x-placement^="bottom"],
-  &[x-placement^="left"] {
-    right: auto;
-    bottom: auto;
-  }
-}
-
 // Dividers (basically an `<hr>`) within the dropdown
 .dropdown-divider {
   @include themes($dropdown-theme-map, $create: parent) {
@@ -166,6 +157,7 @@
   clear: both;
   font-weight: $font-weight-normal;
   text-align: inherit; // For `<button>`s
+  text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap; // prevent links from randomly breaking onto new lines
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
@@ -229,7 +221,7 @@
 // Dropdown section headers
 .dropdown-header {
   display: block;
-  padding: $dropdown-padding-y $dropdown-item-padding-x;
+  padding: $dropdown-header-padding;
   margin-bottom: 0; // for use with heading elements
   @include font-size($font-size-sm);
   white-space: nowrap; // as with > li > a

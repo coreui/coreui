@@ -14,6 +14,7 @@
     padding-right: 0; // reset padding because ul and ol
   }
   margin-bottom: 0;
+  @include border-radius($list-group-border-radius);
 }
 
 
@@ -42,7 +43,7 @@
   &:active {
     @include themes($list-group-theme-map, $create: parent) {
       color: themes-get-value("list-group-action-active-color");
-      background-color: themes-get-value("list-group-active-bg");
+      background-color: themes-get-value("list-group-action-active-bg");
     }
   }
 }
@@ -56,7 +57,7 @@
   position: relative;
   display: block;
   padding: $list-group-item-padding-y $list-group-item-padding-x;
-
+  text-decoration: if($link-decoration == none, null, none);
   border: $list-group-border-width solid;
   @include themes($list-group-theme-map, $create: parent) {
     color: themes-get-value("list-group-color");
@@ -65,11 +66,11 @@
   }
 
   &:first-child {
-    @include border-top-radius($list-group-border-radius);
+    @include border-top-radius(inherit);
   }
 
   &:last-child {
-    @include border-bottom-radius($list-group-border-radius);
+    @include border-bottom-radius(inherit);
   }
 
   &.disabled,
@@ -149,18 +150,12 @@
 // useful within other components (e.g., cards).
 
 .list-group-flush {
-  .list-group-item {
-    border-right-width: 0;
-    border-left-width: 0;
-    @include border-radius(0);
+  @include border-radius(0);
 
-    &:first-child {
-      border-top-width: 0;
-    }
-  }
+  > .list-group-item {
+    border-width: 0 0 $list-group-border-width;
 
-  &:last-child {
-    .list-group-item:last-child {
+    &:last-child {
       border-bottom-width: 0;
     }
   }
@@ -173,7 +168,7 @@
 // Organizationally, this must come after the `:hover` states.
 
 @include theme-variant() {
-  @include list-group-item-variant($color, theme-color-level($color, -9), theme-color-level($color, 6));
+  @include list-group-item-variant($color,  theme-color-level($value, -9),  theme-color-level($value, 6));
 }
 
 // List items with accent

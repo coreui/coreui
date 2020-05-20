@@ -1,5 +1,5 @@
 /*!
-  * CoreUI popover.js v3.0.0 (https://coreui.io)
+  * CoreUI popover.js v3.2.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,9 +9,9 @@
   (global = global || self, global.Popover = factory(global.Data, global.SelectorEngine, global.Tooltip));
 }(this, (function (Data, SelectorEngine, Tooltip) { 'use strict';
 
-  Data = Data && Data.hasOwnProperty('default') ? Data['default'] : Data;
-  SelectorEngine = SelectorEngine && SelectorEngine.hasOwnProperty('default') ? SelectorEngine['default'] : SelectorEngine;
-  Tooltip = Tooltip && Tooltip.hasOwnProperty('default') ? Tooltip['default'] : Tooltip;
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  SelectorEngine = SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default') ? SelectorEngine['default'] : SelectorEngine;
+  Tooltip = Tooltip && Object.prototype.hasOwnProperty.call(Tooltip, 'default') ? Tooltip['default'] : Tooltip;
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -86,7 +86,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -109,31 +109,23 @@
    */
 
   var NAME = 'popover';
-  var VERSION = '3.0.0';
+  var VERSION = '3.2.0';
   var DATA_KEY = 'coreui.popover';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-popover';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
-  var Default = _objectSpread2({}, Tooltip.Default, {
+  var Default = _objectSpread2(_objectSpread2({}, Tooltip.Default), {}, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
-  var DefaultType = _objectSpread2({}, Tooltip.DefaultType, {
+  var DefaultType = _objectSpread2(_objectSpread2({}, Tooltip.DefaultType), {}, {
     content: '(string|element|function)'
   });
 
-  var ClassName = {
-    FADE: 'fade',
-    SHOW: 'show'
-  };
-  var Selector = {
-    TITLE: '.popover-header',
-    CONTENT: '.popover-body'
-  };
   var Event = {
     HIDE: "hide" + EVENT_KEY,
     HIDDEN: "hidden" + EVENT_KEY,
@@ -146,15 +138,17 @@
     MOUSEENTER: "mouseenter" + EVENT_KEY,
     MOUSELEAVE: "mouseleave" + EVENT_KEY
   };
+  var CLASS_NAME_FADE = 'fade';
+  var CLASS_NAME_SHOW = 'show';
+  var SELECTOR_TITLE = '.popover-header';
+  var SELECTOR_CONTENT = '.popover-body';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var Popover =
-  /*#__PURE__*/
-  function (_Tooltip) {
+  var Popover = /*#__PURE__*/function (_Tooltip) {
     _inheritsLoose(Popover, _Tooltip);
 
     function Popover() {
@@ -171,7 +165,7 @@
     _proto.setContent = function setContent() {
       var tip = this.getTipElement(); // we use append for html objects to maintain js events
 
-      this.setElementContent(SelectorEngine.findOne(Selector.TITLE, tip), this.getTitle());
+      this.setElementContent(SelectorEngine.findOne(SELECTOR_TITLE, tip), this.getTitle());
 
       var content = this._getContent();
 
@@ -179,9 +173,8 @@
         content = content.call(this.element);
       }
 
-      this.setElementContent(SelectorEngine.findOne(Selector.CONTENT, tip), content);
-      tip.classList.remove(ClassName.FADE);
-      tip.classList.remove(ClassName.SHOW);
+      this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
+      tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
     };
 
     _proto._addAttachmentClass = function _addAttachmentClass(attachment) {

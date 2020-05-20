@@ -1,10 +1,10 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.0.0): alert.js
+ * CoreUI (v3.2.0): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
- * Bootstrap (v4.3.1): alert.js
+ * Bootstrap (v5.0.0): alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
@@ -18,7 +18,6 @@ import {
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
-import SelectorEngine from './dom/selector-engine'
 
 /**
  * ------------------------------------------------------------------------
@@ -27,26 +26,20 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'alert'
-const VERSION = '3.0.0'
+const VERSION = '3.2.0'
 const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
-const Selector = {
-  DISMISS: '[data-dismiss="alert"]'
-}
+const SELECTOR_DISMISS = '[data-dismiss="alert"]'
 
-const Event = {
-  CLOSE: `close${EVENT_KEY}`,
-  CLOSED: `closed${EVENT_KEY}`,
-  CLICK_DATA_API: `click${EVENT_KEY}${DATA_API_KEY}`
-}
+const EVENT_CLOSE = `close${EVENT_KEY}`
+const EVENT_CLOSED = `closed${EVENT_KEY}`
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
 
-const ClassName = {
-  ALERT: 'alert',
-  FADE: 'fade',
-  SHOW: 'show'
-}
+const CLASSNAME_ALERT = 'alert'
+const CLASSNAME_FADE = 'fade'
+const CLASSNAME_SHOW = 'show'
 
 /**
  * ------------------------------------------------------------------------
@@ -94,23 +87,17 @@ class Alert {
   // Private
 
   _getRootElement(element) {
-    let parent = getElementFromSelector(element)
-
-    if (!parent) {
-      parent = SelectorEngine.closest(element, `.${ClassName.ALERT}`)
-    }
-
-    return parent
+    return getElementFromSelector(element) || element.closest(`.${CLASSNAME_ALERT}`)
   }
 
   _triggerCloseEvent(element) {
-    return EventHandler.trigger(element, Event.CLOSE)
+    return EventHandler.trigger(element, EVENT_CLOSE)
   }
 
   _removeElement(element) {
-    element.classList.remove(ClassName.SHOW)
+    element.classList.remove(CLASSNAME_SHOW)
 
-    if (!element.classList.contains(ClassName.FADE)) {
+    if (!element.classList.contains(CLASSNAME_FADE)) {
       this._destroyElement(element)
       return
     }
@@ -127,7 +114,7 @@ class Alert {
       element.parentNode.removeChild(element)
     }
 
-    EventHandler.trigger(element, Event.CLOSED)
+    EventHandler.trigger(element, EVENT_CLOSED)
   }
 
   // Static
@@ -167,7 +154,7 @@ class Alert {
  * ------------------------------------------------------------------------
  */
 EventHandler
-  .on(document, Event.CLICK_DATA_API, Selector.DISMISS, Alert.handleDismiss(new Alert()))
+  .on(document, EVENT_CLICK_DATA_API, SELECTOR_DISMISS, Alert.handleDismiss(new Alert()))
 
 const $ = getjQuery()
 

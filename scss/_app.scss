@@ -1,0 +1,13 @@
+.c-app {
+  overflow-x: hidden;
+
+  @include theme-variant(true) {
+    --#{$color}: #{$value};
+  }
+  @include themes($body-theme-map, $create: append) {
+    color: themes-get-value("body-color");
+    background-color: themes-get-value("body-bg");
+
+    --color: #{themes-get-value("body-color")};
+  }
+}

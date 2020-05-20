@@ -56,6 +56,6 @@
 
 @include theme-variant() {
   .alert-#{$color} {
-    @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+    @include alert-variant( theme-color-level($value, $alert-bg-level),  theme-color-level($value, $alert-border-level),  theme-color-level($value, $alert-color-level));
   }
 }

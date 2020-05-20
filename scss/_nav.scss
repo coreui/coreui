@@ -20,6 +20,7 @@
 .nav-link {
   display: block;
   padding: $nav-link-padding-y $nav-link-padding-x;
+  text-decoration: if($link-decoration == none, null, none);
 
   @include hover-focus() {
     text-decoration: none;
@@ -235,14 +236,14 @@
   .show > .nav-link {
     background: transparent;
   }
+}
 
-  @include theme-variant() {
-    &.nav-underline-#{$color} {
-      .nav-link.active,
-      .show > .nav-link {
-        color: $value;
-        border-color: $value;
-      }
+@include theme-variant() {
+  .nav-underline-#{$color} {
+    .nav-link.active,
+    .show > .nav-link {
+      color: $value;
+      border-color: $value;
     }
   }
 }

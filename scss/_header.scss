@@ -14,7 +14,7 @@
     position: fixed;
     right: 0;
     left: 0;
-    z-index: $zindex-fixed;
+    z-index: $zindex-fixed - 1;
   }
 
   .c-subheader {

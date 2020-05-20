@@ -19,6 +19,8 @@
 }
 
 .breadcrumb-item {
+  display: flex;
+
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
     @include ltr {

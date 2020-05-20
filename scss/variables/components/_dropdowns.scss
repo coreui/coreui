@@ -14,6 +14,7 @@ $dropdown-divider-margin-y:     $nav-divider-margin-y !default;
 $dropdown-box-shadow:           0 .5rem 1rem rgba($black, .175) !default;
 $dropdown-item-padding-y:       .5rem !default;
 $dropdown-item-padding-x:       1.25rem !default;
+$dropdown-header-padding:       $dropdown-padding-y $dropdown-item-padding-x !default;
 
 // Default theme
 $dropdown-color:                $body-color !default;

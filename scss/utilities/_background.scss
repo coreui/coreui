@@ -3,18 +3,16 @@
   @include bg-variant(".bg-#{$color}", $value, trur);
 }
 
-@if $enable-gradients {
-  @include theme-variant() {
-    @include bg-gradient-variant(".bg-gradient-#{$color}", $value);
-  }
+// @if $enable-gradients {
+//   @include theme-variant() {
+//     @include bg-gradient-variant(".bg-gradient-#{$color}", $value, true);
+//   }
+// }
+
+@include theme-gradients() {
+  @include coreui-bg-gradient-variant(".bg-gradient-#{$gradient}", $value);
 }
 
-@each $color, $value in $theme-gradients {
-  @include coreui-bg-gradient-variant(".bg-gradient-#{$color}", $value);
-  .c-dark-theme {
-    @include coreui-bg-gradient-variant-dark-theme(".bg-gradient-#{$color}", $value);
-  }
-}
 .bg-white {
   background-color: $white !important;
 }

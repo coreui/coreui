@@ -1,5 +1,5 @@
 /*!
-  * CoreUI async-load.js v3.0.0 (https://coreui.io)
+  * CoreUI async-load.js v3.2.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,8 +9,8 @@
   (global = global || self, global.AsyncLoad = factory(global.Data, global.EventHandler));
 }(this, (function (Data, EventHandler) { 'use strict';
 
-  Data = Data && Data.hasOwnProperty('default') ? Data['default'] : Data;
-  EventHandler = EventHandler && EventHandler.hasOwnProperty('default') ? EventHandler['default'] : EventHandler;
+  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
+  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -79,7 +79,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v4.3.1): util/index.js
+   * Bootstrap (v5.0.0-alpha1): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -102,38 +102,32 @@
    */
 
   var NAME = 'asyncLoad';
-  var VERSION = '3.0.0';
+  var VERSION = '3.2.0';
   var DATA_KEY = 'coreui.asyncLoad';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
-  var ClassName = {
-    ACTIVE: 'c-active',
-    NAV_DROPDOWN_TOGGLE: 'c-sidebar-nav-dropdown-toggle',
-    SHOW: 'c-show',
-    VIEW_SCRIPT: 'view-script'
-  };
-  var Event = {
-    CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY,
-    XHR_STATUS: 'xhr'
-  };
-  var Selector = {
-    NAV_DROPDOWN: '.c-sidebar-nav-dropdown',
-    NAV_LINK: '.c-xhr-link, .c-sidebar-nav-link',
-    NAV_ITEM: '.c-sidebar-nav-item',
-    VIEW_SCRIPT: '.view-script'
-  };
+  var CLASS_NAME_ACTIVE = 'c-active';
+  var CLASS_NAME_NAV_DROPDOWN_TOGGLE = 'c-sidebar-nav-dropdown-toggle';
+  var CLASS_NAME_NAV_LINK = 'c-sidebar-nav-link';
+  var CLASS_NAME_SHOW = 'c-show';
+  var CLASS_NAME_VIEW_SCRIPT = 'view-script';
+  var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
+  var EVENT_XHR_STATUS = 'xhr';
+  var SELECTOR_NAV_DROPDOWN = '.c-sidebar-nav-dropdown';
+  var SELECTOR_NAV_LINK = '.c-xhr-link, .c-sidebar-nav-link';
+  var SELECTOR_NAV_ITEM = '.c-sidebar-nav-item';
+  var SELECTOR_VIEW_SCRIPT = '.view-script';
   var Default = {
     defaultPage: 'main.html',
     errorPage: '404.html',
     subpagesDirectory: 'views/'
   };
 
-  var AsyncLoad =
-  /*#__PURE__*/
-  function () {
+  var AsyncLoad = /*#__PURE__*/function () {
     function AsyncLoad(element, config) {
       this._config = this._getConfig(config);
-      this._element = element;
+      this._element = element; // eslint-disable-next-line no-restricted-globals
+
       var url = location.hash.replace(/^#/, ''); // eslint-disable-next-line no-negated-condition
 
       if (url !== '') {
@@ -150,7 +144,7 @@
 
     // Private
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread2({}, Default, {}, config);
+      config = _objectSpread2(_objectSpread2({}, Default), config);
       return config;
     };
 
@@ -168,7 +162,7 @@
         var script = document.createElement('script');
         script.type = 'text/javascript';
         script.src = src[element];
-        script.className = ClassName.VIEW_SCRIPT; // eslint-disable-next-line no-multi-assign, unicorn/prefer-add-event-listener
+        script.className = CLASS_NAME_VIEW_SCRIPT; // eslint-disable-next-line no-multi-assign, unicorn/prefer-add-event-listener
 
         script.onload = script.onreadystatechange = function () {
           if (!_this.readyState || _this.readyState === 'complete') {
@@ -183,7 +177,7 @@
       };
 
       var removeScripts = function removeScripts() {
-        var oldScripts = document.querySelectorAll(Selector.VIEW_SCRIPT);
+        var oldScripts = document.querySelectorAll(SELECTOR_VIEW_SCRIPT);
 
         if (oldScripts.length) {
           oldScripts.forEach(function (oldScript) {
@@ -194,7 +188,7 @@
 
       var xhr = new XMLHttpRequest();
       xhr.open('GET', config.subpagesDirectory + url);
-      var event = new CustomEvent(Event.XHR_STATUS, {
+      var event = new CustomEvent(EVENT_XHR_STATUS, {
         detail: {
           url: url,
           status: xhr.status
@@ -204,7 +198,7 @@
 
       xhr.onload = function (result) {
         if (xhr.status === 200) {
-          event = new CustomEvent(Event.XHR_STATUS, {
+          event = new CustomEvent(EVENT_XHR_STATUS, {
             detail: {
               url: url,
               status: xhr.status
@@ -241,27 +235,27 @@
     _proto._setUpUrl = function _setUpUrl(url) {
       url = url.replace(/^\//, '').split('?')[0]; // eslint-disable-next-line unicorn/prefer-spread
 
-      Array.from(document.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
-        element.classList.remove(ClassName.ACTIVE);
+      Array.from(document.querySelectorAll(SELECTOR_NAV_LINK)).forEach(function (element) {
+        element.classList.remove(CLASS_NAME_ACTIVE);
       }); // eslint-disable-next-line unicorn/prefer-spread
 
-      Array.from(document.querySelectorAll(Selector.NAV_LINK)).forEach(function (element) {
-        element.classList.remove(ClassName.ACTIVE);
+      Array.from(document.querySelectorAll(SELECTOR_NAV_LINK)).forEach(function (element) {
+        element.classList.remove(CLASS_NAME_ACTIVE);
       }); // eslint-disable-next-line unicorn/prefer-spread
 
-      Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
-        element.classList.remove(ClassName.SHOW);
+      Array.from(document.querySelectorAll(SELECTOR_NAV_DROPDOWN)).forEach(function (element) {
+        element.classList.remove(CLASS_NAME_SHOW);
       }); // eslint-disable-next-line unicorn/prefer-spread
 
-      Array.from(document.querySelectorAll(Selector.NAV_DROPDOWN)).forEach(function (element) {
+      Array.from(document.querySelectorAll(SELECTOR_NAV_DROPDOWN)).forEach(function (element) {
         // eslint-disable-next-line unicorn/prefer-spread
         if (Array.from(element.querySelectorAll("a[href*=\"" + url + "\"]")).length > 0) {
-          element.classList.add(ClassName.SHOW);
+          element.classList.add(CLASS_NAME_SHOW);
         }
       }); // eslint-disable-next-line unicorn/prefer-spread
 
-      Array.from(document.querySelectorAll(Selector.NAV_ITEM + " a[href*=\"" + url + "\"]")).forEach(function (element) {
-        element.classList.add(ClassName.ACTIVE);
+      Array.from(document.querySelectorAll(SELECTOR_NAV_ITEM + " a[href*=\"" + url + "\"]")).forEach(function (element) {
+        element.classList.add(CLASS_NAME_ACTIVE);
       });
 
       this._loadPage(url);
@@ -292,15 +286,15 @@
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
-      EventHandler.on(document, Event.CLICK_DATA_API, Selector.NAV_LINK, function (event) {
+      EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, function (event) {
         event.preventDefault();
         var link = event.target;
 
-        if (!link.classList.contains(ClassName.NAV_LINK)) {
-          link = link.closest(Selector.NAV_LINK);
+        if (!link.classList.contains(CLASS_NAME_NAV_LINK)) {
+          link = link.closest(SELECTOR_NAV_LINK);
         }
 
-        if (!link.classList.contains(ClassName.NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
+        if (!link.classList.contains(CLASS_NAME_NAV_DROPDOWN_TOGGLE) && link.getAttribute('href') !== '#') {
           _this2._update(link);
         }
       });

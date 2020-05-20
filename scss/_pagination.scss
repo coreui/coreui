@@ -9,6 +9,7 @@
   display: block;
   padding: $pagination-padding-y $pagination-padding-x;
   line-height: $pagination-line-height;
+  text-decoration: if($link-decoration == none, null, none);
   border: $pagination-border-width solid;
   @include ltr {
     margin-left: -$pagination-border-width;
