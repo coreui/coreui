@@ -44,17 +44,49 @@
 }
 
 .c-wrapper {
-  will-change: auto;
-  transition: transform 0.25s, margin-left 0.25s, margin-right 0.25s, width 0.25s, flex 0.25s;
+  transition: margin 0.3s;
 }
 
 .c-sidebar {
-  will-change: auto;
-  transition: box-shadow 0.25s, transform 0.25s, margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0.25s;
+  transition: box-shadow 0.3s 0.15s, transform 0.3s, margin-left 0.3s, margin-right 0.3s, width 0.3s, z-index 0s ease 0.3s;
 }
 
 .c-sidebar.c-sidebar-unfoldable {
-  transition: transform 0.25s, margin-left 0.25s, margin-right 0.25s, width 0.25s, z-index 0s ease 0s;
+  transition: transform 0.3s, margin-left 0.3s, margin-right 0.3s, width 0.3s, z-index 0s ease 0s;
+}
+
+.c-no-layout-transition .c-wrapper,
+.c-no-layout-transition .c-sidebar {
+  transition: none;
+}
+
+.c-no-layout-transition .c-wrapper .c-sidebar-header,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-title,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-divider,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-link,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-icon,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-dropdown,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-dropdown-toggle,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-dropdown-items,
+.c-no-layout-transition .c-wrapper .c-sidebar-nav-label,
+.c-no-layout-transition .c-wrapper .c-sidebar-footer,
+.c-no-layout-transition .c-wrapper .c-sidebar-minimizer,
+.c-no-layout-transition .c-sidebar .c-sidebar-header,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-title,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-divider,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-link,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-icon,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-dropdown,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-dropdown-toggle,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-dropdown-items,
+.c-no-layout-transition .c-sidebar .c-sidebar-nav-label,
+.c-no-layout-transition .c-sidebar .c-sidebar-footer,
+.c-no-layout-transition .c-sidebar .c-sidebar-minimizer {
+  transition: none;
+}
+
+.c-no-transition {
+  transition: none;
 }
 
 /*# sourceMappingURL=transitions.css.map */

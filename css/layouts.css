@@ -1,6 +1,6 @@
 .c-app {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   min-height: 100vh;
 }
 
@@ -13,22 +13,50 @@
 
 .c-wrapper {
   display: flex;
+  flex: 1;
   flex-direction: column;
+  min-width: 0;
+  min-height: 100vh;
 }
 
-.c-wrapper:not(.c-wrapper-fluid) {
-  height: 100vh;
-}
-
-.c-wrapper:not(.c-wrapper-fluid) .c-header-fixed,
-.c-wrapper:not(.c-wrapper-fluid) .c-subheader-fixed,
-.c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
+.c-wrapper:not(.c-wrapper-fluid) .c-subheader-fixed {
   position: relative;
 }
 
+.c-wrapper:not(.c-wrapper-fluid) .c-header-fixed {
+  position: sticky;
+  top: 0;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .c-wrapper:not(.c-wrapper-fluid) .c-header-fixed {
+    position: fixed;
+    margin: inherit;
+  }
+  .c-wrapper:not(.c-wrapper-fluid) .c-header-fixed ~ .c-body {
+    margin-top: 104px;
+  }
+}
+
+.c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
+  position: sticky;
+  bottom: 0;
+}
+
+@media all and (-ms-high-contrast: none) {
+  .c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed {
+    position: fixed;
+    margin: inherit;
+  }
+  .c-wrapper:not(.c-wrapper-fluid) .c-footer-fixed ~ .c-body {
+    margin-bottom: 49px;
+  }
+}
+
 .c-wrapper:not(.c-wrapper-fluid) .c-body {
+  display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  flex-grow: 1;
 }
 
 .c-wrapper.c-wrapper-fluid {
@@ -37,12 +65,6 @@
 
 .c-wrapper.c-wrapper-fluid .c-header-fixed {
   margin: inherit;
-}
-
-.c-body {
-  display: flex;
-  flex-direction: row;
-  flex-grow: 1;
 }
 
 .c-main {

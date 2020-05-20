@@ -15,7 +15,7 @@
   position: fixed;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 1029;
 }
 
 .c-header .c-subheader {
@@ -28,7 +28,7 @@
   justify-content: center;
   width: auto;
   min-height: 56px;
-  transition: width 0.25s;
+  transition: width 0.3s;
 }
 
 .c-header-brand.c-header-brand-center {

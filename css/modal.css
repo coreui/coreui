@@ -73,6 +73,7 @@
 .modal-dialog-centered::before {
   display: block;
   height: calc(100vh - 1rem);
+  height: min-content;
   content: "";
 }
 
@@ -196,6 +197,7 @@ html:not([dir="rtl"]) .modal-header .close {
   }
   .modal-dialog-centered::before {
     height: calc(100vh - 3.5rem);
+    height: min-content;
   }
   .modal-sm {
     max-width: 300px;

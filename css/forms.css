@@ -49,6 +49,13 @@
   opacity: 1;
 }
 
+input[type="date"].form-control,
+input[type="time"].form-control,
+input[type="datetime-local"].form-control,
+input[type="month"].form-control {
+  appearance: none;
+}
+
 select.form-control:focus::-ms-value {
   color: #768192;
   background-color: #fff;

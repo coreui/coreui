@@ -75,7 +75,7 @@ html:not([dir="rtl"]) .c-avatar-status {
 
 .c-avatars-stack .c-avatar {
   margin-right: -18px;
-  transition: margin-right 0.25s;
+  transition: margin-right 0.3s;
 }
 
 .c-avatars-stack .c-avatar:hover {

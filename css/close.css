@@ -8,9 +8,11 @@
   text-shadow: 0 1px 0 #fff;
 }
 
-.close:hover {
-  text-decoration: none;
-  color: #000015;
+@media (hover: hover), (-ms-high-contrast: none) {
+  .close:hover {
+    text-decoration: none;
+    color: #000015;
+  }
 }
 
 .close:not(:disabled):not(.disabled):hover, .close:not(:disabled):not(.disabled):focus {
@@ -21,7 +23,6 @@ button.close {
   padding: 0;
   background-color: transparent;
   border: 0;
-  appearance: none;
 }
 
 a.close.disabled {

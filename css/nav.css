@@ -176,50 +176,50 @@ html:not([dir="rtl"]) .nav-tabs-boxed.nav-tabs-boxed-right .nav-item {
   background: transparent;
 }
 
-.nav-underline.nav-underline-primary .nav-link.active,
-.nav-underline.nav-underline-primary .show > .nav-link {
+.nav-underline-primary .nav-link.active,
+.nav-underline-primary .show > .nav-link {
   color: #321fdb;
   border-color: #321fdb;
 }
 
-.nav-underline.nav-underline-secondary .nav-link.active,
-.nav-underline.nav-underline-secondary .show > .nav-link {
+.nav-underline-secondary .nav-link.active,
+.nav-underline-secondary .show > .nav-link {
   color: #ced2d8;
   border-color: #ced2d8;
 }
 
-.nav-underline.nav-underline-success .nav-link.active,
-.nav-underline.nav-underline-success .show > .nav-link {
+.nav-underline-success .nav-link.active,
+.nav-underline-success .show > .nav-link {
   color: #2eb85c;
   border-color: #2eb85c;
 }
 
-.nav-underline.nav-underline-info .nav-link.active,
-.nav-underline.nav-underline-info .show > .nav-link {
+.nav-underline-info .nav-link.active,
+.nav-underline-info .show > .nav-link {
   color: #39f;
   border-color: #39f;
 }
 
-.nav-underline.nav-underline-warning .nav-link.active,
-.nav-underline.nav-underline-warning .show > .nav-link {
+.nav-underline-warning .nav-link.active,
+.nav-underline-warning .show > .nav-link {
   color: #f9b115;
   border-color: #f9b115;
 }
 
-.nav-underline.nav-underline-danger .nav-link.active,
-.nav-underline.nav-underline-danger .show > .nav-link {
+.nav-underline-danger .nav-link.active,
+.nav-underline-danger .show > .nav-link {
   color: #e55353;
   border-color: #e55353;
 }
 
-.nav-underline.nav-underline-light .nav-link.active,
-.nav-underline.nav-underline-light .show > .nav-link {
+.nav-underline-light .nav-link.active,
+.nav-underline-light .show > .nav-link {
   color: #ebedef;
   border-color: #ebedef;
 }
 
-.nav-underline.nav-underline-dark .nav-link.active,
-.nav-underline.nav-underline-dark .show > .nav-link {
+.nav-underline-dark .nav-link.active,
+.nav-underline-dark .show > .nav-link {
   color: #636f83;
   border-color: #636f83;
 }

@@ -405,7 +405,7 @@ html:not([dir="rtl"]) .custom-file-label::after {
 }
 
 .custom-range::-webkit-slider-thumb:active {
-  background-color: ghten(#321fdb, 35%);
+  background-color: #beb8f5;
 }
 
 .custom-range::-webkit-slider-runnable-track {
@@ -435,7 +435,7 @@ html:not([dir="rtl"]) .custom-file-label::after {
 }
 
 .custom-range::-moz-range-thumb:active {
-  background-color: ghten(#321fdb, 35%);
+  background-color: #beb8f5;
 }
 
 .custom-range::-moz-range-track {
@@ -468,7 +468,7 @@ html:not([dir="rtl"]) .custom-file-label::after {
 }
 
 .custom-range::-ms-thumb:active {
-  background-color: ghten(#321fdb, 35%);
+  background-color: #beb8f5;
 }
 
 .custom-range::-ms-track {

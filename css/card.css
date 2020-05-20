@@ -17,14 +17,21 @@
   margin-left: 0;
 }
 
-.card > .list-group:first-child .list-group-item:first-child {
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+.card > .list-group {
+  border-top: inherit;
+  border-bottom: inherit;
 }
 
-.card > .list-group:last-child .list-group-item:last-child {
-  border-bottom-right-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+.card > .list-group:first-child {
+  border-top-width: 0;
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.card > .list-group:last-child {
+  border-bottom-width: 0;
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
 .card.drag,
@@ -32,76 +39,15 @@
   cursor: move;
 }
 
-.card.bg-primary {
-  border-color: #2517a3;
+.card[class^="bg-"],
+.card[class*=" bg-"] {
+  border-color: rgba(0, 0, 0, 0.125);
 }
 
-.card.bg-primary .card-header {
-  background-color: #2f1dce;
-  border-color: #2517a3;
-}
-
-.card.bg-secondary {
-  border-color: #abb1bc;
-}
-
-.card.bg-secondary .card-header {
-  background-color: #c5cad1;
-  border-color: #abb1bc;
-}
-
-.card.bg-success {
-  border-color: #218543;
-}
-
-.card.bg-success .card-header {
-  background-color: #2bac56;
-  border-color: #218543;
-}
-
-.card.bg-info {
-  border-color: #0079f2;
-}
-
-.card.bg-info .card-header {
-  background-color: #2491ff;
-  border-color: #0079f2;
-}
-
-.card.bg-warning {
-  border-color: #c98b05;
-}
-
-.card.bg-warning .card-header {
-  background-color: #f8ac06;
-  border-color: #c98b05;
-}
-
-.card.bg-danger {
-  border-color: #d82121;
-}
-
-.card.bg-danger .card-header {
-  background-color: #e34646;
-  border-color: #d82121;
-}
-
-.card.bg-light {
-  border-color: #c8cdd3;
-}
-
-.card.bg-light .card-header {
-  background-color: #e3e5e8;
-  border-color: #c8cdd3;
-}
-
-.card.bg-dark {
-  border-color: #48505f;
-}
-
-.card.bg-dark .card-header {
-  background-color: #5c687a;
-  border-color: #48505f;
+.card[class^="bg-"] .card-header,
+.card[class*=" bg-"] .card-header {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.125);
 }
 
 .card-body {
@@ -123,8 +69,10 @@
   margin-bottom: 0;
 }
 
-.card-link:hover {
-  text-decoration: none;
+@media (hover: hover), (-ms-high-contrast: none) {
+  .card-link:hover {
+    text-decoration: none;
+  }
 }
 
 html:not([dir="rtl"]) .card-link + .card-link {
