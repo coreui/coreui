@@ -172,7 +172,6 @@ html:not([dir="rtl"]) .card-link + .card-link {
   .card-deck .card {
     flex: 1 0 0%;
     margin-right: 15px;
-    margin-bottom: 0;
     margin-left: 15px;
   }
 }
@@ -188,7 +187,6 @@ html:not([dir="rtl"]) .card-link + .card-link {
   }
   .card-group > .card {
     flex: 1 0 0%;
-    margin-bottom: 0;
   }
   html:not([dir="rtl"]) .card-group > .card + .card {
     margin-left: 0;
