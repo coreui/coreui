@@ -1,4 +1,6 @@
-# CoreUI - Open Source UI Kit built on top of Bootstrap 4 and plain JavaScript without jQuery. [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20Bootstrap%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
+# CoreUI - Open Source UI Components Library built on top of Bootstrap 4 and plain JavaScript without jQuery. [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/intent/tweet?text=CoreUI%20-%20Free%20Bootstrap%204%20Admin%20Template%20&url=https://coreui.io&hashtags=bootstrap,admin,template,dashboard,panel,free,angular,react,vue)
+
+![Template](https://coreui.io/images/github/vue-free-template-3.gif)
 
 Please help us on [Product Hunt](https://www.producthunt.com/posts/coreui-open-source-bootstrap-4-admin-template-with-angular-2-react-js-vue-js-support). Thanks in advance!
 
@@ -7,6 +9,7 @@ CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the faste
 ## Table of Contents
 
 * [Templates](#templates)
+* [CoreUI Components for Angular, React.js, and Vue.js](#coreui-components-for-angular-reactjs-and-vuejs)
 * [CoreUI PRO Bootstrap Admin Templates](#coreui-pro-bootstrap-admin-templates)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -19,10 +22,16 @@ CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the faste
 * [License](#license)
 * [Support CoreUI Development](#support-coreui-development)
 
-## Templates
+## CoreUI Components for Angular, React.js, and Vue.js
 
-* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
+* [CoreUI for Angular](https://github.com/coreui/coreui-angular)
+* [CoreUI for React.js](https://github.com/coreui/coreui-react)
+* [CoreUI for Vue.js](https://github.com/coreui/coreui-vue)
+
+## Admin Templates
+
 * [CoreUI Free Angular Admin Template](https://github.com/coreui/coreui-free-angular-admin-template)
+* [CoreUI Free Bootstrap Admin Template](https://github.com/coreui/coreui-free-bootstrap-admin-template)
 * [CoreUI Free Laravel Admin Template](https://github.com/coreui/coreui-free-laravel-admin-template)
 * [CoreUI Free React.js Admin Template](https://github.com/coreui/coreui-free-react-admin-template)
 * [CoreUI Free Vue.js Admin Template](https://github.com/coreui/coreui-free-vue-admin-template)
@@ -31,9 +40,10 @@ CoreUI is an Open Source UI Kit built on top of Bootstrap 4. CoreUI is the faste
 
 ## CoreUI PRO Bootstrap Admin Templates
 
-| Default Layout | Dark Layout |
-| --- | --- |
-| [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_light.png)](https://coreui.io/pro/) | [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_dark.png)](https://coreui.io/pro/)
+| Default Theme | Legacy Theme | Dark Theme |
+| --- | --- | --- |
+| [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_default.png)](https://coreui.io/pro/) | [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_legacy.png)](https://coreui.io/pro/) | [![CoreUI Pro Bootstrap Admin Template](https://coreui.io/images/mockups/mockup_3_1_dark.png)](https://coreui.io/pro/)
+
 
 ## Installation
 
@@ -60,7 +70,7 @@ $ yarn add @coreui/coreui
 ### Composer
 
 ``` bash
-$ composer require coreui/coreui:3.0.0
+$ composer require coreui/coreui:3.2.2
 ```
 
 ## Usage
@@ -73,7 +83,7 @@ Copy-paste the stylesheet `<link>` into your `<head>` before all other styleshee
 <link rel="stylesheet" href="node_modules/@coreui/coreui/dist/css/coreui.min.css">
 ```
 
-### JS
+### JavaScript
 
 Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins. Place the following `<script>`s near the end of your pages, right before the closing `</body>` tag, to enable them.
 
@@ -104,7 +114,7 @@ Editor preferences are available in the [editor config](https://github.com/coreu
 
 ## Versioning
 
-For transparency into our release cycle and in striving to maintain backward compatibility,CoreUI Free Admin Template is maintained under [the Semantic Versioning guidelines](http://semver.org/).
+For transparency into our release cycle and in striving to maintain backward compatibility, CoreUI is maintained under [the Semantic Versioning guidelines](http://semver.org/).
 
 See [the Releases section of our project](https://github.com/coreui/coreui/releases) for changelogs for each release version.
 
