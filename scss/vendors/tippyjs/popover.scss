@@ -1,0 +1,174 @@
+.#{$namespace-prefix}-box[data-theme~='cpopover'] {
+  z-index: $zindex-popover;
+  display: block;
+  max-width: $popover-max-width;
+  @include reset-text();
+  @include font-size($popover-font-size);
+  word-wrap: break-word;
+  background-clip: padding-box;
+  border: $popover-border-width solid;
+  @include border-radius($popover-border-radius);
+  @include box-shadow($popover-box-shadow);
+
+  @include themes($popover-theme-map) {
+    background-color: themes-get-value("popover-bg");
+    border-color: themes-get-value("popover-border-color");
+  }
+
+  >.#{$namespace-prefix}-content {
+    max-width: auto;
+    padding: 0;
+    color: initial;
+    text-align: initial;
+    background-color: initial;
+    border-radius: initial;
+  }
+
+  >.#{$namespace-prefix}-arrow {
+    position: absolute;
+    display: block;
+    color: transparent;
+
+    &::before,
+    &::after {
+      position: absolute;
+      display: block;
+      content: "";
+      border-color: transparent;
+      border-style: solid;
+    }
+  }
+
+  // .#{$namespace-prefix}-arrow {
+  //   @include themes($popover-theme-map) {
+  //     border-color: themes-get-value("popover-arrow-outer-color");
+  //     color: themes-get-value("popover-arrow-color");
+  //   }
+
+  //   &::after {
+  //     content: '';
+  //     z-index: -1;
+  //     position: absolute;
+  //     border-color: transparent;
+  //     border-style: solid;
+  //     border-width: 8px;
+  //   }
+  // }
+
+  &[data-placement^='top'],
+  &[data-placement^='bottom'] {
+    > .#{$namespace-prefix}-arrow {
+      width: add($popover-arrow-width, (2 * $popover-border-radius));
+      height: $popover-arrow-height;
+      padding: 0 $popover-border-radius; // make sure the arrow does not touch the popover's rounded corners
+
+      &::before {
+        left: auto;
+      }
+    }
+  }
+
+  &[data-placement^='right'],
+  &[data-placement^='left'] {
+    > .#{$namespace-prefix}-arrow {
+      width: $popover-arrow-height;
+      height: add($popover-arrow-width, (2 * $popover-border-radius));
+      padding: $popover-border-radius 0; // make sure the arrow does not touch the popover's rounded corners
+      margin: 0;
+    }
+  }
+
+
+  &[data-placement^='top'] {
+
+    > .#{$namespace-prefix}-arrow {
+      bottom: subtract(-$popover-arrow-height, $popover-border-width);
+
+      &::before {
+        bottom: 0;
+        border-width: $popover-arrow-height ($popover-arrow-width / 2) 0;
+        @include themes($popover-theme-map) {
+          border-top-color: themes-get-value("popover-arrow-outer-color");
+        }
+      }
+
+      &::after {
+        bottom: $popover-border-width;
+        border-width: $popover-arrow-height ($popover-arrow-width / 2) 0;
+        @include themes($popover-theme-map) {
+          border-top-color: themes-get-value("popover-arrow-color");
+        }
+      }
+    }
+  }
+
+  &[data-placement^='bottom'] {
+
+    > .#{$namespace-prefix}-arrow {
+      top: subtract(-$popover-arrow-height, $popover-border-width);
+
+      &::before {
+        top: 0;
+        border-width: 0 ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2);
+        @include themes($popover-theme-map) {
+          border-bottom-color: themes-get-value("popover-arrow-outer-color");
+        }
+      }
+
+      &::after {
+        top: $popover-border-width;
+        border-width: 0 ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2);
+        @include themes($popover-theme-map) {
+          border-bottom-color: themes-get-value("popover-arrow-color");
+        }
+      }
+    }
+  }
+
+  &[data-placement^='left'] {
+
+    > .#{$namespace-prefix}-arrow {
+      right: subtract(-$popover-arrow-height, $popover-border-width);
+
+      &::before {
+        right: 0;
+        border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height;
+        @include themes($popover-theme-map) {
+          border-left-color: themes-get-value("popover-arrow-outer-color");
+        }
+      }
+
+      &::after {
+        right: $popover-border-width;
+        border-width: ($popover-arrow-width / 2) 0 ($popover-arrow-width / 2) $popover-arrow-height;
+        @include themes($popover-theme-map) {
+          border-left-color: themes-get-value("popover-arrow-color");
+        }
+      }
+    }
+  }
+
+
+  &[data-placement^='right'] {
+
+    > .#{$namespace-prefix}-arrow {
+      left: subtract(-$popover-arrow-height, $popover-border-width);
+
+      &::before {
+        left: 0;
+        border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0;
+        @include themes($popover-theme-map) {
+          border-right-color: themes-get-value("popover-arrow-outer-color");
+        }
+      }
+
+      &::after {
+        left: $popover-border-width;
+        border-width: ($popover-arrow-width / 2) $popover-arrow-height ($popover-arrow-width / 2) 0;
+        @include themes($popover-theme-map) {
+          border-right-color: themes-get-value("popover-arrow-color");
+        }
+      }
+    }
+  }
+}

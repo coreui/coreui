@@ -17,18 +17,12 @@
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  @include ltr {
-    left: 0;
-  }
-  @include rtl {
-    right: 0;
-  }
+  // left: 0;
   z-index: $zindex-dropdown;
   display: none; // none by default, but block on "open" of the menu
   float: left;
   min-width: $dropdown-min-width;
   padding: $dropdown-padding-y 0;
-  margin: $dropdown-spacer 0 0; // override default ul
   @include font-size($dropdown-font-size);
   text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   list-style: none;
@@ -44,32 +38,39 @@
   }
 }
 
+.c-header .dropdown-menu,
+.navbar .dropdown-menu,
+[data-display^="static"] ~ .dropdown-menu {
+  margin: $dropdown-spacer 0 0; // override default ul
+}
+
 @each $breakpoint in map-keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-    .c-header .dropdown-menu,
-    .navbar .dropdown-menu,
-    .dropdown-menu[data-display^="static"] {
-      &.dropdown-menu#{$infix}-left {
-        @include ltr {
-          right: auto;
-          left: 0;
-        }
-        @include rtl {
-          right: 0;
-          left: auto;
-        }
-      }
 
-      &.dropdown-menu#{$infix}-right {
-        @include ltr {
-          right: 0;
-          left: auto;
-        }
-        @include rtl {
-          right: auto;
-          left: 0;
-        }
+    .c-header .dropdown-menu#{$infix}-left,
+    .navbar .dropdown-menu#{$infix}-left,
+    [data-display^="static"] ~ .dropdown-menu#{$infix}-left {
+      @include ltr {
+        right: auto;
+        left: 0;
+      }
+      @include rtl {
+        right: 0;
+        left: auto;
+      }
+    }
+
+    .c-header .dropdown-menu#{$infix}-right,
+    .navbar .dropdown-menu#{$infix}-right,
+    [data-display^="static"] ~ .dropdown-menu#{$infix}-right {
+      @include ltr {
+        right: 0;
+        left: auto;
+      }
+      @include rtl {
+        right: auto;
+        left: 0;
       }
     }
   }

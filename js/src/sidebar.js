@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.0): sidebar.js
+ * CoreUI (v3.2.2): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -9,6 +9,8 @@ import {
   getjQuery,
   reflow,
   TRANSITION_END,
+  emulateTransitionEnd,
+  getTransitionDurationFromElement,
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
@@ -23,7 +25,7 @@ import PerfectScrollbar from 'perfect-scrollbar'
  */
 
 const NAME = 'sidebar'
-const VERSION = '3.2.0'
+const VERSION = '3.2.2'
 const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -146,7 +148,10 @@ class Sidebar {
       }
     }
 
+    const transitionDuration = getTransitionDurationFromElement(this._element)
+
     EventHandler.one(this._element, TRANSITION_END, complete)
+    emulateTransitionEnd(this._element, transitionDuration)
   }
 
   close(breakpoint) {
@@ -175,7 +180,10 @@ class Sidebar {
       }
     }
 
+    const transitionDuration = getTransitionDurationFromElement(this._element)
+
     EventHandler.one(this._element, TRANSITION_END, complete)
+    emulateTransitionEnd(this._element, transitionDuration)
   }
 
   toggle(breakpoint) {

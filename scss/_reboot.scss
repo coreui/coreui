@@ -42,9 +42,12 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 // 2. As a best practice, apply a default `background-color`.
 // 3. Set an explicit initial text-align value so that we can later use
 //    the `inherit` value on things like `<th>` elements.
+// 4. Disable horizontal scrolling
 
 body {
   margin: 0; // 1
+  // TODO: find a better solution to avoid horizontal scroll if a sidebar doesn't have a fixed position.
+  overflow-x: hidden; // 4
   font-family: $font-family-base;
   @include font-size($font-size-base);
   font-weight: $font-weight-base;
@@ -52,7 +55,7 @@ body {
   text-align: left; // 3
   @include themes($body-theme-map, $create: append) {
     color: themes-get-value("body-color");
-    background-color: themes-get-value("body-bg");
+    background-color: themes-get-value("body-bg"); // 2
   }
 }
 

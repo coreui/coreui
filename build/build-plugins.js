@@ -9,21 +9,15 @@
 
 const path = require('path')
 const rollup = require('rollup')
-const babel = require('rollup-plugin-babel')
+const { babel } = require('@rollup/plugin-babel')
 const banner = require('./banner.js')
 
 const plugins = [
   babel({
     // Only transpile our source code
     exclude: 'node_modules/**',
-    // Include only required helpers
-    externalHelpersWhitelist: [
-      'defineProperties',
-      'createClass',
-      'inheritsLoose',
-      'defineProperty',
-      'objectSpread2'
-    ]
+    // Inline the required helpers in each file
+    babelHelpers: 'inline'
   })
 ]
 const coreuiPlugins = {
@@ -160,7 +154,7 @@ const domObjects = [
   'SelectorEngine'
 ]
 
-function build(plugin) {
+const build = async plugin => {
   console.log(`Building ${plugin} plugin...`)
 
   const { external, globals } = getConfigByPluginKey(plugin)
@@ -175,23 +169,32 @@ function build(plugin) {
     pluginPath = `${rootPath}/dom/`
   }
 
-  rollup.rollup({
+  const bundle = await rollup.rollup({
     input: coreuiPlugins[plugin],
     plugins,
     external
-  }).then(bundle => {
-    bundle.write({
-      banner: banner(pluginFilename),
-      format: 'umd',
-      name: plugin,
-      sourcemap: true,
-      globals,
-      file: path.resolve(__dirname, `${pluginPath}/${pluginFilename}`)
-    })
-      .then(() => console.log(`Building ${plugin} plugin... Done!`))
-      .catch(error => console.error(`${plugin}: ${error}`))
   })
+
+  await bundle.write({
+    banner: banner(pluginFilename),
+    format: 'umd',
+    name: plugin,
+    sourcemap: true,
+    globals,
+    file: path.resolve(__dirname, `${pluginPath}/${pluginFilename}`)
+  })
+
+  console.log(`Building ${plugin} plugin... Done!`)
 }
 
-Object.keys(coreuiPlugins)
-  .forEach(plugin => build(plugin))
+const main = async () => {
+  try {
+    await Promise.all(Object.keys(coreuiPlugins).map(plugin => build(plugin)))
+  } catch (error) {
+    console.error(error)
+
+    process.exit(1)
+  }
+}
+
+main()

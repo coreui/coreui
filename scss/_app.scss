@@ -1,6 +1,4 @@
 .c-app {
-  overflow-x: hidden;
-
   @include theme-variant(true) {
     --#{$color}: #{$value};
   }

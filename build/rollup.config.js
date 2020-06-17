@@ -1,7 +1,7 @@
 'use strict'
 
 const path = require('path')
-const babel = require('rollup-plugin-babel')
+const { babel } = require('@rollup/plugin-babel')
 const resolve = require('@rollup/plugin-node-resolve')
 const banner = require('./banner.js')
 const replace = require('@rollup/plugin-replace')
@@ -15,14 +15,8 @@ const plugins = [
   babel({
     // Only transpile our source code
     exclude: 'node_modules/**',
-    // Include only required helpers
-    externalHelpersWhitelist: [
-      'defineProperties',
-      'createClass',
-      'inheritsLoose',
-      'defineProperty',
-      'objectSpread2'
-    ]
+    // Include the helpers in the bundle, at most one copy of each
+    babelHelpers: 'bundled'
   }),
   replace({
     'process.env.NODE_ENV': JSON.stringify('production')

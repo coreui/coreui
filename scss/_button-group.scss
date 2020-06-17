@@ -22,15 +22,6 @@
       z-index: 1;
     }
   }
-  @if $enable-elevations {
-    &:not(.show) {
-      z-index: 1;
-    }
-    .btn-group,
-    .btn-group-vertical {
-      z-index: initial;
-    }
-  }
 }
 
 // Optional: Group multiple button groups together for a toolbar

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.0): tooltip.js
+ * CoreUI (v3.2.2): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -37,7 +37,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'tooltip'
-const VERSION = '3.2.0'
+const VERSION = '3.2.2'
 const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-tooltip'
@@ -53,7 +53,7 @@ const DefaultType = {
   html: 'boolean',
   selector: '(string|boolean)',
   placement: '(string|function)',
-  offset: '(number|string|function)',
+  offset: '(array|function)',
   container: '(string|element|boolean)',
   boundary: '(string|element)',
   sanitize: 'boolean',
@@ -81,7 +81,7 @@ const Default = {
   html: false,
   selector: false,
   placement: 'top',
-  offset: 0,
+  offset: [0, 0],
   container: false,
   boundary: 'scrollParent',
   sanitize: true,
@@ -377,7 +377,7 @@ class Tooltip {
 
   update() {
     if (this._popper !== null) {
-      this._popper.scheduleUpdate()
+      this._popper.update()
     }
   }
 
@@ -497,20 +497,32 @@ class Tooltip {
   //   this.getTipElement().classList.add(`${CLASS_PREFIX}-${attachment}`)
   // }
 
+  // _getOffset() {
+  //   const offset = {}
+
+  //   if (typeof this.config.offset === 'function') {
+  //     offset.fn = data => {
+  //       data.offsets = {
+  //         ...data.offsets,
+  //         ...this.config.offset(data.offsets, this.element) || {}
+  //       }
+
+  //       return data
+  //     }
+  //   } else {
+  //     offset.offset = this.config.offset
+  //   }
+
+  //   return offset
+  // }
+
   _getOffset() {
-    const offset = {}
+    let offset = []
 
     if (typeof this.config.offset === 'function') {
-      offset.fn = data => {
-        data.offsets = {
-          ...data.offsets,
-          ...this.config.offset(data.offsets, this.element) || {}
-        }
-
-        return data
-      }
+      offset = ({ placement, reference, popper }) => this.config.offset(({ placement, reference, popper }))
     } else {
-      offset.offset = this.config.offset
+      offset = this.config.offset
     }
 
     return offset
@@ -750,7 +762,6 @@ class Tooltip {
 
   _cleanTipClass() {
     const tip = this.getTipElement()
-    console.log(this.tip)
     const tabClass = tip.getAttribute('class').match(BSCLS_PREFIX_REGEX)
     if (tabClass !== null && tabClass.length > 0) {
       tabClass.map(token => token.trim())

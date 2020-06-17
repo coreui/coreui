@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.0): dropdown.js
+ * CoreUI (v3.2.2): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -30,7 +30,7 @@ import SelectorEngine from './dom/selector-engine'
  */
 
 const NAME = 'dropdown'
-const VERSION = '3.2.0'
+const VERSION = '3.2.2'
 const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
@@ -255,7 +255,7 @@ class Dropdown {
     this._inNavbar = this._detectNavbar()
     this._inHeader = this._detectHeader()
     if (this._popper) {
-      this._popper.scheduleUpdate()
+      this._popper.update()
     }
   }
 
@@ -320,20 +320,32 @@ class Dropdown {
     return Boolean(this._element.closest(`.${CLASS_NAME_HEADER}`))
   }
 
+  // _getOffset() {
+  //   const offset = {}
+
+  //   if (typeof this._config.offset === 'function') {
+  //     offset.fn = data => {
+  //       data.offsets = {
+  //         ...data.offsets,
+  //         ...this._config.offset(data.offsets, this._element) || {}
+  //       }
+
+  //       return data
+  //     }
+  //   } else {
+  //     offset.offset = this._config.offset
+  //   }
+
+  //   return offset
+  // }
+
   _getOffset() {
-    const offset = {}
+    let offset = []
 
     if (typeof this._config.offset === 'function') {
-      offset.fn = data => {
-        data.offsets = {
-          ...data.offsets,
-          ...this._config.offset(data.offsets, this._element) || {}
-        }
-
-        return data
-      }
+      offset = ({ placement, reference, popper }) => this._config.offset({ placement, reference, popper })
     } else {
-      offset.offset = this._config.offset
+      offset = this._config.offset
     }
 
     return offset
@@ -364,7 +376,8 @@ class Dropdown {
 
     // Disable Popper.js if we have a static display
     if (this._config.display === 'static') {
-      popperConfig.modifiers.applyStyle = {
+      popperConfig.modifiers = {
+        name: 'applyStyles',
         enabled: false
       }
     }

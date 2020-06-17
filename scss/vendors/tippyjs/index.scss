@@ -1,0 +1,103 @@
+@import './_vars.scss';
+@import './animations/fade.scss';
+@import './../../variables';
+@import './popover.scss';
+
+.#{$namespace-prefix}-iOS {
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+[data-#{$namespace-prefix}-root] {
+  max-width: calc(100vw - 10px);
+}
+
+.#{$namespace-prefix}-box {
+  position: relative;
+  z-index: $zindex-tooltip;
+  display: block;
+  margin: $tooltip-margin;
+  // background-color: $color;
+  // color: white;
+  // border-radius: 4px;
+  @include reset-text();
+  @include font-size($tooltip-font-size);
+  word-wrap: break-word;
+  outline: 0;
+  transition-property: transform, visibility, opacity;
+
+  &[data-placement^='top'] > .#{$namespace-prefix}-arrow {
+    bottom: 0;
+
+    &::before {
+      bottom: - $tooltip-arrow-height;
+      left: 0;
+      border-width: $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
+      border-top-color: initial;
+    }
+  }
+
+  &[data-placement^='bottom'] > .#{$namespace-prefix}-arrow {
+    top: 0;
+
+    &::before {
+      top: - $tooltip-arrow-height;
+      left: 0;
+      border-width: 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+      border-bottom-color: initial;
+    }
+  }
+
+  &[data-placement^='left'] > .#{$namespace-prefix}-arrow {
+    right: 0;
+    width: $tooltip-arrow-height;
+    height: $tooltip-arrow-width;
+
+    &::before {
+      right: - $tooltip-arrow-height;
+      border-width: ($tooltip-arrow-width / 2) 0 ($tooltip-arrow-width / 2) $tooltip-arrow-height;
+      border-left-color: initial;
+    }
+  }
+
+  &[data-placement^='right'] > .#{$namespace-prefix}-arrow {
+    left: 0;
+    width: $tooltip-arrow-height;
+    height: $tooltip-arrow-width;
+
+    &::before {
+      left: - $tooltip-arrow-height;
+      border-width: ($tooltip-arrow-width / 2) $tooltip-arrow-height ($tooltip-arrow-width / 2) 0;
+      border-right-color: initial;
+    }
+  }
+
+  &[data-inertia][data-state='visible'] {
+    transition-timing-function: cubic-bezier(0.54, 1.5, 0.38, 1.11);
+  }
+}
+
+.#{$namespace-prefix}-arrow {
+  position: absolute;
+  display: block;
+  width: $tooltip-arrow-width;
+  height: $tooltip-arrow-height;
+  color: $tooltip-arrow-color;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    border-color: transparent;
+    border-style: solid;
+  }
+}
+
+.#{$namespace-prefix}-content {
+  max-width: $tooltip-max-width;
+  padding: $tooltip-padding-y $tooltip-padding-x;
+  color: $tooltip-color;
+  text-align: center;
+  background-color: $tooltip-bg;
+  @include border-radius($tooltip-border-radius);
+}
