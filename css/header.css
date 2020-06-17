@@ -193,8 +193,15 @@ html:not([dir="rtl"]) .c-header-brand.c-header-brand-xl-down-center {
   border-radius: 0.25rem;
 }
 
-.c-header-toggler:hover, .c-header-toggler:focus {
-  text-decoration: none;
+@media (hover: hover), (-ms-high-contrast: none) {
+  .c-header-toggler:hover {
+    color: #4f5d73;
+    text-decoration: none;
+  }
+}
+
+.c-header-toggler:focus, .c-header-toggler.focus {
+  outline: 0;
 }
 
 .c-header-toggler:not(:disabled):not(.c-disabled) {
@@ -226,6 +233,16 @@ html:not([dir="rtl"]) .c-header-brand.c-header-brand-xl-down-center {
 .c-header-nav .c-header-nav-btn {
   background-color: transparent;
   border: 1px solid transparent;
+}
+
+@media (hover: hover), (-ms-high-contrast: none) {
+  .c-header-nav .c-header-nav-btn:hover {
+    text-decoration: none;
+  }
+}
+
+.c-header-nav .c-header-nav-btn:focus, .c-header-nav .c-header-nav-btn.focus {
+  outline: 0;
 }
 
 .c-header-nav .c-header-nav-link,

@@ -1450,12 +1450,20 @@ button.bg-gray-900:focus {
   }
 }
 
-.float-left {
+html:not([dir="rtl"]) .float-left {
   float: left !important;
 }
 
-.float-right {
+*[dir="rtl"] .float-left {
   float: right !important;
+}
+
+html:not([dir="rtl"]) .float-right {
+  float: right !important;
+}
+
+*[dir="rtl"] .float-right {
+  float: left !important;
 }
 
 .float-none {
@@ -1463,11 +1471,17 @@ button.bg-gray-900:focus {
 }
 
 @media (min-width: 576px) {
-  .float-sm-left {
+  html:not([dir="rtl"]) .float-sm-left {
     float: left !important;
   }
-  .float-sm-right {
+  *[dir="rtl"] .float-sm-left {
     float: right !important;
+  }
+  html:not([dir="rtl"]) .float-sm-right {
+    float: right !important;
+  }
+  *[dir="rtl"] .float-sm-right {
+    float: left !important;
   }
   .float-sm-none {
     float: none !important;
@@ -1475,11 +1489,17 @@ button.bg-gray-900:focus {
 }
 
 @media (min-width: 768px) {
-  .float-md-left {
+  html:not([dir="rtl"]) .float-md-left {
     float: left !important;
   }
-  .float-md-right {
+  *[dir="rtl"] .float-md-left {
     float: right !important;
+  }
+  html:not([dir="rtl"]) .float-md-right {
+    float: right !important;
+  }
+  *[dir="rtl"] .float-md-right {
+    float: left !important;
   }
   .float-md-none {
     float: none !important;
@@ -1487,11 +1507,17 @@ button.bg-gray-900:focus {
 }
 
 @media (min-width: 992px) {
-  .float-lg-left {
+  html:not([dir="rtl"]) .float-lg-left {
     float: left !important;
   }
-  .float-lg-right {
+  *[dir="rtl"] .float-lg-left {
     float: right !important;
+  }
+  html:not([dir="rtl"]) .float-lg-right {
+    float: right !important;
+  }
+  *[dir="rtl"] .float-lg-right {
+    float: left !important;
   }
   .float-lg-none {
     float: none !important;
@@ -1499,11 +1525,17 @@ button.bg-gray-900:focus {
 }
 
 @media (min-width: 1200px) {
-  .float-xl-left {
+  html:not([dir="rtl"]) .float-xl-left {
     float: left !important;
   }
-  .float-xl-right {
+  *[dir="rtl"] .float-xl-left {
     float: right !important;
+  }
+  html:not([dir="rtl"]) .float-xl-right {
+    float: right !important;
+  }
+  *[dir="rtl"] .float-xl-right {
+    float: left !important;
   }
   .float-xl-none {
     float: none !important;

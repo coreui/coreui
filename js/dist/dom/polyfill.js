@@ -1,5 +1,5 @@
 /*!
-  * CoreUI polyfill.js v3.2.0 (https://coreui.io)
+  * CoreUI polyfill.js v3.2.2 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */

@@ -1,4 +1,5 @@
 .c-sidebar {
+  position: relative;
   display: flex;
   flex: 0 0 256px;
   flex-direction: column;
@@ -6,6 +7,10 @@
   width: 256px;
   padding: 0;
   box-shadow: none;
+}
+
+.c-sidebar.c-sidebar-right {
+  order: 99;
 }
 
 @media (max-width: 991.98px) {
@@ -16,6 +21,18 @@
     bottom: 0;
     z-index: 1031;
   }
+  html:not([dir="rtl"]) .c-sidebar:not(.c-sidebar-right) {
+    left: 0;
+  }
+  html:not([dir="rtl"]) .c-sidebar.c-sidebar-right {
+    right: 0;
+  }
+  *[dir="rtl"] .c-sidebar:not(.c-sidebar-right) {
+    right: 0;
+  }
+  *[dir="rtl"] .c-sidebar.c-sidebar-right {
+    left: 0;
+  }
 }
 
 html:not([dir="rtl"]) .c-sidebar:not(.c-sidebar-right) {
@@ -23,7 +40,6 @@ html:not([dir="rtl"]) .c-sidebar:not(.c-sidebar-right) {
 }
 
 html:not([dir="rtl"]) .c-sidebar.c-sidebar-right {
-  order: 99;
   margin-right: -256px;
 }
 
@@ -152,6 +168,16 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-overlaid.c-sidebar-right {
   height: 56px;
   background: transparent;
   border: 0;
+}
+
+@media (hover: hover), (-ms-high-contrast: none) {
+  .c-sidebar-close:hover {
+    text-decoration: none;
+  }
+}
+
+.c-sidebar-close:focus, .c-sidebar-close.focus {
+  outline: 0;
 }
 
 html:not([dir="rtl"]) .c-sidebar-close {

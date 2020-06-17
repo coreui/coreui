@@ -25,18 +25,6 @@
   z-index: 1;
 }
 
-.btn-group:not(.show),
-.btn-group-vertical:not(.show) {
-  z-index: 1;
-}
-
-.btn-group .btn-group,
-.btn-group .btn-group-vertical,
-.btn-group-vertical .btn-group,
-.btn-group-vertical .btn-group-vertical {
-  z-index: initial;
-}
-
 .btn-toolbar {
   display: flex;
   flex-wrap: wrap;
