@@ -8507,7 +8507,7 @@
       if (Default$9.dropdownAccordion === true) {
         this._getAllSiblings(toggler.parentElement).forEach(function (element) {
           if (element !== toggler.parentNode) {
-            if (element.classList.contains(CLASS_NAME_NAV_DROPDOWN)) {
+            if (element.classList && element.classList.contains(CLASS_NAME_NAV_DROPDOWN)) {
               element.classList.remove(CLASS_NAME_SHOW$6);
             }
           }
