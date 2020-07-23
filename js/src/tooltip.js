@@ -612,14 +612,14 @@ class Tooltip {
 
   _enter(event, context) {
     const dataKey = this.constructor.DATA_KEY
-    context = context || Data.getData(event.target, dataKey)
+    context = context || Data.getData(event.currentTarget, dataKey)
 
     if (!context) {
       context = new this.constructor(
-        event.target,
+        event.currentTarget,
         this._getDelegateConfig()
       )
-      Data.setData(event.target, dataKey, context)
+      Data.setData(event.currentTarget, dataKey, context)
     }
 
     if (event) {
