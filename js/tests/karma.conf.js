@@ -1,11 +1,11 @@
 /* eslint-env node */
+
 const path = require('path')
 const ip = require('ip')
 const { babel } = require('@rollup/plugin-babel')
 const istanbul = require('rollup-plugin-istanbul')
-const resolve = require('@rollup/plugin-node-resolve')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const replace = require('@rollup/plugin-replace')
-
 
 const {
   browsers,
@@ -84,7 +84,7 @@ const conf = {
       replace({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
-      resolve()
+      nodeResolve()
     ],
     output: {
       format: 'iife',

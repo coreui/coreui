@@ -27,7 +27,7 @@ html:not([dir="rtl"]) .list-group {
 }
 
 .list-group-item-action:active {
-  color: #4f5d73;
+  color: #3c4b64;
   background-color: #d8dbe0;
 }
 
@@ -195,6 +195,31 @@ html:not([dir="rtl"]) .list-group {
     border-left-width: 0;
   }
   .list-group-horizontal-xl .list-group-item + .list-group-item.active {
+    margin-left: -1px;
+    border-left-width: 1px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .list-group-horizontal-xxl {
+    flex-direction: row;
+  }
+  .list-group-horizontal-xxl .list-group-item:first-child {
+    border-bottom-left-radius: 0.25rem;
+    border-top-right-radius: 0;
+  }
+  .list-group-horizontal-xxl .list-group-item:last-child {
+    border-top-right-radius: 0.25rem;
+    border-bottom-left-radius: 0;
+  }
+  .list-group-horizontal-xxl .list-group-item.active {
+    margin-top: 0;
+  }
+  .list-group-horizontal-xxl .list-group-item + .list-group-item {
+    border-top-width: 1px;
+    border-left-width: 0;
+  }
+  .list-group-horizontal-xxl .list-group-item + .list-group-item.active {
     margin-left: -1px;
     border-left-width: 1px;
   }

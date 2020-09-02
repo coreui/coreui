@@ -1,17 +1,19 @@
 /*!
-  * CoreUI class-toggler.js v3.2.2 (https://coreui.io)
+  * CoreUI class-toggler.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js'], factory) :
-  (global = global || self, global.ClassToggler = factory(global.Data, global.EventHandler, global.Manipulator));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ClassToggler = factory(global.Data, global.EventHandler, global.Manipulator));
 }(this, (function (Data, EventHandler, Manipulator) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
-  Manipulator = Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default') ? Manipulator['default'] : Manipulator;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
 
   /**
    * --------------------------------------------------------------------------
@@ -107,7 +109,7 @@
     function ClassToggler(element, config) {
       this._element = element;
       this._config = this._getConfig(config);
-      Data.setData(element, DATA_KEY, this);
+      Data__default['default'].setData(element, DATA_KEY, this);
     } // Getters
 
 
@@ -268,13 +270,13 @@
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread(_objectSpread(_objectSpread({}, this.constructor.Default), Manipulator.getDataAttributes(this._element)), config);
+      config = _objectSpread(_objectSpread(_objectSpread({}, this.constructor.Default), Manipulator__default['default'].getDataAttributes(this._element)), config);
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
       return config;
     };
 
     ClassToggler.classTogglerInterface = function classTogglerInterface(element, config) {
-      var data = Data.getData(element, DATA_KEY);
+      var data = Data__default['default'].getData(element, DATA_KEY);
 
       var _config = typeof config === 'object' && config;
 
@@ -323,7 +325,7 @@
    */
 
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_CLASS_TOGGLER, function (event) {
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_CLASS_TOGGLER, function (event) {
     event.preventDefault();
     event.stopPropagation();
     var toggler = event.target;

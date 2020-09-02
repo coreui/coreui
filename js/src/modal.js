@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): modal.js
+ * CoreUI (v3.3.0): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -413,10 +413,23 @@ class Modal {
         return
       }
 
+      const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight
+
+      if (!isModalOverflowing) {
+        this._element.style.overflowY = 'hidden'
+      }
+
       this._element.classList.add(CLASS_NAME_STATIC)
-      const modalTransitionDuration = getTransitionDurationFromElement(this._element)
+      const modalTransitionDuration = getTransitionDurationFromElement(this._dialog)
+      EventHandler.off(this._element, TRANSITION_END)
       EventHandler.one(this._element, TRANSITION_END, () => {
         this._element.classList.remove(CLASS_NAME_STATIC)
+        if (!isModalOverflowing) {
+          EventHandler.one(this._element, TRANSITION_END, () => {
+            this._element.style.overflowY = ''
+          })
+          emulateTransitionEnd(this._element, modalTransitionDuration)
+        }
       })
       emulateTransitionEnd(this._element, modalTransitionDuration)
       this._element.focus()
@@ -535,7 +548,7 @@ class Modal {
       const _config = {
         ...Default,
         ...Manipulator.getDataAttributes(this),
-        ...typeof config === 'object' && config ? config : {}
+        ...(typeof config === 'object' && config ? config : {})
       }
 
       if (!data) {

@@ -22,12 +22,12 @@ html:not([dir="rtl"]) .breadcrumb-menu {
 }
 
 .breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {
-  color: #4f5d73;
+  color: #3c4b64;
   background: transparent;
 }
 
 .breadcrumb-menu .show .btn {
-  color: #4f5d73;
+  color: #3c4b64;
   background: transparent;
 }
 

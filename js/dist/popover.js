@@ -1,17 +1,19 @@
 /*!
-  * CoreUI popover.js v3.2.2 (https://coreui.io)
+  * CoreUI popover.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/selector-engine.js'), require('./tooltip.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/selector-engine.js', './tooltip.js'], factory) :
-  (global = global || self, global.Popover = factory(global.Data, global.SelectorEngine, global.Tooltip));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Popover = factory(global.Data, global.SelectorEngine, global.Tooltip));
 }(this, (function (Data, SelectorEngine, Tooltip) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  SelectorEngine = SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default') ? SelectorEngine['default'] : SelectorEngine;
-  Tooltip = Tooltip && Object.prototype.hasOwnProperty.call(Tooltip, 'default') ? Tooltip['default'] : Tooltip;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip);
 
   /**
    * --------------------------------------------------------------------------
@@ -55,14 +57,14 @@
   var CLASS_PREFIX = 'bs-popover';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
 
-  var Default = _objectSpread(_objectSpread({}, Tooltip.Default), {}, {
+  var Default = _objectSpread(_objectSpread({}, Tooltip__default['default'].Default), {}, {
     placement: 'right',
     trigger: 'click',
     content: '',
     template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
-  var DefaultType = _objectSpread(_objectSpread({}, Tooltip.DefaultType), {}, {
+  var DefaultType = _objectSpread(_objectSpread({}, Tooltip__default['default'].DefaultType), {}, {
     content: '(string|element|function)'
   });
 
@@ -105,7 +107,7 @@
     _proto.setContent = function setContent() {
       var tip = this.getTipElement(); // we use append for html objects to maintain js events
 
-      this.setElementContent(SelectorEngine.findOne(SELECTOR_TITLE, tip), this.getTitle());
+      this.setElementContent(SelectorEngine__default['default'].findOne(SELECTOR_TITLE, tip), this.getTitle());
 
       var content = this._getContent();
 
@@ -113,14 +115,14 @@
         content = content.call(this.element);
       }
 
-      this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
+      this.setElementContent(SelectorEngine__default['default'].findOne(SELECTOR_CONTENT, tip), content);
       tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
-    };
+    } // Private
+    ;
 
     _proto._addAttachmentClass = function _addAttachmentClass(attachment) {
       this.getTipElement().classList.add(CLASS_PREFIX + "-" + attachment);
-    } // Private
-    ;
+    };
 
     _proto._getContent = function _getContent() {
       return this.element.getAttribute('data-content') || this.config.content;
@@ -142,7 +144,7 @@
 
     Popover.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data.getData(this, DATA_KEY);
+        var data = Data__default['default'].getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' ? config : null;
 
@@ -152,7 +154,7 @@
 
         if (!data) {
           data = new Popover(this, _config);
-          Data.setData(this, DATA_KEY, data);
+          Data__default['default'].setData(this, DATA_KEY, data);
         }
 
         if (typeof config === 'string') {
@@ -166,7 +168,7 @@
     };
 
     Popover.getInstance = function getInstance(element) {
-      return Data.getData(element, DATA_KEY);
+      return Data__default['default'].getData(element, DATA_KEY);
     };
 
     _createClass(Popover, null, [{
@@ -208,7 +210,7 @@
     }]);
 
     return Popover;
-  }(Tooltip);
+  }(Tooltip__default['default']);
 
   var $ = getjQuery();
   /**

@@ -1,0 +1,11 @@
+@mixin toast-variant($background) {
+  color: color-yiq($background);
+  background-color: $background;
+  border-color: darken($background, 10%);
+
+  .toast-header {
+    color: color-yiq($background);
+    background-color: darken($background, 5%);
+    border-color: darken($background, 10%);
+  }
+}

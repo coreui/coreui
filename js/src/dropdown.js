@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): dropdown.js
+ * CoreUI (v3.3.0): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -320,25 +320,6 @@ class Dropdown {
     return Boolean(this._element.closest(`.${CLASS_NAME_HEADER}`))
   }
 
-  // _getOffset() {
-  //   const offset = {}
-
-  //   if (typeof this._config.offset === 'function') {
-  //     offset.fn = data => {
-  //       data.offsets = {
-  //         ...data.offsets,
-  //         ...this._config.offset(data.offsets, this._element) || {}
-  //       }
-
-  //       return data
-  //     }
-  //   } else {
-  //     offset.offset = this._config.offset
-  //   }
-
-  //   return offset
-  // }
-
   _getOffset() {
     let offset = []
 
@@ -514,8 +495,7 @@ class Dropdown {
       return
     }
 
-    const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent)
-      .filter(isVisible)
+    const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent).filter(isVisible)
 
     if (!items.length) {
       return
@@ -557,8 +537,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
   event.stopPropagation()
   Dropdown.dropdownInterface(this, 'toggle')
 })
-EventHandler
-  .on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, e => e.stopPropagation())
+EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, e => e.stopPropagation())
 
 const $ = getjQuery()
 

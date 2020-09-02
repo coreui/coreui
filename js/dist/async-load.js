@@ -1,16 +1,18 @@
 /*!
-  * CoreUI async-load.js v3.2.2 (https://coreui.io)
+  * CoreUI async-load.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js'], factory) :
-  (global = global || self, global.AsyncLoad = factory(global.Data, global.EventHandler));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.AsyncLoad = factory(global.Data, global.EventHandler));
 }(this, (function (Data, EventHandler) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
 
   /**
    * --------------------------------------------------------------------------
@@ -230,7 +232,7 @@
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
-      EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, function (event) {
+      EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, function (event) {
         event.preventDefault();
         var link = event.target;
 
@@ -246,7 +248,7 @@
     ;
 
     AsyncLoad._asyncLoadInterface = function _asyncLoadInterface(element, config) {
-      var data = Data.getData(element, DATA_KEY);
+      var data = Data__default['default'].getData(element, DATA_KEY);
 
       var _config = typeof config === 'object' && config;
 

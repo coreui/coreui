@@ -49,7 +49,7 @@ html:not([dir="rtl"]) .dropdown-toggle:empty::after {
   background-clip: padding-box;
   border: 1px solid;
   border-radius: 0.25rem;
-  color: #4f5d73;
+  color: #3c4b64;
   background-color: #fff;
   border-color: #d8dbe0;
 }
@@ -191,6 +191,33 @@ html:not([dir="rtl"]) .c-header .dropdown-menu-right, html:not([dir="rtl"])
   *[dir="rtl"] .c-header .dropdown-menu-xl-right, *[dir="rtl"]
   .navbar .dropdown-menu-xl-right, *[dir="rtl"]
   [data-display^="static"] ~ .dropdown-menu-xl-right {
+    right: auto;
+    left: 0;
+  }
+}
+
+@media (min-width: 1400px) {
+  html:not([dir="rtl"]) .c-header .dropdown-menu-xxl-left, html:not([dir="rtl"])
+  .navbar .dropdown-menu-xxl-left, html:not([dir="rtl"])
+  [data-display^="static"] ~ .dropdown-menu-xxl-left {
+    right: auto;
+    left: 0;
+  }
+  *[dir="rtl"] .c-header .dropdown-menu-xxl-left, *[dir="rtl"]
+  .navbar .dropdown-menu-xxl-left, *[dir="rtl"]
+  [data-display^="static"] ~ .dropdown-menu-xxl-left {
+    right: 0;
+    left: auto;
+  }
+  html:not([dir="rtl"]) .c-header .dropdown-menu-xxl-right, html:not([dir="rtl"])
+  .navbar .dropdown-menu-xxl-right, html:not([dir="rtl"])
+  [data-display^="static"] ~ .dropdown-menu-xxl-right {
+    right: 0;
+    left: auto;
+  }
+  *[dir="rtl"] .c-header .dropdown-menu-xxl-right, *[dir="rtl"]
+  .navbar .dropdown-menu-xxl-right, *[dir="rtl"]
+  [data-display^="static"] ~ .dropdown-menu-xxl-right {
     right: auto;
     left: 0;
   }

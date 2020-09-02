@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): toast.js
+ * CoreUI (v3.3.0): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js
@@ -52,7 +52,7 @@ const DefaultType = {
 const Default = {
   animation: true,
   autohide: true,
-  delay: 500
+  delay: 5000
 }
 
 const SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]'
@@ -94,6 +94,8 @@ class Toast {
     if (showEvent.defaultPrevented) {
       return
     }
+
+    this._clearTimeout()
 
     if (this._config.animation) {
       this._element.classList.add(CLASS_NAME_FADE)
@@ -153,8 +155,7 @@ class Toast {
   }
 
   dispose() {
-    clearTimeout(this._timeout)
-    this._timeout = null
+    this._clearTimeout()
 
     if (this._element.classList.contains(CLASS_NAME_SHOW)) {
       this._element.classList.remove(CLASS_NAME_SHOW)
@@ -173,7 +174,7 @@ class Toast {
     config = {
       ...Default,
       ...Manipulator.getDataAttributes(this._element),
-      ...typeof config === 'object' && config ? config : {}
+      ...(typeof config === 'object' && config ? config : {})
     }
 
     typeCheckConfig(
@@ -186,12 +187,12 @@ class Toast {
   }
 
   _setListeners() {
-    EventHandler.on(
-      this._element,
-      EVENT_CLICK_DISMISS,
-      SELECTOR_DATA_DISMISS,
-      () => this.hide()
-    )
+    EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, () => this.hide())
+  }
+
+  _clearTimeout() {
+    clearTimeout(this._timeout)
+    this._timeout = null
   }
 
   // Static

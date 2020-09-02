@@ -121,3 +121,14 @@
     margin-bottom: ($spacer / 8);
   }
 }
+
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the toast.
+
+@include theme-variant() {
+  .toast-#{$color} {
+    @include toast-variant($value);
+  }
+}
+

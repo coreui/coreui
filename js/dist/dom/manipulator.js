@@ -1,12 +1,12 @@
 /*!
-  * CoreUI manipulator.js v3.2.2 (https://coreui.io)
+  * CoreUI manipulator.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global = global || self, global.Manipulator = factory());
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Manipulator = factory());
 }(this, (function () { 'use strict';
 
   function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }

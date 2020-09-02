@@ -99,7 +99,7 @@ select.form-control:focus::-ms-value {
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
-  color: #4f5d73;
+  color: #3c4b64;
 }
 
 .form-control-plaintext.form-control-sm, .form-control-plaintext.form-control-lg {

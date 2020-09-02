@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): collapse.js
+ * CoreUI (v3.3.0): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -291,8 +291,7 @@ class Collapse {
   }
 
   _getDimension() {
-    const hasWidth = this._element.classList.contains(WIDTH)
-    return hasWidth ? WIDTH : HEIGHT
+    return this._element.classList.contains(WIDTH) ? WIDTH : HEIGHT
   }
 
   _getParent() {
@@ -323,21 +322,21 @@ class Collapse {
   }
 
   _addAriaAndCollapsedClass(element, triggerArray) {
-    if (element) {
-      const isOpen = element.classList.contains(CLASS_NAME_SHOW)
-
-      if (triggerArray.length) {
-        triggerArray.forEach(elem => {
-          if (isOpen) {
-            elem.classList.remove(CLASS_NAME_COLLAPSED)
-          } else {
-            elem.classList.add(CLASS_NAME_COLLAPSED)
-          }
-
-          elem.setAttribute('aria-expanded', isOpen)
-        })
-      }
+    if (!element || !triggerArray.length) {
+      return
     }
+
+    const isOpen = element.classList.contains(CLASS_NAME_SHOW)
+
+    triggerArray.forEach(elem => {
+      if (isOpen) {
+        elem.classList.remove(CLASS_NAME_COLLAPSED)
+      } else {
+        elem.classList.add(CLASS_NAME_COLLAPSED)
+      }
+
+      elem.setAttribute('aria-expanded', isOpen)
+    })
   }
 
   // Static
@@ -347,7 +346,7 @@ class Collapse {
     const _config = {
       ...Default,
       ...Manipulator.getDataAttributes(element),
-      ...typeof config === 'object' && config ? config : {}
+      ...(typeof config === 'object' && config ? config : {})
     }
 
     if (!data && _config.toggle && typeof config === 'string' && /show|hide/.test(config)) {

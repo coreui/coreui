@@ -272,7 +272,7 @@ html:not([dir="rtl"]) .card-link + .card-link {
   padding: 0.75rem 0;
   margin: -0.75rem 1.25rem -0.75rem -1.25rem;
   line-height: inherit;
-  color: #4f5d73;
+  color: #3c4b64;
   text-align: center;
   background: transparent;
   border-right: 1px solid;
@@ -299,7 +299,7 @@ html:not([dir="rtl"]) .card-header-actions {
 }
 
 .card-header-action:hover {
-  color: #4f5d73;
+  color: #3c4b64;
   text-decoration: none;
 }
 

@@ -1,17 +1,19 @@
 /*!
-  * CoreUI toast.js v3.2.2 (https://coreui.io)
+  * CoreUI toast.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js'], factory) :
-  (global = global || self, global.Toast = factory(global.Data, global.EventHandler, global.Manipulator));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Toast = factory(global.Data, global.EventHandler, global.Manipulator));
 }(this, (function (Data, EventHandler, Manipulator) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
-  Manipulator = Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default') ? Manipulator['default'] : Manipulator;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
 
   /**
    * --------------------------------------------------------------------------
@@ -142,7 +144,7 @@
   var Default = {
     animation: true,
     autohide: true,
-    delay: 500
+    delay: 5000
   };
   var SELECTOR_DATA_DISMISS = '[data-dismiss="toast"]';
   /**
@@ -159,7 +161,7 @@
 
       this._setListeners();
 
-      Data.setData(element, DATA_KEY, this);
+      Data__default['default'].setData(element, DATA_KEY, this);
     } // Getters
 
 
@@ -169,11 +171,13 @@
     _proto.show = function show() {
       var _this = this;
 
-      var showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
+      var showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW);
 
       if (showEvent.defaultPrevented) {
         return;
       }
+
+      this._clearTimeout();
 
       if (this._config.animation) {
         this._element.classList.add(CLASS_NAME_FADE);
@@ -184,7 +188,7 @@
 
         _this._element.classList.add(CLASS_NAME_SHOW);
 
-        EventHandler.trigger(_this._element, EVENT_SHOWN);
+        EventHandler__default['default'].trigger(_this._element, EVENT_SHOWN);
 
         if (_this._config.autohide) {
           _this._timeout = setTimeout(function () {
@@ -201,7 +205,7 @@
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler.one(this._element, TRANSITION_END, complete);
+        EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -215,7 +219,7 @@
         return;
       }
 
-      var hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
+      var hideEvent = EventHandler__default['default'].trigger(this._element, EVENT_HIDE);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -224,14 +228,14 @@
       var complete = function complete() {
         _this2._element.classList.add(CLASS_NAME_HIDE);
 
-        EventHandler.trigger(_this2._element, EVENT_HIDDEN);
+        EventHandler__default['default'].trigger(_this2._element, EVENT_HIDDEN);
       };
 
       this._element.classList.remove(CLASS_NAME_SHOW);
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler.one(this._element, TRANSITION_END, complete);
+        EventHandler__default['default'].one(this._element, TRANSITION_END, complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -239,22 +243,21 @@
     };
 
     _proto.dispose = function dispose() {
-      clearTimeout(this._timeout);
-      this._timeout = null;
+      this._clearTimeout();
 
       if (this._element.classList.contains(CLASS_NAME_SHOW)) {
         this._element.classList.remove(CLASS_NAME_SHOW);
       }
 
-      EventHandler.off(this._element, EVENT_CLICK_DISMISS);
-      Data.removeData(this._element, DATA_KEY);
+      EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
+      Data__default['default'].removeData(this._element, DATA_KEY);
       this._element = null;
       this._config = null;
     } // Private
     ;
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread(_objectSpread(_objectSpread({}, Default), Manipulator.getDataAttributes(this._element)), typeof config === 'object' && config ? config : {});
+      config = _objectSpread(_objectSpread(_objectSpread({}, Default), Manipulator__default['default'].getDataAttributes(this._element)), typeof config === 'object' && config ? config : {});
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
       return config;
     };
@@ -262,15 +265,20 @@
     _proto._setListeners = function _setListeners() {
       var _this3 = this;
 
-      EventHandler.on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function () {
+      EventHandler__default['default'].on(this._element, EVENT_CLICK_DISMISS, SELECTOR_DATA_DISMISS, function () {
         return _this3.hide();
       });
+    };
+
+    _proto._clearTimeout = function _clearTimeout() {
+      clearTimeout(this._timeout);
+      this._timeout = null;
     } // Static
     ;
 
     Toast.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data.getData(this, DATA_KEY);
+        var data = Data__default['default'].getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -289,7 +297,7 @@
     };
 
     Toast.getInstance = function getInstance(element) {
-      return Data.getData(element, DATA_KEY);
+      return Data__default['default'].getData(element, DATA_KEY);
     };
 
     _createClass(Toast, null, [{

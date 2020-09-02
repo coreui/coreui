@@ -1,7 +1,7 @@
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #4f5d73;
+  color: #3c4b64;
 }
 
 .table th,
@@ -57,7 +57,7 @@
 
 @media (hover: hover), (-ms-high-contrast: none) {
   .table-hover tbody tr:hover {
-    color: #4f5d73;
+    color: #3c4b64;
     background-color: rgba(0, 0, 21, 0.075);
   }
 }
@@ -297,7 +297,7 @@
 
 .table tbody tr:focus {
   outline: 0;
-  color: #4f5d73;
+  color: #3c4b64;
   background-color: rgba(0, 0, 21, 0.075);
 }
 
@@ -383,6 +383,18 @@
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-xl > .table-bordered {
+    border: 0;
+  }
+}
+
+@media (max-width: 1399.98px) {
+  .table-responsive-xxl {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive-xxl > .table-bordered {
     border: 0;
   }
 }

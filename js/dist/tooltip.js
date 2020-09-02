@@ -1,18 +1,20 @@
 /*!
-  * CoreUI tooltip.js v3.2.2 (https://coreui.io)
+  * CoreUI tooltip.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('@popperjs/core'), require('./dom/selector-engine.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', '@popperjs/core', './dom/selector-engine.js'], factory) :
-  (global = global || self, global.Tooltip = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Tooltip = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
 }(this, (function (Data, EventHandler, Manipulator, core, SelectorEngine) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
-  Manipulator = Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default') ? Manipulator['default'] : Manipulator;
-  SelectorEngine = SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default') ? SelectorEngine['default'] : SelectorEngine;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
 
   /**
    * --------------------------------------------------------------------------
@@ -382,7 +384,7 @@
 
       this._setListeners();
 
-      Data.setData(element, this.constructor.DATA_KEY, this);
+      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
     } // Getters
 
 
@@ -408,11 +410,11 @@
 
       if (event) {
         var dataKey = this.constructor.DATA_KEY;
-        var context = Data.getData(event.target, dataKey);
+        var context = Data__default['default'].getData(event.delegateTarget, dataKey);
 
         if (!context) {
-          context = new this.constructor(event.target, this._getDelegateConfig());
-          Data.setData(event.target, dataKey, context);
+          context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+          Data__default['default'].setData(event.delegateTarget, dataKey, context);
         }
 
         context._activeTrigger.click = !context._activeTrigger.click;
@@ -435,9 +437,9 @@
 
     _proto.dispose = function dispose() {
       clearTimeout(this._timeout);
-      Data.removeData(this.element, this.constructor.DATA_KEY);
-      EventHandler.off(this.element, this.constructor.EVENT_KEY);
-      EventHandler.off(this.element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
+      Data__default['default'].removeData(this.element, this.constructor.DATA_KEY);
+      EventHandler__default['default'].off(this.element, this.constructor.EVENT_KEY);
+      EventHandler__default['default'].off(this.element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
 
       if (this.tip) {
         this.tip.parentNode.removeChild(this.tip);
@@ -466,7 +468,7 @@
       }
 
       if (this.isWithContent() && this._isEnabled) {
-        var showEvent = EventHandler.trigger(this.element, this.constructor.Event.SHOW);
+        var showEvent = EventHandler__default['default'].trigger(this.element, this.constructor.Event.SHOW);
         var shadowRoot = findShadowRoot(this.element);
         var isInTheDom = shadowRoot === null ? this.element.ownerDocument.documentElement.contains(this.element) : shadowRoot.contains(this.element);
 
@@ -491,13 +493,13 @@
 
         var container = this._getContainer();
 
-        Data.setData(tip, this.constructor.DATA_KEY, this);
+        Data__default['default'].setData(tip, this.constructor.DATA_KEY, this);
 
         if (!this.element.ownerDocument.documentElement.contains(this.tip)) {
           container.appendChild(tip);
         }
 
-        EventHandler.trigger(this.element, this.constructor.Event.INSERTED);
+        EventHandler__default['default'].trigger(this.element, this.constructor.Event.INSERTED);
         this._popper = core.createPopper(this.element, tip, this._getPopperConfig(attachment));
         tip.classList.add(CLASS_NAME_SHOW); // If this is a touch-enabled device we add extra
         // empty mouseover listeners to the body's immediate children;
@@ -508,7 +510,7 @@
           var _ref;
 
           (_ref = []).concat.apply(_ref, document.body.children).forEach(function (element) {
-            EventHandler.on(element, 'mouseover', noop());
+            EventHandler__default['default'].on(element, 'mouseover', noop());
           });
         }
 
@@ -519,7 +521,7 @@
 
           var prevHoverState = _this._hoverState;
           _this._hoverState = null;
-          EventHandler.trigger(_this.element, _this.constructor.Event.SHOWN);
+          EventHandler__default['default'].trigger(_this.element, _this.constructor.Event.SHOWN);
 
           if (prevHoverState === HOVER_STATE_OUT) {
             _this._leave(null, _this);
@@ -528,7 +530,7 @@
 
         if (this.tip.classList.contains(CLASS_NAME_FADE)) {
           var transitionDuration = getTransitionDurationFromElement(this.tip);
-          EventHandler.one(this.tip, TRANSITION_END, complete);
+          EventHandler__default['default'].one(this.tip, TRANSITION_END, complete);
           emulateTransitionEnd(this.tip, transitionDuration);
         } else {
           complete();
@@ -550,12 +552,12 @@
 
         _this2.element.removeAttribute('aria-describedby');
 
-        EventHandler.trigger(_this2.element, _this2.constructor.Event.HIDDEN);
+        EventHandler__default['default'].trigger(_this2.element, _this2.constructor.Event.HIDDEN);
 
         _this2._popper.destroy();
       };
 
-      var hideEvent = EventHandler.trigger(this.element, this.constructor.Event.HIDE);
+      var hideEvent = EventHandler__default['default'].trigger(this.element, this.constructor.Event.HIDE);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -568,7 +570,7 @@
         var _ref2;
 
         (_ref2 = []).concat.apply(_ref2, document.body.children).forEach(function (element) {
-          return EventHandler.off(element, 'mouseover', noop);
+          return EventHandler__default['default'].off(element, 'mouseover', noop);
         });
       }
 
@@ -578,7 +580,7 @@
 
       if (this.tip.classList.contains(CLASS_NAME_FADE)) {
         var transitionDuration = getTransitionDurationFromElement(tip);
-        EventHandler.one(tip, TRANSITION_END, complete);
+        EventHandler__default['default'].one(tip, TRANSITION_END, complete);
         emulateTransitionEnd(tip, transitionDuration);
       } else {
         complete();
@@ -611,7 +613,7 @@
 
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
-      this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
+      this.setElementContent(SelectorEngine__default['default'].findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
       tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW);
     };
 
@@ -743,7 +745,7 @@
         return this.config.container;
       }
 
-      return SelectorEngine.findOne(this.config.container);
+      return SelectorEngine__default['default'].findOne(this.config.container);
     };
 
     _proto._getAttachment = function _getAttachment(placement) {
@@ -756,16 +758,16 @@
       var triggers = this.config.trigger.split(' ');
       triggers.forEach(function (trigger) {
         if (trigger === 'click') {
-          EventHandler.on(_this5.element, _this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
+          EventHandler__default['default'].on(_this5.element, _this5.constructor.Event.CLICK, _this5.config.selector, function (event) {
             return _this5.toggle(event);
           });
         } else if (trigger !== TRIGGER_MANUAL) {
           var eventIn = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSEENTER : _this5.constructor.Event.FOCUSIN;
           var eventOut = trigger === TRIGGER_HOVER ? _this5.constructor.Event.MOUSELEAVE : _this5.constructor.Event.FOCUSOUT;
-          EventHandler.on(_this5.element, eventIn, _this5.config.selector, function (event) {
+          EventHandler__default['default'].on(_this5.element, eventIn, _this5.config.selector, function (event) {
             return _this5._enter(event);
           });
-          EventHandler.on(_this5.element, eventOut, _this5.config.selector, function (event) {
+          EventHandler__default['default'].on(_this5.element, eventOut, _this5.config.selector, function (event) {
             return _this5._leave(event);
           });
         }
@@ -777,7 +779,7 @@
         }
       };
 
-      EventHandler.on(this.element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
+      EventHandler__default['default'].on(this.element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
 
       if (this.config.selector) {
         this.config = _objectSpread(_objectSpread({}, this.config), {}, {
@@ -800,11 +802,11 @@
 
     _proto._enter = function _enter(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data.getData(event.target, dataKey);
+      context = context || Data__default['default'].getData(event.delegateTarget, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.target, this._getDelegateConfig());
-        Data.setData(event.target, dataKey, context);
+        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+        Data__default['default'].setData(event.delegateTarget, dataKey, context);
       }
 
       if (event) {
@@ -833,11 +835,11 @@
 
     _proto._leave = function _leave(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data.getData(event.target, dataKey);
+      context = context || Data__default['default'].getData(event.delegateTarget, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.target, this._getDelegateConfig());
-        Data.setData(event.target, dataKey, context);
+        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+        Data__default['default'].setData(event.delegateTarget, dataKey, context);
       }
 
       if (event) {
@@ -874,7 +876,7 @@
     };
 
     _proto._getConfig = function _getConfig(config) {
-      var dataAttributes = Manipulator.getDataAttributes(this.element);
+      var dataAttributes = Manipulator__default['default'].getDataAttributes(this.element);
       Object.keys(dataAttributes).forEach(function (dataAttr) {
         if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
           delete dataAttributes[dataAttr];
@@ -960,12 +962,11 @@
       this.show();
       this.config.animation = initConfigAnimation;
     } // Static
-    // Static
     ;
 
     Tooltip.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data.getData(this, DATA_KEY);
+        var data = Data__default['default'].getData(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -988,7 +989,7 @@
     };
 
     Tooltip.getInstance = function getInstance(element) {
-      return Data.getData(element, DATA_KEY);
+      return Data__default['default'].getData(element, DATA_KEY);
     };
 
     _createClass(Tooltip, null, [{

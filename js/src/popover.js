@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): popover.js
+ * CoreUI (v3.3.0): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -120,11 +120,11 @@ class Popover extends Tooltip {
     tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW)
   }
 
+  // Private
+
   _addAttachmentClass(attachment) {
     this.getTipElement().classList.add(`${CLASS_PREFIX}-${attachment}`)
   }
-
-  // Private
 
   _getContent() {
     return this.element.getAttribute('data-content') ||

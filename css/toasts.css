@@ -96,4 +96,100 @@
   margin-bottom: 0.125rem;
 }
 
+.toast-primary {
+  color: #fff;
+  background-color: #321fdb;
+  border-color: #2819ae;
+}
+
+.toast-primary .toast-header {
+  color: #fff;
+  background-color: #2d1cc5;
+  border-color: #2819ae;
+}
+
+.toast-secondary {
+  color: #4f5d73;
+  background-color: #ced2d8;
+  border-color: #b2b8c1;
+}
+
+.toast-secondary .toast-header {
+  color: #4f5d73;
+  background-color: #c0c5cd;
+  border-color: #b2b8c1;
+}
+
+.toast-success {
+  color: #fff;
+  background-color: #2eb85c;
+  border-color: #248f48;
+}
+
+.toast-success .toast-header {
+  color: #fff;
+  background-color: #29a452;
+  border-color: #248f48;
+}
+
+.toast-info {
+  color: #fff;
+  background-color: #39f;
+  border-color: #0080ff;
+}
+
+.toast-info .toast-header {
+  color: #fff;
+  background-color: #1a8cff;
+  border-color: #0080ff;
+}
+
+.toast-warning {
+  color: #4f5d73;
+  background-color: #f9b115;
+  border-color: #d69405;
+}
+
+.toast-warning .toast-header {
+  color: #4f5d73;
+  background-color: #eea506;
+  border-color: #d69405;
+}
+
+.toast-danger {
+  color: #fff;
+  background-color: #e55353;
+  border-color: #de2727;
+}
+
+.toast-danger .toast-header {
+  color: #fff;
+  background-color: #e23d3d;
+  border-color: #de2727;
+}
+
+.toast-light {
+  color: #4f5d73;
+  background-color: #ebedef;
+  border-color: #cfd4d8;
+}
+
+.toast-light .toast-header {
+  color: #4f5d73;
+  background-color: #dde0e4;
+  border-color: #cfd4d8;
+}
+
+.toast-dark {
+  color: #fff;
+  background-color: #636f83;
+  border-color: #4d5666;
+}
+
+.toast-dark .toast-header {
+  color: #fff;
+  background-color: #586374;
+  border-color: #4d5666;
+}
+
 /*# sourceMappingURL=toasts.css.map */

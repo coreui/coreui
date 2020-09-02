@@ -1,15 +1,17 @@
 /*!
-  * CoreUI v3.2.2 (https://coreui.io)
+  * CoreUI v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('perfect-scrollbar')) :
   typeof define === 'function' && define.amd ? define(['@popperjs/core', 'perfect-scrollbar'], factory) :
-  (global = global || self, global.coreui = factory(global.createPopper, global.PerfectScrollbar));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.coreui = factory(global.createPopper, global.PerfectScrollbar));
 }(this, (function (core, PerfectScrollbar) { 'use strict';
 
-  PerfectScrollbar = PerfectScrollbar && Object.prototype.hasOwnProperty.call(PerfectScrollbar, 'default') ? PerfectScrollbar['default'] : PerfectScrollbar;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var PerfectScrollbar__default = /*#__PURE__*/_interopDefaultLegacy(PerfectScrollbar);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -399,7 +401,7 @@
   /**
    * --------------------------------------------------------------------------
    * Bootstrap (v5.0.0-alpha1): dom/event-handler.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   /**
@@ -439,6 +441,8 @@
 
   function bootstrapHandler(element, fn) {
     return function handler(event) {
+      event.delegateTarget = element;
+
       if (handler.oneOff) {
         EventHandler.off(element, event.type, fn);
       }
@@ -454,6 +458,8 @@
       for (var target = event.target; target && target !== this; target = target.parentNode) {
         for (var i = domElements.length; i--;) {
           if (domElements[i] === target) {
+            event.delegateTarget = target;
+
             if (handler.oneOff) {
               EventHandler.off(element, event.type, fn);
             }
@@ -638,7 +644,7 @@
           bubbles: bubbles,
           cancelable: true
         });
-      } // merge custom informations in our event
+      } // merge custom information in our event
 
 
       if (typeof args !== 'undefined') {
@@ -977,11 +983,7 @@
 
     // Public
     _proto.close = function close(element) {
-      var rootElement = this._element;
-
-      if (element) {
-        rootElement = this._getRootElement(element);
-      }
+      var rootElement = element ? this._getRootElement(element) : this._element;
 
       var customEvent = this._triggerCloseEvent(rootElement);
 
@@ -2584,9 +2586,7 @@
     };
 
     _proto._getDimension = function _getDimension() {
-      var hasWidth = this._element.classList.contains(WIDTH);
-
-      return hasWidth ? WIDTH : HEIGHT;
+      return this._element.classList.contains(WIDTH) ? WIDTH : HEIGHT;
     };
 
     _proto._getParent = function _getParent() {
@@ -2613,21 +2613,20 @@
     };
 
     _proto._addAriaAndCollapsedClass = function _addAriaAndCollapsedClass(element, triggerArray) {
-      if (element) {
-        var isOpen = element.classList.contains(CLASS_NAME_SHOW$1);
-
-        if (triggerArray.length) {
-          triggerArray.forEach(function (elem) {
-            if (isOpen) {
-              elem.classList.remove(CLASS_NAME_COLLAPSED);
-            } else {
-              elem.classList.add(CLASS_NAME_COLLAPSED);
-            }
-
-            elem.setAttribute('aria-expanded', isOpen);
-          });
-        }
+      if (!element || !triggerArray.length) {
+        return;
       }
+
+      var isOpen = element.classList.contains(CLASS_NAME_SHOW$1);
+      triggerArray.forEach(function (elem) {
+        if (isOpen) {
+          elem.classList.remove(CLASS_NAME_COLLAPSED);
+        } else {
+          elem.classList.add(CLASS_NAME_COLLAPSED);
+        }
+
+        elem.setAttribute('aria-expanded', isOpen);
+      });
     } // Static
     ;
 
@@ -3005,22 +3004,7 @@
 
     _proto._detectHeader = function _detectHeader() {
       return Boolean(this._element.closest("." + CLASS_NAME_HEADER));
-    } // _getOffset() {
-    //   const offset = {}
-    //   if (typeof this._config.offset === 'function') {
-    //     offset.fn = data => {
-    //       data.offsets = {
-    //         ...data.offsets,
-    //         ...this._config.offset(data.offsets, this._element) || {}
-    //       }
-    //       return data
-    //     }
-    //   } else {
-    //     offset.offset = this._config.offset
-    //   }
-    //   return offset
-    // }
-    ;
+    };
 
     _proto._getOffset = function _getOffset() {
       var _this2 = this;
@@ -3688,11 +3672,25 @@
           return;
         }
 
+        var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+
+        if (!isModalOverflowing) {
+          this._element.style.overflowY = 'hidden';
+        }
+
         this._element.classList.add(CLASS_NAME_STATIC);
 
-        var modalTransitionDuration = getTransitionDurationFromElement(this._element);
+        var modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
+        EventHandler.off(this._element, TRANSITION_END);
         EventHandler.one(this._element, TRANSITION_END, function () {
           _this9._element.classList.remove(CLASS_NAME_STATIC);
+
+          if (!isModalOverflowing) {
+            EventHandler.one(_this9._element, TRANSITION_END, function () {
+              _this9._element.style.overflowY = '';
+            });
+            emulateTransitionEnd(_this9._element, modalTransitionDuration);
+          }
         });
         emulateTransitionEnd(this._element, modalTransitionDuration);
 
@@ -4152,11 +4150,11 @@
 
       if (event) {
         var dataKey = this.constructor.DATA_KEY;
-        var context = Data.getData(event.target, dataKey);
+        var context = Data.getData(event.delegateTarget, dataKey);
 
         if (!context) {
-          context = new this.constructor(event.target, this._getDelegateConfig());
-          Data.setData(event.target, dataKey, context);
+          context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+          Data.setData(event.delegateTarget, dataKey, context);
         }
 
         context._activeTrigger.click = !context._activeTrigger.click;
@@ -4544,11 +4542,11 @@
 
     _proto._enter = function _enter(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data.getData(event.target, dataKey);
+      context = context || Data.getData(event.delegateTarget, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.target, this._getDelegateConfig());
-        Data.setData(event.target, dataKey, context);
+        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+        Data.setData(event.delegateTarget, dataKey, context);
       }
 
       if (event) {
@@ -4577,11 +4575,11 @@
 
     _proto._leave = function _leave(event, context) {
       var dataKey = this.constructor.DATA_KEY;
-      context = context || Data.getData(event.target, dataKey);
+      context = context || Data.getData(event.delegateTarget, dataKey);
 
       if (!context) {
-        context = new this.constructor(event.target, this._getDelegateConfig());
-        Data.setData(event.target, dataKey, context);
+        context = new this.constructor(event.delegateTarget, this._getDelegateConfig());
+        Data.setData(event.delegateTarget, dataKey, context);
       }
 
       if (event) {
@@ -4704,7 +4702,6 @@
       this.show();
       this.config.animation = initConfigAnimation;
     } // Static
-    // Static
     ;
 
     Tooltip.jQueryInterface = function jQueryInterface(config) {
@@ -4869,12 +4866,12 @@
 
       this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
       tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$5);
-    };
+    } // Private
+    ;
 
     _proto._addAttachmentClass = function _addAttachmentClass(attachment) {
       this.getTipElement().classList.add(CLASS_PREFIX$1 + "-" + attachment);
-    } // Private
-    ;
+    };
 
     _proto._getContent = function _getContent() {
       return this.element.getAttribute('data-content') || this.config.content;
@@ -5032,7 +5029,7 @@
       this._element = element;
       this._scrollElement = element.tagName === 'BODY' ? window : element;
       this._config = this._getConfig(config);
-      this._selector = this._config.target + " " + SELECTOR_NAV_LINKS + "," + (this._config.target + " " + SELECTOR_LIST_ITEMS + ",") + (this._config.target + " ." + CLASS_NAME_DROPDOWN_ITEM);
+      this._selector = this._config.target + " " + SELECTOR_NAV_LINKS + ", " + this._config.target + " " + SELECTOR_LIST_ITEMS + ", " + this._config.target + " ." + CLASS_NAME_DROPDOWN_ITEM;
       this._offsets = [];
       this._targets = [];
       this._activeTarget = null;
@@ -5062,12 +5059,8 @@
       this._scrollHeight = this._getScrollHeight();
       var targets = SelectorEngine.find(this._selector);
       targets.map(function (element) {
-        var target;
         var targetSelector = getSelectorFromElement(element);
-
-        if (targetSelector) {
-          target = SelectorEngine.findOne(targetSelector);
-        }
+        var target = targetSelector ? SelectorEngine.findOne(targetSelector) : null;
 
         if (target) {
           var targetBCR = target.getBoundingClientRect();
@@ -5299,16 +5292,19 @@
   var EVENT_KEY$b = "." + DATA_KEY$b;
   var DATA_API_KEY$9 = '.data-api';
   var Default$9 = {
+    activeLinksExact: true,
     breakpoints: {
       xs: 'c-sidebar-show',
       sm: 'c-sidebar-sm-show',
       md: 'c-sidebar-md-show',
       lg: 'c-sidebar-lg-show',
-      xl: 'c-sidebar-xl-show'
+      xl: 'c-sidebar-xl-show',
+      xxl: 'c-sidebar-xxl-show'
     },
     dropdownAccordion: true
   };
   var DefaultType$8 = {
+    activeLinksExact: 'boolean',
     breakpoints: 'object',
     dropdownAccordion: '(string|boolean)'
   };
@@ -5341,7 +5337,7 @@
 
   var Sidebar = /*#__PURE__*/function () {
     function Sidebar(element, config) {
-      if (typeof PerfectScrollbar === 'undefined') {
+      if (typeof PerfectScrollbar__default['default'] === 'undefined') {
         throw new TypeError('CoreUI\'s sidebar require Perfect Scrollbar');
       }
 
@@ -5605,6 +5601,10 @@
           continue; // text node
         }
 
+        if (element.nodeType === 8) {
+          continue; // comment node
+        }
+
         if (!filter || filter(element)) {
           siblings.push(element);
         } // eslint-disable-next-line no-cond-assign
@@ -5629,7 +5629,9 @@
 
 
       if (Default$9.dropdownAccordion === true) {
-        this._getAllSiblings(toggler.parentElement).forEach(function (element) {
+        this._getAllSiblings(toggler.parentElement, function (element) {
+          return Boolean(element.classList.contains(CLASS_NAME_NAV_DROPDOWN));
+        }).forEach(function (element) {
           if (element !== toggler.parentNode) {
             if (element.classList.contains(CLASS_NAME_NAV_DROPDOWN)) {
               element.classList.remove(CLASS_NAME_SHOW$6);
@@ -5647,7 +5649,7 @@
 
     _proto._psInit = function _psInit() {
       if (this._element.querySelector(SELECTOR_NAVIGATION_CONTAINER) && !this._isIOS()) {
-        this._ps = new PerfectScrollbar(this._element.querySelector(SELECTOR_NAVIGATION_CONTAINER), {
+        this._ps = new PerfectScrollbar__default['default'](this._element.querySelector(SELECTOR_NAVIGATION_CONTAINER), {
           suppressScrollX: true,
           wheelPropagation: false
         });
@@ -5708,7 +5710,21 @@
           currentUrl = currentUrl.slice(0, -1);
         }
 
-        if (element.href === currentUrl) {
+        var dataAttributes = element.closest(SELECTOR_NAVIGATION_CONTAINER).dataset;
+
+        if (typeof dataAttributes.activeLinksExact !== 'undefined') {
+          Default$9.activeLinksExact = JSON.parse(dataAttributes.activeLinksExact);
+        }
+
+        if (Default$9.activeLinksExact && element.href === currentUrl) {
+          element.classList.add(CLASS_NAME_ACTIVE$4); // eslint-disable-next-line unicorn/prefer-spread
+
+          Array.from(_this4._getParents(element, SELECTOR_NAV_DROPDOWN$1)).forEach(function (element) {
+            element.classList.add(CLASS_NAME_SHOW$6);
+          });
+        }
+
+        if (!Default$9.activeLinksExact && element.href.startsWith(currentUrl)) {
           element.classList.add(CLASS_NAME_ACTIVE$4); // eslint-disable-next-line unicorn/prefer-spread
 
           Array.from(_this4._getParents(element, SELECTOR_NAV_DROPDOWN$1)).forEach(function (element) {
@@ -6106,7 +6122,7 @@
   var Default$a = {
     animation: true,
     autohide: true,
-    delay: 500
+    delay: 5000
   };
   var SELECTOR_DATA_DISMISS$1 = '[data-dismiss="toast"]';
   /**
@@ -6138,6 +6154,8 @@
       if (showEvent.defaultPrevented) {
         return;
       }
+
+      this._clearTimeout();
 
       if (this._config.animation) {
         this._element.classList.add(CLASS_NAME_FADE$5);
@@ -6203,8 +6221,7 @@
     };
 
     _proto.dispose = function dispose() {
-      clearTimeout(this._timeout);
-      this._timeout = null;
+      this._clearTimeout();
 
       if (this._element.classList.contains(CLASS_NAME_SHOW$8)) {
         this._element.classList.remove(CLASS_NAME_SHOW$8);
@@ -6229,6 +6246,11 @@
       EventHandler.on(this._element, EVENT_CLICK_DISMISS$1, SELECTOR_DATA_DISMISS$1, function () {
         return _this3.hide();
       });
+    };
+
+    _proto._clearTimeout = function _clearTimeout() {
+      clearTimeout(this._timeout);
+      this._timeout = null;
     } // Static
     ;
 
@@ -6838,7 +6860,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.2.2): index.umd.js
+   * CoreUI (v3.3.0): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

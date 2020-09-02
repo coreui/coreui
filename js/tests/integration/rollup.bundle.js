@@ -1,7 +1,7 @@
 /* eslint-env node */
 
-const resolve = require('@rollup/plugin-node-resolve')
 const { babel } = require('@rollup/plugin-babel')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const replace = require('@rollup/plugin-replace')
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     format: 'iife'
   },
   plugins: [
-    resolve(),
+    nodeResolve(),
     babel({
       exclude: 'node_modules/**',
       babelHelpers: 'bundled'

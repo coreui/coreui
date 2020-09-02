@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.2.2): tooltip.js
+ * CoreUI (v3.3.0): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -196,14 +196,14 @@ class Tooltip {
 
     if (event) {
       const dataKey = this.constructor.DATA_KEY
-      let context = Data.getData(event.target, dataKey)
+      let context = Data.getData(event.delegateTarget, dataKey)
 
       if (!context) {
         context = new this.constructor(
-          event.target,
+          event.delegateTarget,
           this._getDelegateConfig()
         )
-        Data.setData(event.target, dataKey, context)
+        Data.setData(event.delegateTarget, dataKey, context)
       }
 
       context._activeTrigger.click = !context._activeTrigger.click
@@ -612,14 +612,14 @@ class Tooltip {
 
   _enter(event, context) {
     const dataKey = this.constructor.DATA_KEY
-    context = context || Data.getData(event.target, dataKey)
+    context = context || Data.getData(event.delegateTarget, dataKey)
 
     if (!context) {
       context = new this.constructor(
-        event.target,
+        event.delegateTarget,
         this._getDelegateConfig()
       )
-      Data.setData(event.target, dataKey, context)
+      Data.setData(event.delegateTarget, dataKey, context)
     }
 
     if (event) {
@@ -652,14 +652,14 @@ class Tooltip {
 
   _leave(event, context) {
     const dataKey = this.constructor.DATA_KEY
-    context = context || Data.getData(event.target, dataKey)
+    context = context || Data.getData(event.delegateTarget, dataKey)
 
     if (!context) {
       context = new this.constructor(
-        event.target,
+        event.delegateTarget,
         this._getDelegateConfig()
       )
-      Data.setData(event.target, dataKey, context)
+      Data.setData(event.delegateTarget, dataKey, context)
     }
 
     if (event) {
@@ -701,12 +701,11 @@ class Tooltip {
   _getConfig(config) {
     const dataAttributes = Manipulator.getDataAttributes(this.element)
 
-    Object.keys(dataAttributes)
-      .forEach(dataAttr => {
-        if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
-          delete dataAttributes[dataAttr]
-        }
-      })
+    Object.keys(dataAttributes).forEach(dataAttr => {
+      if (DISALLOWED_ATTRIBUTES.indexOf(dataAttr) !== -1) {
+        delete dataAttributes[dataAttr]
+      }
+    })
 
     if (config && typeof config.container === 'object' && config.container.jquery) {
       config.container = config.container[0]
@@ -715,7 +714,7 @@ class Tooltip {
     config = {
       ...this.constructor.Default,
       ...dataAttributes,
-      ...typeof config === 'object' && config ? config : {}
+      ...(typeof config === 'object' && config ? config : {})
     }
 
     if (typeof config.delay === 'number') {
@@ -733,11 +732,7 @@ class Tooltip {
       config.content = config.content.toString()
     }
 
-    typeCheckConfig(
-      NAME,
-      config,
-      this.constructor.DefaultType
-    )
+    typeCheckConfig(NAME, config, this.constructor.DefaultType)
 
     if (config.sanitize) {
       config.template = sanitizeHtml(config.template, config.whiteList, config.sanitizeFn)
@@ -791,8 +786,6 @@ class Tooltip {
     this.show()
     this.config.animation = initConfigAnimation
   }
-
-  // Static
 
   // Static
 

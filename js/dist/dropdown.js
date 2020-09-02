@@ -1,18 +1,20 @@
 /*!
-  * CoreUI dropdown.js v3.2.2 (https://coreui.io)
+  * CoreUI dropdown.js v3.3.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('@popperjs/core'), require('./dom/selector-engine.js')) :
   typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', '@popperjs/core', './dom/selector-engine.js'], factory) :
-  (global = global || self, global.Dropdown = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Data, global.EventHandler, global.Manipulator, global.createPopper, global.SelectorEngine));
 }(this, (function (Data, EventHandler, Manipulator, core, SelectorEngine) { 'use strict';
 
-  Data = Data && Object.prototype.hasOwnProperty.call(Data, 'default') ? Data['default'] : Data;
-  EventHandler = EventHandler && Object.prototype.hasOwnProperty.call(EventHandler, 'default') ? EventHandler['default'] : EventHandler;
-  Manipulator = Manipulator && Object.prototype.hasOwnProperty.call(Manipulator, 'default') ? Manipulator['default'] : Manipulator;
-  SelectorEngine = SelectorEngine && Object.prototype.hasOwnProperty.call(SelectorEngine, 'default') ? SelectorEngine['default'] : SelectorEngine;
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
 
   /**
    * --------------------------------------------------------------------------
@@ -180,7 +182,7 @@
 
       this._addEventListeners();
 
-      Data.setData(element, DATA_KEY, this);
+      Data__default['default'].setData(element, DATA_KEY, this);
     } // Getters
 
 
@@ -212,7 +214,7 @@
       var relatedTarget = {
         relatedTarget: this._element
       };
-      var showEvent = EventHandler.trigger(parent, EVENT_SHOW, relatedTarget);
+      var showEvent = EventHandler__default['default'].trigger(parent, EVENT_SHOW, relatedTarget);
 
       if (showEvent.defaultPrevented) {
         return;
@@ -254,7 +256,7 @@
         var _ref;
 
         (_ref = []).concat.apply(_ref, document.body.children).forEach(function (elem) {
-          return EventHandler.on(elem, 'mouseover', null, noop());
+          return EventHandler__default['default'].on(elem, 'mouseover', null, noop());
         });
       }
 
@@ -262,7 +264,7 @@
         var _ref2;
 
         (_ref2 = []).concat.apply(_ref2, document.body.children).forEach(function (elem) {
-          return EventHandler.on(elem, 'mouseover', null, noop());
+          return EventHandler__default['default'].on(elem, 'mouseover', null, noop());
         });
       }
 
@@ -270,9 +272,9 @@
 
       this._element.setAttribute('aria-expanded', true);
 
-      Manipulator.toggleClass(this._menu, CLASS_NAME_SHOW);
-      Manipulator.toggleClass(parent, CLASS_NAME_SHOW);
-      EventHandler.trigger(parent, EVENT_SHOWN, relatedTarget);
+      Manipulator__default['default'].toggleClass(this._menu, CLASS_NAME_SHOW);
+      Manipulator__default['default'].toggleClass(parent, CLASS_NAME_SHOW);
+      EventHandler__default['default'].trigger(parent, EVENT_SHOWN, relatedTarget);
     };
 
     _proto.hide = function hide() {
@@ -284,7 +286,7 @@
       var relatedTarget = {
         relatedTarget: this._element
       };
-      var hideEvent = EventHandler.trigger(parent, EVENT_HIDE, relatedTarget);
+      var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -294,14 +296,14 @@
         this._popper.destroy();
       }
 
-      Manipulator.toggleClass(this._menu, CLASS_NAME_SHOW);
-      Manipulator.toggleClass(parent, CLASS_NAME_SHOW);
-      EventHandler.trigger(parent, EVENT_HIDDEN, relatedTarget);
+      Manipulator__default['default'].toggleClass(this._menu, CLASS_NAME_SHOW);
+      Manipulator__default['default'].toggleClass(parent, CLASS_NAME_SHOW);
+      EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
     };
 
     _proto.dispose = function dispose() {
-      Data.removeData(this._element, DATA_KEY);
-      EventHandler.off(this._element, EVENT_KEY);
+      Data__default['default'].removeData(this._element, DATA_KEY);
+      EventHandler__default['default'].off(this._element, EVENT_KEY);
       this._element = null;
       this._menu = null;
 
@@ -325,7 +327,7 @@
     _proto._addEventListeners = function _addEventListeners() {
       var _this = this;
 
-      EventHandler.on(this._element, EVENT_CLICK, function (event) {
+      EventHandler__default['default'].on(this._element, EVENT_CLICK, function (event) {
         event.preventDefault();
         event.stopPropagation();
 
@@ -334,14 +336,14 @@
     };
 
     _proto._getConfig = function _getConfig(config) {
-      config = _objectSpread(_objectSpread(_objectSpread({}, this.constructor.Default), Manipulator.getDataAttributes(this._element)), config);
+      config = _objectSpread(_objectSpread(_objectSpread({}, this.constructor.Default), Manipulator__default['default'].getDataAttributes(this._element)), config);
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
       return config;
     };
 
     _proto._getMenuElement = function _getMenuElement() {
       var parent = Dropdown.getParentFromElement(this._element);
-      return SelectorEngine.findOne(SELECTOR_MENU, parent);
+      return SelectorEngine__default['default'].findOne(SELECTOR_MENU, parent);
     };
 
     _proto._getPlacement = function _getPlacement() {
@@ -371,22 +373,7 @@
 
     _proto._detectHeader = function _detectHeader() {
       return Boolean(this._element.closest("." + CLASS_NAME_HEADER));
-    } // _getOffset() {
-    //   const offset = {}
-    //   if (typeof this._config.offset === 'function') {
-    //     offset.fn = data => {
-    //       data.offsets = {
-    //         ...data.offsets,
-    //         ...this._config.offset(data.offsets, this._element) || {}
-    //       }
-    //       return data
-    //     }
-    //   } else {
-    //     offset.offset = this._config.offset
-    //   }
-    //   return offset
-    // }
-    ;
+    };
 
     _proto._getOffset = function _getOffset() {
       var _this2 = this;
@@ -442,7 +429,7 @@
     ;
 
     Dropdown.dropdownInterface = function dropdownInterface(element, config) {
-      var data = Data.getData(element, DATA_KEY);
+      var data = Data__default['default'].getData(element, DATA_KEY);
 
       var _config = typeof config === 'object' ? config : null;
 
@@ -470,11 +457,11 @@
         return;
       }
 
-      var toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE);
+      var toggles = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (var i = 0, len = toggles.length; i < len; i++) {
         var parent = Dropdown.getParentFromElement(toggles[i]);
-        var context = Data.getData(toggles[i], DATA_KEY);
+        var context = Data__default['default'].getData(toggles[i], DATA_KEY);
         var relatedTarget = {
           relatedTarget: toggles[i]
         };
@@ -497,7 +484,7 @@
           continue;
         }
 
-        var hideEvent = EventHandler.trigger(parent, EVENT_HIDE, relatedTarget);
+        var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
 
         if (hideEvent.defaultPrevented) {
           continue;
@@ -509,7 +496,7 @@
           var _ref4;
 
           (_ref4 = []).concat.apply(_ref4, document.body.children).forEach(function (elem) {
-            return EventHandler.off(elem, 'mouseover', null, noop());
+            return EventHandler__default['default'].off(elem, 'mouseover', null, noop());
           });
         }
 
@@ -521,7 +508,7 @@
 
         dropdownMenu.classList.remove(CLASS_NAME_SHOW);
         parent.classList.remove(CLASS_NAME_SHOW);
-        EventHandler.trigger(parent, EVENT_HIDDEN, relatedTarget);
+        EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
       }
     };
 
@@ -552,7 +539,7 @@
       var isActive = parent.classList.contains(CLASS_NAME_SHOW);
 
       if (event.key === ESCAPE_KEY) {
-        var button = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE)[0];
+        var button = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default['default'].prev(this, SELECTOR_DATA_TOGGLE)[0];
         button.focus();
         Dropdown.clearMenus();
         return;
@@ -563,7 +550,7 @@
         return;
       }
 
-      var items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, parent).filter(isVisible);
+      var items = SelectorEngine__default['default'].find(SELECTOR_VISIBLE_ITEMS, parent).filter(isVisible);
 
       if (!items.length) {
         return;
@@ -587,7 +574,7 @@
     };
 
     Dropdown.getInstance = function getInstance(element) {
-      return Data.getData(element, DATA_KEY);
+      return Data__default['default'].getData(element, DATA_KEY);
     };
 
     _createClass(Dropdown, null, [{
@@ -616,16 +603,16 @@
    */
 
 
-  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
-  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
-  EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
+  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
+  EventHandler__default['default'].on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     event.preventDefault();
     event.stopPropagation();
     Dropdown.dropdownInterface(this, 'toggle');
   });
-  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, function (e) {
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, function (e) {
     return e.stopPropagation();
   });
   var $ = getjQuery();

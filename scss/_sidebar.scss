@@ -775,6 +775,10 @@
         color: themes-get-value("sidebar-nav-link-active-icon-color");
       }
     }
+
+    &:focus {
+      outline: none;
+    }
     @media (hover: hover), (-ms-high-contrast: none) {
       &:hover {
         color: themes-get-value("sidebar-nav-link-hover-color");
