@@ -1,6 +1,6 @@
 // stylelint-disable declaration-no-important
 @include theme-variant() {
-  @include bg-variant(".bg-#{$color}", $value, trur);
+  @include bg-variant(".bg-#{$color}", $value, true);
 }
 
 // @if $enable-gradients {
