@@ -94,6 +94,10 @@
   @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $line-height-lg, $border-radius-lg);
 }
 
+.pagination-md {
+  @include pagination-size($pagination-padding-y-md, $pagination-padding-x-md, $font-size-md, $line-height-md, $border-radius-md);
+}
+
 .pagination-sm {
   @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $line-height-sm, $border-radius-sm);
 }
