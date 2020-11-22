@@ -1,5 +1,6 @@
 // Carousel
 
+// scss-docs-start carousel
 $carousel-control-color:          $white !default;
 $carousel-control-width:          15% !default;
 $carousel-control-opacity:        .5 !default;
@@ -23,3 +24,4 @@ $carousel-control-next-icon-bg:  url("data:image/svg+xml,<svg xmlns='http://www.
 
 $carousel-transition-duration:  .6s !default;
 $carousel-transition:           transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+// scss-docs-end carousel

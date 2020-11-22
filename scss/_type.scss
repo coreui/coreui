@@ -56,7 +56,10 @@ hr {
   margin-top: $hr-margin-y;
   margin-bottom: $hr-margin-y;
   border: 0;
-  border-top: $hr-border-width solid $hr-border-color;
+  border-top: $hr-border-width solid;
+  @include themes($typography-theme-map, $create: parent) {
+    border-color: themes-get-value("hr-border-color");
+  }
 }
 
 //
@@ -65,7 +68,9 @@ hr {
 
 .c-vr {
   width: $vr-width;
-  background-color: $vr-color-bg;
+  @include themes($typography-theme-map, $create: parent) {
+    background-color: themes-get-value("vr-bg");
+  }
 }
 
 //

@@ -1,13 +1,17 @@
 // Links
 //
 // Style anchor elements.
-
-$link-color:                               theme-color("primary") !default;
+// scss-docs-start link
 $link-decoration:                          none !default;
-$link-hover-color:                         darken($link-color, 15%) !default;
 $link-hover-decoration:                    underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage:  15% !default;
+// scss-docs-end link
+
+// scss-docs-start link-default-theme
+$link-color:                               theme-color("primary") !default;
+$link-hover-color:                         darken($link-color, 15%) !default;
+// scss-docs-end link-default-theme
 
 $link-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

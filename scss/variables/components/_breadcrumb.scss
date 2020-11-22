@@ -1,4 +1,6 @@
 // Breadcrumbs
+
+// scss-docs-start breadcrumb
 $breadcrumb-font-size:     null !default;
 $breadcrumb-padding-y:     .75rem !default;
 $breadcrumb-padding-x:     1rem !default;
@@ -11,12 +13,15 @@ $breadcrumb-divider:  quote("/") !default;
 $breadcrumb-border-radius:  0 !default;
 
 $breadcrumb-borders:  ( bottom: 1px solid ) !default;
+// scss-docs-end breadcrumb
 
 // Default theme
+// scss-docs-start breadcrumb-default-theme
 $breadcrumb-bg:             transparent !default;
 $breadcrumb-border-color:   $border-color !default;
 $breadcrumb-divider-color:  $gray-600 !default;
 $breadcrumb-active-color:   $gray-600 !default;
+// scss-docs-end breadcrumb-default-theme
 
 $breadcrumb-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

@@ -1,6 +1,6 @@
 
 // Sidebar
-
+// scss-docs-start sidebar
 $sidebar-width:     256px !default;
 $sidebar-sm-width:  192px !default;
 $sidebar-lg-width:  320px !default;
@@ -19,7 +19,9 @@ $sidebar-compact-width:     150px !default;
 
 $sidebar-backdrop-bg:       $black !default;
 $sidebar-backdrop-opacity:  .5 !default;
+// scss-docs-end sidebar
 
+// scss-docs-start sidebar-default-theme
 $sidebar-dark-color:    $white !default;
 $sidebar-dark-bg:       $gray-base !default;
 $sidebar-dark-borders:  none !default;
@@ -29,28 +31,35 @@ $sidebar-light-bg:       $white !default;
 $sidebar-light-borders:  (
   right: 1px solid rgba(darken($border-color, 20%), .5)
 ) !default;
+// scss-docs-end sidebar-default-theme
 
 // Sidebar Brand
-
+// scss-docs-start sidebar-brand
 $sidebar-brand-height:  56px !default;
+// scss-docs-end sidebar-brand
 
+// scss-docs-start sidebar-brand-default-theme
 $sidebar-dark-brand-color:  $white !default;
 $sidebar-dark-brand-bg:     rgba($black, .2) !default;
 
 $sidebar-light-brand-color:  $white !default;
 $sidebar-light-brand-bg:     $primary !default;
+// scss-docs-end sidebar-brand-default-theme
 
 // Sidebar Header
-
+// scss-docs-start sidebar-header
 $sidebar-header-height:     auto !default;
 $sidebar-header-padding-y:  .75rem !default;
 $sidebar-header-padding-x:  1rem !default;
+// scss-docs-end sidebar-header
 
+// scss-docs-start sidebar-header-default-theme
 $sidebar-dark-header-bg:  rgba($black, .2) !default;
 $sidebar-light-header-bg: rgba($black, .2) !default;
+// scss-docs-end sidebar-header-default-theme
 
 // Sidebar Form
-
+// scss-docs-start sidebar-form-default-theme
 $sidebar-dark-form-border:              0 !default;
 $sidebar-dark-form-bg:                  rgba($black, .1) !default;
 $sidebar-dark-form-color:               $white !default;
@@ -60,10 +69,11 @@ $sidebar-light-form-border:             0 !default;
 $sidebar-light-form-bg:                 rgba($black, .1) !default;
 $sidebar-light-form-color:              $white !default;
 $sidebar-light-form-placeholder-color:  rgba($white, .7) !default;
+// scss-docs-end sidebar-form-default-theme
 
 
 // Sidebar Navigation
-
+// scss-docs-start sidebar-nav
 $sidebar-nav-title-padding-y:   .75rem !default;
 $sidebar-nav-title-padding-x:   1rem !default;
 $sidebar-nav-title-margin-top:  1rem !default;
@@ -73,7 +83,9 @@ $sidebar-nav-icon-width:        56px !default;
 
 $sidebar-nav-indentation-levels: 5 !default;
 $sidebar-nav-indentation-size:   8px !default;
+// scss-docs-end sidebar-nav
 
+// scss-docs-start sidebar-nav-default-theme
 $sidebar-dark-nav-title-color:      rgba($white, .6) !default;
 $sidebar-dark-nav-link-color:       rgba($white, .8) !default;
 $sidebar-dark-nav-link-bg:          transparent !default;
@@ -134,12 +146,15 @@ $sidebar-light-nav-dropdown-indicator-color:        rgba($black, .5) !default;
 $sidebar-light-nav-dropdown-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $sidebar-light-nav-dropdown-indicator-hover-color:  $sidebar-dark-nav-link-hover-color !default;
 $sidebar-light-nav-dropdown-indicator-hover:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-nav-dropdown-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+// scss-docs-end sidebar-nav-default-theme
 
 // Sidebar Tabs
-
+// scss-docs-start sidebar-nav-tabs
 $sidebar-nav-tabs-link-padding-y:  .75rem !default;
 $sidebar-nav-tabs-link-padding-x:  1rem !default;
+// scss-docs-end sidebar-nav-tabs
 
+// scss-docs-start sidebar-nav-tabs-default-theme
 $sidebar-dark-nav-tabs-border-color:              rgba($black, .2) !default;
 $sidebar-dark-nav-tabs-link-active-bg:            rgba($white, .05) !default;
 $sidebar-dark-nav-tabs-link-active-border-color:  rgba($black, .2) rgba($black, .2) theme-color("primary") !default;
@@ -153,23 +168,29 @@ $sidebar-light-nav-tabs-link-active-border-color:  rgba(darken($border-color, 20
 $sidebar-light-nav-tabs-link-hover-bg:             $white !default;
 $sidebar-light-nav-tabs-link-hover-border-color:   rgba(darken($border-color, 20%), .5) rgba(darken($border-color, 20%), .5) $white !default;
 $sidebar-light-tab-content-borders:                ( top: 1px solid rgba(darken($border-color, 20%), .5)) !default;
+// scss-docs-end sidebar-nav-tabs-default-theme
 
 // Sidebar Footer
-
+// scss-docs-start sidebar-footer
 $sidebar-footer-height:     auto !default;
 $sidebar-footer-padding-y:  .75rem !default;
 $sidebar-footer-padding-x:  1rem !default;
+// scss-docs-end sidebar-footer
 
+// scss-docs-start sidebar-footer-default-theme
 $sidebar-dark-footer-bg:        rgba($black, .2) !default;
 $sidebar-dark-footer-borders:   0 !default;
 
 $sidebar-light-footer-bg:       rgba($black, .2) !default;
 $sidebar-light-footer-borders:  0 !default;
+// scss-docs-end sidebar-footer-default-theme
 
 // Sidebar Minimizer
-
+// scss-docs-start sidebar-minimizer
 $sidebar-minimizer-height:                      50px !default;
+// scss-docs-end sidebar-minimizer
 
+// scss-docs-start sidebar-minimizer-default-theme
 $sidebar-dark-minimizer-borders:                0 !default;
 $sidebar-dark-minimizer-bg:                     rgba($black, .2) !default;
 $sidebar-dark-minimizer-indicator-color:        $gray-600 !default;
@@ -185,6 +206,7 @@ $sidebar-light-minimizer-indicator:              str-replace(url("data:image/svg
 $sidebar-light-minimizer-hover-bg:               rgba(0, 0, 0, .1) !default;
 $sidebar-light-minimizer-hover-indicator-color:  $gray-700 !default;
 $sidebar-light-minimizer-hover-indicator:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-light-minimizer-hover-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
+// scss-docs-end sidebar-minimizer-default-theme
 
 $sidebar-variants-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

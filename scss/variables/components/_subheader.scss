@@ -1,15 +1,15 @@
 // Subheader
-
+// scss-docs-start subheader
 $subheader-height:       48px !default;
 
 $subheader-padding-y:  $spacer / 2 !default;
 $subheader-padding-x:  $spacer !default;
 
 $subheader-nav-link-padding-x:  .5rem !default;
-
+// scss-docs-end subheader
 
 // Default theme
-
+// scss-docs-start subheader-default-themes
 $subheader-dark-bg:                     $gray-base !default;
 $subheader-dark-color:                  rgba($white, .75) !default;
 $subheader-dark-border:                 ( bottom: 1px solid $gray-800 ) !default;
@@ -23,6 +23,7 @@ $subheader-light-border:                 ( bottom: 1px solid $border-color ) !de
 $subheader-light-hover-color:            rgba($black, .7) !default;
 $subheader-light-active-color:           rgba($black, .9) !default;
 $subheader-light-disabled-color:         rgba($black, .3) !default;
+// scss-docs-end subheader-default-themes
 
 
 $subheader-variants-map: () !default;

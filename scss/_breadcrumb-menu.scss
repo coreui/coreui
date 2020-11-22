@@ -17,7 +17,6 @@
 
   .btn {
     padding: 0 $input-btn-padding-x;
-    color: $text-muted;
     vertical-align: top;
     border: 0;
 
@@ -25,6 +24,9 @@
     &.active {
       color: $body-color;
       background: transparent;
+    }
+    @include themes($typography-theme-map, $create: parent) {
+      color: themes-get-value("text-muted");
     }
   }
 

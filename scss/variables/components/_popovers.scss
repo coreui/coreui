@@ -1,5 +1,6 @@
 // Popovers
 
+// scss-docs-start popover
 $popover-font-size:     $font-size-sm !default;
 $popover-max-width:     276px !default;
 $popover-border-width:  $border-width !default;
@@ -16,9 +17,11 @@ $popover-body-padding-x:  $popover-header-padding-x !default;
 
 $popover-arrow-width:   1rem !default;
 $popover-arrow-height:  .5rem !default;
+// scss-docs-end popover
 
 
 // Default Theme
+// scss-docs-start popover-default-theme
 $popover-bg:                 $white !default;
 $popover-border-color:       rgba($black, .2) !default;
 $popover-header-bg:          darken($popover-bg, 3%) !default;
@@ -26,6 +29,7 @@ $popover-header-color:       $headings-color !default;
 $popover-body-color:         $body-color !default;
 $popover-arrow-color:        $popover-bg !default;
 $popover-arrow-outer-color:  fade-in($popover-border-color, .05) !default;
+// scss-docs-end popover-default-theme
 
 $popover-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

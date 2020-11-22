@@ -1,12 +1,15 @@
 // List group
 
+// scss-docs-start list-group
 $list-group-border-width:   $border-width !default;
 $list-group-border-radius:  $border-radius !default;
 
 $list-group-item-padding-y:  .75rem !default;
 $list-group-item-padding-x:  1.25rem !default;
+// scss-docs-end list-group
 
 // Default theme
+// scss-docs-start list-group-default-theme
 $list-group-color:                null !default;
 $list-group-bg:                   inherit !default;
 $list-group-border-color:         rgba($black, .125) !default;
@@ -20,6 +23,7 @@ $list-group-action-color:         $gray-700 !default;
 $list-group-action-hover-color:   $list-group-action-color !default;
 $list-group-action-active-color:  $body-color !default;
 $list-group-action-active-bg:     $gray-200 !default;
+// scss-docs-end list-group-default-theme
 
 $list-group-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

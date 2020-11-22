@@ -1,5 +1,5 @@
 // Toasts
-
+// scss-docs-start toast
 $toast-max-width:                350px !default;
 $toast-padding-x:                .75rem !default;
 $toast-padding-y:                .25rem !default;
@@ -7,8 +7,10 @@ $toast-font-size:                .875rem !default;
 $toast-border-width:             1px !default;
 $toast-border-radius:            .25rem !default;
 $toast-box-shadow:               0 .25rem .75rem rgba($black, .1) !default;
+// scss-docs-end toast
 
 // Default theme
+// scss-docs-start toast-default-theme
 $toast-background-color:  rgba($white, .85) !default;
 $toast-color:             null !default;
 $toast-border-color:      rgba($black, .1) !default;
@@ -16,6 +18,7 @@ $toast-border-color:      rgba($black, .1) !default;
 $toast-header-color:             $gray-600 !default;
 $toast-header-background-color:  rgba($white, .85) !default;
 $toast-header-border-color:      rgba($black, .05) !default;
+// scss-docs-end toast-default-theme
 
 $toast-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

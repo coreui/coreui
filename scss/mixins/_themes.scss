@@ -99,7 +99,13 @@ $theme-has-variants: false !default;
 @mixin themes-append-variables($theme) {
   // Update global variables
   $current-theme: $theme !global;
-  @content;
+  @if $current-theme == "dark" and $enable-prefers-color-scheme {
+    @media (prefers-color-scheme: dark) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
 }
 
 @mixin themes-create-parent($theme, $variant) {
@@ -119,15 +125,31 @@ $theme-has-variants: false !default;
         }
       }
     }
-  }  @else {
+  } @else {
     @at-root{
       @if $variant == $default-variant {
-        .c-#{$theme}#{$themes-default-post-class} #{$parent-element} {
-          @content;
+        @if $current-theme == "dark" and $enable-prefers-color-scheme {
+          @media (prefers-color-scheme: dark) {
+            #{$parent-element} {
+              @content;
+            }
+          }
+        } @else {
+          .c-#{$theme}#{$themes-default-post-class} #{$parent-element} {
+            @content;
+          }
         }
       } @else {
-        .c-#{$theme}#{$themes-default-post-class} #{$parent-element}#{$parent-element}-#{$variant} {
-          @content;
+        @if $current-theme == "dark" and $enable-prefers-color-scheme {
+          @media (prefers-color-scheme: dark) {
+            #{$parent-element}#{$parent-element}-#{$variant} {
+              @content;
+            }
+          }
+        } @else {
+          .c-#{$theme}#{$themes-default-post-class} #{$parent-element}#{$parent-element}-#{$variant} {
+            @content;
+          }
         }
       }
     }
@@ -142,8 +164,14 @@ $theme-has-variants: false !default;
     @error "No selector found. I need a selector to append the class to.";
   }
 
-  &.c-#{$theme}#{$themes-default-post-class} {
-    @content;
+  @if $current-theme == "dark" and $enable-prefers-color-scheme {
+    @media (prefers-color-scheme: dark) {
+      @content;
+    }
+  } @else {
+    &.c-#{$theme}#{$themes-default-post-class} {
+      @content;
+    }
   }
 }
 
@@ -152,13 +180,25 @@ $theme-has-variants: false !default;
   $current-theme: $theme !global;
 
   @at-root{
-    @if & {
-      .c-#{$theme}#{$themes-default-post-class} & {
-        @content;
+    @if $current-theme == "dark" and $enable-prefers-color-scheme {
+      @media (prefers-color-scheme: dark) {
+        @if & {
+          & {
+            @content;
+          }
+        } @else {
+          @content;
+        }
       }
     } @else {
-      .c-#{$theme}#{$themes-default-post-class} {
-        @content;
+      @if & {
+        .c-#{$theme}#{$themes-default-post-class} & {
+          @content;
+        }
+      } @else {
+        .c-#{$theme}#{$themes-default-post-class} {
+          @content;
+        }
       }
     }
   }

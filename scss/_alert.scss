@@ -51,7 +51,7 @@
 
 
 // Alternate styles
-//
+// scss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert.
 
 @include theme-variant() {
@@ -59,3 +59,4 @@
     @include alert-variant( theme-color-level($value, $alert-bg-level),  theme-color-level($value, $alert-border-level),  theme-color-level($value, $alert-color-level));
   }
 }
+// scss-docs-end alert-modifiers

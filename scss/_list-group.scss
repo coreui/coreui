@@ -163,14 +163,14 @@
 
 
 // Contextual variants
-//
+// scss-docs-start list-group-modifiers
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
 @include theme-variant() {
   @include list-group-item-variant($color,  theme-color-level($value, -9),  theme-color-level($value, 6));
 }
-
+// scss-docs-end list-group-modifiers
 // List items with accent
 //
 // Remove top, bottome and right borders and border-radius.

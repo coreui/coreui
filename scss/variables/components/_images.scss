@@ -1,14 +1,18 @@
 // Image thumbnails
 
+// scss-docs-start thumbnail
 $thumbnail-padding:        .25rem !default;
 $thumbnail-bg:             $body-bg !default;
 $thumbnail-border-width:   $border-width !default;
 $thumbnail-border-color:   $gray-300 !default;
 $thumbnail-border-radius:  $border-radius !default;
 $thumbnail-box-shadow:     0 1px 2px rgba($black, .075) !default;
+// scss-docs-end thumbnail
 
 
 // Figures
 
+// scss-docs-start figure
 $figure-caption-font-size:  90% !default;
 $figure-caption-color:      $gray-600 !default;
+// scss-docs-end figure

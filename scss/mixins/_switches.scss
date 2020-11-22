@@ -56,7 +56,7 @@
 
 @mixin switch-outline-variant($color) {
   .c-switch-input:checked + .c-switch-slider {
-    background-color: $white;
+    background-color: inherit;
     border-color: $color;
 
     &::before {
@@ -70,7 +70,7 @@
 
 @mixin switch-opposite-variant($color) {
   .c-switch-input:checked + .c-switch-slider {
-    background-color: $white;
+    background-color: inherit;
     border-color: $color;
 
     &::before {

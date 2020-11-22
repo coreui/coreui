@@ -3,6 +3,7 @@
 //
 // Dropdown menu container and contents.
 
+// scss-docs-start dropdowns
 $dropdown-min-width:            10rem !default;
 $dropdown-padding-y:            .5rem !default;
 $dropdown-spacer:               .125rem !default;
@@ -15,8 +16,10 @@ $dropdown-box-shadow:           0 .5rem 1rem rgba($black, .175) !default;
 $dropdown-item-padding-y:       .5rem !default;
 $dropdown-item-padding-x:       1.25rem !default;
 $dropdown-header-padding:       $dropdown-padding-y $dropdown-item-padding-x !default;
+// scss-docs-end dropdowns
 
 // Default theme
+// scss-docs-start dropdowns-default-theme
 $dropdown-color:                $body-color !default;
 $dropdown-bg:                   $white !default;
 $dropdown-border-color:         $border-color !default;
@@ -28,6 +31,7 @@ $dropdown-link-active-color:    $component-active-color !default;
 $dropdown-link-active-bg:       $component-active-bg !default;
 $dropdown-link-disabled-color:  $gray-600 !default;
 $dropdown-header-color:         $gray-600 !default;
+// scss-docs-end dropdowns-default-theme
 
 
 $dropdown-theme-map: () !default;

@@ -1,5 +1,6 @@
 // Modals
 
+// scss-docs-start modal
 // Padding applied to the modal body
 $modal-inner-padding: 1rem !default;
 // Margin between elements in footer, must be lower than or equal to 2 * $modal-inner-padding
@@ -33,13 +34,16 @@ $modal-fade-transform:   translate(0, -50px) !default;
 $modal-show-transform:   none !default;
 $modal-transition:       transform .3s ease-out !default;
 $modal-scale-transform:  scale(1.02) !default;
+// scss-docs-end modal
 
 // Default theme
+// scss-docs-start modal-default-theme
 $modal-content-color:         null !default;
 $modal-content-bg:            $white !default;
 $modal-content-border-color:  rgba($black, .2) !default;
 $modal-header-border-color:   $border-color !default;
 $modal-footer-border-color:   $modal-header-border-color !default;
+// scss-docs-end modal-default-theme
 
 $modal-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

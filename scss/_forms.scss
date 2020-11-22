@@ -87,6 +87,13 @@ select.form-control {
       background-color: themes-get-value("input-bg");
     }
   }
+
+  option {
+    // Add background-color for option elements
+    @include themes($form-theme-map, $create: parent) {
+      background-color: themes-get-value("select-option-bg");
+    }
+  }
 }
 
 // Make file inputs better match text inputs by forcing them to new lines.
@@ -249,7 +256,9 @@ textarea.form-control {
   // Use [disabled] and :disabled for workaround https://github.com/twbs/bootstrap/issues/28247
   &[disabled] ~ .form-check-label,
   &:disabled ~ .form-check-label {
-    color: $text-muted;
+    @include themes($typography-theme-map, $create: parent) {
+      color: themes-get-value("text-muted");
+    }
   }
 }
 
@@ -388,4 +397,17 @@ textarea.form-control {
       margin-bottom: 0;
     }
   }
+}
+
+.form-control-color {
+  max-width: 3rem;
+  padding: $input-padding-y;
+}
+
+.form-control-color::-moz-color-swatch {
+  @include border-radius($input-border-radius);
+}
+
+.form-control-color::-webkit-color-swatch {
+  @include border-radius($input-border-radius);
 }

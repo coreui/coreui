@@ -32,7 +32,9 @@
 
     &::before {
       display: inline-block; // Suppress underlining of the separator in modern browsers
-      color: $breadcrumb-divider-color;
+      @include themes($breadcrumb-theme-map, $create: parent) {
+        color: themes-get-value("breadcrumb-divider-color");
+      }
       content: escape-svg($breadcrumb-divider);
       @include ltr {
         padding-right: $breadcrumb-item-padding;
@@ -58,6 +60,8 @@
   }
 
   &.active {
-    color: $breadcrumb-active-color;
+    @include themes($breadcrumb-theme-map, $create: parent) {
+      color: themes-get-value("breadcrumb-active-color");
+    }
   }
 }

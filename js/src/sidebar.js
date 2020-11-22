@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v3.3.0): sidebar.js
+ * CoreUI (v3.4.0): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -441,22 +441,18 @@ class Sidebar {
   _setActiveLink() {
     // eslint-disable-next-line unicorn/prefer-spread
     Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
-      let currentUrl
+      let currentUrl = String(window.location)
 
-      const urlHasParams = /\\?.*=/
-      const urlHasQueryString = /\\?./
+      const urlHasParams = /\?.*=/
+      const urlHasQueryString = /\?./
       const urlHasHash = /#./
 
-      if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
-        currentUrl = String(window.location).split('?')[0]
-      } else if (urlHasHash.test(String(window.location))) {
-        currentUrl = String(window.location).split('#')[0]
-      } else {
-        currentUrl = String(window.location)
+      if (urlHasParams.test(currentUrl) || urlHasQueryString.test(currentUrl)) {
+        currentUrl = currentUrl.split('?')[0]
       }
 
-      if (currentUrl.slice(- 1) === '#') {
-        currentUrl = currentUrl.slice(0, -1)
+      if (urlHasHash.test(currentUrl)) {
+        currentUrl = currentUrl.split('#')[0]
       }
 
       const dataAttributes = element.closest(SELECTOR_NAVIGATION_CONTAINER).dataset

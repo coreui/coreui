@@ -1,6 +1,7 @@
 
 // Navbar
 
+// scss-docs-start navbar
 $navbar-padding-y:  $spacer / 2 !default;
 $navbar-padding-x:  $spacer !default;
 
@@ -16,7 +17,9 @@ $navbar-toggler-padding-y:      .25rem !default;
 $navbar-toggler-padding-x:      .75rem !default;
 $navbar-toggler-font-size:      $font-size-lg !default;
 $navbar-toggler-border-radius:  $btn-border-radius !default;
+// scss-docs-end navbar
 
+// scss-docs-start navbar-default-theme
 $navbar-dark-color:                 rgba($white, .5) !default;
 $navbar-dark-hover-color:           rgba($white, .75) !default;
 $navbar-dark-active-color:          $white !default;
@@ -35,6 +38,7 @@ $navbar-light-brand-color:        $navbar-light-active-color !default;
 $navbar-light-brand-hover-color:  $navbar-light-active-color !default;
 $navbar-dark-brand-color:         $navbar-dark-active-color !default;
 $navbar-dark-brand-hover-color:   $navbar-dark-active-color !default;
+// scss-docs-end navbar-default-theme
 
 $navbar-variants-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

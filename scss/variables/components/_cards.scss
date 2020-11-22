@@ -3,6 +3,7 @@
 // Cards
 //
 
+// scss-docs-start cards
 $card-spacer-y:             .75rem !default;
 $card-spacer-x:             1.25rem !default;
 $card-border-width:         $border-width !default;
@@ -21,14 +22,17 @@ $card-columns-margin:  $card-spacer-y !default;
 
 $card-icon-bg:     transparent !default;
 $card-icon-color:  $body-color !default;
+// scss-docs-end cards
 
 // Default theme
+// scss-docs-start cards-default-theme
 $card-border-color:  $border-color !default;
 $card-cap-bg:        $white !default;
 $card-cap-color:     null !default;
 $card-height:        null !default;
 $card-color:         null !default;
 $card-bg:            $white !default;
+// scss-docs-end cards-default-theme
 
 $card-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

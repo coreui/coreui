@@ -370,6 +370,32 @@
   }
 }
 
+
+.c-sidebar-nav[data-indentation="true"] {
+  $wrapper-class-name: ".c-sidebar-nav-dropdown-items";
+  @for $i from 1 through $sidebar-nav-indentation-levels {
+    #{$wrapper-class-name} {
+      .c-sidebar-nav-link {
+        @include ltr {
+          padding-left: $sidebar-nav-icon-width + ($i * $sidebar-nav-indentation-size);
+        }
+        @include rtl {
+          padding-right: $sidebar-nav-icon-width + ($i * $sidebar-nav-indentation-size);
+        }
+        .c-sidebar-nav-icon {
+          @include ltr {
+            margin-left: - $sidebar-nav-icon-width;
+          }
+          @include rtl {
+            margin-right: - $sidebar-nav-icon-width;
+          }
+        }
+      }
+    }
+    $wrapper-class-name: selector-nest($wrapper-class-name, $wrapper-class-name);
+  }
+}
+
 .c-sidebar-nav-label {
   display: flex;
   padding: ($sidebar-nav-link-padding-y / 4) $sidebar-nav-link-padding-x;

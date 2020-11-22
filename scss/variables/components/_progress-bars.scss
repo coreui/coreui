@@ -1,5 +1,6 @@
 // Progress bars
 
+// scss-docs-start progress-bar
 $progress-height:     1rem !default;
 $progress-font-size:  $font-size-base * .75 !default;
 
@@ -8,11 +9,14 @@ $progress-box-shadow:     inset 0 .1rem .1rem rgba($black, .1) !default;
 
 $progress-bar-animation-timing:  1s linear infinite !default;
 $progress-bar-transition:        width .6s ease !default;
+// scss-docs-end progress-bar
 
 // Default theme
+// scss-docs-start progress-bar-default-theme
 $progress-bg:         $gray-100 !default;
 $progress-bar-color:  $white !default;
 $progress-bar-bg:     theme-color("primary") !default;
+// scss-docs-end progress-bar-default-theme
 
 $progress-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

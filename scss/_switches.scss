@@ -19,10 +19,14 @@
   display: block;
   height: inherit;
   cursor: pointer;
-  background-color: $white;
-  border: $border-width solid $border-color;
+  border: $border-width solid;
   transition: .15s ease-out;
   @include border-radius($border-radius);
+
+  @include themes($form-theme-map) {
+    background-color: themes-get-value("input-bg");
+    border-color: themes-get-value("input-border-color");
+  }
 
   &::before {
     position: absolute;

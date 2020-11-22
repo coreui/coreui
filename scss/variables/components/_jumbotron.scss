@@ -1,11 +1,15 @@
 
 // Jumbotron
 
+// scss-docs-start jumbotron
 $jumbotron-padding:  2rem !default;
+// scss-docs-end jumbotron
 
 // Default theme
+// scss-docs-start jumbotron-default-theme
 $jumbotron-color:  null !default;
 $jumbotron-bg:     $gray-200 !default;
+// scss-docs-end jumbotron-default-theme
 
 $jumbotron-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

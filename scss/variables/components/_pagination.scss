@@ -1,6 +1,7 @@
 
 // Pagination
 
+// scss-docs-start pagination
 $pagination-padding-y:     .5rem !default;
 $pagination-padding-x:     .75rem !default;
 $pagination-padding-y-sm:  .25rem !default;
@@ -9,8 +10,10 @@ $pagination-padding-y-lg:  .75rem !default;
 $pagination-padding-x-lg:  1.5rem !default;
 $pagination-line-height:   1.25 !default;
 $pagination-border-width:  $border-width !default;
+// scss-docs-end pagination
 
 // Default theme
+// scss-docs-start pagination-default-theme
 $pagination-color:                  $link-color !default;
 $pagination-bg:                     $white !default;
 $pagination-border-color:           $border-color !default;
@@ -25,6 +28,7 @@ $pagination-active-border-color:    $pagination-active-bg !default;
 $pagination-disabled-color:         $gray-600 !default;
 $pagination-disabled-bg:            $white !default;
 $pagination-disabled-border-color:  $gray-300 !default;
+// scss-docs-end pagination-default-theme
 
 $pagination-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

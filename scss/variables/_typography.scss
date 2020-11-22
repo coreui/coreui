@@ -59,8 +59,8 @@ $blockquote-font-size:        $font-size-base * 1.25 !default;
 $hr-border-color:  rgba($black, .2) !default;
 $hr-border-width:  $border-width !default;
 
-$vr-color-bg:  rgba($black, .2) !default;
-$vr-width:     $border-width !default;
+$vr-bg:     rgba($black, .2) !default;
+$vr-width:  $border-width !default;
 
 $mark-padding:  .2em !default;
 
@@ -89,3 +89,17 @@ $icon-size-base:  1rem !default;
 $icon-size-sm:    $icon-size-base * .875 !default;
 $icon-size-lg:    $icon-size-base * 1.25 !default;
 $icon-size-xl:    $icon-size-base * 1.5 !default;
+
+
+$typography-theme-map: () !default;
+// stylelint-disable-next-line scss/dollar-variable-default
+$typography-theme-map: map-merge(
+  (
+    default: (
+      "hr-border-color":  $hr-border-color,
+      "vr-bg":            $vr-bg,
+      "text-muted":       $text-muted
+    )
+  ),
+  $typography-theme-map
+);

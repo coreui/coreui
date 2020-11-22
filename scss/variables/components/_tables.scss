@@ -1,7 +1,7 @@
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
-
+// scss-docs-start table
 $table-cell-padding:      .75rem !default;
 $table-cell-padding-sm:   .3rem !default;
 
@@ -13,8 +13,10 @@ $table-caption-color:  $text-muted !default;
 
 $table-bg-level:     -9 !default;
 $table-border-level: -6 !default;
+// scss-docs-end table
 
 // Default Theme
+// scss-docs-start table-default-theme
 $table-color:         $body-color !default;
 $table-bg:            null !default;
 $table-accent-bg:     rgba($black, .05) !default;
@@ -31,6 +33,7 @@ $table-dark-accent-bg:     rgba($white, .05) !default;
 $table-dark-hover-color:   $table-dark-color !default;
 $table-dark-hover-bg:      rgba($white, .075) !default;
 $table-dark-border-color:  lighten($table-dark-bg, 7.5%) !default;
+// scss-docs-end table-default-theme
 
 $table-theme-map: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default

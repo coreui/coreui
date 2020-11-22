@@ -1,5 +1,6 @@
 // Header
 
+// scss-docs-start header
 $header-height:                 56px !default;
 $header-brand-width:            auto !default;
 $header-brand-minimized-width:  56px !default;
@@ -12,10 +13,12 @@ $header-nav-link-padding-x:  .5rem !default;
 $header-brand-font-size:  $font-size-lg !default;
 $header-brand-height:     $header-brand-font-size * $line-height-base !default;
 $header-brand-padding-y:  ($nav-link-height - $header-brand-height) / 2 !default;
+// scss-docs-end header
 
 
 // Default theme
 
+// scss-docs-start header-default-theme
 $header-toggler-bg:             transparent !default;
 $header-toggler-padding-y:      .25rem !default;
 $header-toggler-padding-x:      .75rem !default;
@@ -60,6 +63,7 @@ $header-dark-brand-minimized-border:  0 !default;
 $subheader-light-separator:  1px solid $border-color !default;
 
 $subheader-dark-separator:  1px solid $gray-800 !default;
+// scss-docs-end header-default-theme
 
 
 $header-variants-map: () !default;
