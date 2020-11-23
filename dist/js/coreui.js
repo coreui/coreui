@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v3.3.0 (https://coreui.io)
+  * CoreUI v3.4.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
@@ -5693,21 +5693,17 @@
 
       // eslint-disable-next-line unicorn/prefer-spread
       Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK$1)).forEach(function (element) {
-        var currentUrl;
-        var urlHasParams = /\\?.*=/;
-        var urlHasQueryString = /\\?./;
+        var currentUrl = String(window.location);
+        var urlHasParams = /\?.*=/;
+        var urlHasQueryString = /\?./;
         var urlHasHash = /#./;
 
-        if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
-          currentUrl = String(window.location).split('?')[0];
-        } else if (urlHasHash.test(String(window.location))) {
-          currentUrl = String(window.location).split('#')[0];
-        } else {
-          currentUrl = String(window.location);
+        if (urlHasParams.test(currentUrl) || urlHasQueryString.test(currentUrl)) {
+          currentUrl = currentUrl.split('?')[0];
         }
 
-        if (currentUrl.slice(-1) === '#') {
-          currentUrl = currentUrl.slice(0, -1);
+        if (urlHasHash.test(currentUrl)) {
+          currentUrl = currentUrl.split('#')[0];
         }
 
         var dataAttributes = element.closest(SELECTOR_NAVIGATION_CONTAINER).dataset;
@@ -6860,7 +6856,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v3.3.0): index.umd.js
+   * CoreUI (v3.4.0): index.umd.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

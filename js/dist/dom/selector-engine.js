@@ -1,11 +1,11 @@
 /*!
-  * CoreUI selector-engine.js v3.3.0 (https://coreui.io)
+  * CoreUI selector-engine.js v3.4.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./polyfill.js')) :
-  typeof define === 'function' && define.amd ? define(['./polyfill.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['./polyfill'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.SelectorEngine = factory(global.Polyfill));
 }(this, (function (polyfill_js) { 'use strict';
 

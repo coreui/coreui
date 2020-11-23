@@ -15,10 +15,11 @@
   display: block;
   height: inherit;
   cursor: pointer;
-  background-color: #fff;
-  border: 1px solid #d8dbe0;
+  border: 1px solid;
   transition: .15s ease-out;
   border-radius: 0.25rem;
+  background-color: #fff;
+  border-color: #d8dbe0;
 }
 
 .c-switch-slider::before {
@@ -235,7 +236,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-primary .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #321fdb;
 }
 
@@ -248,7 +249,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-primary .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #321fdb;
 }
 
@@ -275,7 +276,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-secondary .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #ced2d8;
 }
 
@@ -288,7 +289,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-secondary .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #ced2d8;
 }
 
@@ -315,7 +316,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-success .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #2eb85c;
 }
 
@@ -328,7 +329,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-success .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #2eb85c;
 }
 
@@ -355,7 +356,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-info .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #39f;
 }
 
@@ -368,7 +369,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-info .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #39f;
 }
 
@@ -395,7 +396,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-warning .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #f9b115;
 }
 
@@ -408,7 +409,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-warning .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #f9b115;
 }
 
@@ -435,7 +436,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-danger .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #e55353;
 }
 
@@ -448,7 +449,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-danger .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #e55353;
 }
 
@@ -475,7 +476,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-light .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #ebedef;
 }
 
@@ -488,7 +489,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-light .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #ebedef;
 }
 
@@ -515,7 +516,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-outline-dark .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #636f83;
 }
 
@@ -528,7 +529,7 @@ html:not([dir="rtl"]) .c-switch-label .c-switch-slider::after {
 }
 
 .c-switch-opposite-dark .c-switch-input:checked + .c-switch-slider {
-  background-color: #fff;
+  background-color: inherit;
   border-color: #636f83;
 }
 

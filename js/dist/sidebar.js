@@ -1,11 +1,11 @@
 /*!
-  * CoreUI sidebar.js v3.3.0 (https://coreui.io)
+  * CoreUI sidebar.js v3.4.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('perfect-scrollbar')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js', './dom/manipulator.js', 'perfect-scrollbar'], factory) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', 'perfect-scrollbar'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Sidebar = factory(global.Data, global.EventHandler, global.Manipulator, global.PerfectScrollbar));
 }(this, (function (Data, EventHandler, Manipulator, PerfectScrollbar) { 'use strict';
 
@@ -531,21 +531,17 @@
 
       // eslint-disable-next-line unicorn/prefer-spread
       Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(function (element) {
-        var currentUrl;
-        var urlHasParams = /\\?.*=/;
-        var urlHasQueryString = /\\?./;
+        var currentUrl = String(window.location);
+        var urlHasParams = /\?.*=/;
+        var urlHasQueryString = /\?./;
         var urlHasHash = /#./;
 
-        if (urlHasParams.test(String(window.location)) || urlHasQueryString.test(String(window.location))) {
-          currentUrl = String(window.location).split('?')[0];
-        } else if (urlHasHash.test(String(window.location))) {
-          currentUrl = String(window.location).split('#')[0];
-        } else {
-          currentUrl = String(window.location);
+        if (urlHasParams.test(currentUrl) || urlHasQueryString.test(currentUrl)) {
+          currentUrl = currentUrl.split('?')[0];
         }
 
-        if (currentUrl.slice(-1) === '#') {
-          currentUrl = currentUrl.slice(0, -1);
+        if (urlHasHash.test(currentUrl)) {
+          currentUrl = currentUrl.split('#')[0];
         }
 
         var dataAttributes = element.closest(SELECTOR_NAVIGATION_CONTAINER).dataset;

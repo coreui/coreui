@@ -1,5 +1,5 @@
 /*!
-  * CoreUI data.js v3.3.0 (https://coreui.io)
+  * CoreUI data.js v3.4.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */

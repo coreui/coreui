@@ -16,9 +16,9 @@ html:not([dir="rtl"]) .breadcrumb-menu {
 
 .breadcrumb-menu .btn {
   padding: 0 0.75rem;
-  color: #768192;
   vertical-align: top;
   border: 0;
+  color: #768192;
 }
 
 .breadcrumb-menu .btn:hover, .breadcrumb-menu .btn.active {

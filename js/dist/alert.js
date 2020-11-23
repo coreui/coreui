@@ -1,11 +1,11 @@
 /*!
-  * CoreUI alert.js v3.3.0 (https://coreui.io)
+  * CoreUI alert.js v3.4.0 (https://coreui.io)
   * Copyright 2020 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data.js', './dom/event-handler.js'], factory) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.Data, global.EventHandler));
 }(this, (function (Data, EventHandler) { 'use strict';
 
