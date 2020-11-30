@@ -26,11 +26,11 @@
 }
 
 @each $color, $value in $brands-colors {
-  @include bg-variant(".bg-#{$color}", $value);
+  @include bg-variant(".bg-#{$color}", $value, true);
 }
 
 @each $color, $value in $grays {
-  @include bg-variant(".bg-gray-#{$color}", $value);
+  @include bg-variant(".bg-gray-#{$color}", $value, true);
 }
 
 .bg-box {
