@@ -2,6 +2,15 @@
 // Base styles
 //
 
+.accordion {
+  --#{$variable-prefix}accordion-button-color: #{$accordion-button-color};
+  --#{$variable-prefix}accordion-button-bg: #{$accordion-button-bg};
+  --#{$variable-prefix}accordion-border-color: #{$accordion-border-color};
+  --#{$variable-prefix}accordion-button-active-color: #{$accordion-button-active-color};
+  --#{$variable-prefix}accordion-button-active-bg: #{$accordion-button-active-bg};
+  --#{$variable-prefix}accordion-button-focus-border-color: #{$accordion-button-focus-border-color};
+}
+
 .accordion-button {
   position: relative;
   display: flex;
@@ -9,9 +18,9 @@
   width: 100%;
   padding: $accordion-button-padding-y $accordion-button-padding-x;
   @include font-size($font-size-base);
-  color: $accordion-button-color;
-  background-color: $accordion-button-bg;
-  border: $accordion-border-width solid $accordion-border-color;
+  color: var(--#{$variable-prefix}accordion-button-color);
+  background-color: var(--#{$variable-prefix}accordion-button-bg);
+  border: $accordion-border-width solid var(--#{$variable-prefix}accordion-border-color);
   @include border-radius(0);
   overflow-anchor: none;
   @include transition($accordion-transition);
@@ -21,8 +30,8 @@
   }
 
   &:not(.collapsed) {
-    color: $accordion-button-active-color;
-    background-color: $accordion-button-active-bg;
+    color: var(--#{$variable-prefix}accordion-button-active-color);
+    background-color: var(--#{$variable-prefix}accordion-button-active-bg);
 
     &::after {
       background-image: escape-svg($accordion-button-active-icon);
@@ -49,7 +58,7 @@
 
   &:focus {
     z-index: 3;
-    border-color: $accordion-button-focus-border-color;
+    border-color: var(--#{$variable-prefix}accordion-button-focus-border-color);
     outline: 0;
     box-shadow: $accordion-button-focus-box-shadow;
   }
@@ -83,7 +92,7 @@
 }
 
 .accordion-collapse {
-  border: solid $accordion-border-color;
+  border: solid var(--#{$variable-prefix}accordion-border-color);
   border-width: 0 $accordion-border-width;
 }
 

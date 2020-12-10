@@ -1,0 +1,73 @@
+// $theme-colors-vars: (
+//   "primary":         $primary,
+//   "primary-dark":    $primary-dark,
+//   "primary-50":      $primary-50,
+//   "primary-25":      $primary-25,
+//   "secondary":       $secondary,
+//   "secondary-dark":  $secondary-dark,
+//   "secondary-50":    $secondary-50,
+//   "secondary-25":    $secondary-25,
+//   "success":         $success,
+//   "success-dark":    $success-dark,
+//   "success-50":      $success-50,
+//   "success-25":      $success-25,
+//   "info":            $info,
+//   "info-dark":       $info-dark,
+//   "info-50":         $info-50,
+//   "info-25":         $info-25,
+//   "warning":         $warning,
+//   "warning-dark":    $warning-dark,
+//   "warning-50":      $warning-50,
+//   "warning-25":      $warning-25,
+//   "danger":          $danger,
+//   "danger-dark":     $danger-dark,
+//   "danger-50":       $danger-50,
+//   "danger-25":       $danger-25,
+//   "light":           $light,
+//   "light-dark":      $light-dark,
+//   "light-50":        $light-50,
+//   "light-25":        $light-25,
+//   "dark":            $dark,
+//   "dark-dark":       $dark-dark,
+//   "dark-50":         $dark-50,
+//   "dark-25":         $dark-25
+// ) !default;
+
+$theme-colors-vars: (
+  "primary": (
+    "base": $primary,
+    "dark": $primary-dark,
+    "50":   $primary-50,
+    "25":   $primary-25
+  ),
+  "secondary": (
+    "base": $secondary,
+    "dark": $secondary-dark,
+    "50":   $secondary-50,
+    "25":   $secondary-25
+  ),
+  "success": (
+    "base": $success,
+    "dark": $success-dark,
+    "50":   $success-50,
+    "25":   $success-25
+  ),
+  "info": (
+    "base": $info,
+    "dark": $info-dark,
+    "50":   $info-50,
+    "25":   $info-25
+  ),
+  "warning": (
+    "base": $warning,
+    "dark": $warning-dark,
+    "50":   $warning-50,
+    "25":   $warning-25
+  ),
+  "danger": (
+    "base": $danger,
+    "dark": $danger-dark,
+    "50":   $danger-50,
+    "25":   $danger-25
+  )
+) !default;

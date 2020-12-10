@@ -60,14 +60,46 @@ $colors: (
 ) !default;
 // scss-docs-end colors-map
 
-$primary:       $blue !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
+$primary-dark:   $blue !default;
+$primary:        $blue !default;
+$primary-50:     shift-color($primary, -70) !default;
+$primary-25:     shift-color($primary, -80) !default;
+
+
+$secondary-dark: $gray-600 !default;
+$secondary:      $gray-600 !default;
+$secondary-50:   shift-color($secondary, -70) !default;
+$secondary-25:   shift-color($secondary, -80) !default;
+
+$success-dark:   $green !default;
+$success:        $green !default;
+$success-50:     shift-color($success, -70) !default;
+$success-25:     shift-color($success, -80) !default;
+
+$info-dark:      $cyan !default;
+$info:           $cyan !default;
+$info-50:        shift-color($info, -70) !default;
+$info-25:        shift-color($info, -80) !default;
+
+$warning-dark:   $yellow !default;
+$warning:        $yellow !default;
+$warning-50:     shift-color($warning, -70) !default;
+$warning-25:     shift-color($warning, -80) !default;
+
+$danger-dark:    $red !default;
+$danger:         $red !default;
+$danger-50:      shift-color($danger, -70) !default;
+$danger-25:      shift-color($danger, -80) !default;
+
+$light-dark:     $gray-100 !default;
+$light:          $gray-100 !default;
+$light-50:       shift-color($light, -70) !default;
+$light-25:       shift-color($light, -80) !default;
+
+$dark-dark:      $gray-900 !default;
+$dark:           $gray-900 !default;
+$dark-50:        shift-color($dark, -70) !default;
+$dark-25:        shift-color($dark, -80) !default;
 
 // scss-docs-start theme-colors-map
 $theme-colors: (
