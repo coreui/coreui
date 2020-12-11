@@ -22,7 +22,7 @@
       float: left; // Suppress inline spacings and underlining of the separator
       padding-right: $breadcrumb-item-padding-x;
       color: var(--#{$variable-prefix}breadcrumb-divider-color);
-      content: escape-svg($breadcrumb-divider);
+      content: var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
     }
   }
 
