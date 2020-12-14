@@ -151,15 +151,6 @@
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-// @each $state, $value in $theme-colors {
-//   $background: shift-color($value, $list-group-item-bg-scale);
-//   $color: shift-color($value, $list-group-item-color-scale);
-//   @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
-//     $color: mix($value, color-contrast($background), abs($alert-color-scale));
-//   }
-
-//   @include list-group-item-variant($state, $background, $color);
-// }
 @each $state, $map in $list-group-colors {
   $background: var(--#{$variable-prefix}list-group-#{$state}-background, map-get($map, "background"));
   $background-hover: var(--#{$variable-prefix}list-group-#{$state}-background-hover, map-get($map, "background-hover"));
@@ -168,25 +159,6 @@
   //   $color: mix($value, color-contrast($background), abs($alert-color-scale));
   // }
 
-  @include accurate-list-group-item-variant($state, $background, $background-hover, $color);
+  @include list-group-item-variant($state, $background, $background-hover, $color);
 }
 // scss-docs-end list-group-modifiers
-
-
-// @each $state, $map in $button-colors {
-//   $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background"));
-//   $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color"));
-//   $active-background: var(--#{$variable-prefix}btn-outline-#{$state}-active-background, map-get($map, "background"));
-//   $active-border: var(--#{$variable-prefix}btn-outline-#{$state}-active-border, map-get($map, "background"));
-//   $active-color: var(--#{$variable-prefix}btn-outline-#{$state}-active-color, map-get($map, "background"));
-
-//   .btn-outline-#{$state} {
-//     @include accurate-button-outline-variant(
-//       $color,
-//       $color-hover,
-//       $active-background,
-//       $active-border,
-//       $active-color,
-//     );
-//   }
-// }

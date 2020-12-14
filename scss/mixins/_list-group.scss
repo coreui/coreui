@@ -1,27 +1,6 @@
 // List Groups
 
-@mixin list-group-item-variant($state, $background, $color) {
-  .list-group-item-#{$state} {
-    color: $color;
-    background-color: $background;
-
-    &.list-group-item-action {
-      &:hover,
-      &:focus {
-        color: $color;
-        background-color: shade-color($background, 10%);
-      }
-
-      &.active {
-        color: $white;
-        background-color: $color;
-        border-color: $color;
-      }
-    }
-  }
-}
-
-@mixin accurate-list-group-item-variant($state, $background, $background-hover, $color) {
+@mixin list-group-item-variant($state, $background, $background-hover, $color) {
   .list-group-item-#{$state} {
     color: $color;
     background-color: $background;

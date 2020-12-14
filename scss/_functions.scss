@@ -167,6 +167,45 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 }
 // scss-docs-end color-functions
 
+@function alert-color-map($color) {
+  @return (
+    "background": shift-color($color, $alert-bg-scale),
+    "border": shift-color($color, $alert-border-scale),
+    "color": shift-color($color, $alert-color-scale),
+    "link-color": shade-color(shift-color($color, $alert-color-scale), 20%)
+  );
+}
+
+@function btn-color($color, $shade, $tint) {
+  @return if(color-contrast($color) == $color-contrast-light, shade-color($color, $shade), tint-color($color, $tint));
+}
+
+@function btn-color-map($background, $border) {
+  @return (
+    "background": $background,
+    "border": $border,
+    "color": color-contrast($background),
+    "hover-background": btn-color($background, 15%, 15%),
+    "hover-border": btn-color($border, 20%, 10%),
+    "hover-color": color-contrast(btn-color($background, 15%, 15%)),
+    "active-background": btn-color($background, 20%, 20%),
+    "active-border": btn-color($border, 25%, 10%),
+    "active-color": color-contrast(btn-color($background, 20%, 20%)),
+    "disabled-background": $background,
+    "disabled-border": $border,
+    "disabled-color": color-contrast($background),
+    "shadow": rgba(mix($background, $border, 15%), .5)
+  );
+}
+
+@function list-group-color-map($color) {
+  @return (
+    "background": shift-color($color, $list-group-item-bg-scale),
+    "background-hover": shade-color($color, 10%),
+    "color": shift-color($color, $list-group-item-color-scale)
+  );
+}
+
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {
   @if $value1 == null {

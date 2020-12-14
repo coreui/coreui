@@ -1,140 +1,38 @@
-$theme-colors-extended: (
-  "primary": (
-    "base": $primary,
-    "dark": $primary-dark,
-    "50":   $primary-50,
-    "25":   $primary-25
-  ),
-  "secondary": (
-    "base": $secondary,
-    "dark": $secondary-dark,
-    "50":   $secondary-50,
-    "25":   $secondary-25
-  ),
-  "success": (
-    "base": $success,
-    "dark": $success-dark,
-    "50":   $success-50,
-    "25":   $success-25
-  ),
-  "info": (
-    "base": $info,
-    "dark": $info-dark,
-    "50":   $info-50,
-    "25":   $info-25
-  ),
-  "warning": (
-    "base": $warning,
-    "dark": $warning-dark,
-    "50":   $warning-50,
-    "25":   $warning-25
-  ),
-  "danger": (
-    "base": $danger,
-    "dark": $danger-dark,
-    "50":   $danger-50,
-    "25":   $danger-25
-  )
-) !default;
-
-// Components
-
-// $alert-colors: (
+// $theme-colors-extended: (
 //   "primary": (
-//     "color": map-get($theme-colors-extended, "primary", "base"),
-//     "background": map-get($theme-colors-extended, "primary", "25"),
-//     "border-color": map-get($theme-colors-extended, "primary", "50"),
-//     "link-color": map-get($theme-colors-extended, "primary", "dark"),
+//     "base": $primary,
+//     "dark": $primary-dark,
+//     "50":   $primary-50,
+//     "25":   $primary-25
+//   ),
+//   "secondary": (
+//     "base": $secondary,
+//     "dark": $secondary-dark,
+//     "50":   $secondary-50,
+//     "25":   $secondary-25
+//   ),
+//   "success": (
+//     "base": $success,
+//     "dark": $success-dark,
+//     "50":   $success-50,
+//     "25":   $success-25
+//   ),
+//   "info": (
+//     "base": $info,
+//     "dark": $info-dark,
+//     "50":   $info-50,
+//     "25":   $info-25
+//   ),
+//   "warning": (
+//     "base": $warning,
+//     "dark": $warning-dark,
+//     "50":   $warning-50,
+//     "25":   $warning-25
+//   ),
+//   "danger": (
+//     "base": $danger,
+//     "dark": $danger-dark,
+//     "50":   $danger-50,
+//     "25":   $danger-25
 //   )
 // ) !default;
-
-@function alert-map($color) {
-  @return (
-    "background": shift-color($color, $alert-bg-scale),
-    "border": shift-color($color, $alert-border-scale),
-    "color": shift-color($color, $alert-color-scale),
-    "link-color": shade-color(shift-color($color, $alert-color-scale), 20%)
-  );
-}
-
-$alert-colors: (
-  "primary": (
-    "background": shift-color(map-get($theme-colors, "primary"), $alert-bg-scale),
-    "border": shift-color(map-get($theme-colors, "primary"), $alert-border-scale),
-    "color": shift-color(map-get($theme-colors, "primary"), $alert-color-scale),
-    "link-color": shade-color(shift-color(map-get($theme-colors, "primary"), $alert-color-scale), 20%),
-  ),
-  "secondary": alert-map($secondary),
-  "success": alert-map($success),
-  "danger": alert-map($danger),
-  "warning": alert-map($warning),
-  "info": alert-map($info),
-  "light": alert-map($light),
-  "dark": alert-map($dark)
-) !default;
-
-@function btn-color($color, $shade, $tint) {
-  @return if(color-contrast($color) == $color-contrast-light, shade-color($color, $shade), tint-color($color, $tint));
-}
-
-@function btn-map($background, $border) {
-  @return (
-    "background": $background,
-    "border": $border,
-    "color": color-contrast($background),
-    "hover-background": btn-color($background, 15%, 15%),
-    "hover-border": btn-color($border, 20%, 10%),
-    "hover-color": color-contrast(btn-color($background, 15%, 15%)),
-    "active-background": btn-color($background, 20%, 20%),
-    "active-border": btn-color($border, 25%, 10%),
-    "active-color": color-contrast(btn-color($background, 20%, 20%)),
-    "disabled-background": $background,
-    "disabled-border": $border,
-    "disabled-color": color-contrast($background),
-    "shadow": rgba(mix($background, $border, 15%), .5)
-  );
-}
-
-$button-colors: (
-  "primary": (
-    "background": $primary,
-    "border": $primary,
-    "color": color-contrast($primary),
-    "hover-background": btn-color($primary, 15%, 15%),
-    "hover-border": btn-color($primary, 20%, 10%),
-    "hover-color": color-contrast(btn-color($primary, 15%, 15%)),
-    "active-background": btn-color($primary, 20%, 20%),
-    "active-border": btn-color($primary, 25%, 10%),
-    "active-color": color-contrast(btn-color($primary, 20%, 20%)),
-    "disabled-background": $primary,
-    "disabled-border": $primary,
-    "disabled-color": color-contrast($primary),
-    "shadow": rgba(mix($primary, $primary, 15%), .5)
-  ),
-  "secondary": btn-map($secondary, $secondary),
-  "success": btn-map($success, $success),
-  "danger": btn-map($danger, $danger),
-  "warning": btn-map($warning, $warning),
-  "info": btn-map($info, $info),
-  "light": btn-map($light, $light),
-  "dark": btn-map($dark, $dark)
-) !default;
-
-@function list-group-map($color) {
-  @return (
-    "background": shift-color($color, $list-group-item-bg-scale),
-    "background-hover": shade-color($color, 10%),
-    "color": shift-color($color, $list-group-item-color-scale)
-  );
-}
-
-$list-group-colors: (
-  "primary": list-group-map($primary),
-  "secondary": list-group-map($secondary),
-  "success": list-group-map($success),
-  "danger": list-group-map($danger),
-  "warning": list-group-map($warning),
-  "info": list-group-map($info),
-  "light": list-group-map($light),
-  "dark": list-group-map($dark,)
-) !default;

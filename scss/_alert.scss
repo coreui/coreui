@@ -43,21 +43,6 @@
 // scss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert.
 
-// @each $state, $value in $theme-colors {
-//   $background: shift-color($value, $alert-bg-scale);
-//   $border: shift-color($value, $alert-border-scale);
-//   $color: shift-color($value, $alert-color-scale);
-//   @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
-//     $color: mix($value, color-contrast($background), abs($alert-color-scale));
-//   }
-//   .alert-#{$state} {
-//     @include alert-variant($background, $border, $color);
-//   }
-// }
-// scss-docs-end alert-modifiers
-
-// scss-docs-start alert-modifiers
-// Generate contextual modifier classes for colorizing the alert.
 @each $state, $map in $alert-colors {
   $background: var(--#{$variable-prefix}alert-#{$state}-bg, map-get($map, "background"));
   $border: var(--#{$variable-prefix}alert-#{$state}-border-color, map-get($map, "border"));
@@ -67,7 +52,7 @@
   //   $color: mix($value, color-contrast($background), abs($alert-color-scale));
   // }
   .alert-#{$state} {
-    @include accurate-alert-variant($background, $border, $color, $link-color);
+    @include alert-variant($background, $border, $color, $link-color);
   }
 }
 // scss-docs-end alert-modifiers

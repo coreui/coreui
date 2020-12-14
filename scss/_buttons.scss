@@ -71,7 +71,7 @@
   $shadow: var(--#{$variable-prefix}btn-#{$state}-shadow, map-get($map, "shadow"));
 
   .btn-#{$state} {
-    @include accurate-button-variant(
+    @include button-variant(
       $background,
       $border,
       $color,
@@ -89,36 +89,25 @@
   }
 }
 
-// @each $color, $value in $theme-colors {
-//   .btn-#{$color} {
-//     @include button-variant($value, $value);
-//     // @include accurate-button-variant($value, $value);
-//   }
-// }
-
 @each $state, $map in $button-colors {
   $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background"));
   $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color"));
   $active-background: var(--#{$variable-prefix}btn-outline-#{$state}-active-background, map-get($map, "background"));
   $active-border: var(--#{$variable-prefix}btn-outline-#{$state}-active-border, map-get($map, "background"));
-  $active-color: var(--#{$variable-prefix}btn-outline-#{$state}-active-color, map-get($map, "background"));
+  $active-color: var(--#{$variable-prefix}btn-outline-#{$state}-active-color, map-get($map, "active-color"));
+  $shadow: var(--#{$variable-prefix}btn-outline-#{$state}-shadow, map-get($map, "shadow"));
 
   .btn-outline-#{$state} {
-    @include accurate-button-outline-variant(
+    @include button-outline-variant(
       $color,
       $color-hover,
       $active-background,
       $active-border,
       $active-color,
+      $shadow
     );
   }
 }
-
-// @each $color, $value in $theme-colors {
-//   .btn-outline-#{$color} {
-//     @include button-outline-variant($value);
-//   }
-// }
 
 
 //
