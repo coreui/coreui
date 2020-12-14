@@ -7,3 +7,13 @@
     color: shade-color($color, 20%);
   }
 }
+
+@mixin accurate-alert-variant($background, $border-color, $color, $link-color) {
+  color: $color;
+  background: $background;
+  border-color: $border-color;
+
+  .alert-link {
+    color: $link-color;
+  }
+}

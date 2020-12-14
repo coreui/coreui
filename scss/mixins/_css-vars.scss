@@ -1,0 +1,87 @@
+@mixin css-vars() {
+  .accordion {
+    @if variable-exists("accordion-button-bg") {
+      --#{$variable-prefix}accordion-button-bg: #{$accordion-button-bg};
+    }
+    @if variable-exists("accordion-button-color") {
+      --#{$variable-prefix}accordion-button-color: #{$accordion-button-color};
+    }
+    @if variable-exists("accordion-border-color") {
+      --#{$variable-prefix}accordion-border-color: #{$accordion-border-color};
+    }
+    @if variable-exists("accordion-button-active-color") {
+      --#{$variable-prefix}accordion-button-active-color: #{$accordion-button-active-color};
+    }
+    @if variable-exists("accordion-button-active-bg") {
+      --#{$variable-prefix}accordion-button-active-bg: #{$accordion-button-active-bg};
+    }
+    @if variable-exists("accordion-button-focus-border-color") {
+      --#{$variable-prefix}accordion-button-focus-border-color: #{$accordion-button-focus-border-color};
+    }
+  }
+
+  .badge {
+    @if variable-exists("badge-color") {
+      --#{$variable-prefix}badge-color: #{$badge-color};
+    }
+  }
+
+
+  // // Accordion
+  // --#{$variable-prefix}accordion-border-color: #{$accordion-border-color};
+  // --#{$variable-prefix}accordion-button-active-color: #{$accordion-button-active-color};
+  // --#{$variable-prefix}accordion-button-active-bg: #{$accordion-button-active-bg};
+  // --#{$variable-prefix}accordion-button-focus-border-color: #{$accordion-button-focus-border-color};
+
+  // // Badge
+  // --#{$variable-prefix}badge-color: #{$badge-color};
+
+  // // Breadcrumb
+  // --#{$variable-prefix}breadcrumb-bg: #{$breadcrumb-bg};
+  // --#{$variable-prefix}breadcrumb-active-color: #{$breadcrumb-active-color};
+  // --#{$variable-prefix}breadcrumb-divider-color: #{$breadcrumb-divider-color};
+
+  // // Card
+  // --#{$variable-prefix}card-bg: #{$card-bg};
+  // --#{$variable-prefix}card-border-color: #{$card-border-color};
+  // --#{$variable-prefix}card-color: #{$card-color};
+  // --#{$variable-prefix}card-cap-color: #{$card-cap-color};
+  // --#{$variable-prefix}card-cap-bg: #{$card-cap-bg};
+
+  // // Close
+  // --#{$variable-prefix}btn-close-color: #{$btn-close-color};
+  // --#{$variable-prefix}btn-close-bg: #{escape-svg($btn-close-bg)};
+
+  // // Dropdown
+  // --#{$variable-prefix}dropdown-color: #{$dropdown-color};
+  // --#{$variable-prefix}dropdown-bg: #{$dropdown-bg};
+  // --#{$variable-prefix}dropdown-border-color: #{$dropdown-border-color};
+  // --#{$variable-prefix}dropdown-divider-bg: #{$dropdown-divider-bg};
+  // --#{$variable-prefix}dropdown-link-color: #{$dropdown-link-color};
+  // --#{$variable-prefix}dropdown-link-hover-color: #{$dropdown-link-hover-color};
+  // --#{$variable-prefix}dropdown-link-active-color: #{$dropdown-link-active-color};
+  // --#{$variable-prefix}dropdown-link-disabled-color: #{$dropdown-link-disabled-color};
+  // --#{$variable-prefix}dropdown-header-color: #{$dropdown-header-color};
+
+  // // Images
+  // --#{$variable-prefix}thumbnail-bg: #{$thumbnail-bg};
+  // --#{$variable-prefix}thumbnail-border-color: #{$thumbnail-border-color};
+
+  // // Images / Figure
+  // --#{$variable-prefix}figure-caption-color: $figure-caption-color;
+
+  // // List Group
+  // --#{$variable-prefix}list-group-action-color: #{$list-group-action-color};
+  // --#{$variable-prefix}list-group-action-hover-color: #{$list-group-action-hover-color};
+  // --#{$variable-prefix}list-group-hover-bg: #{$list-group-hover-bg};
+  // --#{$variable-prefix}list-group-action-active-color: #{$list-group-action-active-color};
+  // --#{$variable-prefix}list-group-action-active-bg: #{$list-group-action-active-bg};
+  // --#{$variable-prefix}list-group-color: #{$list-group-color};
+  // --#{$variable-prefix}list-group-bg: #{$list-group-bg};
+  // --#{$variable-prefix}list-group-border-color: #{$list-group-border-color};
+  // --#{$variable-prefix}list-group-disabled-color: #{$list-group-disabled-color};
+  // --#{$variable-prefix}list-group-disabled-bg: #{$list-group-disabled-bg};
+  // --#{$variable-prefix}list-group-active-color: #{$list-group-active-color};
+  // --#{$variable-prefix}list-group-active-bg: #{$list-group-active-bg};
+  // --#{$variable-prefix}list-group-active-border-color: #{$list-group-active-border-color};
+}

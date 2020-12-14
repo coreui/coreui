@@ -16,19 +16,19 @@
   padding: $nav-link-padding-y $nav-link-padding-x;
   @include font-size($nav-link-font-size);
   font-weight: $nav-link-font-weight;
-  color: $nav-link-color;
+  color: var(--#{$variable-prefix}nav-link-color, $nav-link-color);
   text-decoration: if($link-decoration == none, null, none);
   @include transition($nav-link-transition);
 
   &:hover,
   &:focus {
-    color: $nav-link-hover-color;
+    color: var(--#{$variable-prefix}nav-link-hover-color, $nav-link-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
 
   // Disabled state lightens text
   &.disabled {
-    color: $nav-link-disabled-color;
+    color: var(--#{$variable-prefix}nav-link-disabled-color, $nav-link-disabled-color);
     pointer-events: none;
     cursor: default;
   }
@@ -39,7 +39,7 @@
 //
 
 .nav-tabs {
-  border-bottom: $nav-tabs-border-width solid $nav-tabs-border-color;
+  border-bottom: $nav-tabs-border-width solid var(--#{$variable-prefix}nav-tabs-border-color, $nav-tabs-border-color);
 
   .nav-link {
     margin-bottom: -$nav-tabs-border-width;
@@ -48,11 +48,11 @@
 
     &:hover,
     &:focus {
-      border-color: $nav-tabs-link-hover-border-color;
+      border-color: var(--#{$variable-prefix}nav-tabs-link-hover-border-color, $nav-tabs-link-hover-border-color);
     }
 
     &.disabled {
-      color: $nav-link-disabled-color;
+      color: var(--#{$variable-prefix}nav-link-disabled-color, $nav-link-disabled-color);
       background-color: transparent;
       border-color: transparent;
     }
@@ -60,9 +60,9 @@
 
   .nav-link.active,
   .nav-item.show .nav-link {
-    color: $nav-tabs-link-active-color;
-    background-color: $nav-tabs-link-active-bg;
-    border-color: $nav-tabs-link-active-border-color;
+    color: var(--#{$variable-prefix}nav-tabs-link-active-color, $nav-tabs-link-active-color);
+    background-color: var(--#{$variable-prefix}nav-tabs-link-active-bg, $nav-tabs-link-active-bg);
+    border-color: var(--#{$variable-prefix}nav-tabs-link-active-border-color, $nav-tabs-link-active-border-color);
   }
 
   .dropdown-menu {
@@ -85,8 +85,8 @@
 
   .nav-link.active,
   .show > .nav-link {
-    color: $nav-pills-link-active-color;
-    @include gradient-bg($nav-pills-link-active-bg);
+    color: var(--#{$variable-prefix}nav-pills-link-active-color, $nav-pills-link-active-color);
+    @include gradient-bg($nav-pills-link-active-bg); // TODO: vars
   }
 }
 

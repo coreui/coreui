@@ -7,7 +7,7 @@
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
-  color: $body-color;
+  color: var(--#{$variable-prefix}body-color, $body-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
   white-space: $btn-white-space;
@@ -20,7 +20,7 @@
   @include transition($btn-transition);
 
   &:hover {
-    color: $body-color;
+    color: var(--#{$variable-prefix}body-color, $body-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
 
@@ -55,17 +55,70 @@
 // Alternate buttons
 //
 
-@each $color, $value in $theme-colors {
-  .btn-#{$color} {
-    @include button-variant($value, $value);
+@each $state, $map in $button-colors {
+  $background: var(--#{$variable-prefix}btn-#{$state}-background, map-get($map, "background"));
+  $border: var(--#{$variable-prefix}btn-#{$state}-border-color, map-get($map, "border"));
+  $color: var(--#{$variable-prefix}btn-#{$state}-color, map-get($map, "color"));
+  $hover-background: var(--#{$variable-prefix}btn-#{$state}-hover-background, map-get($map, "hover-background"));
+  $hover-border: var(--#{$variable-prefix}btn-#{$state}-hover-border, map-get($map, "hover-border"));
+  $hover-color: var(--#{$variable-prefix}btn-#{$state}-hover-color, map-get($map, "hover-color"));
+  $active-background: var(--#{$variable-prefix}btn-#{$state}-active-background, map-get($map, "active-background"));
+  $active-border: var(--#{$variable-prefix}btn-#{$state}-active-border, map-get($map, "active-border"));
+  $active-color: var(--#{$variable-prefix}btn-#{$state}-active-color, map-get($map, "active-color"));
+  $disabled-background: var(--#{$variable-prefix}btn-#{$state}-disabled-background, map-get($map, "disabled-background"));
+  $disabled-border: var(--#{$variable-prefix}btn-#{$state}-disabled-border, map-get($map, "disabled-border"));
+  $disabled-color: var(--#{$variable-prefix}btn-#{$state}-disabled-color, map-get($map, "disabled-color"));
+  $shadow: var(--#{$variable-prefix}btn-#{$state}-shadow, map-get($map, "shadow"));
+
+  .btn-#{$state} {
+    @include accurate-button-variant(
+      $background,
+      $border,
+      $color,
+      $hover-background,
+      $hover-border,
+      $hover-color,
+      $active-background,
+      $active-border,
+      $active-color,
+      $disabled-background,
+      $disabled-border,
+      $disabled-color,
+      $shadow
+    );
   }
 }
 
-@each $color, $value in $theme-colors {
-  .btn-outline-#{$color} {
-    @include button-outline-variant($value);
+// @each $color, $value in $theme-colors {
+//   .btn-#{$color} {
+//     @include button-variant($value, $value);
+//     // @include accurate-button-variant($value, $value);
+//   }
+// }
+
+@each $state, $map in $button-colors {
+  $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background"));
+  $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color"));
+  $active-background: var(--#{$variable-prefix}btn-outline-#{$state}-active-background, map-get($map, "background"));
+  $active-border: var(--#{$variable-prefix}btn-outline-#{$state}-active-border, map-get($map, "background"));
+  $active-color: var(--#{$variable-prefix}btn-outline-#{$state}-active-color, map-get($map, "background"));
+
+  .btn-outline-#{$state} {
+    @include accurate-button-outline-variant(
+      $color,
+      $color-hover,
+      $active-background,
+      $active-border,
+      $active-color,
+    );
   }
 }
+
+// @each $color, $value in $theme-colors {
+//   .btn-outline-#{$color} {
+//     @include button-outline-variant($value);
+//   }
+// }
 
 
 //
@@ -75,11 +128,11 @@
 // Make a button look and behave like a link
 .btn-link {
   font-weight: $font-weight-normal;
-  color: $btn-link-color;
+  color: var(--#{$variable-prefix}btn-link-color, $btn-link-color);
   text-decoration: $link-decoration;
 
   &:hover {
-    color: $btn-link-hover-color;
+    color: var(--#{$variable-prefix}btn-link-hover-color, $btn-link-hover-color);
     text-decoration: $link-hover-decoration;
   }
 
@@ -89,7 +142,7 @@
 
   &:disabled,
   &.disabled {
-    color: $btn-link-disabled-color;
+    color: var(--#{$variable-prefix}btn-link-disabled-color, $btn-link-disabled-color);
   }
 
   // No need for an active state here

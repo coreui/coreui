@@ -10,7 +10,7 @@
   height: $progress-height;
   overflow: hidden; // force rounded corners by cropping it
   @include font-size($progress-font-size);
-  background-color: $progress-bg;
+  background-color: var(--#{$variable-prefix}progress-bg, $progress-bg);
   @include border-radius($progress-border-radius);
   @include box-shadow($progress-box-shadow);
 }
@@ -20,10 +20,10 @@
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
-  color: $progress-bar-color;
+  color: var(--#{$variable-prefix}progress-bar-color, $progress-bar-color);
   text-align: center;
   white-space: nowrap;
-  background-color: $progress-bar-bg;
+  background-color: var(--#{$variable-prefix}progress-bar-bg, $progress-bar-bg);
   @include transition($progress-bar-transition);
 }
 

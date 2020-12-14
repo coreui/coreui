@@ -56,16 +56,18 @@
 // }
 // scss-docs-end alert-modifiers
 
-
-@each $state, $value in $theme-colors-vars {
-  @debug $state;
-  $background: map-get($theme-colors-vars, $state, "25");
-  $border: map-get($theme-colors-vars, $state, "50");
-  $color: map-get($theme-colors-vars, $state, "base");
+// scss-docs-start alert-modifiers
+// Generate contextual modifier classes for colorizing the alert.
+@each $state, $map in $alert-colors {
+  $background: var(--#{$variable-prefix}alert-#{$state}-bg, map-get($map, "background"));
+  $border: var(--#{$variable-prefix}alert-#{$state}-border-color, map-get($map, "border"));
+  $color: var(--#{$variable-prefix}alert-#{$state}-color, map-get($map, "color"));
+  $link-color: var(--#{$variable-prefix}alert-#{$state}-link-color, map-get($map, "link-color"));
   // @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
   //   $color: mix($value, color-contrast($background), abs($alert-color-scale));
   // }
   .alert-#{$state} {
-    @include alert-variant($background, $border, $color);
+    @include accurate-alert-variant($background, $border, $color, $link-color);
   }
 }
+// scss-docs-end alert-modifiers

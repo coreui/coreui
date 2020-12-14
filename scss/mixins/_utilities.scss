@@ -49,7 +49,7 @@
       }
       .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
-          #{$property}: $value if($enable-important-utilities, !important, null);
+          #{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}, $value) if($enable-important-utilities, !important, null);
         }
       }
 

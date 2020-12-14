@@ -20,3 +20,24 @@
     }
   }
 }
+
+@mixin accurate-list-group-item-variant($state, $background, $background-hover, $color) {
+  .list-group-item-#{$state} {
+    color: $color;
+    background-color: $background;
+
+    &.list-group-item-action {
+      &:hover,
+      &:focus {
+        color: $color;
+        background-color: $background-hover;
+      }
+
+      &.active {
+        color: $white;
+        background-color: $color;
+        border-color: $color;
+      }
+    }
+  }
+}

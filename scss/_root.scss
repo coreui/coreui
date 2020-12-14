@@ -8,7 +8,7 @@
     --#{$variable-prefix}#{$color}: #{$value};
   }
 
-  @each $color, $variants in $theme-colors-vars {
+  @each $color, $variants in $theme-colors-extended {
     @each $variant, $value in $variants {
       --#{$variable-prefix}#{$color}-#{$variant}: #{$value};
     }

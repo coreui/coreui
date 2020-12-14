@@ -3,21 +3,15 @@
 //
 
 .card {
-  --#{$variable-prefix}card-bg: #{$card-bg};
-  --#{$variable-prefix}card-border-color: #{$card-border-color};
-  --#{$variable-prefix}card-color: #{$card-color};
-  --#{$variable-prefix}card-cap-color: #{$card-cap-color};
-  --#{$variable-prefix}card-cap-bg: #{$card-cap-bg};
-
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0; // See https://github.com/twbs/bootstrap/pull/22740#issuecomment-305868106
   height: $card-height;
   word-wrap: break-word;
-  background-color: var(--#{$variable-prefix}card-bg);
+  background-color: var(--#{$variable-prefix}card-bg, $card-bg);
   background-clip: border-box;
-  border: $card-border-width solid var(--#{$variable-prefix}card-border-color);
+  border: $card-border-width solid var(--#{$variable-prefix}card-border-color, $card-border-color);
   @include border-radius($card-border-radius);
 
   > hr {
@@ -53,7 +47,7 @@
   // as much space as possible, ensuring footers are aligned to the bottom.
   flex: 1 1 auto;
   padding: $card-spacer-y $card-spacer-x;
-  color: var(--#{$variable-prefix}card-color);
+  color: var(--#{$variable-prefix}card-color, $card-color);
 }
 
 .card-title {
@@ -86,9 +80,9 @@
 .card-header {
   padding: $card-cap-padding-y $card-cap-padding-x;
   margin-bottom: 0; // Removes the default margin-bottom of <hN>
-  color: var(--#{$variable-prefix}card-cap-color);
-  background-color: var(--#{$variable-prefix}card-cap-bg);
-  border-bottom: $card-border-width solid var(--#{$variable-prefix}card-border-color);
+  color: var(--#{$variable-prefix}card-cap-color, $card-cap-color);
+  background-color: var(--#{$variable-prefix}card-cap-bg, $card-cap-bg);
+  border-bottom: $card-border-width solid var(--#{$variable-prefix}card-border-color, $card-border-color);
 
   &:first-child {
     @include border-radius($card-inner-border-radius $card-inner-border-radius 0 0);
@@ -97,9 +91,9 @@
 
 .card-footer {
   padding: $card-cap-padding-y $card-cap-padding-x;
-  color: var(--#{$variable-prefix}card-cap-color);
-  background-color: var(--#{$variable-prefix}card-cap-bg);
-  border-top: $card-border-width solid var(--#{$variable-prefix}card-border-color);
+  color: var(--#{$variable-prefix}card-cap-color, $card-cap-color);
+  background-color: var(--#{$variable-prefix}card-cap-bg, $card-cap-bg);
+  border-top: $card-border-width solid var(--#{$variable-prefix}card-border-color, $card-border-color);
 
   &:last-child {
     @include border-radius(0 0 $card-inner-border-radius $card-inner-border-radius);
@@ -117,12 +111,10 @@
   margin-left: -$card-cap-padding-x / 2;
   border-bottom: 0;
 
-
-  // TODO: find solution
-  @if $nav-tabs-link-active-bg != $card-bg {
+  @if $nav-tabs-link-active-bg != $card-bg { // TODO: find solution
     .nav-link.active {
-      background-color: var(--#{$variable-prefix}card-bg);
-      border-bottom-color: var(--#{$variable-prefix}card-bg);
+      background-color: var(--#{$variable-prefix}card-bg, $card-bg);
+      border-bottom-color: var(--#{$variable-prefix}card-bg, $card-bg);
     }
   }
 }

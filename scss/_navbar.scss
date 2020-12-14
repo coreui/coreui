@@ -194,50 +194,50 @@
 // Dark links against a light background
 .navbar-light {
   .navbar-brand {
-    color: $navbar-light-brand-color;
+    color: var(--#{$variable-prefix}navbar-light-brand-color, $navbar-light-brand-color);
 
     &:hover,
     &:focus {
-      color: $navbar-light-brand-hover-color;
+      color: var(--#{$variable-prefix}navbar-light-brand-hover-color, $navbar-light-brand-hover-color);
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-light-color;
+      color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
 
       &:hover,
       &:focus {
-        color: $navbar-light-hover-color;
+        color: var(--#{$variable-prefix}navbar-light-hover-color, $navbar-light-hover-color);
       }
 
       &.disabled {
-        color: $navbar-light-disabled-color;
+        color: var(--#{$variable-prefix}navbar-light-disabled-color, $navbar-light-disabled-color);
       }
     }
 
     .show > .nav-link,
     .nav-link.active {
-      color: $navbar-light-active-color;
+      color: var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
     }
   }
 
   .navbar-toggler {
-    color: $navbar-light-color;
-    border-color: $navbar-light-toggler-border-color;
+    color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
+    border-color: var(--#{$variable-prefix}navbar-light-toggler-border-color, $navbar-light-toggler-border-color);
   }
 
   .navbar-toggler-icon {
-    background-image: escape-svg($navbar-light-toggler-icon-bg);
+    background-image: escape-svg($navbar-light-toggler-icon-bg); // TODO: vars
   }
 
   .navbar-text {
-    color: $navbar-light-color;
+    color: var(--#{$variable-prefix}navbar-light-color, $navbar-light-color);
 
     a,
     a:hover,
     a:focus  {
-      color: $navbar-light-active-color;
+      color: var(--#{$variable-prefix}navbar-light-active-color, $navbar-light-active-color);
     }
   }
 }
@@ -245,49 +245,49 @@
 // White links against a dark background
 .navbar-dark {
   .navbar-brand {
-    color: $navbar-dark-brand-color;
+    color: var(--#{$variable-prefix}navbar-dark-brand-color, $navbar-dark-brand-color);
 
     &:hover,
     &:focus {
-      color: $navbar-dark-brand-hover-color;
+      color: var(--#{$variable-prefix}navbar-dark-brand-hover-color, $navbar-dark-brand-hover-color);
     }
   }
 
   .navbar-nav {
     .nav-link {
-      color: $navbar-dark-color;
+      color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
 
       &:hover,
       &:focus {
-        color: $navbar-dark-hover-color;
+        color: var(--#{$variable-prefix}navbar-dark-hover-color, $navbar-dark-hover-color);
       }
 
       &.disabled {
-        color: $navbar-dark-disabled-color;
+        color: var(--#{$variable-prefix}navbar-dark-disabled-color, $navbar-dark-disabled-color);
       }
     }
 
     .show > .nav-link,
     .nav-link.active {
-      color: $navbar-dark-active-color;
+      color: var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
     }
   }
 
   .navbar-toggler {
-    color: $navbar-dark-color;
-    border-color: $navbar-dark-toggler-border-color;
+    color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
+    border-color: var(--#{$variable-prefix}navbar-dark-toggler-border-color, $navbar-dark-toggler-border-color);
   }
 
   .navbar-toggler-icon {
-    background-image: escape-svg($navbar-dark-toggler-icon-bg);
+    background-image: escape-svg($navbar-dark-toggler-icon-bg); // TODO: vars
   }
 
   .navbar-text {
-    color: $navbar-dark-color;
+    color: var(--#{$variable-prefix}navbar-dark-color, $navbar-dark-color);
     a,
     a:hover,
     a:focus {
-      color: $navbar-dark-active-color;
+      color: var(--#{$variable-prefix}navbar-dark-active-color, $navbar-dark-active-color);
     }
   }
 }

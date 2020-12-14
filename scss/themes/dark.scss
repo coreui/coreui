@@ -1,0 +1,9 @@
+@import "./../functions";
+@import "./../mixins";
+
+@import "dark/custom";
+@import "dark/variables";
+
+.dark-theme {
+  @include css-vars();
+}

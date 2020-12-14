@@ -49,9 +49,9 @@ body {
   @include font-size($font-size-base);
   font-weight: $font-weight-base;
   line-height: $line-height-base;
-  color: $body-color;
+  color: var(--#{$variable-prefix}body-color, $body-color);
   text-align: $body-text-align;
-  background-color: $body-bg; // 2
+  background-color: var(--#{$variable-prefix}body-bg, $body-bg); // 2
   -webkit-text-size-adjust: 100%; // 3
   -webkit-tap-highlight-color: rgba($black, 0); // 4
 }
@@ -78,7 +78,7 @@ body {
 
 hr {
   margin: $hr-margin-y 0;
-  color: $hr-color; // 1
+  color: var(--#{$variable-prefix}hr-color, $hr-color); // 1
   background-color: currentColor;
   border: 0;
   opacity: $hr-opacity;
@@ -102,7 +102,7 @@ hr:not([size]) {
   font-style: $headings-font-style;
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
-  color: $headings-color;
+  color: var(--#{$variable-prefix}headings-color, $headings-color);
 }
 
 h1 {
@@ -235,7 +235,7 @@ small {
 
 mark {
   padding: $mark-padding;
-  background-color: $mark-bg;
+  background-color: var(--#{$variable-prefix}mark-bg, $mark-bg);
 }
 
 
@@ -259,11 +259,11 @@ sup { top: -.5em; }
 // Links
 
 a {
-  color: $link-color;
+  color: var(--#{$variable-prefix}link-color, $link-color);
   text-decoration: $link-decoration;
 
   &:hover {
-    color: $link-hover-color;
+    color: var(--#{$variable-prefix}link-hover-color, $link-hover-color);
     text-decoration: $link-hover-decoration;
   }
 }
@@ -304,7 +304,7 @@ pre {
   margin-bottom: 1rem; // 2
   overflow: auto; // 3
   @include font-size($code-font-size);
-  color: $pre-color;
+  color: var(--#{$variable-prefix}pre-color, $pre-color);
 
   // Account for some code outputs that place code tags in pre tags
   code {
@@ -316,7 +316,7 @@ pre {
 
 code {
   @include font-size($code-font-size);
-  color: $code-color;
+  color: var(--#{$variable-prefix}code-color, $code-color);
   word-wrap: break-word;
 
   // Streamline the style when inside anchors to avoid broken underline and more
@@ -328,8 +328,8 @@ code {
 kbd {
   padding: $kbd-padding-y $kbd-padding-x;
   @include font-size($kbd-font-size);
-  color: $kbd-color;
-  background-color: $kbd-bg;
+  color: var(--#{$variable-prefix}kbd-color, $kbd-color);
+  background-color: var(--#{$variable-prefix}kbd-bg, $kbd-bg);
   @include border-radius($border-radius-sm);
 
   kbd {
@@ -369,7 +369,7 @@ table {
 caption {
   padding-top: $table-cell-padding-y;
   padding-bottom: $table-cell-padding-y;
-  color: $table-caption-color;
+  color: var(--#{$variable-prefix}table-caption-color, $table-caption-color);
   text-align: left;
 }
 
