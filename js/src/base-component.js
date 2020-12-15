@@ -16,7 +16,7 @@ import Data from './dom/data'
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '5.0.0-beta1'
+const VERSION = '4.0.0-alpha.0'
 
 class BaseComponent {
   constructor(element) {
