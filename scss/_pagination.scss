@@ -1,0 +1,64 @@
+.pagination {
+  display: flex;
+  @include list-unstyled();
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  color: var(--#{$variable-prefix}pagination-color, $pagination-color);
+  text-decoration: if($link-decoration == none, null, none);
+  background-color: var(--#{$variable-prefix}pagination-bg, $pagination-bg);
+  border: $pagination-border-width solid var(--#{$variable-prefix}pagination-border-color, $pagination-border-color);
+  @include transition($pagination-transition);
+
+  &:hover {
+    z-index: 2;
+    color: var(--#{$variable-prefix}pagination-hover-color, $pagination-hover-color);
+    text-decoration: if($link-hover-decoration == underline, none, null);
+    background-color: var(--#{$variable-prefix}pagination-hover-bg, $pagination-hover-bg);
+    border-color: var(--#{$variable-prefix}pagination-hover-border-color, $pagination-hover-border-color);
+  }
+
+  &:focus {
+    z-index: 3;
+    color: var(--#{$variable-prefix}pagination-focus-color, $pagination-focus-color);
+    background-color: var(--#{$variable-prefix}pagination-focus-bg, $pagination-focus-bg);
+    outline: $pagination-focus-outline;
+    box-shadow: $pagination-focus-box-shadow;
+  }
+}
+
+.page-item {
+  &:not(:first-child) .page-link {
+    margin-left: $pagination-margin-start;
+  }
+
+  &.active .page-link {
+    z-index: 3;
+    color: var(--#{$variable-prefix}pagination-active-color, $pagination-active-color);
+    @include gradient-bg($pagination-active-bg); // TODO: vars
+    border-color: var(--#{$variable-prefix}pagination-active-border-color, $pagination-active-border-color);
+  }
+
+  &.disabled .page-link {
+    color: var(--#{$variable-prefix}pagination-disabled-color, $pagination-disabled-color);
+    pointer-events: none;
+    background-color: var(--#{$variable-prefix}pagination-disabled-bg, $pagination-disabled-bg);
+    border-color: var(--#{$variable-prefix}pagination-disabled-border-color, $pagination-disabled-border-color);
+  }
+}
+
+
+//
+// Sizing
+//
+@include pagination-size($pagination-padding-y, $pagination-padding-x, null, $pagination-border-radius);
+
+.pagination-lg {
+  @include pagination-size($pagination-padding-y-lg, $pagination-padding-x-lg, $font-size-lg, $border-radius-lg);
+}
+
+.pagination-sm {
+  @include pagination-size($pagination-padding-y-sm, $pagination-padding-x-sm, $font-size-sm, $border-radius-sm);
+}
