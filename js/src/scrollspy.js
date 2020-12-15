@@ -1,6 +1,9 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.0.0-beta1): scrollspy.js
+ * CoreUI (v4.0.0-alpha.0): scrollspy.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This component is a modified version of the Bootstrap's scrollspy.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
