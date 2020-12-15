@@ -5,6 +5,7 @@
 {{- else -}}
 <link href="/docs/{{ .Site.Params.docs_version }}/dist/css/bootstrap.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_hash | safeHTMLAttr }} crossorigin="anonymous">
 {{- end -}}
+
 {{- else -}}
 <link href="/docs/{{ .Site.Params.docs_version }}/dist/css/bootstrap{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css" rel="stylesheet">
 {{- end }}
@@ -22,3 +23,4 @@
 
 <link href="{{ $style.Permalink | relURL }}" rel="stylesheet">
 {{- end }}
+<link href="/docs/{{ .Site.Params.docs_version }}/dist/css/themes/dark.css" rel="stylesheet">

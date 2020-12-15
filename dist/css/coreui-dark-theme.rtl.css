@@ -1,0 +1,5 @@
+.dark-theme {
+  --accordion-button-bg: map.get($variables, $variable);
+  --accordion-button-color: map.get($variables, $variable);
+}
+/*# sourceMappingURL=coreui-dark-theme.rtl.css.map */

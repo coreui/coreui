@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap v5.0.0-beta1 (https://getbootstrap.com/)
+  * Bootstrap v4.0.0-alpha.1 (https://bootstrap.coreui.io)
   * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
@@ -233,6 +233,24 @@
   };
 
   var isRTL = document.documentElement.dir === 'rtl';
+
+  var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
+    onDOMContentLoaded(function () {
+      var $ = getjQuery();
+      /* istanbul ignore if */
+
+      if ($) {
+        var JQUERY_NO_CONFLICT = $.fn[name];
+        $.fn[name] = plugin.jQueryInterface;
+        $.fn[name].Constructor = plugin;
+
+        $.fn[name].noConflict = function () {
+          $.fn[name] = JQUERY_NO_CONFLICT;
+          return plugin.jQueryInterface;
+        };
+      }
+    });
+  };
 
   /**
    * --------------------------------------------------------------------------
@@ -631,9 +649,9 @@
   var EVENT_CLOSE = "close" + EVENT_KEY;
   var EVENT_CLOSED = "closed" + EVENT_KEY;
   var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
-  var CLASSNAME_ALERT = 'alert';
-  var CLASSNAME_FADE = 'fade';
-  var CLASSNAME_SHOW = 'show';
+  var CLASS_NAME_ALERT = 'alert';
+  var CLASS_NAME_FADE = 'fade';
+  var CLASS_NAME_SHOW = 'show';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -664,7 +682,7 @@
     ;
 
     _proto._getRootElement = function _getRootElement(element) {
-      return getElementFromSelector(element) || element.closest("." + CLASSNAME_ALERT);
+      return getElementFromSelector(element) || element.closest("." + CLASS_NAME_ALERT);
     };
 
     _proto._triggerCloseEvent = function _triggerCloseEvent(element) {
@@ -674,16 +692,16 @@
     _proto._removeElement = function _removeElement(element) {
       var _this = this;
 
-      element.classList.remove(CLASSNAME_SHOW);
+      element.classList.remove(CLASS_NAME_SHOW);
 
-      if (!element.classList.contains(CLASSNAME_FADE)) {
+      if (!element.classList.contains(CLASS_NAME_FADE)) {
         this._destroyElement(element);
 
         return;
       }
 
       var transitionDuration = getTransitionDurationFromElement(element);
-      EventHandler.one(element, TRANSITION_END, function () {
+      EventHandler.one(element, 'transitionend', function () {
         return _this._destroyElement(element);
       });
       emulateTransitionEnd(element, transitionDuration);
@@ -747,21 +765,7 @@
    * add .Alert to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME];
-      $.fn[NAME] = Alert.jQueryInterface;
-      $.fn[NAME].Constructor = Alert;
-
-      $.fn[NAME].noConflict = function () {
-        $.fn[NAME] = JQUERY_NO_CONFLICT;
-        return Alert.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME, Alert);
 
   /**
    * ------------------------------------------------------------------------
@@ -847,21 +851,7 @@
    * add .Button to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$1];
-      $.fn[NAME$1] = Button.jQueryInterface;
-      $.fn[NAME$1].Constructor = Button;
-
-      $.fn[NAME$1].noConflict = function () {
-        $.fn[NAME$1] = JQUERY_NO_CONFLICT;
-        return Button.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$1, Button);
 
   /**
    * --------------------------------------------------------------------------
@@ -949,9 +939,6 @@
    */
   var NODE_TEXT = 3;
   var SelectorEngine = {
-    matches: function matches(element, selector) {
-      return element.matches(selector);
-    },
     find: function find(selector, element) {
       var _ref;
 
@@ -971,9 +958,7 @@
     children: function children(element, selector) {
       var _ref2;
 
-      var children = (_ref2 = []).concat.apply(_ref2, element.children);
-
-      return children.filter(function (child) {
+      return (_ref2 = []).concat.apply(_ref2, element.children).filter(function (child) {
         return child.matches(selector);
       });
     },
@@ -982,7 +967,7 @@
       var ancestor = element.parentNode;
 
       while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== NODE_TEXT) {
-        if (this.matches(ancestor, selector)) {
+        if (ancestor.matches(selector)) {
           parents.push(ancestor);
         }
 
@@ -1008,7 +993,7 @@
       var next = element.nextElementSibling;
 
       while (next) {
-        if (this.matches(next, selector)) {
+        if (next.matches(selector)) {
           return [next];
         }
 
@@ -1345,16 +1330,12 @@
         return;
       }
 
-      switch (event.key) {
-        case ARROW_LEFT_KEY:
-          event.preventDefault();
-          this.prev();
-          break;
-
-        case ARROW_RIGHT_KEY:
-          event.preventDefault();
-          this.next();
-          break;
+      if (event.key === ARROW_LEFT_KEY) {
+        event.preventDefault();
+        this.prev();
+      } else if (event.key === ARROW_RIGHT_KEY) {
+        event.preventDefault();
+        this.next();
       }
     };
 
@@ -1485,7 +1466,7 @@
         activeElement.classList.add(directionalClassName);
         nextElement.classList.add(directionalClassName);
         var transitionDuration = getTransitionDurationFromElement(activeElement);
-        EventHandler.one(activeElement, TRANSITION_END, function () {
+        EventHandler.one(activeElement, 'transitionend', function () {
           nextElement.classList.remove(directionalClassName, orderClassName);
           nextElement.classList.add(CLASS_NAME_ACTIVE$1);
           activeElement.classList.remove(CLASS_NAME_ACTIVE$1, orderClassName, directionalClassName);
@@ -1613,21 +1594,7 @@
    * add .Carousel to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$2];
-      $.fn[NAME$2] = Carousel.jQueryInterface;
-      $.fn[NAME$2].Constructor = Carousel;
-
-      $.fn[NAME$2].noConflict = function () {
-        $.fn[NAME$2] = JQUERY_NO_CONFLICT;
-        return Carousel.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$2, Carousel);
 
   /**
    * ------------------------------------------------------------------------
@@ -1652,7 +1619,7 @@
   var EVENT_HIDE = "hide" + EVENT_KEY$3;
   var EVENT_HIDDEN = "hidden" + EVENT_KEY$3;
   var EVENT_CLICK_DATA_API$3 = "click" + EVENT_KEY$3 + DATA_API_KEY$3;
-  var CLASS_NAME_SHOW = 'show';
+  var CLASS_NAME_SHOW$1 = 'show';
   var CLASS_NAME_COLLAPSE = 'collapse';
   var CLASS_NAME_COLLAPSING = 'collapsing';
   var CLASS_NAME_COLLAPSED = 'collapsed';
@@ -1710,7 +1677,7 @@
 
     // Public
     _proto.toggle = function toggle() {
-      if (this._element.classList.contains(CLASS_NAME_SHOW)) {
+      if (this._element.classList.contains(CLASS_NAME_SHOW$1)) {
         this.hide();
       } else {
         this.show();
@@ -1720,7 +1687,7 @@
     _proto.show = function show() {
       var _this2 = this;
 
-      if (this._isTransitioning || this._element.classList.contains(CLASS_NAME_SHOW)) {
+      if (this._isTransitioning || this._element.classList.contains(CLASS_NAME_SHOW$1)) {
         return;
       }
 
@@ -1792,7 +1759,7 @@
       var complete = function complete() {
         _this2._element.classList.remove(CLASS_NAME_COLLAPSING);
 
-        _this2._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
+        _this2._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$1);
 
         _this2._element.style[dimension] = '';
 
@@ -1804,7 +1771,7 @@
       var capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       var scrollSize = "scroll" + capitalizedDimension;
       var transitionDuration = getTransitionDurationFromElement(this._element);
-      EventHandler.one(this._element, TRANSITION_END, complete);
+      EventHandler.one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
       this._element.style[dimension] = this._element[scrollSize] + "px";
     };
@@ -1812,7 +1779,7 @@
     _proto.hide = function hide() {
       var _this3 = this;
 
-      if (this._isTransitioning || !this._element.classList.contains(CLASS_NAME_SHOW)) {
+      if (this._isTransitioning || !this._element.classList.contains(CLASS_NAME_SHOW$1)) {
         return;
       }
 
@@ -1829,7 +1796,7 @@
 
       this._element.classList.add(CLASS_NAME_COLLAPSING);
 
-      this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
+      this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW$1);
 
       var triggerArrayLength = this._triggerArray.length;
 
@@ -1838,7 +1805,7 @@
           var trigger = this._triggerArray[i];
           var elem = getElementFromSelector(trigger);
 
-          if (elem && !elem.classList.contains(CLASS_NAME_SHOW)) {
+          if (elem && !elem.classList.contains(CLASS_NAME_SHOW$1)) {
             trigger.classList.add(CLASS_NAME_COLLAPSED);
             trigger.setAttribute('aria-expanded', false);
           }
@@ -1859,7 +1826,7 @@
 
       this._element.style[dimension] = '';
       var transitionDuration = getTransitionDurationFromElement(this._element);
-      EventHandler.one(this._element, TRANSITION_END, complete);
+      EventHandler.one(this._element, 'transitionend', complete);
       emulateTransitionEnd(this._element, transitionDuration);
     };
 
@@ -1917,7 +1884,7 @@
         return;
       }
 
-      var isOpen = element.classList.contains(CLASS_NAME_SHOW);
+      var isOpen = element.classList.contains(CLASS_NAME_SHOW$1);
       triggerArray.forEach(function (elem) {
         if (isOpen) {
           elem.classList.remove(CLASS_NAME_COLLAPSED);
@@ -2014,21 +1981,7 @@
    * add .Collapse to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$3];
-      $.fn[NAME$3] = Collapse.jQueryInterface;
-      $.fn[NAME$3].Constructor = Collapse;
-
-      $.fn[NAME$3].noConflict = function () {
-        $.fn[NAME$3] = JQUERY_NO_CONFLICT;
-        return Collapse.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$3, Collapse);
 
   var top = 'top';
   var bottom = 'bottom';
@@ -3772,7 +3725,7 @@
   var EVENT_KEYDOWN_DATA_API = "keydown" + EVENT_KEY$4 + DATA_API_KEY$4;
   var EVENT_KEYUP_DATA_API = "keyup" + EVENT_KEY$4 + DATA_API_KEY$4;
   var CLASS_NAME_DISABLED = 'disabled';
-  var CLASS_NAME_SHOW$1 = 'show';
+  var CLASS_NAME_SHOW$2 = 'show';
   var CLASS_NAME_DROPUP = 'dropup';
   var CLASS_NAME_DROPEND = 'dropend';
   var CLASS_NAME_DROPSTART = 'dropstart';
@@ -3836,7 +3789,7 @@
         return;
       }
 
-      var isActive = this._element.classList.contains(CLASS_NAME_SHOW$1);
+      var isActive = this._element.classList.contains(CLASS_NAME_SHOW$2);
 
       Dropdown.clearMenus();
 
@@ -3848,7 +3801,7 @@
     };
 
     _proto.show = function show() {
-      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || this._menu.classList.contains(CLASS_NAME_SHOW$1)) {
+      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || this._menu.classList.contains(CLASS_NAME_SHOW$2)) {
         return;
       }
 
@@ -3899,15 +3852,15 @@
 
       this._element.setAttribute('aria-expanded', true);
 
-      this._menu.classList.toggle(CLASS_NAME_SHOW$1);
+      this._menu.classList.toggle(CLASS_NAME_SHOW$2);
 
-      this._element.classList.toggle(CLASS_NAME_SHOW$1);
+      this._element.classList.toggle(CLASS_NAME_SHOW$2);
 
       EventHandler.trigger(parent, EVENT_SHOWN$1, relatedTarget);
     };
 
     _proto.hide = function hide() {
-      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || !this._menu.classList.contains(CLASS_NAME_SHOW$1)) {
+      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || !this._menu.classList.contains(CLASS_NAME_SHOW$2)) {
         return;
       }
 
@@ -3925,9 +3878,9 @@
         this._popper.destroy();
       }
 
-      this._menu.classList.toggle(CLASS_NAME_SHOW$1);
+      this._menu.classList.toggle(CLASS_NAME_SHOW$2);
 
-      this._element.classList.toggle(CLASS_NAME_SHOW$1);
+      this._element.classList.toggle(CLASS_NAME_SHOW$2);
 
       EventHandler.trigger(parent, EVENT_HIDDEN$1, relatedTarget);
     };
@@ -4009,6 +3962,11 @@
             altBoundary: this._config.flip,
             rootBoundary: this._config.boundary
           }
+        }, {
+          name: 'flip',
+          options: {
+            fallbackPlacements: ['top', 'right', 'bottom', 'left']
+          }
         }]
       }; // Disable Popper if we have a static display
 
@@ -4071,7 +4029,7 @@
 
         var dropdownMenu = context._menu;
 
-        if (!toggles[i].classList.contains(CLASS_NAME_SHOW$1)) {
+        if (!toggles[i].classList.contains(CLASS_NAME_SHOW$2)) {
           continue;
         }
 
@@ -4101,8 +4059,8 @@
           context._popper.destroy();
         }
 
-        dropdownMenu.classList.remove(CLASS_NAME_SHOW$1);
-        toggles[i].classList.remove(CLASS_NAME_SHOW$1);
+        dropdownMenu.classList.remove(CLASS_NAME_SHOW$2);
+        toggles[i].classList.remove(CLASS_NAME_SHOW$2);
         EventHandler.trigger(parent, EVENT_HIDDEN$1, relatedTarget);
       }
     };
@@ -4131,7 +4089,7 @@
       }
 
       var parent = Dropdown.getParentFromElement(this);
-      var isActive = this.classList.contains(CLASS_NAME_SHOW$1);
+      var isActive = this.classList.contains(CLASS_NAME_SHOW$2);
 
       if (event.key === ESCAPE_KEY) {
         var button = this.matches(SELECTOR_DATA_TOGGLE$2) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE$2)[0];
@@ -4212,21 +4170,7 @@
    * add .Dropdown to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$4];
-      $.fn[NAME$4] = Dropdown.jQueryInterface;
-      $.fn[NAME$4].Constructor = Dropdown;
-
-      $.fn[NAME$4].noConflict = function () {
-        $.fn[NAME$4] = JQUERY_NO_CONFLICT;
-        return Dropdown.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$4, Dropdown);
 
   /**
    * ------------------------------------------------------------------------
@@ -4264,8 +4208,8 @@
   var CLASS_NAME_SCROLLBAR_MEASURER = 'modal-scrollbar-measure';
   var CLASS_NAME_BACKDROP = 'modal-backdrop';
   var CLASS_NAME_OPEN = 'modal-open';
-  var CLASS_NAME_FADE = 'fade';
-  var CLASS_NAME_SHOW$2 = 'show';
+  var CLASS_NAME_FADE$1 = 'fade';
+  var CLASS_NAME_SHOW$3 = 'show';
   var CLASS_NAME_STATIC = 'modal-static';
   var SELECTOR_DIALOG = '.modal-dialog';
   var SELECTOR_MODAL_BODY = '.modal-body';
@@ -4312,7 +4256,7 @@
         return;
       }
 
-      if (this._element.classList.contains(CLASS_NAME_FADE)) {
+      if (this._element.classList.contains(CLASS_NAME_FADE$1)) {
         this._isTransitioning = true;
       }
 
@@ -4371,7 +4315,7 @@
 
       this._isShown = false;
 
-      var transition = this._element.classList.contains(CLASS_NAME_FADE);
+      var transition = this._element.classList.contains(CLASS_NAME_FADE$1);
 
       if (transition) {
         this._isTransitioning = true;
@@ -4383,14 +4327,14 @@
 
       EventHandler.off(document, EVENT_FOCUSIN);
 
-      this._element.classList.remove(CLASS_NAME_SHOW$2);
+      this._element.classList.remove(CLASS_NAME_SHOW$3);
 
       EventHandler.off(this._element, EVENT_CLICK_DISMISS);
       EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS);
 
       if (transition) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler.one(this._element, TRANSITION_END, function (event) {
+        EventHandler.one(this._element, 'transitionend', function (event) {
           return _this3._hideModal(event);
         });
         emulateTransitionEnd(this._element, transitionDuration);
@@ -4437,7 +4381,7 @@
     _proto._showElement = function _showElement(relatedTarget) {
       var _this4 = this;
 
-      var transition = this._element.classList.contains(CLASS_NAME_FADE);
+      var transition = this._element.classList.contains(CLASS_NAME_FADE$1);
 
       var modalBody = SelectorEngine.findOne(SELECTOR_MODAL_BODY, this._dialog);
 
@@ -4464,7 +4408,7 @@
         reflow(this._element);
       }
 
-      this._element.classList.add(CLASS_NAME_SHOW$2);
+      this._element.classList.add(CLASS_NAME_SHOW$3);
 
       if (this._config.focus) {
         this._enforceFocus();
@@ -4483,7 +4427,7 @@
 
       if (transition) {
         var transitionDuration = getTransitionDurationFromElement(this._dialog);
-        EventHandler.one(this._dialog, TRANSITION_END, transitionComplete);
+        EventHandler.one(this._dialog, 'transitionend', transitionComplete);
         emulateTransitionEnd(this._dialog, transitionDuration);
       } else {
         transitionComplete();
@@ -4565,7 +4509,7 @@
     _proto._showBackdrop = function _showBackdrop(callback) {
       var _this9 = this;
 
-      var animate = this._element.classList.contains(CLASS_NAME_FADE) ? CLASS_NAME_FADE : '';
+      var animate = this._element.classList.contains(CLASS_NAME_FADE$1) ? CLASS_NAME_FADE$1 : '';
 
       if (this._isShown && this._config.backdrop) {
         this._backdrop = document.createElement('div');
@@ -4597,7 +4541,7 @@
           reflow(this._backdrop);
         }
 
-        this._backdrop.classList.add(CLASS_NAME_SHOW$2);
+        this._backdrop.classList.add(CLASS_NAME_SHOW$3);
 
         if (!animate) {
           callback();
@@ -4605,10 +4549,10 @@
         }
 
         var backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
-        EventHandler.one(this._backdrop, TRANSITION_END, callback);
+        EventHandler.one(this._backdrop, 'transitionend', callback);
         emulateTransitionEnd(this._backdrop, backdropTransitionDuration);
       } else if (!this._isShown && this._backdrop) {
-        this._backdrop.classList.remove(CLASS_NAME_SHOW$2);
+        this._backdrop.classList.remove(CLASS_NAME_SHOW$3);
 
         var callbackRemove = function callbackRemove() {
           _this9._removeBackdrop();
@@ -4616,10 +4560,10 @@
           callback();
         };
 
-        if (this._element.classList.contains(CLASS_NAME_FADE)) {
+        if (this._element.classList.contains(CLASS_NAME_FADE$1)) {
           var _backdropTransitionDuration = getTransitionDurationFromElement(this._backdrop);
 
-          EventHandler.one(this._backdrop, TRANSITION_END, callbackRemove);
+          EventHandler.one(this._backdrop, 'transitionend', callbackRemove);
           emulateTransitionEnd(this._backdrop, _backdropTransitionDuration);
         } else {
           callbackRemove();
@@ -4647,12 +4591,12 @@
       this._element.classList.add(CLASS_NAME_STATIC);
 
       var modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
-      EventHandler.off(this._element, TRANSITION_END);
-      EventHandler.one(this._element, TRANSITION_END, function () {
+      EventHandler.off(this._element, 'transitionend');
+      EventHandler.one(this._element, 'transitionend', function () {
         _this10._element.classList.remove(CLASS_NAME_STATIC);
 
         if (!isModalOverflowing) {
-          EventHandler.one(_this10._element, TRANSITION_END, function () {
+          EventHandler.one(_this10._element, 'transitionend', function () {
             _this10._element.style.overflowY = '';
           });
           emulateTransitionEnd(_this10._element, modalTransitionDuration);
@@ -4839,21 +4783,7 @@
    * add .Modal to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$5];
-      $.fn[NAME$5] = Modal.jQueryInterface;
-      $.fn[NAME$5].Constructor = Modal;
-
-      $.fn[NAME$5].noConflict = function () {
-        $.fn[NAME$5] = JQUERY_NO_CONFLICT;
-        return Modal.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$5, Modal);
 
   /**
    * --------------------------------------------------------------------------
@@ -5049,9 +4979,9 @@
     MOUSEENTER: "mouseenter" + EVENT_KEY$6,
     MOUSELEAVE: "mouseleave" + EVENT_KEY$6
   };
-  var CLASS_NAME_FADE$1 = 'fade';
+  var CLASS_NAME_FADE$2 = 'fade';
   var CLASS_NAME_MODAL = 'modal';
-  var CLASS_NAME_SHOW$3 = 'show';
+  var CLASS_NAME_SHOW$4 = 'show';
   var HOVER_STATE_SHOW = 'show';
   var HOVER_STATE_OUT = 'out';
   var SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
@@ -5129,7 +5059,7 @@
           context._leave(null, context);
         }
       } else {
-        if (this.getTipElement().classList.contains(CLASS_NAME_SHOW$3)) {
+        if (this.getTipElement().classList.contains(CLASS_NAME_SHOW$4)) {
           this._leave(null, this);
 
           return;
@@ -5189,7 +5119,7 @@
         this.setContent();
 
         if (this.config.animation) {
-          tip.classList.add(CLASS_NAME_FADE$1);
+          tip.classList.add(CLASS_NAME_FADE$2);
         }
 
         var placement = typeof this.config.placement === 'function' ? this.config.placement.call(this, tip, this._element) : this.config.placement;
@@ -5208,7 +5138,7 @@
 
         EventHandler.trigger(this._element, this.constructor.Event.INSERTED);
         this._popper = createPopper$2(this._element, tip, this._getPopperConfig(attachment));
-        tip.classList.add(CLASS_NAME_SHOW$3);
+        tip.classList.add(CLASS_NAME_SHOW$4);
         var customClass = typeof this.config.customClass === 'function' ? this.config.customClass() : this.config.customClass;
 
         if (customClass) {
@@ -5239,9 +5169,9 @@
           }
         };
 
-        if (this.tip.classList.contains(CLASS_NAME_FADE$1)) {
+        if (this.tip.classList.contains(CLASS_NAME_FADE$2)) {
           var transitionDuration = getTransitionDurationFromElement(this.tip);
-          EventHandler.one(this.tip, TRANSITION_END, complete);
+          EventHandler.one(this.tip, 'transitionend', complete);
           emulateTransitionEnd(this.tip, transitionDuration);
         } else {
           complete();
@@ -5282,7 +5212,7 @@
         return;
       }
 
-      tip.classList.remove(CLASS_NAME_SHOW$3); // If this is a touch-enabled device we remove the extra
+      tip.classList.remove(CLASS_NAME_SHOW$4); // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
 
       if ('ontouchstart' in document.documentElement) {
@@ -5297,9 +5227,9 @@
       this._activeTrigger[TRIGGER_FOCUS] = false;
       this._activeTrigger[TRIGGER_HOVER] = false;
 
-      if (this.tip.classList.contains(CLASS_NAME_FADE$1)) {
+      if (this.tip.classList.contains(CLASS_NAME_FADE$2)) {
         var transitionDuration = getTransitionDurationFromElement(tip);
-        EventHandler.one(tip, TRANSITION_END, complete);
+        EventHandler.one(tip, 'transitionend', complete);
         emulateTransitionEnd(tip, transitionDuration);
       } else {
         complete();
@@ -5333,7 +5263,7 @@
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
       this.setElementContent(SelectorEngine.findOne(SELECTOR_TOOLTIP_INNER, tip), this.getTitle());
-      tip.classList.remove(CLASS_NAME_FADE$1, CLASS_NAME_SHOW$3);
+      tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$4);
     };
 
     _proto.setElementContent = function setElementContent(element, content) {
@@ -5399,7 +5329,8 @@
       var flipModifier = {
         name: 'flip',
         options: {
-          altBoundary: true
+          altBoundary: true,
+          fallbackPlacements: ['top', 'right', 'bottom', 'left']
         }
       };
 
@@ -5524,7 +5455,7 @@
         context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
       }
 
-      if (context.getTipElement().classList.contains(CLASS_NAME_SHOW$3) || context._hoverState === HOVER_STATE_SHOW) {
+      if (context.getTipElement().classList.contains(CLASS_NAME_SHOW$4) || context._hoverState === HOVER_STATE_SHOW) {
         context._hoverState = HOVER_STATE_SHOW;
         return;
       }
@@ -5732,21 +5663,7 @@
    */
 
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$6];
-      $.fn[NAME$6] = Tooltip.jQueryInterface;
-      $.fn[NAME$6].Constructor = Tooltip;
-
-      $.fn[NAME$6].noConflict = function () {
-        $.fn[NAME$6] = JQUERY_NO_CONFLICT;
-        return Tooltip.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$6, Tooltip);
 
   /**
    * ------------------------------------------------------------------------
@@ -5783,8 +5700,8 @@
     MOUSEENTER: "mouseenter" + EVENT_KEY$7,
     MOUSELEAVE: "mouseleave" + EVENT_KEY$7
   };
-  var CLASS_NAME_FADE$2 = 'fade';
-  var CLASS_NAME_SHOW$4 = 'show';
+  var CLASS_NAME_FADE$3 = 'fade';
+  var CLASS_NAME_SHOW$5 = 'show';
   var SELECTOR_TITLE = '.popover-header';
   var SELECTOR_CONTENT = '.popover-body';
   /**
@@ -5819,7 +5736,7 @@
       }
 
       this.setElementContent(SelectorEngine.findOne(SELECTOR_CONTENT, tip), content);
-      tip.classList.remove(CLASS_NAME_FADE$2, CLASS_NAME_SHOW$4);
+      tip.classList.remove(CLASS_NAME_FADE$3, CLASS_NAME_SHOW$5);
     } // Private
     ;
 
@@ -5913,21 +5830,7 @@
    */
 
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$7];
-      $.fn[NAME$7] = Popover.jQueryInterface;
-      $.fn[NAME$7].Constructor = Popover;
-
-      $.fn[NAME$7].noConflict = function () {
-        $.fn[NAME$7] = JQUERY_NO_CONFLICT;
-        return Popover.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$7, Popover);
 
   /**
    * ------------------------------------------------------------------------
@@ -6213,21 +6116,7 @@
    * add .ScrollSpy to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$8];
-      $.fn[NAME$8] = ScrollSpy.jQueryInterface;
-      $.fn[NAME$8].Constructor = ScrollSpy;
-
-      $.fn[NAME$8].noConflict = function () {
-        $.fn[NAME$8] = JQUERY_NO_CONFLICT;
-        return ScrollSpy.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$8, ScrollSpy);
 
   /**
    * ------------------------------------------------------------------------
@@ -6247,8 +6136,8 @@
   var CLASS_NAME_DROPDOWN_MENU = 'dropdown-menu';
   var CLASS_NAME_ACTIVE$3 = 'active';
   var CLASS_NAME_DISABLED$1 = 'disabled';
-  var CLASS_NAME_FADE$3 = 'fade';
-  var CLASS_NAME_SHOW$5 = 'show';
+  var CLASS_NAME_FADE$4 = 'fade';
+  var CLASS_NAME_SHOW$6 = 'show';
   var SELECTOR_DROPDOWN$1 = '.dropdown';
   var SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
   var SELECTOR_ACTIVE$1 = '.active';
@@ -6330,7 +6219,7 @@
 
       var activeElements = container && (container.nodeName === 'UL' || container.nodeName === 'OL') ? SelectorEngine.find(SELECTOR_ACTIVE_UL, container) : SelectorEngine.children(container, SELECTOR_ACTIVE$1);
       var active = activeElements[0];
-      var isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE$3);
+      var isTransitioning = callback && active && active.classList.contains(CLASS_NAME_FADE$4);
 
       var complete = function complete() {
         return _this2._transitionComplete(element, active, callback);
@@ -6338,8 +6227,8 @@
 
       if (active && isTransitioning) {
         var transitionDuration = getTransitionDurationFromElement(active);
-        active.classList.remove(CLASS_NAME_SHOW$5);
-        EventHandler.one(active, TRANSITION_END, complete);
+        active.classList.remove(CLASS_NAME_SHOW$6);
+        EventHandler.one(active, 'transitionend', complete);
         emulateTransitionEnd(active, transitionDuration);
       } else {
         complete();
@@ -6368,8 +6257,8 @@
 
       reflow(element);
 
-      if (element.classList.contains(CLASS_NAME_FADE$3)) {
-        element.classList.add(CLASS_NAME_SHOW$5);
+      if (element.classList.contains(CLASS_NAME_FADE$4)) {
+        element.classList.add(CLASS_NAME_SHOW$6);
       }
 
       if (element.parentNode && element.parentNode.classList.contains(CLASS_NAME_DROPDOWN_MENU)) {
@@ -6433,21 +6322,7 @@
    * add .Tab to jQuery only if jQuery is present
    */
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$9];
-      $.fn[NAME$9] = Tab.jQueryInterface;
-      $.fn[NAME$9].Constructor = Tab;
-
-      $.fn[NAME$9].noConflict = function () {
-        $.fn[NAME$9] = JQUERY_NO_CONFLICT;
-        return Tab.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$9, Tab);
 
   /**
    * ------------------------------------------------------------------------
@@ -6463,9 +6338,9 @@
   var EVENT_HIDDEN$4 = "hidden" + EVENT_KEY$a;
   var EVENT_SHOW$4 = "show" + EVENT_KEY$a;
   var EVENT_SHOWN$4 = "shown" + EVENT_KEY$a;
-  var CLASS_NAME_FADE$4 = 'fade';
+  var CLASS_NAME_FADE$5 = 'fade';
   var CLASS_NAME_HIDE = 'hide';
-  var CLASS_NAME_SHOW$6 = 'show';
+  var CLASS_NAME_SHOW$7 = 'show';
   var CLASS_NAME_SHOWING = 'showing';
   var DefaultType$7 = {
     animation: 'boolean',
@@ -6515,13 +6390,13 @@
       this._clearTimeout();
 
       if (this._config.animation) {
-        this._element.classList.add(CLASS_NAME_FADE$4);
+        this._element.classList.add(CLASS_NAME_FADE$5);
       }
 
       var complete = function complete() {
         _this2._element.classList.remove(CLASS_NAME_SHOWING);
 
-        _this2._element.classList.add(CLASS_NAME_SHOW$6);
+        _this2._element.classList.add(CLASS_NAME_SHOW$7);
 
         EventHandler.trigger(_this2._element, EVENT_SHOWN$4);
 
@@ -6540,7 +6415,7 @@
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler.one(this._element, TRANSITION_END, complete);
+        EventHandler.one(this._element, 'transitionend', complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -6550,7 +6425,7 @@
     _proto.hide = function hide() {
       var _this3 = this;
 
-      if (!this._element.classList.contains(CLASS_NAME_SHOW$6)) {
+      if (!this._element.classList.contains(CLASS_NAME_SHOW$7)) {
         return;
       }
 
@@ -6566,11 +6441,11 @@
         EventHandler.trigger(_this3._element, EVENT_HIDDEN$4);
       };
 
-      this._element.classList.remove(CLASS_NAME_SHOW$6);
+      this._element.classList.remove(CLASS_NAME_SHOW$7);
 
       if (this._config.animation) {
         var transitionDuration = getTransitionDurationFromElement(this._element);
-        EventHandler.one(this._element, TRANSITION_END, complete);
+        EventHandler.one(this._element, 'transitionend', complete);
         emulateTransitionEnd(this._element, transitionDuration);
       } else {
         complete();
@@ -6580,8 +6455,8 @@
     _proto.dispose = function dispose() {
       this._clearTimeout();
 
-      if (this._element.classList.contains(CLASS_NAME_SHOW$6)) {
-        this._element.classList.remove(CLASS_NAME_SHOW$6);
+      if (this._element.classList.contains(CLASS_NAME_SHOW$7)) {
+        this._element.classList.remove(CLASS_NAME_SHOW$7);
       }
 
       EventHandler.off(this._element, EVENT_CLICK_DISMISS$1);
@@ -6659,21 +6534,7 @@
    */
 
 
-  onDOMContentLoaded(function () {
-    var $ = getjQuery();
-    /* istanbul ignore if */
-
-    if ($) {
-      var JQUERY_NO_CONFLICT = $.fn[NAME$a];
-      $.fn[NAME$a] = Toast.jQueryInterface;
-      $.fn[NAME$a].Constructor = Toast;
-
-      $.fn[NAME$a].noConflict = function () {
-        $.fn[NAME$a] = JQUERY_NO_CONFLICT;
-        return Toast.jQueryInterface;
-      };
-    }
-  });
+  defineJQueryPlugin(NAME$a, Toast);
 
   /**
    * --------------------------------------------------------------------------
