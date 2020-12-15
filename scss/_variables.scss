@@ -1292,6 +1292,56 @@ $list-group-colors: (
   "dark": list-group-color-map($dark,)
 ) !default;
 
+// Header
+// Header
+
+// scss-docs-start header
+$header-height:                 56px !default;
+$header-brand-width:            auto !default;
+$header-brand-minimized-width:  56px !default;
+
+$header-padding-y:  $spacer / 2 !default;
+$header-padding-x:  $spacer !default;
+
+$header-nav-link-padding-x:  .5rem !default;
+
+$header-brand-font-size:  $font-size-lg !default;
+$header-brand-height:     $header-brand-font-size * $line-height-base !default;
+$header-brand-padding-y:  ($nav-link-height - $header-brand-height) / 2 !default;
+// scss-docs-end header
+
+
+// Default theme
+
+// scss-docs-start header-default-theme
+$header-toggler-bg:             transparent !default;
+$header-toggler-padding-y:      .25rem !default;
+$header-toggler-padding-x:      .75rem !default;
+$header-toggler-font-size:      $font-size-lg !default;
+$header-toggler-border:         0 !default;
+$header-toggler-border-radius:  $btn-border-radius !default;
+
+$header-bg:                     $white !default;
+$header-color:                  rgba($black, .5) !default;
+$header-border:                 ( bottom: 1px solid $border-color ) !default;
+$header-hover-color:            rgba($black, .7) !default;
+$header-active-color:           rgba($black, .9) !default;
+$header-disabled-color:         rgba($black, .3) !default;
+$header-toggler-icon-bg:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-toggler-hover-icon-bg:  str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"), "#", "%23") !default;
+$header-toggler-border-color:   rgba($black, .1) !default;
+
+$header-brand-bg:                transparent !default;
+$header-brand-border:            0 !default;
+$header-brand-color:             $gray-900 !default;
+$header-brand-hover-color:       darken($gray-900, 10%) !default;
+$header-brand-minimized-bg:      transparent !default;
+$header-brand-minimized-border:  0 !default;
+
+$subheader-light-separator:  1px solid $border-color !default;
+
+// scss-docs-end header-default-theme
+
 
 // Image thumbnails
 
