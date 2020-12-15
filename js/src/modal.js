@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
   * CoreUI (v4.0.0-alpha.0): modal.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -31,7 +31,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'modal'
-const DATA_KEY = 'bs.modal'
+const DATA_KEY = 'coreui.modal'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 const ESCAPE_KEY = 'Escape'
@@ -70,8 +70,8 @@ const CLASS_NAME_STATIC = 'modal-static'
 
 const SELECTOR_DIALOG = '.modal-dialog'
 const SELECTOR_MODAL_BODY = '.modal-body'
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="modal"]'
-const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="modal"]'
+const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="modal"]'
+const SELECTOR_DATA_DISMISS = '[data-coreui-dismiss="modal"]'
 const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top'
 const SELECTOR_STICKY_CONTENT = '.sticky-top'
 

@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): alert.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -25,11 +25,11 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'alert'
-const DATA_KEY = 'bs.alert'
+const DATA_KEY = 'coreui.alert'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
-const SELECTOR_DISMISS = '[data-bs-dismiss="alert"]'
+const SELECTOR_DISMISS = '[data-coreui-dismiss="alert"]'
 
 const EVENT_CLOSE = `close${EVENT_KEY}`
 const EVENT_CLOSED = `closed${EVENT_KEY}`

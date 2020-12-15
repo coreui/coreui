@@ -31,11 +31,11 @@ function normalizeDataKey(key) {
 
 const Manipulator = {
   setDataAttribute(element, key, value) {
-    element.setAttribute(`data-bs-${normalizeDataKey(key)}`, value)
+    element.setAttribute(`data-coreui-${normalizeDataKey(key)}`, value)
   },
 
   removeDataAttribute(element, key) {
-    element.removeAttribute(`data-bs-${normalizeDataKey(key)}`)
+    element.removeAttribute(`data-coreui-${normalizeDataKey(key)}`)
   },
 
   getDataAttributes(element) {
@@ -57,7 +57,7 @@ const Manipulator = {
   },
 
   getDataAttribute(element, key) {
-    return normalizeData(element.getAttribute(`data-bs-${normalizeDataKey(key)}`))
+    return normalizeData(element.getAttribute(`data-coreui-${normalizeDataKey(key)}`))
   },
 
   offset(element) {

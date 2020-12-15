@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): popover.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -20,7 +20,7 @@ import Tooltip from './tooltip'
  */
 
 const NAME = 'popover'
-const DATA_KEY = 'bs.popover'
+const DATA_KEY = 'coreui.popover'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-popover'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
@@ -122,7 +122,7 @@ class Popover extends Tooltip {
   }
 
   _getContent() {
-    return this._element.getAttribute('data-bs-content') || this.config.content
+    return this._element.getAttribute('data-coreui-content') || this.config.content
   }
 
   _cleanTipClass() {

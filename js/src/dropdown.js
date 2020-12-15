@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): dropdown.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -32,7 +32,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'dropdown'
-const DATA_KEY = 'bs.dropdown'
+const DATA_KEY = 'coreui.dropdown'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -61,7 +61,7 @@ const CLASS_NAME_DROPEND = 'dropend'
 const CLASS_NAME_DROPSTART = 'dropstart'
 const CLASS_NAME_NAVBAR = 'navbar'
 
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="dropdown"]'
+const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="dropdown"]'
 const SELECTOR_FORM_CHILD = '.dropdown form'
 const SELECTOR_MENU = '.dropdown-menu'
 const SELECTOR_NAVBAR_NAV = '.navbar-nav'

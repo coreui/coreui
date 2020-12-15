@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): tab.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tab.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -27,7 +27,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'tab'
-const DATA_KEY = 'bs.tab'
+const DATA_KEY = 'coreui.tab'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -47,7 +47,7 @@ const SELECTOR_DROPDOWN = '.dropdown'
 const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group'
 const SELECTOR_ACTIVE = '.active'
 const SELECTOR_ACTIVE_UL = ':scope > li > .active'
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]'
+const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="tab"], [data-coreui-toggle="pill"], [data-coreui-toggle="list"]'
 const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle'
 const SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active'
 

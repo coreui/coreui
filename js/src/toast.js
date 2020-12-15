@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): toast.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -27,7 +27,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'toast'
-const DATA_KEY = 'bs.toast'
+const DATA_KEY = 'coreui.toast'
 const EVENT_KEY = `.${DATA_KEY}`
 
 const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY}`
@@ -53,7 +53,7 @@ const Default = {
   delay: 5000
 }
 
-const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]'
+const SELECTOR_DATA_DISMISS = '[data-coreui-dismiss="toast"]'
 
 /**
  * ------------------------------------------------------------------------

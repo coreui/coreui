@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): collapse.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -31,7 +31,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'collapse'
-const DATA_KEY = 'bs.collapse'
+const DATA_KEY = 'coreui.collapse'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
@@ -60,7 +60,7 @@ const WIDTH = 'width'
 const HEIGHT = 'height'
 
 const SELECTOR_ACTIVES = '.show, .collapsing'
-const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="collapse"]'
+const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="collapse"]'
 
 /**
  * ------------------------------------------------------------------------
@@ -76,7 +76,7 @@ class Collapse extends BaseComponent {
     this._config = this._getConfig(config)
     this._triggerArray = SelectorEngine.find(
       `${SELECTOR_DATA_TOGGLE}[href="#${element.id}"],` +
-      `${SELECTOR_DATA_TOGGLE}[data-bs-target="#${element.id}"]`
+      `${SELECTOR_DATA_TOGGLE}[data-coreui-target="#${element.id}"]`
     )
 
     const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE)
@@ -136,7 +136,7 @@ class Collapse extends BaseComponent {
       actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent)
         .filter(elem => {
           if (typeof this._config.parent === 'string') {
-            return elem.getAttribute('data-bs-parent') === this._config.parent
+            return elem.getAttribute('data-coreui-parent') === this._config.parent
           }
 
           return elem.classList.contains(CLASS_NAME_COLLAPSE)
@@ -299,7 +299,7 @@ class Collapse extends BaseComponent {
       parent = SelectorEngine.findOne(parent)
     }
 
-    const selector = `${SELECTOR_DATA_TOGGLE}[data-bs-parent="${parent}"]`
+    const selector = `${SELECTOR_DATA_TOGGLE}[data-coreui-parent="${parent}"]`
 
     SelectorEngine.find(selector, parent)
       .forEach(element => {

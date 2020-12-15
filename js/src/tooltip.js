@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): tooltip.js
- * Licensed under MIT (https://coreui.io/license)
+ * Licensed under MIT (https://'coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -38,7 +38,7 @@ import BaseComponent from './base-component'
  */
 
 const NAME = 'tooltip'
-const DATA_KEY = 'bs.tooltip'
+const DATA_KEY = 'coreui.tooltip'
 const EVENT_KEY = `.${DATA_KEY}`
 const CLASS_PREFIX = 'bs-tooltip'
 const BSCLS_PREFIX_REGEX = new RegExp(`(^|\\s)${CLASS_PREFIX}\\S+`, 'g')
@@ -223,7 +223,7 @@ class Tooltip extends BaseComponent {
     clearTimeout(this._timeout)
 
     EventHandler.off(this._element, this.constructor.EVENT_KEY)
-    EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler)
+    EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.coreui.modal', this._hideModalHandler)
 
     if (this.tip) {
       this.tip.parentNode.removeChild(this.tip)
@@ -443,7 +443,7 @@ class Tooltip extends BaseComponent {
   }
 
   getTitle() {
-    let title = this._element.getAttribute('data-bs-original-title')
+    let title = this._element.getAttribute('data-coreui-original-title')
 
     if (!title) {
       title = typeof this.config.title === 'function' ?
@@ -563,7 +563,7 @@ class Tooltip extends BaseComponent {
       }
     }
 
-    EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.bs.modal', this._hideModalHandler)
+    EventHandler.on(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.coreui.modal', this._hideModalHandler)
 
     if (this.config.selector) {
       this.config = {
@@ -578,10 +578,10 @@ class Tooltip extends BaseComponent {
 
   _fixTitle() {
     const title = this._element.getAttribute('title')
-    const originalTitleType = typeof this._element.getAttribute('data-bs-original-title')
+    const originalTitleType = typeof this._element.getAttribute('data-coreui-original-title')
 
     if (title || originalTitleType !== 'string') {
-      this._element.setAttribute('data-bs-original-title', title || '')
+      this._element.setAttribute('data-coreui-original-title', title || '')
       if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
         this._element.setAttribute('aria-label', title)
       }
