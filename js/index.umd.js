@@ -13,6 +13,7 @@ import Dropdown from './src/dropdown'
 import Modal from './src/modal'
 import Popover from './src/popover'
 import ScrollSpy from './src/scrollspy'
+import Sidebar from './src/sidebar'
 import Tab from './src/tab'
 import Toast from './src/toast'
 import Tooltip from './src/tooltip'
@@ -26,6 +27,7 @@ export default {
   Modal,
   Popover,
   ScrollSpy,
+  Sidebar,
   Tab,
   Toast,
   Tooltip
