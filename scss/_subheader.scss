@@ -1,0 +1,92 @@
+.c-subheader {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: $subheader-height;
+  background: var(--#{$variable-prefix}subheader-bg, $subheader-bg);
+  // @include borders(themes-get-value("subheader-border"));
+
+  &[class*="bg-"]  {
+    border-color: rgba($black, .1);
+  }
+
+  &.c-subheader-fixed {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+  }
+}
+
+.c-subheader-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: $subheader-height;
+  padding: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  .c-subheader-nav-item {
+    position: relative;
+  }
+
+  .c-subheader-nav-btn {
+    background-color: transparent;
+    border: $btn-border-width solid transparent;
+  }
+
+  .c-subheader-nav-link,
+  .c-subheader-nav-btn {
+    display: flex;
+    align-items: center;
+    padding-right: $header-nav-link-padding-x;
+    padding-left: $header-nav-link-padding-x;
+    color: var(--#{$variable-prefix}subheader-color, $subheader-color);
+
+    // .badge {
+    //   position: absolute;
+    //   top: 50%;
+    //   margin-top: -16px;
+    //   @include ltr {
+    //     left: 50%;
+    //     margin-left: 0;
+    //   }
+    //   @include rtl {
+    //     right: 50%;
+    //     margin-right: 0;
+    //   }
+    // }
+
+    &:hover,
+    &:focus {
+      color: var(--#{$variable-prefix}subheader-hover-color, $subheader-hover-color);
+      text-decoration: none;
+    }
+
+    &.c-disabled {
+      color: var(--#{$variable-prefix}subheader-disabled-color, $subheader-disabled-color);
+    }
+
+    .c-show > .c-subheader-nav-link,
+    .c-active > .c-subheader-nav-link,
+    .c-subheader-nav-link.c-show,
+    .c-subheader-nav-link.c-active {
+      color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+    }
+  }
+}
+
+.c-subheader-text {
+  color: var(--#{$variable-prefix}subheader-color, $subheader-color);
+  a {
+    color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+
+    &:hover,
+    &:focus {
+      color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+    }
+  }
+}
