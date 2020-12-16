@@ -43,3 +43,68 @@
     }
   }
 }
+
+.progress-xs {
+  height: 4px;
+}
+
+.progress-sm {
+  height: 8px;
+}
+
+// White progress bar
+.progress.progress-white {
+  background-color: rgba(255, 255, 255, .2);
+  .progress-bar {
+    background-color: $white;
+  }
+}
+
+//TODO: move all values to variables.scss
+.progress-group {
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: $spacer;
+}
+
+.progress-group-prepend {
+  flex: 0 0 100px;
+  align-self: center;
+}
+
+.progress-group-icon {
+  font-size: $font-size-lg;
+  margin: 0 $spacer 0 ($spacer * .25);
+
+  // @include ltr {
+  //   margin: 0 $spacer 0 ($spacer * .25);
+  // }
+  // @include rtl {
+  //   margin: 0 ($spacer * .25) 0 $spacer;
+  // }
+}
+
+.progress-group-text {
+  font-size: $font-size-sm;
+  color: $gray-700;
+}
+
+.progress-group-header {
+  display: flex;
+  flex-basis: 100%;
+  align-items: flex-end;
+  margin-bottom: ($spacer * .25);
+}
+
+.progress-group-bars {
+  flex-grow: 1;
+  align-self: center;
+
+  .progress:not(:last-child) {
+    margin-bottom: 2px;
+  }
+}
+
+.progress-group-header + .progress-group-bars {
+  flex-basis: 100%;
+}
