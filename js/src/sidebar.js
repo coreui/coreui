@@ -8,11 +8,13 @@
 import {
   defineJQueryPlugin,
   emulateTransitionEnd,
-  getElementFromSelector,
-  getTransitionDurationFromElement
+  getTransitionDurationFromElement,
+  reflow,
+  typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
 import EventHandler from './dom/event-handler'
+import Manipulator from './dom/manipulator'
 import BaseComponent from './base-component'
 
 /**
@@ -76,7 +78,7 @@ const SELECTOR_SIDEBAR = '.c-sidebar'
  */
 class Sidebar extends BaseComponent {
   constructor(element, config) {
-    this._element = element
+    super(element)
     this._config = this._getConfig(config)
     this._open = this._isVisible()
     this._mobile = this._isMobile()
@@ -91,10 +93,6 @@ class Sidebar extends BaseComponent {
   }
 
   // Getters
-
-  static get VERSION() {
-    return VERSION
-  }
 
   static get Default() {
     return Default
@@ -112,14 +110,14 @@ class Sidebar extends BaseComponent {
     if (this._isMobile()) {
       this._addClassName(this._firstBreakpointClassName())
       this._showBackdrop()
-      EventHandler.one(this._element, TRANSITION_END, () => {
+      EventHandler.one(this._element, 'transitionend', () => {
         this._addClickOutListener()
       })
     } else if (breakpoint) {
       this._addClassName(this._getBreakpointClassName(breakpoint))
 
       if (this._isOverlaid()) {
-        EventHandler.one(this._element, TRANSITION_END, () => {
+        EventHandler.one(this._element, 'transitionend', () => {
           this._addClickOutListener()
         })
       }
@@ -127,7 +125,7 @@ class Sidebar extends BaseComponent {
       this._addClassName(this._firstBreakpointClassName())
 
       if (this._isOverlaid()) {
-        EventHandler.one(this._element, TRANSITION_END, () => {
+        EventHandler.one(this._element, 'transitionend', () => {
           this._addClickOutListener()
         })
       }
@@ -142,7 +140,7 @@ class Sidebar extends BaseComponent {
 
     const transitionDuration = getTransitionDurationFromElement(this._element)
 
-    EventHandler.one(this._element, TRANSITION_END, complete)
+    EventHandler.one(this._element, 'transitionend', complete)
     emulateTransitionEnd(this._element, transitionDuration)
   }
 
@@ -174,7 +172,7 @@ class Sidebar extends BaseComponent {
 
     const transitionDuration = getTransitionDurationFromElement(this._element)
 
-    EventHandler.one(this._element, TRANSITION_END, complete)
+    EventHandler.one(this._element, 'transitionend', complete)
     emulateTransitionEnd(this._element, transitionDuration)
   }
 
@@ -352,7 +350,7 @@ class Sidebar extends BaseComponent {
     return siblings
   }
 
-  _toggleDropdown(event, sidebar) {
+  _toggleDropdown(event) {
     let toggler = event.target
     if (!toggler.classList.contains(CLASS_NAME_NAV_DROPDOWN_TOGGLE)) {
       toggler = toggler.closest(SELECTOR_NAV_DROPDOWN_TOGGLE)
