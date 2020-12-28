@@ -11,6 +11,7 @@ import Carousel from './src/carousel'
 import Collapse from './src/collapse'
 import Dropdown from './src/dropdown'
 import Modal from './src/modal'
+import Navigation from './src/navigation'
 import Popover from './src/popover'
 import ScrollSpy from './src/scrollspy'
 import Sidebar from './src/sidebar'
@@ -25,6 +26,7 @@ export {
   Collapse,
   Dropdown,
   Modal,
+  Navigation,
   Popover,
   ScrollSpy,
   Sidebar,

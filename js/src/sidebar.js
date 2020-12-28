@@ -28,47 +28,27 @@ const DATA_KEY = 'coreui.sidebar'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
-const Default = {
-  activeLinksExact: true,
-  breakpoints: {
-    xs: 'c-sidebar-show',
-    sm: 'c-sidebar-sm-show',
-    md: 'c-sidebar-md-show',
-    lg: 'c-sidebar-lg-show',
-    xl: 'c-sidebar-xl-show',
-    xxl: 'c-sidebar-xxl-show'
-  },
-  dropdownAccordion: true
-}
+const Default = {}
 
-const DefaultType = {
-  activeLinksExact: 'boolean',
-  breakpoints: 'object',
-  dropdownAccordion: '(string|boolean)'
-}
+const DefaultType = {}
 
-const CLASS_NAME_ACTIVE = 'c-active'
 const CLASS_NAME_BACKDROP = 'c-sidebar-backdrop'
 const CLASS_NAME_FADE = 'c-fade'
-const CLASS_NAME_NAV_DROPDOWN = 'c-sidebar-nav-dropdown'
-const CLASS_NAME_NAV_DROPDOWN_TOGGLE = 'c-sidebar-nav-dropdown-toggle'
 const CLASS_NAME_SHOW = 'c-show'
-const CLASS_NAME_SIDEBAR_MINIMIZED = 'c-sidebar-minimized'
+const CLASS_NAME_SIDEBAR_NARROW = 'c-sidebar-narrow'
 const CLASS_NAME_SIDEBAR_OVERLAID = 'c-sidebar-overlaid'
+const CLASS_NAME_SIDEBAR_SHOW = 'c-sidebar-show'
 const CLASS_NAME_SIDEBAR_UNFOLDABLE = 'c-sidebar-unfoldable'
 
-const EVENT_CLASS_TOGGLE = 'classtoggle'
-const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
-const EVENT_CLOSE = `close${EVENT_KEY}`
-const EVENT_CLOSED = `closed${EVENT_KEY}`
-const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
-const EVENT_OPEN = `open${EVENT_KEY}`
-const EVENT_OPENED = `opened${EVENT_KEY}`
+const REGEXP_SIDEBAR_SHOW = new RegExp(`c-sidebar.*show`)
 
-const SELECTOR_NAV_DROPDOWN_TOGGLE = '.c-sidebar-nav-dropdown-toggle'
-const SELECTOR_NAV_DROPDOWN = '.c-sidebar-nav-dropdown'
-const SELECTOR_NAV_LINK = '.c-sidebar-nav-link'
-const SELECTOR_NAVIGATION_CONTAINER = '.c-sidebar-nav'
+const EVENT_HIDE = `hide${EVENT_KEY}`
+const EVENT_HIDDEN = `hidden${EVENT_KEY}`
+const EVENT_SHOW = `show${EVENT_KEY}`
+const EVENT_SHOWN = `shown${EVENT_KEY}`
+const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
+const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
+
 const SELECTOR_SIDEBAR = '.c-sidebar'
 
 /**
@@ -76,16 +56,16 @@ const SELECTOR_SIDEBAR = '.c-sidebar'
  * Class Definition
  * ------------------------------------------------------------------------
  */
+
 class Sidebar extends BaseComponent {
   constructor(element, config) {
     super(element)
     this._config = this._getConfig(config)
-    this._open = this._isVisible()
+    this._show = this._isVisible()
     this._mobile = this._isMobile()
     this._overlaid = this._isOverlaid()
-    this._minimize = this._isMinimized()
+    this._narrow = this._isNarrow()
     this._unfoldable = this._isUnfoldable()
-    this._setActiveLink()
     this._backdrop = null
     this._addEventListeners()
 
@@ -104,37 +84,29 @@ class Sidebar extends BaseComponent {
 
   // Public
 
-  open(breakpoint) {
-    EventHandler.trigger(this._element, EVENT_OPEN)
+  show(breakpoint) {
+    EventHandler.trigger(this._element, EVENT_SHOW)
+
+    if (typeof breakpoint !== 'undefined') {
+      this._element.classList.add(breakpoint)
+    }
+
+    if (typeof breakpoint === 'undefined' || this._isMobile()) {
+      this._element.classList.add(CLASS_NAME_SIDEBAR_SHOW)
+    }
 
     if (this._isMobile()) {
-      this._addClassName(this._firstBreakpointClassName())
       this._showBackdrop()
-      EventHandler.one(this._element, 'transitionend', () => {
-        this._addClickOutListener()
-      })
-    } else if (breakpoint) {
-      this._addClassName(this._getBreakpointClassName(breakpoint))
-
-      if (this._isOverlaid()) {
-        EventHandler.one(this._element, 'transitionend', () => {
-          this._addClickOutListener()
-        })
-      }
-    } else {
-      this._addClassName(this._firstBreakpointClassName())
-
-      if (this._isOverlaid()) {
-        EventHandler.one(this._element, 'transitionend', () => {
-          this._addClickOutListener()
-        })
-      }
     }
 
     const complete = () => {
       if (this._isVisible() === true) {
-        this._open = true
-        EventHandler.trigger(this._element, EVENT_OPENED)
+        this._show = true
+        if (this._isMobile() || this._isOverlaid()) {
+          this._addClickOutListener()
+        }
+
+        EventHandler.trigger(this._element, EVENT_SHOWN)
       }
     }
 
@@ -144,29 +116,35 @@ class Sidebar extends BaseComponent {
     emulateTransitionEnd(this._element, transitionDuration)
   }
 
-  close(breakpoint) {
-    EventHandler.trigger(this._element, EVENT_CLOSE)
+  hide(breakpoint) {
+    EventHandler.trigger(this._element, EVENT_HIDE)
+
+    if (typeof breakpoint !== 'undefined') {
+      this._element.classList.remove(breakpoint)
+      return
+    }
+
+    if (typeof breakpoint === 'undefined' || this._isMobile()) {
+      // eslint-disable-next-line unicorn/prefer-spread
+      Array.from(this._element.classList).forEach(className => {
+        if (className.match(REGEXP_SIDEBAR_SHOW)) {
+          this._element.classList.remove(className)
+        }
+      })
+    }
 
     if (this._isMobile()) {
-      this._element.classList.remove(this._firstBreakpointClassName())
       this._removeBackdrop()
-      this._removeClickOutListener()
-    } else if (breakpoint) {
-      this._element.classList.remove(this._getBreakpointClassName(breakpoint))
-      if (this._isOverlaid()) {
-        this._removeClickOutListener()
-      }
-    } else {
-      this._element.classList.remove(this._firstBreakpointClassName())
-      if (this._isOverlaid()) {
-        this._removeClickOutListener()
-      }
     }
 
     const complete = () => {
       if (this._isVisible() === false) {
-        this._open = false
-        EventHandler.trigger(this._element, EVENT_CLOSED)
+        this._show = false
+        if (this._isMobile() || this._isOverlaid()) {
+          this._removeClickOutListener()
+        }
+
+        EventHandler.trigger(this._element, EVENT_HIDDEN)
       }
     }
 
@@ -177,17 +155,18 @@ class Sidebar extends BaseComponent {
   }
 
   toggle(breakpoint) {
-    if (this._open) {
-      this.close(breakpoint)
-    } else {
-      this.open(breakpoint)
+    if (this._isVisible()) {
+      this.hide(breakpoint)
+      return
     }
+
+    this.show(breakpoint)
   }
 
-  minimize() {
+  narrow() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_MINIMIZED)
-      this._minimize = true
+      this._addClassName(CLASS_NAME_SIDEBAR_NARROW)
+      this._narrow = true
     }
   }
 
@@ -199,12 +178,12 @@ class Sidebar extends BaseComponent {
   }
 
   reset() {
-    if (this._element.classList.contains(CLASS_NAME_SIDEBAR_MINIMIZED)) {
-      this._element.classList.remove(CLASS_NAME_SIDEBAR_MINIMIZED)
-      this._minimize = false
+    if (this._narrow) {
+      this._element.classList.remove(CLASS_NAME_SIDEBAR_NARROW)
+      this._narrow = false
     }
 
-    if (this._element.classList.contains(CLASS_NAME_SIDEBAR_UNFOLDABLE)) {
+    if (this._unfoldable) {
       this._element.classList.remove(CLASS_NAME_SIDEBAR_UNFOLDABLE)
       this._unfoldable = false
     }
@@ -255,8 +234,8 @@ class Sidebar extends BaseComponent {
     return false
   }
 
-  _isMinimized() {
-    return this._element.classList.contains(CLASS_NAME_SIDEBAR_MINIMIZED)
+  _isNarrow() {
+    return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW)
   }
 
   _isOverlaid() {
@@ -282,14 +261,6 @@ class Sidebar extends BaseComponent {
     this._element.classList.add(className)
   }
 
-  _firstBreakpointClassName() {
-    return Object.keys(Default.breakpoints).map(key => Default.breakpoints[key])[0]
-  }
-
-  _getBreakpointClassName(breakpoint) {
-    return Default.breakpoints[breakpoint]
-  }
-
   _removeBackdrop() {
     if (this._backdrop) {
       this._backdrop.parentNode.removeChild(this._backdrop)
@@ -312,7 +283,7 @@ class Sidebar extends BaseComponent {
     if (event.target.closest(SELECTOR_SIDEBAR) === null) { // or use:
       event.preventDefault()
       event.stopPropagation()
-      sidebar.close()
+      sidebar.hide()
     }
   }
 
@@ -327,164 +298,14 @@ class Sidebar extends BaseComponent {
   }
 
   // Sidebar navigation
-
-  _getAllSiblings(element, filter) {
-    const siblings = []
-    element = element.parentNode.firstChild
-    do {
-      if (element.nodeType === 3) {
-        continue // text node
-      }
-
-      if (element.nodeType === 8) {
-        continue // comment node
-      }
-
-      if (!filter || filter(element)) {
-        siblings.push(element)
-      }
-
-    // eslint-disable-next-line no-cond-assign
-    } while (element = element.nextSibling)
-
-    return siblings
-  }
-
-  _toggleDropdown(event) {
-    let toggler = event.target
-    if (!toggler.classList.contains(CLASS_NAME_NAV_DROPDOWN_TOGGLE)) {
-      toggler = toggler.closest(SELECTOR_NAV_DROPDOWN_TOGGLE)
-    }
-
-    const dataAttributes = toggler.closest(SELECTOR_NAVIGATION_CONTAINER).dataset
-
-    if (typeof dataAttributes.dropdownAccordion !== 'undefined') {
-      Default.dropdownAccordion = JSON.parse(dataAttributes.dropdownAccordion)
-    }
-
-    // TODO: find better solution
-    if (Default.dropdownAccordion === true) {
-      this._getAllSiblings(toggler.parentElement, element => Boolean(element.classList.contains(CLASS_NAME_NAV_DROPDOWN))).forEach(element => {
-        if (element !== toggler.parentNode) {
-          if (element.classList.contains(CLASS_NAME_NAV_DROPDOWN)) {
-            element.classList.remove(CLASS_NAME_SHOW)
-          }
-        }
-      })
-    }
-
-    toggler.parentNode.classList.toggle(CLASS_NAME_SHOW)
-    // TODO: Set the toggler's position near to cursor after the click.
-  }
-
-  _getParents(element, selector) {
-    // Setup parents array
-    const parents = []
-
-    // Get matching parent elements
-    for (; element && element !== document; element = element.parentNode) {
-      // Add matching parents to array
-      if (selector) {
-        if (element.matches(selector)) {
-          parents.push(element)
-        }
-      } else {
-        parents.push(element)
-      }
-    }
-
-    return parents
-  }
-
-  _setActiveLink() {
-    // eslint-disable-next-line unicorn/prefer-spread
-    Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
-      let currentUrl = String(window.location)
-
-      const urlHasParams = /\?.*=/
-      const urlHasQueryString = /\?./
-      const urlHasHash = /#./
-
-      if (urlHasParams.test(currentUrl) || urlHasQueryString.test(currentUrl)) {
-        currentUrl = currentUrl.split('?')[0]
-      }
-
-      if (urlHasHash.test(currentUrl)) {
-        currentUrl = currentUrl.split('#')[0]
-      }
-
-      const dataAttributes = element.closest(SELECTOR_NAVIGATION_CONTAINER).dataset
-
-      if (typeof dataAttributes.activeLinksExact !== 'undefined') {
-        Default.activeLinksExact = JSON.parse(dataAttributes.activeLinksExact)
-      }
-
-      if (Default.activeLinksExact && element.href === currentUrl) {
-        element.classList.add(CLASS_NAME_ACTIVE)
-        // eslint-disable-next-line unicorn/prefer-spread
-        Array.from(this._getParents(element, SELECTOR_NAV_DROPDOWN)).forEach(element => {
-          element.classList.add(CLASS_NAME_SHOW)
-        })
-      }
-
-      if (!Default.activeLinksExact && element.href.startsWith(currentUrl)) {
-        element.classList.add(CLASS_NAME_ACTIVE)
-        // eslint-disable-next-line unicorn/prefer-spread
-        Array.from(this._getParents(element, SELECTOR_NAV_DROPDOWN)).forEach(element => {
-          element.classList.add(CLASS_NAME_SHOW)
-        })
-      }
-    })
-  }
-
   _addEventListeners() {
-    if (this._mobile && this._open) {
+    if (this._mobile && this._show) {
       this._addClickOutListener()
     }
 
-    if (this._overlaid && this._open) {
+    if (this._overlaid && this._show) {
       this._addClickOutListener()
     }
-
-    EventHandler.on(this._element, EVENT_CLASS_TOGGLE, event => {
-      if (event.detail.className === CLASS_NAME_SIDEBAR_MINIMIZED) {
-        if (this._element.classList.contains(CLASS_NAME_SIDEBAR_MINIMIZED)) {
-          this.minimize()
-        } else {
-          this.reset()
-        }
-      }
-
-      if (event.detail.className === CLASS_NAME_SIDEBAR_UNFOLDABLE) {
-        if (this._element.classList.contains(CLASS_NAME_SIDEBAR_UNFOLDABLE)) {
-          this.unfoldable()
-        } else {
-          this.reset()
-        }
-      }
-
-      if (typeof Object.keys(Default.breakpoints).find(key => Default.breakpoints[key] === event.detail.className) !== 'undefined') {
-        const { className } = event.detail
-        const breakpoint = Object.keys(Default.breakpoints).find(key => Default.breakpoints[key] === className)
-
-        if (event.detail.add) {
-          this.open(breakpoint)
-        } else {
-          this.close(breakpoint)
-        }
-      }
-    })
-
-    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_DROPDOWN_TOGGLE, event => {
-      event.preventDefault()
-      this._toggleDropdown(event, this)
-    })
-
-    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, () => {
-      if (this._isMobile()) {
-        this.close()
-      }
-    })
   }
 
   // Static
@@ -510,10 +331,6 @@ class Sidebar extends BaseComponent {
     return this.each(function () {
       Sidebar._sidebarInterface(this, config)
     })
-  }
-
-  static getInstance(element) {
-    return Data.getData(element, DATA_KEY)
   }
 }
 
