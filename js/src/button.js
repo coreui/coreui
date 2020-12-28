@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-alpha.0): alert.js
- * Licensed under MIT (https://'coreui.io/license)
+ * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's button.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
