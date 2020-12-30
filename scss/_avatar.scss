@@ -1,4 +1,4 @@
-.c-avatar {
+.avatar {
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -7,13 +7,13 @@
   @include avatar($avatar-width,$avatar-status-width);
 }
 
-.c-avatar-img {
+.avatar-img {
   width: 100%;
   height: auto;
   border-radius: 50em;
 }
 
-.c-avatar-status {
+.avatar-status {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -29,22 +29,22 @@
   // }
 }
 
-.c-avatar-sm {
+.avatar-sm {
   @include avatar($avatar-sm-width,$avatar-sm-status-width);
 }
 
-.c-avatar-lg {
+.avatar-lg {
   @include avatar($avatar-lg-width,$avatar-lg-status-width);
 }
 
-.c-avatar-xl {
+.avatar-xl {
   @include avatar($avatar-xl-width,$avatar-xl-status-width);
 }
 
-.c-avatars-stack {
+.avatars-stack {
   display: flex;
 
-  .c-avatar {
+  .avatar {
     margin-right: - ($avatar-width / 2);
     // transition: margin-right $layout-transition-speed;
 
@@ -53,23 +53,23 @@
     }
   }
 
-  .c-avatar-sm {
+  .avatar-sm {
     margin-right: - ($avatar-sm-width / 2);
   }
 
-  .c-avatar-lg {
+  .avatar-lg {
     margin-right: - ($avatar-lg-width / 2);
   }
 
-  .c-avatar-xl {
+  .avatar-xl {
     margin-right: - ($avatar-xl-width / 2);
   }
 }
 
-.c-avatar-rounded {
+.avatar-rounded {
   border-radius: $border-radius;
 }
 
-.c-avatar-square {
+.avatar-square {
   border-radius: 0;
 }
