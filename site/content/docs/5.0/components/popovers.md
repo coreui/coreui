@@ -421,3 +421,10 @@ myPopoverTrigger.addEventListener('hidden.bs.popover', function () {
   // do something...
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="popover-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

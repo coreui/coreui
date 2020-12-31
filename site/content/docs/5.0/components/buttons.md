@@ -205,3 +205,11 @@ buttons.forEach(function (button) {
   button.toggle()
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="button-form-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="button-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

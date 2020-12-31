@@ -663,3 +663,10 @@ tabEl.addEventListener('shown.bs.tab', function (event) {
   event.relatedTarget // previous active tab
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="nav-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

@@ -155,3 +155,10 @@ Change the alignment of pagination components with [flexbox utilities]({{< docsr
   </ul>
 </nav>
 {{< /example >}}
+
+## Customizing
+
+### SASS
+{{< scss-docs name="pagination-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

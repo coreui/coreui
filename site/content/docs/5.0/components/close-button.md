@@ -30,3 +30,10 @@ Change the default `.btn-close` to be white with the `.btn-close-white` class. T
 <button type="button" class="btn-close btn-close-white" aria-label="Close"></button>
 <button type="button" class="btn-close btn-close-white" disabled aria-label="Close"></button>
 {{< /example >}}
+
+## Customizing
+
+### SASS
+{{< scss-docs name="close-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

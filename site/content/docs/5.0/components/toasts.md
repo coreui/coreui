@@ -376,3 +376,10 @@ myToastEl.addEventListener('hidden.bs.toast', function () {
   // do something...
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="toast-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

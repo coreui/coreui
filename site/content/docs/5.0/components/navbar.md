@@ -598,3 +598,10 @@ Sometimes you want to use the collapse plugin to trigger a container element for
 {{< /example >}}
 
 When you do this, we recommend including additional JavaScript to move the focus programmatically to the container when it is opened. Otherwise, keyboard users and users of assistive technologies will likely have a hard time finding the newly revealed content - particularly if the container that was opened comes *before* the toggler in the document's structure. We also recommend making sure that the toggler has the `aria-controls` attribute, pointing to the `id` of the content container. In theory, this allows assistive technology users to jump directly from the toggler to the container it controls–but support for this is currently quite patchy.
+
+## Customizing
+
+### SASS
+{{< scss-docs name="navbar-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

@@ -1010,3 +1010,10 @@ myDropdown.addEventListener('show.bs.dropdown', function () {
   // do something...
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="dropdown-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

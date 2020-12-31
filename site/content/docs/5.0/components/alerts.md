@@ -179,3 +179,10 @@ myAlert.addEventListener('closed.bs.alert', function () {
   // document.getElementById('...').focus()
 })
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars

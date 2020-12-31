@@ -429,3 +429,10 @@ myTooltipEl.addEventListener('hidden.bs.tooltip', function () {
 
 tooltip.hide()
 ```
+
+## Customizing
+
+### SASS
+{{< scss-docs name="tooltip-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars
