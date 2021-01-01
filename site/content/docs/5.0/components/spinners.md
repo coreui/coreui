@@ -176,8 +176,6 @@ Use spinners within buttons to indicate an action is currently processing or tak
 ### SASS
 {{< scss-docs name="spinner-variables" file="scss/_variables.scss" >}}
 
-### CSS Vars
-
 
 [color]:   {{< docsref "/utilities/colors" >}}
 [display]: {{< docsref "/utilities/display" >}}

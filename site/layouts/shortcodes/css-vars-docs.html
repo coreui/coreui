@@ -1,0 +1,35 @@
+{{- /*
+  Usage: `scss-docs name="name" file="file/_location.scss"`
+
+    Prints everything between `// scss-docs-start "name"` and `// scss-docs-end "name"`
+    comments in the docs.
+
+    Optional parameters:
+    strip-default: Remove the ` !default` flag from variable assignments - default: `true`
+*/ -}}
+
+{{- $name := .Get "name" -}}
+{{- $file := .Get "file" -}}
+{{- $strip_default := .Get "strip-default" | default "true" -}}
+
+{{- $start := printf "// scss-docs-start %s\n" $name -}}
+{{- $end := printf "\n// scss-docs-end %s" $name -}}
+{{- $regex := printf "%s(.|\n)*%s" $start $end -}}
+
+{{- $regex2 := printf "(--#{\\$variable-prefix}[^,]*)" -}}
+
+{{- $css := readFile $file -}}
+{{- $match := (findRE $regex2 $css) | uniq | sort -}}
+
+{{- if (eq (len $match) 0) -}}
+  {{- errorf "Got no matches for %q in %q! (called in %q)" $name $file $.Page.Path -}}
+{{- end -}}
+
+{{- $remove_start := replace (index $match 0) $start "" -}}
+{{- $result := delimit $match "\n" -}}
+
+{{- if (ne $strip_default "false") -}}
+  {{- $result = replace $result "#{$variable-prefix}" "cui-" -}}
+{{- end -}}
+
+{{- highlight $result "scss" "" -}}

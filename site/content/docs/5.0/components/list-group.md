@@ -477,3 +477,4 @@ tabEl.addEventListener('shown.bs.tab', function (event) {
 {{< scss-docs name="list-group-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_list-group.scss" >}}

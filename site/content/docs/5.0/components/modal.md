@@ -993,3 +993,4 @@ myModalEl.addEventListener('hidden.bs.modal', function (event) {
 {{< scss-docs name="modal-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_modal.scss" >}}

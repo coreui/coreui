@@ -383,3 +383,4 @@ myToastEl.addEventListener('hidden.bs.toast', function () {
 {{< scss-docs name="toast-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_toasts.scss" >}}

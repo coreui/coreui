@@ -728,3 +728,4 @@ In `v4` we used a CSS-only technique to mimic the behavior of [Masonry](https://
 {{< scss-docs name="card-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_card.scss" >}}

@@ -162,3 +162,4 @@ Change the alignment of pagination components with [flexbox utilities]({{< docsr
 {{< scss-docs name="pagination-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_pagination.scss" >}}

@@ -605,3 +605,4 @@ When you do this, we recommend including additional JavaScript to move the focus
 {{< scss-docs name="navbar-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_navbar.scss" >}}

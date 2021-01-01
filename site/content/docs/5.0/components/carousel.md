@@ -426,6 +426,6 @@ The transition duration of `.carousel-item` can be changed with the `$carousel-t
 ## Customizing
 
 ### SASS
-{{< scss-docs name="card-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="carousel-variables" file="scss/_variables.scss" >}}
 
-### CSS Vars
+

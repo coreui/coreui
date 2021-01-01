@@ -436,3 +436,4 @@ tooltip.hide()
 {{< scss-docs name="tooltip-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_tooltip.scss" >}}

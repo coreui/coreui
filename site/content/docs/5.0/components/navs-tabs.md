@@ -670,3 +670,4 @@ tabEl.addEventListener('shown.bs.tab', function (event) {
 {{< scss-docs name="nav-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_nav.scss" >}}

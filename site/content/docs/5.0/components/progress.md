@@ -144,3 +144,4 @@ The striped gradient can also be animated. Add `.progress-bar-animated` to `.pro
 {{< scss-docs name="progress-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_progress.scss" >}}

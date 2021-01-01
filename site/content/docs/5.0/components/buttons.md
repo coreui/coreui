@@ -213,3 +213,4 @@ buttons.forEach(function (button) {
 {{< scss-docs name="button-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_buttons.scss" >}}

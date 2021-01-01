@@ -186,3 +186,4 @@ myAlert.addEventListener('closed.bs.alert', function () {
 {{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_alert.scss" >}}

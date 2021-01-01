@@ -95,3 +95,4 @@ For more information, see the [WAI-ARIA Authoring Practices for the breadcrumb p
 {{< scss-docs name="breadcrumb-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_breadcrumb.scss" >}}

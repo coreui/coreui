@@ -70,3 +70,4 @@ Use the `.rounded-pill` utility class to make badges more rounded with a larger 
 {{< scss-docs name="badge-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_badge.scss" >}}

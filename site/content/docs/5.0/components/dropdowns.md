@@ -1017,3 +1017,4 @@ myDropdown.addEventListener('show.bs.dropdown', function () {
 {{< scss-docs name="dropdown-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
+{{< css-vars-docs file="scss/_dropdown.scss" >}}
