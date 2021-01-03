@@ -56,6 +56,60 @@
   pages:
     - title: Accordion
     - title: Alerts
+    - title: Avatar
+    - title: Badge
+    - title: Breadcrumb
+    - title: Buttons
+    - title: Button group
+    - title: Card
+    - title: Carousel
+    - title: Close button
+    - title: Collapse
+    - title: Dropdowns
+    - title: Footer
+    - title: Header
+    - title: List group
+    - title: Modal
+    - title: Navs & tabs
+    - title: Navbar
+    - title: Pagination
+    - title: Popovers
+    - title: Progress
+    - title: Scrollspy
+    - title: Sidebar
+    - title: Spinners
+    - title: Toasts
+    - title: Tooltips
+
+- title: Components API
+  pages:
+    - title: Accordion
+    - title: Alerts
+    - title: Badge
+    - title: Breadcrumb
+    - title: Buttons
+    - title: Button group
+    - title: Card
+    - title: Carousel
+    - title: Close button
+    - title: Collapse
+    - title: Dropdowns
+    - title: List group
+    - title: Modal
+    - title: Navs & tabs
+    - title: Navbar
+    - title: Pagination
+    - title: Popovers
+    - title: Progress
+    - title: Scrollspy
+    - title: Spinners
+    - title: Toasts
+    - title: Tooltips
+
+- title: Components Theming
+  pages:
+    - title: Accordion
+    - title: Alerts
     - title: Badge
     - title: Breadcrumb
     - title: Buttons

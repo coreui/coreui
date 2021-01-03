@@ -25,7 +25,7 @@ publishDir:             "_gh_pages"
 module:
   mounts:
     - source:           dist
-      target:           static/docs/5.0/dist
+      target:           static/docs/4.0/dist
     - source:           site/assets
       target:           assets
     - source:           site/content
@@ -36,29 +36,29 @@ module:
       target:           layouts
     - source:           site/static
       target:           static
-    - source:           site/static/docs/5.0/assets/img/favicons/apple-touch-icon.png
+    - source:           site/static/docs/4.0/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
-    - source:           site/static/docs/5.0/assets/img/favicons/favicon.ico
+    - source:           site/static/docs/4.0/assets/img/favicons/favicon.ico
       target:           static/favicon.ico
 
 params:
   description:          "The most popular HTML, CSS, and JS library in the world."
   authors:              "Mark Otto, Jacob Thornton, and Bootstrap contributors"
-  social_image_path:    /docs/5.0/assets/brand/bootstrap-social.png
-  social_logo_path:     /docs/5.0/assets/brand/bootstrap-social-logo.png
+  social_image_path:    /docs/4.0/assets/brand/bootstrap-social.png
+  social_logo_path:     /docs/4.0/assets/brand/bootstrap-social-logo.png
 
-  current_version:      "5.0.0-beta1"
-  current_ruby_version: "5.0.0.beta1"
-  docs_version:         "5.0"
+  current_version:      "4.0.0-alpha.0"
+  current_ruby_version: "4.0.0-alpha.0"
+  docs_version:         "4.0"
   rfs_version:          "9.0.3"
-  github_org:           "https://github.com/twbs"
-  repo:                 "https://github.com/twbs/bootstrap"
-  twitter:              "getbootstrap"
+  github_org:           "https://github.com/coreui"
+  repo:                 "https://github.com/coreui/coreui"
+  twitter:              "core_ui"
   slack:                "https://bootstrap-slack.herokuapp.com/"
   opencollective:       "https://opencollective.com/bootstrap"
   blog:                 "https://blog.getbootstrap.com/"
   themes:               "https://themes.getbootstrap.com/"
-  icons:                "https://icons.getbootstrap.com/"
+  icons:                "https://icons.coreui.io/"
 
   download:
     source:             "https://github.com/twbs/bootstrap/archive/v5.0.0-beta1.zip"
