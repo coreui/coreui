@@ -1,27 +1,25 @@
-.c-footer {
+.footer {
   display: flex;
-  flex: 0 0 $footer-height;
-  flex-wrap: wrap;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
-  height: $footer-height;
-  padding: 0 $spacer;
+  justify-content: space-between;
+  min-height: $footer-height;
+  padding: $footer-padding-y $footer-padding-x;
   color: var(--#{$variable-prefix}footer-color, $footer-color);
   background: var(--#{$variable-prefix}footer-bg, $footer-bg);
-
-  &[class*="bg-"] {
-    border-color: rgba($black, .1);
-  }
-
-  &.c-footer-fixed {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: $zindex-fixed;
-  }
+  border-top: var(--#{$variable-prefix}footer-border-width, $footer-border-width) solid var(--#{$variable-prefix}footer-border-color, $footer-border-color);
 }
 
-// @include themes($footer-theme-map, $parent: ".c-footer") {
+.footer-fixed {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindex-fixed;
+}
 
-//   // @include borders(themes-get-value("footer-borders"));
-// }
+.footer-sticky {
+  position: sticky;
+  bottom: 0;
+  z-index: $zindex-fixed;
+}
