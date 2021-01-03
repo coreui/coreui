@@ -43,7 +43,7 @@
 // scss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert.
 
-@each $state, $map in $alert-colors {
+@each $state, $map in $alert-variants {
   $background: var(--#{$variable-prefix}alert-#{$state}-bg, map-get($map, "background"));
   $border: var(--#{$variable-prefix}alert-#{$state}-border-color, map-get($map, "border"));
   $color: var(--#{$variable-prefix}alert-#{$state}-color, map-get($map, "color"));

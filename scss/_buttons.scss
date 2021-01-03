@@ -55,7 +55,7 @@
 // Alternate buttons
 //
 
-@each $state, $map in $button-colors {
+@each $state, $map in $button-variants {
   $background: var(--#{$variable-prefix}btn-#{$state}-background, map-get($map, "background"));
   $border: var(--#{$variable-prefix}btn-#{$state}-border-color, map-get($map, "border"));
   $color: var(--#{$variable-prefix}btn-#{$state}-color, map-get($map, "color"));
@@ -89,7 +89,7 @@
   }
 }
 
-@each $state, $map in $button-colors {
+@each $state, $map in $button-variants {
   $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background"));
   $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color"));
   $active-background: var(--#{$variable-prefix}btn-outline-#{$state}-active-background, map-get($map, "background"));

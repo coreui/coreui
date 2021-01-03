@@ -644,7 +644,7 @@ $btn-border-radius-lg:        $border-radius-lg !default;
 
 $btn-transition:              color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
-$button-colors: (
+$button-variants: (
   "primary": btn-color-map($primary, $primary),
   "secondary": btn-color-map($secondary, $secondary),
   "success": btn-color-map($success, $success),
@@ -1228,7 +1228,7 @@ $alert-color-scale:                 40% !default;
 
 $alert-dismissible-padding-r:       $alert-padding-x * 3 !default; // 3x covers width of x plus default padding on either side
 
-$alert-colors: (
+$alert-variants: (
   "primary": alert-color-map($primary),
   "secondary": alert-color-map($secondary),
   "success": alert-color-map($success),
@@ -1280,7 +1280,7 @@ $list-group-action-hover-color:     $list-group-action-color !default;
 $list-group-action-active-color:    $body-color !default;
 $list-group-action-active-bg:       $gray-200 !default;
 
-$list-group-colors: (
+$list-group-variants: (
   "primary": list-group-color-map($primary),
   "secondary": list-group-color-map($secondary),
   "success": list-group-color-map($success),

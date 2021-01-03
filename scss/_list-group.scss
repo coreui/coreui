@@ -151,7 +151,7 @@
 // Add modifier classes to change text and background color on individual items.
 // Organizationally, this must come after the `:hover` states.
 
-@each $state, $map in $list-group-colors {
+@each $state, $map in $list-group-variants {
   $background: var(--#{$variable-prefix}list-group-#{$state}-background, map-get($map, "background"));
   $background-hover: var(--#{$variable-prefix}list-group-#{$state}-background-hover, map-get($map, "background-hover"));
   $color: var(--#{$variable-prefix}list-group-#{$state}-color, map-get($map, "color"));
