@@ -1,86 +1,66 @@
-.c-subheader {
+.subheader {
   position: relative;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
   min-height: $subheader-height;
+  padding: $subheader-padding-y $subheader-padding-x;
   background: var(--#{$variable-prefix}subheader-bg, $subheader-bg);
-  // @include borders(themes-get-value("subheader-border"));
-
-  &[class*="bg-"]  {
-    border-color: rgba($black, .1);
-  }
-
-  &.c-subheader-fixed {
-    position: fixed;
-    right: 0;
-    left: 0;
-    z-index: $zindex-fixed;
-  }
+  border-bottom: var(--#{$variable-prefix}subheader-border-width, $subheader-border-width) solid var(--#{$variable-prefix}subheader-border-color, $subheader-border-color);
 }
 
-.c-subheader-nav {
+.subheader-sticky {
+  position: sticky;
+  top: 0;
+  z-index: $zindex-fixed - 1;
+}
+
+// Subheader nav
+//
+// Custom navbar navigation (doesn't require `.nav`, but does make use of `.nav-link`).
+
+.subheader-nav {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  min-height: $subheader-height;
-  padding: 0;
+  flex-direction: row; // cannot use `inherit` to get the `.header`s value
+  padding-left: 0;
   margin-bottom: 0;
   list-style: none;
 
-  .c-subheader-nav-item {
-    position: relative;
-  }
-
-  .c-subheader-nav-btn {
-    background-color: transparent;
-    border: $btn-border-width solid transparent;
-  }
-
-  .c-subheader-nav-link,
-  .c-subheader-nav-btn {
-    display: flex;
-    align-items: center;
-    padding-right: $header-nav-link-padding-x;
-    padding-left: $header-nav-link-padding-x;
+  .nav-link {
+    padding-right: $subheader-nav-link-padding-x;
+    padding-left: $subheader-nav-link-padding-x;
     color: var(--#{$variable-prefix}subheader-color, $subheader-color);
-
-    // .badge {
-    //   position: absolute;
-    //   top: 50%;
-    //   margin-top: -16px;
-    //   @include ltr {
-    //     left: 50%;
-    //     margin-left: 0;
-    //   }
-    //   @include rtl {
-    //     right: 50%;
-    //     margin-right: 0;
-    //   }
-    // }
 
     &:hover,
     &:focus {
       color: var(--#{$variable-prefix}subheader-hover-color, $subheader-hover-color);
-      text-decoration: none;
     }
 
-    &.c-disabled {
+    &.disabled {
       color: var(--#{$variable-prefix}subheader-disabled-color, $subheader-disabled-color);
     }
+  }
 
-    .c-show > .c-subheader-nav-link,
-    .c-active > .c-subheader-nav-link,
-    .c-subheader-nav-link.c-show,
-    .c-subheader-nav-link.c-active {
-      color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
-    }
+  .show > .nav-link,
+  .nav-link.active {
+    color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+  }
+
+  .dropdown-menu {
+    position: absolute;
   }
 }
 
-.c-subheader-text {
+// Subheader text
+//
+//
+
+.subheader-text {
+  padding-top: $nav-link-padding-y;
+  padding-bottom: $nav-link-padding-y;
   color: var(--#{$variable-prefix}subheader-color, $subheader-color);
+
   a {
     color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
 
