@@ -3,14 +3,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50em;
+  vertical-align: middle;
+  @include border-radius(50em);
   @include avatar($avatar-width,$avatar-status-width);
 }
 
 .avatar-img {
   width: 100%;
   height: auto;
-  border-radius: 50em;
+  @include border-radius(50em);
 }
 
 .avatar-status {
@@ -19,7 +20,7 @@
   bottom: 0;
   display: block;
   border: 1px solid $white;
-  border-radius: 50em;
+  @include border-radius(50em);
 
   // @include ltr {
   //   right: 0;
@@ -64,12 +65,4 @@
   .avatar-xl {
     margin-right: - ($avatar-xl-width / 2);
   }
-}
-
-.avatar-rounded {
-  border-radius: $border-radius;
-}
-
-.avatar-square {
-  border-radius: 0;
 }
