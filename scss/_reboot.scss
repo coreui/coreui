@@ -88,6 +88,18 @@ hr:not([size]) {
   height: $hr-height; // 2
 }
 
+.vr {
+  display: flex;
+  flex: 0 0 $vr-width;
+  width: $vr-width;
+  padding: 0 !important;
+  margin: 0;
+  color: var(--#{$variable-prefix}vr-color, $vr-color); // 1
+  background-color: currentColor;
+  border: 0;
+  opacity: $vr-opacity;
+}
+
 
 // Typography
 //
