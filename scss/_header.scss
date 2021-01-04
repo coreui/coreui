@@ -38,9 +38,10 @@
 }
 
 .header-divider {
-  flex-basis: 100%;
+  // stylelint-disable-next-line function-disallowed-list
+  flex-basis: calc(100% + #{2 * $header-padding-x});
   height: 0;
-  margin: $header-padding-y 0;
+  margin: $header-padding-y (- $header-padding-x);
   border-top: var(--#{$variable-prefix}header-divider-border-width, $header-divider-border-width) solid var(--#{$variable-prefix}header-divider-border-color, $header-divider-border-color);
 }
 
