@@ -39,7 +39,7 @@
 
   // Highlight border color between thead, tbody and tfoot.
   > :not(:last-child) > :last-child > * {
-    border-bottom-color: $table-group-separator-color;
+    // border-bottom-color: $table-group-separator-color;
   }
 }
 
