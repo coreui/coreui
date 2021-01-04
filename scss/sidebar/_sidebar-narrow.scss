@@ -1,0 +1,150 @@
+.sidebar-narrow {
+  @include media-breakpoint-up($mobile-breakpoint) {
+    z-index: $zindex-fixed + 1;
+    flex: 0 0 $sidebar-narrow-width;
+    padding-bottom: $sidebar-toggler-height;
+    overflow: visible;
+
+    &.sidebar-fixed {
+      z-index: $zindex-fixed + 1;
+      width: $sidebar-narrow-width;
+    }
+
+    &:not(.sidebar-right){
+      margin-left: - $sidebar-narrow-width;
+
+      > .nav-item:hover,
+      > .nav-group:hover {
+        margin-left: - $sidebar-width;
+      }
+    }
+    &.sidebar-right {
+      margin-right: - $sidebar-narrow-width;
+    }
+
+    .sidebar-brand-full {
+      display: none;
+    }
+
+    .sidebar-brand-narrow {
+      display: block;
+    }
+
+    .d-narrow-none,
+    .nav-divider,
+    .nav-label,
+    .nav-title,
+    .sidebar-footer,
+    .sidebar-form,
+    .sidebar-header {
+      height: 0;
+      padding: 0;
+      margin: 0;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    // Temporary fix for this issue: https://github.com/coreui/coreui-free-bootstrap-admin-template/issues/404
+    // TODO: find better solution
+    .sidebar-toggler {
+      position: fixed;
+      bottom: 0;
+      width: inherit;
+
+      &::before {
+        transform: rotate(-180deg);
+      }
+    }
+
+    &.sidebar-right .sidebar-toggler::before {
+      transform: rotate(0deg);
+    }
+
+    .nav-link,
+    .nav-group-toggle {
+      overflow: hidden;
+      white-space: nowrap;
+      border-left: 0;
+
+      &:hover {
+        width: calc(#{$sidebar-width} + #{$sidebar-narrow-width}); // stylelint-disable-line function-disallowed-list
+      }
+    }
+
+    .nav-group-toggle::after {
+      display: none;
+    }
+
+    .nav-group-items {
+      .nav-link {
+        width: $sidebar-width;
+      }
+    }
+
+    > .nav-group {
+      position: relative;
+
+      > .nav-group-items {
+        display: none;
+        // stylelint-disable-next-line selector-max-class, selector-max-compound-selectors
+        .nav-group:not(.show) > .nav-group-items {
+          display: none;
+        }
+      }
+      .nav-group-items {
+        max-height: 1500px;
+      }
+
+      &:hover {
+        width: calc(#{$sidebar-width} + #{$sidebar-narrow-width}); // stylelint-disable-line function-disallowed-list
+        overflow: visible;
+
+        > .nav-group-items {
+          position: absolute;
+          left: $sidebar-narrow-width;
+          display: inline;
+        }
+      }
+    }
+
+    &.sidebar-right > .nav-group:hover > .nav-group-items {
+      left: 0;
+    }
+  }
+}
+
+
+// Responsive behavior
+// stylelint-disable selector-max-class
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .sidebar.sidebar#{$infix}-show,
+    .sidebar.sidebar-show {
+      &:not(.sidebar-right){
+        margin-left: 0;
+        @include media-breakpoint-up($mobile-breakpoint) {
+          &.sidebar-fixed {
+            &.sidebar-narrow {
+              ~ [data-coreui-reliant="sidebar"] {
+                margin-left: $sidebar-narrow-width;
+              }
+            }
+          }
+        }
+      }
+      &.sidebar-right {
+        margin-right: 0;
+        @include media-breakpoint-up($mobile-breakpoint) {
+          &.sidebar-fixed {
+            &.sidebar-narrow {
+              ~ [data-coreui-reliant="sidebar"] {
+                margin-right: $sidebar-narrow-width;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

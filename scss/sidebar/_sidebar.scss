@@ -1,0 +1,259 @@
+.sidebar {
+  position: relative;
+  display: flex;
+  // $sidebar-width is the width of the columns
+  flex: 0 0 $sidebar-width;
+  flex-direction: column;
+  // put the nav on the left
+  order: -1;
+  width: $sidebar-width;
+  padding: $sidebar-padding-y $sidebar-padding-x;
+  color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
+  background: var(--#{$variable-prefix}sidebar-bg, $sidebar-bg);
+  border-right: var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color);
+  box-shadow: none;
+  @include transition($sidebar-transition);
+
+  + [data-coreui-reliant="sidebar"] {
+    @include transition($sidebar-reliant-transition);
+  }
+
+  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+    // Some of our components use this property to detect if the sidebar has mobile behavior.
+    --is-mobile: true;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 1;
+
+    &:not(.sidebar-right){
+      left: 0;
+    }
+    &.sidebar-right {
+      right: 0;
+    }
+  }
+
+  &:not(.sidebar-right){
+    margin-left: - $sidebar-width;
+  }
+
+  &.sidebar-right {
+    order: 99;
+    margin-right: - $sidebar-width;
+  }
+
+  &[class*="bg-"]  {
+    border-color: rgba($black, .1);
+  }
+
+  @each $width, $value in $sidebar-widths {
+    &.sidebar-#{$width} {
+      flex: 0 0 $value;
+      width: $value;
+
+      &:not(.sidebar-right){
+        margin-left: - $value;
+      }
+      &.sidebar-right {
+        margin-right: - $value;
+      }
+    }
+  }
+
+  &.sidebar-fixed {
+    @include media-breakpoint-up($mobile-breakpoint) {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      z-index: $zindex-fixed;
+
+      &:not(.sidebar-right) {
+        left: 0;
+      }
+
+      &.sidebar-right {
+        right: 0;
+      }
+    }
+  }
+
+  &.sidebar-sticky {
+    @include media-breakpoint-up($mobile-breakpoint) {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+  }
+
+  &.sidebar-overlaid {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 2;
+
+    &:not(.sidebar-right) {
+      left: 0;
+    }
+
+    &.sidebar-right {
+      right: 0;
+    }
+  }
+}
+
+.sidebar-close {
+  position: absolute;
+  right: 0;
+  width: $sidebar-brand-height;
+  height: $sidebar-brand-height;
+  color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
+  background: transparent;
+  border: 0;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+}
+
+.sidebar-brand {
+  display: flex;
+  flex: 0 0 $sidebar-brand-height;
+  align-items: center;
+  justify-content: center;
+  color: var(--#{$variable-prefix}sidebar-brand-color, $sidebar-brand-color);
+  background: var(--#{$variable-prefix}sidebar-brand-bg, $sidebar-brand-bg);
+
+  .sidebar-brand-narrow {
+    display: none;
+  }
+}
+
+.sidebar-header {
+  flex: 0 0 $sidebar-header-height;
+  padding: $sidebar-header-padding-y $sidebar-header-padding-x;
+  text-align: center;
+  background: var(--#{$variable-prefix}sidebar-header-bg, $sidebar-header-bg);
+  // transition: $layout-transition-speed; TODO: fix
+}
+
+.sidebar-footer {
+  flex: 0 0 $sidebar-footer-height;
+  padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
+  background: var(--#{$variable-prefix}sidebar-footer-bg, $sidebar-footer-bg);
+  // transition: $layout-transition-speed; TODO: fix
+}
+
+.sidebar-toggler {
+  display: flex;
+  flex: 0 0 $sidebar-toggler-height;
+  justify-content: flex-end;
+  width: inherit;
+  padding: 0;
+  cursor: pointer;
+  background-color: var(--#{$variable-prefix}sidebar-toggler-bg, $sidebar-toggler-bg);
+  border: 0;
+
+  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+    display: none;
+  }
+
+  &::before {
+    display: block;
+    width: $sidebar-toggler-height;
+    height: $sidebar-toggler-height;
+    content: "";
+    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, $sidebar-toggler-indicator);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: $sidebar-toggler-height / 4;
+    @include transition($sidebar-toggler-transition);
+  }
+
+  &:focus,
+  &.focus {
+    outline: 0;
+  }
+
+  &:hover {
+    background-color: var(--#{$variable-prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
+    &::before {
+      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, $sidebar-toggler-hover-indicator);
+    }
+  }
+
+  .sidebar-right & {
+    justify-content: flex-start;
+    &::before {
+      transform: rotate(-180deg);
+    }
+  }
+}
+
+// Backdrop background
+.sidebar-backdrop {
+  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $zindex-fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: $sidebar-backdrop-bg;
+    // transition: $layout-transition-speed; TODO: fix
+
+    // Fade for backdrop
+    &.fade { opacity: 0; }
+    &.show { opacity: $sidebar-backdrop-opacity; }
+  }
+}
+
+// Responsive behavior
+// stylelint-disable selector-max-class
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+    .sidebar.sidebar#{$infix}-show,
+    .sidebar.sidebar-show {
+      &:not(.sidebar-right){
+        margin-left: 0;
+        @include media-breakpoint-up($mobile-breakpoint) {
+          &.sidebar-fixed {
+            ~ [data-coreui-reliant="sidebar"] {
+              margin-left: $sidebar-width;
+            }
+            @each $width, $value in $sidebar-widths {
+              &.sidebar-#{$width} {
+                ~ [data-coreui-reliant="sidebar"] {
+                  margin-left: $value;
+                }
+              }
+            }
+          }
+        }
+      }
+      &.sidebar-right {
+        margin-right: 0;
+        @include media-breakpoint-up($mobile-breakpoint) {
+          &.sidebar-fixed {
+            ~ [data-coreui-reliant="sidebar"] {
+              margin-right: $sidebar-width;
+            }
+            @each $width, $value in $sidebar-widths {
+              &.sidebar-#{$width} {
+                ~ [data-coreui-reliant="sidebar"] {
+                  margin-right: $value;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

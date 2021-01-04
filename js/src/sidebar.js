@@ -32,15 +32,15 @@ const Default = {}
 
 const DefaultType = {}
 
-const CLASS_NAME_BACKDROP = 'c-sidebar-backdrop'
-const CLASS_NAME_FADE = 'c-fade'
-const CLASS_NAME_SHOW = 'c-show'
-const CLASS_NAME_SIDEBAR_NARROW = 'c-sidebar-narrow'
-const CLASS_NAME_SIDEBAR_OVERLAID = 'c-sidebar-overlaid'
-const CLASS_NAME_SIDEBAR_SHOW = 'c-sidebar-show'
-const CLASS_NAME_SIDEBAR_UNFOLDABLE = 'c-sidebar-unfoldable'
+const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
+const CLASS_NAME_FADE = 'fade'
+const CLASS_NAME_SHOW = 'show'
+const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
+const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
+const CLASS_NAME_SIDEBAR_SHOW = 'sidebar-show'
+const CLASS_NAME_SIDEBAR_UNFOLDABLE = 'sidebar-unfoldable'
 
-const REGEXP_SIDEBAR_SHOW = new RegExp(`c-sidebar.*show`)
+const REGEXP_SIDEBAR_SHOW = new RegExp(`sidebar.*show`)
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -49,7 +49,8 @@ const EVENT_SHOWN = `shown${EVENT_KEY}`
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
 const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
 
-const SELECTOR_SIDEBAR = '.c-sidebar'
+const SELECTOR_SIDEBAR = '.sidebar'
+const SELECTOR_SIDEBAR_TOGGLER = '.sidebar-toggler'
 
 /**
  * ------------------------------------------------------------------------
@@ -178,15 +179,35 @@ class Sidebar extends BaseComponent {
   }
 
   reset() {
+    if (!this._isMobile()) {
+      if (this._narrow) {
+        this._element.classList.remove(CLASS_NAME_SIDEBAR_NARROW)
+        this._narrow = false
+      }
+
+      if (this._unfoldable) {
+        this._element.classList.remove(CLASS_NAME_SIDEBAR_UNFOLDABLE)
+        this._unfoldable = false
+      }
+    }
+  }
+
+  toggleNarrow() {
     if (this._narrow) {
-      this._element.classList.remove(CLASS_NAME_SIDEBAR_NARROW)
-      this._narrow = false
+      this.reset()
+      return
     }
 
+    this.narrow()
+  }
+
+  toggleUnfoldable() {
     if (this._unfoldable) {
-      this._element.classList.remove(CLASS_NAME_SIDEBAR_UNFOLDABLE)
-      this._unfoldable = false
+      this.reset()
+      return
     }
+
+    this.unfoldable()
   }
 
   // Private
@@ -246,14 +267,14 @@ class Sidebar extends BaseComponent {
     return this._element.classList.contains(CLASS_NAME_SIDEBAR_UNFOLDABLE)
   }
 
+  // TODO: ta metoda nie zawsze działa poprawnie
   _isVisible() {
     const rect = this._element.getBoundingClientRect()
-
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+      Math.floor(rect.top) >= 0 &&
+      Math.floor(rect.left) >= 0 &&
+      Math.floor(rect.bottom) <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      Math.floor(rect.right) <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
     )
   }
 
@@ -306,6 +327,19 @@ class Sidebar extends BaseComponent {
     if (this._overlaid && this._show) {
       this._addClickOutListener()
     }
+
+    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_SIDEBAR_TOGGLER, event => {
+      event.preventDefault()
+      const toggle = Manipulator.getDataAttribute(event.target, 'toggle')
+
+      if (toggle === 'narrow') {
+        this.toggleNarrow()
+      }
+
+      if (toggle === 'unfoldable') {
+        this.toggleUnfoldable()
+      }
+    })
   }
 
   // Static
