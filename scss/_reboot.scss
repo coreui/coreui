@@ -46,7 +46,7 @@
 body {
   margin: 0; // 1
   font-family: $font-family-base;
-  @include font-size($font-size-base);
+  @include font-size(var(--#{$variable-prefix}font-size-base, $font-size-base));
   font-weight: $font-weight-base;
   line-height: $line-height-base;
   color: var(--#{$variable-prefix}body-color, $body-color);
