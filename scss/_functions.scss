@@ -167,6 +167,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 }
 // scss-docs-end color-functions
 
+// scss-docs-start alert-color-functions
 @function alert-color-map($color) {
   @return (
     "background": shift-color($color, $alert-bg-scale),
@@ -175,7 +176,9 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     "link-color": shade-color(shift-color($color, $alert-color-scale), 20%)
   );
 }
+// scss-docs-end alert-color-functions
 
+// scss-docs-start button-color-functions
 @function btn-color($color, $shade, $tint) {
   @return if(color-contrast($color) == $color-contrast-light, shade-color($color, $shade), tint-color($color, $tint));
 }
@@ -197,7 +200,9 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     "shadow": rgba(mix($background, $border, 15%), .5)
   );
 }
+// scss-docs-end button-color-functions
 
+// scss-docs-start list-group-color-functions
 @function list-group-color-map($color) {
   @return (
     "background": shift-color($color, $list-group-item-bg-scale),
@@ -205,6 +210,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     "color": shift-color($color, $list-group-item-color-scale)
   );
 }
+// scss-docs-end list-group-color-functions
 
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {

@@ -55,6 +55,7 @@
 // Alternate buttons
 //
 
+// scss-docs-start button-modifiers
 @each $state, $map in $button-variants {
   $background: var(--#{$variable-prefix}btn-#{$state}-background, map-get($map, "background"));
   $border: var(--#{$variable-prefix}btn-#{$state}-border-color, map-get($map, "border"));
@@ -88,7 +89,9 @@
     );
   }
 }
+// scss-docs-end button-modifiers
 
+// scss-docs-start button-outline-modifiers
 @each $state, $map in $button-variants {
   $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background"));
   $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color"));
@@ -108,6 +111,7 @@
     );
   }
 }
+// scss-docs-end button-outline-modifiers
 
 
 //
