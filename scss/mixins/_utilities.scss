@@ -28,6 +28,9 @@
     // Don't prefix if value key is null (eg. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
 
+    // Generate also CSS Variable
+    $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), "false");
+
     @if map-get($utility, rfs) {
       // Inside the media query
       @if $is-rfs-media-query {
@@ -49,7 +52,12 @@
       }
       .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
-          #{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}, $value) if($enable-important-utilities, !important, null);
+          @if $generate-vars == true {
+            #{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}, $value) if($enable-important-utilities, !important, null);
+          }
+          @else {
+            #{$property}: $value if($enable-important-utilities, !important, null);
+          }
         }
       }
 
