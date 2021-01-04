@@ -67,7 +67,7 @@ $primary-50:    #988fed !default;
 $primary-25:    #ccc7f6 !default;
 
 $secondary-dark:  #212233 !default;
-$secondary:       #3c4b64 !default;
+$secondary:       #9da5b1 !default;
 $secondary-50:    #9da5b1 !default;
 $secondary-25:    #ced2d8 !default;
 
@@ -115,9 +115,9 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // Text colors
-$high-emphasis-dark:    rgba($black, .87) !default;
-$medium-emphasis-dark:  rgba($black, .6) !default;
-$disabled-dark:         rgba($black, .38) !default;
+$high-emphasis-dark:    rgba(shift-color($gray-base, +26), .87) !default;
+$medium-emphasis-dark:  rgba(shift-color($gray-base, +26), .6) !default;
+$disabled-dark:         rgba(shift-color($gray-base, +26), .38) !default;
 
 $high-emphasis-light:    rgba($white, .87) !default;
 $medium-emphasis-light:  rgba($white, .6) !default;
@@ -399,7 +399,7 @@ $border-widths: (
   5: 5px
 ) !default;
 
-$border-color:                $gray-300 !default;
+$border-color:                $gray-200 !default;
 
 $border-radius:               .25rem !default;
 $border-radius-sm:            .2rem !default;
@@ -454,6 +454,8 @@ $font-size-lg:                $font-size-base * 1.25 !default;
 $font-weight-lighter:         lighter !default;
 $font-weight-light:           300 !default;
 $font-weight-normal:          400 !default;
+$font-weight-medium:          500 !default;
+$font-weight-semibold:        600 !default;
 $font-weight-bold:            700 !default;
 $font-weight-bolder:          bolder !default;
 
@@ -486,7 +488,7 @@ $headings-font-family:        null !default;
 $headings-font-style:         null !default;
 $headings-font-weight:        500 !default;
 $headings-line-height:        1.2 !default;
-$headings-color:              null !default;
+$headings-color:              unset !default;
 
 // scss-docs-start display-headings
 $display-font-sizes: (
@@ -750,7 +752,7 @@ $form-check-input-width:                  1em !default;
 $form-check-min-height:                   $font-size-base * $line-height-base !default;
 $form-check-padding-start:                $form-check-input-width + .5em !default;
 $form-check-margin-bottom:                .125rem !default;
-$form-check-label-color:                  null !default;
+$form-check-label-color:                  unset !default;
 $form-check-label-cursor:                 null !default;
 $form-check-transition:                   background-color .15s ease-in-out, background-position .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 
@@ -1074,9 +1076,9 @@ $card-inner-border-radius:          subtract($card-border-radius, $card-border-w
 $card-cap-padding-y:                $card-spacer-y / 2 !default;
 $card-cap-padding-x:                $card-spacer-x !default;
 $card-cap-bg:                       rgba($black, .03) !default;
-$card-cap-color:                    null !default;
+$card-cap-color:                    unset !default;
 $card-height:                       null !default;
-$card-color:                        null !default;
+$card-color:                        unset !default;
 $card-bg:                           $white !default;
 
 $card-img-overlay-padding:          $spacer !default;
@@ -1179,7 +1181,7 @@ $toast-max-width:                   350px !default;
 $toast-padding-x:                   .75rem !default;
 $toast-padding-y:                   .5rem !default;
 $toast-font-size:                   .875rem !default;
-$toast-color:                       null !default;
+$toast-color:                       unset !default;
 $toast-background-color:            rgba($white, .85) !default;
 $toast-border-width:                1px !default;
 $toast-border-color:                rgba(0, 0, 0, .1) !default;
@@ -1217,7 +1219,7 @@ $modal-dialog-margin-y-sm-up:       1.75rem !default;
 
 $modal-title-line-height:           $line-height-base !default;
 
-$modal-content-color:               null !default;
+$modal-content-color:               unset !default;
 $modal-content-bg:                  $white !default;
 $modal-content-border-color:        rgba($black, .2) !default;
 $modal-content-border-width:        $border-width !default;
@@ -1308,7 +1310,7 @@ $progress-bar-transition:           width .6s ease !default;
 
 // List group
 // scss-docs-start list-group-variables
-$list-group-color:                  null !default;
+$list-group-color:                  unset !default;
 $list-group-bg:                     $white !default;
 $list-group-border-color:           rgba($black, .125) !default;
 $list-group-border-width:           $border-width !default;
@@ -1430,7 +1432,7 @@ $breadcrumb-padding-y:              0 !default;
 $breadcrumb-padding-x:              0 !default;
 $breadcrumb-item-padding-x:         .5rem !default;
 $breadcrumb-margin-bottom:          1rem !default;
-$breadcrumb-bg:                     null !default;
+$breadcrumb-bg:                     unset !default;
 $breadcrumb-divider-color:          $gray-600 !default;
 $breadcrumb-active-color:           $gray-600 !default;
 $breadcrumb-divider:                quote("/") !default;
@@ -1605,4 +1607,4 @@ $kbd-font-size:                     $code-font-size !default;
 $kbd-color:                         $high-emphasis-light !default;
 $kbd-bg:                            $gray-900 !default;
 
-$pre-color:                         null !default;
+$pre-color:                         unset !default;
