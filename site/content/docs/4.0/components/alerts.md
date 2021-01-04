@@ -187,5 +187,46 @@ myAlert.addEventListener('closed.coreui.alert', function () {
 ### SASS
 {{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
 
+#### Variants
+
+CoreUI allows defining variant colors in two ways.
+
+Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
+
+##### Manual
+
+You can define each color manually and keep full control of the component appearance.
+
+{{< highlight scss >}}
+$alert-variants: (
+  "primary": (
+    "background": $your-bg-color,
+    "border": $your-border-color,
+    "color": $your-color,
+    "link-color": $your-link-color
+  )
+  ...
+);
+{{< /highlight >}}
+
+##### Color function
+
+The color set can be generated automatically thanks to our `alert-color-map` function.
+
+{{< scss-docs name="alert-color-functions" file="scss/_functions.scss" >}}
+
+{{< highlight scss >}}
+$alert-variants: (
+  "primary": alert-color-map($primary),
+  ...
+);
+{{< /highlight >}}
+
+#### Modifiers
+
+CoreUI's alert component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.alert` while style variations are confined to modifier classes (e.g., `.alert-danger`). These modifier classes are built from the `$alert-variants` map to make customizing the number and name of our modifier classes.
+
+{{< scss-docs name="alert-modifiers" file="scss/_alert.scss" >}}
+
 ### CSS Vars
 {{< css-vars-docs file="scss/_alert.scss" >}}

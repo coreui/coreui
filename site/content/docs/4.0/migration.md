@@ -26,6 +26,11 @@ toc: true
 #### Sidebar
 - Nawigacja
 
+### Utilities
+
+- Dropped the `.text-value-lg` as it can be built with the following `fs-4 fw-semibold` utility classes.
+- Dropped the `.text-value` as it can be built with the following `fs-6 fw-semibold` utility classes.
+
 ## v5.0.0-beta1
 
 ### RTL

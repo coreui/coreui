@@ -89,8 +89,10 @@ Customize your available `font-size`s by modifying the `$font-sizes` Sass map.
 Quickly change the `font-weight` or `font-style` of text with these utilities. `font-style` utilities are abbreviated as `.fst-*` and `font-weight` utilities are abbreviated as `.fw-*`.
 
 {{< example >}}
-<p class="fw-bold">Bold text.</p>
 <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
+<p class="fw-bold">Bold text.</p>
+<p class="fw-semibold">Semibold text.</p>
+<p class="fw-medium">Medium weight text.</p>
 <p class="fw-normal">Normal weight text.</p>
 <p class="fw-light">Light weight text.</p>
 <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>

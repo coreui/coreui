@@ -480,5 +480,45 @@ tabEl.addEventListener('shown.coreui.tab', function (event) {
 ### SASS
 {{< scss-docs name="list-group-variables" file="scss/_variables.scss" >}}
 
+#### Variants
+
+CoreUI allows defining variant colors in two ways.
+
+Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
+
+##### Manual
+
+You can define each color manually and keep full control of the component appearance.
+
+{{< highlight scss >}}
+$alert-variants: (
+  "primary": (
+    "background": $your-bg-color,
+    "background-hover": $your-bg-hover-color,
+    "color": $your-color
+  )
+  ...
+);
+{{< /highlight >}}
+
+##### Color function
+
+The color set can be generated automatically thanks to our `list-group-color-map` function.
+
+{{< scss-docs name="list-group-color-functions" file="scss/_functions.scss" >}}
+
+{{< highlight scss >}}
+$alert-variants: (
+  "primary": alert-color-map($primary),
+  ...
+);
+{{< /highlight >}}
+
+#### Modifiers
+
+CoreUI's list group component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.list-group-item` while style variations are confined to modifier classes (e.g., `.list-group-item-danger`). These modifier classes are built from the `$list-group-variants` map to make customizing the number and name of our modifier classes.
+
+{{< scss-docs name="list-group-modifiers" file="scss/_list-group.scss" >}}
+
 ### CSS Vars
 {{< css-vars-docs file="scss/_list-group.scss" >}}

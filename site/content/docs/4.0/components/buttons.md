@@ -270,5 +270,57 @@ buttons.forEach(function (button) {
 {{< scss-docs name="button-form-variables" file="scss/_variables.scss" >}}
 {{< scss-docs name="button-variables" file="scss/_variables.scss" >}}
 
+#### Variants
+
+CoreUI allows defining variant colors in two ways.
+
+Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
+
+##### Manual
+
+You can define each color manually and keep full control of the component appearance.
+
+{{< highlight scss >}}
+$button-variants: (
+  "primary": (
+    "background": $your-bg-color,
+    "border": $your-border-color,
+    "color": $your-color,
+    "hover-background": $your-bg-hover-color,
+    "hover-border": $your-hover-border-color,
+    "hover-color": $your-hover-color,
+    "active-background": $your-bg-active-color,
+    "active-border": $your-active-border-color,
+    "active-color": $your-active-color,
+    "disabled-background": $your-bg-disabled-color,,
+    "disabled-border": $your-disabled-border-color,
+    "disabled-color": $your-disabled-color,
+    "shadow": $your-shadow
+  )
+  ...
+);
+{{< /highlight >}}
+
+##### Color function
+
+The color set can be generated automatically thanks to our `button-color-map` function.
+
+{{< scss-docs name="button-color-functions" file="scss/_functions.scss" >}}
+
+{{< highlight scss >}}
+$button-variants: (
+  "primary": btn-color-map($primary),
+  ...
+);
+{{< /highlight >}}
+
+#### Modifiers
+
+CoreUI's button component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.btn` while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$button-variants` map to make customizing the number and name of our modifier classes.
+
+{{< scss-docs name="button-modifiers" file="scss/_buttons.scss" >}}
+{{< scss-docs name="button-outline-modifiers" file="scss/_buttons.scss" >}}
+
+
 ### CSS Vars
 {{< css-vars-docs file="scss/_buttons.scss" >}}
