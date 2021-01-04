@@ -565,7 +565,7 @@ $table-cell-vertical-align:   top !default;
 $table-color:                 $body-color !default;
 $table-bg:                    transparent !default;
 
-$table-th-font-weight:        null !default;
+$table-th-font-weight:        600 !default;
 
 $table-striped-color:         $table-color !default;
 $table-striped-bg-factor:     .05 !default;
@@ -1500,7 +1500,7 @@ $sidebar-header-padding-y:                 .75rem !default;
 $sidebar-header-padding-x:                 1rem !default;
 $sidebar-header-bg:                        rgba($black, .2) !default;
 
-$sidebar-narrow-width:                     56px !default;
+$sidebar-narrow-width:                     3rem !default;
 
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
@@ -1528,7 +1528,9 @@ $sidebar-nav-link-active-icon-color:       $high-emphasis-light !default;
 $sidebar-nav-link-disabled-color:          $disabled-light !default;
 $sidebar-nav-link-disabled-icon-color:     $sidebar-nav-link-icon-color !default;
 
-$sidebar-nav-icon-width:                   56px !default;
+$sidebar-nav-icon-width:                   3rem !default;
+$sidebar-nav-icon-height:                  1.25rem !default;
+$sidebar-nav-icon-font-size:               $sidebar-nav-icon-height !default;
 
 $sidebar-nav-group-bg:                     rgba(0, 0, 0, .2) !default;
 $sidebar-nav-group-transition:             background .15s ease-in-out !default;
