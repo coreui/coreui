@@ -461,6 +461,8 @@ $utilities: map-merge(
         light: $font-weight-light,
         lighter: $font-weight-lighter,
         normal: $font-weight-normal,
+        medium: $font-weight-medium,
+        semibold: $font-weight-semibold,
         bold: $font-weight-bold,
         bolder: $font-weight-bolder
       )
@@ -492,8 +494,15 @@ $utilities: map-merge(
           "black-50": rgba($black, .5),
           "white-50": rgba($white, .5),
           "reset": inherit,
+          "high-emphasis-light": $high-emphasis-light,
+          "medium-emphasis-light": $medium-emphasis-light,
+          "disabled-light": $disabled-light,
+          "high-emphasis-dark": $high-emphasis-dark,
+          "medium-emphasis-dark": $medium-emphasis-dark,
+          "disabled-dark": $disabled-dark
         )
-      )
+      ),
+      vars: true
     ),
     "line-height": (
       property: line-height,
@@ -515,7 +524,8 @@ $utilities: map-merge(
           "white": $white,
           "transparent": transparent
         )
-      )
+      ),
+      vars: true
     ),
     "gradient": (
       property: background-image,
