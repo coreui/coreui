@@ -3,7 +3,7 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between;
-  min-height: $footer-height;
+  min-height: $footer-min-height;
   padding: $footer-padding-y $footer-padding-x;
   color: var(--#{$variable-prefix}footer-color, $footer-color);
   background: var(--#{$variable-prefix}footer-bg, $footer-bg);

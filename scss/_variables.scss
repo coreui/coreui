@@ -1350,7 +1350,7 @@ $list-group-variants: (
 
 // Header
 // scss-docs-start header-variables
-$header-min-height:                 56px !default;
+$header-min-height:             56px !default;
 $header-padding-y:              $spacer / 2 !default;
 $header-padding-x:              $spacer / 2 !default;
 $header-brand-font-size:        $font-size-lg !default;
@@ -1560,7 +1560,7 @@ $sidebar-toggler-hover-indicator:          str-replace(url("data:image/svg+xml;c
 
 // Footer
 // scss-docs-start footer-variables
-$footer-height:        50px !default;
+$footer-min-height:    50px !default;
 $footer-padding-y:     $spacer / 2 !default;
 $footer-padding-x:     $spacer !default;
 $footer-bg:            $gray-100 !default;
