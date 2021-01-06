@@ -1335,7 +1335,7 @@ $list-group-variants: (
 
 // Header
 // scss-docs-start header-variables
-$header-height:                 56px !default;
+$header-min-height:                 56px !default;
 $header-padding-y:              $spacer / 2 !default;
 $header-padding-x:              null !default;
 $header-brand-font-size:        $font-size-lg !default;

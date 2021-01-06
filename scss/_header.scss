@@ -4,7 +4,7 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  min-height: $header-height;
+  min-height: $header-min-height;
   padding: $header-padding-y $header-padding-x;
   background: var(--#{$variable-prefix}header-bg, $header-bg);
   border-bottom: var(--#{$variable-prefix}header-border-width, $header-border-width) solid var(--#{$variable-prefix}header-border-color, $header-border-color);
