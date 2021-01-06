@@ -100,3 +100,8 @@ When working with the Bootstrap grid system, be sure to place form elements with
   </div>
 </div>
 {{< /example >}}
+
+## Customizing
+
+### SASS
+{{< scss-docs name="form-floating-variables" file="scss/_variables.scss" >}}

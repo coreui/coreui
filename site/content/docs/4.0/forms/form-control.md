@@ -130,3 +130,11 @@ Learn more about [support for datalist elements](https://caniuse.com/datalist).
   <option value="Chicago">
 </datalist>
 {{< /example >}}
+
+## Customizing
+
+### SASS
+{{< scss-docs name="form-control-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars
+{{< css-vars-docs file="scss/forms/_form-control.scss" >}}

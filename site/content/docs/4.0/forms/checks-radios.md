@@ -269,3 +269,11 @@ Different variants of `.btn`, such at the various outlined styles, are supported
 <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined" autocomplete="off">
 <label class="btn btn-outline-danger" for="danger-outlined">Danger radio</label>
 {{< /example >}}
+
+## Customizing
+
+### SASS
+{{< scss-docs name="form-check-variables" file="scss/_variables.scss" >}}
+
+### CSS Vars
+{{< css-vars-docs file="scss/forms/_form-check.scss" >}}

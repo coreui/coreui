@@ -686,6 +686,7 @@ $button-variants: (
 
 // Forms
 // scss-docs-start form-variables
+// scss-docs-start form-control-variables
 $form-text-margin-top:                  .25rem !default;
 $form-text-font-size:                   $small-font-size !default;
 $form-text-font-style:                  null !default;
@@ -746,8 +747,9 @@ $input-height-sm:                       add($input-line-height * 1em, add($input
 $input-height-lg:                       add($input-line-height * 1em, add($input-padding-y-lg * 2, $input-height-border, false)) !default;
 
 $input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+// scss-docs-end form-control-variables
 
-
+// scss-docs-start form-check-variables
 $form-check-input-width:                  1em !default;
 $form-check-min-height:                   $font-size-base * $line-height-base !default;
 $form-check-padding-start:                $form-check-input-width + .5em !default;
@@ -779,7 +781,9 @@ $form-check-input-indeterminate-bg-image:       url("data:image/svg+xml,<svg xml
 $form-check-input-disabled-opacity:        .5 !default;
 $form-check-label-disabled-opacity:        $form-check-input-disabled-opacity !default;
 $form-check-btn-check-disabled-opacity:    $btn-disabled-opacity !default;
+// scss-docs-end form-check-variables
 
+// scss-docs-start form-switch-variables
 $form-switch-color:               rgba(0, 0, 0, .25) !default;
 $form-switch-width:               2em !default;
 $form-switch-padding-start:       $form-switch-width + .5em !default;
@@ -792,16 +796,20 @@ $form-switch-focus-bg-image:      url("data:image/svg+xml,<svg xmlns='http://www
 $form-switch-checked-color:       $component-active-color !default;
 $form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-checked-color}'/></svg>") !default;
 $form-switch-checked-bg-position: right center !default;
+// scss-docs-end form-switch-variables
 
 $form-check-inline-margin-end:    1rem !default;
 
+// scss-docs-start input-group-variables
 $input-group-addon-padding-y:           $input-padding-y !default;
 $input-group-addon-padding-x:           $input-padding-x !default;
 $input-group-addon-font-weight:         $input-font-weight !default;
 $input-group-addon-color:               $input-color !default;
 $input-group-addon-bg:                  $gray-200 !default;
 $input-group-addon-border-color:        $input-border-color !default;
+// scss-docs-end input-group-variables
 
+// scss-docs-start form-select-variables
 $form-select-padding-y:             $input-padding-y !default;
 $form-select-padding-x:             $input-padding-x !default;
 $form-select-font-family:           $input-font-family !default;
@@ -839,7 +847,9 @@ $form-select-font-size-sm:        $input-font-size-sm !default;
 $form-select-padding-y-lg:        $input-padding-y-lg !default;
 $form-select-padding-x-lg:        $input-padding-x-lg !default;
 $form-select-font-size-lg:        $input-font-size-lg !default;
+// scss-docs-end form-select-variables
 
+// scss-docs-start form-range-variables
 $form-range-track-width:          100% !default;
 $form-range-track-height:         .5rem !default;
 $form-range-track-cursor:         pointer !default;
@@ -858,11 +868,15 @@ $form-range-thumb-focus-box-shadow-width:  $input-focus-width !default; // For f
 $form-range-thumb-active-bg:               tint-color($component-active-bg, 70%) !default;
 $form-range-thumb-disabled-bg:             $gray-500 !default;
 $form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
+// scss-docs-end form-range-variables
 
+// scss-docs-start form-file-variables
 $form-file-button-color:          $input-color !default;
 $form-file-button-bg:             $input-group-addon-bg !default;
 $form-file-button-hover-bg:       shade-color($form-file-button-bg, 5%) !default;
+// scss-docs-end form-file-variables
 
+// scss-docs-start form-floating-variables
 $form-floating-height:            add(3.5rem, $input-height-border) !default;
 $form-floating-padding-x:         $input-padding-x !default;
 $form-floating-padding-y:         1rem !default;
@@ -871,6 +885,7 @@ $form-floating-input-padding-b:   .625rem !default;
 $form-floating-label-opacity:     .65 !default;
 $form-floating-label-transform:   scale(.85) translateY(-.5rem) translateX(.15rem) !default;
 $form-floating-transition:        opacity .1s ease-in-out, transform .1s ease-in-out !default;
+// scss-docs-end form-floating-variables
 
 // Form validation
 
