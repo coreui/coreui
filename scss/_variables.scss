@@ -1390,7 +1390,7 @@ $header-divider-border-color:   $header-border-color !default;
 
 // Subheader
 // scss-docs-start subheader-variables
-$subheader-height:               48px !default;
+$subheader-min-height:           48px !default;
 $subheader-padding-y:            $spacer / 2 !default;
 $subheader-padding-x:            $spacer !default;
 $subheader-border-color:         $border-color !default;
