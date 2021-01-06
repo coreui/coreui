@@ -195,41 +195,26 @@
 
 // Dark dropdowns
 .dropdown-menu-dark {
-  color: var(--#{$variable-prefix}dropdown-dark-color, $dropdown-dark-color);
-  background-color: var(--#{$variable-prefix}dropdown-dark-bg, $dropdown-dark-bg);
-  border-color: var(--#{$variable-prefix}dropdown-dark-border-color, $dropdown-dark-border-color);
   @include box-shadow($dropdown-dark-box-shadow);
 
-  .dropdown-item {
-    color: var(--#{$variable-prefix}dropdown-dark-link-color, $dropdown-dark-link-color);
+  --#{$variable-prefix}dropdown-color: #{$dropdown-dark-color};
+  --#{$variable-prefix}dropdown-bg: #{$dropdown-dark-bg};
+  --#{$variable-prefix}dropdown-border-color: #{$dropdown-dark-border-color};
+  --#{$variable-prefix}dropdown-link-color: #{$dropdown-dark-link-color};
+  --#{$variable-prefix}dropdown-link-hover-color: #{$dropdown-dark-link-hover-color};
+  --#{$variable-prefix}dropdown-link-disabled-color: #{$dropdown-dark-link-disabled-color};
+  --#{$variable-prefix}dropdown-divider-bg: #{$dropdown-dark-divider-bg};
+  --#{$variable-prefix}dropdown-header-color: #{$dropdown-dark-header-color};
 
+  .dropdown-item {
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}dropdown-dark-link-hover-color, $dropdown-dark-link-hover-color);
       @include gradient-bg($dropdown-dark-link-hover-bg); // TODO: vars
     }
 
     &.active,
     &:active {
-      color: var(--#{$variable-prefix}dropdown-dark-link-active-color, $dropdown-dark-link-active-color);
       @include gradient-bg($dropdown-dark-link-active-bg); // TODO: vars
     }
-
-    &.disabled,
-    &:disabled {
-      color: var(--#{$variable-prefix}dropdown-dark-link-disabled-color, $dropdown-dark-link-disabled-color);
-    }
-  }
-
-  .dropdown-divider {
-    border-color: var(--#{$variable-prefix}dropdown-dark-divider-bg, $dropdown-dark-divider-bg);
-  }
-
-  .dropdown-item-text {
-    color: var(--#{$variable-prefix}dropdown-dark-link-color, $dropdown-dark-link-color);
-  }
-
-  .dropdown-header {
-    color: var(--#{$variable-prefix}dropdown-dark-header-color, $dropdown-dark-header-color);
   }
 }
