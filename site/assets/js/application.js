@@ -3,14 +3,14 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 /*!
- * JavaScript for Bootstrap's docs (https://getbootstrap.com/)
+ * JavaScript for Bootstrap's docs (https://getcoreui.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
 
-/* global ClipboardJS: false, anchors: false, bootstrap: false */
+/* global ClipboardJS: false, anchors: false, coreui: false */
 
 (function () {
   'use strict'
@@ -18,14 +18,14 @@
   // Tooltip and popover demos
   document.querySelectorAll('.tooltip-demo')
     .forEach(function (tooltip) {
-      new bootstrap.Tooltip(tooltip, {
-        selector: '[data-bs-toggle="tooltip"]'
+      new coreui.Tooltip(tooltip, {
+        selector: '[data-coreui-toggle="tooltip"]'
       })
     })
 
-  document.querySelectorAll('[data-bs-toggle="popover"]')
+  document.querySelectorAll('[data-coreui-toggle="popover"]')
     .forEach(function (popover) {
-      new bootstrap.Popover(popover)
+      new coreui.Popover(popover)
     })
 
   var toastPlacement = document.getElementById('toastPlacement')
@@ -41,7 +41,7 @@
 
   document.querySelectorAll('.toast')
     .forEach(function (toastNode) {
-      var toast = new bootstrap.Toast(toastNode, {
+      var toast = new coreui.Toast(toastNode, {
         autohide: false
       })
 
@@ -51,12 +51,12 @@
   // Demos within modals
   document.querySelectorAll('.tooltip-test')
     .forEach(function (tooltip) {
-      new bootstrap.Tooltip(tooltip)
+      new coreui.Tooltip(tooltip)
     })
 
   document.querySelectorAll('.popover-test')
     .forEach(function (popover) {
-      new bootstrap.Popover(popover)
+      new coreui.Popover(popover)
     })
 
   // Indeterminate checkbox example
@@ -76,11 +76,11 @@
   // Modal relatedTarget demo
   var exampleModal = document.getElementById('exampleModal')
   if (exampleModal) {
-    exampleModal.addEventListener('show.bs.modal', function (event) {
+    exampleModal.addEventListener('show.coreui.modal', function (event) {
       // Button that triggered the modal
       var button = event.relatedTarget
-      // Extract info from data-bs-* attributes
-      var recipient = button.getAttribute('data-bs-whatever')
+      // Extract info from data-coreui-* attributes
+      var recipient = button.getAttribute('data-coreui-whatever')
 
       // Update the modal's content.
       var modalTitle = exampleModal.querySelector('.modal-title')
@@ -111,7 +111,7 @@
 
   document.querySelectorAll('.btn-clipboard')
     .forEach(function (btn) {
-      var tooltipBtn = new bootstrap.Tooltip(btn)
+      var tooltipBtn = new coreui.Tooltip(btn)
 
       btn.addEventListener('mouseleave', function () {
         // Explicitly hide tooltip, since after clicking it remains
@@ -128,24 +128,24 @@
   })
 
   clipboard.on('success', function (e) {
-    var tooltipBtn = bootstrap.Tooltip.getInstance(e.trigger)
+    var tooltipBtn = coreui.Tooltip.getInstance(e.trigger)
 
-    e.trigger.setAttribute('data-bs-original-title', 'Copied!')
+    e.trigger.setAttribute('data-coreui-original-title', 'Copied!')
     tooltipBtn.show()
 
-    e.trigger.setAttribute('data-bs-original-title', 'Copy to clipboard')
+    e.trigger.setAttribute('data-coreui-original-title', 'Copy to clipboard')
     e.clearSelection()
   })
 
   clipboard.on('error', function (e) {
     var modifierKey = /mac/i.test(navigator.userAgent) ? '\u2318' : 'Ctrl-'
     var fallbackMsg = 'Press ' + modifierKey + 'C to copy'
-    var tooltipBtn = bootstrap.Tooltip.getInstance(e.trigger)
+    var tooltipBtn = coreui.Tooltip.getInstance(e.trigger)
 
-    e.trigger.setAttribute('data-bs-original-title', fallbackMsg)
+    e.trigger.setAttribute('data-coreui-original-title', fallbackMsg)
     tooltipBtn.show()
 
-    e.trigger.setAttribute('data-bs-original-title', 'Copy to clipboard')
+    e.trigger.setAttribute('data-coreui-original-title', 'Copy to clipboard')
   })
 
   anchors.options = {

@@ -1,20 +1,21 @@
 <!doctype html>
 <html lang="en">
   <head>
-    {{ partial "header" . }}
+    {{ partial "head" . }}
   </head>
-  {{ block "body_override" . }}<body>{{ end }}
-    {{ partial "skippy" . }}
+  {{ block "body_override" . }}<body class="d-flex">{{ end }}
+    {{/*  {{ partial "skippy" . }}  */}}
+    {{ partial "sidebar" . }}
+    <div class="wrapper flex-grow-1" data-coreui-reliant="sidebar">
+      {{ partial "header" . }}
+      {{ block "main" . }}
+      {{ end }}
 
-    {{ partial "docs-navbar" . }}
+      {{ partial "footer" . }}
 
-    {{ block "main" . }}
-    {{ end }}
-
-    {{ partial "footer" . }}
+      {{ block "footer" . }}
+      {{ end }}
+    </div>
     {{ partial "scripts" . }}
-
-    {{ block "footer" . }}
-    {{ end }}
   </body>
 </html>

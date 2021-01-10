@@ -1,21 +1,40 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="{{ .Page.Params.description | default .Site.Params.description | markdownify }}">
-<meta name="author" content="{{ .Site.Params.authors }}">
-<meta name="generator" content="Hugo {{ hugo.Version }}">
+<header class="header header-sticky">
+  <div class="container-fluid">
+    {{/*  <a class="navbar-brand p-0 me-2" href="/" aria-label="Bootstrap">
+      {{ partial "icons/coreui-white.svg" (dict "class" "d-block my-1" "width" "40" "height" "32") }}
+    </a>  */}}
 
-<meta name="docsearch:language" content="en">
-<meta name="docsearch:version" content="{{ .Site.Params.docs_version }}">
+    <button class="header-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+      {{ partial "icons/hamburger.svg" (dict "class" "bi" "width" "32" "height" "32") }}
+    </button>
 
-<title>{{ if .IsHome }}{{ .Site.Title | markdownify }} · {{ .Site.Params.description | markdownify }}{{ else }}{{ .Title | markdownify }} · {{ .Site.Title | markdownify }} v{{ .Site.Params.docs_version }}{{ end }}</title>
+    <ul class="header-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link p-2{{ if .IsHome }} active" aria-current="page{{ end }}" href="/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Bootstrap');">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link p-2{{ if eq .Page.Layout "docs" }} active" aria-current="true{{ end }}" href="/docs/{{ .Site.Params.docs_version }}/getting-started/introduction/" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Docs');">Docs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link p-2" href="{{ .Site.Params.icons }}" onclick="ga('send', 'event', 'Navbar', 'Community links', 'Icons');" target="_blank" rel="noopener">Icons</a>
+      </li>
+    </ul>
 
-<link rel="canonical" href="{{ .Permalink }}">
+    <ul class="header-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{{ .Site.Params.github_org }}" target="_blank" rel="noopener">
+          {{ partial "icons/github.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+          <small class="d-md-none ms-2">GitHub</small>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://twitter.com/{{ .Site.Params.twitter }}" target="_blank" rel="noopener">
+          {{ partial "icons/twitter.svg" (dict "class" "navbar-nav-svg d-inline-block align-text-top" "width" "36" "height" "36") }}
+          <small class="d-md-none ms-2">Twitter</small>
+        </a>
+      </li>
+    </ul>
 
-{{ with .Params.robots -}}
-<meta name="robots" content="{{ . }}">
-{{- end }}
-
-{{ partial "stylesheet" . }}
-{{ partial "favicons" . }}
-{{ partial "social" . }}
-{{ partial "analytics" . }}
+    <a class="btn btn-bd-download d-lg-inline-block my-2 my-md-0 ms-md-3" href="/docs/{{ .Site.Params.docs_version }}/getting-started/download/">Download</a>
+  </nav>
+</header>

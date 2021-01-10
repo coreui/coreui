@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Migrating to v4
-description: Track and review changes to the Bootstrap source files, documentation, and components to help you migrate from v3 to v4.
+description: Track and review changes to the CoreUI for Bootstrap source files, documentation, and components to help you migrate from v3 to v4.
 group: migration
 aliases: "/migration/"
 toc: true
@@ -79,7 +79,7 @@ Breakpoints specific variants are consequently renamed too (eg. `.text-md-start`
 
 ### JavaScript
 
-- Data attributes for all JavaScript plugins are now namespaced to help distinguish Bootstrap functionality from third parties and your own code. For example, we use `data-coreui-toggle` instead of `data-toggle`.
+- Data attributes for all JavaScript plugins are now namespaced to help distinguish CoreUI functionality from third parties and your own code. For example, we use `data-coreui-toggle` instead of `data-toggle`.
 - Updated Popper to v2.x:
   - Removed `offset` option from our Tooltip/Popover and Dropdown plugins; this can still be achieved using the `popperConfig` parameter.
   - The `fallbackPlacement` option has become `fallbackPlacements`.
@@ -261,7 +261,7 @@ Breakpoints specific variants are consequently renamed too (eg. `.text-md-start`
 
 ### Browser support
 
-See the browser and devices page for details on what is currently supported in Bootstrap 5. Since v4, here's what's changed to our browser support:
+See the browser and devices page for details on what is currently supported in CoreUI 4 for Bootstrap. Since v3, here's what's changed to our browser support:
 
 - Dropped support for Internet Explorer 10 and 11
 - Dropped support for Microsoft Edge < 16
@@ -313,7 +313,7 @@ Changes to our source and compiled JavaScript files.
 
 ### Color system
 
-We've updated the color system that powers Bootstrap to improve color contrast and provide a much more extensive set of colors.
+We've updated the color system that powers CoreUI for Bootstrap to improve color contrast and provide a much more extensive set of colors.
 
 - Updated blue and pink base colors (`-500`) to ensure WCAG 2.1 AA contrast.
 - Added new tints and shades for every color, providing nine separate colors for each base color, as new Sass variables.

@@ -8,9 +8,9 @@ toc: true
 
 ## Supported browsers
 
-Bootstrap supports the **latest, stable releases** of all major browsers and platforms.
+CoreUI for Bootstrap supports the **latest, stable releases** of all major browsers and platforms.
 
-Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform's web view API, are not explicitly supported. However, Bootstrap should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
+Alternative browsers which use the latest version of WebKit, Blink, or Gecko, whether directly or via the platform's web view API, are not explicitly supported. However, CoreUI for Bootstrap should (in most cases) display and function correctly in these browsers as well. More specific support information is provided below.
 
 You can find our supported range of browsers and their versions [in our `.browserslistrc file`]({{< param repo >}}/blob/v{{< param current_version >}}/.browserslistrc):
 
@@ -24,7 +24,7 @@ We use [Autoprefixer](https://github.com/postcss/autoprefixer) to handle intende
 
 ### Mobile devices
 
-Generally speaking, Bootstrap supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini, Amazon Silk) are not supported.
+Generally speaking, CoreUI for Bootstrap supports the latest versions of each major platform's default browsers. Note that proxy browsers (such as Opera Mini, Opera Mobile's Turbo mode, UC Browser Mini, Amazon Silk) are not supported.
 
 <table class="table">
   <thead>
@@ -91,11 +91,11 @@ Similarly, the latest versions of most desktop browsers are supported.
 
 For Firefox, in addition to the latest normal stable release, we also support the latest [Extended Support Release (ESR)](https://www.mozilla.org/en-US/firefox/enterprise/) version of Firefox.
 
-Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, and Firefox for Linux, though they are not officially supported.
+Unofficially, CoreUI for Bootstrap should look and behave well enough in Chromium and Chrome for Linux, and Firefox for Linux, though they are not officially supported.
 
 ## Internet Explorer
 
-Internet Explorer is not supported. **If you require Internet Explorer support, please use Bootstrap v4.**
+Internet Explorer is not supported. **If you require Internet Explorer support, please use CoreUI v3.**
 
 ## Modals and dropdowns on mobile
 
@@ -113,11 +113,11 @@ The `.dropdown-backdrop` element isn't used on iOS in the nav because of the com
 
 ## Browser zooming
 
-Page zooming inevitably presents rendering artifacts in some components, both in Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
+Page zooming inevitably presents rendering artifacts in some components, both in CoreUI for Bootstrap and the rest of the web. Depending on the issue, we may be able to fix it (search first and then open an issue if need be). However, we tend to ignore these as they often have no direct solution other than hacky workarounds.
 
 ## Validators
 
-In order to provide the best possible experience to old and buggy browsers, Bootstrap uses [CSS browser hacks](http://browserhacks.com/) in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.
+In order to provide the best possible experience to old and buggy browsers, CoreUI for Bootstrap uses [CSS browser hacks](http://browserhacks.com/) in several places to target special CSS to certain browser versions in order to work around bugs in the browsers themselves. These hacks understandably cause CSS validators to complain that they are invalid. In a couple places, we also use bleeding-edge CSS features that aren't yet fully standardized, but these are used purely for progressive enhancement.
 
 These validation warnings don't matter in practice since the non-hacky portion of our CSS does fully validate and the hacky portions don't interfere with the proper functioning of the non-hacky portion, hence why we deliberately ignore these particular warnings.
 

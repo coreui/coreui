@@ -1,14 +1,14 @@
 ---
 layout: docs
 title: Download
-description: Download Bootstrap to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm, RubyGems, and more.
+description: Download CoreUI for Bootstrap to get the compiled CSS and JavaScript, source code, or include it with your favorite package managers like npm, RubyGems, and more.
 group: getting-started
 toc: true
 ---
 
 ## Compiled CSS and JS
 
-Download ready-to-use compiled code for **Bootstrap v{{< param current_version >}}** to easily drop into your project, which includes:
+Download ready-to-use compiled code for **CoreUI for Bootstrap v{{< param current_version >}}** to easily drop into your project, which includes:
 
 - Compiled and minified CSS bundles (see [CSS files comparison]({{< docsref "/getting-started/contents#css-files" >}}))
 - Compiled and minified JavaScript plugins (see [JS files comparison]({{< docsref "/getting-started/contents#js-files" >}}))
@@ -19,24 +19,18 @@ This doesn't include documentation, source files, or any optional JavaScript dep
 
 ## Source files
 
-Compile Bootstrap with your own asset pipeline by downloading our source Sass, JavaScript, and documentation files. This option requires some additional tooling:
+Compile CoreUI for Bootstrap with your own asset pipeline by downloading our source Sass, JavaScript, and documentation files. This option requires some additional tooling:
 
 - Sass compiler (Libsass or Ruby Sass is supported) for compiling your CSS.
 - [Autoprefixer](https://github.com/postcss/autoprefixer) for CSS vendor prefixing
 
-Should you require [build tools]({{< docsref "/getting-started/build-tools#tooling-setup" >}}), they are included for developing Bootstrap and its docs, but they're likely unsuitable for your own purposes.
+Should you require [build tools]({{< docsref "/getting-started/build-tools#tooling-setup" >}}), they are included for developing CoreUI for Bootstrap and its docs, but they're likely unsuitable for your own purposes.
 
 <a href="{{< param "download.source" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download source');">Download source</a>
 
-## Examples
-
-If you want to download and examine our [examples]({{< docsref "/examples" >}}), you can grab the already built examples:
-
-<a href="{{< param "download.dist_examples" >}}" class="btn btn-bd-primary" onclick="ga('send', 'event', 'Getting started', 'Download', 'Download Examples');">Download Examples</a>
-
 ## CDN via jsDelivr
 
-Skip the download with [jsDelivr](https://www.jsdelivr.com/) to deliver cached version of Bootstrap's compiled CSS and JS to your project.
+Skip the download with [jsDelivr](https://www.jsdelivr.com/) to deliver cached version of CoreUI's compiled CSS and JS to your project.
 
 ```html
 <link href="{{< param "cdn.css" >}}" rel="stylesheet" integrity="{{< param "cdn.css_hash" >}}" crossorigin="anonymous">
@@ -52,35 +46,35 @@ If you're using our compiled JavaScript and prefer to include Popper separately,
 
 ## Package managers
 
-Pull in Bootstrap's **source files** into nearly any project with some of the most popular package managers. No matter the package manager, Bootstrap will **require a Sass compiler and [Autoprefixer](https://github.com/postcss/autoprefixer)** for a setup that matches our official compiled versions.
+Pull in CoreUI's **source files** into nearly any project with some of the most popular package managers. No matter the package manager, CoreUI for Bootstrap will **require a Sass compiler and [Autoprefixer](https://github.com/postcss/autoprefixer)** for a setup that matches our official compiled versions.
 
 ### npm
 
-Install Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/bootstrap):
+Install CoreUI for Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/@coreui/coreui):
 
 ```sh
-npm install bootstrap@next
+npm install coreui@next
 ```
 
-`const bootstrap = require('bootstrap')` or `import bootstrap from 'bootstrap'` will load all of Bootstrap's plugins onto a `bootstrap` object.
-The `bootstrap` module itself exports all of our plugins. You can manually load Bootstrap's plugins individually by loading the `/js/dist/*.js` files under the package's top-level directory.
+`const coreui = require('@coreui/coreui')` or `import coreui from '@coreui/coreui'` will load all of CoreUI's plugins onto a `coreui` object.
+The `coreui` module itself exports all of our plugins. You can manually load CoreUI's plugins individually by loading the `/js/dist/*.js` files under the package's top-level directory.
 
-Bootstrap's `package.json` contains some additional metadata under the following keys:
+CoreUI's `package.json` contains some additional metadata under the following keys:
 
-- `sass` - path to Bootstrap's main [Sass](https://sass-lang.com/) source file
-- `style` - path to Bootstrap's non-minified CSS that's been precompiled using the default settings (no customization)
+- `sass` - path to CoreUI's main [Sass](https://sass-lang.com/) source file
+- `style` - path to CoreUI's non-minified CSS that's been precompiled using the default settings (no customization)
 
 ### yarn
 
-Install Bootstrap in your Node.js powered apps with [the yarn package](https://yarnpkg.com/en/package/bootstrap):
+Install CoreUI in your Node.js powered apps with [the yarn package](https://yarnpkg.com/en/package/@coreui/coreui):
 
 ```sh
-yarn add bootstrap@next
+yarn add @coreui/coreui@next
 ```
-
+<!--
 ### RubyGems
 
-Install Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
+Install CoreUI for Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
 
 ```ruby
 gem 'bootstrap', '~> {{< param current_ruby_version >}}'
@@ -92,17 +86,17 @@ Alternatively, if you're not using Bundler, you can install the gem by running t
 gem install bootstrap -v {{< param current_ruby_version >}}
 ```
 
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details.
+[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details. -->
 
 ### Composer
 
-You can also install and manage Bootstrap's Sass and JavaScript using [Composer](https://getcomposer.org/):
+You can also install and manage CoreUI's Sass and JavaScript using [Composer](https://getcomposer.org/):
 
 ```sh
-composer require twbs/bootstrap:{{< param current_version >}}
+composer require coreui/coreui:{{< param current_version >}}
 ```
 
-### NuGet
+<!-- ### NuGet
 
 If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/coreui.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
 
@@ -112,4 +106,4 @@ Install-Package bootstrap
 
 ```powershell
 Install-Package coreui.sass
-```
+``` -->

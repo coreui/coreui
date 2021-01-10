@@ -8,7 +8,7 @@ toc: true
 
 ## Lean Sass imports
 
-When using Sass in your asset pipeline, make sure you optimize Bootstrap by only `@import`ing the components you need. Your largest optimizations will likely come from the `Layout & Components` section of our `coreui.scss`.
+When using Sass in your asset pipeline, make sure you optimize CoreUI for Bootstrap by only `@import`ing the components you need. Your largest optimizations will likely come from the `Layout & Components` section of our `coreui.scss`.
 
 {{< scss-docs name="import-stack" file="scss/coreui.scss" >}}
 
@@ -53,7 +53,7 @@ const modal = new Modal(document.getElementById('myModal'))
 
 ## Autoprefixer .browserslistrc
 
-Bootstrap depends on Autoprefixer to automatically add browser prefixes to certain CSS properties. Prefixes are dictated by our `.browserslistrc` file, found in the root of the Bootstrap repo. Customizing this list of browsers and recompiling the Sass will automatically remove some CSS from your compiled CSS, if there are vendor prefixes unique to that browser or version.
+CoreUI for Bootstrap depends on Autoprefixer to automatically add browser prefixes to certain CSS properties. Prefixes are dictated by our `.browserslistrc` file, found in the root of the CoreUI for Bootstrap repo. Customizing this list of browsers and recompiling the Sass will automatically remove some CSS from your compiled CSS, if there are vendor prefixes unique to that browser or version.
 
 ## Unused CSS
 
@@ -68,7 +68,7 @@ Lastly, this [CSS Tricks article on unused CSS](https://css-tricks.com/how-do-yo
 
 ## Minify and gzip
 
-Whenever possible, be sure to compress all the code you serve to your visitors. If you're using Bootstrap dist files, try to stick to the minified versions (indicated by the `.min.css` and `.min.js` extensions). If you're building Bootstrap from the source with your own build system, be sure to implement your own minifiers for HTML, CSS, and JS.
+Whenever possible, be sure to compress all the code you serve to your visitors. If you're using CoreUI for Bootstrap dist files, try to stick to the minified versions (indicated by the `.min.css` and `.min.js` extensions). If you're building CoreUI for Bootstrap from the source with your own build system, be sure to implement your own minifiers for HTML, CSS, and JS.
 
 ## Nonblocking files
 

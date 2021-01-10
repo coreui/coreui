@@ -6,39 +6,39 @@ group: getting-started
 toc: true
 ---
 
-## Precompiled Bootstrap
+## Precompiled CoreUI
 
 Once downloaded, unzip the compressed folder and you'll see something like this:
 
 <!-- NOTE: This info is intentionally duplicated in the README. Copy any changes made here over to the README too, but be sure to keep in mind to add the `dist` folder. -->
 
 ```text
-bootstrap/
+coreui/
 ├── css/
-│   ├── bootstrap-grid.css
-│   ├── bootstrap-grid.css.map
-│   ├── bootstrap-grid.min.css
-│   ├── bootstrap-grid.min.css.map
-│   ├── bootstrap-grid.rtl.css
-│   ├── bootstrap-grid.rtl.css.map
-│   ├── bootstrap-grid.rtl.min.css
-│   ├── bootstrap-grid.rtl.min.css.map
-│   ├── bootstrap-reboot.css
-│   ├── bootstrap-reboot.css.map
-│   ├── bootstrap-reboot.min.css
-│   ├── bootstrap-reboot.min.css.map
-│   ├── bootstrap-reboot.rtl.css
-│   ├── bootstrap-reboot.rtl.css.map
-│   ├── bootstrap-reboot.rtl.min.css
-│   ├── bootstrap-reboot.rtl.min.css.map
-│   ├── bootstrap-utilities.css
-│   ├── bootstrap-utilities.css.map
-│   ├── bootstrap-utilities.min.css
-│   ├── bootstrap-utilities.min.css.map
-│   ├── bootstrap-utilities.rtl.css
-│   ├── bootstrap-utilities.rtl.css.map
-│   ├── bootstrap-utilities.rtl.min.css
-│   ├── bootstrap-utilities.rtl.min.css.map
+│   ├── coreui-grid.css
+│   ├── coreui-grid.css.map
+│   ├── coreui-grid.min.css
+│   ├── coreui-grid.min.css.map
+│   ├── coreui-grid.rtl.css
+│   ├── coreui-grid.rtl.css.map
+│   ├── coreui-grid.rtl.min.css
+│   ├── coreui-grid.rtl.min.css.map
+│   ├── coreui-reboot.css
+│   ├── coreui-reboot.css.map
+│   ├── coreui-reboot.min.css
+│   ├── coreui-reboot.min.css.map
+│   ├── coreui-reboot.rtl.css
+│   ├── coreui-reboot.rtl.css.map
+│   ├── coreui-reboot.rtl.min.css
+│   ├── coreui-reboot.rtl.min.css.map
+│   ├── coreui-utilities.css
+│   ├── coreui-utilities.css.map
+│   ├── coreui-utilities.min.css
+│   ├── coreui-utilities.min.css.map
+│   ├── coreui-utilities.rtl.css
+│   ├── coreui-utilities.rtl.css.map
+│   ├── coreui-utilities.rtl.min.css
+│   ├── coreui-utilities.rtl.min.css.map
 │   ├── coreui.css
 │   ├── coreui.css.map
 │   ├── coreui.min.css
@@ -66,7 +66,7 @@ This is the most basic form of Bootstrap: precompiled files for quick drop-in us
 
 ## CSS files
 
-Bootstrap includes a handful of options for including some or all of our compiled CSS.
+CoreUI for Bootstrap includes a handful of options for including some or all of our compiled CSS.
 
 <table class="table">
   <thead>
@@ -93,10 +93,10 @@ Bootstrap includes a handful of options for including some or all of our compile
     </tr>
     <tr>
       <th scope="row">
-        <div><code class="fw-normal text-nowrap">bootstrap-grid.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-grid.rtl.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-grid.min.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-grid.rtl.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-grid.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-grid.rtl.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-grid.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-grid.rtl.min.css</code></div>
       </th>
       <td><a class="link-secondary" href="{{< docsref "/layout/grid" >}}">Only grid system</a></td>
       <td class="text-muted">&mdash;</td>
@@ -105,10 +105,10 @@ Bootstrap includes a handful of options for including some or all of our compile
     </tr>
     <tr>
       <th scope="row">
-        <div><code class="fw-normal text-nowrap">bootstrap-utilities.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-utilities.rtl.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-utilities.min.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-utilities.rtl.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-utilities.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-utilities.rtl.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-utilities.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-utilities.rtl.min.css</code></div>
       </th>
       <td class="text-muted">&mdash;</td>
       <td class="text-muted">&mdash;</td>
@@ -117,10 +117,10 @@ Bootstrap includes a handful of options for including some or all of our compile
     </tr>
     <tr>
       <th scope="row">
-        <div><code class="fw-normal text-nowrap">bootstrap-reboot.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-reboot.rtl.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-reboot.min.css</code></div>
-        <div><code class="fw-normal text-nowrap">bootstrap-reboot.rtl.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-reboot.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-reboot.rtl.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-reboot.min.css</code></div>
+        <div><code class="fw-normal text-nowrap">coreui-reboot.rtl.min.css</code></div>
       </th>
       <td class="text-muted">&mdash;</td>
       <td><a class="link-secondary" href="{{< docsref "/content/reboot" >}}">Only Reboot</a></td>
@@ -159,12 +159,12 @@ Similarly, we have options for including some or all of our compiled JavaScript.
   </tbody>
 </table>
 
-## Bootstrap source code
+## CoreUI for Bootstrap source code
 
-The Bootstrap source code download includes the precompiled CSS and JavaScript assets, along with source Sass, JavaScript, and documentation. More specifically, it includes the following and more:
+The CoreUI for Bootstrap source code download includes the precompiled CSS and JavaScript assets, along with source Sass, JavaScript, and documentation. More specifically, it includes the following and more:
 
 ```text
-bootstrap/
+coreui/
 ├── dist/
 │   ├── css/
 │   └── js/
@@ -177,4 +177,4 @@ bootstrap/
 └── scss/
 ```
 
-The `scss/` and `js/` are the source code for our CSS and JavaScript. The `dist/` folder includes everything listed in the precompiled download section above. The `site/docs/` folder includes the source code for our documentation, and `examples/` of Bootstrap usage. Beyond that, any other included file provides support for packages, license information, and development.
+The `scss/` and `js/` are the source code for our CSS and JavaScript. The `dist/` folder includes everything listed in the precompiled download section above. The `site/docs/` folder includes the source code for our documentation, and `examples/` of CoreUI for Bootstrap usage. Beyond that, any other included file provides support for packages, license information, and development.

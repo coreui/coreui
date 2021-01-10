@@ -77,7 +77,7 @@ Other than `.form-control`, floating labels are only available on `.form-select`
 
 ## Layout
 
-When working with the Bootstrap grid system, be sure to place form elements within column classes.
+When working with the CoreUI for Bootstrap grid system, be sure to place form elements within column classes.
 
 {{< example >}}
 <div class="row g-2">

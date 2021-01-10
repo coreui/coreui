@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Customize
-description: Learn how to theme, customize, and extend Bootstrap with Sass, a boatload of global options, an expansive color system, and more.
+description: Learn how to theme, customize, and extend CoreUI for Bootstrap with Sass, a boatload of global options, an expansive color system, and more.
 group: customize
 toc: false
 aliases: "/docs/4.0/customize/"
@@ -9,7 +9,7 @@ sections:
   - title: Sass
     description: Utilize our source Sass files to take advantage of variables, maps, mixins, and functions.
   - title: Options
-    description: Customize Bootstrap with built-in variables to easily toggle global CSS preferences.
+    description: Customize CoreUI for Bootstrap with built-in variables to easily toggle global CSS preferences.
   - title: Color
     description: Learn about and customize the color systems that support the entire toolkit.
   - title: Components
@@ -22,14 +22,14 @@ sections:
 
 ## Overview
 
-There are multiple ways to customize Bootstrap. Your best path can depend on your project, the complexity of your build tools, the version of Bootstrap you're using, browser support, and more.
+There are multiple ways to customize Bootstrap. Your best path can depend on your project, the complexity of your build tools, the version of CoreUI for Bootstrap you're using, browser support, and more.
 
 Our two preferred methods are:
 
-1. Using Bootstrap [via package manager]({{< docsref "/getting-started/download#package-managers" >}}) so you can use and extend our source files.
+1. Using CoreUI for Bootstrap [via package manager]({{< docsref "/getting-started/download#package-managers" >}}) so you can use and extend our source files.
 2. Using Bootstrap's compiled distribution files or [jsDelivr]({{< docsref "/getting-started/download#cdn-via-jsdelivr" >}}) so you can add onto or override Bootstrap's styles.
 
-While we cannot go into details here on how to use every package manager, we can give some guidance on [using Bootstrap with your own Sass compiler]({{< docsref "/customize/sass" >}}).
+While we cannot go into details here on how to use every package manager, we can give some guidance on [using CoreUI for Bootstrap with your own Sass compiler]({{< docsref "/customize/sass" >}}).
 
 For those who want to use the distribution files, review the [getting started page]({{< docsref "/getting-started/introduction" >}}) for how to include those files and an example HTML page. From there, consult the docs for the layout, components, and behaviors you'd like to use.
 

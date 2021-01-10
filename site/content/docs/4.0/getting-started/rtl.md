@@ -1,14 +1,14 @@
 ---
 layout: docs
 title: RTL
-description: Learn how to enable support for right-to-left text in Bootstrap across our layout, components, and utilities.
+description: Learn how to enable support for right-to-left text in CoreUI for Bootstrap across our layout, components, and utilities.
 group: getting-started
 toc: true
 ---
 
 ## Get familiar
 
-We recommend getting familiar with Bootstrap first by reading through our [Getting Started Introduction page]({{< docsref "/getting-started/introduction" >}}). Once you've run through it, continue reading here for how to enable RTL.
+We recommend getting familiar with CoreUI for Bootstrap first by reading through our [Getting Started Introduction page]({{< docsref "/getting-started/introduction" >}}). Once you've run through it, continue reading here for how to enable RTL.
 
 You may also want to read up on [the RTLCSS project](https://rtlcss.com/), as it powers our approach to RTL.
 
@@ -43,7 +43,7 @@ You can see the above requirements reflected in this modified RTL starter templa
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <!-- CoreUI for Bootstrap CSS -->
     <link rel="stylesheet" href="{{< param "cdn.css_rtl" >}}" integrity="{{< param "cdn.css_rtl_hash" >}}" crossorigin="anonymous">
 
     <title>مرحبا بالعالم!</title>
@@ -53,10 +53,10 @@ You can see the above requirements reflected in this modified RTL starter templa
 
     <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
     <script src="{{< param "cdn.js_bundle" >}}" integrity="{{< param "cdn.js_bundle_hash" >}}" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!-- Option 2: Separate Popper and CoreUI for Bootstrap JS -->
     <!--
     <script src="{{< param "cdn.popper" >}}" integrity="{{< param "cdn.popper_hash" >}}" crossorigin="anonymous"></script>
     <script src="{{< param "cdn.js" >}}" integrity="{{< param "cdn.js_hash" >}}" crossorigin="anonymous"></script>
@@ -71,9 +71,9 @@ Get started with one of our several [RTL examples]({{< docsref "/examples/#rtl" 
 
 ## Approach
 
-Our approach to building RTL support into Bootstrap comes with two important decisions that impact how we write and use our CSS:
+Our approach to building RTL support into CoreUI for Bootstrap comes with two important decisions that impact how we write and use our CSS:
 
-1. **First, we decided to build it with the [RTLCSS](https://rtlcss.com/) project.** This gives us some powerful features for managing changes and overrides when moving from LTR to RTL. It also allows us to build two versions of Bootstrap from one codebase.
+1. **First, we decided to build it with the [RTLCSS](https://rtlcss.com/) project.** This gives us some powerful features for managing changes and overrides when moving from LTR to RTL. It also allows us to build two versions of CoreUI for Bootstrap from one codebase.
 
 2. **Second, we've renamed a handful of directional classes to adopt a logical properties approach.** Most of you have already interacted with logical properties thanks to our flex utilities—they replace direction properties like `left` and `right` in favor `start` and `end`. That makes the class names and values appropriate for LTR and RTL without any overhead.
 

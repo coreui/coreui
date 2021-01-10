@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Introduction
-description: Get started with Bootstrap, the world's most popular framework for building responsive, mobile-first sites, with jsDelivr and a template starter page.
+description: CoreUI is the fastest way to build a modern dashboard for any platforms, browser, or device. A complete UI Kit that allows you to quickly build eye-catching, high-quality, high-performance responsive applications.
 group: getting-started
 aliases:
   - "/docs/4.0/getting-started/"
@@ -12,7 +12,7 @@ toc: true
 
 ## Quick start
 
-Looking to quickly add Bootstrap to your project? Use jsDelivr, a free open source CDN. Using a package manager or need to download the source files? [Head to the downloads page]({{< docsref "/getting-started/download" >}}).
+Looking to quickly add CoreUI for Bootstrap to your project? Use jsDelivr, a free open source CDN. Using a package manager or need to download the source files? [Head to the downloads page]({{< docsref "/getting-started/download" >}}).
 
 ### CSS
 
@@ -28,7 +28,7 @@ Many of our components require the use of JavaScript to function. Specifically, 
 
 #### Bundle
 
-Include every Bootstrap JavaScript plugin and dependency with one of our two bundles. Both `coreui.bundle.js` and `coreui.bundle.min.js` include [Popper](https://popper.js.org/) for our tooltips and popovers. For more information about what's included in Bootstrap, please see our [contents]({{< docsref "/getting-started/contents#precompiled-bootstrap" >}}) section.
+Include every CoreUI for Bootstrap JavaScript plugin and dependency with one of our two bundles. Both `coreui.bundle.js` and `coreui.bundle.min.js` include [Popper](https://popper.js.org/) for our tooltips and popovers. For more information about what's included in Bootstrap, please see our [contents]({{< docsref "/getting-started/contents#precompiled-coreui" >}}) section.
 
 ```html
 <script src="{{< param "cdn.js_bundle" >}}" integrity="{{< param "cdn.js_bundle_hash" >}}" crossorigin="anonymous"></script>
@@ -45,7 +45,7 @@ If you decide to go with the separate scripts solution, Popper must come first (
 
 #### Modules
 
-If you use `<script type="module">`, please refer to our [using Bootstrap as a module]({{< docsref "/getting-started/javascript#using-bootstrap-as-a-module" >}}) section.
+If you use `<script type="module">`, please refer to our [using CoreUI for Bootstrap as a module]({{< docsref "/getting-started/javascript#using-coreui-as-a-module" >}}) section.
 
 #### Components
 
@@ -79,7 +79,7 @@ Be sure to have your pages set up with the latest design and development standar
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
+    <!-- CoreUI for Bootstrap CSS -->
     <link href="{{< param "cdn.css" >}}" rel="stylesheet" integrity="{{< param "cdn.css_hash" >}}" crossorigin="anonymous">
 
     <title>Hello, world!</title>
@@ -89,10 +89,10 @@ Be sure to have your pages set up with the latest design and development standar
 
     <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
     <script src="{{< param "cdn.js_bundle" >}}" integrity="{{< param "cdn.js_bundle_hash" >}}" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!-- Option 2: Separate Popper and CoreUI for Bootstrap JS -->
     <!--
     <script src="{{< param "cdn.popper" >}}" integrity="{{< param "cdn.popper_hash" >}}" crossorigin="anonymous"></script>
     <script src="{{< param "cdn.js" >}}" integrity="{{< param "cdn.js_hash" >}}" crossorigin="anonymous"></script>
@@ -105,11 +105,11 @@ That's all you need for overall page requirements. Visit the [Layout docs]({{< d
 
 ## Important globals
 
-Bootstrap employs a handful of important global styles and settings that you'll need to be aware of when using it, all of which are almost exclusively geared towards the *normalization* of cross browser styles. Let's dive in.
+CoreUI for Bootstrap employs a handful of important global styles and settings that you'll need to be aware of when using it, all of which are almost exclusively geared towards the *normalization* of cross browser styles. Let's dive in.
 
 ### HTML5 doctype
 
-Bootstrap requires the use of the HTML5 doctype. Without it, you'll see some funky incomplete styling, but including it shouldn't cause any considerable hiccups.
+CoreUI for Bootstrap requires the use of the HTML5 doctype. Without it, you'll see some funky incomplete styling, but including it shouldn't cause any considerable hiccups.
 
 ```html
 <!doctype html>
@@ -120,7 +120,7 @@ Bootstrap requires the use of the HTML5 doctype. Without it, you'll see some fun
 
 ### Responsive meta tag
 
-Bootstrap is developed *mobile first*, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, **add the responsive viewport meta tag** to your `<head>`.
+CoreUI for Bootstrap is developed *mobile first*, a strategy in which we optimize code for mobile devices first and then scale up components as necessary using CSS media queries. To ensure proper rendering and touch zooming for all devices, **add the responsive viewport meta tag** to your `<head>`.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,12 +150,9 @@ For improved cross-browser rendering, we use [Reboot]({{< docsref "/content/rebo
 
 ## Community
 
-Stay up to date on the development of Bootstrap and reach out to the community with these helpful resources.
+Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
-- Read and subscribe to [The Official Bootstrap Blog]({{< param blog >}}).
-- Join [the official Slack room]({{< param slack >}}).
-- Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##bootstrap` channel.
-- Implementation help may be found at Stack Overflow (tagged [`bootstrap-5`](https://stackoverflow.com/questions/tagged/bootstrap-5)).
-- Developers should use the keyword `bootstrap` on packages which modify or add to the functionality of Bootstrap when distributing through [npm](https://www.npmjs.com/search?q=keywords:bootstrap) or similar delivery mechanisms for maximum discoverability.
+- Read and subscribe to [The Official CoreUI Blog]({{< param blog >}}).
+- Join [the official Community]({{< param community >}}).
 
-You can also follow [@getbootstrap on Twitter](https://twitter.com/{{< param twitter >}}) for the latest gossip and awesome music videos.
+You can also follow [@core_ui on Twitter](https://twitter.com/{{< param twitter >}}).

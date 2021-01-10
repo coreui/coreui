@@ -5,7 +5,7 @@ description: While not a part of Bootstrap's grid system, z-indexes play an impo
 group: layout
 ---
 
-Several Bootstrap components utilize `z-index`, the CSS property that helps control layout by providing a third axis to arrange content. We utilize a default z-index scale in Bootstrap that's been designed to properly layer navigation, tooltips and popovers, modals, and more.
+Several CoreUI for Bootstrap components utilize `z-index`, the CSS property that helps control layout by providing a third axis to arrange content. We utilize a default z-index scale in CoreUI for Bootstrap that's been designed to properly layer navigation, tooltips and popovers, modals, and more.
 
 These higher values start at an arbitrary number, high and specific enough to ideally avoid conflicts. We need a standard set of these across our layered components—tooltips, popovers, navbars, dropdowns, modals—so we can be reasonably consistent in the behaviors. There's no reason we couldn't have used `100`+ or `500`+.
 

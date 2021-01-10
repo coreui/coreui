@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Color
-description: Bootstrap is supported by an extensive color system that themes our styles and components. This enables more comprehensive customization and extension for any project.
+description: CoreUI for Bootstrap is supported by an extensive color system that themes our styles and components. This enables more comprehensive customization and extension for any project.
 group: customize
 toc: true
 ---
@@ -28,7 +28,7 @@ Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-l
 
 ## All colors
 
-All Bootstrap colors are available as Sass variables and a Sass map in `scss/_variables.scss` file. To avoid increased file sizes, we don't create text or background color classes for each of these variables. Instead, we choose a subset of these colors for a [theme palette](#theme-colors).
+All CoreUI for Bootstrap colors are available as Sass variables and a Sass map in `scss/_variables.scss` file. To avoid increased file sizes, we don't create text or background color classes for each of these variables. Instead, we choose a subset of these colors for a [theme palette](#theme-colors).
 
 Be sure to monitor contrast ratios as you customize colors. As shown below, we've added three contrast ratios to each of the main colors—one for the swatch's current colors, one for against white, and one for against black.
 

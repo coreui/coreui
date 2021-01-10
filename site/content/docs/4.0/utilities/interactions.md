@@ -18,7 +18,7 @@ Change the way in which the content is selected when the user interacts with it.
 
 ## Pointer events
 
-Bootstrap provides `.pe-none` and `.pe-auto` classes to prevent or add element interactions.
+CoreUI for Bootstrap provides `.pe-none` and `.pe-auto` classes to prevent or add element interactions.
 
 {{< example >}}
 <p><a href="#" class="pe-none" tabindex="-1" aria-disabled="true">This link</a> can not be clicked.</p>

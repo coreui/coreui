@@ -8,7 +8,7 @@ toc: true
 
 ## Global settings
 
-Bootstrap sets basic global display, typography, and link styles. When more control is needed, check out the [textual utility classes]({{< docsref "/utilities/text" >}}).
+CoreUI for Bootstrap sets basic global display, typography, and link styles. When more control is needed, check out the [textual utility classes]({{< docsref "/utilities/text" >}}).
 
 - Use a [native font stack]({{< docsref "/content/reboot#native-font-stack" >}}) that selects the best `font-family` for each OS and device.
 - For a more inclusive and accessible type scale, we use the browser's default root `font-size` (typically 16px) so visitors can customize their browser defaults as needed.
@@ -34,64 +34,64 @@ All HTML headings, `<h1>` through `<h6>`, are available.
       <td>
         {{< markdown >}}`<h1></h1>`{{< /markdown >}}
       </td>
-      <td><span class="h1">h1. Bootstrap heading</span></td>
+      <td><span class="h1">h1. CoreUI heading</span></td>
     </tr>
     <tr>
       <td>
         {{< markdown >}}`<h2></h2>`{{< /markdown >}}
       </td>
-      <td><span class="h2">h2. Bootstrap heading</span></td>
+      <td><span class="h2">h2. CoreUI heading</span></td>
     </tr>
     <tr>
       <td>
         {{< markdown >}}`<h3></h3>`{{< /markdown >}}
       </td>
-      <td><span class="h3">h3. Bootstrap heading</span></td>
+      <td><span class="h3">h3. CoreUI heading</span></td>
     </tr>
     <tr>
       <td>
         {{< markdown >}}`<h4></h4>`{{< /markdown >}}
       </td>
-      <td><span class="h4">h4. Bootstrap heading</span></td>
+      <td><span class="h4">h4. CoreUI heading</span></td>
     </tr>
     <tr>
       <td>
         {{< markdown >}}`<h5></h5>`{{< /markdown >}}
       </td>
-      <td><span class="h5">h5. Bootstrap heading</span></td>
+      <td><span class="h5">h5. CoreUI heading</span></td>
     </tr>
     <tr>
       <td>
         {{< markdown >}}`<h6></h6>`{{< /markdown >}}
       </td>
-      <td><span class="h6">h6. Bootstrap heading</span></td>
+      <td><span class="h6">h6. CoreUI heading</span></td>
     </tr>
   </tbody>
 </table>
 
 ```html
-<h1>h1. Bootstrap heading</h1>
-<h2>h2. Bootstrap heading</h2>
-<h3>h3. Bootstrap heading</h3>
-<h4>h4. Bootstrap heading</h4>
-<h5>h5. Bootstrap heading</h5>
-<h6>h6. Bootstrap heading</h6>
+<h1>h1. CoreUI heading</h1>
+<h2>h2. CoreUI heading</h2>
+<h3>h3. CoreUI heading</h3>
+<h4>h4. CoreUI heading</h4>
+<h5>h5. CoreUI heading</h5>
+<h6>h6. CoreUI heading</h6>
 ```
 
 `.h1` through `.h6` classes are also available, for when you want to match the font styling of a heading but cannot use the associated HTML element.
 
 {{< example >}}
-<p class="h1">h1. Bootstrap heading</p>
-<p class="h2">h2. Bootstrap heading</p>
-<p class="h3">h3. Bootstrap heading</p>
-<p class="h4">h4. Bootstrap heading</p>
-<p class="h5">h5. Bootstrap heading</p>
-<p class="h6">h6. Bootstrap heading</p>
+<p class="h1">h1. CoreUI heading</p>
+<p class="h2">h2. CoreUI heading</p>
+<p class="h3">h3. CoreUI heading</p>
+<p class="h4">h4. CoreUI heading</p>
+<p class="h5">h5. CoreUI heading</p>
+<p class="h6">h6. CoreUI heading</p>
 {{< /example >}}
 
 ### Customizing headings
 
-Use the included utility classes to recreate the small secondary heading text from Bootstrap 3.
+Use the included utility classes to recreate the small secondary heading text from CoreUI 3.
 
 {{< example >}}
 <h3>
@@ -304,4 +304,4 @@ Align terms and descriptions horizontally by using our grid system's predefined 
 
 ## Responsive font sizes
 
-In Bootstrap 5, we've enabled responsive font sizes by default, allowing text to scale more naturally across device and viewport sizes. Have a look at the [RFS page]({{< docsref "/getting-started/rfs" >}}) to find out how this works.
+In CoreUI 4 for Bootstrap, we've enabled responsive font sizes by default, allowing text to scale more naturally across device and viewport sizes. Have a look at the [RFS page]({{< docsref "/getting-started/rfs" >}}) to find out how this works.

@@ -1,16 +1,16 @@
 ---
 layout: docs
 title: Containers
-description: Containers are a fundamental building block of Bootstrap that contain, pad, and align your content within a given device or viewport.
+description: Containers are a fundamental building block of CoreUI for Bootstrap that contain, pad, and align your content within a given device or viewport.
 group: layout
 toc: true
 ---
 
 ## How they work
 
-Containers are the most basic layout element in Bootstrap and are **required when using our default grid system**. Containers are used to contain, pad, and (sometimes) center the content within them. While containers *can* be nested, most layouts do not require a nested container.
+Containers are the most basic layout element in CoreUI for Bootstrap and are **required when using our default grid system**. Containers are used to contain, pad, and (sometimes) center the content within them. While containers *can* be nested, most layouts do not require a nested container.
 
-Bootstrap comes with three different containers:
+CoreUI for Bootstrap comes with three different containers:
 
 - `.container`, which sets a `max-width` at each responsive breakpoint
 - `.container-fluid`, which is `width: 100%` at all breakpoints
@@ -151,7 +151,7 @@ Use `.container-fluid` for a full width container, spanning the entire width of 
 
 ## Sass
 
-As shown above, Bootstrap generates a series of predefined container classes to help you build the layouts you desire. You may customize these predefined container classes by modifying the Sass map (found in `_variables.scss`) that powers them:
+As shown above, CoreUI for Bootstrap generates a series of predefined container classes to help you build the layouts you desire. You may customize these predefined container classes by modifying the Sass map (found in `_variables.scss`) that powers them:
 
 {{< scss-docs name="container-max-widths" file="scss/_variables.scss" >}}
 

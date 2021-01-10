@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Breakpoints
-description: Breakpoints are the triggers in Bootstrap for how your layout responsive changes across device or viewport sizes.
+description: Breakpoints are the triggers in CoreUI for Bootstrap for how your layout responsive changes across device or viewport sizes.
 group: layout
 aliases: "/docs/4.0/layout/"
 toc: true
@@ -17,7 +17,7 @@ toc: true
 
 ## Available breakpoints
 
-Bootstrap includes six default breakpoints, sometimes referred to as _grid tiers_, for building responsively. These breakpoints can be customized if you're using our source Sass files.
+CoreUI for Bootstrap includes six default breakpoints, sometimes referred to as _grid tiers_, for building responsively. These breakpoints can be customized if you're using our source Sass files.
 
 <table class="table">
   <thead>
@@ -71,11 +71,11 @@ For more information and examples on how to modify our Sass maps and variables, 
 
 ## Media queries
 
-Since Bootstrap is developed to be mobile first, we use a handful of [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) to create sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.
+Since CoreUI for Bootstrap is developed to be mobile first, we use a handful of [media queries](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries) to create sensible breakpoints for our layouts and interfaces. These breakpoints are mostly based on minimum viewport widths and allow us to scale up elements as the viewport changes.
 
 ### Min-width
 
-Bootstrap primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid system, and components.
+CoreUI for Bootstrap primarily uses the following media query ranges—or breakpoints—in our source Sass files for our layout, grid system, and components.
 
 ```scss
 // Source mixins

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Spacing
-description: Bootstrap includes a wide range of shorthand responsive margin, padding, and gap utility classes to modify an element's appearance.
+description: CoreUI for Bootstrap includes a wide range of shorthand responsive margin, padding, and gap utility classes to modify an element's appearance.
 group: utilities
 toc: true
 ---
@@ -70,7 +70,7 @@ Here are some representative examples of these classes:
 
 ### Horizontal centering
 
-Additionally, Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
+Additionally, CoreUI for Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
 
 <div class="bd-example">
   <div class="mx-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">

@@ -38,7 +38,7 @@ For more information and examples on how to modify our Sass maps and variables, 
 
 ## Creating your own
 
-We encourage you to adopt these guidelines when building with Bootstrap to create your own components. We've extended this approach ourselves to the custom components in our documentation and examples. Components like our callouts are built just like our provided components with base and modifier classes.
+We encourage you to adopt these guidelines when building with CoreUI for Bootstrap to create your own components. We've extended this approach ourselves to the custom components in our documentation and examples. Components like our callouts are built just like our provided components with base and modifier classes.
 
 <div class="bd-example">
   <div class="bd-callout my-0">

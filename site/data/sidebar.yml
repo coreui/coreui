@@ -1,4 +1,5 @@
 - title: Getting started
+  icon: energy
   pages:
     - title: Introduction
     - title: Download
@@ -12,6 +13,7 @@
     - title: RTL
 
 - title: Customize
+  icon: energy
   pages:
     - title: Overview
     - title: Sass
@@ -22,6 +24,7 @@
     - title: Optimize
 
 - title: Layout
+  icon: energy
   pages:
     - title: Breakpoints
     - title: Containers
@@ -33,6 +36,7 @@
     - title: Z-index
 
 - title: Content
+  icon: energy
   pages:
     - title: Reboot
     - title: Typography
@@ -41,6 +45,7 @@
     - title: Figures
 
 - title: Forms
+  icon: energy
   pages:
     - title: Overview
     - title: Form control
@@ -53,6 +58,7 @@
     - title: Validation
 
 - title: Components
+  icon: energy
   pages:
     - title: Accordion
     - title: Alerts
@@ -82,6 +88,7 @@
     - title: Tooltips
 
 - title: Components API
+  icon: energy
   pages:
     - title: Accordion
     - title: Alerts
@@ -107,6 +114,7 @@
     - title: Tooltips
 
 - title: Components Theming
+  icon: energy
   pages:
     - title: Accordion
     - title: Alerts
@@ -132,6 +140,7 @@
     - title: Tooltips
 
 - title: Helpers
+  icon: energy
   pages:
     - title: Clearfix
     - title: Colored links
@@ -142,6 +151,7 @@
     - title: Text truncation
 
 - title: Utilities
+  icon: energy
   pages:
     - title: API
     - title: Borders
@@ -158,16 +168,3 @@
     - title: Text
     - title: Vertical align
     - title: Visibility
-
-- title: Extend
-  pages:
-    - title: Approach
-    - title: Icons
-
-- title: About
-  pages:
-    - title: Overview
-    - title: Team
-    - title: Brand
-    - title: License
-    - title: Translations
