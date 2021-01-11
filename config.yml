@@ -1,6 +1,6 @@
 languageCode:           "en"
 title:                  "CoreUI"
-baseURL:                "https://coreui.io"
+baseURL:                "https://coreui.io/docs/"
 enableInlineShortcodes: true
 
 markup:
@@ -25,27 +25,27 @@ publishDir:             "_gh_pages"
 module:
   mounts:
     - source:           dist
-      target:           static/docs/4.0/dist
-    - source:           site/assets
+      target:           static/4.0/dist
+    - source:           docs/assets
       target:           assets
-    - source:           site/content
+    - source:           docs/content
       target:           content
-    - source:           site/data
+    - source:           docs/data
       target:           data
-    - source:           site/layouts
+    - source:           docs/layouts
       target:           layouts
-    - source:           site/static
+    - source:           docs/static
       target:           static
-    - source:           site/static/docs/4.0/assets/img/favicons/apple-touch-icon.png
+    - source:           docs/static/4.0/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
-    - source:           site/static/docs/4.0/assets/img/favicons/favicon.ico
+    - source:           docs/static/4.0/assets/img/favicons/favicon.ico
       target:           static/favicon.ico
 
 params:
   description:          "The most popular HTML, CSS, and JS library in the world."
   authors:              "Mark Otto, Jacob Thornton, and Bootstrap contributors"
-  social_image_path:    /docs/4.0/assets/brand/bootstrap-social.png
-  social_logo_path:     /docs/4.0/assets/brand/bootstrap-social-logo.png
+  social_image_path:    /4.0/assets/brand/bootstrap-social.png
+  social_logo_path:     /4.0/assets/brand/bootstrap-social-logo.png
 
   current_version:      "4.0.0-alpha.0"
   current_ruby_version: "4.0.0-alpha.0"

@@ -152,3 +152,9 @@
     }
   }
 }
+
+.sidebar-nav-sm {
+  .nav-link {
+    padding: ($sidebar-nav-link-padding-y / 2) $sidebar-nav-link-padding-x;
+  }
+}

@@ -1,0 +1,56 @@
+<div class="sidebar sidebar-lg sidebar-sticky sidebar-lg-show border-end ps-xl-4 docs-sidebar" id="sidebar">
+  <div class="sidebar-brand justify-content-start ps-3">
+    {{ partial "icons/coreui-base.svg" (dict "class" "d-block mt-4 mb-5" "height" "50") }}
+  </div>
+  {{- $url := split .Permalink "/" -}}
+  {{- $page_slug := index $url (sub (len $url) 2) -}}
+  <ul class="sidebar-nav" data-coreui="navigation">
+    {{- range $group := .Site.Data.sidebar -}}
+      {{- $link := $group.title -}}
+      {{- $link_slug := $link | urlize -}}
+
+      {{- if $group.pages -}}
+        {{- $link = index $group.pages 0 -}}
+        {{- $link_slug = $link.title | urlize -}}
+      {{- end -}}
+
+      {{- $group_slug := $group.title | urlize -}}
+      {{- $is_active_group := eq $.Page.Params.group $group_slug }}
+
+      <li class="nav-item nav-group {{ if $is_active_group }} show{{ end }}">
+        <a class="nav-link nav-group-toggle" href="#">
+          {{- with $group.icon }}
+            {{ partial (printf "%s%s%s" "icons/" $group.icon ".svg") (dict "class" "nav-icon text-primary") }}
+          {{- end }}
+          {{ $group.title }}
+        </a>
+
+        {{- if $group.pages }}
+        <ul class="nav-group-items sidebar-nav-sm">
+          {{- range $doc := $group.pages -}}
+            {{- $doc_slug := $doc.title | urlize -}}
+            {{- $is_active := and $is_active_group (eq $page_slug $doc_slug) -}}
+            {{- $href := printf "/docs/%s/%s/%s/" $.Site.Params.docs_version $group_slug $doc_slug }}
+            <li class="nav-item">
+              <a href="{{ $href }}" class="nav-link{{ if $is_active }} active{{ end }}"{{ if $is_active }} aria-current="page"{{ end }}>{{ $doc.title }}</a>
+            </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </li>
+    {{- end }}
+    <li class="nav-item">
+      <a href="{{ .Site.Params.icons }}" class="nav-link" target="_blank">
+        {{ partial "icons/pen-nib.svg" (dict "class" "nav-icon text-primary") }}
+        Icons
+        <span class="ms-3">{{ partial "icons/external-link.svg" (dict "class" "icon icon-xs text-secondary") }}</span>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a href="/docs/{{ $.Site.Params.docs_version }}/migration/" class="nav-link">
+        {{ partial "icons/update.svg" (dict "class" "nav-icon text-primary") }}
+        Migration
+      </a>
+    </li>
+  </ul>
+</div>

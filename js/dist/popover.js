@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap popover.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI popover.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/selector-engine.js'), require('./tooltip.js')) :
@@ -66,7 +66,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -108,7 +108,7 @@
    */
 
   var NAME = 'popover';
-  var DATA_KEY = 'bs.popover';
+  var DATA_KEY = 'coreui.popover';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-popover';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
@@ -181,7 +181,7 @@
     };
 
     _proto._getContent = function _getContent() {
-      return this._element.getAttribute('data-bs-content') || this.config.content;
+      return this._element.getAttribute('data-coreui-content') || this.config.content;
     };
 
     _proto._cleanTipClass = function _cleanTipClass() {

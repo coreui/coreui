@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap carousel.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI carousel.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
@@ -74,7 +74,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-coreui-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -172,7 +172,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -213,7 +213,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -255,7 +255,7 @@
    */
 
   var NAME = 'carousel';
-  var DATA_KEY = 'bs.carousel';
+  var DATA_KEY = 'coreui.carousel';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var ARROW_LEFT_KEY = 'ArrowLeft';
@@ -310,8 +310,8 @@
   var SELECTOR_ITEM_IMG = '.carousel-item img';
   var SELECTOR_NEXT_PREV = '.carousel-item-next, .carousel-item-prev';
   var SELECTOR_INDICATORS = '.carousel-indicators';
-  var SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
-  var SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
+  var SELECTOR_DATA_SLIDE = '[data-coreui-slide], [data-coreui-slide-to]';
+  var SELECTOR_DATA_RIDE = '[data-coreui-ride="carousel"]';
   var PointerType = {
     TOUCH: 'touch',
     PEN: 'pen'
@@ -642,7 +642,7 @@
         return;
       }
 
-      var elementInterval = Number.parseInt(element.getAttribute('data-bs-interval'), 10);
+      var elementInterval = Number.parseInt(element.getAttribute('data-coreui-interval'), 10);
 
       if (elementInterval) {
         this._config.defaultInterval = this._config.defaultInterval || this._config.interval;
@@ -787,7 +787,7 @@
 
       var config = _extends({}, Manipulator__default['default'].getDataAttributes(target), Manipulator__default['default'].getDataAttributes(this));
 
-      var slideIndex = this.getAttribute('data-bs-slide-to');
+      var slideIndex = this.getAttribute('data-coreui-slide-to');
 
       if (slideIndex) {
         config.interval = false;

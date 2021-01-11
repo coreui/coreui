@@ -3,4 +3,4 @@
 **/vendor/
 /_gh_pages/
 /js/coverage/
-/site/static/sw.js
+/docs/static/sw.js

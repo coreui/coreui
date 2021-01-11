@@ -58,7 +58,7 @@ it('should show a tooltip without the animation', done => {
     animation: false
   })
 
-  tooltipEl.addEventListener('shown.bs.tooltip', () => {
+  tooltipEl.addEventListener('shown.coreui.tooltip', () => {
     const tip = document.querySelector('.tooltip')
 
     expect(tip).toBeDefined()

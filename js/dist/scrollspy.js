@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap scrollspy.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI scrollspy.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
@@ -87,7 +87,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-coreui-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -127,7 +127,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -168,7 +168,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -210,7 +210,7 @@
    */
 
   var NAME = 'scrollspy';
-  var DATA_KEY = 'bs.scrollspy';
+  var DATA_KEY = 'coreui.scrollspy';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var Default = {
@@ -228,7 +228,7 @@
   var EVENT_LOAD_DATA_API = "load" + EVENT_KEY + DATA_API_KEY;
   var CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
   var CLASS_NAME_ACTIVE = 'active';
-  var SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+  var SELECTOR_DATA_SPY = '[data-coreui-spy="scroll"]';
   var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   var SELECTOR_NAV_LINKS = '.nav-link';
   var SELECTOR_NAV_ITEMS = '.nav-item';
@@ -394,7 +394,7 @@
       this._clear();
 
       var queries = this._selector.split(',').map(function (selector) {
-        return selector + "[data-bs-target=\"" + target + "\"]," + selector + "[href=\"" + target + "\"]";
+        return selector + "[data-coreui-target=\"" + target + "\"]," + selector + "[href=\"" + target + "\"]";
       });
 
       var link = SelectorEngine__default['default'].findOne(queries.join(','));

@@ -1,0 +1,18 @@
+//
+// Footer
+//
+
+.footer {
+  --cui-footer-bg: #f0f4f7;
+  @include font-size(.875rem);
+
+  a {
+    font-weight: 600;
+    color: $gray-700;
+
+    &:hover,
+    &:focus {
+      color: $link-color;
+    }
+  }
+}

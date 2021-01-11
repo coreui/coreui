@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap tooltip.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI tooltip.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
@@ -201,7 +201,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -369,7 +369,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -411,7 +411,7 @@
    */
 
   var NAME = 'tooltip';
-  var DATA_KEY = 'bs.tooltip';
+  var DATA_KEY = 'coreui.tooltip';
   var EVENT_KEY = "." + DATA_KEY;
   var CLASS_PREFIX = 'bs-tooltip';
   var BSCLS_PREFIX_REGEX = new RegExp("(^|\\s)" + CLASS_PREFIX + "\\S+", 'g');
@@ -564,7 +564,7 @@
     _proto.dispose = function dispose() {
       clearTimeout(this._timeout);
       EventHandler__default['default'].off(this._element, this.constructor.EVENT_KEY);
-      EventHandler__default['default'].off(this._element.closest("." + CLASS_NAME_MODAL), 'hide.bs.modal', this._hideModalHandler);
+      EventHandler__default['default'].off(this._element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
 
       if (this.tip) {
         this.tip.parentNode.removeChild(this.tip);
@@ -793,7 +793,7 @@
     };
 
     _proto.getTitle = function getTitle() {
-      var title = this._element.getAttribute('data-bs-original-title');
+      var title = this._element.getAttribute('data-coreui-original-title');
 
       if (!title) {
         title = typeof this.config.title === 'function' ? this.config.title.call(this._element) : this.config.title;
@@ -906,7 +906,7 @@
         }
       };
 
-      EventHandler__default['default'].on(this._element.closest("." + CLASS_NAME_MODAL), 'hide.bs.modal', this._hideModalHandler);
+      EventHandler__default['default'].on(this._element.closest("." + CLASS_NAME_MODAL), 'hide.coreui.modal', this._hideModalHandler);
 
       if (this.config.selector) {
         this.config = _extends({}, this.config, {
@@ -921,10 +921,10 @@
     _proto._fixTitle = function _fixTitle() {
       var title = this._element.getAttribute('title');
 
-      var originalTitleType = typeof this._element.getAttribute('data-bs-original-title');
+      var originalTitleType = typeof this._element.getAttribute('data-coreui-original-title');
 
       if (title || originalTitleType !== 'string') {
-        this._element.setAttribute('data-bs-original-title', title || '');
+        this._element.setAttribute('data-coreui-original-title', title || '');
 
         if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
           this._element.setAttribute('aria-label', title);

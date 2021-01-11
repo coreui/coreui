@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap toast.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI toast.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js')) :
@@ -141,7 +141,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -182,7 +182,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -224,7 +224,7 @@
    */
 
   var NAME = 'toast';
-  var DATA_KEY = 'bs.toast';
+  var DATA_KEY = 'coreui.toast';
   var EVENT_KEY = "." + DATA_KEY;
   var EVENT_CLICK_DISMISS = "click.dismiss" + EVENT_KEY;
   var EVENT_HIDE = "hide" + EVENT_KEY;
@@ -245,7 +245,7 @@
     autohide: true,
     delay: 5000
   };
-  var SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
+  var SELECTOR_DATA_DISMISS = '[data-coreui-dismiss="toast"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition

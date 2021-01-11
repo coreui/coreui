@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap collapse.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI collapse.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
@@ -74,7 +74,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-coreui-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -168,7 +168,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -209,7 +209,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -251,7 +251,7 @@
    */
 
   var NAME = 'collapse';
-  var DATA_KEY = 'bs.collapse';
+  var DATA_KEY = 'coreui.collapse';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var Default = {
@@ -274,7 +274,7 @@
   var WIDTH = 'width';
   var HEIGHT = 'height';
   var SELECTOR_ACTIVES = '.show, .collapsing';
-  var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="collapse"]';
+  var SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="collapse"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -290,7 +290,7 @@
       _this = _BaseComponent.call(this, element) || this;
       _this._isTransitioning = false;
       _this._config = _this._getConfig(config);
-      _this._triggerArray = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE + "[href=\"#" + element.id + "\"]," + (SELECTOR_DATA_TOGGLE + "[data-bs-target=\"#" + element.id + "\"]"));
+      _this._triggerArray = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE + "[href=\"#" + element.id + "\"]," + (SELECTOR_DATA_TOGGLE + "[data-coreui-target=\"#" + element.id + "\"]"));
       var toggleList = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (var i = 0, len = toggleList.length; i < len; i++) {
@@ -345,7 +345,7 @@
       if (this._parent) {
         actives = SelectorEngine__default['default'].find(SELECTOR_ACTIVES, this._parent).filter(function (elem) {
           if (typeof _this2._config.parent === 'string') {
-            return elem.getAttribute('data-bs-parent') === _this2._config.parent;
+            return elem.getAttribute('data-coreui-parent') === _this2._config.parent;
           }
 
           return elem.classList.contains(CLASS_NAME_COLLAPSE);
@@ -518,7 +518,7 @@
         parent = SelectorEngine__default['default'].findOne(parent);
       }
 
-      var selector = SELECTOR_DATA_TOGGLE + "[data-bs-parent=\"" + parent + "\"]";
+      var selector = SELECTOR_DATA_TOGGLE + "[data-coreui-parent=\"" + parent + "\"]";
       SelectorEngine__default['default'].find(selector, parent).forEach(function (element) {
         var selected = getElementFromSelector(element);
 

@@ -1,0 +1,2 @@
+{{/*  {{- relref . ((printf "docs/%s%s" $.Site.Params.docs_version (.Get 0)) | relURL) -}}  */}}
+{{- relref . ((printf "./../%s%s" $.Site.Params.docs_version (.Get 0)) | relURL) -}}

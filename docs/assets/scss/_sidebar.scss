@@ -1,0 +1,13 @@
+.docs-sidebar {
+  --cui-sidebar-bg: #f0f4f7;
+  --cui-sidebar-brand-bg: transparent;
+  --cui-sidebar-brand-color: #{$body-color};
+  --cui-sidebar-nav-link-color: #{$body-color};
+  --cui-sidebar-nav-link-active-color: #{$primary};
+  --cui-sidebar-nav-link-hover-color: #{$primary};
+  --cui-sidebar-nav-group-bg: transparent;
+
+  .nav-group-items {
+    --cui-sidebar-nav-link-color: #{$primary-50};
+  }
+}

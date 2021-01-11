@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap tab.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI tab.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js')) :
@@ -47,7 +47,7 @@
   var TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-coreui-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -115,7 +115,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -156,7 +156,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -198,7 +198,7 @@
    */
 
   var NAME = 'tab';
-  var DATA_KEY = 'bs.tab';
+  var DATA_KEY = 'coreui.tab';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var EVENT_HIDE = "hide" + EVENT_KEY;
@@ -215,7 +215,7 @@
   var SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   var SELECTOR_ACTIVE = '.active';
   var SELECTOR_ACTIVE_UL = ':scope > li > .active';
-  var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';
+  var SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="tab"], [data-coreui-toggle="pill"], [data-coreui-toggle="list"]';
   var SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
   var SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
   /**

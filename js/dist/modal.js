@@ -1,7 +1,7 @@
 /*!
-  * Bootstrap modal.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+  * CoreUI modal.js v4.0.0-alpha.0 (https://coreui.io)
+  * Copyright 2020 undefined
+  * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
@@ -74,7 +74,7 @@
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute('data-coreui-target');
 
     if (!selector || selector === '#') {
       var hrefAttr = element.getAttribute('href');
@@ -172,7 +172,7 @@
     var _window = window,
         jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
     }
 
@@ -213,7 +213,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = '4.0.0-alpha.0';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -255,7 +255,7 @@
    */
 
   var NAME = 'modal';
-  var DATA_KEY = 'bs.modal';
+  var DATA_KEY = 'coreui.modal';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var ESCAPE_KEY = 'Escape';
@@ -289,8 +289,8 @@
   var CLASS_NAME_STATIC = 'modal-static';
   var SELECTOR_DIALOG = '.modal-dialog';
   var SELECTOR_MODAL_BODY = '.modal-body';
-  var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="modal"]';
-  var SELECTOR_DATA_DISMISS = '[data-bs-dismiss="modal"]';
+  var SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="modal"]';
+  var SELECTOR_DATA_DISMISS = '[data-coreui-dismiss="modal"]';
   var SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
   var SELECTOR_STICKY_CONTENT = '.sticky-top';
   /**
