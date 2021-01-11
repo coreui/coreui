@@ -317,9 +317,13 @@ $button-variants: (
 #### Modifiers
 
 CoreUI's button component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.btn` while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$button-variants` map to make customizing the number and name of our modifier classes.
-
+##### Default button
 {{< scss-docs name="button-modifiers" file="scss/_buttons.scss" >}}
+##### Outline button
 {{< scss-docs name="button-outline-modifiers" file="scss/_buttons.scss" >}}
+
+##### Ghost button
+{{< scss-docs name="button-ghost-modifiers" file="scss/_buttons.scss" >}}
 
 
 ### CSS Vars

@@ -92,6 +92,20 @@
 }
 // scss-docs-end button-outline-modifiers
 
+// scss-docs-start button-ghost-modifiers
+@each $state, $map in $button-variants {
+  .btn-ghost-#{$state} {
+    @include button-ghost-variant(
+      $color: var(--#{$variable-prefix}btn-ghost-#{$state}-color, map-get($map, "background")),
+      $color-hover: var(--#{$variable-prefix}btn-ghost-#{$state}-hover-color, map-get($map, "color")),
+      $active-background: var(--#{$variable-prefix}btn-ghost-#{$state}-active-background, map-get($map, "background")),
+      $active-border: var(--#{$variable-prefix}btn-ghost-#{$state}-active-border, map-get($map, "background")),
+      $shadow: var(--#{$variable-prefix}btn-ghost-#{$state}-shadow, map-get($map, "shadow"))
+    );
+  }
+}
+// scss-docs-end button-ghost-modifiers
+
 
 //
 // Link buttons
