@@ -4,7 +4,7 @@
       {{ partial "icons/coreui-white.svg" (dict "class" "d-block my-1" "width" "40" "height" "32") }}
     </a>  */}}
 
-    <button class="header-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="header-toggler" type="button" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
       {{ partial "icons/hamburger.svg" (dict "class" "bi" "width" "32" "height" "32") }}
     </button>
 

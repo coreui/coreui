@@ -24,17 +24,17 @@ For instance, assuming you're using your own JavaScript bundler like Webpack or 
 ```js
 // Import just what we need
 
-// import 'bootstrap/js/dist/alert';
-// import 'bootstrap/js/dist/button';
-// import 'bootstrap/js/dist/carousel';
-// import 'bootstrap/js/dist/collapse';
-// import 'bootstrap/js/dist/dropdown';
-import 'bootstrap/js/dist/modal';
-// import 'bootstrap/js/dist/popover';
-// import 'bootstrap/js/dist/scrollspy';
-// import 'bootstrap/js/dist/tab';
-// import 'bootstrap/js/dist/toast';
-// import 'bootstrap/js/dist/tooltip';
+// import '@coreui/coreui/js/dist/alert';
+// import '@coreui/coreui/js/dist/button';
+// import '@coreui/coreui/js/dist/carousel';
+// import '@coreui/coreui/js/dist/collapse';
+// import '@coreui/coreui/js/dist/dropdown';
+import '@coreui/coreui/js/dist/modal';
+// import '@coreui/coreui/js/dist/popover';
+// import '@coreui/coreui/js/dist/scrollspy';
+// import '@coreui/coreui/js/dist/tab';
+// import '@coreui/coreui/js/dist/toast';
+// import '@coreui/coreui/js/dist/tooltip';
 ```
 
 This way, you're not including any JavaScript you don't intend to use for components like buttons, carousels, and tooltips. If you're importing dropdowns, tooltips or popovers, be sure to list the Popper dependency in your `package.json` file.
@@ -42,10 +42,10 @@ This way, you're not including any JavaScript you don't intend to use for compon
 {{< callout info >}}
 ### Default Exports
 
-Files in `bootstrap/js/dist` use the **default export**, so if you want to use one of them you have to do the following:
+Files in `@coreui/coreui/js/dist` use the **default export**, so if you want to use one of them you have to do the following:
 
 ```js
-import Modal from 'bootstrap/js/dist/modal'
+import Modal from '@coreui/coreui/js/dist/modal'
 
 const modal = new Modal(document.getElementById('myModal'))
 ```
@@ -69,11 +69,3 @@ Lastly, this [CSS Tricks article on unused CSS](https://css-tricks.com/how-do-yo
 ## Minify and gzip
 
 Whenever possible, be sure to compress all the code you serve to your visitors. If you're using CoreUI for Bootstrap dist files, try to stick to the minified versions (indicated by the `.min.css` and `.min.js` extensions). If you're building CoreUI for Bootstrap from the source with your own build system, be sure to implement your own minifiers for HTML, CSS, and JS.
-
-## Nonblocking files
-
-_Help wanted with this section, please consider opening a PR. Thanks!_
-
-## Always use https
-
-_Help wanted with this section, please consider opening a PR. Thanks!_
