@@ -5,7 +5,8 @@
   justify-content: center;
   vertical-align: middle;
   @include border-radius(50em);
-  @include avatar($avatar-width,$avatar-status-width);
+  @include transition($avatar-transition);
+  @include avatar($avatar-width);
 }
 
 .avatar-img {
@@ -21,25 +22,12 @@
   display: block;
   border: 1px solid $white;
   @include border-radius(50em);
-
-  // @include ltr {
-  //   right: 0;
-  // }
-  // @include rtl {
-  //   left: 0;
-  // }
 }
 
-.avatar-sm {
-  @include avatar($avatar-sm-width,$avatar-sm-status-width);
-}
-
-.avatar-lg {
-  @include avatar($avatar-lg-width,$avatar-lg-status-width);
-}
-
-.avatar-xl {
-  @include avatar($avatar-xl-width,$avatar-xl-status-width);
+@each $width, $value in $avatar-widths {
+  .avatar-#{$width} {
+    @include avatar($value);
+  }
 }
 
 .avatars-stack {
@@ -47,22 +35,15 @@
 
   .avatar {
     margin-right: - ($avatar-width / 2);
-    // transition: margin-right $layout-transition-speed;
 
     &:hover {
       margin-right: 0;
     }
   }
 
-  .avatar-sm {
-    margin-right: - ($avatar-sm-width / 2);
-  }
-
-  .avatar-lg {
-    margin-right: - ($avatar-lg-width / 2);
-  }
-
-  .avatar-xl {
-    margin-right: - ($avatar-xl-width / 2);
+  @each $width, $value in $avatar-widths {
+    .avatar-#{$width} {
+      margin-right: - ($value / 2);
+    }
   }
 }
