@@ -1307,6 +1307,30 @@ $alert-variants: (
 ) !default;
 // scss-docs-end alert-variables
 
+// Callouts
+// scss-docs-start callout-variables
+$callout-padding-y:                 $spacer !default;
+$callout-padding-x:                 $spacer !default;
+$callout-margin-y:                  $spacer !default;
+$callout-margin-x:                  0 !default;
+$callout-border-radius:             $border-radius !default;
+$callout-border-width:              $border-width !default;
+$callout-border-color:              $border-color !default;
+$callout-border-left-width:         (4 * $callout-border-width) !default;
+
+$callout-variants: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "danger":     $danger,
+  "warning":    $warning,
+  "info":       $info,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// scss-docs-end callout-variables
+
+
 // Progress bars
 
 // scss-docs-start progress-variables
