@@ -3,21 +3,19 @@
 //
 
 .form-check {
-  display: block;
+  display: flex;
+  align-items: center;
   min-height: $form-check-min-height;
-  padding-left: $form-check-padding-start;
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
-    float: left;
-    margin-left: $form-check-padding-start * -1;
+    margin-right: $form-check-padding-start;
   }
 }
 
 .form-check-input {
   width: $form-check-input-width;
   height: $form-check-input-width;
-  margin-top: ($line-height-base - $form-check-input-width) / 2; // line-height minus check height
   vertical-align: top;
   background-color: var(--#{$variable-prefix}form-check-input-bg, $form-check-input-bg);
   background-repeat: no-repeat;
@@ -130,8 +128,23 @@
   }
 }
 
+@each $width, $value in $form-switch-widths {
+  $height: $value / 3 * 2;
+
+  .form-switch-#{$width} {
+    min-height: $height;
+    padding-left: $value + .5em;
+
+    .form-check-input {
+      width: $value;
+      height: $height;
+      margin-left: ($value + .5em) * -1;
+    }
+  }
+}
+
 .form-check-inline {
-  display: inline-block;
+  display: inline-flex;
   margin-right: $form-check-inline-margin-end;
 }
 
@@ -147,5 +160,18 @@
       filter: none;
       opacity: $form-check-btn-check-disabled-opacity;
     }
+  }
+}
+
+//
+// Alternate form checks
+//
+
+@each $state, $color in $theme-colors {
+  .form-check-#{$state} {
+    --#{$variable-prefix}form-check-input-checked-bg-color: #{$color};
+    --#{$variable-prefix}form-check-input-checked-border-color: #{$color};
+    --#{$variable-prefix}form-check-input-indeterminate-bg-color: #{$color};
+    --#{$variable-prefix}form-check-input-indeterminate-border-color: #{$color};
   }
 }
