@@ -34,7 +34,7 @@
   display: flex;
 
   .avatar {
-    margin-right: - ($avatar-width / 2);
+    margin-right: - ($avatar-width / 2.5);
 
     &:hover {
       margin-right: 0;
@@ -43,7 +43,7 @@
 
   @each $width, $value in $avatar-widths {
     .avatar-#{$width} {
-      margin-right: - ($value / 2);
+      margin-right: - ($value / 2.5);
     }
   }
 }
