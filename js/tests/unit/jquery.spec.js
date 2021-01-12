@@ -42,12 +42,12 @@ describe('jQuery', () => {
   it('should use jQuery event system', done => {
     fixtureEl.innerHTML = [
       '<div class="alert">',
-      '  <button type="button" data-bs-dismiss="alert">x</button>',
+      '  <button type="button" data-coreui-dismiss="alert">x</button>',
       '</div>'
     ].join('')
 
     $(fixtureEl).find('.alert')
-      .one('closed.bs.alert', () => {
+      .one('closed.coreui.alert', () => {
         expect($(fixtureEl).find('.alert').length).toEqual(0)
         done()
       })

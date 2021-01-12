@@ -21,7 +21,7 @@ describe('Manipulator', () => {
       const div = fixtureEl.querySelector('div')
 
       Manipulator.setDataAttribute(div, 'key', 'value')
-      expect(div.getAttribute('data-bs-key')).toEqual('value')
+      expect(div.getAttribute('data-coreui-key')).toEqual('value')
     })
 
     it('should set data attribute in kebab case', () => {
@@ -30,29 +30,29 @@ describe('Manipulator', () => {
       const div = fixtureEl.querySelector('div')
 
       Manipulator.setDataAttribute(div, 'testKey', 'value')
-      expect(div.getAttribute('data-bs-test-key')).toEqual('value')
+      expect(div.getAttribute('data-coreui-test-key')).toEqual('value')
     })
   })
 
   describe('removeDataAttribute', () => {
     it('should only remove bs-prefixed data attribute', () => {
-      fixtureEl.innerHTML = '<div data-bs-key="value" data-key-bs="postfixed" data-key="value"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-key="value" data-key-bs="postfixed" data-key="value"></div>'
 
       const div = fixtureEl.querySelector('div')
 
       Manipulator.removeDataAttribute(div, 'key')
-      expect(div.getAttribute('data-bs-key')).toBeNull()
+      expect(div.getAttribute('data-coreui-key')).toBeNull()
       expect(div.getAttribute('data-key-bs')).toEqual('postfixed')
       expect(div.getAttribute('data-key')).toEqual('value')
     })
 
     it('should remove data attribute in kebab case', () => {
-      fixtureEl.innerHTML = '<div data-bs-test-key="value"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-test-key="value"></div>'
 
       const div = fixtureEl.querySelector('div')
 
       Manipulator.removeDataAttribute(div, 'testKey')
-      expect(div.getAttribute('data-bs-test-key')).toBeNull()
+      expect(div.getAttribute('data-coreui-test-key')).toBeNull()
     })
   })
 
@@ -63,7 +63,7 @@ describe('Manipulator', () => {
     })
 
     it('should get only bs-prefixed data attributes without bs namespace', () => {
-      fixtureEl.innerHTML = '<div data-bs-toggle="tabs" data-bs-target="#element" data-another="value" data-target-bs="#element" data-in-bs-out="in-between"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-another="value" data-target-bs="#element" data-in-coreui-out="in-between"></div>'
 
       const div = fixtureEl.querySelector('div')
 
@@ -76,7 +76,7 @@ describe('Manipulator', () => {
 
   describe('getDataAttribute', () => {
     it('should only get bs-prefixed data attribute', () => {
-      fixtureEl.innerHTML = '<div data-bs-key="value" data-test-bs="postFixed" data-toggle="tab"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-key="value" data-test-bs="postFixed" data-toggle="tab"></div>'
 
       const div = fixtureEl.querySelector('div')
 
@@ -86,7 +86,7 @@ describe('Manipulator', () => {
     })
 
     it('should get data attribute in kebab case', () => {
-      fixtureEl.innerHTML = '<div data-bs-test-key="value" ></div>'
+      fixtureEl.innerHTML = '<div data-coreui-test-key="value" ></div>'
 
       const div = fixtureEl.querySelector('div')
 
@@ -94,16 +94,16 @@ describe('Manipulator', () => {
     })
 
     it('should normalize data', () => {
-      fixtureEl.innerHTML = '<div data-bs-test="false" ></div>'
+      fixtureEl.innerHTML = '<div data-coreui-test="false" ></div>'
 
       const div = fixtureEl.querySelector('div')
 
       expect(Manipulator.getDataAttribute(div, 'test')).toEqual(false)
 
-      div.setAttribute('data-bs-test', 'true')
+      div.setAttribute('data-coreui-test', 'true')
       expect(Manipulator.getDataAttribute(div, 'test')).toEqual(true)
 
-      div.setAttribute('data-bs-test', '1')
+      div.setAttribute('data-coreui-test', '1')
       expect(Manipulator.getDataAttribute(div, 'test')).toEqual(1)
     })
   })

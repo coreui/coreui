@@ -44,12 +44,12 @@ describe('EventHandler', () => {
 
       const div = fixtureEl.querySelector('div')
 
-      EventHandler.on(div, 'bs.namespace', () => {
+      EventHandler.on(div, 'coreui.namespace', () => {
         expect().nothing()
         done()
       })
 
-      EventHandler.trigger(div, 'bs.namespace')
+      EventHandler.trigger(div, 'coreui.namespace')
     })
 
     it('should add native namespaced event listener', done => {

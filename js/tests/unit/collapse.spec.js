@@ -32,7 +32,7 @@ describe('Collapse', () => {
       fixtureEl.innerHTML = [
         '<div class="my-collapse">',
         '  <div class="item">',
-        '    <a data-bs-toggle="collapse" href="#">Toggle item</a>',
+        '    <a data-coreui-toggle="collapse" href="#">Toggle item</a>',
         '    <div class="collapse">Lorem ipsum</div>',
         '  </div>',
         '</div>'
@@ -55,7 +55,7 @@ describe('Collapse', () => {
       fixtureEl.innerHTML = [
         '<div class="my-collapse">',
         '  <div class="item">',
-        '    <a data-bs-toggle="collapse" href="#">Toggle item</a>',
+        '    <a data-coreui-toggle="collapse" href="#">Toggle item</a>',
         '    <div class="collapse">Lorem ipsum</div>',
         '  </div>',
         '</div>'
@@ -74,7 +74,7 @@ describe('Collapse', () => {
       fixtureEl.innerHTML = [
         '<div class="my-collapse">',
         '  <div class="item">',
-        '    <a data-bs-toggle="collapse" href="#">Toggle item</a>',
+        '    <a data-coreui-toggle="collapse" href="#">Toggle item</a>',
         '    <div class="collapse">Lorem ipsum</div>',
         '  </div>',
         '</div>'
@@ -120,15 +120,15 @@ describe('Collapse', () => {
       expect(collapse.hide).toHaveBeenCalled()
     })
 
-    it('should find collapse children if they have collapse class too not only data-bs-parent', done => {
+    it('should find collapse children if they have collapse class too not only data-coreui-parent', done => {
       fixtureEl.innerHTML = [
         '<div class="my-collapse">',
         '  <div class="item">',
-        '    <a data-bs-toggle="collapse" href="#">Toggle item 1</a>',
+        '    <a data-coreui-toggle="collapse" href="#">Toggle item 1</a>',
         '    <div id="collapse1" class="collapse show">Lorem ipsum 1</div>',
         '  </div>',
         '  <div class="item">',
-        '    <a id="triggerCollapse2" data-bs-toggle="collapse" href="#">Toggle item 2</a>',
+        '    <a id="triggerCollapse2" data-coreui-toggle="collapse" href="#">Toggle item 2</a>',
         '    <div id="collapse2" class="collapse">Lorem ipsum 2</div>',
         '  </div>',
         '</div>'
@@ -144,7 +144,7 @@ describe('Collapse', () => {
           toggle: false
         }))
 
-      collapseEl2.addEventListener('shown.bs.collapse', () => {
+      collapseEl2.addEventListener('shown.coreui.collapse', () => {
         expect(collapseEl2.classList.contains('show')).toEqual(true)
         expect(collapseEl1.classList.contains('show')).toEqual(false)
         done()
@@ -194,10 +194,10 @@ describe('Collapse', () => {
         toggle: false
       })
 
-      collapseEl.addEventListener('show.bs.collapse', () => {
+      collapseEl.addEventListener('show.coreui.collapse', () => {
         expect(collapseEl.style.height).toEqual('0px')
       })
-      collapseEl.addEventListener('shown.bs.collapse', () => {
+      collapseEl.addEventListener('shown.coreui.collapse', () => {
         expect(collapseEl.classList.contains('show')).toEqual(true)
         expect(collapseEl.style.height).toEqual('')
         done()
@@ -214,10 +214,10 @@ describe('Collapse', () => {
         toggle: false
       })
 
-      collapseEl.addEventListener('show.bs.collapse', () => {
+      collapseEl.addEventListener('show.coreui.collapse', () => {
         expect(collapseEl.style.width).toEqual('0px')
       })
-      collapseEl.addEventListener('shown.bs.collapse', () => {
+      collapseEl.addEventListener('shown.coreui.collapse', () => {
         expect(collapseEl.classList.contains('show')).toEqual(true)
         expect(collapseEl.style.width).toEqual('')
         done()
@@ -242,7 +242,7 @@ describe('Collapse', () => {
         toggle: false
       })
 
-      el1.addEventListener('shown.bs.collapse', () => {
+      el1.addEventListener('shown.coreui.collapse', () => {
         expect(el1.classList.contains('show')).toEqual(true)
         expect(el2.classList.contains('show')).toEqual(true)
         done()
@@ -266,12 +266,12 @@ describe('Collapse', () => {
         }, 10)
       }
 
-      collapseEl.addEventListener('show.bs.collapse', e => {
+      collapseEl.addEventListener('show.coreui.collapse', e => {
         e.preventDefault()
         expectEnd()
       })
 
-      collapseEl.addEventListener('shown.bs.collapse', () => {
+      collapseEl.addEventListener('shown.coreui.collapse', () => {
         throw new Error('should not fire shown event')
       })
 
@@ -319,7 +319,7 @@ describe('Collapse', () => {
         toggle: false
       })
 
-      collapseEl.addEventListener('hidden.bs.collapse', () => {
+      collapseEl.addEventListener('hidden.coreui.collapse', () => {
         expect(collapseEl.classList.contains('show')).toEqual(false)
         expect(collapseEl.style.height).toEqual('')
         done()
@@ -343,12 +343,12 @@ describe('Collapse', () => {
         }, 10)
       }
 
-      collapseEl.addEventListener('hide.bs.collapse', e => {
+      collapseEl.addEventListener('hide.coreui.collapse', e => {
         e.preventDefault()
         expectEnd()
       })
 
-      collapseEl.addEventListener('hidden.bs.collapse', () => {
+      collapseEl.addEventListener('hidden.coreui.collapse', () => {
         throw new Error('should not fire hidden event')
       })
 
@@ -376,7 +376,7 @@ describe('Collapse', () => {
   describe('data-api', () => {
     it('should show multiple collapsed elements', done => {
       fixtureEl.innerHTML = [
-        '<a role="button" data-bs-toggle="collapse" class="collapsed" href=".multi"></a>',
+        '<a role="button" data-coreui-toggle="collapse" class="collapsed" href=".multi"></a>',
         '<div id="collapse1" class="collapse multi"></div>',
         '<div id="collapse2" class="collapse multi"></div>'
       ].join('')
@@ -385,7 +385,7 @@ describe('Collapse', () => {
       const collapse1 = fixtureEl.querySelector('#collapse1')
       const collapse2 = fixtureEl.querySelector('#collapse2')
 
-      collapse2.addEventListener('shown.bs.collapse', () => {
+      collapse2.addEventListener('shown.coreui.collapse', () => {
         expect(trigger.getAttribute('aria-expanded')).toEqual('true')
         expect(trigger.classList.contains('collapsed')).toEqual(false)
         expect(collapse1.classList.contains('show')).toEqual(true)
@@ -398,7 +398,7 @@ describe('Collapse', () => {
 
     it('should hide multiple collapsed elements', done => {
       fixtureEl.innerHTML = [
-        '<a role="button" data-bs-toggle="collapse" href=".multi"></a>',
+        '<a role="button" data-coreui-toggle="collapse" href=".multi"></a>',
         '<div id="collapse1" class="collapse multi show"></div>',
         '<div id="collapse2" class="collapse multi show"></div>'
       ].join('')
@@ -407,7 +407,7 @@ describe('Collapse', () => {
       const collapse1 = fixtureEl.querySelector('#collapse1')
       const collapse2 = fixtureEl.querySelector('#collapse2')
 
-      collapse2.addEventListener('hidden.bs.collapse', () => {
+      collapse2.addEventListener('hidden.coreui.collapse', () => {
         expect(trigger.getAttribute('aria-expanded')).toEqual('false')
         expect(trigger.classList.contains('collapsed')).toEqual(true)
         expect(collapse1.classList.contains('show')).toEqual(false)
@@ -420,8 +420,8 @@ describe('Collapse', () => {
 
     it('should remove "collapsed" class from target when collapse is shown', done => {
       fixtureEl.innerHTML = [
-        '<a id="link1" role="button" data-bs-toggle="collapse" class="collapsed" href="#" data-bs-target="#test1"></a>',
-        '<a id="link2" role="button" data-bs-toggle="collapse" class="collapsed" href="#" data-bs-target="#test1"></a>',
+        '<a id="link1" role="button" data-coreui-toggle="collapse" class="collapsed" href="#" data-coreui-target="#test1"></a>',
+        '<a id="link2" role="button" data-coreui-toggle="collapse" class="collapsed" href="#" data-coreui-target="#test1"></a>',
         '<div id="test1"></div>'
       ].join('')
 
@@ -429,7 +429,7 @@ describe('Collapse', () => {
       const link2 = fixtureEl.querySelector('#link2')
       const collapseTest1 = fixtureEl.querySelector('#test1')
 
-      collapseTest1.addEventListener('shown.bs.collapse', () => {
+      collapseTest1.addEventListener('shown.coreui.collapse', () => {
         expect(link1.getAttribute('aria-expanded')).toEqual('true')
         expect(link2.getAttribute('aria-expanded')).toEqual('true')
         expect(link1.classList.contains('collapsed')).toEqual(false)
@@ -442,8 +442,8 @@ describe('Collapse', () => {
 
     it('should add "collapsed" class to target when collapse is hidden', done => {
       fixtureEl.innerHTML = [
-        '<a id="link1" role="button" data-bs-toggle="collapse" href="#" data-bs-target="#test1"></a>',
-        '<a id="link2" role="button" data-bs-toggle="collapse" href="#" data-bs-target="#test1"></a>',
+        '<a id="link1" role="button" data-coreui-toggle="collapse" href="#" data-coreui-target="#test1"></a>',
+        '<a id="link2" role="button" data-coreui-toggle="collapse" href="#" data-coreui-target="#test1"></a>',
         '<div id="test1" class="show"></div>'
       ].join('')
 
@@ -451,7 +451,7 @@ describe('Collapse', () => {
       const link2 = fixtureEl.querySelector('#link2')
       const collapseTest1 = fixtureEl.querySelector('#test1')
 
-      collapseTest1.addEventListener('hidden.bs.collapse', () => {
+      collapseTest1.addEventListener('hidden.coreui.collapse', () => {
         expect(link1.getAttribute('aria-expanded')).toEqual('false')
         expect(link2.getAttribute('aria-expanded')).toEqual('false')
         expect(link1.classList.contains('collapsed')).toEqual(true)
@@ -466,12 +466,12 @@ describe('Collapse', () => {
       fixtureEl.innerHTML = [
         '<div id="accordion">',
         '  <div class="item">',
-        '    <a id="linkTrigger" data-bs-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-        '    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-bs-parent="#accordion"></div>',
+        '    <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
+        '    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-coreui-parent="#accordion"></div>',
         '  </div>',
         '  <div class="item">',
-        '    <a id="linkTriggerTwo" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-        '    <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-bs-parent="#accordion"></div>',
+        '    <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
+        '    <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-coreui-parent="#accordion"></div>',
         '  </div>',
         '</div>'
       ].join('')
@@ -481,11 +481,11 @@ describe('Collapse', () => {
       const collapseOne = fixtureEl.querySelector('#collapseOne')
       const collapseTwo = fixtureEl.querySelector('#collapseTwo')
 
-      collapseOne.addEventListener('shown.bs.collapse', () => {
+      collapseOne.addEventListener('shown.coreui.collapse', () => {
         expect(collapseOne.classList.contains('show')).toEqual(true)
         expect(collapseTwo.classList.contains('show')).toEqual(false)
 
-        collapseTwo.addEventListener('shown.bs.collapse', () => {
+        collapseTwo.addEventListener('shown.coreui.collapse', () => {
           expect(collapseOne.classList.contains('show')).toEqual(false)
           expect(collapseTwo.classList.contains('show')).toEqual(true)
           done()
@@ -499,14 +499,14 @@ describe('Collapse', () => {
 
     it('should not prevent event for input', done => {
       fixtureEl.innerHTML = [
-        '<input type="checkbox" data-bs-toggle="collapse" data-bs-target="#collapsediv1">',
+        '<input type="checkbox" data-coreui-toggle="collapse" data-coreui-target="#collapsediv1">',
         '<div id="collapsediv1"></div>'
       ].join('')
 
       const target = fixtureEl.querySelector('input')
       const collapseEl = fixtureEl.querySelector('#collapsediv1')
 
-      collapseEl.addEventListener('shown.bs.collapse', () => {
+      collapseEl.addEventListener('shown.coreui.collapse', () => {
         expect(collapseEl.classList.contains('show')).toEqual(true)
         expect(target.checked).toEqual(true)
         done()
@@ -521,14 +521,14 @@ describe('Collapse', () => {
         '  <div class="row">',
         '    <div class="col-lg-6">',
         '      <div class="item">',
-        '        <a id="linkTrigger" data-bs-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-        '        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-bs-parent="#accordion"></div>',
+        '        <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
+        '        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-coreui-parent="#accordion"></div>',
         '      </div>',
         '    </div>',
         '    <div class="col-lg-6">',
         '      <div class="item">',
-        '        <a id="linkTriggerTwo" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-        '        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-bs-parent="#accordion"></div>',
+        '        <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
+        '        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-coreui-parent="#accordion"></div>',
         '      </div>',
         '    </div>',
         '  </div>',
@@ -540,7 +540,7 @@ describe('Collapse', () => {
       const collapseOneEl = fixtureEl.querySelector('#collapseOne')
       const collapseTwoEl = fixtureEl.querySelector('#collapseTwo')
 
-      collapseOneEl.addEventListener('shown.bs.collapse', () => {
+      collapseOneEl.addEventListener('shown.coreui.collapse', () => {
         expect(collapseOneEl.classList.contains('show')).toEqual(true)
         expect(triggerEl.classList.contains('collapsed')).toEqual(false)
         expect(triggerEl.getAttribute('aria-expanded')).toEqual('true')
@@ -549,7 +549,7 @@ describe('Collapse', () => {
         expect(triggerTwoEl.classList.contains('collapsed')).toEqual(true)
         expect(triggerTwoEl.getAttribute('aria-expanded')).toEqual('false')
 
-        collapseTwoEl.addEventListener('shown.bs.collapse', () => {
+        collapseTwoEl.addEventListener('shown.coreui.collapse', () => {
           expect(collapseOneEl.classList.contains('show')).toEqual(false)
           expect(triggerEl.classList.contains('collapsed')).toEqual(true)
           expect(triggerEl.getAttribute('aria-expanded')).toEqual('false')
@@ -569,12 +569,12 @@ describe('Collapse', () => {
     it('should allow accordion to target multiple elements', done => {
       fixtureEl.innerHTML = [
         '<div id="accordion">',
-        '  <a id="linkTriggerOne" data-bs-toggle="collapse" data-bs-target=".collapseOne" href="#" aria-expanded="false" aria-controls="collapseOne"></a>',
-        '  <a id="linkTriggerTwo" data-bs-toggle="collapse" data-bs-target=".collapseTwo" href="#" aria-expanded="false" aria-controls="collapseTwo"></a>',
-        '  <div id="collapseOneOne" class="collapse collapseOne" role="tabpanel" data-bs-parent="#accordion"></div>',
-        '  <div id="collapseOneTwo" class="collapse collapseOne" role="tabpanel" data-bs-parent="#accordion"></div>',
-        '  <div id="collapseTwoOne" class="collapse collapseTwo" role="tabpanel" data-bs-parent="#accordion"></div>',
-        '  <div id="collapseTwoTwo" class="collapse collapseTwo" role="tabpanel" data-bs-parent="#accordion"></div>',
+        '  <a id="linkTriggerOne" data-coreui-toggle="collapse" data-coreui-target=".collapseOne" href="#" aria-expanded="false" aria-controls="collapseOne"></a>',
+        '  <a id="linkTriggerTwo" data-coreui-toggle="collapse" data-coreui-target=".collapseTwo" href="#" aria-expanded="false" aria-controls="collapseTwo"></a>',
+        '  <div id="collapseOneOne" class="collapse collapseOne" role="tabpanel" data-coreui-parent="#accordion"></div>',
+        '  <div id="collapseOneTwo" class="collapse collapseOne" role="tabpanel" data-coreui-parent="#accordion"></div>',
+        '  <div id="collapseTwoOne" class="collapse collapseTwo" role="tabpanel" data-coreui-parent="#accordion"></div>',
+        '  <div id="collapseTwoTwo" class="collapse collapseTwo" role="tabpanel" data-coreui-parent="#accordion"></div>',
         '</div>'
       ].join('')
 
@@ -608,7 +608,7 @@ describe('Collapse', () => {
         done()
       }
 
-      collapseOneOne.addEventListener('shown.bs.collapse', () => {
+      collapseOneOne.addEventListener('shown.coreui.collapse', () => {
         if (collapsedElements.one) {
           firstTest()
         } else {
@@ -616,7 +616,7 @@ describe('Collapse', () => {
         }
       })
 
-      collapseOneTwo.addEventListener('shown.bs.collapse', () => {
+      collapseOneTwo.addEventListener('shown.coreui.collapse', () => {
         if (collapsedElements.one) {
           firstTest()
         } else {
@@ -624,7 +624,7 @@ describe('Collapse', () => {
         }
       })
 
-      collapseTwoOne.addEventListener('shown.bs.collapse', () => {
+      collapseTwoOne.addEventListener('shown.coreui.collapse', () => {
         if (collapsedElements.two) {
           secondTest()
         } else {
@@ -632,7 +632,7 @@ describe('Collapse', () => {
         }
       })
 
-      collapseTwoTwo.addEventListener('shown.bs.collapse', () => {
+      collapseTwoTwo.addEventListener('shown.coreui.collapse', () => {
         if (collapsedElements.two) {
           secondTest()
         } else {
@@ -647,19 +647,19 @@ describe('Collapse', () => {
       fixtureEl.innerHTML = [
         '<div id="accordion">',
         '  <div class="item">',
-        '    <a id="linkTrigger" data-bs-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-        '    <div id="collapseOne" data-bs-parent="#accordion" class="collapse" role="tabpanel" aria-labelledby="headingThree">',
+        '    <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
+        '    <div id="collapseOne" data-coreui-parent="#accordion" class="collapse" role="tabpanel" aria-labelledby="headingThree">',
         '      <div id="nestedAccordion">',
         '        <div class="item">',
-        '          <a id="nestedLinkTrigger" data-bs-toggle="collapse" href="#nestedCollapseOne" aria-expanded="false" aria-controls="nestedCollapseOne"></a>',
-        '          <div id="nestedCollapseOne" data-bs-parent="#nestedAccordion" class="collapse" role="tabpanel" aria-labelledby="headingThree"></div>',
+        '          <a id="nestedLinkTrigger" data-coreui-toggle="collapse" href="#nestedCollapseOne" aria-expanded="false" aria-controls="nestedCollapseOne"></a>',
+        '          <div id="nestedCollapseOne" data-coreui-parent="#nestedAccordion" class="collapse" role="tabpanel" aria-labelledby="headingThree"></div>',
         '        </div>',
         '      </div>',
         '    </div>',
         '  </div>',
         '  <div class="item">',
-        '    <a id="linkTriggerTwo" data-bs-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-        '    <div id="collapseTwo" data-bs-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingTwo"></div>',
+        '    <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
+        '    <div id="collapseTwo" data-coreui-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingTwo"></div>',
         '  </div>',
         '</div>'
       ].join('')
@@ -676,9 +676,9 @@ describe('Collapse', () => {
         expect(collapseTwo.classList.contains('show')).toEqual(false)
         expect(nestedCollapseOne.classList.contains('show')).toEqual(false)
 
-        nestedCollapseOne.addEventListener('shown.bs.collapse', handlerNestedCollapseOne)
+        nestedCollapseOne.addEventListener('shown.coreui.collapse', handlerNestedCollapseOne)
         nestedTrigger.click()
-        collapseOne.removeEventListener('shown.bs.collapse', handlerCollapseOne)
+        collapseOne.removeEventListener('shown.coreui.collapse', handlerCollapseOne)
       }
 
       function handlerNestedCollapseOne() {
@@ -686,7 +686,7 @@ describe('Collapse', () => {
         expect(collapseTwo.classList.contains('show')).toEqual(false)
         expect(nestedCollapseOne.classList.contains('show')).toEqual(true)
 
-        collapseTwo.addEventListener('shown.bs.collapse', () => {
+        collapseTwo.addEventListener('shown.coreui.collapse', () => {
           expect(collapseOne.classList.contains('show')).toEqual(false)
           expect(collapseTwo.classList.contains('show')).toEqual(true)
           expect(nestedCollapseOne.classList.contains('show')).toEqual(true)
@@ -694,18 +694,18 @@ describe('Collapse', () => {
         })
 
         triggerTwo.click()
-        nestedCollapseOne.removeEventListener('shown.bs.collapse', handlerNestedCollapseOne)
+        nestedCollapseOne.removeEventListener('shown.coreui.collapse', handlerNestedCollapseOne)
       }
 
-      collapseOne.addEventListener('shown.bs.collapse', handlerCollapseOne)
+      collapseOne.addEventListener('shown.coreui.collapse', handlerCollapseOne)
       trigger.click()
     })
 
     it('should add "collapsed" class and set aria-expanded to triggers only when all the targeted collapse are hidden', done => {
       fixtureEl.innerHTML = [
-        '<a id="trigger1" role="button" data-bs-toggle="collapse" href="#test1"></a>',
-        '<a id="trigger2" role="button" data-bs-toggle="collapse" href="#test2"></a>',
-        '<a id="trigger3" role="button" data-bs-toggle="collapse" href=".multi"></a>',
+        '<a id="trigger1" role="button" data-coreui-toggle="collapse" href="#test1"></a>',
+        '<a id="trigger2" role="button" data-coreui-toggle="collapse" href="#test2"></a>',
+        '<a id="trigger3" role="button" data-coreui-toggle="collapse" href=".multi"></a>',
         '<div id="test1" class="multi"></div>',
         '<div id="test2" class="multi"></div>'
       ].join('')
@@ -726,7 +726,7 @@ describe('Collapse', () => {
         expect(trigger3.classList.contains('collapsed')).toEqual(false)
         expect(trigger3.getAttribute('aria-expanded')).toEqual('true')
 
-        target2.addEventListener('hidden.bs.collapse', () => {
+        target2.addEventListener('hidden.coreui.collapse', () => {
           expect(trigger1.classList.contains('collapsed')).toEqual(false)
           expect(trigger1.getAttribute('aria-expanded')).toEqual('true')
 
@@ -736,7 +736,7 @@ describe('Collapse', () => {
           expect(trigger3.classList.contains('collapsed')).toEqual(false)
           expect(trigger3.getAttribute('aria-expanded')).toEqual('true')
 
-          target1.addEventListener('hidden.bs.collapse', () => {
+          target1.addEventListener('hidden.coreui.collapse', () => {
             expect(trigger1.classList.contains('collapsed')).toEqual(true)
             expect(trigger1.getAttribute('aria-expanded')).toEqual('false')
 
@@ -754,7 +754,7 @@ describe('Collapse', () => {
         trigger2.click()
       }
 
-      target2.addEventListener('shown.bs.collapse', target2Shown)
+      target2.addEventListener('shown.coreui.collapse', target2Shown)
       trigger3.click()
     })
   })

@@ -23,7 +23,7 @@ describe('Alert', () => {
     it('should close an alert without instantiating it manually', () => {
       fixtureEl.innerHTML = [
         '<div class="alert">',
-        '  <button type="button" data-bs-dismiss="alert">x</button>',
+        '  <button type="button" data-coreui-dismiss="alert">x</button>',
         '</div>'
       ].join('')
 
@@ -36,7 +36,7 @@ describe('Alert', () => {
     it('should close an alert without instantiating it manually with the parent selector', () => {
       fixtureEl.innerHTML = [
         '<div class="alert">',
-        '  <button type="button" data-bs-target=".alert" data-bs-dismiss="alert">x</button>',
+        '  <button type="button" data-coreui-target=".alert" data-coreui-dismiss="alert">x</button>',
         '</div>'
       ].join('')
 
@@ -55,7 +55,7 @@ describe('Alert', () => {
       const alertEl = document.querySelector('.alert')
       const alert = new Alert(alertEl)
 
-      alertEl.addEventListener('closed.bs.alert', () => {
+      alertEl.addEventListener('closed.coreui.alert', () => {
         expect(document.querySelectorAll('.alert').length).toEqual(0)
         expect(spy).not.toHaveBeenCalled()
         done()
@@ -74,7 +74,7 @@ describe('Alert', () => {
         expect().nothing()
       })
 
-      alertEl.addEventListener('closed.bs.alert', () => {
+      alertEl.addEventListener('closed.coreui.alert', () => {
         expect(document.querySelectorAll('.alert').length).toEqual(0)
         done()
       })
@@ -97,12 +97,12 @@ describe('Alert', () => {
 
       spyOn(alert, '_removeElement')
 
-      alertEl.addEventListener('close.bs.alert', event => {
+      alertEl.addEventListener('close.coreui.alert', event => {
         event.preventDefault()
         endTest()
       })
 
-      alertEl.addEventListener('closed.bs.alert', () => {
+      alertEl.addEventListener('closed.coreui.alert', () => {
         endTest()
       })
 

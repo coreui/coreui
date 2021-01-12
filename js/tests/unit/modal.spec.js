@@ -29,7 +29,7 @@ describe('Modal', () => {
 
     document.body.classList.remove('modal-open')
     document.body.removeAttribute('style')
-    document.body.removeAttribute('data-bs-padding-right')
+    document.body.removeAttribute('data-coreui-padding-right')
 
     document.querySelectorAll('.modal-backdrop')
       .forEach(backdrop => {
@@ -66,13 +66,13 @@ describe('Modal', () => {
 
       document.body.style.paddingRight = originalPadding
 
-      modalEl.addEventListener('shown.bs.modal', () => {
-        expect(document.body.getAttribute('data-bs-padding-right')).toEqual(originalPadding, 'original body padding should be stored in data-bs-padding-right')
+      modalEl.addEventListener('shown.coreui.modal', () => {
+        expect(document.body.getAttribute('data-coreui-padding-right')).toEqual(originalPadding, 'original body padding should be stored in data-coreui-padding-right')
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
-        expect(document.body.getAttribute('data-bs-padding-right')).toBeNull()
+      modalEl.addEventListener('hidden.coreui.modal', () => {
+        expect(document.body.getAttribute('data-coreui-padding-right')).toBeNull()
         expect().nothing()
         done()
       })
@@ -91,19 +91,19 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const expectedPadding = originalPadding + modal._getScrollbarWidth()
         const currentPadding = Number.parseInt(window.getComputedStyle(modalEl).paddingRight, 10)
 
-        expect(fixedEl.getAttribute('data-bs-padding-right')).toEqual('0px', 'original fixed element padding should be stored in data-bs-padding-right')
+        expect(fixedEl.getAttribute('data-coreui-padding-right')).toEqual('0px', 'original fixed element padding should be stored in data-coreui-padding-right')
         expect(currentPadding).toEqual(expectedPadding, 'fixed element padding should be adjusted while opening')
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         const currentPadding = Number.parseInt(window.getComputedStyle(modalEl).paddingRight, 10)
 
-        expect(fixedEl.getAttribute('data-bs-padding-right')).toEqual(null, 'data-bs-padding-right should be cleared after closing')
+        expect(fixedEl.getAttribute('data-coreui-padding-right')).toEqual(null, 'data-coreui-padding-right should be cleared after closing')
         expect(currentPadding).toEqual(originalPadding, 'fixed element padding should be reset after closing')
         done()
       })
@@ -122,19 +122,19 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const expectedMargin = originalMargin - modal._getScrollbarWidth()
         const currentMargin = Number.parseInt(window.getComputedStyle(stickyTopEl).marginRight, 10)
 
-        expect(stickyTopEl.getAttribute('data-bs-margin-right')).toEqual('0px', 'original sticky element margin should be stored in data-bs-margin-right')
+        expect(stickyTopEl.getAttribute('data-coreui-margin-right')).toEqual('0px', 'original sticky element margin should be stored in data-coreui-margin-right')
         expect(currentMargin).toEqual(expectedMargin, 'sticky element margin should be adjusted while opening')
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         const currentMargin = Number.parseInt(window.getComputedStyle(stickyTopEl).marginRight, 10)
 
-        expect(stickyTopEl.getAttribute('data-bs-margin-right')).toEqual(null, 'data-bs-margin-right should be cleared after closing')
+        expect(stickyTopEl.getAttribute('data-coreui-margin-right')).toEqual(null, 'data-coreui-margin-right should be cleared after closing')
         expect(currentMargin).toEqual(originalMargin, 'sticky element margin should be reset after closing')
         done()
       })
@@ -153,11 +153,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(window.getComputedStyle(document.body).paddingLeft).toEqual('0px', 'body does not have inline padding set')
         document.head.removeChild(styleTest)
         done()
@@ -179,11 +179,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         const bodyPaddingRight = document.body.style.paddingRight
 
         expect(bodyPaddingRight === '0px' || bodyPaddingRight === '').toEqual(true, 'body does not have inline padding set')
@@ -204,11 +204,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modal.toggle()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(document.body.style.paddingRight).toEqual('5%')
         document.body.removeAttribute('style')
         done()
@@ -225,11 +225,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('show.bs.modal', e => {
+      modalEl.addEventListener('show.coreui.modal', e => {
         expect(e).toBeDefined()
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual('true')
         expect(modalEl.getAttribute('role')).toEqual('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toEqual(null)
@@ -249,11 +249,11 @@ describe('Modal', () => {
         backdrop: false
       })
 
-      modalEl.addEventListener('show.bs.modal', e => {
+      modalEl.addEventListener('show.coreui.modal', e => {
         expect(e).toBeDefined()
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual('true')
         expect(modalEl.getAttribute('role')).toEqual('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toEqual(null)
@@ -275,7 +275,7 @@ describe('Modal', () => {
 
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const dynamicModal = document.getElementById(id)
         expect(dynamicModal).toBeDefined()
         dynamicModal.parentNode.removeChild(dynamicModal)
@@ -319,7 +319,7 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('show.bs.modal', e => {
+      modalEl.addEventListener('show.coreui.modal', e => {
         e.preventDefault()
 
         const expectedDone = () => {
@@ -330,7 +330,7 @@ describe('Modal', () => {
         setTimeout(expectedDone, 10)
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         throw new Error('shown event triggered')
       })
 
@@ -343,11 +343,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('show.bs.modal', () => {
+      modalEl.addEventListener('show.coreui.modal', () => {
         expect(modal._isTransitioning).toEqual(true)
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modal._isTransitioning).toEqual(false)
         done()
       })
@@ -355,28 +355,28 @@ describe('Modal', () => {
       modal.show()
     })
 
-    it('should close modal when a click occurred on data-bs-dismiss="modal"', done => {
+    it('should close modal when a click occurred on data-coreui-dismiss="modal"', done => {
       fixtureEl.innerHTML = [
         '<div class="modal fade">',
         '  <div class="modal-dialog">',
         '    <div class="modal-header">',
-        '      <button type="button" data-bs-dismiss="modal"></button>',
+        '      <button type="button" data-coreui-dismiss="modal"></button>',
         '    </div>',
         '  </div>',
         '</div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const btnClose = fixtureEl.querySelector('[data-bs-dismiss="modal"]')
+      const btnClose = fixtureEl.querySelector('[data-coreui-dismiss="modal"]')
       const modal = new Modal(modalEl)
 
       spyOn(modal, 'hide').and.callThrough()
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         btnClose.click()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(modal.hide).toHaveBeenCalled()
         done()
       })
@@ -395,7 +395,7 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalEl.scrollTop).toEqual(0)
         done()
       })
@@ -416,7 +416,7 @@ describe('Modal', () => {
       const modalBody = modalEl.querySelector('.modal-body')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalBody.scrollTop).toEqual(0)
         done()
       })
@@ -434,7 +434,7 @@ describe('Modal', () => {
 
       spyOn(modal, '_enforceFocus')
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modal._enforceFocus).not.toHaveBeenCalled()
         done()
       })
@@ -450,14 +450,14 @@ describe('Modal', () => {
 
       spyOn(modal, 'hide').and.callThrough()
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const keydownEscape = createEvent('keydown')
         keydownEscape.key = 'Escape'
 
         modalEl.dispatchEvent(keydownEscape)
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(modal.hide).toHaveBeenCalled()
         done()
       })
@@ -479,7 +479,7 @@ describe('Modal', () => {
         done()
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const keydownTab = createEvent('keydown')
         keydownTab.key = 'Tab'
 
@@ -504,7 +504,7 @@ describe('Modal', () => {
         done()
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const resizeEvent = createEvent('resize')
 
         window.dispatchEvent(resizeEvent)
@@ -529,12 +529,12 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modalEl.click()
         shownCallback()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         throw new Error('Should not hide a modal')
       })
 
@@ -542,7 +542,7 @@ describe('Modal', () => {
     })
 
     it('should not close modal when clicking outside of modal-content if backdrop = static', done => {
-      fixtureEl.innerHTML = '<div class="modal" data-bs-backdrop="static" ><div class="modal-dialog"></div></div>'
+      fixtureEl.innerHTML = '<div class="modal" data-coreui-backdrop="static" ><div class="modal-dialog"></div></div>'
 
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl, {
@@ -556,12 +556,12 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modalEl.click()
         shownCallback()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         throw new Error('Should not hide a modal')
       })
 
@@ -569,7 +569,7 @@ describe('Modal', () => {
     })
 
     it('should close modal when escape key is pressed with keyboard = true and backdrop is static', done => {
-      fixtureEl.innerHTML = '<div class="modal" data-bs-backdrop="static"><div class="modal-dialog"></div></div>'
+      fixtureEl.innerHTML = '<div class="modal" data-coreui-backdrop="static"><div class="modal-dialog"></div></div>'
 
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl, {
@@ -584,7 +584,7 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const keydownEscape = createEvent('keydown')
         keydownEscape.key = 'Escape'
 
@@ -610,7 +610,7 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const keydownEscape = createEvent('keydown')
         keydownEscape.key = 'Escape'
 
@@ -618,7 +618,7 @@ describe('Modal', () => {
         shownCallback()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         throw new Error('Should not hide a modal')
       })
 
@@ -626,14 +626,14 @@ describe('Modal', () => {
     })
 
     it('should not overflow when clicking outside of modal-content if backdrop = static', done => {
-      fixtureEl.innerHTML = '<div class="modal" data-bs-backdrop="static"><div class="modal-dialog" style="transition-duration: 20ms;"></div></div>'
+      fixtureEl.innerHTML = '<div class="modal" data-coreui-backdrop="static"><div class="modal-dialog" style="transition-duration: 20ms;"></div></div>'
 
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl, {
         backdrop: 'static'
       })
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modalEl.click()
         setTimeout(() => {
           expect(modalEl.clientHeight).toEqual(modalEl.scrollHeight)
@@ -655,7 +655,7 @@ describe('Modal', () => {
       document.body.style.overflow = 'hidden'
       document.documentElement.style.paddingRight = '0px'
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const currentPadding = window.getComputedStyle(document.body).paddingRight
 
         expect(currentPadding).toEqual(originalPadding, 'body padding should not be adjusted')
@@ -686,7 +686,7 @@ describe('Modal', () => {
       // as it can occur when zooming or scaling the display to something else than 100%
       document.documentElement.style.paddingRight = '.48px'
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const currentPadding = window.getComputedStyle(document.body).paddingRight
 
         expect(currentPadding).toEqual(originalPadding, 'body padding should not be adjusted')
@@ -715,7 +715,7 @@ describe('Modal', () => {
         done()
       }
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modal._enforceFocus).toHaveBeenCalled()
 
         spyOn(modal._element, 'focus')
@@ -741,15 +741,15 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modal.hide()
       })
 
-      modalEl.addEventListener('hide.bs.modal', e => {
+      modalEl.addEventListener('hide.coreui.modal', e => {
         expect(e).toBeDefined()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual(null)
         expect(modalEl.getAttribute('role')).toEqual(null)
         expect(modalEl.getAttribute('aria-hidden')).toEqual('true')
@@ -767,11 +767,11 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modalEl.click()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual(null)
         expect(modalEl.getAttribute('role')).toEqual(null)
         expect(modalEl.getAttribute('aria-hidden')).toEqual('true')
@@ -812,7 +812,7 @@ describe('Modal', () => {
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         modal.hide()
       })
 
@@ -823,12 +823,12 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('hide.bs.modal', e => {
+      modalEl.addEventListener('hide.coreui.modal', e => {
         e.preventDefault()
         hideCallback()
       })
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         throw new Error('should not trigger hidden')
       })
 
@@ -872,14 +872,14 @@ describe('Modal', () => {
   describe('data-api', () => {
     it('should open modal', done => {
       fixtureEl.innerHTML = [
-        '<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>',
+        '<button type="button" data-coreui-toggle="modal" data-coreui-target="#exampleModal"></button>',
         '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual('true')
         expect(modalEl.getAttribute('role')).toEqual('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toEqual(null)
@@ -893,17 +893,17 @@ describe('Modal', () => {
 
     it('should not recreate a new modal', done => {
       fixtureEl.innerHTML = [
-        '<button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"></button>',
+        '<button type="button" data-coreui-toggle="modal" data-coreui-target="#exampleModal"></button>',
         '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
       const modal = new Modal(modalEl)
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
       spyOn(modal, 'show').and.callThrough()
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modal.show).toHaveBeenCalled()
         done()
       })
@@ -913,16 +913,16 @@ describe('Modal', () => {
 
     it('should prevent default when the trigger is <a> or <area>', done => {
       fixtureEl.innerHTML = [
-        '<a data-bs-toggle="modal" href="#" data-bs-target="#exampleModal"></a>',
+        '<a data-coreui-toggle="modal" href="#" data-coreui-target="#exampleModal"></a>',
         '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
       spyOn(Event.prototype, 'preventDefault').and.callThrough()
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         expect(modalEl.getAttribute('aria-modal')).toEqual('true')
         expect(modalEl.getAttribute('role')).toEqual('dialog')
         expect(modalEl.getAttribute('aria-hidden')).toEqual(null)
@@ -937,16 +937,16 @@ describe('Modal', () => {
 
     it('should focus the trigger on hide', done => {
       fixtureEl.innerHTML = [
-        '<a data-bs-toggle="modal" href="#" data-bs-target="#exampleModal"></a>',
+        '<a data-coreui-toggle="modal" href="#" data-coreui-target="#exampleModal"></a>',
         '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
       spyOn(trigger, 'focus')
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const modal = Modal.getInstance(modalEl)
 
         modal.hide()
@@ -959,7 +959,7 @@ describe('Modal', () => {
         }, 20)
       }
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         hideListener()
       })
 
@@ -968,16 +968,16 @@ describe('Modal', () => {
 
     it('should not focus the trigger if the modal is not visible', done => {
       fixtureEl.innerHTML = [
-        '<a data-bs-toggle="modal" href="#" data-bs-target="#exampleModal" style="display: none;"></a>',
+        '<a data-coreui-toggle="modal" href="#" data-coreui-target="#exampleModal" style="display: none;"></a>',
         '<div id="exampleModal" class="modal" style="display: none;"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
       spyOn(trigger, 'focus')
 
-      modalEl.addEventListener('shown.bs.modal', () => {
+      modalEl.addEventListener('shown.coreui.modal', () => {
         const modal = Modal.getInstance(modalEl)
 
         modal.hide()
@@ -990,7 +990,7 @@ describe('Modal', () => {
         }, 20)
       }
 
-      modalEl.addEventListener('hidden.bs.modal', () => {
+      modalEl.addEventListener('hidden.coreui.modal', () => {
         hideListener()
       })
 
@@ -999,12 +999,12 @@ describe('Modal', () => {
 
     it('should not focus the trigger if the modal is not shown', done => {
       fixtureEl.innerHTML = [
-        '<a data-bs-toggle="modal" href="#" data-bs-target="#exampleModal"></a>',
+        '<a data-coreui-toggle="modal" href="#" data-coreui-target="#exampleModal"></a>',
         '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
       ].join('')
 
       const modalEl = fixtureEl.querySelector('.modal')
-      const trigger = fixtureEl.querySelector('[data-bs-toggle="modal"]')
+      const trigger = fixtureEl.querySelector('[data-coreui-toggle="modal"]')
 
       spyOn(trigger, 'focus')
 
@@ -1015,7 +1015,7 @@ describe('Modal', () => {
         }, 10)
       }
 
-      modalEl.addEventListener('show.bs.modal', e => {
+      modalEl.addEventListener('show.coreui.modal', e => {
         e.preventDefault()
         showListener()
       })
@@ -1085,7 +1085,7 @@ describe('Modal', () => {
     })
 
     it('should not call show method', () => {
-      fixtureEl.innerHTML = '<div class="modal" data-bs-show="false"><div class="modal-dialog"></div></div>'
+      fixtureEl.innerHTML = '<div class="modal" data-coreui-show="false"><div class="modal-dialog"></div></div>'
 
       const div = fixtureEl.querySelector('div')
 

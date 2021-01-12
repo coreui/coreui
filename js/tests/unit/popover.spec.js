@@ -40,7 +40,7 @@ describe('Popover', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Popover.DATA_KEY).toEqual('bs.popover')
+      expect(Popover.DATA_KEY).toEqual('coreui.popover')
     })
   })
 
@@ -52,7 +52,7 @@ describe('Popover', () => {
 
   describe('EVENT_KEY', () => {
     it('should return plugin event key', () => {
-      expect(Popover.EVENT_KEY).toEqual('.bs.popover')
+      expect(Popover.EVENT_KEY).toEqual('.coreui.popover')
     })
   })
 
@@ -64,12 +64,12 @@ describe('Popover', () => {
 
   describe('show', () => {
     it('should show a popover', done => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         expect(document.querySelector('.popover')).toBeDefined()
         done()
       })
@@ -86,7 +86,7 @@ describe('Popover', () => {
         content: () => 'loves writing tests （╯°□°）╯︵ ┻━┻'
       })
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).toBeDefined()
@@ -106,7 +106,7 @@ describe('Popover', () => {
         content: 'Popover content'
       })
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).toBeDefined()
@@ -118,12 +118,12 @@ describe('Popover', () => {
     })
 
     it('should show a popover with provided custom class', done => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap" data-bs-custom-class="custom-class">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap" data-coreui-custom-class="custom-class">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         const tip = document.querySelector('.popover')
         expect(tip).toBeDefined()
         expect(tip.classList.contains('custom-class')).toBeTrue()
@@ -136,16 +136,16 @@ describe('Popover', () => {
 
   describe('hide', () => {
     it('should hide a popover', done => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         popover.hide()
       })
 
-      popoverEl.addEventListener('hidden.bs.popover', () => {
+      popoverEl.addEventListener('hidden.coreui.popover', () => {
         expect(document.querySelector('.popover')).toBeNull()
         done()
       })
@@ -156,7 +156,7 @@ describe('Popover', () => {
 
   describe('jQueryInterface', () => {
     it('should create a popover', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
 
@@ -184,7 +184,7 @@ describe('Popover', () => {
     })
 
     it('should not re create a popover', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
@@ -198,7 +198,7 @@ describe('Popover', () => {
     })
 
     it('should throw error on undefined method', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const action = 'undefinedMethod'
@@ -214,7 +214,7 @@ describe('Popover', () => {
     })
 
     it('should should call show method', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
@@ -230,7 +230,7 @@ describe('Popover', () => {
     })
 
     it('should do nothing if dipose is called when a popover do not exist', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
 
@@ -247,7 +247,7 @@ describe('Popover', () => {
 
   describe('getInstance', () => {
     it('should return popover instance', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
       const popover = new Popover(popoverEl)
@@ -257,7 +257,7 @@ describe('Popover', () => {
     })
 
     it('should return null when there is no popover instance', () => {
-      fixtureEl.innerHTML = '<a href="#" title="Popover" data-bs-content="https://twitter.com/getbootstrap">BS twitter</a>'
+      fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://twitter.com/getbootstrap">BS twitter</a>'
 
       const popoverEl = fixtureEl.querySelector('a')
 

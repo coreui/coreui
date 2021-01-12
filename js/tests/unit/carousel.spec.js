@@ -64,7 +64,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, '_keydown').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(fixtureEl.querySelector('.active')).toEqual(fixtureEl.querySelector('#item2'))
         expect(carousel._keydown).toHaveBeenCalled()
         done()
@@ -94,7 +94,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, '_keydown').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(fixtureEl.querySelector('.active')).toEqual(fixtureEl.querySelector('#item1'))
         expect(carousel._keydown).toHaveBeenCalled()
         done()
@@ -206,7 +206,7 @@ describe('Carousel', () => {
         return carouselEl.querySelector('.carousel-item.active').getAttribute('id')
       }
 
-      carouselEl.addEventListener('slid.bs.carousel', e => {
+      carouselEl.addEventListener('slid.coreui.carousel', e => {
         const activeId = getActiveId()
 
         if (activeId === 'two') {
@@ -245,7 +245,7 @@ describe('Carousel', () => {
       const firstElement = fixtureEl.querySelector('#one')
       const carousel = new Carousel(carouselEl, { wrap: false })
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         throw new Error('carousel slid when it should not have slid')
       })
 
@@ -313,7 +313,7 @@ describe('Carousel', () => {
       Simulator.setType('pointer')
 
       fixtureEl.innerHTML = [
-        '<div class="carousel" data-bs-interval="false">',
+        '<div class="carousel" data-coreui-interval="false">',
         '  <div class="carousel-inner">',
         '    <div id="item" class="carousel-item">',
         '      <img alt="">',
@@ -331,7 +331,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, 'prev').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(item.classList.contains('active')).toEqual(true)
         expect(carousel.prev).toHaveBeenCalled()
         document.head.removeChild(stylesCarousel)
@@ -357,7 +357,7 @@ describe('Carousel', () => {
       Simulator.setType('pointer')
 
       fixtureEl.innerHTML = [
-        '<div class="carousel" data-bs-interval="false">',
+        '<div class="carousel" data-coreui-interval="false">',
         '  <div class="carousel-inner">',
         '    <div id="item" class="carousel-item active">',
         '      <img alt="">',
@@ -375,7 +375,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, 'next').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(item.classList.contains('active')).toEqual(false)
         expect(carousel.next).toHaveBeenCalled()
         document.head.removeChild(stylesCarousel)
@@ -396,7 +396,7 @@ describe('Carousel', () => {
       document.documentElement.ontouchstart = () => {}
 
       fixtureEl.innerHTML = [
-        '<div class="carousel" data-bs-interval="false">',
+        '<div class="carousel" data-coreui-interval="false">',
         '  <div class="carousel-inner">',
         '    <div id="item" class="carousel-item">',
         '      <img alt="">',
@@ -414,7 +414,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, 'prev').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(item.classList.contains('active')).toEqual(true)
         expect(carousel.prev).toHaveBeenCalled()
         delete document.documentElement.ontouchstart
@@ -434,7 +434,7 @@ describe('Carousel', () => {
       document.documentElement.ontouchstart = () => {}
 
       fixtureEl.innerHTML = [
-        '<div class="carousel" data-bs-interval="false">',
+        '<div class="carousel" data-coreui-interval="false">',
         '  <div class="carousel-inner">',
         '    <div id="item" class="carousel-item active">',
         '      <img alt="">',
@@ -452,7 +452,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, 'next').and.callThrough()
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(item.classList.contains('active')).toEqual(false)
         expect(carousel.next).toHaveBeenCalled()
         delete document.documentElement.ontouchstart
@@ -472,7 +472,7 @@ describe('Carousel', () => {
       clearPointerEvents()
       document.documentElement.ontouchstart = () => {}
 
-      fixtureEl.innerHTML = '<div class="carousel" data-bs-interval="false"></div>'
+      fixtureEl.innerHTML = '<div class="carousel" data-coreui-interval="false"></div>'
 
       const carouselEl = fixtureEl.querySelector('.carousel')
       const carousel = new Carousel(carouselEl)
@@ -554,12 +554,12 @@ describe('Carousel', () => {
         }, 20)
       }
 
-      carouselEl.addEventListener('slide.bs.carousel', e => {
+      carouselEl.addEventListener('slide.coreui.carousel', e => {
         e.preventDefault()
         doneTest()
       })
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         slidEvent = true
       })
 
@@ -586,8 +586,8 @@ describe('Carousel', () => {
         expect(e.from).toEqual(0)
         expect(e.to).toEqual(1)
 
-        carouselEl.removeEventListener('slide.bs.carousel', onSlide)
-        carouselEl.addEventListener('slide.bs.carousel', onSlide2)
+        carouselEl.removeEventListener('slide.coreui.carousel', onSlide)
+        carouselEl.addEventListener('slide.coreui.carousel', onSlide2)
 
         carousel.prev()
       }
@@ -597,7 +597,7 @@ describe('Carousel', () => {
         done()
       }
 
-      carouselEl.addEventListener('slide.bs.carousel', onSlide)
+      carouselEl.addEventListener('slide.coreui.carousel', onSlide)
       carousel.next()
     })
 
@@ -621,8 +621,8 @@ describe('Carousel', () => {
         expect(e.from).toEqual(0)
         expect(e.to).toEqual(1)
 
-        carouselEl.removeEventListener('slid.bs.carousel', onSlid)
-        carouselEl.addEventListener('slid.bs.carousel', onSlid2)
+        carouselEl.removeEventListener('slid.coreui.carousel', onSlid)
+        carouselEl.addEventListener('slid.coreui.carousel', onSlid2)
 
         carousel.prev()
       }
@@ -632,7 +632,7 @@ describe('Carousel', () => {
         done()
       }
 
-      carouselEl.addEventListener('slid.bs.carousel', onSlid)
+      carouselEl.addEventListener('slid.coreui.carousel', onSlid)
       carousel.next()
     })
 
@@ -660,13 +660,13 @@ describe('Carousel', () => {
       fixtureEl.innerHTML = [
         '<div id="myCarousel" class="carousel slide">',
         '  <ol class="carousel-indicators">',
-        '    <li data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></li>',
-        '    <li id="secondIndicator" data-bs-target="#myCarousel" data-bs-slide-to="1"></li>',
-        '    <li data-bs-target="#myCarousel" data-bs-slide-to="2"></li>',
+        '    <li data-coreui-target="#myCarousel" data-coreui-slide-to="0" class="active"></li>',
+        '    <li id="secondIndicator" data-coreui-target="#myCarousel" data-coreui-slide-to="1"></li>',
+        '    <li data-coreui-target="#myCarousel" data-coreui-slide-to="2"></li>',
         '  </ol>',
         '  <div class="carousel-inner">',
         '    <div class="carousel-item active">item 1</div>',
-        '    <div class="carousel-item" data-bs-interval="7">item 2</div>',
+        '    <div class="carousel-item" data-coreui-interval="7">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -676,7 +676,7 @@ describe('Carousel', () => {
       const secondIndicator = fixtureEl.querySelector('#secondIndicator')
       const carousel = new Carousel(carouselEl)
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(secondIndicator.classList.contains('active')).toEqual(true)
         done()
       })
@@ -689,7 +689,7 @@ describe('Carousel', () => {
     it('should not call next when the page is not visible', () => {
       fixtureEl.innerHTML = [
         '<div style="display: none;">',
-        '  <div class="carousel" data-bs-interval="false"></div>',
+        '  <div class="carousel" data-coreui-interval="false"></div>',
         '</div>'
       ].join('')
 
@@ -878,8 +878,8 @@ describe('Carousel', () => {
       fixtureEl.innerHTML = [
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
-        '    <div class="carousel-item active" data-bs-interval="7">item 1</div>',
-        '    <div id="secondItem" class="carousel-item" data-bs-interval="9385">item 2</div>',
+        '    <div class="carousel-item active" data-coreui-interval="7">item 1</div>',
+        '    <div id="secondItem" class="carousel-item" data-coreui-interval="9385">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -923,7 +923,7 @@ describe('Carousel', () => {
 
       carousel.to(2)
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(fixtureEl.querySelector('.active')).toEqual(fixtureEl.querySelector('#item3'))
         done()
       })
@@ -947,7 +947,7 @@ describe('Carousel', () => {
 
       carousel.to(1)
 
-      carouselEl.addEventListener('slid.bs.carousel', () => {
+      carouselEl.addEventListener('slid.coreui.carousel', () => {
         expect(fixtureEl.querySelector('.active')).toEqual(fixtureEl.querySelector('#item2'))
         done()
       })
@@ -958,7 +958,7 @@ describe('Carousel', () => {
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
         '    <div class="carousel-item active">item 1</div>',
-        '    <div class="carousel-item" data-bs-interval="7">item 2</div>',
+        '    <div class="carousel-item" data-coreui-interval="7">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -985,7 +985,7 @@ describe('Carousel', () => {
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
         '    <div class="carousel-item active">item 1</div>',
-        '    <div class="carousel-item" data-bs-interval="7">item 2</div>',
+        '    <div class="carousel-item" data-coreui-interval="7">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -1010,7 +1010,7 @@ describe('Carousel', () => {
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
         '    <div class="carousel-item active">item 1</div>',
-        '    <div class="carousel-item" data-bs-interval="7">item 2</div>',
+        '    <div class="carousel-item" data-coreui-interval="7">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -1030,7 +1030,7 @@ describe('Carousel', () => {
 
       spyOn(carousel, 'to')
 
-      EventHandler.trigger(carouselEl, 'slid.bs.carousel')
+      EventHandler.trigger(carouselEl, 'slid.coreui.carousel')
 
       setTimeout(() => {
         expect(carousel.to).toHaveBeenCalledWith(1)
@@ -1045,7 +1045,7 @@ describe('Carousel', () => {
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
         '    <div class="carousel-item active">item 1</div>',
-        '    <div class="carousel-item" data-bs-interval="7">item 2</div>',
+        '    <div class="carousel-item" data-coreui-interval="7">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
         '</div>'
@@ -1145,8 +1145,8 @@ describe('Carousel', () => {
   })
 
   describe('data-api', () => {
-    it('should init carousels with data-bs-ride="carousel" on load', () => {
-      fixtureEl.innerHTML = '<div data-bs-ride="carousel"></div>'
+    it('should init carousels with data-coreui-ride="carousel" on load', () => {
+      fixtureEl.innerHTML = '<div data-coreui-ride="carousel"></div>'
 
       const carouselEl = fixtureEl.querySelector('div')
       const loadEvent = createEvent('load')
@@ -1164,8 +1164,8 @@ describe('Carousel', () => {
         '    <div id="item2" class="carousel-item">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
-        '  <div class="carousel-control-prev" data-bs-target="#myCarousel" role="button" data-bs-slide="prev"></div>',
-        '  <div id="next" class="carousel-control-next" data-bs-target="#myCarousel" role="button" data-bs-slide="next"></div>',
+        '  <div class="carousel-control-prev" data-coreui-target="#myCarousel" role="button" data-coreui-slide="prev"></div>',
+        '  <div id="next" class="carousel-control-next" data-coreui-target="#myCarousel" role="button" data-coreui-slide="next"></div>',
         '</div>'
       ].join('')
 
@@ -1180,7 +1180,7 @@ describe('Carousel', () => {
       }, 10)
     })
 
-    it('should create carousel and go to the next slide on click with data-bs-slide-to', done => {
+    it('should create carousel and go to the next slide on click with data-coreui-slide-to', done => {
       fixtureEl.innerHTML = [
         '<div id="myCarousel" class="carousel slide">',
         '  <div class="carousel-inner">',
@@ -1188,7 +1188,7 @@ describe('Carousel', () => {
         '    <div id="item2" class="carousel-item">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
-        '  <div id="next" data-bs-target="#myCarousel" data-bs-slide-to="1"></div>',
+        '  <div id="next" data-coreui-target="#myCarousel" data-coreui-slide-to="1"></div>',
         '</div>'
       ].join('')
 
@@ -1211,8 +1211,8 @@ describe('Carousel', () => {
         '    <div class="carousel-item">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
-        '  <div class="carousel-control-prev" data-bs-target="#myCarousel" role="button" data-bs-slide="prev"></div>',
-        '  <div id="next" class="carousel-control-next" role="button" data-bs-slide="next"></div>',
+        '  <div class="carousel-control-prev" data-coreui-target="#myCarousel" role="button" data-coreui-slide="prev"></div>',
+        '  <div id="next" class="carousel-control-next" role="button" data-coreui-slide="next"></div>',
         '</div>'
       ].join('')
 
@@ -1231,8 +1231,8 @@ describe('Carousel', () => {
         '    <div id="item2" class="carousel-item">item 2</div>',
         '    <div class="carousel-item">item 3</div>',
         '  </div>',
-        '  <div class="carousel-control-prev" data-bs-target="#myCarousel" role="button" data-bs-slide="prev"></div>',
-        '  <div id="next" class="carousel-control-next" data-bs-target="#myCarousel" role="button" data-bs-slide="next"></div>',
+        '  <div class="carousel-control-prev" data-coreui-target="#myCarousel" role="button" data-coreui-slide="prev"></div>',
+        '  <div id="next" class="carousel-control-next" data-coreui-target="#myCarousel" role="button" data-coreui-slide="next"></div>',
         '</div>'
       ].join('')
 

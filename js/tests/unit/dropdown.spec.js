@@ -34,7 +34,7 @@ describe('Dropdown', () => {
   })
 
   describe('constructor', () => {
-    it('should add a listener on trigger which do not have data-bs-toggle="dropdown"', () => {
+    it('should add a listener on trigger which do not have data-coreui-toggle="dropdown"', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
         '  <button class="btn">Dropdown</button>',
@@ -57,14 +57,14 @@ describe('Dropdown', () => {
     it('should allow to pass config to Popper with `popperConfig`', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown, {
         popperConfig: {
           placement: 'left'
@@ -81,18 +81,18 @@ describe('Dropdown', () => {
     it('should toggle a dropdown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -104,13 +104,13 @@ describe('Dropdown', () => {
     it('should destroy old popper references on toggle', done => {
       fixtureEl.innerHTML = [
         '<div class="first dropdown">',
-        '  <button class="firstBtn btn" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="firstBtn btn" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>',
         '<div class="second dropdown">',
-        '  <button class="secondBtn btn" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="secondBtn btn" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
@@ -124,13 +124,13 @@ describe('Dropdown', () => {
       const dropdown1 = new Dropdown(btnDropdown1)
       const dropdown2 = new Dropdown(btnDropdown2)
 
-      firstDropdownEl.addEventListener('shown.bs.dropdown', () => {
+      firstDropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown1.classList.contains('show')).toEqual(true)
         spyOn(dropdown1._popper, 'destroy')
         dropdown2.toggle()
       })
 
-      secondDropdownEl.addEventListener('shown.bs.dropdown', () => {
+      secondDropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(dropdown1._popper.destroy).toHaveBeenCalled()
         done()
       })
@@ -141,7 +141,7 @@ describe('Dropdown', () => {
     it('should toggle a dropdown and add/remove event listener on mobile', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
@@ -149,7 +149,7 @@ describe('Dropdown', () => {
       ].join('')
 
       const defaultValueOnTouchStart = document.documentElement.ontouchstart
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
@@ -157,7 +157,7 @@ describe('Dropdown', () => {
       spyOn(EventHandler, 'on')
       spyOn(EventHandler, 'off')
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         expect(EventHandler.on).toHaveBeenCalled()
@@ -165,7 +165,7 @@ describe('Dropdown', () => {
         dropdown.toggle()
       })
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(false)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
         expect(EventHandler.off).toHaveBeenCalled()
@@ -180,18 +180,18 @@ describe('Dropdown', () => {
     it('should toggle a dropdown at the right', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu dropdown-menu-end">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -203,18 +203,18 @@ describe('Dropdown', () => {
     it('should toggle a dropup', done => {
       fixtureEl.innerHTML = [
         '<div class="dropup">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropupEl = fixtureEl.querySelector('.dropup')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropupEl.addEventListener('shown.bs.dropdown', () => {
+      dropupEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -226,18 +226,18 @@ describe('Dropdown', () => {
     it('should toggle a dropup at the right', done => {
       fixtureEl.innerHTML = [
         '<div class="dropup">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu dropdown-menu-end">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropupEl = fixtureEl.querySelector('.dropup')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropupEl.addEventListener('shown.bs.dropdown', () => {
+      dropupEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -249,18 +249,18 @@ describe('Dropdown', () => {
     it('should toggle a dropend', done => {
       fixtureEl.innerHTML = [
         '<div class="dropend">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropendEl = fixtureEl.querySelector('.dropend')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropendEl.addEventListener('shown.bs.dropdown', () => {
+      dropendEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -272,18 +272,18 @@ describe('Dropdown', () => {
     it('should toggle a dropstart', done => {
       fixtureEl.innerHTML = [
         '<div class="dropstart">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropstartEl = fixtureEl.querySelector('.dropstart')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropstartEl.addEventListener('shown.bs.dropdown', () => {
+      dropstartEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -295,20 +295,20 @@ describe('Dropdown', () => {
     it('should toggle a dropdown with parent reference', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown, {
         reference: 'parent'
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -320,20 +320,20 @@ describe('Dropdown', () => {
     it('should toggle a dropdown with a dom node reference', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown, {
         reference: fixtureEl
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -345,20 +345,20 @@ describe('Dropdown', () => {
     it('should toggle a dropdown with a jquery object reference', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown, {
         reference: { 0: fixtureEl, jquery: 'jQuery' }
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         done()
@@ -370,19 +370,19 @@ describe('Dropdown', () => {
     it('should not toggle a dropdown if the element is disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button disabled class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button disabled class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.toggle()
@@ -396,19 +396,19 @@ describe('Dropdown', () => {
     it('should not toggle a dropdown if the element contains .disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle disabled" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle disabled" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.toggle()
@@ -422,19 +422,19 @@ describe('Dropdown', () => {
     it('should not toggle a dropdown if the menu is shown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.toggle()
@@ -448,23 +448,23 @@ describe('Dropdown', () => {
     it('should not toggle a dropdown if show event is prevented', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('show.bs.dropdown', e => {
+      dropdownEl.addEventListener('show.coreui.dropdown', e => {
         e.preventDefault()
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.toggle()
@@ -480,18 +480,18 @@ describe('Dropdown', () => {
     it('should show a dropdown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         done()
       })
@@ -502,19 +502,19 @@ describe('Dropdown', () => {
     it('should not show a dropdown if the element is disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button disabled class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button disabled class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.show()
@@ -528,19 +528,19 @@ describe('Dropdown', () => {
     it('should not show a dropdown if the element contains .disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle disabled" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle disabled" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.show()
@@ -554,19 +554,19 @@ describe('Dropdown', () => {
     it('should not show a dropdown if the menu is shown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.show()
@@ -580,23 +580,23 @@ describe('Dropdown', () => {
     it('should not show a dropdown if show event is prevented', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('show.bs.dropdown', e => {
+      dropdownEl.addEventListener('show.coreui.dropdown', e => {
         e.preventDefault()
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
-        throw new Error('should not throw shown.bs.dropdown event')
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
+        throw new Error('should not throw shown.coreui.dropdown event')
       })
 
       dropdown.show()
@@ -612,19 +612,19 @@ describe('Dropdown', () => {
     it('should hide a dropdown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
         expect(dropdownMenu.classList.contains('show')).toEqual(false)
         done()
       })
@@ -635,23 +635,23 @@ describe('Dropdown', () => {
     it('should hide a dropdown and destroy popper', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         spyOn(dropdown._popper, 'destroy')
         dropdown.hide()
       })
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
         expect(dropdown._popper.destroy).toHaveBeenCalled()
         done()
       })
@@ -662,20 +662,20 @@ describe('Dropdown', () => {
     it('should not hide a dropdown if the element is disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button disabled class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button disabled class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
-        throw new Error('should not throw hidden.bs.dropdown event')
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
+        throw new Error('should not throw hidden.coreui.dropdown event')
       })
 
       dropdown.hide()
@@ -689,20 +689,20 @@ describe('Dropdown', () => {
     it('should not hide a dropdown if the element contains .disabled', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle disabled" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle disabled" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
-        throw new Error('should not throw hidden.bs.dropdown event')
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
+        throw new Error('should not throw hidden.coreui.dropdown event')
       })
 
       dropdown.hide()
@@ -716,19 +716,19 @@ describe('Dropdown', () => {
     it('should not hide a dropdown if the menu is not shown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
-        throw new Error('should not throw hidden.bs.dropdown event')
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
+        throw new Error('should not throw hidden.coreui.dropdown event')
       })
 
       dropdown.hide()
@@ -742,24 +742,24 @@ describe('Dropdown', () => {
     it('should not hide a dropdown if hide event is prevented', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu show">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
       const dropdown = new Dropdown(btnDropdown)
 
-      dropdownEl.addEventListener('hide.bs.dropdown', e => {
+      dropdownEl.addEventListener('hide.coreui.dropdown', e => {
         e.preventDefault()
       })
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
-        throw new Error('should not throw hidden.bs.dropdown event')
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
+        throw new Error('should not throw hidden.coreui.dropdown event')
       })
 
       dropdown.hide()
@@ -775,14 +775,14 @@ describe('Dropdown', () => {
     it('should dispose dropdown', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
       expect(dropdown._popper).toBeNull()
@@ -798,14 +798,14 @@ describe('Dropdown', () => {
     it('should dispose dropdown with Popper', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
       dropdown.toggle()
@@ -826,14 +826,14 @@ describe('Dropdown', () => {
     it('should call Popper and detect navbar on update', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
       dropdown.toggle()
@@ -852,14 +852,14 @@ describe('Dropdown', () => {
     it('should just detect navbar on update', () => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
       spyOn(dropdown, '_detectNavbar')
@@ -875,23 +875,23 @@ describe('Dropdown', () => {
     it('should show and hide a dropdown', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       let showEventTriggered = false
       let hideEventTriggered = false
 
-      dropdownEl.addEventListener('show.bs.dropdown', () => {
+      dropdownEl.addEventListener('show.coreui.dropdown', () => {
         showEventTriggered = true
       })
 
-      dropdownEl.addEventListener('shown.bs.dropdown', e => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', e => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         expect(showEventTriggered).toEqual(true)
@@ -899,11 +899,11 @@ describe('Dropdown', () => {
         document.body.click()
       })
 
-      dropdownEl.addEventListener('hide.bs.dropdown', () => {
+      dropdownEl.addEventListener('hide.coreui.dropdown', () => {
         hideEventTriggered = true
       })
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', e => {
+      dropdownEl.addEventListener('hidden.coreui.dropdown', e => {
         expect(btnDropdown.classList.contains('show')).toEqual(false)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
         expect(hideEventTriggered).toEqual(true)
@@ -918,7 +918,7 @@ describe('Dropdown', () => {
       fixtureEl.innerHTML = [
         '<nav class="navbar navbar-expand-md navbar-light bg-light">',
         '  <div class="dropdown">',
-        '    <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</button>',
+        '    <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Dropdown</button>',
         '    <div class="dropdown-menu">',
         '      <a class="dropdown-item" href="#">Secondary link</a>',
         '    </div>',
@@ -926,11 +926,11 @@ describe('Dropdown', () => {
         '</nav>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(dropdownMenu.getAttribute('style')).toEqual(null, 'no inline style applied by Popper')
         done()
       })
@@ -941,18 +941,18 @@ describe('Dropdown', () => {
     it('should not use Popper if display set to static', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown" data-coreui-display="static">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         // Popper adds this attribute when we use it
         expect(dropdownMenu.getAttribute('x-placement')).toEqual(null)
         done()
@@ -964,17 +964,17 @@ describe('Dropdown', () => {
     it('should remove "show" class if tabbing outside of menu', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Secondary link</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const btnDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownEl = fixtureEl.querySelector('.dropdown')
 
-      dropdownEl.addEventListener('shown.bs.dropdown', () => {
+      dropdownEl.addEventListener('shown.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
 
         const keyup = createEvent('keyup')
@@ -983,7 +983,7 @@ describe('Dropdown', () => {
         document.dispatchEvent(keyup)
       })
 
-      dropdownEl.addEventListener('hidden.bs.dropdown', () => {
+      dropdownEl.addEventListener('hidden.coreui.dropdown', () => {
         expect(btnDropdown.classList.contains('show')).toEqual(false)
         done()
       })
@@ -995,7 +995,7 @@ describe('Dropdown', () => {
       fixtureEl.innerHTML = [
         '<div class="nav">',
         '  <div class="dropdown" id="testmenu">',
-        '    <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#testmenu">Test menu</a>',
+        '    <a class="dropdown-toggle" data-coreui-toggle="dropdown" href="#testmenu">Test menu</a>',
         '    <div class="dropdown-menu">',
         '      <a class="dropdown-item" href="#sub1">Submenu 1</a>',
         '    </div>',
@@ -1003,14 +1003,14 @@ describe('Dropdown', () => {
         '</div>',
         '<div class="btn-group">',
         '  <button class="btn">Actions</button>',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown"></button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown"></button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Action 1</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
+      const triggerDropdownList = fixtureEl.querySelectorAll('[data-coreui-toggle="dropdown"]')
 
       expect(triggerDropdownList.length).toEqual(2)
 
@@ -1019,24 +1019,24 @@ describe('Dropdown', () => {
       const dropdownTestMenu = first.parentNode
       const btnGroup = last.parentNode
 
-      dropdownTestMenu.addEventListener('shown.bs.dropdown', () => {
+      dropdownTestMenu.addEventListener('shown.coreui.dropdown', () => {
         expect(first.classList.contains('show')).toEqual(true)
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1)
         document.body.click()
       })
 
-      dropdownTestMenu.addEventListener('hidden.bs.dropdown', () => {
+      dropdownTestMenu.addEventListener('hidden.coreui.dropdown', () => {
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0)
         last.click()
       })
 
-      btnGroup.addEventListener('shown.bs.dropdown', () => {
+      btnGroup.addEventListener('shown.coreui.dropdown', () => {
         expect(last.classList.contains('show')).toEqual(true)
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1)
         document.body.click()
       })
 
-      btnGroup.addEventListener('hidden.bs.dropdown', () => {
+      btnGroup.addEventListener('hidden.coreui.dropdown', () => {
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0)
         done()
       })
@@ -1047,21 +1047,21 @@ describe('Dropdown', () => {
     it('should remove "show" class if body if tabbing outside of menu, with multiple dropdowns', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <a class="dropdown-toggle" data-bs-toggle="dropdown" href="#testmenu">Test menu</a>',
+        '  <a class="dropdown-toggle" data-coreui-toggle="dropdown" href="#testmenu">Test menu</a>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#sub1">Submenu 1</a>',
         '  </div>',
         '</div>',
         '<div class="btn-group">',
         '  <button class="btn">Actions</button>',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown"></button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown"></button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#">Action 1</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const triggerDropdownList = fixtureEl.querySelectorAll('[data-bs-toggle="dropdown"]')
+      const triggerDropdownList = fixtureEl.querySelectorAll('[data-coreui-toggle="dropdown"]')
 
       expect(triggerDropdownList.length).toEqual(2)
 
@@ -1070,7 +1070,7 @@ describe('Dropdown', () => {
       const dropdownTestMenu = first.parentNode
       const btnGroup = last.parentNode
 
-      dropdownTestMenu.addEventListener('shown.bs.dropdown', () => {
+      dropdownTestMenu.addEventListener('shown.coreui.dropdown', () => {
         expect(first.classList.contains('show')).toEqual(true, '"show" class added on click')
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1, 'only one dropdown is shown')
 
@@ -1080,12 +1080,12 @@ describe('Dropdown', () => {
         document.dispatchEvent(keyup)
       })
 
-      dropdownTestMenu.addEventListener('hidden.bs.dropdown', () => {
+      dropdownTestMenu.addEventListener('hidden.coreui.dropdown', () => {
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0, '"show" class removed')
         last.click()
       })
 
-      btnGroup.addEventListener('shown.bs.dropdown', () => {
+      btnGroup.addEventListener('shown.coreui.dropdown', () => {
         expect(last.classList.contains('show')).toEqual(true, '"show" class added on click')
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(1, 'only one dropdown is shown')
 
@@ -1095,7 +1095,7 @@ describe('Dropdown', () => {
         document.dispatchEvent(keyup)
       })
 
-      btnGroup.addEventListener('hidden.bs.dropdown', () => {
+      btnGroup.addEventListener('hidden.coreui.dropdown', () => {
         expect(fixtureEl.querySelectorAll('.dropdown-menu.show').length).toEqual(0, '"show" class removed')
         done()
       })
@@ -1106,26 +1106,26 @@ describe('Dropdown', () => {
     it('should fire hide and hidden event without a clickEvent if event type is not click', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#sub1">Submenu 1</a>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
 
-      dropdown.addEventListener('hide.bs.dropdown', e => {
+      dropdown.addEventListener('hide.coreui.dropdown', e => {
         expect(e.clickEvent).toBeUndefined()
       })
 
-      dropdown.addEventListener('hidden.bs.dropdown', e => {
+      dropdown.addEventListener('hidden.coreui.dropdown', e => {
         expect(e.clickEvent).toBeUndefined()
         done()
       })
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         const keydown = createEvent('keydown')
 
         keydown.key = 'Escape'
@@ -1138,7 +1138,7 @@ describe('Dropdown', () => {
     it('should ignore keyboard events within <input>s and <textarea>s', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#sub1">Submenu 1</a>',
         '    <input type="text">',
@@ -1147,12 +1147,12 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const input = fixtureEl.querySelector('input')
       const textarea = fixtureEl.querySelector('textarea')
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         input.focus()
         const keydown = createEvent('keydown')
 
@@ -1174,7 +1174,7 @@ describe('Dropdown', () => {
     it('should skip disabled element when using keyboard navigation', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item disabled" href="#sub1">Submenu 1</a>',
         '    <button class="dropdown-item" type="button" disabled>Disabled button</button>',
@@ -1183,10 +1183,10 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         const keydown = createEvent('keydown')
         keydown.key = 'ArrowDown'
 
@@ -1209,7 +1209,7 @@ describe('Dropdown', () => {
         '  }',
         '</style>',
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <button class="dropdown-item d-none" type="button">Hidden button by class</button>',
         '    <a class="dropdown-item" href="#sub1" style="display: none">Hidden link</a>',
@@ -1219,10 +1219,10 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         const keydown = createEvent('keydown')
         keydown.key = 'ArrowDown'
 
@@ -1241,7 +1241,7 @@ describe('Dropdown', () => {
     it('should focus next/previous element when using keyboard navigation', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a id="item1" class="dropdown-item" href="#">A link</a>',
         '    <a id="item2" class="dropdown-item" href="#">Another link</a>',
@@ -1249,12 +1249,12 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const item1 = fixtureEl.querySelector('#item1')
       const item2 = fixtureEl.querySelector('#item2')
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         const keydownArrowDown = createEvent('keydown')
         keydownArrowDown.key = 'ArrowDown'
 
@@ -1279,7 +1279,7 @@ describe('Dropdown', () => {
     it('should focus on the first element when using ArrowUp for the first time', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a id="item1" class="dropdown-item" href="#">A link</a>',
         '    <a id="item2" class="dropdown-item" href="#">Another link</a>',
@@ -1287,11 +1287,11 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const item1 = fixtureEl.querySelector('#item1')
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         const keydown = createEvent('keydown')
         keydown.key = 'ArrowUp'
 
@@ -1307,14 +1307,14 @@ describe('Dropdown', () => {
     it('should not close the dropdown if the user clicks on a text field', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <input type="text">',
         '  </div>',
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const input = fixtureEl.querySelector('input')
 
@@ -1323,7 +1323,7 @@ describe('Dropdown', () => {
         done()
       })
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
         input.dispatchEvent(createEvent('click'))
       })
@@ -1334,14 +1334,14 @@ describe('Dropdown', () => {
     it('should not close the dropdown if the user clicks on a textarea', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <textarea></textarea>',
         '  </div>',
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const textarea = fixtureEl.querySelector('textarea')
 
@@ -1350,7 +1350,7 @@ describe('Dropdown', () => {
         done()
       })
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         expect(triggerDropdown.classList.contains('show')).toEqual(true, 'dropdown menu is shown')
         textarea.dispatchEvent(createEvent('click'))
       })
@@ -1361,7 +1361,7 @@ describe('Dropdown', () => {
     it('should ignore keyboard events for <input>s and <textarea>s within dropdown-menu, except for escape key', done => {
       fixtureEl.innerHTML = [
         '<div class="dropdown">',
-        '  <button class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '  <div class="dropdown-menu">',
         '    <a class="dropdown-item" href="#sub1">Submenu 1</a>',
         '    <input type="text">',
@@ -1370,7 +1370,7 @@ describe('Dropdown', () => {
         '</div>'
       ].join('')
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = fixtureEl.querySelector('.dropdown')
       const input = fixtureEl.querySelector('input')
       const textarea = fixtureEl.querySelector('textarea')
@@ -1387,7 +1387,7 @@ describe('Dropdown', () => {
       const keydownEscape = createEvent('keydown')
       keydownEscape.key = 'Escape'
 
-      dropdown.addEventListener('shown.bs.dropdown', () => {
+      dropdown.addEventListener('shown.coreui.dropdown', () => {
         // Key Space
         input.focus()
         input.dispatchEvent(keydownSpace)
@@ -1436,7 +1436,7 @@ describe('Dropdown', () => {
       fixtureEl.innerHTML = [
         '<div class="tabs">',
         '  <div class="dropdown">',
-        '    <button disabled class="btn dropdown-toggle" data-bs-toggle="dropdown">Dropdown</button>',
+        '    <button disabled class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
         '    <div class="dropdown-menu">',
         '      <a class="dropdown-item" href="#">Secondary link</a>',
         '      <a class="dropdown-item" href="#">Something else here</a>',
@@ -1447,9 +1447,9 @@ describe('Dropdown', () => {
         '</div>'
       ]
 
-      const triggerDropdown = fixtureEl.querySelector('[data-bs-toggle="dropdown"]')
+      const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(triggerDropdown)
-      const button = fixtureEl.querySelector('button[data-bs-toggle="dropdown"]')
+      const button = fixtureEl.querySelector('button[data-coreui-toggle="dropdown"]')
 
       spyOn(dropdown, 'toggle')
 

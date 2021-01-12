@@ -35,7 +35,7 @@ describe('Toast', () => {
         delay: 1
       })
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         expect(toastEl.classList.contains('show')).toEqual(true)
         done()
       })
@@ -43,17 +43,17 @@ describe('Toast', () => {
       toast.show()
     })
 
-    it('should close toast when close element with data-bs-dismiss attribute is set', done => {
+    it('should close toast when close element with data-coreui-dismiss attribute is set', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1" data-bs-autohide="false" data-bs-animation="false">',
-        '  <button type="button" class="ms-2 mb-1 btn-close" data-bs-dismiss="toast" aria-label="Close"></button>',
+        '<div class="toast" data-coreui-delay="1" data-coreui-autohide="false" data-coreui-animation="false">',
+        '  <button type="button" class="ms-2 mb-1 btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>',
         '</div>'
       ].join('')
 
       const toastEl = fixtureEl.querySelector('div')
       const toast = new Toast(toastEl)
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         expect(toastEl.classList.contains('show')).toEqual(true)
 
         const button = toastEl.querySelector('.btn-close')
@@ -61,7 +61,7 @@ describe('Toast', () => {
         button.click()
       })
 
-      toastEl.addEventListener('hidden.bs.toast', () => {
+      toastEl.addEventListener('hidden.coreui.toast', () => {
         expect(toastEl.classList.contains('show')).toEqual(false)
         done()
       })
@@ -77,8 +77,8 @@ describe('Toast', () => {
       Toast.Default.delay = defaultDelay
 
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-autohide="false" data-bs-animation="false">',
-        '  <button type="button" class="ms-2 mb-1 btn-close" data-bs-dismiss="toast" aria-label="Close"></button>',
+        '<div class="toast" data-coreui-autohide="false" data-coreui-animation="false">',
+        '  <button type="button" class="ms-2 mb-1 btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>',
         '</div>'
       ].join('')
 
@@ -98,7 +98,7 @@ describe('Toast', () => {
   describe('show', () => {
     it('should auto hide', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1">',
+        '<div class="toast" data-coreui-delay="1">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -108,7 +108,7 @@ describe('Toast', () => {
       const toastEl = fixtureEl.querySelector('.toast')
       const toast = new Toast(toastEl)
 
-      toastEl.addEventListener('hidden.bs.toast', () => {
+      toastEl.addEventListener('hidden.coreui.toast', () => {
         expect(toastEl.classList.contains('show')).toEqual(false)
         done()
       })
@@ -118,7 +118,7 @@ describe('Toast', () => {
 
     it('should not add fade class', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1" data-bs-animation="false">',
+        '<div class="toast" data-coreui-delay="1" data-coreui-animation="false">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -128,7 +128,7 @@ describe('Toast', () => {
       const toastEl = fixtureEl.querySelector('.toast')
       const toast = new Toast(toastEl)
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         expect(toastEl.classList.contains('fade')).toEqual(false)
         done()
       })
@@ -138,7 +138,7 @@ describe('Toast', () => {
 
     it('should not trigger shown if show is prevented', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1" data-bs-animation="false">',
+        '<div class="toast" data-coreui-delay="1" data-coreui-animation="false">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -155,12 +155,12 @@ describe('Toast', () => {
         }, 20)
       }
 
-      toastEl.addEventListener('show.bs.toast', event => {
+      toastEl.addEventListener('show.coreui.toast', event => {
         event.preventDefault()
         assertDone()
       })
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         throw new Error('shown event should not be triggered if show is prevented')
       })
 
@@ -181,7 +181,7 @@ describe('Toast', () => {
 
       setTimeout(() => {
         toast._config.autohide = false
-        toastEl.addEventListener('shown.bs.toast', () => {
+        toastEl.addEventListener('shown.coreui.toast', () => {
           expect(toast._clearTimeout).toHaveBeenCalled()
           expect(toast._timeout).toBeNull()
           done()
@@ -198,7 +198,7 @@ describe('Toast', () => {
   describe('hide', () => {
     it('should allow to hide toast manually', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1" data-bs-autohide="false">',
+        '<div class="toast" data-coreui-delay="1" data-coreui-autohide="false">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -208,11 +208,11 @@ describe('Toast', () => {
       const toastEl = fixtureEl.querySelector('.toast')
       const toast = new Toast(toastEl)
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         toast.hide()
       })
 
-      toastEl.addEventListener('hidden.bs.toast', () => {
+      toastEl.addEventListener('hidden.coreui.toast', () => {
         expect(toastEl.classList.contains('show')).toEqual(false)
         done()
       })
@@ -235,7 +235,7 @@ describe('Toast', () => {
 
     it('should not trigger hidden if hide is prevented', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="1" data-bs-animation="false">',
+        '<div class="toast" data-coreui-delay="1" data-coreui-animation="false">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -252,16 +252,16 @@ describe('Toast', () => {
         }, 20)
       }
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         toast.hide()
       })
 
-      toastEl.addEventListener('hide.bs.toast', event => {
+      toastEl.addEventListener('hide.coreui.toast', event => {
         event.preventDefault()
         assertDone()
       })
 
-      toastEl.addEventListener('hidden.bs.toast', () => {
+      toastEl.addEventListener('hidden.coreui.toast', () => {
         throw new Error('hidden event should not be triggered if hide is prevented')
       })
 
@@ -285,7 +285,7 @@ describe('Toast', () => {
 
     it('should allow to destroy toast and hide it before that', done => {
       fixtureEl.innerHTML = [
-        '<div class="toast" data-bs-delay="0" data-bs-autohide="false">',
+        '<div class="toast" data-coreui-delay="0" data-coreui-autohide="false">',
         '  <div class="toast-body">',
         '    a simple toast',
         '  </div>',
@@ -306,7 +306,7 @@ describe('Toast', () => {
         done()
       }
 
-      toastEl.addEventListener('shown.bs.toast', () => {
+      toastEl.addEventListener('shown.coreui.toast', () => {
         setTimeout(expected, 1)
       })
 

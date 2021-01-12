@@ -567,7 +567,7 @@ describe('ScrollSpy', () => {
       const scrollSpy = new ScrollSpy(divEl)
 
       scrollSpy.dispose()
-      expect(EventHandler.off).toHaveBeenCalledWith(divEl, '.bs.scrollspy')
+      expect(EventHandler.off).toHaveBeenCalledWith(divEl, '.coreui.scrollspy')
     })
   })
 
@@ -651,7 +651,7 @@ describe('ScrollSpy', () => {
 
   describe('event handler', () => {
     it('should create scrollspy on window load event', () => {
-      fixtureEl.innerHTML = '<div data-bs-spy="scroll"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-spy="scroll"></div>'
 
       const scrollSpyEl = fixtureEl.querySelector('div')
 
