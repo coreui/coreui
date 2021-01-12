@@ -1365,7 +1365,7 @@ $list-group-variants: (
 
 // Header
 // scss-docs-start header-variables
-$header-min-height:             56px !default;
+$header-min-height:             4rem !default;
 $header-padding-y:              $spacer / 2 !default;
 $header-padding-x:              $spacer / 2 !default;
 $header-brand-font-size:        $font-size-lg !default;
@@ -1405,7 +1405,7 @@ $header-divider-border-color:   $header-border-color !default;
 
 // Subheader
 // scss-docs-start subheader-variables
-$subheader-min-height:           48px !default;
+$subheader-min-height:           3rem !default;
 $subheader-padding-y:            $spacer / 2 !default;
 $subheader-padding-x:            $spacer !default;
 $subheader-border-color:         $border-color !default;
@@ -1491,11 +1491,11 @@ $carousel-dark-control-icon-filter:  invert(1) grayscale(100) !default;
 // scss-docs-end carousel-variables
 
 // scss-docs-start sidebar-variables
-$sidebar-width:                            256px !default;
+$sidebar-width:                            16rem !default;
 $sidebar-widths: (
-  sm: 192px,
-  lg: 320px,
-  xl: 384px
+  sm: 12rem,
+  lg: 20rem,
+  xl: 24rem
 ) !default;
 $sidebar-padding-y:                        0 !default;
 $sidebar-padding-x:                        0 !default;
@@ -1503,7 +1503,7 @@ $sidebar-color:                            $high-emphasis-light !default;
 $sidebar-bg:                               $gray-base !default;
 $sidebar-border-width:                     0 !default;
 $sidebar-border-color:                     transparent !default;
-$sidebar-transition:                       box-shadow .075s, transform .15s, margin-left .15s, margin-right .15s, width .15s, z-index 0s ease .15s !default;
+$sidebar-transition:                       margin-left .15s, margin-right .15s, box-shadow .075s, transform .15s, width .15s, z-index 0s ease .15s !default;
 $sidebar-reliant-transition:               margin .15s !default;
 
 $sidebar-brand-height:                     56px !default;
@@ -1550,6 +1550,7 @@ $sidebar-nav-icon-font-size:               $sidebar-nav-icon-height !default;
 $sidebar-nav-group-bg:                     rgba(0, 0, 0, .2) !default;
 $sidebar-nav-group-transition:             background .15s ease-in-out !default;
 $sidebar-nav-group-items-transition:       height .15s ease !default;
+$sidebar-nav-group-toggle-show-color:      $sidebar-nav-link-color !default;
 
 $sidebar-nav-group-indicator-color:        $medium-emphasis-light !default;
 $sidebar-nav-group-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-group-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -1575,7 +1576,7 @@ $sidebar-toggler-hover-indicator:          str-replace(url("data:image/svg+xml;c
 
 // Footer
 // scss-docs-start footer-variables
-$footer-min-height:    50px !default;
+$footer-min-height:    3rem !default;
 $footer-padding-y:     $spacer / 2 !default;
 $footer-padding-x:     $spacer !default;
 $footer-bg:            $gray-100 !default;
