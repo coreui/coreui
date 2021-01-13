@@ -4,7 +4,7 @@ title: Introduction
 description: CoreUI is the fastest way to build a modern dashboard for any platforms, browser, or device. A complete UI Kit that allows you to quickly build eye-catching, high-quality, high-performance responsive applications.
 group: getting-started
 aliases:
-  - "/docs/4.0/getting-started/"
+  - "/4.0/getting-started/"
   - "/docs/getting-started/"
   - "/getting-started/"
 toc: true

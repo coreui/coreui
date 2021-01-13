@@ -42,10 +42,10 @@ module:
       target:           static/favicon.ico
 
 params:
-  description:          "The most popular HTML, CSS, and JS library in the world."
-  authors:              "Mark Otto, Jacob Thornton, and Bootstrap contributors"
-  social_image_path:    /4.0/assets/brand/bootstrap-social.png
-  social_logo_path:     /4.0/assets/brand/bootstrap-social-logo.png
+  description:          "Open Source Ui Components library built on top of Bootstrap 5."
+  authors:              "Lukasz Holeczek, Andrzej Kopanski"
+  social_image_path:    /4.0/assets/brand/coreui-social.jpg
+  social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
 
   current_version:      "4.0.0-alpha.0"
   current_ruby_version: "4.0.0-alpha.0"
@@ -55,36 +55,21 @@ params:
   repo:                 "https://github.com/coreui/coreui"
   twitter:              "core_ui"
   community:            "https://community.coreui.io/"
-  opencollective:       "https://opencollective.com/bootstrap"
   blog:                 "https://coreui.io/blog/"
   icons:                "https://icons.coreui.io/"
 
   download:
     source:             "https://github.com/coreui/coreui/archive/v4.0.0-alpha.0.zip"
     dist:               "https://github.com/coreui/coreui/releases/download/v4.0.0-alpha.0/coreui-4.0.0-alpha.0-dist.zip"
-    # dist_examples:      "https://github.com/twbs/bootstrap/releases/download/v5.0.0-beta1/bootstrap-5.0.0-beta1-examples.zip"
 
   cdn:
-    # See https://www.srihash.org for info on how to generate the hashes
-    # css:              "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
-    # css_hash:         "sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
-    # css_rtl:          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.rtl.min.css"
-    # css_rtl_hash:     "sha384-mUkCBeyHPdg0tqB6JDd+65Gpw5h/l8DKcCTV2D2UpaMMFd7Jo8A+mDAosaWgFBPl"
-    # js:               "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
-    # js_hash:          "sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
-    # js_bundle:        "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
-    # js_bundle_hash:   "sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
-    # popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
-    # popper_hash:      "sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
     css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/css/coreui.min.css"
-    css_hash:        "sha384-/F25cQgfEJPI8yo3LHTPmd1+KyQUPArNFgX31S1wPPF6qfKKofYRZ6moN+Ise6N7"
-    css_rtl:          "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.rtl.min.css"
-    css_rtl_hash:     "sha384-Pgl3yA+g7Yp9+m06X5iqRl4y3KVBU8g4/h4w6wZh8YpDOoh1Urms1dzWrnCpYVCy"
+    css_hash:        "sha384-Rxg5cYTZqXcMAFzxa3dkLGYBjDVqg/w6Xg8x8sJoW4gxhhcGHbvTZ5S99kJ8NokU"
+    css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.0-alpha.0/dist/css/coreui.rtl.min.css"
+    css_rtl_hash:    "sha384-OkY56leSb/dcwfOPXfjmD/6eTguTFY42H/XLzYrykzc9DsUgytcACdtG4vLFdNv+"
     js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/js/coreui.min.js"
-    js_hash:         "sha384-mWOVrAUU044thv3wDk80IN5yGOxg/YjCq+h2uT3mcOg2UXB8VuI3SIY7NjQZdakh"
+    js_hash:         "sha384-auMQVU9h2wHVjeICVw06fZd/Bwu89wUtkbfvQdFUVKmdFyKmJno12PpjJdiyKXjj"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/js/coreui.bundle.min.js"
-    js_bundle_hash:  "sha384-bFFwHg1b2BzdcAD2h8KG2m89hpFx7vHhbmlfIid6hF8Ij26jeJZttIUKyv58cSqA"
-    icons:           "https://cdn.jsdelivr.net/npm/@coreui/icons@2.0.0-beta.5/css/all.min.css"
-    icons_hash:      "sha256-9lgzdlbqBLSfDfASJahkJJk4MW/OaaP+acV9jOomGuo="
+    js_bundle_hash:  "sha384-QhgYN4WY6/5h5VonldJJYUyvf2UPweJFd7leRtB7uSm3sisWLYKpDrwfk9Kvj+C9"
     popper:          "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
     popper_hash:     "sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"

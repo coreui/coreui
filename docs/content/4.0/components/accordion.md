@@ -5,7 +5,7 @@ description: Build vertically collapsing accordions in combination with our Coll
 group: components
 aliases:
   - "/components/"
-  - "/docs/4.0/components/"
+  - "/4.0/components/"
 toc: true
 ---
 
