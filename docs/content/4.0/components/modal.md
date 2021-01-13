@@ -42,7 +42,7 @@ Keep reading for demos and usage guidelines.
 
 Below is a _static_ modal example (meaning its `position` and `display` have been overridden). Included are the modal header, modal body (required for `padding`), and modal footer (optional). We ask that you include modal headers with dismiss actions whenever possible, or provide another explicit dismiss action.
 
-<div class="bd-example bd-example-modal">
+<div class="docs-example docs-example-modal">
   <div class="modal" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -104,7 +104,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLive">
     Launch demo modal
   </button>
@@ -158,7 +158,7 @@ When backdrop is set to static, the modal will not close when clicking outside i
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#staticBackdropLive">
     Launch static backdrop modal
   </button>
@@ -230,7 +230,7 @@ When modals become too long for the user's viewport or device, they scroll indep
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLong">
     Launch demo modal
   </button>
@@ -273,7 +273,7 @@ You can also create a scrollable modal that allows scroll the modal body by addi
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalScrollable">
     Launch demo modal
   </button>
@@ -330,7 +330,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalCenter">
     Vertically centered modal
   </button>
@@ -377,7 +377,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalPopovers">
     Launch demo modal
   </button>
@@ -405,7 +405,7 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="container-fluid bd-example-row">
+        <div class="container-fluid docs-example-row">
           <div class="row">
             <div class="col-md-4">.col-md-4</div>
             <div class="col-md-4 ms-auto">.col-md-4 .ms-auto</div>
@@ -440,7 +440,7 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#gridSystemModal">
   Launch demo modal
 </button>
@@ -601,7 +601,7 @@ Modals have three optional sizes, available via modifier classes to be placed on
 
 Our default modal without modifier class constitutes the "medium" size modal.
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalXl">Extra large modal</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLg">Large modal</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalSm">Small modal</button>
@@ -694,7 +694,7 @@ Another override is the option to pop up a modal that covers the user viewport, 
   </tbody>
 </table>
 
-<div class="bd-example">
+<div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreen">Full screen</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenSm">Full screen below sm</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenMd">Full screen below md</button>

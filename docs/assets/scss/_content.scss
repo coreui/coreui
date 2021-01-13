@@ -2,7 +2,7 @@
 // Bootstrap docs content theming
 //
 
-.bd-content {
+.docs-content {
   // Offset for the sticky header
   > [id] {
     @include media-breakpoint-up(md) {
@@ -56,19 +56,19 @@
   }
 }
 
-.bd-title {
+.docs-title {
   @include font-size(3rem);
 }
 
-.bd-lead {
+.docs-lead {
   @include font-size(1.5rem);
   font-weight: 300;
 }
 
-.bd-text-purple-bright {
+.docs-text-purple-bright {
   color: $bd-purple-bright;
 }
 
-.bd-bg-purple-bright {
+.docs-bg-purple-bright {
   background-color: $bd-purple-bright;
 }

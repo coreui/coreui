@@ -1,8 +1,8 @@
 {{ define "main" }}
   <header class="py-5 border-bottom">
     <div class="container pt-md-1 pb-md-4">
-      <h1 class="bd-title mt-0">{{ .Title | markdownify }}</h1>
-      <p class="bd-lead">{{ .Page.Params.Description | markdownify }}</p>
+      <h1 class="docs-title mt-0">{{ .Title | markdownify }}</h1>
+      <p class="docs-lead">{{ .Page.Params.Description | markdownify }}</p>
       {{ if eq .Title "Examples" }}
       <div class="d-flex flex-column flex-sm-row">
         <a href="{{ .Site.Params.download.dist_examples }}" class="btn btn-lg btn-primary" onclick="ga('send', 'event', 'Examples', 'Hero', 'Download Examples');">Download examples</a>
@@ -13,7 +13,7 @@
     </div>
   </header>
 
-  <main class="bd-content order-1 py-5" id="content">
+  <main class="docs-content order-1 py-5" id="content">
     <div class="container">
       {{ .Content }}
 

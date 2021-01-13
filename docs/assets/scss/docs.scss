@@ -1,5 +1,6 @@
 /*!
- * Bootstrap Docs (https://getbootstrap.com/)
+ * CoreUI Docs (https://coreui.io/docs/)
+ * Copyright 2021 creativeLabs Łukasz Holeczek
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
@@ -17,7 +18,7 @@
 // - Bootstrap's **docs variables** are prefixed with `$bd-`.
 //   These custom colors avoid collision with the components Bootstrap provides.
 //
-// - Classes are prefixed with `.bd-`.
+// - Classes are prefixed with `.docs-`.
 //   These classes indicate custom-built or modified components for the design
 //   and layout of the Bootstrap docs. They are not included in our builds.
 //
@@ -53,4 +54,4 @@ $gray-100: #f0f4f7; // stylelint-disable-line scss/dollar-variable-default
 // Load docs dependencies
 @import "syntax";
 @import "anchor";
-@import "algolia";
+// @import "algolia";

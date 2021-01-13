@@ -36,7 +36,7 @@ Our checks use custom Bootstrap icons to indicate checked or indeterminate state
 
 Checkboxes can utilize the `:indeterminate` pseudo class when manually set via JavaScript (there is no available HTML attribute for specifying it).
 
-{{< example class="bd-example-indeterminate">}}
+{{< example class="docs-example-indeterminate">}}
 <div class="form-check">
   <input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
   <label class="form-check-label" for="flexCheckIndeterminate">
@@ -120,6 +120,23 @@ A switch has the markup of a custom checkbox but uses the `.form-switch` class t
 <div class="form-check form-switch">
   <input class="form-check-input" type="checkbox" id="flexSwitchCheckCheckedDisabled" checked disabled>
   <label class="form-check-label" for="flexSwitchCheckCheckedDisabled">Disabled checked switch checkbox input</label>
+</div>
+{{< /example >}}
+
+### Sizes
+
+{{< example >}}
+<div class="form-check form-switch">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+  <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox input</label>
+</div>
+<div class="form-check form-switch form-switch-lg">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultLg">
+  <label class="form-check-label" for="flexSwitchCheckDefaultLg">Large switch checkbox input</label>
+</div>
+<div class="form-check form-switch form-switch-xl">
+  <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefaultXl">
+  <label class="form-check-label" for="flexSwitchCheckDefaultXl">Extra large switch checkbox input</label>
 </div>
 {{< /example >}}
 

@@ -141,7 +141,7 @@ The gutters between columns in our predefined grid classes can be removed with `
 
 In practice, here's how it looks. Note you can continue to use this with all other predefined grid classes (including column widths, responsive tiers, reorders, and more).
 
-{{< example class="bd-example-row" >}}
+{{< example class="docs-example-row" >}}
 <div class="row g-0">
   <div class="col-sm-6 col-md-8">.col-sm-6 .col-md-8</div>
   <div class="col-6 col-md-4">.col-6 .col-md-4</div>

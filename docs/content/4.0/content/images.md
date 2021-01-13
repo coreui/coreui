@@ -11,7 +11,7 @@ toc: true
 Images in CoreUI for Bootstrap are made responsive with `.img-fluid`. This applies `max-width: 100%;` and `height: auto;` to the image so that it scales with the parent element.
 
 {{< example >}}
-{{< placeholder width="100%" height="250" class="bd-placeholder-img-lg img-fluid" text="Responsive image" >}}
+{{< placeholder width="100%" height="250" class="docs-placeholder-img-lg img-fluid" text="Responsive image" >}}
 {{< /example >}}
 
 ## Image thumbnails

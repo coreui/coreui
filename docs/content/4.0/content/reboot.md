@@ -111,7 +111,7 @@ All heading elements—e.g., `<h1>`—and `<p>` are reset to have their `margin-
 
 All lists—`<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a `margin-bottom: 1rem`. Nested lists have no `margin-bottom`. We've also reset the `padding-left` on `<ul>` and `<ol>` elements.
 
-<div class="bd-example">
+<div class="docs-example">
 {{< markdown >}}
 * Lorem ipsum dolor sit amet
 * Consectetur adipiscing elit
@@ -139,7 +139,7 @@ All lists—`<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a `
 
 For simpler styling, clear hierarchy, and better spacing, description lists have updated `margin`s. `<dd>`s reset `margin-left` to `0` and add `margin-bottom: .5rem`. `<dt>`s are **bolded**.
 
-<div class="bd-example">
+<div class="docs-example">
   <dl>
     <dt>Description lists</dt>
     <dd>A description list is perfect for defining terms.</dd>
@@ -198,7 +198,7 @@ For indicating sample output from a program use the `<samp>` tag.
 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class]({{< docsref "/content/tables" >}}).
 
-<div class="bd-example">
+<div class="docs-example">
   <table>
     <caption>
       This is an example table, and this is its caption to describe the contents.
@@ -247,7 +247,7 @@ Various form elements have been rebooted for simpler base styles. Here are some 
 
 These changes, and more, are demonstrated below.
 
-<form class="bd-example">
+<form class="docs-example">
   <fieldset>
     <legend>Example legend</legend>
     <p>
@@ -387,7 +387,7 @@ Reboot includes an enhancement for `role="button"` to change the default cursor 
 
 The `<address>` element is updated to reset the browser default `font-style` from `italic` to `normal`. `line-height` is also now inherited, and `margin-bottom: 1rem` has been added. `<address>`s are for presenting contact information for the nearest ancestor (or an entire body of work). Preserve formatting by ending lines with `<br>`.
 
-<div class="bd-example">
+<div class="docs-example">
   <address>
     <strong>Twitter, Inc.</strong><br>
     1355 Market St, Suite 900<br>
@@ -405,7 +405,7 @@ The `<address>` element is updated to reset the browser default `font-style` fro
 
 The default `margin` on blockquotes is `1em 40px`, so we reset that to `0 0 1rem` for something more consistent with other elements.
 
-<div class="bd-example">
+<div class="docs-example">
   <blockquote class="blockquote">
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
   </blockquote>
@@ -416,7 +416,7 @@ The default `margin` on blockquotes is `1em 40px`, so we reset that to `0 0 1rem
 
 The `<abbr>` element receives basic styling to make it stand out amongst paragraph text.
 
-<div class="bd-example">
+<div class="docs-example">
   Nulla <abbr title="attribute">attr</abbr> vitae elit libero, a pharetra augue.
 </div>
 
@@ -424,7 +424,7 @@ The `<abbr>` element receives basic styling to make it stand out amongst paragra
 
 The default `cursor` on summary is `text`, so we reset that to `pointer` to convey that the element can be interacted with by clicking on it.
 
-<div class="bd-example">
+<div class="docs-example">
   <details>
     <summary>Some details</summary>
     <p>More info about the details.</p>

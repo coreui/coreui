@@ -263,7 +263,7 @@ And if you want `<label>`s as the `.list-group-item` for large hit areas, you ca
 
 Use the tab JavaScript plugin—include it individually or through the compiled `coreui.js` file—to extend our list group to create tabbable panes of local content.
 
-<div class="bd-example" role="tabpanel">
+<div class="docs-example" role="tabpanel">
   <div class="row">
     <div class="col-4">
       <div class="list-group" id="list-tab" role="tablist">

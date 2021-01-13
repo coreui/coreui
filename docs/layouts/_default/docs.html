@@ -1,24 +1,24 @@
 {{ define "main" }}
 <div class="container-lg my-md-4 flex-grow-1">
-  <main class="bd-main order-1">
-    <div class="bd-intro ps-lg-4">
+  <main class="docs-main order-1">
+    <div class="docs-intro ps-lg-4">
       {{ partial "breadcrumb" . }}
       <div class="d-md-flex flex-md-row-reverse align-items-center justify-content-between">
         <a class="btn btn-sm btn-outline-secondary mb-2 mb-md-0" href="{{ .Site.Params.repo }}/blob/main/docs/content/{{ .Page.File.Path | replaceRE `\\` "/" }}" title="View and edit this file on GitHub" target="_blank" rel="noopener">View on GitHub</a>
-        <h1 class="bd-title" id="content">{{ .Title | markdownify }}</h1>
+        <h1 class="docs-title" id="content">{{ .Title | markdownify }}</h1>
       </div>
-      <p class="bd-lead">{{ .Page.Params.Description | markdownify }}</p>
+      <p class="docs-lead">{{ .Page.Params.Description | markdownify }}</p>
       {{ partial "ads" . }}
     </div>
 
     {{ if (eq .Page.Params.toc true) }}
-      <div class="bd-toc mt-4 mb-5 my-md-0 ps-xl-5 mb-lg-5 text-muted">
+      <div class="docs-toc mt-4 mb-5 my-md-0 ps-xl-5 mb-lg-5 text-muted">
         <strong class="d-block h6 mb-2 pb-2 border-bottom">On this page</strong>
         {{ .TableOfContents }}
       </div>
     {{ end }}
 
-    <div class="bd-content ps-lg-4">
+    <div class="docs-content ps-lg-4">
       {{ if .Page.Params.sections }}
         <div class="row g-3">
           {{ range .Page.Params.sections }}

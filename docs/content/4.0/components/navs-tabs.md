@@ -312,7 +312,7 @@ Dynamic tabbed interfaces, as described in the [<abbr title="Web Accessibility I
 
 Note that dynamic tabbed interfaces should <em>not</em> contain dropdown menus, as this causes both usability and accessibility issues. From a usability perspective, the fact that the currently displayed tab's trigger element is not immediately visible (as it's inside the closed dropdown menu) can cause confusion. From an accessibility point of view, there is currently no sensible way to map this sort of construct to a standard WAI ARIA pattern, meaning that it cannot be easily made understandable to users of assistive technologies.
 
-<div class="bd-example">
+<div class="docs-example">
   <ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="home-tab" data-coreui-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
@@ -358,7 +358,7 @@ Note that dynamic tabbed interfaces should <em>not</em> contain dropdown menus, 
 
 To help fit your needs, this works with `<ul>`-based markup, as shown above, or with any arbitrary "roll your own" markup. Note that if you're using `<nav>`, you shouldn't add `role="tablist"` directly to it, as this would override the element's native role as a navigation landmark. Instead, switch to an alternative element (in the example below, a simple `<div>`) and wrap the `<nav>` around it.
 
-<div class="bd-example">
+<div class="docs-example">
   <nav>
     <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
       <a class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
@@ -396,7 +396,7 @@ To help fit your needs, this works with `<ul>`-based markup, as shown above, or 
 
 The tabs plugin also works with pills.
 
-<div class="bd-example">
+<div class="docs-example">
   <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="pills-home-tab" data-coreui-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Home</a>
@@ -442,7 +442,7 @@ The tabs plugin also works with pills.
 
 And with vertical pills.
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="d-flex align-items-start">
     <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
       <a class="nav-link active" id="v-pills-home-tab" data-coreui-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>

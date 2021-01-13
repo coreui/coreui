@@ -146,7 +146,7 @@ Feel free to combine input groups with button groups in your toolbars. Similar t
 
 Alternatively, of implementing button sizing classes to each button in a group, add `.btn-group-*` to all `.btn-group`, including each one when nesting multiple groups.
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
     <button type="button" class="btn btn-outline-dark">Left</button>
     <button type="button" class="btn btn-outline-dark">Middle</button>
@@ -197,7 +197,7 @@ Put a `.btn-group` inside another `.btn-group` when you need dropdown menus comb
 
 Create a set of buttons that appear vertically stacked rather than horizontally. **Split button dropdowns are not supported here.**
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
     <button type="button" class="btn btn-dark">Button</button>
     <button type="button" class="btn btn-dark">Button</button>
@@ -208,7 +208,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
     <button type="button" class="btn btn-primary">Button</button>
     <button type="button" class="btn btn-primary">Button</button>
@@ -253,7 +253,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
   </div>
 </div>
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
     <label class="btn btn-outline-danger" for="vbtn-radio1">Radio 1</label>

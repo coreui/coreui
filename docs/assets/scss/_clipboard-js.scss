@@ -2,7 +2,7 @@
 //
 // JS-based `Copy` buttons for code snippets.
 
-.bd-clipboard {
+.docs-clipboard {
   position: relative;
   display: none;
   float: right;
@@ -18,16 +18,20 @@
 
 .btn-clipboard {
   position: absolute;
-  top: .65rem;
-  right: .65rem;
+  top: .2rem;
+  right: .2rem;
   z-index: 10;
   display: block;
   padding: .25rem .5rem;
   @include font-size(.65em);
   color: $primary;
-  background-color: $white;
-  border: 1px solid;
+  // background-color: $white;
+  // border: 1px solid;
   @include border-radius();
+
+  svg {
+    height: 16px;
+  }
 
   &:hover {
     color: $white;

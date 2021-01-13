@@ -1,4 +1,4 @@
-.bd-layout {
+.docs-layout {
   @include media-breakpoint-up(md) {
     display: grid;
     gap: $grid-gutter-width;
@@ -11,11 +11,11 @@
   }
 }
 
-.bd-sidebar {
+.docs-sidebar {
   grid-area: sidebar;
 }
 
-.bd-main {
+.docs-main {
   grid-area: main;
 
   @include media-breakpoint-up(md) {
@@ -37,15 +37,15 @@
   }
 }
 
-.bd-intro {
+.docs-intro {
   grid-area: intro;
 }
 
-.bd-toc {
+.docs-toc {
   grid-area: toc;
 }
 
-.bd-content {
+.docs-content {
   grid-area: content;
   min-width: 1px; // Fix width when bd-content contains a `<pre>` https://github.com/twbs/bootstrap/issues/25410
 }

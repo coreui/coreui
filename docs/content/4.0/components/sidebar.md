@@ -8,14 +8,6 @@ aliases:
 toc: true
 ---
 
-<style>
-.c-content .sidebar {
-  position: static !important;
-  width: 200px;
-  height: 500px;
-}
-</style>
-
 ## How it works
 
 Here's what you need to know before getting started with the sidebar:
@@ -51,7 +43,7 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
     <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="nav-icon cil-speedometer"></i> With badge
-        <span class="badge badge-primary">NEW</span>
+        <span class="badge bg-primary">NEW</span>
       </a>
     </li>
     <li class="nav-item nav-group">
@@ -93,76 +85,6 @@ Sidebar can utilize `.sidebar-{-sm|-md|-lg|-xl|-xxl}-show` classes to change whe
 
 For sidebar that is always visible, add the `.sidebar-show` class on the sidebar
 
-### Sidebar toggler
-
-Add `data-toggle="sidebar{-sm|-md|-lg|-xl|-xxl}-show"` to `.sidebar-toggler`.
-
-{{< example >}}
-{{< sidebar.inline >}}
-<header class="navbar navbar-light">
-  <button class="navbar-toggler sidebar-toggler" type="button" data-toggle="sidebar-show">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-</header>
-{{< /sidebar.inline >}}
-{{< /example >}}
-
-## Light sidebar {class="pro-component"}
-
-Opt into darker dropdowns to match a dark navbar or custom style by adding .dropdown-menu-dark onto an existing .dropdown-menu. No changes are required to the dropdown items.
-
-{{< example >}}
-{{< sidebar.inline >}}
-<div class="bg-light">
-<div class="sidebar sidebar-light sidebar-show">
-  <ul class="sidebar-nav">
-    <li class="nav-title">Nav Title</li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> Nav item
-      </a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">
-        <i class="nav-icon cil-speedometer"></i> With badge
-        <span class="badge badge-primary">NEW</span>
-      </a>
-    </li>
-    <li class="nav-item nav-group">
-      <a class="nav-link nav-group-toggle" href="#">
-        <i class="nav-icon cil-puzzle"></i> Nav dropdown
-      </a>
-      <ul class="nav-group-items">
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="nav-icon cil-puzzle"></i> Nav dropdown item
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="nav-icon cil-puzzle"></i> Nav dropdown item
-          </a>
-        </li>
-      </ul>
-    </li>
-    <li class="nav-item mt-auto">
-      <a class="nav-link nav-link-success" href="https://coreui.io">
-        <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link nav-link-danger" href="https://coreui.io/pro/">
-        <i class="nav-icon cil-layers"></i> Try CoreUI
-        <strong>PRO</strong>
-      </a>
-    </li>
-  </ul>
-  <button class="sidebar-minimizer c-brand-minimizer" type="button"></button>
-</div>
-</div>
-{{< /sidebar.inline >}}
-{{< /example >}}
-
-
 ## JavaScript behavior
 
 ### Methods
@@ -178,10 +100,9 @@ var sidebar = new coreui.Sidebar(mySidebar)
 {{< bs-table "table text-left" >}}
 | Method | Description |
 | --- | --- |
-| `open` | Shows the sidebar. |
-| `close` | Hides the sidebar. |
+| `show` | Shows the sidebar. |
+| `hide` | Hides the sidebar. |
 | `toggle` | Toggles the sidebar to opened or closed. |
-| `minimize` | Minimizes the sidebar. |
 | `getInstance` | Static method which allows you to get the sidebar instance associated with a DOM element. |
 {{< /bs-table >}}
 
@@ -198,10 +119,10 @@ Bootstrap's alert plugin exposes a few events for hooking into alert functionali
 {{< bs-table "table text-left" >}}
 | Event | Description |
 | --- | --- |
-| `close.coreui.sidebar` | This event is fired immediately when the `close` instance method has been called. |
-| `closed.coreui.sidebar` | This event is fired when the sidebar has finished being closed from the user (will wait for CSS transitions to complete). |
-| `open.coreui.sidebar` | This event fires immediately when the `open` instance method is called. |
-| `opened.coreui.sidebar` | This event is fired when the sidebar has been made visible to the user (will wait for CSS transitions to complete) |
+| `hidden.coreui.sidebar` | This event is fired immediately when the `hide` instance method has been called. |
+| `hide.coreui.sidebar` | This event is fired when the sidebar has finished being closed from the user (will wait for CSS transitions to complete). |
+| `shown.coreui.sidebar` | This event fires immediately when the `show` instance method is called. |
+| `show.coreui.sidebar` | This event is fired when the sidebar has been made visible to the user (will wait for CSS transitions to complete) |
 {{< /bs-table >}}
 
 {{< highlight js >}}

@@ -4,13 +4,9 @@
   <script src="/docs/{{ .Site.Params.docs_version }}/dist/js/coreui.bundle.js"></script>
 {{- end }}
 
-{{ if eq .Page.Layout "docs" -}}
-<script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-{{- end }}
-
 {{- $vendor := resources.Match "js/vendor/*.js" -}}
 {{- $js := resources.Match "js/*.js" -}}
-{{- $targetDocsJSPath := printf "/docs/%s/assets/js/docs.js" .Site.Params.docs_version -}}
+{{- $targetDocsJSPath := printf "/%s/assets/js/docs.js" .Site.Params.docs_version -}}
 {{- $docsJs := append $js $vendor | resources.Concat $targetDocsJSPath -}}
 
 {{- if eq hugo.Environment "production" -}}

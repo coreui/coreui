@@ -383,7 +383,7 @@ Adapt an image into a background and overlay your text. Depending on the image, 
 
 {{< example >}}
 <div class="card bg-dark text-white">
-  {{< placeholder width="100%" height="270" class="bd-placeholder-img-lg card-img" text="Card image" >}}
+  {{< placeholder width="100%" height="270" class="docs-placeholder-img-lg card-img" text="Card image" >}}
   <div class="card-img-overlay">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -741,10 +741,6 @@ Just like with card groups, card footers will automatically line up.
   </div>
 </div>
 {{< /example >}}
-
-### Masonry
-
-In `v4` we used a CSS-only technique to mimic the behavior of [Masonry](https://masonry.desandro.com/)-like columns, but this technique came with lots of unpleasant [side effects](https://github.com/twbs/bootstrap/pull/28922). If you want to have this type of layout in `v5`, you can just make use of Masonry plugin. **Masonry is not included in Bootstrap**, but we've made a [demo example]({{< docsref "/examples/masonry" >}}) to help you get started.
 
 ## Customizing
 

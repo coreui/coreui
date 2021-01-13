@@ -62,8 +62,8 @@ var popover = new coreui.Popover(document.querySelector('.example-popover'), {
 
 Four options are available: top, right, bottom, and left aligned. Directions are mirrored when using Bootstrap in RTL.
 
-<div class="bd-example popover-demo">
-  <div class="bd-example-popovers">
+<div class="docs-example popover-demo">
+  <div class="docs-example-popovers">
     <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
       Popover on top
     </button>

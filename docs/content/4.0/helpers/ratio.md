@@ -30,7 +30,7 @@ Wrap any embed, like an `<iframe>`, in a parent element with `.ratio` and an asp
 
 Aspect ratios can be customized with modifier classes. By default the following ratio classes are provided:
 
-{{< example class="bd-example-ratios" >}}
+{{< example class="docs-example-ratios" >}}
 <div class="ratio ratio-1x1">
   <div>1x1</div>
 </div>
@@ -51,7 +51,7 @@ Each `.ratio-*` class includes a CSS custom property (or CSS variable) in the se
 
 For example, to create a 2x1 aspect ratio, set `--aspect-ratio: 50%` on the `.ratio`.
 
-{{< example class="bd-example-ratios" >}}
+{{< example class="docs-example-ratios" >}}
 <div class="ratio" style="--aspect-ratio: 50%;">
   <div>2x1</div>
 </div>
@@ -67,7 +67,7 @@ This CSS variable makes it easy to modify the aspect ratio across breakpoints. T
 }
 ```
 
-{{< example class="bd-example-ratios bd-example-ratios-breakpoint" >}}
+{{< example class="docs-example-ratios docs-example-ratios-breakpoint" >}}
 <div class="ratio ratio-4x3">
   <div>4x3, then 2x1</div>
 </div>

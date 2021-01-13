@@ -2,7 +2,7 @@
 // Callouts
 //
 
-.bd-callout {
+.docs-callout {
   padding: 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
@@ -22,20 +22,20 @@
     @include border-radius();
   }
 
-  + .bd-callout {
+  + .docs-callout {
     margin-top: -.25rem;
   }
 }
 
 // Variations
-.bd-callout-info {
+.docs-callout-info {
   border-left-color: $bd-info;
 }
 
-.bd-callout-warning {
+.docs-callout-warning {
   border-left-color: $bd-warning;
 }
 
-.bd-callout-danger {
+.docs-callout-danger {
   border-left-color: $bd-danger;
 }

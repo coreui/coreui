@@ -37,7 +37,7 @@ Where *position* is one of:
 
 (You can add more position values by adding entries to the `$position-values` Sass map variable.)
 
-{{< example class="bd-example-position-utils" >}}
+{{< example class="docs-example-position-utils" >}}
 <div class="position-relative">
   <div class="position-absolute top-0 start-0"></div>
   <div class="position-absolute top-0 end-0"></div>
@@ -54,7 +54,7 @@ In addition, you can also center the elements with the transform utility class `
 
 This class applies the transformations `translateX(-50%)` and `translateY(-50%)` to the element which, in combination with the edge positioning utilities, allows you to absolute center an element.
 
-{{< example class="bd-example-position-utils" >}}
+{{< example class="docs-example-position-utils" >}}
 <div class="position-relative">
   <div class="position-absolute top-0 start-0 translate-middle"></div>
   <div class="position-absolute top-0 start-50 translate-middle"></div>
@@ -70,7 +70,7 @@ This class applies the transformations `translateX(-50%)` and `translateY(-50%)`
 
 By adding `.translate-middle-x` or `.translate-middle-y` classes, elements can be positioned only in horizontal or vertical direction.
 
-{{< example class="bd-example-position-utils" >}}
+{{< example class="docs-example-position-utils" >}}
 <div class="position-relative">
   <div class="position-absolute top-0 start-0"></div>
   <div class="position-absolute top-0 start-50 translate-middle-x"></div>
@@ -88,7 +88,7 @@ By adding `.translate-middle-x` or `.translate-middle-y` classes, elements can b
 
 Here are some real life examples of these classes:
 
-{{< example class="bd-example-position-examples d-flex justify-content-around" >}}
+{{< example class="docs-example-position-examples d-flex justify-content-around" >}}
 <button type="button" class="btn btn-primary position-relative">
   Mails <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+99 <span class="visually-hidden">unread messages</span></span>
 </button>
@@ -104,7 +104,7 @@ Here are some real life examples of these classes:
 
 You can use these classes with existing components to create new ones. Remember that you can extend its functionality by adding entries to the `$position-values` variable.
 
-{{< example class="bd-example-position-examples" >}}
+{{< example class="docs-example-position-examples" >}}
 <div class="position-relative m-4">
   <div class="progress" style="height: 1px;">
     <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>

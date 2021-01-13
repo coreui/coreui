@@ -45,15 +45,15 @@ var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
 
 Hover over the links below to see tooltips:
 
-<div class="bd-example tooltip-demo">
+<div class="docs-example tooltip-demo">
   <p class="muted">Tight pants next level keffiyeh <a href="#" data-coreui-toggle="tooltip" title="Default tooltip">you probably</a> haven't heard of them. Photo booth beard raw denim letterpress vegan messenger bag stumptown. Farm-to-table seitan, mcsweeney's fixie sustainable quinoa 8-bit american apparel <a href="#" data-coreui-toggle="tooltip" title="Another tooltip">have a</a> terry richardson vinyl chambray. Beard stumptown, cardigans banh mi lomo thundercats. Tofu biodiesel williamsburg marfa, four loko mcsweeney's cleanse vegan chambray. A really ironic artisan <a href="#" data-coreui-toggle="tooltip" title="Another one here too">whatever keytar</a>, scenester farm-to-table banksy Austin <a href="#" data-coreui-toggle="tooltip" title="The last tip!">twitter handle</a> freegan cred raw denim single-origin coffee viral.
   </p>
 </div>
 
 Hover over the buttons below to see the four tooltips directions: top, right, bottom, and left. Directions are mirrored when using Bootstrap in RTL.
 
-<div class="bd-example tooltip-demo">
-  <div class="bd-example-tooltips">
+<div class="docs-example tooltip-demo">
+  <div class="docs-example-tooltips">
     <button type="button" class="btn btn-secondary" data-coreui-toggle="tooltip" data-coreui-placement="top" title="Tooltip on top">Tooltip on top</button>
     <button type="button" class="btn btn-secondary" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Tooltip on right">Tooltip on right</button>
     <button type="button" class="btn btn-secondary" data-coreui-toggle="tooltip" data-coreui-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
@@ -87,7 +87,7 @@ And with custom HTML added:
 
 With an SVG:
 
-<div class="bd-example tooltip-demo">
+<div class="docs-example tooltip-demo">
   <a href="#" data-coreui-toggle="tooltip" title="Default tooltip">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
       <rect width="100%" height="100%" fill="#563d7c"/>

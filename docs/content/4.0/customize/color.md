@@ -42,7 +42,7 @@ Be sure to monitor contrast ratios as you customize colors. As shown below, we'v
         {{ $color.hex }}
       </div>
       {{ range (seq 100 100 900) }}
-      <div class="p-3 bd-{{ $color.name }}-{{ . }}">${{ $color.name }}-{{ . }}</div>
+      <div class="p-3 docs-{{ $color.name }}-{{ . }}">${{ $color.name }}-{{ . }}</div>
       {{ end }}
     </div>
     {{ end -}}
@@ -54,17 +54,17 @@ Be sure to monitor contrast ratios as you customize colors. As shown below, we'v
       #adb5bd
     </div>
   {{- range $.Site.Data.grays }}
-    <div class="p-3 bd-gray-{{ .name }}">$gray-{{ .name }}</div>
+    <div class="p-3 docs-gray-{{ .name }}">$gray-{{ .name }}</div>
   {{ end -}}
   </div>
   {{< /theme-colors.inline >}}
 
   <div class="col-md-4 mb-3">
-    <div class="p-3 mb-2 bd-black text-white">
+    <div class="p-3 mb-2 docs-black text-white">
       <strong class="d-block">$black</strong>
       #000
     </div>
-    <div class="p-3 mb-2 bd-white border">
+    <div class="p-3 mb-2 docs-white border">
       <strong class="d-block">$white</strong>
       #fff
     </div>

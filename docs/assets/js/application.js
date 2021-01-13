@@ -60,13 +60,13 @@
     })
 
   // Indeterminate checkbox example
-  document.querySelectorAll('.bd-example-indeterminate [type="checkbox"]')
+  document.querySelectorAll('.docs-example-indeterminate [type="checkbox"]')
     .forEach(function (checkbox) {
       checkbox.indeterminate = true
     })
 
   // Disable empty links in docs examples
-  document.querySelectorAll('.bd-content [href="#"]')
+  document.querySelectorAll('.docs-content [href="#"]')
     .forEach(function (link) {
       link.addEventListener('click', function (e) {
         e.preventDefault()
@@ -103,7 +103,7 @@
   }
 
   // Insert copy to clipboard button before .highlight
-  var btnHtml = '<div class="bd-clipboard"><button type="button" class="btn-clipboard" title="Copy to clipboard">Copy</button></div>'
+  var btnHtml = '<div class="docs-clipboard"><button type="button" class="btn-clipboard btn-ghost-primary" title="Copy to clipboard"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><polygon fill="var(--ci-primary-color, currentColor)" points="408 432 376 432 376 464 112 464 112 136 144 136 144 104 80 104 80 496 408 496 408 432" class="ci-primary"/><path fill="var(--ci-primary-color, currentColor)" d="M176,16V400H496V153.373L358.627,16ZM464,368H208V48H312V200H464Zm0-200H344V48h1.372L464,166.627Z" class="ci-primary"/></svg></button></div>'
   document.querySelectorAll('div.highlight')
     .forEach(function (element) {
       element.insertAdjacentHTML('beforebegin', btnHtml)
@@ -151,5 +151,5 @@
   anchors.options = {
     icon: '#'
   }
-  anchors.add('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5')
+  anchors.add('.docs-content > h2, .docs-content > h3, .docs-content > h4, .docs-content > h5')
 })()

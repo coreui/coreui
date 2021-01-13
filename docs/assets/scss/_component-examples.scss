@@ -2,7 +2,7 @@
 // Grid examples
 //
 
-.bd-example-row {
+.docs-example-row {
   .row {
     > .col,
     > [class^="col-"] {
@@ -18,12 +18,12 @@
   }
 }
 
-.bd-example-row-flex-cols .row {
+.docs-example-row-flex-cols .row {
   min-height: 10rem;
   background-color: rgba(255, 0, 0, .1);
 }
 
-.bd-highlight {
+.docs-highlight {
   background-color: rgba($bd-purple, .15);
   border: 1px solid rgba($bd-purple, .15);
 }
@@ -67,7 +67,7 @@
 // Docs examples
 //
 
-.bd-example {
+.docs-example {
   position: relative;
   padding: 1rem;
   margin: 1rem (-$grid-gutter-width / 2) 0;
@@ -82,7 +82,7 @@
     border-width: 1px;
     @include border-top-radius(.25rem);
 
-    + .bd-clipboard + .highlight {
+    + .docs-clipboard + .highlight {
       @include border-bottom-radius(.25rem);
     }
   }
@@ -167,7 +167,7 @@
 }
 
 // Ratio helpers
-.bd-example-ratios {
+.docs-example-ratios {
   .ratio {
     display: inline-block;
     width: 10rem;
@@ -182,7 +182,7 @@
     }
   }
 }
-.bd-example-ratios-breakpoint {
+.docs-example-ratios-breakpoint {
   .ratio-4x3 {
     width: 16rem;
 
@@ -192,7 +192,7 @@
   }
 }
 
-.bd-example-modal {
+.docs-example-modal {
   background-color: #fafafa;
 
   .modal {
@@ -220,7 +220,7 @@
   overflow: auto;
 }
 
-.bd-example-border-utils {
+.docs-example-border-utils {
   [class^="border"] {
     display: inline-block;
     width: 5rem;
@@ -230,19 +230,19 @@
   }
 }
 
-.bd-example-border-utils-0 {
+.docs-example-border-utils-0 {
   [class^="border"] {
     border: 1px solid $border-color;
   }
 }
 
-.bd-example-rounded-utils {
+.docs-example-rounded-utils {
   [class*="rounded"] {
     margin: .25rem;
   }
 }
 
-.bd-example-position-utils {
+.docs-example-position-utils {
   position: relative;
   padding: 3em;
 
@@ -259,14 +259,14 @@
   }
 }
 
-.bd-example-position-examples {
+.docs-example-position-examples {
   &::after {
     content: none;
   }
 }
 
 // Toasts
-.bd-example-toasts {
+.docs-example-toasts {
   min-height: 240px;
 }
 
@@ -299,7 +299,7 @@
   }
 }
 
-.bd-content .highlight {
+.docs-content .highlight {
   margin-right: (-$grid-gutter-width / 2);
   margin-left: (-$grid-gutter-width / 2);
 

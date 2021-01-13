@@ -1,4 +1,4 @@
-.bd-subnavbar {
+.docs-subnavbar {
   // The position and z-index are needed for the dropdown to stay on top of the content
   position: relative;
   z-index: $zindex-sticky;
@@ -24,7 +24,7 @@
   }
 }
 
-.bd-search {
+.docs-search {
   position: relative;
 
   &::after {
@@ -58,7 +58,7 @@
   }
 }
 
-.bd-sidebar-toggle {
+.docs-sidebar-toggle {
   color: $text-muted;
 
   &:hover,

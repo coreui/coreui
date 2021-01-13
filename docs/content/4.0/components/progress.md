@@ -123,7 +123,7 @@ Add `.progress-bar-striped` to any `.progress-bar` to apply a stripe via CSS gra
 
 The striped gradient can also be animated. Add `.progress-bar-animated` to `.progress-bar` to animate the stripes right to left via CSS3 animations.
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="progress">
     <div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
   </div>
