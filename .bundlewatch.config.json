@@ -41,7 +41,7 @@
       "maxSize": "21.5 kB"
     },
     {
-      "path": "./dist/js/bootstrap.esm.js",
+      "path": "./dist/js/coreui.esm.js",
       "maxSize": "27 kB"
     },
     {
