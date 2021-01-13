@@ -30,12 +30,12 @@ const DATA_API_KEY = '.data-api'
 
 const Default = {
   activeLinksExact: true,
-  dropdownAccordion: true
+  groupsAutoCollapse: true
 }
 
 const DefaultType = {
   activeLinksExact: 'boolean',
-  dropdownAccordion: '(string|boolean)'
+  groupsAutoCollapse: '(string|boolean)'
 }
 
 const CLASS_NAME_ACTIVE = 'active'
@@ -230,7 +230,7 @@ class Navigation extends BaseComponent {
     const filter = element => Boolean(element.classList.contains(CLASS_NAME_NAV_GROUP) && element.classList.contains(CLASS_NAME_SHOW))
 
     // Close other groups
-    if (this._config.dropdownAccordion === true) {
+    if (this._config.groupsAutoCollapse === true) {
       this._getSiblings(toggler.parentNode, filter).forEach(element => {
         this._slideUp(SelectorEngine.findOne(SELECTOR_NAV_GROUP_ITEMS, element), () => {
           element.classList.remove(CLASS_NAME_SHOW)

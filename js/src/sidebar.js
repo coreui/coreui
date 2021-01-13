@@ -38,9 +38,10 @@ const CLASS_NAME_SHOW = 'show'
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
 const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
 const CLASS_NAME_SIDEBAR_SHOW = 'sidebar-show'
-const CLASS_NAME_SIDEBAR_UNFOLDABLE = 'sidebar-unfoldable'
+const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'
 
-const REGEXP_SIDEBAR_SHOW = new RegExp(`sidebar.*show`)
+// eslint-disable-next-line prefer-regex-literals
+const REGEXP_SIDEBAR_SHOW = new RegExp('sidebar.*show')
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -156,7 +157,7 @@ class Sidebar extends BaseComponent {
   }
 
   toggle(breakpoint) {
-    if (this._isVisible()) {
+    if (this._show) {
       this.hide(breakpoint)
       return
     }
@@ -173,7 +174,7 @@ class Sidebar extends BaseComponent {
 
   unfoldable() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_UNFOLDABLE)
+      this._addClassName(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
       this._unfoldable = true
     }
   }
@@ -186,7 +187,7 @@ class Sidebar extends BaseComponent {
       }
 
       if (this._unfoldable) {
-        this._element.classList.remove(CLASS_NAME_SIDEBAR_UNFOLDABLE)
+        this._element.classList.remove(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
         this._unfoldable = false
       }
     }
@@ -264,17 +265,18 @@ class Sidebar extends BaseComponent {
   }
 
   _isUnfoldable() {
-    return this._element.classList.contains(CLASS_NAME_SIDEBAR_UNFOLDABLE)
+    return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
   }
 
+  // eslint-disable-next-line no-warning-comments
   // TODO: ta metoda nie zawsze działa poprawnie
   _isVisible() {
     const rect = this._element.getBoundingClientRect()
     return (
-      Math.floor(rect.top) >= 0 &&
-      Math.floor(rect.left) >= 0 &&
-      Math.floor(rect.bottom) <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-      Math.floor(rect.right) <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
     )
   }
 

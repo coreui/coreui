@@ -18,7 +18,7 @@
     font-weight: 700;
     color: var(--#{$variable-prefix}sidebar-nav-title-color, $sidebar-nav-title-color);
     text-transform: uppercase;
-    // transition: $layout-transition-speed; TODO: fix
+    @include transition($sidebar-nav-title-transition);
   }
 
   .nav-link {
@@ -110,6 +110,10 @@
 
     &.show {
       background: var(--#{$variable-prefix}sidebar-nav-group-bg, $sidebar-nav-group-bg);
+
+      .nav-group-toggle {
+        color: var(--#{$variable-prefix}sidebar-nav-group-toggle-show-color, $sidebar-nav-group-toggle-show-color);
+      }
 
       > .nav-group-toggle::after {
         transform: rotate(-90deg);

@@ -1533,7 +1533,7 @@ $sidebar-border-color:                     transparent !default;
 $sidebar-transition:                       margin-left .15s, margin-right .15s, box-shadow .075s, transform .15s, width .15s, z-index 0s ease .15s !default;
 $sidebar-reliant-transition:               margin .15s !default;
 
-$sidebar-brand-height:                     56px !default;
+$sidebar-brand-height:                     4rem !default;
 $sidebar-brand-color:                      $high-emphasis-light !default;
 $sidebar-brand-bg:                         rgba($black, .2) !default;
 
@@ -1541,16 +1541,19 @@ $sidebar-header-height:                    auto !default;
 $sidebar-header-padding-y:                 .75rem !default;
 $sidebar-header-padding-x:                 1rem !default;
 $sidebar-header-bg:                        rgba($black, .2) !default;
+$sidebar-header-height-transition:         height .15s, padding .15s !default;
 
-$sidebar-narrow-width:                     3rem !default;
+$sidebar-narrow-width:                     4rem !default;
 
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
+$sidebar-backdrop-transition:              opacity .15s linear !default;
 
 $sidebar-nav-title-padding-y:              .75rem !default;
 $sidebar-nav-title-padding-x:              1rem !default;
 $sidebar-nav-title-margin-top:             1rem !default;
 $sidebar-nav-title-color:                  $medium-emphasis-light !default;
+$sidebar-nav-title-transition:             height .15s, margin .15s !default;
 
 $sidebar-nav-link-padding-y:               .8445rem !default;
 $sidebar-nav-link-padding-x:               1rem !default;
@@ -1570,7 +1573,7 @@ $sidebar-nav-link-active-icon-color:       $high-emphasis-light !default;
 $sidebar-nav-link-disabled-color:          $disabled-light !default;
 $sidebar-nav-link-disabled-icon-color:     $sidebar-nav-link-icon-color !default;
 
-$sidebar-nav-icon-width:                   3rem !default;
+$sidebar-nav-icon-width:                   4rem !default;
 $sidebar-nav-icon-height:                  1.25rem !default;
 $sidebar-nav-icon-font-size:               $sidebar-nav-icon-height !default;
 
@@ -1589,11 +1592,14 @@ $sidebar-footer-height:                    auto !default;
 $sidebar-footer-padding-y:                 .75rem !default;
 $sidebar-footer-padding-x:                 1rem !default;
 $sidebar-footer-bg:                        rgba($black, .2) !default;
+$sidebar-footer-height-transition:         height .15s, padding .15s !default;
 
-$sidebar-toggler-height:                   50px !default;
+$sidebar-toggler-height:                   3rem !default;
 $sidebar-toggler-bg:                       rgba($black, .2) !default;
 $sidebar-toggler-transition:               transform .15s !default;
 
+$sidebar-toggler-indicator-width:          4rem !default;
+$sidebar-toggler-indicator-height:         3rem !default;
 $sidebar-toggler-indicator-color:          $gray-600 !default;
 $sidebar-toggler-indicator:                str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-toggler-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $sidebar-toggler-hover-bg:                 rgba(0, 0, 0, .3) !default;

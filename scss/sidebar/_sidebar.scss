@@ -139,14 +139,14 @@
   padding: $sidebar-header-padding-y $sidebar-header-padding-x;
   text-align: center;
   background: var(--#{$variable-prefix}sidebar-header-bg, $sidebar-header-bg);
-  // transition: $layout-transition-speed; TODO: fix
+  @include transition($sidebar-header-height-transition);
 }
 
 .sidebar-footer {
   flex: 0 0 $sidebar-footer-height;
   padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
   background: var(--#{$variable-prefix}sidebar-footer-bg, $sidebar-footer-bg);
-  // transition: $layout-transition-speed; TODO: fix
+  @include transition($sidebar-footer-height-transition);
 }
 
 .sidebar-toggler {
@@ -165,13 +165,13 @@
 
   &::before {
     display: block;
-    width: $sidebar-toggler-height;
-    height: $sidebar-toggler-height;
+    width: $sidebar-toggler-indicator-width;
+    height: $sidebar-toggler-indicator-height;
     content: "";
     background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, $sidebar-toggler-indicator);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: $sidebar-toggler-height / 4;
+    background-size: $sidebar-toggler-indicator-height / 4;
     @include transition($sidebar-toggler-transition);
   }
 
@@ -205,7 +205,7 @@
     width: 100vw;
     height: 100vh;
     background-color: $sidebar-backdrop-bg;
-    // transition: $layout-transition-speed; TODO: fix
+    @include transition($sidebar-backdrop-transition);
 
     // Fade for backdrop
     &.fade { opacity: 0; }
