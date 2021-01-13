@@ -115,8 +115,7 @@
     text-decoration: none;
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     outline: 0;
   }
 }
@@ -175,8 +174,7 @@
     @include transition($sidebar-toggler-transition);
   }
 
-  &:focus,
-  &.focus {
+  &:focus {
     outline: 0;
   }
 
