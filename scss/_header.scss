@@ -30,6 +30,11 @@
     }
   }
 
+  .container:first-child,
+  .container-fluid:first-child {
+    min-height: $header-min-height - (2 * $header-padding-y);
+  }
+
   &.header-sticky {
     position: sticky;
     top: 0;
