@@ -117,9 +117,9 @@ $utilities: map-merge(
       class: border-top,
       values: map-merge($theme-colors, ("white": $white))
     ),
-    "border-right-color": (
+    "border-end-color": (
       property: border-right-color,
-      class: border-right,
+      class: border-end,
       values: map-merge($theme-colors, ("white": $white))
     ),
     "border-bottom-color": (
@@ -127,9 +127,9 @@ $utilities: map-merge(
       class: border-bottom,
       values: map-merge($theme-colors, ("white": $white))
     ),
-    "border-left-color": (
-      property: border-right-color,
-      class: border-left,
+    "border-start-color": (
+      property: border-left-color,
+      class: border-start,
       values: map-merge($theme-colors, ("white": $white))
     ),
     "border-width": (
@@ -142,9 +142,9 @@ $utilities: map-merge(
       class: border-top,
       values: $border-widths
     ),
-    "border-right-width": (
+    "border-end-width": (
       property: border-right-width,
-      class: border-right,
+      class: border-end,
       values: $border-widths
     ),
     "border-bottom-width": (
@@ -152,9 +152,9 @@ $utilities: map-merge(
       class: border-bottom,
       values: $border-widths
     ),
-    "border-left-width": (
+    "border-start-width": (
       property: border-left-width,
-      class: border-left,
+      class: border-start,
       values: $border-widths
     ),
     // Sizing utilities
