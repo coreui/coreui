@@ -43,6 +43,18 @@ Change the border color using utilities built on our theme colors.
 <span class="border border-white"></span>
 {{< /example >}}
 
+Using utilities you can change the border on one side only, or you can change all borders to make them different colors.
+
+{{< example class="docs-example-border-utils" >}}
+<span class="border-top border-top-primary"></span>
+<span class="border-end border-end-primary"></span>
+<span class="border-bottom border-bottom-primary"></span>
+<span class="border-start border-start-primary"></span>
+<span class="border-start border-start-primary border-end border-end-danger"></span>
+<span class="border-top border-top-primary border-end border-end-danger border-bottom border-bottom-success"></span>
+<span class="border border-top-primary border-end-danger border-bottom-success border-start-info"></span>
+{{< /example >}}
+
 ## Border-width
 
 {{< example class="docs-example-border-utils" >}}
@@ -51,6 +63,12 @@ Change the border color using utilities built on our theme colors.
 <span class="border border-3"></span>
 <span class="border border-4"></span>
 <span class="border border-5"></span>
+
+<span class="border-start border-start-1"></span>
+<span class="border-start border-start-2"></span>
+<span class="border-start border-start-3"></span>
+<span class="border-start border-start-4"></span>
+<span class="border-start border-start-5"></span>
 {{< /example >}}
 
 ## Border-radius
