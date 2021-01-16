@@ -104,9 +104,10 @@
 
 .sidebar-close {
   position: absolute;
+  top: 0;
   right: 0;
   width: $sidebar-brand-height;
-  height: $sidebar-brand-height;
+  height: $sidebar-header-height;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
   background: transparent;
   border: 0;
@@ -139,6 +140,12 @@
   text-align: center;
   background: var(--#{$variable-prefix}sidebar-header-bg, $sidebar-header-bg);
   @include transition($sidebar-header-height-transition);
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    min-height: $sidebar-header-height;
+  }
 }
 
 .sidebar-footer {
