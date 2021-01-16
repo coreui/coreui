@@ -50,6 +50,7 @@ const EVENT_SHOWN = `shown${EVENT_KEY}`
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
 const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
 
+const SELECTOR_DATA_CLOSE = '[data-coreui-close="sidebar"]'
 const SELECTOR_SIDEBAR = '.sidebar'
 const SELECTOR_SIDEBAR_TOGGLER = '.sidebar-toggler'
 
@@ -341,6 +342,11 @@ class Sidebar extends BaseComponent {
       if (toggle === 'unfoldable') {
         this.toggleUnfoldable()
       }
+    })
+
+    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_CLOSE, event => {
+      event.preventDefault()
+      this.hide()
     })
   }
 
