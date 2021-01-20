@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.0-alpha.0 (https://coreui.io)
+  * CoreUI v4.0.0-alpha.1 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -59,7 +59,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -265,7 +265,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dom/data.js
@@ -335,7 +335,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -617,7 +617,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '4.0.0-alpha.0';
+  var VERSION = '4.0.0-alpha.1';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {
@@ -872,7 +872,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -947,7 +947,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -5119,7 +5119,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): alert.js
+   * CoreUI (v4.0.0-alpha.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -6463,25 +6463,31 @@
   var DATA_KEY$a = 'coreui.sidebar';
   var EVENT_KEY$a = "." + DATA_KEY$a;
   var DATA_API_KEY$8 = '.data-api';
-  var Default$8 = {};
-  var DefaultType$8 = {};
+  var Default$8 = {
+    breakpoint: false
+  };
+  var DefaultType$8 = {
+    breakpoint: '(boolean|string)'
+  };
   var CLASS_NAME_BACKDROP$1 = 'sidebar-backdrop';
   var CLASS_NAME_FADE$4 = 'fade';
   var CLASS_NAME_SHOW$7 = 'show';
+  var CLASS_NAME_SIDEBAR = 'sidebar';
   var CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow';
   var CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid';
-  var CLASS_NAME_SIDEBAR_SHOW = 'sidebar-show';
   var CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'; // eslint-disable-next-line prefer-regex-literals
 
   var REGEXP_SIDEBAR_SHOW = new RegExp('sidebar.*show');
+  var REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/;
   var EVENT_HIDE$3 = "hide" + EVENT_KEY$a;
   var EVENT_HIDDEN$3 = "hidden" + EVENT_KEY$a;
   var EVENT_SHOW$3 = "show" + EVENT_KEY$a;
   var EVENT_SHOWN$3 = "shown" + EVENT_KEY$a;
   var EVENT_CLICK_DATA_API$7 = "click" + EVENT_KEY$a + DATA_API_KEY$8;
   var EVENT_LOAD_DATA_API$3 = "load" + EVENT_KEY$a + DATA_API_KEY$8;
+  var SELECTOR_DATA_CLOSE = '[data-coreui-close="sidebar"]';
+  var SELECTOR_DATA_TOGGLE$4 = '[data-coreui-toggle]';
   var SELECTOR_SIDEBAR = '.sidebar';
-  var SELECTOR_SIDEBAR_TOGGLER = '.sidebar-toggler';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -6496,6 +6502,7 @@
 
       _this = _BaseComponent.call(this, element) || this;
       _this._config = _this._getConfig(config);
+      _this._breakpoint = _this._getBreakpoint();
       _this._show = _this._isVisible();
       _this._mobile = _this._isMobile();
       _this._overlaid = _this._isOverlaid();
@@ -6519,12 +6526,10 @@
       EventHandler.trigger(this._element, EVENT_SHOW$3);
 
       if (typeof breakpoint !== 'undefined') {
-        this._element.classList.add(breakpoint);
+        this._breakpoint = breakpoint;
       }
 
-      if (typeof breakpoint === 'undefined' || this._isMobile()) {
-        this._element.classList.add(CLASS_NAME_SIDEBAR_SHOW);
-      }
+      this._element.classList.add(this._createShowClass());
 
       if (this._isMobile()) {
         this._showBackdrop();
@@ -6547,25 +6552,16 @@
       emulateTransitionEnd(this._element, transitionDuration);
     };
 
-    _proto.hide = function hide(breakpoint) {
+    _proto.hide = function hide() {
       var _this3 = this;
 
       EventHandler.trigger(this._element, EVENT_HIDE$3);
 
-      if (typeof breakpoint !== 'undefined') {
-        this._element.classList.remove(breakpoint);
-
-        return;
-      }
-
-      if (typeof breakpoint === 'undefined' || this._isMobile()) {
-        // eslint-disable-next-line unicorn/prefer-spread
-        Array.from(this._element.classList).forEach(function (className) {
-          if (className.match(REGEXP_SIDEBAR_SHOW)) {
-            _this3._element.classList.remove(className);
-          }
-        });
-      }
+      this._element.classList.forEach(function (className) {
+        if (className.match(REGEXP_SIDEBAR_SHOW)) {
+          _this3._element.classList.remove(className);
+        }
+      });
 
       if (this._isMobile()) {
         this._removeBackdrop();
@@ -6590,11 +6586,17 @@
 
     _proto.toggle = function toggle(breakpoint) {
       if (this._show) {
-        this.hide(breakpoint);
+        this.hide();
         return;
       }
 
-      this.show(breakpoint);
+      if (breakpoint === 'all') {
+        this._breakpoint = false;
+        this.show(this._breakpoint);
+        return;
+      }
+
+      this.show();
     };
 
     _proto.narrow = function narrow() {
@@ -6654,6 +6656,28 @@
       return config;
     };
 
+    _proto._getBreakpoint = function _getBreakpoint() {
+      if (this._config.breakpoint) {
+        return this._config.breakpoint;
+      }
+
+      var breakpoint = this._element.className.match(REGEXP_SIDEBAR_SHOW_BREAKPOINT);
+
+      if (breakpoint) {
+        return breakpoint[1];
+      }
+
+      return false;
+    };
+
+    _proto._createShowClass = function _createShowClass() {
+      if (this._breakpoint && !this._isMobile()) {
+        return CLASS_NAME_SIDEBAR + "-" + this._breakpoint + "-" + CLASS_NAME_SHOW$7;
+      }
+
+      return CLASS_NAME_SIDEBAR + "-" + CLASS_NAME_SHOW$7;
+    };
+
     _proto._isMobile = function _isMobile() {
       return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--is-mobile'));
     };
@@ -6684,7 +6708,7 @@
     _proto._isUnfoldable = function _isUnfoldable() {
       return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
     } // eslint-disable-next-line no-warning-comments
-    // TODO: ta metoda nie zawsze działa poprawnie
+    // TODO: this method is not bulletproof
     ;
 
     _proto._isVisible = function _isVisible() {
@@ -6756,7 +6780,7 @@
         this._addClickOutListener();
       }
 
-      EventHandler.on(this._element, EVENT_CLICK_DATA_API$7, SELECTOR_SIDEBAR_TOGGLER, function (event) {
+      EventHandler.on(this._element, EVENT_CLICK_DATA_API$7, SELECTOR_DATA_TOGGLE$4, function (event) {
         event.preventDefault();
         var toggle = Manipulator.getDataAttribute(event.target, 'toggle');
 
@@ -6768,10 +6792,15 @@
           _this5.toggleUnfoldable();
         }
       });
+      EventHandler.on(this._element, EVENT_CLICK_DATA_API$7, SELECTOR_DATA_CLOSE, function (event) {
+        event.preventDefault();
+
+        _this5.hide();
+      });
     } // Static
     ;
 
-    Sidebar._sidebarInterface = function _sidebarInterface(element, config) {
+    Sidebar.sidebarInterface = function sidebarInterface(element, config) {
       var data = Data.getData(element, DATA_KEY$a);
 
       var _config = typeof config === 'object' && config;
@@ -6791,7 +6820,7 @@
 
     Sidebar.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        Sidebar._sidebarInterface(this, config);
+        Sidebar.sidebarInterface(this, config);
       });
     };
 
@@ -6819,7 +6848,7 @@
   EventHandler.on(window, EVENT_LOAD_DATA_API$3, function () {
     // eslint-disable-next-line unicorn/prefer-spread
     Array.from(document.querySelectorAll(SELECTOR_SIDEBAR)).forEach(function (element) {
-      Sidebar._sidebarInterface(element);
+      Sidebar.sidebarInterface(element);
     });
   });
   /**
@@ -6854,7 +6883,7 @@
   var SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
   var SELECTOR_ACTIVE$1 = '.active';
   var SELECTOR_ACTIVE_UL = ':scope > li > .active';
-  var SELECTOR_DATA_TOGGLE$4 = '[data-coreui-toggle="tab"], [data-coreui-toggle="pill"], [data-coreui-toggle="list"]';
+  var SELECTOR_DATA_TOGGLE$5 = '[data-coreui-toggle="tab"], [data-coreui-toggle="pill"], [data-coreui-toggle="list"]';
   var SELECTOR_DROPDOWN_TOGGLE$1 = '.dropdown-toggle';
   var SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
   /**
@@ -7022,7 +7051,7 @@
    */
 
 
-  EventHandler.on(document, EVENT_CLICK_DATA_API$8, SELECTOR_DATA_TOGGLE$4, function (event) {
+  EventHandler.on(document, EVENT_CLICK_DATA_API$8, SELECTOR_DATA_TOGGLE$5, function (event) {
     event.preventDefault();
     var data = Data.getData(this, DATA_KEY$b) || new Tab(this);
     data.show();
@@ -7250,7 +7279,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.0): index.esm.js
+   * CoreUI (v4.0.0-alpha.1): index.esm.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

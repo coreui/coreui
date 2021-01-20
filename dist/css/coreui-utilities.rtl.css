@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.0
+ * @version v4.0.0-alpha.1
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -307,39 +307,39 @@
   border-top-color: #fff !important;
 }
 
-.border-right-primary {
+.border-end-primary {
   border-left-color: #321fdb !important;
 }
 
-.border-right-secondary {
+.border-end-secondary {
   border-left-color: #9da5b1 !important;
 }
 
-.border-right-success {
+.border-end-success {
   border-left-color: #2eb85c !important;
 }
 
-.border-right-info {
+.border-end-info {
   border-left-color: #39f !important;
 }
 
-.border-right-warning {
+.border-end-warning {
   border-left-color: #f9b115 !important;
 }
 
-.border-right-danger {
+.border-end-danger {
   border-left-color: #e55353 !important;
 }
 
-.border-right-light {
+.border-end-light {
   border-left-color: #ebedef !important;
 }
 
-.border-right-dark {
+.border-end-dark {
   border-left-color: #4f5d73 !important;
 }
 
-.border-right-white {
+.border-end-white {
   border-left-color: #fff !important;
 }
 
@@ -379,40 +379,40 @@
   border-bottom-color: #fff !important;
 }
 
-.border-left-primary {
-  border-left-color: #321fdb !important;
+.border-start-primary {
+  border-right-color: #321fdb !important;
 }
 
-.border-left-secondary {
-  border-left-color: #9da5b1 !important;
+.border-start-secondary {
+  border-right-color: #9da5b1 !important;
 }
 
-.border-left-success {
-  border-left-color: #2eb85c !important;
+.border-start-success {
+  border-right-color: #2eb85c !important;
 }
 
-.border-left-info {
-  border-left-color: #39f !important;
+.border-start-info {
+  border-right-color: #39f !important;
 }
 
-.border-left-warning {
-  border-left-color: #f9b115 !important;
+.border-start-warning {
+  border-right-color: #f9b115 !important;
 }
 
-.border-left-danger {
-  border-left-color: #e55353 !important;
+.border-start-danger {
+  border-right-color: #e55353 !important;
 }
 
-.border-left-light {
-  border-left-color: #ebedef !important;
+.border-start-light {
+  border-right-color: #ebedef !important;
 }
 
-.border-left-dark {
-  border-left-color: #4f5d73 !important;
+.border-start-dark {
+  border-right-color: #4f5d73 !important;
 }
 
-.border-left-white {
-  border-left-color: #fff !important;
+.border-start-white {
+  border-right-color: #fff !important;
 }
 
 .border-0 {
@@ -463,27 +463,27 @@
   border-top-width: 5px !important;
 }
 
-.border-right-0 {
+.border-end-0 {
   border-left-width: 0 !important;
 }
 
-.border-right-1 {
+.border-end-1 {
   border-left-width: 1px !important;
 }
 
-.border-right-2 {
+.border-end-2 {
   border-left-width: 2px !important;
 }
 
-.border-right-3 {
+.border-end-3 {
   border-left-width: 3px !important;
 }
 
-.border-right-4 {
+.border-end-4 {
   border-left-width: 4px !important;
 }
 
-.border-right-5 {
+.border-end-5 {
   border-left-width: 5px !important;
 }
 
@@ -511,27 +511,27 @@
   border-bottom-width: 5px !important;
 }
 
-.border-left-0 {
+.border-start-0 {
   border-right-width: 0 !important;
 }
 
-.border-left-1 {
+.border-start-1 {
   border-right-width: 1px !important;
 }
 
-.border-left-2 {
+.border-start-2 {
   border-right-width: 2px !important;
 }
 
-.border-left-3 {
+.border-start-3 {
   border-right-width: 3px !important;
 }
 
-.border-left-4 {
+.border-start-4 {
   border-right-width: 4px !important;
 }
 
-.border-left-5 {
+.border-start-5 {
   border-right-width: 5px !important;
 }
 
