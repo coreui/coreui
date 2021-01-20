@@ -35,8 +35,8 @@
     min-height: $header-min-height - (2 * $header-padding-y);
   }
 
-  .container:nth-child(1n+2),
-  .container-fluid:nth-child(1n+2) {
+  .container:nth-child(n+2),
+  .container-fluid:nth-child(n+2) {
     min-height: $subheader-min-height - (2 * $header-padding-y);
   }
 
