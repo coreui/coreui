@@ -352,7 +352,7 @@ class Sidebar extends BaseComponent {
 
   // Static
 
-  static _sidebarInterface(element, config) {
+  static sidebarInterface(element, config) {
     let data = Data.getData(element, DATA_KEY)
     const _config = typeof config === 'object' && config
 
@@ -371,7 +371,7 @@ class Sidebar extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      Sidebar._sidebarInterface(this, config)
+      Sidebar.sidebarInterface(this, config)
     })
   }
 }
@@ -385,7 +385,7 @@ class Sidebar extends BaseComponent {
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
   // eslint-disable-next-line unicorn/prefer-spread
   Array.from(document.querySelectorAll(SELECTOR_SIDEBAR)).forEach(element => {
-    Sidebar._sidebarInterface(element)
+    Sidebar.sidebarInterface(element)
   })
 })
 
