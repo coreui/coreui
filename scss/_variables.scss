@@ -1563,7 +1563,7 @@ $sidebar-nav-link-transition:              background .15s ease, color .15s ease
 $sidebar-nav-link-icon-color:              $medium-emphasis-light !default;
 
 $sidebar-nav-link-hover-color:             $high-emphasis-light !default;
-$sidebar-nav-link-hover-bg:                theme-color("primary") !default;
+$sidebar-nav-link-hover-bg:                rgba($white, .05) !default;
 $sidebar-nav-link-hover-icon-color:        $high-emphasis-light !default;
 
 $sidebar-nav-link-active-color:            $high-emphasis-light !default;
