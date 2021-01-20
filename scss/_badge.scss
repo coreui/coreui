@@ -12,7 +12,7 @@
   color: var(--#{$variable-prefix}badge-color, $badge-color);
   text-align: center;
   white-space: nowrap;
-  vertical-align: baseline;
+  vertical-align: text-bottom;
   @include border-radius($badge-border-radius);
   @include gradient-bg();
 
@@ -26,4 +26,13 @@
 .btn .badge {
   position: relative;
   top: -1px;
+}
+
+//
+// Badge Sizes
+//
+
+.badge-sm {
+  padding: $badge-padding-y-sm $badge-padding-x-sm;
+  @include font-size($badge-font-size-sm);
 }
