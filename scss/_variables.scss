@@ -1535,7 +1535,7 @@ $sidebar-bg:                               $gray-base !default;
 $sidebar-border-width:                     0 !default;
 $sidebar-border-color:                     transparent !default;
 $sidebar-transition:                       margin-left .15s, margin-right .15s, box-shadow .075s, transform .15s, width .15s, z-index 0s ease .15s !default;
-$sidebar-reliant-transition:               margin .15s !default;
+$sidebar-reliant-transition:               width .15s !default;
 
 $sidebar-brand-height:                     4rem !default;
 $sidebar-brand-color:                      $high-emphasis-light !default;

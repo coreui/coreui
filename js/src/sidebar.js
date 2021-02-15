@@ -38,14 +38,17 @@ const DefaultType = {
 
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
 const CLASS_NAME_FADE = 'fade'
+const CLASS_NAME_HIDE = 'hide'
 const CLASS_NAME_SHOW = 'show'
 const CLASS_NAME_SIDEBAR = 'sidebar'
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
 const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
+const CLASS_NAME_SIDEBAR_SELF_HIDDING = 'sidebar-self-hidding'
 const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'
 
 // eslint-disable-next-line prefer-regex-literals
-const REGEXP_SIDEBAR_SHOW = new RegExp('sidebar.*show')
+const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/
+// const REGEXP_SIDEBAR_SHOW = new RegExp('sidebar.*show')
 const REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
@@ -94,14 +97,22 @@ class Sidebar extends BaseComponent {
 
   // Public
 
-  show(breakpoint) {
+  show() {
     EventHandler.trigger(this._element, EVENT_SHOW)
 
-    if (typeof breakpoint !== 'undefined') {
-      this._breakpoint = breakpoint
+    // if (typeof breakpoint !== 'undefined') {
+    //   this._breakpoint = breakpoint
+    // }
+
+    // this._element.classList.add(this._createShowClass())
+
+    if (this._element.classList.contains(CLASS_NAME_HIDE)) {
+      this._element.classList.remove(CLASS_NAME_HIDE)
     }
 
-    this._element.classList.add(this._createShowClass())
+    if (this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
+      this._element.classList.add(CLASS_NAME_SHOW)
+    }
 
     if (this._isMobile()) {
       this._showBackdrop()
@@ -127,11 +138,21 @@ class Sidebar extends BaseComponent {
   hide() {
     EventHandler.trigger(this._element, EVENT_HIDE)
 
-    this._element.classList.forEach(className => {
-      if (className.match(REGEXP_SIDEBAR_SHOW)) {
-        this._element.classList.remove(className)
-      }
-    })
+    if (this._element.classList.contains(CLASS_NAME_SHOW)) {
+      this._element.classList.remove(CLASS_NAME_SHOW)
+    }
+
+    this._element.classList.add(CLASS_NAME_HIDE)
+
+    // if (!this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
+    //   this._element.classList.add(CLASS_NAME_HIDE)
+    // }
+
+    // this._element.classList.forEach(className => {
+    //   if (className.match(REGEXP_SIDEBAR_SHOW)) {
+    //     this._element.classList.remove(className)
+    //   }
+    // })
 
     if (this._isMobile()) {
       this._removeBackdrop()
@@ -154,17 +175,19 @@ class Sidebar extends BaseComponent {
     emulateTransitionEnd(this._element, transitionDuration)
   }
 
-  toggle(breakpoint) {
+  toggle() {
+    // eslint-disable-next-line no-console
+    console.log(this._show)
     if (this._show) {
       this.hide()
       return
     }
 
-    if (breakpoint === 'all') {
-      this._breakpoint = false
-      this.show(this._breakpoint)
-      return
-    }
+    // if (breakpoint === 'all') {
+    //   this._breakpoint = false
+    //   this.show(this._breakpoint)
+    //   return
+    // }
 
     this.show()
   }

@@ -2,6 +2,7 @@
   @include media-breakpoint-up($mobile-breakpoint) {
     z-index: $zindex-fixed + 1;
     flex: 0 0 $sidebar-narrow-width;
+    width: $sidebar-narrow-width;
     padding-bottom: $sidebar-toggler-height;
     overflow: visible;
 
@@ -53,6 +54,8 @@
 }
 
 .sidebar-narrow-unfoldable {
+  position: fixed !important;
+  z-index: $zindex-fixed + 1;
 
   &:not(:hover) {
     @extend %sidebar-narrow;
@@ -69,41 +72,63 @@
       transform: rotate(0deg);
     }
   }
+
+  ~ * {
+    --#{$variable-prefix}sidebar-width: #{$sidebar-narrow-width};
+  }
 }
 
 // Responsive behavior
-// stylelint-disable selector-max-class
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-up($breakpoint) {
+  @include media-breakpoint-down($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-    .sidebar.sidebar#{$infix}-show,
-    .sidebar.sidebar-show {
-      &:not(.sidebar-right){
-        margin-left: 0;
-        @include media-breakpoint-up($mobile-breakpoint) {
-          &.sidebar-fixed {
-            &.sidebar-narrow,
-            &.sidebar-narrow-unfoldable {
-              ~ [data-coreui-reliant="sidebar"] {
-                margin-left: $sidebar-narrow-width;
-              }
-            }
-          }
+    .sidebar:not(.show).sidebar-self-hiding#{$infix} {
+      &.sidebar-narrow,
+      &.sidebar-narrow-unfoldable {
+        &:not(.sidebar-right) {
+          margin-left: - $sidebar-narrow-width;
         }
-      }
-      &.sidebar-right {
-        margin-right: 0;
-        @include media-breakpoint-up($mobile-breakpoint) {
-          &.sidebar-fixed {
-            &.sidebar-narrow,
-            &.sidebar-narrow-unfoldable {
-              ~ [data-coreui-reliant="sidebar"] {
-                margin-right: $sidebar-narrow-width;
-              }
-            }
-          }
+        &.sidebar-right {
+          margin-right: - $sidebar-narrow-width;
         }
       }
     }
   }
 }
+
+// Responsive behavior
+// stylelint-disable selector-max-class
+// @each $breakpoint in map-keys($grid-breakpoints) {
+//   @include media-breakpoint-up($breakpoint) {
+//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+//     .sidebar.sidebar#{$infix}-show,
+//     .sidebar.sidebar-show {
+//       &:not(.sidebar-right){
+//         margin-left: 0;
+//         @include media-breakpoint-up($mobile-breakpoint) {
+//           &.sidebar-fixed {
+//             &.sidebar-narrow,
+//             &.sidebar-narrow-unfoldable {
+//               ~ [data-coreui-reliant="sidebar"] {
+//                 margin-left: $sidebar-narrow-width;
+//               }
+//             }
+//           }
+//         }
+//       }
+//       &.sidebar-right {
+//         margin-right: 0;
+//         @include media-breakpoint-up($mobile-breakpoint) {
+//           &.sidebar-fixed {
+//             &.sidebar-narrow,
+//             &.sidebar-narrow-unfoldable {
+//               ~ [data-coreui-reliant="sidebar"] {
+//                 margin-right: $sidebar-narrow-width;
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//   }
+// }

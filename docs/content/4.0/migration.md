@@ -7,6 +7,12 @@ aliases: "/migration/"
 toc: true
 ---
 
+## v4.0.0-alpha.1
+
+### Sidebar
+
+- Change responsive behavior
+
 ## v4.0.0-alpha.0
 
 ### Browser support
