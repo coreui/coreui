@@ -51,11 +51,18 @@
 
 .sidebar-narrow {
   @extend %sidebar-narrow;
+  ~ * {
+    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  }
 }
 
 .sidebar-narrow-unfoldable {
   position: fixed !important;
   z-index: $zindex-fixed + 1;
+
+  ~ * {
+    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  }
 
   &:not(:hover) {
     @extend %sidebar-narrow;
@@ -71,10 +78,6 @@
     &.sidebar-right .sidebar-toggler::before {
       transform: rotate(0deg);
     }
-  }
-
-  ~ * {
-    --#{$variable-prefix}sidebar-width: #{$sidebar-narrow-width};
   }
 }
 

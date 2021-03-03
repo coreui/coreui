@@ -14,11 +14,15 @@
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  + [data-coreui-reliant="sidebar"] {
-    @include transition($sidebar-reliant-transition);
+  ~ * {
+    --#{$variable-prefix}sidebar-occupy: #{$sidebar-width};
   }
 
-  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+  // + [data-coreui-reliant="sidebar"] {
+  //   @include transition($sidebar-reliant-transition);
+  // }
+
+  @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
     --is-mobile: true;
     position: fixed;
@@ -31,6 +35,10 @@
     }
     &.sidebar-right {
       right: 0;
+    }
+
+    ~ * {
+      --#{$variable-prefix}sidebar-occupy: 0;
     }
   }
 
@@ -57,12 +65,20 @@
     &.sidebar-right {
       margin-right: - $sidebar-width;
     }
+
+    ~ * {
+      --#{$variable-prefix}sidebar-occupy: 0;
+    }
   }
 
   @each $width, $value in $sidebar-widths {
     &.sidebar-#{$width} {
       flex: 0 0 $value;
       width: $value;
+
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy: #{$value};
+      }
 
       &:not(.sidebar-right).hide {
         margin-left: - $value;
@@ -177,7 +193,7 @@
   background-color: var(--#{$variable-prefix}sidebar-toggler-bg, $sidebar-toggler-bg);
   border: 0;
 
-  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+  @include media-breakpoint-down($mobile-breakpoint) {
     display: none;
   }
 
@@ -214,7 +230,7 @@
 
 // Backdrop background
 .sidebar-backdrop {
-  @include media-breakpoint-down(breakpoint-before($mobile-breakpoint)) {
+  @include media-breakpoint-down($mobile-breakpoint) {
     position: fixed;
     top: 0;
     left: 0;
@@ -252,6 +268,9 @@
             margin-right: - $value;
           }
         }
+      }
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy: 0;
       }
     }
   }
