@@ -10,8 +10,7 @@ toc: true
 
 ## Examples
 
-Callout component is prepared for any length of text, as well as an optional elements like icons, headings, etc. For a styling, use one of the **required** contextual classes (e.g., `.callout-success`). For inline dismissal, use the (e.g., `.callout-success`).
-
+Callout component is prepared for any length of text, as well as an optional elements like icons, headings, etc. For a styling, use one of the **required** contextual classes (e.g., `.callout-success`).
 {{< example >}}
 {{< callout.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
