@@ -1,18 +1,19 @@
 /*!
   * Bootstrap alert.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.Data, global.EventHandler));
-}(this, (function (Data, EventHandler) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.Data, global.EventHandler, global.Base));
+}(this, (function (Data, EventHandler, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -33,12 +34,22 @@
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
   }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -49,7 +60,20 @@
     var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
+      var hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = '#' + hrefAttr.split('#')[1];
+      }
+
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
@@ -125,8 +149,6 @@
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
-
   var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
     onDOMContentLoaded(function () {
       var $ = getjQuery();
@@ -144,47 +166,6 @@
       }
     });
   };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    }
-    /** Static */
-    ;
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
-
-    return BaseComponent;
-  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -269,7 +250,7 @@
 
     Alert.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data__default['default'].get(this, DATA_KEY);
 
         if (!data) {
           data = new Alert(this);
@@ -293,14 +274,14 @@
 
     _createClass(Alert, null, [{
       key: "DATA_KEY",
-      // Getters
-      get: function get() {
+      get: // Getters
+      function get() {
         return DATA_KEY;
       }
     }]);
 
     return Alert;
-  }(BaseComponent);
+  }(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation

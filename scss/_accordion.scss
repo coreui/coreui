@@ -10,6 +10,7 @@
   padding: $accordion-button-padding-y $accordion-button-padding-x;
   @include font-size($font-size-base);
   color: var(--#{$variable-prefix}accordion-button-color, $accordion-button-color);
+  text-align: left; // Reset button style
   background-color: var(--#{$variable-prefix}accordion-button-bg, $accordion-button-bg);
   border: $accordion-border-width solid var(--#{$variable-prefix}accordion-border-color, $accordion-border-color);
   @include border-radius(0);

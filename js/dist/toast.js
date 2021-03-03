@@ -1,19 +1,20 @@
 /*!
   * Bootstrap toast.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Toast = factory(global.Data, global.EventHandler, global.Manipulator));
-}(this, (function (Data, EventHandler, Manipulator) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Toast = factory(global.Data, global.EventHandler, global.Manipulator, global.Base));
+}(this, (function (Data, EventHandler, Manipulator, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -52,12 +53,22 @@
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
   }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -128,7 +139,7 @@
       var valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
+        throw new TypeError(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
       }
     });
   };
@@ -156,8 +167,6 @@
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
-
   var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
     onDOMContentLoaded(function () {
       var $ = getjQuery();
@@ -175,47 +184,6 @@
       }
     });
   };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    }
-    /** Static */
-    ;
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
-
-    return BaseComponent;
-  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -382,7 +350,7 @@
 
     Toast.jQueryInterface = function jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data__default['default'].get(this, DATA_KEY);
 
         var _config = typeof config === 'object' && config;
 
@@ -418,7 +386,7 @@
     }]);
 
     return Toast;
-  }(BaseComponent);
+  }(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * jQuery

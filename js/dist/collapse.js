@@ -1,13 +1,13 @@
 /*!
   * Bootstrap collapse.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Collapse = factory(global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine));
-}(this, (function (Data, EventHandler, Manipulator, SelectorEngine) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Collapse = factory(global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+}(this, (function (Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -15,6 +15,7 @@
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
   var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -53,12 +54,22 @@
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
   }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -77,7 +88,20 @@
     var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
+      var hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = '#' + hrefAttr.split('#')[1];
+      }
+
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
@@ -155,7 +179,7 @@
       var valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
+        throw new TypeError(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
       }
     });
   };
@@ -183,8 +207,6 @@
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
-
   var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
     onDOMContentLoaded(function () {
       var $ = getjQuery();
@@ -202,47 +224,6 @@
       }
     });
   };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    }
-    /** Static */
-    ;
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
-
-    return BaseComponent;
-  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -290,14 +271,14 @@
       _this = _BaseComponent.call(this, element) || this;
       _this._isTransitioning = false;
       _this._config = _this._getConfig(config);
-      _this._triggerArray = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE + "[href=\"#" + element.id + "\"]," + (SELECTOR_DATA_TOGGLE + "[data-bs-target=\"#" + element.id + "\"]"));
+      _this._triggerArray = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE + "[href=\"#" + _this._element.id + "\"]," + (SELECTOR_DATA_TOGGLE + "[data-bs-target=\"#" + _this._element.id + "\"]"));
       var toggleList = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (var i = 0, len = toggleList.length; i < len; i++) {
         var elem = toggleList[i];
         var selector = getSelectorFromElement(elem);
         var filterElement = SelectorEngine__default['default'].find(selector).filter(function (foundElem) {
-          return foundElem === element;
+          return foundElem === _this._element;
         });
 
         if (selector !== null && filterElement.length) {
@@ -362,7 +343,7 @@
         var tempActiveData = actives.find(function (elem) {
           return container !== elem;
         });
-        activesData = tempActiveData ? Data__default['default'].getData(tempActiveData, DATA_KEY) : null;
+        activesData = tempActiveData ? Data__default['default'].get(tempActiveData, DATA_KEY) : null;
 
         if (activesData && activesData._isTransitioning) {
           return;
@@ -382,7 +363,7 @@
           }
 
           if (!activesData) {
-            Data__default['default'].setData(elemActive, DATA_KEY, null);
+            Data__default['default'].set(elemActive, DATA_KEY, null);
           }
         });
       }
@@ -546,7 +527,7 @@
     ;
 
     Collapse.collapseInterface = function collapseInterface(element, config) {
-      var data = Data__default['default'].getData(element, DATA_KEY);
+      var data = Data__default['default'].get(element, DATA_KEY);
 
       var _config = _extends({}, Default, Manipulator__default['default'].getDataAttributes(element), typeof config === 'object' && config ? config : {});
 
@@ -586,7 +567,7 @@
     }]);
 
     return Collapse;
-  }(BaseComponent);
+  }(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -596,7 +577,7 @@
 
   EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
-    if (event.target.tagName === 'A') {
+    if (event.target.tagName === 'A' || event.delegateTarget && event.delegateTarget.tagName === 'A') {
       event.preventDefault();
     }
 
@@ -604,7 +585,7 @@
     var selector = getSelectorFromElement(this);
     var selectorElements = SelectorEngine__default['default'].find(selector);
     selectorElements.forEach(function (element) {
-      var data = Data__default['default'].getData(element, DATA_KEY);
+      var data = Data__default['default'].get(element, DATA_KEY);
       var config;
 
       if (data) {

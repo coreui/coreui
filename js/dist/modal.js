@@ -1,13 +1,13 @@
 /*!
   * Bootstrap modal.js v4.0.0-alpha.1 (https://bootstrap.coreui.io)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+  * Copyright 2011-2021 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine));
-}(this, (function (Data, EventHandler, Manipulator, SelectorEngine) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+}(this, (function (Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -15,6 +15,7 @@
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
   var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
   function _defineProperties(target, props) {
     for (var i = 0; i < props.length; i++) {
@@ -53,12 +54,22 @@
   function _inheritsLoose(subClass, superClass) {
     subClass.prototype = Object.create(superClass.prototype);
     subClass.prototype.constructor = subClass;
-    subClass.__proto__ = superClass;
+
+    _setPrototypeOf(subClass, superClass);
+  }
+
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+
+    return _setPrototypeOf(o, p);
   }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.0-beta1): util/index.js
+   * Bootstrap (v5.0.0-beta2): util/index.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -77,7 +88,20 @@
     var selector = element.getAttribute('data-bs-target');
 
     if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
+      var hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
+      // so everything starting with `#` or `.`. If a "real" URL is used as the selector,
+      // `document.querySelector` will rightfully complain it is invalid.
+      // See https://github.com/twbs/bootstrap/issues/32273
+
+      if (!hrefAttr || !hrefAttr.includes('#') && !hrefAttr.startsWith('.')) {
+        return null;
+      } // Just in case some CMS puts out a full URL with the anchor appended
+
+
+      if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
+        hrefAttr = '#' + hrefAttr.split('#')[1];
+      }
+
       selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
     }
 
@@ -145,7 +169,7 @@
       var valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
+        throw new TypeError(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
       }
     });
   };
@@ -187,7 +211,9 @@
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  var isRTL = function isRTL() {
+    return document.documentElement.dir === 'rtl';
+  };
 
   var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
     onDOMContentLoaded(function () {
@@ -206,47 +232,6 @@
       }
     });
   };
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
-   */
-
-  var VERSION = '5.0.0-beta1';
-
-  var BaseComponent = /*#__PURE__*/function () {
-    function BaseComponent(element) {
-      if (!element) {
-        return;
-      }
-
-      this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
-    }
-
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
-      this._element = null;
-    }
-    /** Static */
-    ;
-
-    BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
-    };
-
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
-
-    return BaseComponent;
-  }();
 
   /**
    * ------------------------------------------------------------------------
@@ -307,7 +292,7 @@
 
       _this = _BaseComponent.call(this, element) || this;
       _this._config = _this._getConfig(config);
-      _this._dialog = SelectorEngine__default['default'].findOne(SELECTOR_DIALOG, element);
+      _this._dialog = SelectorEngine__default['default'].findOne(SELECTOR_DIALOG, _this._element);
       _this._backdrop = null;
       _this._isShown = false;
       _this._isBodyOverflowing = false;
@@ -689,11 +674,11 @@
     _proto._adjustDialog = function _adjustDialog() {
       var isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
 
-      if (!this._isBodyOverflowing && isModalOverflowing && !isRTL || this._isBodyOverflowing && !isModalOverflowing && isRTL) {
+      if (!this._isBodyOverflowing && isModalOverflowing && !isRTL() || this._isBodyOverflowing && !isModalOverflowing && isRTL()) {
         this._element.style.paddingLeft = this._scrollbarWidth + "px";
       }
 
-      if (this._isBodyOverflowing && !isModalOverflowing && !isRTL || !this._isBodyOverflowing && isModalOverflowing && isRTL) {
+      if (this._isBodyOverflowing && !isModalOverflowing && !isRTL() || !this._isBodyOverflowing && isModalOverflowing && isRTL()) {
         this._element.style.paddingRight = this._scrollbarWidth + "px";
       }
     };
@@ -713,60 +698,56 @@
       var _this11 = this;
 
       if (this._isBodyOverflowing) {
-        // Note: DOMNode.style.paddingRight returns the actual value or '' if not set
-        //   while $(DOMNode).css('padding-right') returns the calculated value or 0 if not set
-        // Adjust fixed content padding
-        SelectorEngine__default['default'].find(SELECTOR_FIXED_CONTENT).forEach(function (element) {
-          var actualPadding = element.style.paddingRight;
-          var calculatedPadding = window.getComputedStyle(element)['padding-right'];
-          Manipulator__default['default'].setDataAttribute(element, 'padding-right', actualPadding);
-          element.style.paddingRight = Number.parseFloat(calculatedPadding) + _this11._scrollbarWidth + "px";
-        }); // Adjust sticky content margin
+        this._setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', function (calculatedValue) {
+          return calculatedValue + _this11._scrollbarWidth;
+        });
 
-        SelectorEngine__default['default'].find(SELECTOR_STICKY_CONTENT).forEach(function (element) {
-          var actualMargin = element.style.marginRight;
-          var calculatedMargin = window.getComputedStyle(element)['margin-right'];
-          Manipulator__default['default'].setDataAttribute(element, 'margin-right', actualMargin);
-          element.style.marginRight = Number.parseFloat(calculatedMargin) - _this11._scrollbarWidth + "px";
-        }); // Adjust body padding
+        this._setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', function (calculatedValue) {
+          return calculatedValue - _this11._scrollbarWidth;
+        });
 
-        var actualPadding = document.body.style.paddingRight;
-        var calculatedPadding = window.getComputedStyle(document.body)['padding-right'];
-        Manipulator__default['default'].setDataAttribute(document.body, 'padding-right', actualPadding);
-        document.body.style.paddingRight = Number.parseFloat(calculatedPadding) + this._scrollbarWidth + "px";
+        this._setElementAttributes('body', 'paddingRight', function (calculatedValue) {
+          return calculatedValue + _this11._scrollbarWidth;
+        });
       }
 
       document.body.classList.add(CLASS_NAME_OPEN);
     };
 
+    _proto._setElementAttributes = function _setElementAttributes(selector, styleProp, callback) {
+      var _this12 = this;
+
+      SelectorEngine__default['default'].find(selector).forEach(function (element) {
+        if (element !== document.body && window.innerWidth > element.clientWidth + _this12._scrollbarWidth) {
+          return;
+        }
+
+        var actualValue = element.style[styleProp];
+        var calculatedValue = window.getComputedStyle(element)[styleProp];
+        Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
+        element.style[styleProp] = callback(Number.parseFloat(calculatedValue)) + 'px';
+      });
+    };
+
     _proto._resetScrollbar = function _resetScrollbar() {
-      // Restore fixed content padding
-      SelectorEngine__default['default'].find(SELECTOR_FIXED_CONTENT).forEach(function (element) {
-        var padding = Manipulator__default['default'].getDataAttribute(element, 'padding-right');
+      this._resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
 
-        if (typeof padding !== 'undefined') {
-          Manipulator__default['default'].removeDataAttribute(element, 'padding-right');
-          element.style.paddingRight = padding;
+      this._resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
+
+      this._resetElementAttributes('body', 'paddingRight');
+    };
+
+    _proto._resetElementAttributes = function _resetElementAttributes(selector, styleProp) {
+      SelectorEngine__default['default'].find(selector).forEach(function (element) {
+        var value = Manipulator__default['default'].getDataAttribute(element, styleProp);
+
+        if (typeof value === 'undefined' && element === document.body) {
+          element.style[styleProp] = '';
+        } else {
+          Manipulator__default['default'].removeDataAttribute(element, styleProp);
+          element.style[styleProp] = value;
         }
-      }); // Restore sticky content and navbar-toggler margin
-
-      SelectorEngine__default['default'].find("" + SELECTOR_STICKY_CONTENT).forEach(function (element) {
-        var margin = Manipulator__default['default'].getDataAttribute(element, 'margin-right');
-
-        if (typeof margin !== 'undefined') {
-          Manipulator__default['default'].removeDataAttribute(element, 'margin-right');
-          element.style.marginRight = margin;
-        }
-      }); // Restore body padding
-
-      var padding = Manipulator__default['default'].getDataAttribute(document.body, 'padding-right');
-
-      if (typeof padding === 'undefined') {
-        document.body.style.paddingRight = '';
-      } else {
-        Manipulator__default['default'].removeDataAttribute(document.body, 'padding-right');
-        document.body.style.paddingRight = padding;
-      }
+      });
     };
 
     _proto._getScrollbarWidth = function _getScrollbarWidth() {
@@ -782,7 +763,7 @@
 
     Modal.jQueryInterface = function jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        var data = Data__default['default'].getData(this, DATA_KEY);
+        var data = Data__default['default'].get(this, DATA_KEY);
 
         var _config = _extends({}, Default, Manipulator__default['default'].getDataAttributes(this), typeof config === 'object' && config ? config : {});
 
@@ -813,7 +794,7 @@
     }]);
 
     return Modal;
-  }(BaseComponent);
+  }(BaseComponent__default['default']);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -822,7 +803,7 @@
 
 
   EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    var _this12 = this;
+    var _this13 = this;
 
     var target = getElementFromSelector(this);
 
@@ -837,12 +818,12 @@
       }
 
       EventHandler__default['default'].one(target, EVENT_HIDDEN, function () {
-        if (isVisible(_this12)) {
-          _this12.focus();
+        if (isVisible(_this13)) {
+          _this13.focus();
         }
       });
     });
-    var data = Data__default['default'].getData(target, DATA_KEY);
+    var data = Data__default['default'].get(target, DATA_KEY);
 
     if (!data) {
       var config = _extends({}, Manipulator__default['default'].getDataAttributes(target), Manipulator__default['default'].getDataAttributes(this));
@@ -850,7 +831,7 @@
       data = new Modal(target, config);
     }
 
-    data.show(this);
+    data.toggle(this);
   });
   /**
    * ------------------------------------------------------------------------
