@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.0-alpha.1 (https://coreui.io)
+  * CoreUI v4.0.0-alpha.2 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -66,7 +66,7 @@ function _assertThisInitialized(self) {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): alert.js
+ * CoreUI (v4.0.0-alpha.2): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/index.js
@@ -287,7 +287,7 @@ var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): dom/data.js
+ * CoreUI (v4.0.0-alpha.2): dom/data.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dom/data.js
@@ -341,7 +341,7 @@ var Data = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): dom/event-handler.js
+ * CoreUI (v4.0.0-alpha.2): dom/event-handler.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -624,7 +624,7 @@ var EventHandler = {
  * ------------------------------------------------------------------------
  */
 
-var VERSION = '4.0.0-alpha.1';
+var VERSION = '4.0.0-alpha.2';
 
 var BaseComponent = /*#__PURE__*/function () {
   function BaseComponent(element) {
@@ -881,7 +881,7 @@ defineJQueryPlugin(NAME$c, Button);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): dom/manipulator.js
+ * CoreUI (v4.0.0-alpha.2): dom/manipulator.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -956,7 +956,7 @@ var Manipulator = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): dom/selector-engine.js
+ * CoreUI (v4.0.0-alpha.2): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -3768,7 +3768,7 @@ defineJQueryPlugin(NAME$6, OffCanvas);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): alert.js
+ * CoreUI (v4.0.0-alpha.2): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/sanitizer.js

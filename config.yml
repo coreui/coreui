@@ -47,8 +47,8 @@ params:
   social_image_path:    /4.0/assets/brand/coreui-social.jpg
   social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
 
-  current_version:      "4.0.0-alpha.1"
-  current_ruby_version: "4.0.0-alpha.1"
+  current_version:      "4.0.0-alpha.2"
+  current_ruby_version: "4.0.0-alpha.2"
   docs_version:         "4.0"
   rfs_version:          "9.0.3"
   github_org:           "https://github.com/coreui"
@@ -59,13 +59,13 @@ params:
   icons:                "https://icons.coreui.io/"
 
   download:
-    source:             "https://github.com/coreui/coreui/archive/v4.0.0-alpha.1.zip"
-    dist:               "https://github.com/coreui/coreui/releases/download/v4.0.0-alpha.1/coreui-4.0.0-alpha.1-dist.zip"
+    source:             "https://github.com/coreui/coreui/archive/v4.0.0-alpha.2.zip"
+    dist:               "https://github.com/coreui/coreui/releases/download/v4.0.0-alpha.2/coreui-4.0.0-alpha.2-dist.zip"
 
   cdn:
     css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/css/coreui.min.css"
     css_hash:        "sha384-SioVlhqDfohZs0yvVVrzGw+diDZpksfDLOVEi9+aVygeysugUIn4ZhURCPazThIe"
-    css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.0-alpha.1/dist/css/coreui.rtl.min.css"
+    css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.0-alpha.2/dist/css/coreui.rtl.min.css"
     css_rtl_hash:    "sha384-eeaOE0J/T7Hra8Lt14DptalSBgBbMzA1vXHLwbsHL7aavNwu1ADkumHiH4mdVVy2"
     js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/js/coreui.min.js"
     js_hash:         "sha384-Xp3Ya0jjKuch8vFoNIlmzE5w8uiRRC6C2/yUBbageWoRoWL40V+ikQpJT6f/4JZI"
