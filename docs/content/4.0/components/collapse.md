@@ -39,7 +39,7 @@ You can use a link with the `href` attribute, or a button with the `data-coreui-
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
-    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
   </div>
 </div>
 {{< /example >}}
@@ -59,14 +59,14 @@ Multiple `<button>` or `<a>` can show and hide an element if they each reference
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample1">
       <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
       </div>
     </div>
   </div>
   <div class="col">
     <div class="collapse multi-collapse" id="multiCollapseExample2">
       <div class="card card-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
       </div>
     </div>
   </div>
@@ -80,7 +80,6 @@ Be sure to add `aria-expanded` to the control component. This attribute explicit
 If your control element is targeting a single collapsible element – i.e., the `data-coreui-target` attribute is pointing to an `id` selector – you should attach the `aria-controls` attribute to the control part, including the `id` of the collapsible element. Modern screen readers and related assistive technologies address this attribute to provide users with extra shortcuts to navigate directly to the collapsible element itself.
 
 Note that Bootstrap's current implementation does not cover the various *optional* keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
-
 ## Usage
 
 The collapse plugin utilizes a few classes to handle the heavy lifting:
@@ -222,3 +221,18 @@ myCollapsible.addEventListener('hidden.coreui.collapse', function () {
   // do something...
 })
 ```
+
+
+## Customization
+
+### SASS
+
+#### Variables
+
+{{< scss-docs name="collapse-transition" file="scss/_variables.scss" >}}
+
+#### Classes
+
+Collapse transition classes can be found in scss/_transitions.scss as these are shared across multiple components (collapse and accordion).
+
+{{< scss-docs name="collapse-classes" file="scss/_transitions.scss" >}}

@@ -176,6 +176,18 @@ Use spinners within buttons to indicate an action is currently processing or tak
 ### SASS
 {{< scss-docs name="spinner-variables" file="scss/_variables.scss" >}}
 
+#### Variables
+
+{{< scss-docs name="spinner-variables" file="scss/_variables.scss" >}}
+
+### Keyframes
+
+Used for creating the CSS animations for our spinners. Included in `scss/_spinners.scss`.
+
+{{< scss-docs name="spinner-border-keyframes" file="scss/_spinners.scss" >}}
+
+{{< scss-docs name="spinner-grow-keyframes" file="scss/_spinners.scss" >}}
+
 
 [color]:   {{< docsref "/utilities/colors" >}}
 [display]: {{< docsref "/utilities/display" >}}

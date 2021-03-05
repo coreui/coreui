@@ -63,6 +63,17 @@ describe('Tooltip', () => {
   })
 
   describe('constructor', () => {
+    it('should take care of element either passed as a CSS selector or DOM element', () => {
+      fixtureEl.innerHTML = '<a href="#" id="tooltipEl" rel="tooltip" title="Nice and short title">'
+
+      const tooltipEl = fixtureEl.querySelector('#tooltipEl')
+      const tooltipBySelector = new Tooltip('#tooltipEl')
+      const tooltipByElement = new Tooltip(tooltipEl)
+
+      expect(tooltipBySelector._element).toEqual(tooltipEl)
+      expect(tooltipByElement._element).toEqual(tooltipEl)
+    })
+
     it('should not take care of disallowed data attributes', () => {
       fixtureEl.innerHTML = '<a href="#" rel="tooltip" data-coreui-sanitize="false" title="Another tooltip">'
 
@@ -107,6 +118,41 @@ describe('Tooltip', () => {
       tooltipInContainerEl.click()
     })
 
+    it('should create offset modifier when offset is passed as a function', done => {
+      fixtureEl.innerHTML = '<a href="#" rel="tooltip" title="Offset from function">'
+
+      const getOffset = jasmine.createSpy('getOffset').and.returnValue([10, 20])
+      const tooltipEl = fixtureEl.querySelector('a')
+      const tooltip = new Tooltip(tooltipEl, {
+        offset: getOffset,
+        popperConfig: {
+          onFirstUpdate: state => {
+            expect(getOffset).toHaveBeenCalledWith({
+              popper: state.rects.popper,
+              reference: state.rects.reference,
+              placement: state.placement
+            }, tooltipEl)
+            done()
+          }
+        }
+      })
+
+      const offset = tooltip._getOffset()
+
+      expect(typeof offset).toEqual('function')
+
+      tooltip.show()
+    })
+
+    it('should create offset modifier when offset option is passed in data attribute', () => {
+      fixtureEl.innerHTML = '<a href="#" rel="tooltip" data-coreui-offset="10,20" title="Another tooltip">'
+
+      const tooltipEl = fixtureEl.querySelector('a')
+      const tooltip = new Tooltip(tooltipEl)
+
+      expect(tooltip._getOffset()).toEqual([10, 20])
+    })
+
     it('should allow to pass config to Popper with `popperConfig`', () => {
       fixtureEl.innerHTML = '<a href="#" rel="tooltip">'
 
@@ -119,6 +165,21 @@ describe('Tooltip', () => {
 
       const popperConfig = tooltip._getPopperConfig('top')
 
+      expect(popperConfig.placement).toEqual('left')
+    })
+
+    it('should allow to pass config to Popper with `popperConfig` as a function', () => {
+      fixtureEl.innerHTML = '<a href="#" rel="tooltip">'
+
+      const tooltipEl = fixtureEl.querySelector('a')
+      const getPopperConfig = jasmine.createSpy('getPopperConfig').and.returnValue({ placement: 'left' })
+      const tooltip = new Tooltip(tooltipEl, {
+        popperConfig: getPopperConfig
+      })
+
+      const popperConfig = tooltip._getPopperConfig('top')
+
+      expect(getPopperConfig).toHaveBeenCalled()
       expect(popperConfig.placement).toEqual('left')
     })
   })
@@ -277,13 +338,45 @@ describe('Tooltip', () => {
       fixtureEl.innerHTML = '<a href="#" rel="tooltip" title="Another tooltip">'
 
       const tooltipEl = fixtureEl.querySelector('a')
+      const addEventSpy = spyOn(tooltipEl, 'addEventListener').and.callThrough()
+      const removeEventSpy = spyOn(tooltipEl, 'removeEventListener').and.callThrough()
+
       const tooltip = new Tooltip(tooltipEl)
 
       expect(Tooltip.getInstance(tooltipEl)).toEqual(tooltip)
 
+      const expectedArgs = [
+        ['mouseover', jasmine.any(Function), jasmine.any(Boolean)],
+        ['mouseout', jasmine.any(Function), jasmine.any(Boolean)],
+        ['focusin', jasmine.any(Function), jasmine.any(Boolean)],
+        ['focusout', jasmine.any(Function), jasmine.any(Boolean)]
+      ]
+
+      expect(addEventSpy.calls.allArgs()).toEqual(expectedArgs)
+
       tooltip.dispose()
 
       expect(Tooltip.getInstance(tooltipEl)).toEqual(null)
+      expect(removeEventSpy.calls.allArgs()).toEqual(expectedArgs)
+    })
+
+    it('should destroy a tooltip after it is shown and hidden', done => {
+      fixtureEl.innerHTML = '<a href="#" rel="tooltip" title="Another tooltip">'
+
+      const tooltipEl = fixtureEl.querySelector('a')
+      const tooltip = new Tooltip(tooltipEl)
+
+      tooltipEl.addEventListener('shown.coreui.tooltip', () => {
+        tooltip.hide()
+      })
+      tooltipEl.addEventListener('hidden.coreui.tooltip', () => {
+        tooltip.dispose()
+        expect(tooltip.tip).toEqual(null)
+        expect(Tooltip.getInstance(tooltipEl)).toEqual(null)
+        done()
+      })
+
+      tooltip.show()
     })
 
     it('should destroy a tooltip and remove it from the dom', done => {
@@ -1188,11 +1281,9 @@ describe('Tooltip', () => {
       jQueryMock.fn.tooltip = Tooltip.jQueryInterface
       jQueryMock.elements = [div]
 
-      try {
+      expect(() => {
         jQueryMock.fn.tooltip.call(jQueryMock, action)
-      } catch (error) {
-        expect(error.message).toEqual(`No method named "${action}"`)
-      }
+      }).toThrowError(TypeError, `No method named "${action}"`)
     })
   })
 })

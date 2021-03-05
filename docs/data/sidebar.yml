@@ -1,3 +1,6 @@
+# This file holds all sidebar menu's entries.
+# The logic for the sidebar generation is in "site/layouts/partials/docs-sidebar.html".
+
 - title: Getting started
   icon: energy
   pages:
@@ -8,6 +11,7 @@
     - title: JavaScript
     - title: Build tools
     - title: Webpack
+    - title: Parcel
     - title: Accessibility
     - title: RFS
     - title: RTL
@@ -29,7 +33,6 @@
     - title: Breakpoints
     - title: Containers
     - title: Grid
-    # - title: Rows
     - title: Columns
     - title: Gutters
     - title: Utilities
@@ -79,6 +82,7 @@
     - title: Modal
     - title: Navs & tabs
     - title: Navbar
+    - title: Offcanvas
     - title: Pagination
     - title: Popovers
     - title: Progress
@@ -103,6 +107,7 @@
   icon: color-fill
   pages:
     - title: API
+    - title: Background
     - title: Borders
     - title: Colors
     - title: Display

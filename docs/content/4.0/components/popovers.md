@@ -62,40 +62,20 @@ var popover = new coreui.Popover(document.querySelector('.example-popover'), {
 
 Four options are available: top, right, bottom, and left aligned. Directions are mirrored when using Bootstrap in RTL.
 
-<div class="docs-example popover-demo">
-  <div class="docs-example-popovers">
-    <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-      Popover on top
-    </button>
-    <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-      Popover on right
-    </button>
-    <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-      Popover on bottom
-    </button>
-    <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-      Popover on left
-    </button>
-  </div>
-</div>
-
-```html
-<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+{{< example >}}
+<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Top popover">
   Popover on top
 </button>
-
-<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Right popover">
   Popover on right
 </button>
-
-<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Bottom popover">
   Popover on bottom
 </button>
-
-<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">
   Popover on left
 </button>
-```
+{{< /example >}}
 
 ### Dismiss on next click
 
@@ -119,13 +99,13 @@ var popover = new coreui.Popover(document.querySelector('.popover-dismiss'), {
 
 ### Disabled elements
 
-Elements with the `disabled` attribute aren't interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>` and override the `pointer-events` on the disabled element.
+Elements with the `disabled` attribute aren't interactive, meaning users cannot hover or click them to trigger a popover (or tooltip). As a workaround, you'll want to trigger the popover from a wrapper `<div>` or `<span>`, ideally made keyboard-focusable using `tabindex="0"`.
 
-For disabled popover triggers, you may also prefer `data-coreui-trigger="hover"` so that the popover appears as immediate visual feedback to your users as they may not expect to _click_ on a disabled element.
+For disabled popover triggers, you may also prefer `data-coreui-trigger="hover focus"` so that the popover appears as immediate visual feedback to your users as they may not expect to _click_ on a disabled element.
 
 {{< example >}}
-<span class="d-inline-block" data-coreui-toggle="popover" data-coreui-content="Disabled popover">
-  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>Disabled button</button>
+<span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content="Disabled popover">
+  <button class="btn btn-primary" type="button" disabled>Disabled button</button>
 </span>
 {{< /example >}}
 
@@ -150,7 +130,7 @@ Additionally, while it is possible to also include interactive controls (such as
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-animation=""`.
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-animation=""`. Make sure to change the case type of the option name from camelCase to kebab-case when passing via data attributes. For example: instead of using `data-coreui-customClass="beautifier"`, use `data-coreui-custom-class="beautifier"`.
 
 {{< callout warning >}}
 Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` options cannot be supplied using data attributes.
@@ -249,16 +229,16 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
     </tr>
     <tr>
       <td><code>fallbackPlacements</code></td>
-      <td>string | array</td>
-      <td><code>'flip'</code></td>
-      <td>Allow to specify which position Popper will use on fallback. For more information refer to
+      <td>array</td>
+      <td><code>['top', 'right', 'bottom', 'left']</code></td>
+      <td>Define fallback placements by providing a list of placements in array (in order of preference). For more information refer to
       Popper's <a href="https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements">behavior docs</a></td>
     </tr>
     <tr>
       <td><code>boundary</code></td>
       <td>string | element</td>
-      <td><code>'scrollParent'</code></td>
-      <td>Overflow constraint boundary of the popover. Accepts the values of <code>'viewport'</code>, <code>'window'</code>, <code>'scrollParent'</code>, or an HTMLElement reference (JavaScript only). For more information refer to Popper's <a href="https://popper.js.org/docs/v2/utils/detect-overflow/#boundary">preventOverflow docs</a>.</td>
+      <td><code>'clippingParents'</code></td>
+      <td>Overflow constraint boundary of the popover. By default it's <code>'clippingParents'</code> and can accept an HTMLElement reference (JavaScript only). For more information refer to Popper's <a href="https://popper.js.org/docs/v2/utils/detect-overflow/#boundary">preventOverflow docs</a>.</td>
     </tr>
     <tr>
       <td><code>customClass</code></td>
@@ -288,10 +268,23 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
       <td>Here you can supply your own sanitize function. This can be useful if you prefer to use a dedicated library to perform sanitization.</td>
     </tr>
     <tr>
+      <td><code>offset</code></td>
+      <td>array | string | function</td>
+      <td><code>[0, 8]</code></td>
+      <td>
+        <p>Offset of the popover relative to its target. You can pass a string in data attributes with comma separated values like: <code>data-coreui-offset="10,20"</code></p>
+        <p>When a function is used to determine the offset, it is called with an object containing the popper placement, the reference, and popper rects as its first argument. The triggering element DOM node is passed as the second argument. The function must return an array with two numbers: <code>[<a href="https://popper.js.org/docs/v2/modifiers/offset/#skidding-1">skidding</a>, <a href="https://popper.js.org/docs/v2/modifiers/offset/#distance-1">distance</a>]</code>.</p>
+        <p>For more information refer to Popper's <a href="https://popper.js.org/docs/v2/modifiers/offset/#options">offset docs</a>.</p>
+      </td>
+    </tr>
+    <tr>
       <td><code>popperConfig</code></td>
-      <td>null | object</td>
+      <td>null | object | function</td>
       <td><code>null</code></td>
-      <td>To change Bootstrap's default Popper config, see <a href="https://popper.js.org/docs/v2/constructors/#options">Popper's configuration</a></td>
+      <td>
+        <p>To change Bootstrap's default Popper config, see <a href="https://popper.js.org/docs/v2/constructors/#options">Popper's configuration</a>.</p>
+        <p>When a function is used to create the Popper configuration, it's called with an object that contains the Bootstrap's default Popper configuration. It helps you use and merge the default with your own configuration. The function must return a configuration object for Popper.</p>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -301,6 +294,18 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
 
 Options for individual popovers can alternatively be specified through the use of data attributes, as explained above.
 {{< /callout >}}
+
+#### Using function with `popperConfig`
+
+```js
+var popover = new bootstrap.Popover(element, {
+  popperConfig: function (defaultBsPopperConfig) {
+    // var newPopperConfig = {...}
+    // use defaultBsPopperConfig if needed...
+    // return newPopperConfig
+  }
+})
+```
 
 ### Methods
 
@@ -425,6 +430,8 @@ myPopoverTrigger.addEventListener('hidden.coreui.popover', function () {
 ## Customizing
 
 ### SASS
+
+#### Variables
 {{< scss-docs name="popover-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

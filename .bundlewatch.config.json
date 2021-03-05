@@ -1,60 +1,60 @@
 {
   "files": [
     {
-      "path": "./dist/css/bootstrap-grid.css",
+      "path": "./dist/css/coreui-grid.css",
       "maxSize": "7 kB"
     },
     {
-      "path": "./dist/css/bootstrap-grid.min.css",
+      "path": "./dist/css/coreui-grid.min.css",
       "maxSize": "6 kB"
     },
     {
-      "path": "./dist/css/bootstrap-reboot.css",
+      "path": "./dist/css/coreui-reboot.css",
       "maxSize": "2.25 kB"
     },
     {
-      "path": "./dist/css/bootstrap-reboot.min.css",
+      "path": "./dist/css/coreui-reboot.min.css",
       "maxSize": "2 kB"
     },
     {
-      "path": "./dist/css/bootstrap-utilities.css",
-      "maxSize": "7 kB"
+      "path": "./dist/css/coreui-utilities.css",
+      "maxSize": "7.5 kB"
     },
     {
-      "path": "./dist/css/bootstrap-utilities.min.css",
-      "maxSize": "6.25 kB"
+      "path": "./dist/css/coreui-utilities.min.css",
+      "maxSize": "6.75 kB"
     },
     {
-      "path": "./dist/css/bootstrap.css",
-      "maxSize": "24 kB"
+      "path": "./dist/css/coreui.css",
+      "maxSize": "24.25 kB"
     },
     {
-      "path": "./dist/css/bootstrap.min.css",
-      "maxSize": "22 kB"
+      "path": "./dist/css/coreui.min.css",
+      "maxSize": "22.25 kB"
     },
     {
-      "path": "./dist/js/bootstrap.bundle.js",
-      "maxSize": "41 kB"
+      "path": "./dist/js/coreui.bundle.js",
+      "maxSize": "43 kB"
     },
     {
-      "path": "./dist/js/bootstrap.bundle.min.js",
-      "maxSize": "21.5 kB"
+      "path": "./dist/js/coreui.bundle.min.js",
+      "maxSize": "22.5 kB"
     },
     {
       "path": "./dist/js/coreui.esm.js",
-      "maxSize": "27 kB"
+      "maxSize": "28.5 kB"
     },
     {
-      "path": "./dist/js/bootstrap.esm.min.js",
-      "maxSize": "18 kB"
+      "path": "./dist/js/coreui.esm.min.js",
+      "maxSize": "19 kB"
     },
     {
-      "path": "./dist/js/bootstrap.js",
-      "maxSize": "28 kB"
+      "path": "./dist/js/coreui.js",
+      "maxSize": "29 kB"
     },
     {
-      "path": "./dist/js/bootstrap.min.js",
-      "maxSize": "15.5 kB"
+      "path": "./dist/js/coreui.min.js",
+      "maxSize": "16.25 kB"
     }
   ],
   "ci": {

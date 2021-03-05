@@ -86,9 +86,9 @@ Create lists of content in a card with a flush list group.
 {{< example >}}
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
   </ul>
 </div>
 {{< /example >}}
@@ -99,9 +99,9 @@ Create lists of content in a card with a flush list group.
     Featured
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
   </ul>
 </div>
 {{< /example >}}
@@ -109,9 +109,9 @@ Create lists of content in a card with a flush list group.
 {{< example >}}
 <div class="card" style="width: 18rem;">
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
   </ul>
   <div class="card-footer">
     Card footer
@@ -131,9 +131,9 @@ Combine and match many content types to build the card you need, or throw everyt
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">Cras justo odio</li>
-    <li class="list-group-item">Dapibus ac facilisis in</li>
-    <li class="list-group-item">Vestibulum at eros</li>
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
   </ul>
   <div class="card-body">
     <a href="#" class="card-link">Card link</a>
@@ -179,7 +179,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
   </div>
   <div class="card-body">
     <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <p>A well-known quote, contained in a blockquote element.</p>
       <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
     </blockquote>
   </div>
@@ -423,7 +423,7 @@ Cards include various options for customizing their backgrounds, borders, and co
 
 ### Background and color
 
-Use [text and background utilities]({{< docsref "/utilities/colors" >}}) to change the appearance of a card.
+Use [text color]({{< docsref "/utilities/colors" >}}) and [background utilities]({{< docsref "/utilities/background" >}}) to change the appearance of a card.
 
 {{< example >}}
 {{< card.inline >}}
@@ -745,6 +745,9 @@ Just like with card groups, card footers will automatically line up.
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="card-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

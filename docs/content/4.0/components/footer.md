@@ -39,6 +39,8 @@ Here's what you need to know before getting started with the aside menu:
 ## Customizing
 
 ### SASS
+
+#### Variables
 {{< scss-docs name="footer-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

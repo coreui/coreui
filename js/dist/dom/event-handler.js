@@ -30,11 +30,9 @@
     return null;
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.1): alert.js
+   * CoreUI (v4.0.0-alpha.1): dom/event-handler.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -97,6 +95,7 @@
             event.delegateTarget = target;
 
             if (handler.oneOff) {
+              // eslint-disable-next-line unicorn/consistent-destructuring
               EventHandler.off(element, event.type, fn);
             }
 

@@ -111,6 +111,7 @@
     background-image: var(--#{$variable-prefix}form-switch-bg-image, escape-svg($form-switch-bg-image));
     background-position: left center;
     @include border-radius($form-switch-border-radius);
+    @include transition($form-switch-transition);
 
     &:focus {
       background-image: var(--#{$variable-prefix}form-switch-focus-bg-image, escape-svg($form-switch-focus-bg-image));

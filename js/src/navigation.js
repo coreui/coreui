@@ -66,7 +66,7 @@ class Navigation extends BaseComponent {
     this._setActiveLink()
     this._addEventListeners()
 
-    Data.setData(element, DATA_KEY, this)
+    Data.set(element, DATA_KEY, this)
   }
   // Getters
 
@@ -94,7 +94,6 @@ class Navigation extends BaseComponent {
   }
 
   _setActiveLink() {
-    // eslint-disable-next-line unicorn/prefer-spread
     Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
       let currentUrl = String(window.location)
 
@@ -112,7 +111,6 @@ class Navigation extends BaseComponent {
 
       if (this._config.activeLinksExact && element.href === currentUrl) {
         element.classList.add(CLASS_NAME_ACTIVE)
-        // eslint-disable-next-line unicorn/prefer-spread
         Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
           element.classList.add(CLASS_NAME_SHOW)
           element.setAttribute('aria-expanded', true)
@@ -121,7 +119,6 @@ class Navigation extends BaseComponent {
 
       if (!this._config.activeLinksExact && element.href.startsWith(currentUrl)) {
         element.classList.add(CLASS_NAME_ACTIVE)
-        // eslint-disable-next-line unicorn/prefer-spread
         Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
           element.classList.add(CLASS_NAME_SHOW)
           element.setAttribute('aria-expanded', true)
@@ -262,7 +259,7 @@ class Navigation extends BaseComponent {
   // Static
 
   static navigationInterface(element, config) {
-    let data = Data.getData(element, DATA_KEY)
+    let data = Data.get(element, DATA_KEY)
     const _config = {
       ...Default,
       ...Manipulator.getDataAttributes(element),
@@ -284,15 +281,7 @@ class Navigation extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      let data = Data.getData(this, DATA_KEY)
-
-      if (!data) {
-        data = new Navigation(this)
-      }
-
-      if (config === 'close') {
-        data[config](this)
-      }
+      Navigation.navigationInterface(this, config)
     })
   }
 }
@@ -303,7 +292,6 @@ class Navigation extends BaseComponent {
  * ------------------------------------------------------------------------
  */
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  // eslint-disable-next-line unicorn/prefer-spread
   Array.from(document.querySelectorAll(SELECTOR_DATA_NAVIGATION)).forEach(element => {
     Navigation.navigationInterface(element)
   })

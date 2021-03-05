@@ -68,4 +68,10 @@ Lastly, this [CSS Tricks article on unused CSS](https://css-tricks.com/how-do-yo
 
 ## Minify and gzip
 
-Whenever possible, be sure to compress all the code you serve to your visitors. If you're using CoreUI for Bootstrap dist files, try to stick to the minified versions (indicated by the `.min.css` and `.min.js` extensions). If you're building CoreUI for Bootstrap from the source with your own build system, be sure to implement your own minifiers for HTML, CSS, and JS.
+Whenever possible, be sure to compress all the code you serve to your visitors. If you're using Bootstrap dist files, try to stick to the minified versions (indicated by the `.min.css` and `.min.js` extensions). If you're building Bootstrap from the source with your own build system, be sure to implement your own minifiers for HTML, CSS, and JS.
+
+## Always use HTTPS
+
+Your website should only be available over HTTPS connections in production. HTTPS improves the security, privacy, and availability of all sites, and [there is no such thing as non-sensitive web traffic](https://https.cio.gov/everything/). The steps to configure your website to be served exclusively over HTTPS vary widely depending on your architecture and web hosting provider, and thus are beyond the scope of these docs.
+
+Sites served over HTTPS should also access all stylesheets, scripts, and other assets over HTTPS connections. Otherwise, you'll be sending users [mixed active content](https://developer.mozilla.org/en-US/docs/Web/Security/Mixed_content), leading to potential vulnerabilities where a site can be compromised by altering a dependency. This can lead to security issues and in-browser warnings displayed to users. Whether you're getting Bootstrap from a CDN or serving it yourself, ensure that you only access it over HTTPS connections.

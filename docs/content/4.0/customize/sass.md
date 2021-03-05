@@ -6,7 +6,7 @@ group: customize
 toc: true
 ---
 
-Utilize our source Sass files to take advantage of variables, maps, mixins, and more. In our build we've increased the Sass rounding precision to 6 (by default it's 5) to prevent issues with browser rounding.
+Utilize our source Sass files to take advantage of variables, maps, mixins, and more.
 
 ## File structure
 
@@ -41,7 +41,9 @@ In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two
 // Custom.scss
 // Option A: Include all of Bootstrap
 
-@import "../node_modules/bootstrap/scss/bootstrap";
+@import "../node_modules/coreui/scss/bootstrap";
+
+// Add custom code after this
 ```
 
 ```scss
@@ -49,17 +51,19 @@ In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two
 // Option B: Include parts of Bootstrap
 
 // Required
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/coreui/scss/functions";
+@import "../node_modules/coreui/scss/variables";
+@import "../node_modules/coreui/scss/mixins";
+
+// Include custom variable default overrides here
 
 // Optional
-@import "../node_modules/bootstrap/scss/root";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-@import "../node_modules/bootstrap/scss/images";
-@import "../node_modules/bootstrap/scss/containers";
-@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/coreui/scss/root";
+@import "../node_modules/coreui/scss/reboot";
+@import "../node_modules/coreui/scss/type";
+@import "../node_modules/coreui/scss/images";
+@import "../node_modules/coreui/scss/containers";
+@import "../node_modules/coreui/scss/grid";
 ```
 
 With that setup in place, you can begin to modify any of the Sass variables and maps in your `custom.scss`. You can also start to add parts of CoreUI for Bootstrap under the `// Optional` section as needed. We suggest using the full import stack from our `coreui.scss` file as your starting point.
@@ -70,20 +74,34 @@ Every Sass variable in CoreUI for Bootstrap includes the `!default` flag allowin
 
 You will find the complete list of Bootstrap's variables in `scss/_variables.scss`. Some variables are set to `null`, these variables don't output the property unless they are overridden in your configuration.
 
-Variable overrides within the same Sass file can come before or after the default variables. However, when overriding across Sass files, your overrides must come before you import Bootstrap's Sass files.
+Variable overrides must come after our functions, variables, and mixins are imported, but before the rest of the imports.
 
 Here's an example that changes the `background-color` and `color` for the `<body>` when importing and compiling CoreUI for Bootstrap via npm:
 
 ```scss
+// Required
+@import "../node_modules/coreui/scss/functions";
+@import "../node_modules/coreui/scss/variables";
+@import "../node_modules/coreui/scss/mixins";
+
 // Your variable overrides
 $body-bg: #000;
 $body-color: #111;
 
 // CoreUI and its default variables
-@import "../node_modules/coreui/scss/coreui";
+
+// Optional
+@import "../node_modules/coreui/scss/root";
+@import "../node_modules/coreui/scss/reboot";
+@import "../node_modules/coreui/scss/type";
+// etc
 ```
 
 Repeat as necessary for any variable in Bootstrap, including the global options below.
+
+{{< callout info >}}
+{{< partial "callout-info-npm-starter.md" >}}
+{{< /callout >}}
 
 ## Maps and loops
 
@@ -129,17 +147,17 @@ To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aw
 
 ```scss
 // Required
-@import "../node_modules/bootstrap/scss/functions";
-@import "../node_modules/bootstrap/scss/variables";
-@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/coreui/scss/functions";
+@import "../node_modules/coreui/scss/variables";
+@import "../node_modules/coreui/scss/mixins";
 
 $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 
 // Optional
-@import "../node_modules/bootstrap/scss/root";
-@import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-...
+@import "../node_modules/coreui/scss/root";
+@import "../node_modules/coreui/scss/reboot";
+@import "../node_modules/coreui/scss/type";
+// etc
 ```
 
 ## Required keys

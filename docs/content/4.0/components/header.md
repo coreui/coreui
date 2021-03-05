@@ -275,6 +275,8 @@ When the container is within your header, its horizontal padding is removed at b
 ## Customizing
 
 ### SASS
+
+#### Variables
 {{< scss-docs name="header-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

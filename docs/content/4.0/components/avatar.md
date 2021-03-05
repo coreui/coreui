@@ -116,4 +116,7 @@ Fancy larger or smaller avatar? Add .avatar-lg or .avatar-sm for additional size
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="avatar-variables" file="scss/_variables.scss" >}}

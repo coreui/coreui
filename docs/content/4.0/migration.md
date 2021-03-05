@@ -7,6 +7,23 @@ aliases: "/migration/"
 toc: true
 ---
 
+## v4.0.0-alpha.2
+
+### Utilities
+
+- Renamed `--aspect-ratio` to `--cui-aspect-ratio` to be consistent with other custom properties.
+- Extended the `.visually-hidden-focusable` helper to also work on containers, using `:focus-within`.
+- `bootstrap-utilities.css` now also includes our helpers. Helpers don't need to be imported in custom builds anymore.
+- Extended form validation states customization capabilities. Added three new optional parameters to the `form-validation-state` mixin: `tooltip-color`, `tooltip-bg-color`, `focus-box-shadow`. These parameters can be set in the `$form-validation-states` map.
+
+### JavaScript
+
+- Restored `offset` option for Dropdown, Popover and Tooltip plugins.
+- The default value for the `fallbackPlacements` is changed to `['top', 'right', 'bottom', 'left']` for better placement of popper elements.
+- All the events for the dropdown are now triggered on the dropdown toggle button and then bubbled up to the parent element.
+- Dropdown menus now have a `data-coreui-popper="static"` attribute set when the positioning of the dropdown is static and `data-coreui-popper="none"` when dropdown is in the navbar. This is added by our JavaScript and helps us use custom position styles without interfering with Popper's positioning.
+- `popperConfig` can be passed as a function that accepts the Bootstrap's default Popper config as an argument, so that you can merge this default configuration in your way.
+
 ## v4.0.0-alpha.1
 
 ### Sidebar

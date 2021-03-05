@@ -134,7 +134,17 @@ Learn more about [support for datalist elements](https://caniuse.com/datalist).
 ## Customizing
 
 ### SASS
-{{< scss-docs name="form-control-variables" file="scss/_variables.scss" >}}
+#### Variables
+
+`$input-*` are shared across most of our form controls (and not buttons).
+
+{{< scss-docs name="form-input-variables" file="scss/_variables.scss" >}}
+
+`$form-label-*` and `$form-text-*` are for our `<label>`s and `.form-text` component.
+
+{{< scss-docs name="form-label-variables" file="scss/_variables.scss" >}}
+
+{{< scss-docs name="form-text-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars
 {{< css-vars-docs file="scss/forms/_form-control.scss" >}}

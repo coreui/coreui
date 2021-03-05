@@ -185,6 +185,9 @@ myAlert.addEventListener('closed.coreui.alert', function () {
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
 
 #### Variants

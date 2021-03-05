@@ -71,5 +71,5 @@ params:
     js_hash:         "sha384-Xp3Ya0jjKuch8vFoNIlmzE5w8uiRRC6C2/yUBbageWoRoWL40V+ikQpJT6f/4JZI"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@3.3.0/dist/js/coreui.bundle.min.js"
     js_bundle_hash:  "sha384-GGu38SDX+hEJN1ajifNnCWv188r3j0w3JllK6TK2A90aFotRDkUJUZu7ms/hRUp0"
-    popper:          "https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"
-    popper_hash:     "sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.0/dist/umd/popper.min.js"
+    popper_hash:      "sha384-EOlc5FUOsy7obkrpNXqD9DtrephzQpK7DXijDIKexeJT0qfn4dZ7GDid8suWuQHq"

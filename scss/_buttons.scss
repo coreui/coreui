@@ -54,7 +54,7 @@
 //
 // Alternate buttons
 //
-
+// scss-docs-start btn-variant-loops
 // scss-docs-start button-modifiers
 @each $state, $map in $button-variants {
   .btn-#{$state} {
@@ -105,6 +105,7 @@
   }
 }
 // scss-docs-end button-ghost-modifiers
+// scss-docs-end btn-variant-loops
 
 
 //

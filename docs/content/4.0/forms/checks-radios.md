@@ -290,6 +290,9 @@ Different variants of `.btn`, such at the various outlined styles, are supported
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="form-check-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

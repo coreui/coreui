@@ -33,7 +33,8 @@
     height: 16px;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     color: $white;
     background-color: $primary;
   }

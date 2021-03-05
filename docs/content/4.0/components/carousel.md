@@ -26,7 +26,7 @@ Please be informed that nested carousels are not supported, and carousels are fr
 
 Carousels don't automatically normalize slide dimensions. As such, you may want to use extra utilities or custom methods to properly size content. While carousels support previous/next controls and indicators, they're not explicitly expected. Add and customize as you see fit.
 
-**The `.active` class must to be attached to one of the slides** otherwise the carousel will not be visible. Additionally be sure to set a different id on the `.carousel` for optional controls, particularly if you're using many carousels on a page.Control and indicator elements must have a `data-coreui-target` attribute (or `href` for links) that matches the id of the `.carousel` element.
+**The `.active` class must to be attached to one of the slides** otherwise the carousel will not be visible. Additionally be sure to set a different id on the `.carousel` for optional controls, particularly if you're using many carousels on a page. Control and indicator elements must have a `data-coreui-target` attribute (or `href` for links) that matches the id of the `.carousel` element.
 
 ### Slides only
 
@@ -50,7 +50,7 @@ Here's a carousel with slides. Note the appearance of the `.d-block` also, `.w-1
 
 ### With controls
 
-Attaching the previous and next control buttons:
+Adding in the previous and next controls. We recommend using `<button>` elements, but you can also use `<a>` elements with `role="button"`.
 
 {{< example >}}
 <div id="carouselExampleControls" class="carousel slide" data-coreui-ride="carousel">
@@ -70,9 +70,14 @@ Attaching the previous and next control buttons:
     <span class="visually-hidden">Previous</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-coreui-slide="next">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleControls" data-coreui-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleControls" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
 </div>
 {{< /example >}}
 
@@ -82,11 +87,11 @@ You can attach the indicators to the carousel, lengthwise the controls, too.
 
 {{< example >}}
 <div id="carouselExampleIndicators" class="carousel slide" data-coreui-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="0" class="active"></li>
-    <li data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="1"></li>
-    <li data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="2"></li>
-  </ol>
+  <div class="carousel-indicators">
+    <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="2" aria-label="Slide 3"></button>
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#555" background="#777" text="First slide" >}}
@@ -98,14 +103,14 @@ You can attach the indicators to the carousel, lengthwise the controls, too.
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-coreui-slide="prev">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-coreui-slide="next">
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
 </div>
 {{< /example >}}
 
@@ -115,42 +120,42 @@ You can add captions to slides with the `.carousel-caption` element within any `
 
 {{< example >}}
 <div id="carouselExampleCaptions" class="carousel slide" data-coreui-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="0" class="active"></li>
-    <li data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="1"></li>
-    <li data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="2"></li>
-  </ol>
+  <div class="carousel-indicators">
+    <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="2" aria-label="Slide 3"></button>
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#555" background="#777" text="First slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#444" background="#666" text="Second slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-coreui-slide="prev">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-coreui-slide="next">
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
 </div>
 {{< /example >}}
 
@@ -171,14 +176,14 @@ Add `.carousel-fade` to your carousel to animate slides with a fade transition i
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-coreui-slide="prev">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleFade" data-coreui-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-coreui-slide="next">
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleFade" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
 </div>
 {{< /example >}}
 
@@ -199,14 +204,42 @@ Add `data-coreui-interval=""` to a `.carousel-item` to change the amount of time
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-coreui-slide="prev">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleInterval" data-coreui-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-coreui-slide="next">
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleInterval" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
+</div>
+{{< /example >}}
+
+### Disable touch swiping
+
+Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the `data-coreui-touch` attribute. The example below also does not include the `data-coreui-ride` attribute and has `data-coreui-interval="false"` so it doesn't autoplay.
+
+{{< example >}}
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-coreui-touch="false" data-coreui-interval="false">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#555" background="#777" text="First slide" >}}
+    </div>
+    <div class="carousel-item">
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#444" background="#666" text="Second slide" >}}
+    </div>
+    <div class="carousel-item">
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleControlsNoTouching" data-coreui-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleControlsNoTouching" data-coreui-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 {{< /example >}}
 
@@ -216,44 +249,48 @@ Add `.carousel-dark` to the `.carousel` for darker controls, indicators, and cap
 
 {{< example >}}
 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-coreui-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-coreui-target="#carouselExampleDark" data-coreui-slide-to="0" class="active"></li>
-    <li data-coreui-target="#carouselExampleDark" data-coreui-slide-to="1"></li>
-    <li data-coreui-target="#carouselExampleDark" data-coreui-slide-to="2"></li>
-  </ol>
+  <div class="carousel-indicators">
+    <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="2" aria-label="Slide 3"></button>
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-coreui-interval="10000">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#aaa" background="#f5f5f5" text="First slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item" data-coreui-interval="2000">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#bbb" background="#eee" text="Second slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
       {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#999" background="#e5e5e5" text="Third slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <p>Some representative placeholder content for the third slide.</p>
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#carouselExampleDark" role="button" data-coreui-slide="prev">
+  <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleDark" role="button" data-coreui-slide="next">
+  </button>
+  <button class="carousel-control-next" type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
-  </a>
+  </button>
 </div>
 {{< /example >}}
+
+## Custom transition
+
+The transition duration of `.carousel-item` can be changed with the `$carousel-transition-duration` Sass variable before compiling or custom styles if you're using the compiled CSS. If multiple transitions are applied, make sure the transform transition is defined first (eg. `transition: transform 2s ease, opacity .5s ease-out`).
 
 ## Usage
 
@@ -289,7 +326,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
       <td><code>interval</code></td>
       <td>number</td>
       <td><code>5000</code></td>
-      <td>The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.</td>
+      <td>The amount of time to delay between automatically cycling an item. If <code>false</code>, carousel will not automatically cycle.</td>
     </tr>
     <tr>
       <td><code>keyboard</code></td>
@@ -300,15 +337,15 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
     <tr>
       <td><code>pause</code></td>
       <td>string | boolean</td>
-      <td><code>"hover"</code></td>
-      <td><p>If set to <code>"hover"</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
-      <p>On touch-enabled devices, when set to <code>"hover"</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p></td>
+      <td><code>'hover'</code></td>
+      <td><p>If set to <code>'hover'</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
+      <p>On touch-enabled devices, when set to <code>'hover'</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p></td>
     </tr>
     <tr>
-      <td><code>slide</code></td>
+      <td><code>ride</code></td>
       <td>string | boolean</td>
       <td><code>false</code></td>
-      <td>Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.</td>
+      <td>Autoplays the carousel after the user manually cycles the first item. If set to <code>'carousel'</code>, autoplays the carousel on load.</td>
     </tr>
     <tr>
       <td><code>wrap</code></td>
@@ -421,14 +458,10 @@ myCarousel.addEventListener('slide.coreui.carousel', function () {
   // do something...
 })
 ```
-
-### Change transition duration
-
-The transition duration of `.carousel-item` can be changed with the `$carousel-transition-duration` Sass variable before compiling or custom styles if you're using the compiled CSS. If multiple transitions are applied, make sure the transform transition is defined first (eg. `transition: transform 2s ease, opacity .5s ease-out`).
-
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="carousel-variables" file="scss/_variables.scss" >}}
-
-

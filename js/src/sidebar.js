@@ -46,7 +46,7 @@ const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
 const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'
 
 const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/
-const REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/
+// const REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -70,7 +70,7 @@ class Sidebar extends BaseComponent {
   constructor(element, config) {
     super(element)
     this._config = this._getConfig(config)
-    this._breakpoint = this._getBreakpoint()
+    // this._breakpoint = this._getBreakpoint()
     this._show = this._isVisible()
     this._mobile = this._isMobile()
     this._overlaid = this._isOverlaid()
@@ -79,7 +79,7 @@ class Sidebar extends BaseComponent {
     this._backdrop = null
     this._addEventListeners()
 
-    Data.setData(element, DATA_KEY, this)
+    // Data.set(element, DATA_KEY, this)
   }
 
   // Getters
@@ -101,7 +101,8 @@ class Sidebar extends BaseComponent {
       this._element.classList.remove(CLASS_NAME_HIDE)
     }
 
-    if (this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
+    if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
+    // if (this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
       this._element.classList.add(CLASS_NAME_SHOW)
     }
 
@@ -229,18 +230,18 @@ class Sidebar extends BaseComponent {
     return config
   }
 
-  _getBreakpoint() {
-    if (this._config.breakpoint) {
-      return this._config.breakpoint
-    }
+  // _getBreakpoint() {
+  //   if (this._config.breakpoint) {
+  //     return this._config.breakpoint
+  //   }
 
-    const breakpoint = this._element.className.match(REGEXP_SIDEBAR_SHOW_BREAKPOINT)
-    if (breakpoint) {
-      return breakpoint[1]
-    }
+  //   const breakpoint = this._element.className.match(REGEXP_SIDEBAR_SHOW_BREAKPOINT)
+  //   if (breakpoint) {
+  //     return breakpoint[1]
+  //   }
 
-    return false
-  }
+  //   return false
+  // }
 
   _createShowClass() {
     if (this._breakpoint && !this._isMobile()) {
@@ -373,7 +374,7 @@ class Sidebar extends BaseComponent {
   // Static
 
   static sidebarInterface(element, config) {
-    let data = Data.getData(element, DATA_KEY)
+    let data = Data.get(element, DATA_KEY)
     const _config = typeof config === 'object' && config
 
     if (!data) {
@@ -403,7 +404,6 @@ class Sidebar extends BaseComponent {
  */
 
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  // eslint-disable-next-line unicorn/prefer-spread
   Array.from(document.querySelectorAll(SELECTOR_SIDEBAR)).forEach(element => {
     Sidebar.sidebarInterface(element)
   })

@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.1): alert.js
+ * CoreUI (v4.0.0-alpha.1): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/selector-engine.js

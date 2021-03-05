@@ -71,6 +71,9 @@ Apply the `.badge-pill` modifier class to make badges rounded.
 ## Customizing
 
 ### SASS
+
+#### Variables
+
 {{< scss-docs name="badge-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

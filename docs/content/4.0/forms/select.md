@@ -77,6 +77,8 @@ Add the `disabled` boolean attribute on a select to give it a grayed out appeara
 ## Customizing
 
 ### SASS
+
+#### Variables
 {{< scss-docs name="form-select-variables" file="scss/_variables.scss" >}}
 
 ### CSS Vars

@@ -84,13 +84,11 @@ class Tab extends BaseComponent {
       previous = previous[previous.length - 1]
     }
 
-    let hideEvent = null
-
-    if (previous) {
-      hideEvent = EventHandler.trigger(previous, EVENT_HIDE, {
+    const hideEvent = previous ?
+      EventHandler.trigger(previous, EVENT_HIDE, {
         relatedTarget: this._element
-      })
-    }
+      }) :
+      null
 
     const showEvent = EventHandler.trigger(this._element, EVENT_SHOW, {
       relatedTarget: previous
@@ -187,7 +185,7 @@ class Tab extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      const data = Data.getData(this, DATA_KEY) || new Tab(this)
+      const data = Data.get(this, DATA_KEY) || new Tab(this)
 
       if (typeof config === 'string') {
         if (typeof data[config] === 'undefined') {
@@ -209,7 +207,7 @@ class Tab extends BaseComponent {
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
   event.preventDefault()
 
-  const data = Data.getData(this, DATA_KEY) || new Tab(this)
+  const data = Data.get(this, DATA_KEY) || new Tab(this)
   data.show()
 })
 
