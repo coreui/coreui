@@ -36,6 +36,14 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 
+$high-emphasis:            rgba(shift-color($gray-base, +26), .87) !default;
+$medium-emphasis:          rgba(shift-color($gray-base, +26), .6) !default;
+$disabled:                 rgba(shift-color($gray-base, +26), .38) !default;
+
+$high-emphasis-inverse:    rgba($white, .87) !default;
+$medium-emphasis-inverse:  rgba($white, .6) !default;
+$disabled-inverse:         rgba($white, .38) !default;
+
 // scss-docs-start color-variables
 $blue:    #0d6efd !default;
 $indigo:  #6610f2 !default;
@@ -131,22 +139,13 @@ $theme-colors: (
 ) !default;
 // scss-docs-end theme-colors-map
 
-// Text colors
-$high-emphasis-dark:    rgba(shift-color($gray-base, +26), .87) !default;
-$medium-emphasis-dark:  rgba(shift-color($gray-base, +26), .6) !default;
-$disabled-dark:         rgba(shift-color($gray-base, +26), .38) !default;
-
-$high-emphasis-light:    rgba($white, .87) !default;
-$medium-emphasis-light:  rgba($white, .6) !default;
-$disabled-light:         rgba($white, .38) !default;
-
 // The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
 // See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
 $min-contrast-ratio:   4.5 !default;
 
 // Customize the light and dark text colors for use in our color contrast function.
-$color-contrast-dark:      $high-emphasis-dark !default;
-$color-contrast-light:     $high-emphasis-light !default;
+$color-contrast-dark:      $high-emphasis-inverse !default;
+$color-contrast-light:     $high-emphasis !default;
 
 // fusv-disable
 $blue-100: tint-color($blue, 80%) !default;
@@ -331,7 +330,7 @@ $position-values: (
 // Settings for the `<body>` element.
 
 $body-bg:                   $white !default;
-$body-color:                $high-emphasis-dark !default;
+$body-color:                $high-emphasis !default;
 $body-text-align:           null !default;
 
 
@@ -438,7 +437,7 @@ $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 // scss-docs-end box-shadow-variables
 
-$component-active-color:      $high-emphasis-light !default;
+$component-active-color:      $high-emphasis-inverse !default;
 $component-active-bg:         $primary !default;
 
 // scss-docs-start caret-variables
@@ -540,44 +539,61 @@ $display-line-height: $headings-line-height !default;
 // scss-docs-end display-headings
 
 // scss-docs-start type-variables
-$lead-font-size:              $font-size-base * 1.25 !default;
-$lead-font-weight:            300 !default;
+$lead-font-size:                $font-size-base * 1.25 !default;
+$lead-font-weight:              300 !default;
 
-$small-font-size:             .875em !default;
+$small-font-size:               .875em !default;
 
-$sub-sup-font-size:           .75em !default;
+$sub-sup-font-size:             .75em !default;
 
-$text-muted:                  $disabled-dark !default;
+$text-high-emphasis:            $high-emphasis !default;
+$text-medium-emphasis:          $medium-emphasis !default;
+$text-disabled:                 $disabled !default;
+$text-muted:                    $disabled !default;
 
-$initialism-font-size:        $small-font-size !default;
+$text-high-emphasis-inverse:    $high-emphasis-inverse !default;
+$text-medium-emphasis-inverse:  $medium-emphasis-inverse !default;
+$text-disabled-inverse:         $disabled-inverse !default;
 
-$blockquote-margin-y:         $spacer !default;
-$blockquote-font-size:        $font-size-base * 1.25 !default;
-$blockquote-footer-color:     $gray-600 !default;
-$blockquote-footer-font-size: $small-font-size !default;
+// Text colors
+// TODO: clean-up
+// $high-emphasis-dark:    rgba(shift-color($gray-base, +26), .87) !default;
+// $medium-emphasis-dark:  rgba(shift-color($gray-base, +26), .6) !default;
+// $disabled-dark:         rgba(shift-color($gray-base, +26), .38) !default;
 
-$hr-margin-y:                 $spacer !default;
-$hr-color:                    inherit !default;
-$hr-height:                   $border-width !default;
-$hr-opacity:                  .25 !default;
+// $high-emphasis-inverse:    rgba($white, .87) !default;
+// $medium-emphasis-inverse:  rgba($white, .6) !default;
+// $disabled-inverse:         rgba($white, .38) !default;
 
-$vr-color:                    inherit !default;
-$vr-width:                    $border-width !default;
-$vr-opacity:                  .25 !default;
+$initialism-font-size:          $small-font-size !default;
 
-$legend-margin-bottom:        .5rem !default;
-$legend-font-size:            1.5rem !default;
-$legend-font-weight:          null !default;
+$blockquote-margin-y:           $spacer !default;
+$blockquote-font-size:          $font-size-base * 1.25 !default;
+$blockquote-footer-color:       $gray-600 !default;
+$blockquote-footer-font-size:   $small-font-size !default;
 
-$mark-padding:                .2em !default;
+$hr-margin-y:                   $spacer !default;
+$hr-color:                      inherit !default;
+$hr-height:                     $border-width !default;
+$hr-opacity:                    .25 !default;
 
-$dt-font-weight:              $font-weight-bold !default;
+$vr-color:                      inherit !default;
+$vr-width:                      $border-width !default;
+$vr-opacity:                    .25 !default;
 
-$nested-kbd-font-weight:      $font-weight-bold !default;
+$legend-margin-bottom:          .5rem !default;
+$legend-font-size:              1.5rem !default;
+$legend-font-weight:            null !default;
 
-$list-inline-padding:         .5rem !default;
+$mark-padding:                  .2em !default;
 
-$mark-bg:                     #fcf8e3 !default;
+$dt-font-weight:                $font-weight-bold !default;
+
+$nested-kbd-font-weight:        $font-weight-bold !default;
+
+$list-inline-padding:           .5rem !default;
+
+$mark-bg:                      #fcf8e3 !default;
 // scss-docs-end type-variables
 
 // Icons
@@ -1044,17 +1060,17 @@ $navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
 // scss-docs-end navbar-variables
 
 // scss-docs-start navbar-theme-variables
-$navbar-dark-color:                 $medium-emphasis-light !default;
-$navbar-dark-hover-color:           $high-emphasis-light !default;
-$navbar-dark-active-color:          $high-emphasis-light !default;
-$navbar-dark-disabled-color:        $disabled-light !default;
+$navbar-dark-color:                 $medium-emphasis-inverse !default;
+$navbar-dark-hover-color:           $high-emphasis-inverse !default;
+$navbar-dark-active-color:          $high-emphasis-inverse !default;
+$navbar-dark-disabled-color:        $disabled-inverse !default;
 $navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-dark-toggler-border-color:  rgba($white, .1) !default;
 
-$navbar-light-color:                $medium-emphasis-dark !default;
-$navbar-light-hover-color:          $high-emphasis-dark !default;
-$navbar-light-active-color:         $high-emphasis-dark !default;
-$navbar-light-disabled-color:       $disabled-dark !default;
+$navbar-light-color:                $medium-emphasis !default;
+$navbar-light-hover-color:          $high-emphasis !default;
+$navbar-light-active-color:         $high-emphasis !default;
+$navbar-light-disabled-color:       $disabled !default;
 $navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 $navbar-light-toggler-border-color: rgba($black, .1) !default;
 
@@ -1107,7 +1123,7 @@ $dropdown-dark-border-color:        $dropdown-border-color !default;
 $dropdown-dark-divider-bg:          $dropdown-divider-bg !default;
 $dropdown-dark-box-shadow:          null !default;
 $dropdown-dark-link-color:          $dropdown-dark-color !default;
-$dropdown-dark-link-hover-color:    $high-emphasis-light !default;
+$dropdown-dark-link-hover-color:    $high-emphasis-inverse !default;
 $dropdown-dark-link-hover-bg:       rgba($white, .15) !default;
 $dropdown-dark-link-active-color:   $dropdown-link-active-color !default;
 $dropdown-dark-link-active-bg:      $dropdown-link-active-bg !default;
@@ -1217,7 +1233,7 @@ $accordion-button-active-icon:  url("data:image/svg+xml,<svg xmlns='http://www.w
 // scss-docs-start tooltip-variables
 $tooltip-font-size:                 $font-size-sm !default;
 $tooltip-max-width:                 200px !default;
-$tooltip-color:                     $high-emphasis-light !default;
+$tooltip-color:                     $high-emphasis-inverse !default;
 $tooltip-bg:                        $black !default;
 $tooltip-border-radius:             $border-radius !default;
 $tooltip-opacity:                   .9 !default;
@@ -1293,7 +1309,7 @@ $toast-header-border-color:         rgba(0, 0, 0, .05) !default;
 // scss-docs-start badge-variables
 $badge-font-size:                   .75em !default;
 $badge-font-weight:                 $font-weight-bold !default;
-$badge-color:                       $high-emphasis-light !default;
+$badge-color:                       $high-emphasis-inverse !default;
 $badge-padding-y:                   .35em !default;
 $badge-padding-x:                   .65em !default;
 $badge-border-radius:               $border-radius !default;
@@ -1422,7 +1438,7 @@ $progress-font-size:                $font-size-base * .75 !default;
 $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-box-shadow:               $box-shadow-inset !default;
-$progress-bar-color:                $high-emphasis-light !default;
+$progress-bar-color:                $high-emphasis-inverse !default;
 $progress-bar-bg:                   $primary !default;
 $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
@@ -1475,13 +1491,13 @@ $header-min-height:             4rem !default;
 $header-padding-y:              $spacer / 2 !default;
 $header-padding-x:              $spacer / 2 !default;
 $header-brand-font-size:        $font-size-lg !default;
-$header-color:                  $medium-emphasis-dark !default;
+$header-color:                  $medium-emphasis !default;
 $header-bg:                     $white !default;
 $header-border-color:           $border-color !default;
 $header-border-width:           1px !default;
-$header-hover-color:            $high-emphasis-dark !default;
-$header-active-color:           $high-emphasis-dark !default;
-$header-disabled-color:         $disabled-dark !default;
+$header-hover-color:            $high-emphasis !default;
+$header-active-color:           $high-emphasis !default;
+$header-disabled-color:         $disabled !default;
 
 // Compute the header-brand padding-y so the header-brand will have the same height as header-text and nav-link
 $nav-link-height:               $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
@@ -1523,10 +1539,10 @@ $subheader-nav-link-padding-x:  .5rem !default;
 // Default theme
 // scss-docs-start subheader-default-themes
 $subheader-bg:                     $white !default;
-$subheader-color:                  $medium-emphasis-dark !default;
-$subheader-hover-color:            $high-emphasis-dark !default;
-$subheader-active-color:           $high-emphasis-dark !default;
-$subheader-disabled-color:         $disabled-dark !default;
+$subheader-color:                  $medium-emphasis !default;
+$subheader-hover-color:            $high-emphasis !default;
+$subheader-active-color:           $high-emphasis !default;
+$subheader-disabled-color:         $disabled !default;
 // scss-docs-end subheader-default-themes
 
 
@@ -1567,7 +1583,7 @@ $breadcrumb-border-radius:          null !default;
 
 // Carousel
 // scss-docs-start carousel-variables
-$carousel-control-color:             $high-emphasis-light !default;
+$carousel-control-color:             $high-emphasis-inverse !default;
 $carousel-control-width:             15% !default;
 $carousel-control-opacity:           .5 !default;
 $carousel-control-hover-opacity:     .9 !default;
@@ -1583,7 +1599,7 @@ $carousel-indicator-active-opacity:  1 !default;
 $carousel-indicator-transition:      opacity .6s ease !default;
 
 $carousel-caption-width:             70% !default;
-$carousel-caption-color:             $high-emphasis-light !default;
+$carousel-caption-color:             $high-emphasis-inverse !default;
 $carousel-caption-padding-y:         1.25rem !default;
 $carousel-caption-spacer:            1.25rem !default;
 
@@ -1596,7 +1612,7 @@ $carousel-transition-duration:       .6s !default;
 $carousel-transition:                transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
 
 $carousel-dark-indicator-active-bg:  $black !default;
-$carousel-dark-caption-color:        $high-emphasis-dark !default;
+$carousel-dark-caption-color:        $high-emphasis !default;
 $carousel-dark-control-icon-filter:  invert(1) grayscale(100) !default;
 // scss-docs-end carousel-variables
 
@@ -1609,7 +1625,7 @@ $sidebar-widths: (
 ) !default;
 $sidebar-padding-y:                        0 !default;
 $sidebar-padding-x:                        0 !default;
-$sidebar-color:                            $high-emphasis-light !default;
+$sidebar-color:                            $high-emphasis-inverse !default;
 $sidebar-bg:                               $gray-base !default;
 $sidebar-border-width:                     0 !default;
 $sidebar-border-color:                     transparent !default;
@@ -1617,7 +1633,7 @@ $sidebar-transition:                       margin-left .15s, margin-right .15s, 
 $sidebar-reliant-transition:               width .15s !default;
 
 $sidebar-brand-height:                     4rem !default;
-$sidebar-brand-color:                      $high-emphasis-light !default;
+$sidebar-brand-color:                      $high-emphasis-inverse !default;
 $sidebar-brand-bg:                         rgba($black, .2) !default;
 
 $sidebar-header-height:                    4rem !default;
@@ -1635,25 +1651,25 @@ $sidebar-backdrop-transition:              opacity .15s linear !default;
 $sidebar-nav-title-padding-y:              .75rem !default;
 $sidebar-nav-title-padding-x:              1rem !default;
 $sidebar-nav-title-margin-top:             1rem !default;
-$sidebar-nav-title-color:                  $medium-emphasis-light !default;
+$sidebar-nav-title-color:                  $medium-emphasis-inverse !default;
 $sidebar-nav-title-transition:             height .15s, margin .15s !default;
 
 $sidebar-nav-link-padding-y:               .8445rem !default;
 $sidebar-nav-link-padding-x:               1rem !default;
-$sidebar-nav-link-color:                   $medium-emphasis-light !default;
+$sidebar-nav-link-color:                   $medium-emphasis-inverse !default;
 $sidebar-nav-link-bg:                      transparent !default;
 $sidebar-nav-link-transition:              background .15s ease, color .15s ease !default;
-$sidebar-nav-link-icon-color:              $medium-emphasis-light !default;
+$sidebar-nav-link-icon-color:              $medium-emphasis-inverse !default;
 
-$sidebar-nav-link-hover-color:             $high-emphasis-light !default;
+$sidebar-nav-link-hover-color:             $high-emphasis-inverse !default;
 $sidebar-nav-link-hover-bg:                rgba($white, .05) !default;
-$sidebar-nav-link-hover-icon-color:        $high-emphasis-light !default;
+$sidebar-nav-link-hover-icon-color:        $high-emphasis-inverse !default;
 
-$sidebar-nav-link-active-color:            $high-emphasis-light !default;
+$sidebar-nav-link-active-color:            $high-emphasis-inverse !default;
 $sidebar-nav-link-active-bg:               rgba($white, .05) !default;
-$sidebar-nav-link-active-icon-color:       $high-emphasis-light !default;
+$sidebar-nav-link-active-icon-color:       $high-emphasis-inverse !default;
 
-$sidebar-nav-link-disabled-color:          $disabled-light !default;
+$sidebar-nav-link-disabled-color:          $disabled-inverse !default;
 $sidebar-nav-link-disabled-icon-color:     $sidebar-nav-link-icon-color !default;
 
 $sidebar-nav-icon-width:                   4rem !default;
@@ -1665,7 +1681,7 @@ $sidebar-nav-group-transition:             background .15s ease-in-out !default;
 $sidebar-nav-group-items-transition:       height .15s ease !default;
 $sidebar-nav-group-toggle-show-color:      $sidebar-nav-link-color !default;
 
-$sidebar-nav-group-indicator-color:        $medium-emphasis-light !default;
+$sidebar-nav-group-indicator-color:        $medium-emphasis-inverse !default;
 $sidebar-nav-group-indicator:              str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-group-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
 $sidebar-nav-group-indicator-hover-color:  $sidebar-nav-link-hover-color !default;
 $sidebar-nav-group-indicator-hover:        str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-nav-group-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E"), "#", "%23") !default;
@@ -1720,7 +1736,7 @@ $btn-close-width:            1em !default;
 $btn-close-height:           $btn-close-width !default;
 $btn-close-padding-x:        .25em !default;
 $btn-close-padding-y:        $btn-close-padding-x !default;
-$btn-close-color:            $high-emphasis-dark !default;
+$btn-close-color:            $high-emphasis !default;
 $btn-close-bg:               url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$btn-close-color}'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>") !default;
 $btn-close-focus-shadow:     $input-btn-focus-box-shadow !default;
 $btn-close-opacity:          .5 !default;
@@ -1756,7 +1772,7 @@ $code-color:                        $pink !default;
 $kbd-padding-y:                     .2rem !default;
 $kbd-padding-x:                     .4rem !default;
 $kbd-font-size:                     $code-font-size !default;
-$kbd-color:                         $high-emphasis-light !default;
+$kbd-color:                         $high-emphasis-inverse !default;
 $kbd-bg:                            $gray-900 !default;
 
 $pre-color:                         unset !default;

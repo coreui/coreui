@@ -552,12 +552,12 @@ $utilities: map-merge(
           "black-50": rgba($black, .5),
           "white-50": rgba($white, .5),
           "reset": inherit,
-          "high-emphasis-light": $high-emphasis-light,
-          "medium-emphasis-light": $medium-emphasis-light,
-          "disabled-light": $disabled-light,
-          "high-emphasis-dark": $high-emphasis-dark,
-          "medium-emphasis-dark": $medium-emphasis-dark,
-          "disabled-dark": $disabled-dark
+          "high-emphasis-inverse": $text-high-emphasis-inverse,
+          "medium-emphasis-inverse": $text-medium-emphasis-inverse,
+          "disabled-inverse": $text-disabled-inverse,
+          "high-emphasis": $text-high-emphasis,
+          "medium-emphasis": $text-medium-emphasis,
+          "disabled": $text-disabled
         )
       ),
       vars: true
