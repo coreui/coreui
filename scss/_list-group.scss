@@ -155,9 +155,13 @@
   $background: var(--#{$variable-prefix}list-group-#{$state}-background, map-get($map, "background"));
   $background-hover: var(--#{$variable-prefix}list-group-#{$state}-background-hover, map-get($map, "background-hover"));
   $color: var(--#{$variable-prefix}list-group-#{$state}-color, map-get($map, "color"));
-  // @if (contrast-ratio($background, $color) < $min-contrast-ratio) {
-  //   $color: mix($value, color-contrast($background), abs($alert-color-scale));
-  // }
+  // TODO: refactor
+  @if ($enable-contrast-ratio-correction and contrast-ratio(map-get($map, "background"), map-get($map, "color")) < $min-contrast-ratio) {
+    @if $enable-contrast-ratio-warnings {
+      @warn "List group item #{$state} contrast ratio #{contrast-ratio(map-get($map, "background"), map-get($map, "color"))}.";
+    }
+    $color: var(--#{$variable-prefix}list-group-#{$state}-color, mix(map-get($map, "color"), color-contrast(map-get($map, "background")), abs($alert-color-scale)));
+  }
 
   @include list-group-item-variant($state, $background, $background-hover, $color);
 }
