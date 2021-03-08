@@ -36,8 +36,8 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 
-$high-emphasis:            rgba(shift-color($gray-base, +26), .87) !default;
-$medium-emphasis:          rgba(shift-color($gray-base, +26), .6) !default;
+$high-emphasis:            rgba(shift-color($gray-base, +26), .95) !default;
+$medium-emphasis:          rgba(shift-color($gray-base, +26), .681) !default;
 $disabled:                 rgba(shift-color($gray-base, +26), .38) !default;
 
 $high-emphasis-inverse:    rgba($white, .87) !default;
