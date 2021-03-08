@@ -163,14 +163,14 @@
   &:focus {
     color: var(--#{$variable-prefix}dropdown-link-hover-color, $dropdown-link-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
-    @include gradient-bg($dropdown-link-hover-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}dropdown-link-hover-bg, $dropdown-link-hover-bg));
   }
 
   &.active,
   &:active {
     color: var(--#{$variable-prefix}dropdown-link-active-color, $dropdown-link-active-color);
     text-decoration: none;
-    @include gradient-bg($dropdown-link-active-bg);// TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}dropdown-link-active-bg, $dropdown-link-active-bg));
   }
 
   &.disabled,
@@ -220,12 +220,12 @@
   .dropdown-item {
     &:hover,
     &:focus {
-      @include gradient-bg($dropdown-dark-link-hover-bg); // TODO: vars
+      @include gradient-bg(var(--#{$variable-prefix}dropdown-dark-link-hover-bg, $dropdown-dark-link-hover-bg));
     }
 
     &.active,
     &:active {
-      @include gradient-bg($dropdown-dark-link-active-bg); // TODO: vars
+      @include gradient-bg(var(--#{$variable-prefix}dropdown-dark-link-active-bg, $dropdown-dark-link-active-bg));
     }
   }
 }

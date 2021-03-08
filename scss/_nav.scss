@@ -92,7 +92,7 @@
   .nav-link.active,
   .show > .nav-link {
     color: var(--#{$variable-prefix}nav-pills-link-active-color, $nav-pills-link-active-color);
-    @include gradient-bg($nav-pills-link-active-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}nav-pills-link-active-bg, $nav-pills-link-active-bg));
   }
 }
 

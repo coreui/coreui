@@ -28,7 +28,7 @@
     width: $form-range-thumb-width;
     height: $form-range-thumb-height;
     margin-top: ($form-range-track-height - $form-range-thumb-height) / 2; // Webkit specific
-    @include gradient-bg($form-range-thumb-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}form-range-thumb-bg, $form-range-thumb-bg));
     border: $form-range-thumb-border;
     @include border-radius($form-range-thumb-border-radius);
     @include box-shadow($form-range-thumb-box-shadow);
@@ -36,7 +36,7 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg($form-range-thumb-active-bg); // TODO: vars
+      @include gradient-bg(var(--#{$variable-prefix}form-range-thumb-active-bg, $form-range-thumb-active-bg));
     }
   }
 
@@ -54,7 +54,7 @@
   &::-moz-range-thumb {
     width: $form-range-thumb-width;
     height: $form-range-thumb-height;
-    @include gradient-bg($form-range-thumb-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}form-range-thumb-bg, $form-range-thumb-bg));
     border: $form-range-thumb-border;
     @include border-radius($form-range-thumb-border-radius);
     @include box-shadow($form-range-thumb-box-shadow);
@@ -62,7 +62,7 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg($form-range-thumb-active-bg); // TODO: vars
+      @include gradient-bg(var(--#{$variable-prefix}form-range-thumb-active-bg, $form-range-thumb-active-bg));
     }
   }
 

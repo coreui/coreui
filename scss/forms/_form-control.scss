@@ -79,7 +79,7 @@
     margin: (-$input-padding-y) (-$input-padding-x);
     margin-inline-end: $input-padding-x;
     color: var(--#{$variable-prefix}form-file-button-color, $form-file-button-color);
-    @include gradient-bg($form-file-button-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}form-file-button-bg, $form-file-button-bg));
     pointer-events: none;
     border-color: inherit;
     border-style: solid;
@@ -99,7 +99,7 @@
     margin: (-$input-padding-y) (-$input-padding-x);
     margin-inline-end: $input-padding-x;
     color: var(--#{$variable-prefix}form-file-button-color, $form-file-button-color);
-    @include gradient-bg($form-file-button-bg); // TODO: vars
+    @include gradient-bg(var(--#{$variable-prefix}form-file-button-bg, $form-file-button-bg));
     pointer-events: none;
     border-color: inherit;
     border-style: solid;
