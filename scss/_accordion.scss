@@ -26,7 +26,7 @@
     background-color: var(--#{$variable-prefix}accordion-button-active-bg, $accordion-button-active-bg);
 
     &::after {
-      background-image: escape-svg($accordion-button-active-icon);
+      background-image: var(--#{$variable-prefix}accordion-button-active-icon, escape-svg($accordion-button-active-icon));
       transform: $accordion-icon-transform;
     }
   }
@@ -38,7 +38,7 @@
     height: $accordion-icon-width;
     margin-left: auto;
     content: "";
-    background-image: escape-svg($accordion-button-icon);
+    background-image: var(--#{$variable-prefix}accordion-button-icon, escape-svg($accordion-button-icon));
     background-repeat: no-repeat;
     background-size: $accordion-icon-width;
     @include transition($accordion-icon-transition);
