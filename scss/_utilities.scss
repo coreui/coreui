@@ -122,8 +122,8 @@ $utilities: map-merge(
         0: 0,
       )
     ),
-    "var(--#{$variable-prefix}border-color, $border-color)": (
-      property: var(--#{$variable-prefix}border-color, $border-color),
+    "border-color": (
+      property: border-color,
       class: border,
       values: map-merge($theme-colors, ("white": $white))
     ),
