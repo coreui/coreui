@@ -47,9 +47,9 @@ CSS variables offer similar flexibility to Sass's variables, but without the nee
 
 ```css
 body {
-  font: 1rem/1.5 var(--coreui-font-sans-serif);
+  font: 1rem/1.5 var(--cui-font-sans-serif);
 }
 a {
-  color: var(--coreui-blue);
+  color: var(--cui-blue);
 }
 ```

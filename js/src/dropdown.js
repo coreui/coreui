@@ -296,7 +296,7 @@ class Dropdown extends BaseComponent {
     }
 
     // We need to trim the value because custom properties can also include spaces
-    const isEnd = getComputedStyle(this._menu).getPropertyValue('--coreui-position').trim() === 'end'
+    const isEnd = getComputedStyle(this._menu).getPropertyValue('--cui-position').trim() === 'end'
 
     if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
       return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP

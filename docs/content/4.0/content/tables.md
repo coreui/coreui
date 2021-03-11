@@ -212,10 +212,10 @@ Highlight a table row or cell by adding a `.table-active` class.
 
 For the accented tables ([striped rows](#striped-rows), [hoverable rows](#hoverable-rows), and [active tables](#active-tables)), we used some techniques to make these effects work for all our [table variants](#variants):
 
-- We start by setting the background of a table cell with the `--coreui-table-bg` custom property. All table variants then set that custom property to colorize the table cells. This way, we don't get into trouble if semi-transparent colors are used as table backgrounds.
-- Then we add a gradient on the table cells with `background-image: linear-gradient(var(--coreui-table-accent-bg), var(--coreui-table-accent-bg));` to layer on top of any specified `background-color`. Since `--coreui-table-accent-bg` is transparent by default, we have an invisible transparent linear gradient by default.
-- When either `.table-striped`, `.table-hover` or `.table-active` classes are added, the `--coreui-table-accent-bg` is set to a semitransparent color to colorize the background.
-- For each table variant, we generate a `--coreui-table-accent-bg` color with the highest contrast depending on that color. For example, the accent color for `.table-primary` is darker while `.table-dark` has a lighter accent color.
+- We start by setting the background of a table cell with the `--cui-table-bg` custom property. All table variants then set that custom property to colorize the table cells. This way, we don't get into trouble if semi-transparent colors are used as table backgrounds.
+- Then we add a gradient on the table cells with `background-image: linear-gradient(var(--cui-table-accent-bg), var(--cui-table-accent-bg));` to layer on top of any specified `background-color`. Since `--cui-table-accent-bg` is transparent by default, we have an invisible transparent linear gradient by default.
+- When either `.table-striped`, `.table-hover` or `.table-active` classes are added, the `--cui-table-accent-bg` is set to a semitransparent color to colorize the background.
+- For each table variant, we generate a `--cui-table-accent-bg` color with the highest contrast depending on that color. For example, the accent color for `.table-primary` is darker while `.table-dark` has a lighter accent color.
 - Text and border colors are generated the same way, and their colors are inherited by default.
 
 Behind the scenes it looks like this:

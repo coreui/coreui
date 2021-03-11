@@ -93,7 +93,7 @@ Badges were overhauled to better differentiate themselves from buttons and to be
 #### Breadcrumbs
 
 - Simplified the default appearance of breadcrumbs by removing `padding`, `background-color`, and `border-radius`.
-- Added new CSS custom property `--coreui-breadcrumb-divider` for easy customization without needing to recompile CSS.
+- Added new CSS custom property `--cui-breadcrumb-divider` for easy customization without needing to recompile CSS.
 
 #### Buttons
 
