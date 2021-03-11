@@ -126,6 +126,19 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   @return if($l1 > $l2, ($l1 + .05) / ($l2 + .05), ($l2 + .05) / ($l1 + .05));
 }
 
+@function contrast-ratio-correction($color, $background, $scale, $state) {
+  @if ($enable-contrast-ratio-correction) {
+    $contrast-ratio: contrast-ratio($background, $color);
+    @if $contrast-ratio < $min-contrast-ratio {
+      @if $enable-contrast-ratio-warnings {
+        @warn "#{$state} contrast ratio #{$contrast-ratio}.";
+      }
+      @return mix($color, color-contrast($background), abs($scale));
+    }
+  }
+  @return $color;
+}
+
 // Return WCAG2.0 relative luminance
 // See https://www.w3.org/WAI/GL/wiki/Relative_luminance
 // See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
