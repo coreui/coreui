@@ -20,7 +20,6 @@
 
 {{- if (ne $strip_default "false") -}}
   {{- $result = replace $result "#{$variable-prefix}" "cui-" -}}
-  {{- $result = replace $result "#{$state}" "{primary|secondary|success|etc.}" -}}
 {{- end -}}
 
 {{- highlight $result "scss" "" -}}

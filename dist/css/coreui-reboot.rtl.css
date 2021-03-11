@@ -24,7 +24,7 @@ body {
   font-size: var(--cui-font-size-base, 1rem);
   font-weight: 400;
   line-height: 1.5;
-  color: var(--cui-body-color, rgba(44, 56, 74, 0.87));
+  color: var(--cui-body-color, rgba(44, 56, 74, 0.95));
   background-color: var(--cui-body-bg, #fff);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 21, 0);

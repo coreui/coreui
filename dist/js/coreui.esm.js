@@ -3526,7 +3526,7 @@ var _resetElementAttributes = function _resetElementAttributes(selector, stylePr
  */
 
 var NAME$6 = 'offcanvas';
-var DATA_KEY$6 = 'coreui.iooffcanvas';
+var DATA_KEY$6 = 'coreui.offcanvas';
 var EVENT_KEY$6 = "." + DATA_KEY$6;
 var DATA_API_KEY$3 = '.data-api';
 var ESCAPE_KEY = 'Escape';

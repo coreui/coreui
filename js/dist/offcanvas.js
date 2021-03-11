@@ -236,7 +236,7 @@
    */
 
   var NAME = 'offcanvas';
-  var DATA_KEY = 'coreui.iooffcanvas';
+  var DATA_KEY = 'coreui.offcanvas';
   var EVENT_KEY = "." + DATA_KEY;
   var DATA_API_KEY = '.data-api';
   var ESCAPE_KEY = 'Escape';

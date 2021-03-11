@@ -32,7 +32,6 @@
         {{- $result := delimit $match "\n" -}}
 
         {{- $result = replace $result "#{$variable-prefix}" "cui-" -}}
-        {{- $result = replace $result "#{$state}" "{primary|secondary|success|etc.}" -}}
 {{ printf "\n" }}
 {{ highlight $result "scss" "" }}
         {{ printf "\n" }}

@@ -6,7 +6,7 @@
   {{ block "body_override" . }}<body class="d-flex">{{ end }}
     {{/*  {{ partial "skippy" . }}  */}}
     {{ partial "sidebar" . }}
-    <div class="wrapper flex-grow-1" data-coreui-reliant="sidebar">
+    <div class="wrapper flex-grow-1">
       {{ partial "header" . }}
       {{ block "main" . }}
       {{ end }}

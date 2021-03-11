@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Parcel
-description: Learn how to include Bootstrap in your project using Parcel.
+description: Learn how to include CoreUI in your project using Parcel.
 group: getting-started
 toc: true
 ---
@@ -10,11 +10,11 @@ toc: true
 
 Install [Parcel Bundler](https://en.parceljs.org/getting_started.html).
 
-## Install Bootstrap
+## Install CoreUI
 
-[Install bootstrap]({{< docsref "/getting-started/download#npm" >}}) as a Node.js module using npm.
+[Install CoreUI]({{< docsref "/getting-started/download#npm" >}}) as a Node.js module using npm.
 
-Bootstrap depends on [Popper](https://popper.js.org/), which is specified in the `peerDependencies` property. This means that you will have to make sure to add both of them to your `package.json` using `npm install popper.js`.
+CoreUI depends on [Popper](https://popper.js.org/), which is specified in the `peerDependencies` property. This means that you will have to make sure to add both of them to your `package.json` using `npm install popper.js`.
 
 When all will be completed, your project will be structured like this:
 
@@ -22,7 +22,7 @@ When all will be completed, your project will be structured like this:
 project-name/
 ├── build/
 ├── node_modules/
-│   └── bootstrap/
+│   └── @coreui/coreui/
 │   └── popper.js/
 ├── scss/
 │   └── custom.scss
@@ -34,24 +34,24 @@ project-name/
 
 ## Importing JavaScript
 
-Import [Bootstrap's JavaScript]({{< docsref "/getting-started/javascript" >}}) in your app's entry point (usually `src/index.js`). You can import all our plugins in one file or separately if you require only a subset of them.
+Import [CoreUI's JavaScript]({{< docsref "/getting-started/javascript" >}}) in your app's entry point (usually `src/index.js`). You can import all our plugins in one file or separately if you require only a subset of them.
 
 ```js
 // Import all plugins
-import * as bootstrap from 'bootstrap';
+import * as coreui from '@coreui/coreui';
 
 // Or import only needed plugins
-import { Tooltip as Tooltip, Toast as Toast, Popover as Popover } from 'bootstrap';
+import { Tooltip as Tooltip, Toast as Toast, Popover as Popover } from '@coreui/coreui';
 
 // Or import just one
-import Alert as Alert from '../node_modules/bootstrap/js/dist/alert';
+import Alert as Alert from '../node_modules/@coreui/coreui/js/dist/alert';
 ```
 
 ## Importing CSS
 
-To utilize the full potential of Bootstrap and customize it to your needs, use the source files as a part of your project's bundling process.
+To utilize the full potential of CoreUI for Bootstrap and customize it to your needs, use the source files as a part of your project's bundling process.
 
-Create your own `scss/custom.scss` to [import Bootstrap's Sass files]({{< docsref "/customize/sass#importing" >}}) and then override the [built-in custom variables]({{< docsref "/customize/sass#variable-defaults" >}}).
+Create your own `scss/custom.scss` to [import CoreUI's Sass files]({{< docsref "/customize/sass#importing" >}}) and then override the [built-in custom variables]({{< docsref "/customize/sass#variable-defaults" >}}).
 
 ## Build app
 
