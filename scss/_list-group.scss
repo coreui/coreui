@@ -152,16 +152,9 @@
 // Organizationally, this must come after the `:hover` states.
 
 @each $state, $map in $list-group-variants {
-  $background: var(--#{$variable-prefix}list-group-#{$state}-background, map-get($map, "background"));
-  $background-hover: var(--#{$variable-prefix}list-group-#{$state}-background-hover, map-get($map, "background-hover"));
-  $color: var(--#{$variable-prefix}list-group-#{$state}-color, map-get($map, "color"));
-  // TODO: refactor
-  @if ($enable-contrast-ratio-correction and contrast-ratio(map-get($map, "background"), map-get($map, "color")) < $min-contrast-ratio) {
-    @if $enable-contrast-ratio-warnings {
-      @warn "List group item #{$state} contrast ratio #{contrast-ratio(map-get($map, "background"), map-get($map, "color"))}.";
-    }
-    $color: var(--#{$variable-prefix}list-group-#{$state}-color, mix(map-get($map, "color"), color-contrast(map-get($map, "background")), abs($alert-color-scale)));
-  }
+  $background: var(--#{$variable-prefix}list-group-background, map-get($map, "background"));
+  $background-hover: var(--#{$variable-prefix}list-group-background-hover, map-get($map, "background-hover"));
+  $color: var(--#{$variable-prefix}list-group-color, contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state));
 
   @include list-group-item-variant($state, $background, $background-hover, $color);
 }

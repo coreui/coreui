@@ -59,19 +59,19 @@
 @each $state, $map in $button-variants {
   .btn-#{$state} {
     @include button-variant(
-      $background: var(--#{$variable-prefix}btn-#{$state}-background, map-get($map, "background")),
-      $border: var(--#{$variable-prefix}btn-#{$state}-border-color, map-get($map, "border")),
-      $color: var(--#{$variable-prefix}btn-#{$state}-color, map-get($map, "color")),
-      $hover-background: var(--#{$variable-prefix}btn-#{$state}-hover-background, map-get($map, "hover-background")),
-      $hover-border: var(--#{$variable-prefix}btn-#{$state}-hover-border, map-get($map, "hover-border")),
-      $hover-color: var(--#{$variable-prefix}btn-#{$state}-hover-color, map-get($map, "hover-color")),
-      $active-background: var(--#{$variable-prefix}btn-#{$state}-active-background, map-get($map, "active-background")),
-      $active-border: var(--#{$variable-prefix}btn-#{$state}-active-border, map-get($map, "active-border")),
-      $active-color: var(--#{$variable-prefix}btn-#{$state}-active-color, map-get($map, "active-color")),
-      $disabled-background: var(--#{$variable-prefix}btn-#{$state}-disabled-background, map-get($map, "disabled-background")),
-      $disabled-border: var(--#{$variable-prefix}btn-#{$state}-disabled-border, map-get($map, "disabled-border")),
-      $disabled-color: var(--#{$variable-prefix}btn-#{$state}-disabled-color, map-get($map, "disabled-color")),
-      $shadow: var(--#{$variable-prefix}btn-#{$state}-shadow, map-get($map, "shadow"))
+      $background: var(--#{$variable-prefix}btn-background, map-get($map, "background")),
+      $border: var(--#{$variable-prefix}btn-border-color, map-get($map, "border")),
+      $color: var(--#{$variable-prefix}btn-color, map-get($map, "color")),
+      $hover-background: var(--#{$variable-prefix}btn-hover-background, map-get($map, "hover-background")),
+      $hover-border: var(--#{$variable-prefix}btn-hover-border, map-get($map, "hover-border")),
+      $hover-color: var(--#{$variable-prefix}btn-hover-color, map-get($map, "hover-color")),
+      $active-background: var(--#{$variable-prefix}btn-active-background, map-get($map, "active-background")),
+      $active-border: var(--#{$variable-prefix}btn-active-border, map-get($map, "active-border")),
+      $active-color: var(--#{$variable-prefix}btn-active-color, map-get($map, "active-color")),
+      $disabled-background: var(--#{$variable-prefix}btn-disabled-background, map-get($map, "disabled-background")),
+      $disabled-border: var(--#{$variable-prefix}btn-disabled-border, map-get($map, "disabled-border")),
+      $disabled-color: var(--#{$variable-prefix}btn-disabled-color, map-get($map, "disabled-color")),
+      $shadow: var(--#{$variable-prefix}btn-shadow, map-get($map, "shadow"))
     );
   }
 }
@@ -81,12 +81,12 @@
 @each $state, $map in $button-variants {
   .btn-outline-#{$state} {
     @include button-outline-variant(
-      $color: var(--#{$variable-prefix}btn-outline-#{$state}-color, map-get($map, "background")),
-      $color-hover: var(--#{$variable-prefix}btn-outline-#{$state}-hover-color, map-get($map, "color")),
-      $active-background: var(--#{$variable-prefix}btn-outline-#{$state}-active-background, map-get($map, "background")),
-      $active-border: var(--#{$variable-prefix}btn-outline-#{$state}-active-border, map-get($map, "background")),
-      $active-color: var(--#{$variable-prefix}btn-outline-#{$state}-active-color, map-get($map, "active-color")),
-      $shadow: var(--#{$variable-prefix}btn-outline-#{$state}-shadow, map-get($map, "shadow"))
+      $color: var(--#{$variable-prefix}btn-outline-color, map-get($map, "background")),
+      $color-hover: var(--#{$variable-prefix}btn-outline-hover-color, map-get($map, "color")),
+      $active-background: var(--#{$variable-prefix}btn-outline-active-background, map-get($map, "background")),
+      $active-border: var(--#{$variable-prefix}btn-outline-active-border, map-get($map, "background")),
+      $active-color: var(--#{$variable-prefix}btn-outline-active-color, map-get($map, "active-color")),
+      $shadow: var(--#{$variable-prefix}btn-outline-shadow, map-get($map, "shadow"))
     );
   }
 }
@@ -96,11 +96,11 @@
 @each $state, $map in $button-variants {
   .btn-ghost-#{$state} {
     @include button-ghost-variant(
-      $color: var(--#{$variable-prefix}btn-ghost-#{$state}-color, map-get($map, "background")),
-      $color-hover: var(--#{$variable-prefix}btn-ghost-#{$state}-hover-color, map-get($map, "color")),
-      $active-background: var(--#{$variable-prefix}btn-ghost-#{$state}-active-background, map-get($map, "background")),
-      $active-border: var(--#{$variable-prefix}btn-ghost-#{$state}-active-border, map-get($map, "background")),
-      $shadow: var(--#{$variable-prefix}btn-ghost-#{$state}-shadow, map-get($map, "shadow"))
+      $color: var(--#{$variable-prefix}btn-ghost-color, map-get($map, "background")),
+      $color-hover: var(--#{$variable-prefix}btn-ghost-hover-color, map-get($map, "color")),
+      $active-background: var(--#{$variable-prefix}btn-ghost-active-background, map-get($map, "background")),
+      $active-border: var(--#{$variable-prefix}btn-ghost-active-border, map-get($map, "background")),
+      $shadow: var(--#{$variable-prefix}btn-ghost-shadow, map-get($map, "shadow"))
     );
   }
 }

@@ -44,17 +44,11 @@
 // Generate contextual modifier classes for colorizing the alert.
 
 @each $state, $map in $alert-variants {
-  $background: var(--#{$variable-prefix}alert-#{$state}-bg, map-get($map, "background"));
-  $border: var(--#{$variable-prefix}alert-#{$state}-border-color, map-get($map, "border"));
-  $color: var(--#{$variable-prefix}alert-#{$state}-color, map-get($map, "color"));
-  $link-color: var(--#{$variable-prefix}alert-#{$state}-link-color, map-get($map, "link-color"));
-  // TODO: refactor
-  @if ($enable-contrast-ratio-correction and contrast-ratio(map-get($map, "background"), map-get($map, "color")) < $min-contrast-ratio) {
-    @if $enable-contrast-ratio-warnings {
-      @warn "Alert #{$state} contrast ratio #{contrast-ratio(map-get($map, "background"), map-get($map, "color"))}.";
-    }
-    $color: var(--#{$variable-prefix}alert-#{$state}-color, mix(map-get($map, "color"), color-contrast(map-get($map, "background")), abs($alert-color-scale)));
-  }
+  $background: var(--#{$variable-prefix}alert-bg, map-get($map, "background"));
+  $border: var(--#{$variable-prefix}alert-border-color, map-get($map, "border"));
+  $color: var(--#{$variable-prefix}alert-color, contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state));
+  $link-color: var(--#{$variable-prefix}alert-link-color, map-get($map, "link-color"));
+
   .alert-#{$state} {
     @include alert-variant($background, $border, $color, $link-color);
   }
