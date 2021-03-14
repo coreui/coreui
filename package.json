@@ -17,6 +17,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs-serve",
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
+    "changelog": "auto-changelog --template changelog.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.0-alpha.0",
     "css": "npm-run-all css-compile css-prefix css-rtl css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
     "css-rtl": "cross-env NODE_ENV=RTL postcss --config build/postcss.config.js --dir \"dist/css\" --ext \".rtl.css\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*.rtl.css\"",
@@ -83,7 +84,6 @@
     "url": "https://github.com/coreui/coreui/issues"
   },
   "license": "MIT",
-  "dependencies": {},
   "peerDependencies": {
     "@popperjs/core": "^2.9.0"
   },
@@ -96,6 +96,7 @@
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-node-resolve": "^11.2.0",
     "@rollup/plugin-replace": "^2.4.1",
+    "auto-changelog": "^2.2.1",
     "autoprefixer": "^10.2.4",
     "bundlewatch": "^0.3.2",
     "clean-css-cli": "^5.2.1",

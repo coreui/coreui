@@ -1,0 +1,47 @@
+# Changelog
+
+{{#each releases}}
+{{#if href}}
+## {{#unless major}}{{/unless}}[{{title}}]({{href}})
+{{else}}
+## {{title}}
+{{/if}}
+
+{{#if tag}}
+> {{niceDate}}
+{{/if}}
+{{#if summary}}
+
+{{summary}}
+{{/if}}
+{{#if commits}}
+
+{{! List commits with `feat: ` somewhere in the message }}
+{{#commit-list commits heading='### Features' message='feat:|feat(.*): '}}
+  - {{subject}} [`{{shorthash}}`]({{href}})
+{{/commit-list}}
+
+{{! List commits with `fix: ` somewhere in the message }}
+{{#commit-list commits heading='### Fix' message='fix:|fix(.*): '}}
+  - {{subject}} [`{{shorthash}}`]({{href}})
+{{/commit-list}}
+
+{{! List commits with `refactor: ` somewhere in the message }}
+{{#commit-list commits heading='### Refactor' message='refactor:|refactor(.*): '}}
+  - {{subject}} [`{{shorthash}}`]({{href}})
+{{/commit-list}}
+
+{{!-- {{#each commits}}
+- {{#if breaking}}**Breaking change:** {{/if}}{{subject}}{{#if href}} [`{{shorthash}}`]({{href}}){{/if}}
+{{/each}} --}}
+
+{{/if}}
+{{!-- {{#if fixes}}
+
+### Fixed
+
+{{#each fixes}}
+- {{commit.subject}}{{#each fixes}}{{#if href}} [`#{{id}}`]({{href}}){{/if}}{{/each}}
+{{/each}}
+{{/if}} --}}
+{{/each}}
