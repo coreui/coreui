@@ -6,35 +6,35 @@
 // scss-docs-start btn-variant-mixin
 @mixin button-variant(
   $background,
-  $border,
+  $border-color,
   $color,
   $hover-background,
-  $hover-border,
+  $hover-border-color,
   $hover-color,
   $active-background,
-  $active-border,
+  $active-border-color,
   $active-color,
   $disabled-background,
-  $disabled-border,
+  $disabled-border-color,
   $disabled-color,
   $shadow
 ) {
   color: $color;
   @include gradient-bg($background);
-  border-color: $border;
+  border-color: $border-color;
   @include box-shadow($btn-box-shadow);
 
   &:hover {
     color: $hover-color;
     @include gradient-bg($hover-background);
-    border-color: $hover-border;
+    border-color: $hover-border-color;
   }
 
   .btn-check:focus + &,
   &:focus {
     color: $hover-color;
     @include gradient-bg($hover-background);
-    border-color: $hover-border;
+    border-color: $hover-border-color;
     @if $enable-shadows {
       @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $shadow);
     } @else {
@@ -52,7 +52,7 @@
     background-color: $active-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
-    border-color: $active-border;
+    border-color: $active-border-color;
 
     &:focus {
       @if $enable-shadows {
@@ -70,7 +70,7 @@
     background-color: $disabled-background;
     // Remove CSS gradients if they're enabled
     background-image: if($enable-gradients, none, null);
-    border-color: $disabled-border;
+    border-color: $disabled-border-color;
   }
 }
 // scss-docs-end btn-variant-mixin
@@ -78,19 +78,22 @@
 // scss-docs-start btn-outline-variant-mixin
 @mixin button-outline-variant(
   $color,
-  $color-hover,
+  $hover-background,
+  $hover-border-color,
+  $hover-color,
   $active-background,
-  $active-border,
+  $active-border-color,
   $active-color,
+  $disabled-color,
   $shadow
 ) {
   color: $color;
   border-color: $color;
 
   &:hover {
-    color: $color-hover;
-    background-color: $active-background;
-    border-color: $active-border;
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border-color;
   }
 
   .btn-check:focus + &,
@@ -105,7 +108,7 @@
   &.dropdown-toggle.show {
     color: $active-color;
     background-color: $active-background;
-    border-color: $active-border;
+    border-color: $active-border-color;
 
     &:focus {
       @if $enable-shadows {
@@ -119,7 +122,7 @@
 
   &:disabled,
   &.disabled {
-    color: $color;
+    color: $disabled-color;
     background-color: transparent;
   }
 }
@@ -129,25 +132,29 @@
 
 @mixin button-ghost-variant(
   $color,
-  $color-hover,
+  $hover-background,
+  $hover-border-color,
+  $hover-color,
   $active-background,
-  $active-border,
+  $active-border-color,
+  $active-color,
+  $disabled-color,
   $shadow
 ) {
   color: $color;
-  background-color: transparent;
-  background-image: none;
+  // background-color: transparent;
+  // background-image: none;
   border-color: transparent;
 
   &:hover {
-    color: $color-hover;
-    background-color: $active-background;
-    border-color: $active-border;
+    color: $hover-color;
+    background-color: $hover-background;
+    border-color: $hover-border-color;
   }
 
   .btn-check:focus + &,
   &:focus {
-    box-shadow: 0 0 0 $btn-focus-width rgba($color, .5);
+    box-shadow: 0 0 0 $btn-focus-width $shadow;
   }
 
   .btn-check:checked + &,
@@ -155,25 +162,24 @@
   &:active,
   &.active,
   &.dropdown-toggle.show {
-    color: color-yiq($active-background);
+    color: $active-color;
     background-color: $active-background;
-    border-color: $active-border;
+    border-color: $active-border-color;
 
     &:focus {
-      // Avoid using mixin so we can pass custom focus shadow properly
       @if $enable-shadows {
         @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width $shadow);
       } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
         box-shadow: 0 0 0 $btn-focus-width $shadow;
       }
     }
+  }
 
-    &.disabled,
-    &:disabled {
-      color: $color;
-      background-color: transparent;
-      border-color: transparent;
-    }
+  &:disabled,
+  &.disabled {
+    color: $disabled-color;
+    background-color: transparent;
   }
 }
 
