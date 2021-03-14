@@ -13,4 +13,5 @@
   --#{$variable-prefix}font-sans-serif: #{inspect($font-family-sans-serif)};
   --#{$variable-prefix}font-monospace: #{inspect($font-family-monospace)};
   --#{$variable-prefix}gradient: #{$gradient};
+  --#{$variable-prefix}body-color: #{$body-color};
 }
