@@ -38,17 +38,17 @@
 
 .offcanvas-start {
   top: 0;
-  left: 0;
+  @include ltr-rtl("left", 0);
   width: $offcanvas-horizontal-width;
-  border-right: $offcanvas-border-width solid $offcanvas-border-color;
+  @include ltr-rtl("border-right", $offcanvas-border-width solid $offcanvas-border-color);
   transform: translateX(-100%);
 }
 
 .offcanvas-end {
   top: 0;
-  right: 0;
+  @include ltr-rtl("right", 0);
   width: $offcanvas-horizontal-width;
-  border-left: $offcanvas-border-width solid $offcanvas-border-color;
+  @include ltr-rtl("border-left", $offcanvas-border-width solid $offcanvas-border-color);
   transform: translateX(100%);
 }
 
@@ -68,7 +68,7 @@
 .offcanvas-backdrop::before {
   position: fixed;
   top: 0;
-  left: 0;
+  @include ltr-rtl("left", 0);
   z-index: $zindex-offcanvas - 1;
   width: 100vw;
   height: 100vh;

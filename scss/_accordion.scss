@@ -36,7 +36,7 @@
     flex-shrink: 0;
     width: $accordion-icon-width;
     height: $accordion-icon-width;
-    margin-left: auto;
+    @include ltr-rtl("margin-left", auto);
     content: "";
     background-image: var(--#{$variable-prefix}accordion-button-icon, escape-svg($accordion-button-icon));
     background-repeat: no-repeat;

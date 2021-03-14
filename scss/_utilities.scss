@@ -21,7 +21,8 @@ $utilities: map-merge(
         start: left,
         end: right,
         none: none,
-      )
+      ),
+      rtl: true
     ),
     // scss-docs-end utils-float
     // scss-docs-start utils-overflow
@@ -105,7 +106,8 @@ $utilities: map-merge(
       values: (
         null: $border-width solid var(--#{$variable-prefix}border-color, $border-color),
         0: 0,
-      )
+      ),
+      rtl: true
     ),
     "border-bottom": (
       property: border-bottom,
@@ -120,7 +122,8 @@ $utilities: map-merge(
       values: (
         null: $border-width solid var(--#{$variable-prefix}border-color, $border-color),
         0: 0,
-      )
+      ),
+      rtl: true
     ),
     "border-color": (
       property: border-color,
@@ -135,7 +138,8 @@ $utilities: map-merge(
     "border-end-color": (
       property: border-right-color,
       class: border-end,
-      values: map-merge($theme-colors, ("white": $white))
+      values: map-merge($theme-colors, ("white": $white)),
+      rtl: true
     ),
     "border-bottom-color": (
       property: border-bottom-color,
@@ -145,7 +149,8 @@ $utilities: map-merge(
     "border-start-color": (
       property: border-left-color,
       class: border-start,
-      values: map-merge($theme-colors, ("white": $white))
+      values: map-merge($theme-colors, ("white": $white)),
+      rtl: true
     ),
     "border-width": (
       property: border-width,
@@ -160,7 +165,8 @@ $utilities: map-merge(
     "border-end-width": (
       property: border-right-width,
       class: border-end,
-      values: $border-widths
+      values: $border-widths,
+      rtl: true
     ),
     "border-bottom-width": (
       property: border-bottom-width,
@@ -170,7 +176,8 @@ $utilities: map-merge(
     "border-start-width": (
       property: border-left-width,
       class: border-start,
-      values: $border-widths
+      values: $border-widths,
+      rtl: true
     ),
     // scss-docs-end utils-borders
     // Sizing utilities
@@ -339,7 +346,7 @@ $utilities: map-merge(
       responsive: true,
       property: margin,
       class: m,
-      values: map-merge($spacers, (auto: auto))
+      values: map-merge($spacers, (auto: auto)),
     ),
     "margin-x": (
       responsive: true,
@@ -363,7 +370,8 @@ $utilities: map-merge(
       responsive: true,
       property: margin-right,
       class: me,
-      values: map-merge($spacers, (auto: auto))
+      values: map-merge($spacers, (auto: auto)),
+      rtl: true
     ),
     "margin-bottom": (
       responsive: true,
@@ -375,7 +383,8 @@ $utilities: map-merge(
       responsive: true,
       property: margin-left,
       class: ms,
-      values: map-merge($spacers, (auto: auto))
+      values: map-merge($spacers, (auto: auto)),
+      rtl: true
     ),
     // Negative margin utilities
     "negative-margin": (
@@ -406,7 +415,8 @@ $utilities: map-merge(
       responsive: true,
       property: margin-right,
       class: me,
-      values: $negative-spacers
+      values: $negative-spacers,
+      rtl: true
     ),
     "negative-margin-bottom": (
       responsive: true,
@@ -418,7 +428,8 @@ $utilities: map-merge(
       responsive: true,
       property: margin-left,
       class: ms,
-      values: $negative-spacers
+      values: $negative-spacers,
+      rtl: true
     ),
     // Padding utilities
     "padding": (
@@ -449,7 +460,8 @@ $utilities: map-merge(
       responsive: true,
       property: padding-right,
       class: pe,
-      values: $spacers
+      values: $spacers,
+      rtl: true
     ),
     "padding-bottom": (
       responsive: true,
@@ -461,7 +473,8 @@ $utilities: map-merge(
       responsive: true,
       property: padding-left,
       class: ps,
-      values: $spacers
+      values: $spacers,
+      rtl: true
     ),
     // scss-docs-end utils-spacing
     // Text
@@ -616,7 +629,8 @@ $utilities: map-merge(
     "rounded-end": (
       property: border-top-right-radius border-bottom-right-radius,
       class: rounded-end,
-      values: (null: $border-radius)
+      values: (null: $border-radius),
+      rtl: true
     ),
     "rounded-bottom": (
       property: border-bottom-right-radius border-bottom-left-radius,
@@ -626,7 +640,8 @@ $utilities: map-merge(
     "rounded-start": (
       property: border-bottom-left-radius border-top-left-radius,
       class: rounded-start,
-      values: (null: $border-radius)
+      values: (null: $border-radius),
+      rtl: true
     ),
     // scss-docs-end utils-border-radius
     // scss-docs-start utils-visibility

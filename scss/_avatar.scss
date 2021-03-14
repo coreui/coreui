@@ -17,7 +17,7 @@
 
 .avatar-status {
   position: absolute;
-  right: 0;
+  @include ltr-rtl("right", 0);
   bottom: 0;
   display: block;
   border: 1px solid $white;
@@ -34,16 +34,16 @@
   display: flex;
 
   .avatar {
-    margin-right: - ($avatar-width / 2.5);
+    @include ltr-rtl("margin-right", - ($avatar-width / 2.5));
 
     &:hover {
-      margin-right: 0;
+      @include ltr-rtl("margin-right", 0);
     }
   }
 
   @each $width, $value in $avatar-widths {
     .avatar-#{$width} {
-      margin-right: - ($value / 2.5);
+      @include ltr-rtl("margin-right", - ($value / 2.5));
     }
   }
 }

@@ -33,7 +33,7 @@
   @include box-shadow($dropdown-box-shadow);
 
   &[data-coreui-popper] {
-    left: 0;
+    @include ltr-rtl("left", 0);
     margin-top: $dropdown-spacer;
   }
 }
@@ -85,12 +85,12 @@
 .dropend {
   .dropdown-menu {
     top: 0;
-    right: auto;
-    left: 100%;
+    @include ltr-rtl("right", auto);
+    @include ltr-rtl("left", 100%);
 
     &[data-coreui-popper] {
       margin-top: 0;
-      margin-left: $dropdown-spacer;
+      @include ltr-rtl("margin-left", $dropdown-spacer);
     }
   }
 
@@ -105,12 +105,12 @@
 .dropstart {
   .dropdown-menu {
     top: 0;
-    right: 100%;
-    left: auto;
+    @include ltr-rtl("right", 100%);
+    @include ltr-rtl("left", auto);
 
     &[data-coreui-popper] {
       margin-top: 0;
-      margin-right: $dropdown-spacer;
+      @include ltr-rtl("margin-right", $dropdown-spacer);
     }
   }
 

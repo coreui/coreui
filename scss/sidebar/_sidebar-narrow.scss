@@ -39,7 +39,7 @@
       bottom: 0;
 
       &::before {
-        transform: rotate(-180deg);
+        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
       }
     }
 
@@ -71,7 +71,7 @@
   &:hover {
     .sidebar-toggler {
       &::before {
-        transform: rotate(-180deg);
+        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
       }
     }
 
@@ -89,10 +89,10 @@
       &.sidebar-narrow,
       &.sidebar-narrow-unfoldable {
         &:not(.sidebar-right) {
-          margin-left: - $sidebar-narrow-width;
+          @include ltr-rtl("margin-left", - $sidebar-narrow-width);
         }
         &.sidebar-right {
-          margin-right: - $sidebar-narrow-width;
+          @include ltr-rtl("margin-right", - $sidebar-narrow-width);
         }
       }
     }

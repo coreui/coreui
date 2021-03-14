@@ -61,7 +61,7 @@
 .header-brand {
   padding-top: $header-brand-padding-y;
   padding-bottom: $header-brand-padding-y;
-  margin-right: $header-brand-margin-end;
+  @include ltr-rtl("margin-right", $header-brand-margin-end);
   @include font-size($header-brand-font-size);
   color: var(--#{$variable-prefix}header-brand-color, $header-brand-color);
   text-decoration: if($link-decoration == none, null, none);
@@ -81,7 +81,7 @@
 .header-nav {
   display: flex;
   flex-direction: row; // cannot use `inherit` to get the `.header`s value
-  padding-left: 0;
+  @include ltr-rtl("padding-left", 0);
   margin-bottom: 0;
   list-style: none;
 

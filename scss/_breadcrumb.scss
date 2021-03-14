@@ -12,13 +12,18 @@
 .breadcrumb-item {
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
-    padding-left: $breadcrumb-item-padding-x;
+    @include ltr-rtl("padding-left", $breadcrumb-item-padding-x);
 
     &::before {
-      float: left; // Suppress inline spacings and underlining of the separator
-      padding-right: $breadcrumb-item-padding-x;
+      @include ltr-rtl("float", left); // Suppress inline spacings and underlining of the separator
+      @include ltr-rtl("padding-right", $breadcrumb-item-padding-x);
       color: var(--#{$variable-prefix}breadcrumb-divider-color, $breadcrumb-divider-color);
-      content: var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)) #{"/* rtl:"} var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider-flipped)) #{"*/"};
+      @include ltr-rtl(
+        "content",
+        var(--#{$variable-prefix}breadcrumb-divider, escape-svg($breadcrumb-divider)),
+        null,
+        var(--#{$variable-prefix}breadcrumb-divider-flipped, escape-svg($breadcrumb-divider-flipped))
+      );
     }
   }
 

@@ -278,6 +278,8 @@ $enable-deprecation-messages:       true !default;
 $enable-important-utilities:        true !default;
 $enable-contrast-ratio-correction:  true !default;
 $enable-contrast-ratio-warnings:    true !default;
+$enable-ltr:                        true !default;
+$enable-rtl:                        true !default;
 
 // Set mobile breakpoint
 

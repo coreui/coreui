@@ -91,7 +91,7 @@
     @include transition(inherit);
 
     &:first-child {
-      margin-left: - $sidebar-nav-link-padding-x;
+      @include ltr-rtl("margin-left", - $sidebar-nav-link-padding-x);
     }
   }
 
@@ -132,7 +132,7 @@
       display: block;
       flex: 0 8px;
       height: 8px;
-      margin-left: auto;
+      @include ltr-rtl("margin-left", auto);
       content: "";
       background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, $sidebar-nav-group-indicator);
       background-repeat: no-repeat;
@@ -148,10 +148,10 @@
     list-style: none;
 
     .nav-link {
-      padding-left: $sidebar-nav-icon-width;
+      @include ltr-rtl("padding-left", $sidebar-nav-icon-width);
 
       .nav-icon {
-        margin-left: - $sidebar-nav-icon-width;
+        @include ltr-rtl("margin-left", - $sidebar-nav-icon-width);
       }
     }
   }

@@ -10,7 +10,7 @@
   padding: $sidebar-padding-y $sidebar-padding-x;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
   background: var(--#{$variable-prefix}sidebar-bg, $sidebar-bg);
-  border-right: var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color);
+  @include ltr-rtl("border-right", var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color));
   box-shadow: none;
   @include transition($sidebar-transition);
 
@@ -31,10 +31,10 @@
     z-index: $zindex-fixed + 1;
 
     &:not(.sidebar-right){
-      left: 0;
+      @include ltr-rtl("left", 0);
     }
     &.sidebar-right {
-      right: 0;
+      @include ltr-rtl("right", 0);
     }
 
     ~ * {
@@ -43,14 +43,12 @@
   }
 
   &:not(.sidebar-right){
-    // margin-left: - $sidebar-width;
-    margin-left: 0;
+    @include ltr-rtl("margin-left", 0);
   }
 
   &.sidebar-right {
     order: 99;
-    // margin-right: - $sidebar-width;
-    margin-right: 0;
+    @include ltr-rtl("margin-right", 0);
 
   }
 
@@ -60,10 +58,10 @@
 
   &.hide {
     &:not(.sidebar-right){
-      margin-left: - $sidebar-width;
+      @include ltr-rtl("margin-left", - $sidebar-width);
     }
     &.sidebar-right {
-      margin-right: - $sidebar-width;
+      @include ltr-rtl("margin-right", - $sidebar-width);
     }
 
     ~ * {
@@ -81,10 +79,10 @@
       }
 
       &:not(.sidebar-right).hide {
-        margin-left: - $value;
+        @include ltr-rtl("margin-left", - $value);
       }
       &.sidebar-right.hide {
-        margin-right: - $value;
+        @include ltr-rtl("margin-right", - $value);
       }
     }
   }
@@ -97,11 +95,11 @@
       z-index: $zindex-fixed;
 
       &:not(.sidebar-right) {
-        left: 0;
+        @include ltr-rtl("left", 0);
       }
 
       &.sidebar-right {
-        right: 0;
+        @include ltr-rtl("right", 0);
       }
     }
   }
@@ -121,11 +119,11 @@
     z-index: $zindex-fixed + 2;
 
     &:not(.sidebar-right) {
-      left: 0;
+      @include ltr-rtl("left", 0);
     }
 
     &.sidebar-right {
-      right: 0;
+      @include ltr-rtl("right", 0);
     }
   }
 }
@@ -133,7 +131,7 @@
 .sidebar-close {
   position: absolute;
   top: 0;
-  right: 0;
+  @include ltr-rtl("right", 0);
   width: $sidebar-brand-height;
   height: $sidebar-header-height;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
@@ -207,6 +205,9 @@
     background-position: center;
     background-size: $sidebar-toggler-indicator-height / 4;
     @include transition($sidebar-toggler-transition);
+    @include rtl() {
+      transform: rotate(-180deg);
+    }
   }
 
   &:focus {
@@ -233,7 +234,7 @@
   @include media-breakpoint-down($mobile-breakpoint) {
     position: fixed;
     top: 0;
-    left: 0;
+    @include ltr-rtl("left", 0);
     z-index: $zindex-fixed;
     width: 100vw;
     height: 100vh;
@@ -252,20 +253,20 @@
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     .sidebar:not(.show).sidebar-self-hiding#{$infix} {
       &:not(.sidebar-right) {
-        margin-left: - $sidebar-width;
+        @include ltr-rtl("margin-left", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
           &.sidebar-#{$width} {
-            margin-left: - $value;
+            @include ltr-rtl("margin-left", - $value);
           }
         }
       }
       &.sidebar-right {
-        margin-right: - $sidebar-width;
+        @include ltr-rtl("margin-right", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
           &.sidebar-#{$width} {
-            margin-right: - $value;
+            @include ltr-rtl("margin-right", - $value);
           }
         }
       }
@@ -275,49 +276,3 @@
     }
   }
 }
-
-// Responsive behavior
-// stylelint-disable selector-max-class
-// @each $breakpoint in map-keys($grid-breakpoints) {
-//   @include media-breakpoint-up($breakpoint) {
-//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//     .sidebar.sidebar#{$infix}-show,
-//     .sidebar.sidebar-show {
-//       &:not(.sidebar-right){
-//         margin-left: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             ~ [data-coreui-reliant="sidebar"] {
-//               margin-left: $sidebar-width;
-//             }
-//             @each $width, $value in $sidebar-widths {
-//               &.sidebar-#{$width} {
-//                 ~ [data-coreui-reliant="sidebar"] {
-//                   margin-left: $value;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//       &.sidebar-right {
-//         margin-right: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             ~ [data-coreui-reliant="sidebar"] {
-//               margin-right: $sidebar-width;
-//             }
-//             @each $width, $value in $sidebar-widths {
-//               &.sidebar-#{$width} {
-//                 ~ [data-coreui-reliant="sidebar"] {
-//                   margin-right: $value;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-//
