@@ -59,7 +59,7 @@
         }
 
         &.nav-dropdown-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, $sidebar-nav-group-indicator-hover);
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover));
         }
       }
     }
@@ -75,7 +75,7 @@
         }
 
         &.nav-group-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, $sidebar-nav-group-indicator-hover);
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover));
         }
       }
     }
@@ -116,7 +116,7 @@
       }
 
       > .nav-group-toggle::after {
-        transform: rotate(-90deg);
+        transform: rotate(180deg);
       }
 
       + .show {
@@ -130,15 +130,14 @@
 
     &::after {
       display: block;
-      flex: 0 8px;
-      height: 8px;
+      flex: 0 12px;
+      height: 12px;
       @include ltr-rtl("margin-left", auto);
       content: "";
-      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, $sidebar-nav-group-indicator);
+      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator));
       background-repeat: no-repeat;
       background-position: center;
       @include transition($sidebar-nav-group-indicator-transition);
-      // transition: transform $layout-transition-speed; TODO: fix
     }
   }
 
