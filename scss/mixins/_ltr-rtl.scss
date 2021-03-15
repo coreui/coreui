@@ -28,26 +28,30 @@
 }
 
 @mixin ltr-rtl($property, $value, $property-rtl: null, $value-rtl: null, $important: null) {
+  $property-reflected: reflect($property);
+  $value-reflected: reflect($value);
+
   @if $enable-ltr and $enable-rtl {
     @include ltr() {
       #{$property}: $value $important;
     }
-
-    *[dir="rtl"] & {
-      $property: reflect($property);
-      $value: reflect($value);
-
+    @include rtl() {
       @if $value-rtl {
-        #{$property}: $value-rtl $important;
+        #{$property-reflected}: $value-rtl $important;
       }
       @else {
-        #{$property}: $value $important;
+        #{$property-reflected}: $value-reflected $important;
       }
     }
   }
   @else {
-    @if $enable-rtl and $value-rtl {
-      #{$property}: $value-rtl $important;
+    @if $enable-rtl {
+      @if $value-rtl {
+        #{$property-reflected}: $value-rtl $important;
+      }
+      @else {
+        #{$property-reflected}: $value-reflected $important;
+      }
     }
     @else {
       #{$property}: $value $important;
