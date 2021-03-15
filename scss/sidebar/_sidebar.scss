@@ -200,7 +200,7 @@
     width: $sidebar-toggler-indicator-width;
     height: $sidebar-toggler-indicator-height;
     content: "";
-    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, $sidebar-toggler-indicator);
+    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
     background-repeat: no-repeat;
     background-position: center;
     background-size: $sidebar-toggler-indicator-height / 4;
@@ -217,7 +217,7 @@
   &:hover {
     background-color: var(--#{$variable-prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, $sidebar-toggler-hover-indicator);
+      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, escape-svg($sidebar-toggler-hover-indicator-icon));
     }
   }
 

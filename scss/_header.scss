@@ -159,12 +159,12 @@
 .header-toggler-icon {
   display: block;
   height: $header-toggler-font-size * 1.25;
-  background-image: var(--#{$variable-prefix}header-toggler-icon-bg, $header-toggler-icon-bg);
+  background-image: var(--#{$variable-prefix}header-toggler-icon-bg, escape-svg($header-toggler-icon-bg));
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 
   &:hover {
-    background-image: var(--#{$variable-prefix}header-toggler-hover-icon-bg, $header-toggler-hover-icon-bg);
+    background-image: var(--#{$variable-prefix}header-toggler-hover-icon-bg, escape-svg($header-toggler-hover-icon-bg));
   }
 }

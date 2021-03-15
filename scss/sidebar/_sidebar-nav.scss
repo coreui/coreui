@@ -59,7 +59,7 @@
         }
 
         &.nav-dropdown-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover));
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
@@ -75,7 +75,7 @@
         }
 
         &.nav-group-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover));
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
@@ -134,7 +134,7 @@
       height: 12px;
       @include ltr-rtl("margin-left", auto);
       content: "";
-      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator));
+      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator-icon));
       background-repeat: no-repeat;
       background-position: center;
       @include transition($sidebar-nav-group-indicator-transition);
