@@ -1,0 +1,12 @@
+/*!
+ * CoreUI - HTML, CSS, and JavaScript UI Components Library
+ * @version v4.0.0-alpha.2
+ * @link https://coreui.io/
+ * Copyright (c) 2021 creativeLabs Łukasz Holeczek
+ * License MIT  (https://coreui.io/license/)
+*/
+
+$enable-ltr: false !default;
+$enable-rtl: true !default;
+
+@import "coreui-utilities";
