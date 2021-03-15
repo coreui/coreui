@@ -13,6 +13,7 @@ module.exports = ctx => {
       autoprefixer: {
         cascade: false
       },
+      'postcss-combine-duplicated-selectors': {},
       rtlcss: ctx.env === 'RTL' ? {} : false
     }
   }
