@@ -75,6 +75,7 @@ $colors: (
 ) !default;
 // scss-docs-end colors-map
 
+// fusv-disable
 $primary-dark:  #1f1498 !default;
 $primary:       #321fdb !default;
 $primary-50:    #988fed !default;
@@ -114,6 +115,7 @@ $dark-dark:      $gray-900 !default;
 $dark:           $gray-900 !default;
 $dark-50:        shift-color($dark, -70) !default;
 $dark-25:        shift-color($dark, -80) !default;
+// fusv-enable
 
 // scss-docs-start theme-color-variables
 $primary:       $blue !default;
@@ -279,7 +281,7 @@ $enable-important-utilities:        true !default;
 $enable-contrast-ratio-correction:  true !default;
 $enable-contrast-ratio-warnings:    true !default;
 $enable-ltr:                        true !default;
-$enable-rtl:                        true !default;
+$enable-rtl:                        false !default;
 
 // Set mobile breakpoint
 
