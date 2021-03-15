@@ -12,12 +12,6 @@ We recommend getting familiar with CoreUI for Bootstrap first by reading through
 
 You may also want to read up on [the RTLCSS project](https://rtlcss.com/), as it powers our approach to RTL.
 
-{{< callout warning >}}
-### Experimental feature
-
-The RTL feature is still **experimental** and will probably evolve according to user feedback. Spotted something or have an improvement to suggest? [Open an issue]({{< param repo >}}/issues/new), we'd love to get your insights.
-{{< /callout >}}
-
 ## Required HTML
 
 There are two strict requirements for enabling RTL in Bootstrap-powered pages.
@@ -67,11 +61,11 @@ You can see the above requirements reflected in this modified RTL starter templa
 
 ## Approach
 
-Our approach to building RTL support into CoreUI for Bootstrap comes with two important decisions that impact how we write and use our CSS:
+Our approach to building RTL support into CoreUI comes with two important decisions that impact how we write and use our CSS:
 
-1. **First, we decided to build it with the [RTLCSS](https://rtlcss.com/) project.** This gives us some powerful features for managing changes and overrides when moving from LTR to RTL. It also allows us to build two versions of CoreUI for Bootstrap from one codebase.
+1. **First, as in CoreUI 3 we decided to build it with our own mixins** This gives us full control and allows us to generate LTR and RTL separately, or if needed one stylesheet with both versions without any style's duplicates.
 
-2. **Second, we've renamed a handful of directional classes to adopt a logical properties approach.** Most of you have already interacted with logical properties thanks to our flex utilities—they replace direction properties like `left` and `right` in favor `start` and `end`. That makes the class names and values appropriate for LTR and RTL without any overhead.
+2. **Second, in CoreUI 3 we introduced a handful of directional classes ex. `mfs-auto`,  but in CoreUI 4 we've simplified them ex. `ms-auto`, and renamed all directional classes to adopt a logical properties approach.** Most of you have already interacted with logical properties thanks to our flex utilities—they replace direction properties like `left` and `right` in favor `start` and `end`. That makes the class names and values appropriate for LTR and RTL without any overhead.
 
   For example, instead of `.ml-3` for `margin-left`, use `.ms-3`.
 
@@ -79,31 +73,8 @@ Working with RTL, through our source Sass or compiled CSS, shouldn't be much dif
 
 ## Customize from source
 
-When it comes to [customization]({{< docsref "/customize/sass" >}}), the preferred way is to take advantage of variables, maps, and mixins. This approach works the same for RTL, even if it's post-processed from the compiled files, thanks to [how RTLCSS works](https://rtlcss.com/learn/getting-started/why-rtlcss/).
-
-### Custom RTL values
-
-Using [RTLCSS value directives](https://rtlcss.com/learn/usage-guide/value-directives/), you can make a variable output a different value for RTL. For example, to decrease the weight for `$font-weight-bold` throughout the codebase, you may use the `/*rtl: {value}*/` syntax:
-
-```scss
-$font-weight-bold: 700 #{/* rtl:600 */} !default;
-```
-
-Which would ouput to the following for our default CSS and RTL CSS:
-
-```css
-/* coreui.css */
-dt {
-  font-weight: 700 /* rtl:600 */;
-}
-
-/* coreui.rtl.css */
-dt {
-  font-weight: 600;
-}
-```
-
-### Alternative font stack
+When it comes to [customization]({{< docsref "/customize/sass" >}}), the preferred way is to take advantage of variables, maps, and mixins.
+<!-- TODO: find solution ### Alternative font stack
 
 In the case you're using a custom font, be aware that not all fonts support the non-Latin alphabet. To switch from Pan-European to Arabic family, you may need to use `/*rtl:insert: {value}*/` in your font stack to modify the names of font families.
 
@@ -130,47 +101,19 @@ $font-family-sans-serif:
   sans-serif,
   // Emoji fonts
   "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-```
+``` -->
 
 ### LTR and RTL at the same time
 
-Need both LTR and RTL on the same page? Thanks to [RTLCSS String Maps](https://rtlcss.com/learn/usage-guide/string-map/), this is pretty straightforward. Wrap your `@import`s with a class, and set a custom rename rule for RTLCSS:
+Need both LTR and RTL on the same page? All you have to do is set following variables:
 
 ```scss
-/* rtl:begin:options: {
-  "autoRename": true,
-  "stringMap":[
-    "name": "ltr-rtl",
-    "priority": 100,
-    "search": ["ltr"],
-    "replace": ["rtl"],
-    "options": {
-      "scope": "*",
-      "ignoreCase": false
-    }
-  ]
-} */
-.ltr {
-  @import "../node_modules/bootstrap/scss/bootstrap";
-}
-/*rtl:end:options*/
+$enable-ltr: true;
+$enable-rtl: true;
 ```
 
 After running Sass then RTLCSS, each selector in your CSS files will be prepended by `.ltr`, and `.rtl` for RTL files. Now you're able to use both files on the same page, and simply use `.ltr` or `.rtl` on your components wrappers to use one or the other direction.
 
-{{< callout warning >}}
-#### Edge cases and known limitations
-
-While this approach is understandable, please pay attention to the following:
-
-1. When switching `.ltr` and `.rtl`, make sure you add `dir` and `lang` attributes accordingly.
-2. Loading both files can be a real performance bottleneck: consider some [optimization]({{< docsref "/customize/optimize" >}}), and maybe try to [load one of those files asynchronously](https://www.filamentgroup.com/lab/load-css-simpler/).
-3. Nesting styles this way will prevent our `form-validation-state()` mixin from working as intended, thus require you tweak it a bit by yourself. [See #31223](https://github.com/twbs/bootstrap/issues/31223).
-{{< /callout >}}
-
-## The breadcrumb case
-
-The [breadcrumb separator]({{< docsref "/components/breadcrumb" >}}/#changing-the-separator) is the only case requiring its own brand new variable— namely `$breadcrumb-divider-flipped` —defaulting to `$breadcrumb-divider`.
 
 ## Additional resources
 
