@@ -526,7 +526,8 @@ $utilities: map-merge(
         start: left,
         end: right,
         center: center,
-      )
+      ),
+      rtl: true
     ),
     "text-decoration": (
       property: text-decoration,
