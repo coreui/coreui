@@ -24,7 +24,7 @@
 
   @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
-    --is-mobile: true;
+    --#{$variable-prefix}is-mobile: true;
     position: fixed;
     top: 0;
     bottom: 0;
