@@ -561,16 +561,6 @@ $text-high-emphasis-inverse:    $high-emphasis-inverse !default;
 $text-medium-emphasis-inverse:  $medium-emphasis-inverse !default;
 $text-disabled-inverse:         $disabled-inverse !default;
 
-// Text colors
-// TODO: clean-up
-// $high-emphasis-dark:    rgba(shift-color($gray-base, +26), .87) !default;
-// $medium-emphasis-dark:  rgba(shift-color($gray-base, +26), .6) !default;
-// $disabled-dark:         rgba(shift-color($gray-base, +26), .38) !default;
-
-// $high-emphasis-inverse:    rgba($white, .87) !default;
-// $medium-emphasis-inverse:  rgba($white, .6) !default;
-// $disabled-inverse:         rgba($white, .38) !default;
-
 $initialism-font-size:          $small-font-size !default;
 
 $blockquote-margin-y:           $spacer !default;
@@ -653,14 +643,14 @@ $table-bg-scale:              -80% !default;
 
 // scss-docs-start table-loop
 $table-variants: (
-  "primary":    shift-color($primary, $table-bg-scale),
-  "secondary":  shift-color($secondary, $table-bg-scale),
-  "success":    shift-color($success, $table-bg-scale),
-  "info":       shift-color($info, $table-bg-scale),
-  "warning":    shift-color($warning, $table-bg-scale),
-  "danger":     shift-color($danger, $table-bg-scale),
-  "light":      $light,
-  "dark":       $dark,
+  "primary":    table-color-map(shift-color($primary, $table-bg-scale)),
+  "secondary":  table-color-map(shift-color($secondary, $table-bg-scale)),
+  "success":    table-color-map(shift-color($success, $table-bg-scale)),
+  "danger":     table-color-map(shift-color($danger, $table-bg-scale)),
+  "warning":    table-color-map(shift-color($warning, $table-bg-scale)),
+  "info":       table-color-map(shift-color($info, $table-bg-scale)),
+  "light":      table-color-map(shift-color($light, $table-bg-scale)),
+  "dark":       table-color-map(shift-color($dark, $table-bg-scale))
 ) !default;
 // scss-docs-end table-loop
 

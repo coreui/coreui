@@ -26,8 +26,10 @@
   // stylelint-disable-next-line selector-max-universal
   > :not(caption) > * > * {
     padding: $table-cell-padding-y $table-cell-padding-x;
+    color: var(--#{$variable-prefix}table-color);
     background-color: var(--#{$variable-prefix}table-bg);
-    border-bottom-width: $table-border-width;
+    border-bottom: $table-border-width;
+    border-bottom-color: var(--#{$variable-prefix}table-border-color);
     box-shadow: inset 0 0 0 9999px var(--#{$variable-prefix}table-accent-bg);
   }
 
@@ -131,9 +133,31 @@
 // Table variants set the table cell backgrounds, border colors
 // and the colors of the striped, hovered & active tables
 
-@each $color, $value in $table-variants {
-  @include table-variant($color, $value);
+// @each $color, $value in $table-variants {
+//   @include table-variant($color, $value);
+// }
+
+@each $color, $map in $table-variants {
+  // @include table-variant($color, $value);
+  .table-#{$color} {
+    @include table-variant($map);
+  }
 }
+
+@each $state, $map in $alert-variants {
+  $background: map-get($map, "background");
+  $border-color: map-get($map, "border-color");
+  $color: contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state);
+  $link-color: map-get($map, "link-color");
+
+  .alert-#{$state} {
+    @include alert-variant($background, $border-color, $color, $link-color);
+  }
+}
+
+// @each $state, $map in $list-group-variants {
+
+// }
 
 // Responsive tables
 //

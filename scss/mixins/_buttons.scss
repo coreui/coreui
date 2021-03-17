@@ -19,59 +19,12 @@
   $disabled-color,
   $shadow
 ) {
-  color: $color;
-  @include gradient-bg($background);
-  border-color: $border-color;
-  @include box-shadow($btn-box-shadow);
-
-  &:hover {
-    color: $hover-color;
-    @include gradient-bg($hover-background);
-    border-color: $hover-border-color;
-  }
-
-  .btn-check:focus + &,
-  &:focus {
-    color: $hover-color;
-    @include gradient-bg($hover-background);
-    border-color: $hover-border-color;
-    @if $enable-shadows {
-      @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width $shadow);
-    } @else {
-      // Avoid using mixin so we can pass custom focus shadow properly
-      box-shadow: 0 0 0 $btn-focus-width $shadow;
-    }
-  }
-
-  .btn-check:checked + &,
-  .btn-check:active + &,
-  &:active,
-  &.active,
-  .show > &.dropdown-toggle {
-    color: $active-color;
-    background-color: $active-background;
-    // Remove CSS gradients if they're enabled
-    background-image: if($enable-gradients, none, null);
-    border-color: $active-border-color;
-
-    &:focus {
-      @if $enable-shadows {
-        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width $shadow);
-      } @else {
-        // Avoid using mixin so we can pass custom focus shadow properly
-        box-shadow: 0 0 0 $btn-focus-width $shadow;
-      }
-    }
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $disabled-color;
-    background-color: $disabled-background;
-    // Remove CSS gradients if they're enabled
-    background-image: if($enable-gradients, none, null);
-    border-color: $disabled-border-color;
-  }
+  --#{$variable-prefix}btn-bg: #{$background};
+  --#{$variable-prefix}btn-border-color: #{$border-color};
+  --#{$variable-prefix}btn-color: #{$color};
+  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+  --#{$variable-prefix}btn-hover-color: #{$hover-color};
 }
 // scss-docs-end btn-variant-mixin
 
@@ -87,44 +40,15 @@
   $disabled-color,
   $shadow
 ) {
-  color: $color;
-  border-color: $color;
-
-  &:hover {
-    color: $hover-color;
-    background-color: $hover-background;
-    border-color: $hover-border-color;
-  }
-
-  .btn-check:focus + &,
-  &:focus {
-    box-shadow: 0 0 0 $btn-focus-width $shadow;
-  }
-
-  .btn-check:checked + &,
-  .btn-check:active + &,
-  &:active,
-  &.active,
-  &.dropdown-toggle.show {
-    color: $active-color;
-    background-color: $active-background;
-    border-color: $active-border-color;
-
-    &:focus {
-      @if $enable-shadows {
-        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width $shadow);
-      } @else {
-        // Avoid using mixin so we can pass custom focus shadow properly
-        box-shadow: 0 0 0 $btn-focus-width $shadow;
-      }
-    }
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $disabled-color;
-    background-color: transparent;
-  }
+  --#{$variable-prefix}btn-border-color: #{$color};
+  --#{$variable-prefix}btn-color: #{$color};
+  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+  --#{$variable-prefix}btn-hover-color: #{$hover-color};
+  --#{$variable-prefix}btn-active-bg: #{$active-background};
+  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+  --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-shadow: #{$shadow};
 }
 // scss-docs-end btn-outline-variant-mixin
 
@@ -141,46 +65,14 @@
   $disabled-color,
   $shadow
 ) {
-  color: $color;
-  // background-color: transparent;
-  // background-image: none;
-  border-color: transparent;
-
-  &:hover {
-    color: $hover-color;
-    background-color: $hover-background;
-    border-color: $hover-border-color;
-  }
-
-  .btn-check:focus + &,
-  &:focus {
-    box-shadow: 0 0 0 $btn-focus-width $shadow;
-  }
-
-  .btn-check:checked + &,
-  .btn-check:active + &,
-  &:active,
-  &.active,
-  &.dropdown-toggle.show {
-    color: $active-color;
-    background-color: $active-background;
-    border-color: $active-border-color;
-
-    &:focus {
-      @if $enable-shadows {
-        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width $shadow);
-      } @else {
-        // Avoid using mixin so we can pass custom focus shadow properly
-        box-shadow: 0 0 0 $btn-focus-width $shadow;
-      }
-    }
-  }
-
-  &:disabled,
-  &.disabled {
-    color: $disabled-color;
-    background-color: transparent;
-  }
+  --#{$variable-prefix}btn-color: #{$color};
+  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+  --#{$variable-prefix}btn-hover-color: #{$hover-color};
+  --#{$variable-prefix}btn-active-bg: #{$active-background};
+  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+  --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-shadow: #{$shadow};
 }
 
 // Button sizes

@@ -6,7 +6,9 @@
   position: relative;
   padding: $alert-padding-y $alert-padding-x;
   margin-bottom: $alert-margin-bottom;
-  border: $alert-border-width solid transparent;
+  color: var(--#{$variable-prefix}alert-color);
+  @include gradient-bg(var(--#{$variable-prefix}alert-bg));
+  border: $alert-border-width solid var(--#{$variable-prefix}alert-border-color, transparent);
   @include border-radius($alert-border-radius);
 }
 
@@ -19,6 +21,7 @@
 // Provide class for links that match alerts
 .alert-link {
   font-weight: $alert-link-font-weight;
+  color: var(--#{$variable-prefix}alert-link-color);
 }
 
 
@@ -44,13 +47,13 @@
 // Generate contextual modifier classes for colorizing the alert.
 
 @each $state, $map in $alert-variants {
-  $background: var(--#{$variable-prefix}alert-background, map-get($map, "background"));
-  $border: var(--#{$variable-prefix}alert-border-color, map-get($map, "border"));
-  $color: var(--#{$variable-prefix}alert-color, contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state));
-  $link-color: var(--#{$variable-prefix}alert-link-color, map-get($map, "link-color"));
+  $background: map-get($map, "background");
+  $border-color: map-get($map, "border-color");
+  $color: contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state);
+  $link-color: map-get($map, "link-color");
 
   .alert-#{$state} {
-    @include alert-variant($background, $border, $color, $link-color);
+    @include alert-variant($background, $border-color, $color, $link-color);
   }
 }
 // scss-docs-end alert-modifiers

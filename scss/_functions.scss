@@ -184,7 +184,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 @function alert-color-map($color) {
   @return (
     "background": shift-color($color, $alert-bg-scale),
-    "border": shift-color($color, $alert-border-scale),
+    "border-color": shift-color($color, $alert-border-scale),
     "color": shift-color($color, $alert-color-scale),
     "link-color": shade-color(shift-color($color, $alert-color-scale), 20%)
   );
@@ -238,6 +238,28 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   );
 }
 // scss-docs-end list-group-color-functions
+
+// scss-docs-start table-color-functions
+@function table-color-map($background) {
+  $table-bg: $background;
+  $color: color-contrast(opaque($body-bg, $background));
+  $striped-bg: mix($color, $background, percentage($table-striped-bg-factor));
+  $active-bg: mix($color, $background, percentage($table-active-bg-factor));
+  $hover-bg: mix($color, $background, percentage($table-hover-bg-factor));
+
+  @return (
+    "table-bg": $background,
+    "table-color": $color,
+    "table-border-color": mix($color, $background, percentage($table-border-factor)),
+    "table-striped-bg": $striped-bg,
+    "table-striped-color": color-contrast($striped-bg),
+    "table-active-bg": $active-bg,
+    "table-active-color": color-contrast($active-bg),
+    "table-hover-bg": $hover-bg,
+    "table-hover-color": color-contrast($hover-bg)
+  );
+}
+// scss-docs-end table-color-functions
 
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {
