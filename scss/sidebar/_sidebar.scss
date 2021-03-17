@@ -30,10 +30,10 @@
     bottom: 0;
     z-index: $zindex-fixed + 1;
 
-    &:not(.sidebar-right){
+    &:not(.sidebar-end){
       @include ltr-rtl("left", 0);
     }
-    &.sidebar-right {
+    &.sidebar-end {
       @include ltr-rtl("right", 0);
     }
 
@@ -42,11 +42,11 @@
     }
   }
 
-  &:not(.sidebar-right){
+  &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
   }
 
-  &.sidebar-right {
+  &.sidebar-end {
     order: 99;
     @include ltr-rtl("margin-right", 0);
 
@@ -57,10 +57,10 @@
   }
 
   &.hide {
-    &:not(.sidebar-right){
+    &:not(.sidebar-end){
       @include ltr-rtl("margin-left", - $sidebar-width);
     }
-    &.sidebar-right {
+    &.sidebar-end {
       @include ltr-rtl("margin-right", - $sidebar-width);
     }
 
@@ -78,10 +78,10 @@
         --#{$variable-prefix}sidebar-occupy: #{$value};
       }
 
-      &:not(.sidebar-right).hide {
+      &:not(.sidebar-end).hide {
         @include ltr-rtl("margin-left", - $value);
       }
-      &.sidebar-right.hide {
+      &.sidebar-end.hide {
         @include ltr-rtl("margin-right", - $value);
       }
     }
@@ -94,11 +94,11 @@
       bottom: 0;
       z-index: $zindex-fixed;
 
-      &:not(.sidebar-right) {
+      &:not(.sidebar-end) {
         @include ltr-rtl("left", 0);
       }
 
-      &.sidebar-right {
+      &.sidebar-end {
         @include ltr-rtl("right", 0);
       }
     }
@@ -118,11 +118,11 @@
     bottom: 0;
     z-index: $zindex-fixed + 2;
 
-    &:not(.sidebar-right) {
+    &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
     }
 
-    &.sidebar-right {
+    &.sidebar-end {
       @include ltr-rtl("right", 0);
     }
   }
@@ -221,7 +221,7 @@
     }
   }
 
-  .sidebar-right & {
+  .sidebar-end & {
     justify-content: flex-start;
     &::before {
       transform: rotate(-180deg);
@@ -252,7 +252,7 @@
   @include media-breakpoint-down($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     .sidebar:not(.show).sidebar-self-hiding#{$infix} {
-      &:not(.sidebar-right) {
+      &:not(.sidebar-end) {
         @include ltr-rtl("margin-left", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
@@ -261,7 +261,7 @@
           }
         }
       }
-      &.sidebar-right {
+      &.sidebar-end {
         @include ltr-rtl("margin-right", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
