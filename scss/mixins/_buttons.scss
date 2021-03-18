@@ -25,6 +25,13 @@
   --#{$variable-prefix}btn-hover-bg: #{$hover-background};
   --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
   --#{$variable-prefix}btn-hover-color: #{$hover-color};
+  --#{$variable-prefix}btn-active-bg: #{$active-background};
+  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+  --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-disabled-bg: #{$disabled-background};
+  --#{$variable-prefix}btn-disabled-border-color: #{$disabled-border-color};
+  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
+  --#{$variable-prefix}btn-shadow: #{$shadow};
 }
 // scss-docs-end btn-variant-mixin
 
@@ -48,6 +55,7 @@
   --#{$variable-prefix}btn-active-bg: #{$active-background};
   --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
   --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
   --#{$variable-prefix}btn-shadow: #{$shadow};
 }
 // scss-docs-end btn-outline-variant-mixin
@@ -72,6 +80,7 @@
   --#{$variable-prefix}btn-active-bg: #{$active-background};
   --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
   --#{$variable-prefix}btn-active-color: #{$active-color};
+  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
   --#{$variable-prefix}btn-shadow: #{$shadow};
 }
 
