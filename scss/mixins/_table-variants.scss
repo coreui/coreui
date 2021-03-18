@@ -1,14 +1,14 @@
 // scss-docs-start table-variant
 @mixin table-variant($map) {
-  --#{$variable-prefix}table-bg: #{map-get($map, "table-bg")};
-  --#{$variable-prefix}table-color: #{map-get($map, "table-color")};
-  --#{$variable-prefix}table-border-color: #{map-get($map, "table-border-color")};
-  --#{$variable-prefix}table-striped-bg: #{map-get($map, "table-striped-bg")};
-  --#{$variable-prefix}table-striped-color: #{map-get($map, "table-striped-color")};
-  --#{$variable-prefix}table-active-bg: #{map-get($map, "table-active-bg")};
-  --#{$variable-prefix}table-active-color: #{map-get($map, "table-active-color")};
-  --#{$variable-prefix}table-hover-bg: #{map-get($map, "table-hover-bg")};
-  --#{$variable-prefix}table-hover-color: #{map-get($map, "table-hover-color")};
+  --#{$variable-prefix}table-bg: #{map-get($map, "bg")};
+  --#{$variable-prefix}table-color: #{map-get($map, "color")};
+  --#{$variable-prefix}table-border-color: #{map-get($map, "border-color")};
+  --#{$variable-prefix}table-striped-bg: #{map-get($map, "striped-bg")};
+  --#{$variable-prefix}table-striped-color: #{map-get($map, "striped-color")};
+  --#{$variable-prefix}table-active-bg: #{map-get($map, "active-bg")};
+  --#{$variable-prefix}table-active-color: #{map-get($map, "active-color")};
+  --#{$variable-prefix}table-hover-bg: #{map-get($map, "hover-bg")};
+  --#{$variable-prefix}table-hover-color: #{map-get($map, "hover-color")};
 
   color: var(--#{$variable-prefix}table-color);
   border-color: var(--#{$variable-prefix}table-border-color);
