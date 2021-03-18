@@ -14,14 +14,6 @@
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-width};
-  }
-
-  // + [data-coreui-reliant="sidebar"] {
-  //   @include transition($sidebar-reliant-transition);
-  // }
-
   @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
     --#{$variable-prefix}is-mobile: true;
@@ -32,24 +24,32 @@
 
     &:not(.sidebar-end){
       @include ltr-rtl("left", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
     }
     &.sidebar-end {
       @include ltr-rtl("right", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
 
-    ~ * {
-      --#{$variable-prefix}sidebar-occupy: 0;
-    }
   }
 
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
+    ~ * {
+      --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-width};
+    }
   }
 
   &.sidebar-end {
     order: 99;
     @include ltr-rtl("margin-right", 0);
-
+    ~ * {
+      --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-width};
+    }
   }
 
   &[class*="bg-"]  {
@@ -59,13 +59,15 @@
   &.hide {
     &:not(.sidebar-end){
       @include ltr-rtl("margin-left", - $sidebar-width);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
     }
     &.sidebar-end {
       @include ltr-rtl("margin-right", - $sidebar-width);
-    }
-
-    ~ * {
-      --#{$variable-prefix}sidebar-occupy: 0;
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
   }
 
@@ -74,15 +76,17 @@
       flex: 0 0 $value;
       width: $value;
 
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy: #{$value};
-      }
-
       &:not(.sidebar-end).hide {
         @include ltr-rtl("margin-left", - $value);
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-start: #{$value};
+        }
       }
       &.sidebar-end.hide {
         @include ltr-rtl("margin-right", - $value);
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-end: #{$value};
+        }
       }
     }
   }
@@ -260,6 +264,9 @@
             @include ltr-rtl("margin-left", - $value);
           }
         }
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-start: 0;
+        }
       }
       &.sidebar-end {
         @include ltr-rtl("margin-right", - $sidebar-width);
@@ -269,9 +276,9 @@
             @include ltr-rtl("margin-right", - $value);
           }
         }
-      }
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy: 0;
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-end: 0;
+        }
       }
     }
   }

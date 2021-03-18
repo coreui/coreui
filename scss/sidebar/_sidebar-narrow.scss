@@ -51,8 +51,11 @@
 
 .sidebar-narrow {
   @extend %sidebar-narrow;
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  &:not(.sidebar-end) ~ * {
+    --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+  }
+  &.sidebar-end ~ * {
+    --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
   }
 }
 
@@ -60,8 +63,11 @@
   position: fixed;
   z-index: $zindex-fixed + 1;
 
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  &:not(.sidebar-end) ~ * {
+    --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+  }
+  &.sidebar-end ~ * {
+    --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
   }
 
   &:not(:hover) {
