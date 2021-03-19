@@ -128,28 +128,33 @@ $utilities: map-merge(
     "border-color": (
       property: border-color,
       class: border,
-      values: map-merge($theme-colors, ("white": $white))
+      values: map-merge($theme-colors, ("white": $white)),
+      vars: true
     ),
     "border-top-color": (
       property: border-top-color,
       class: border-top,
-      values: map-merge($theme-colors, ("white": $white))
+      values: map-merge($theme-colors, ("white": $white)),
+      vars: true
     ),
     "border-end-color": (
       property: border-right-color,
       class: border-end,
       values: map-merge($theme-colors, ("white": $white)),
+      vars: true,
       rtl: true
     ),
     "border-bottom-color": (
       property: border-bottom-color,
       class: border-bottom,
-      values: map-merge($theme-colors, ("white": $white))
+      values: map-merge($theme-colors, ("white": $white)),
+      vars: true
     ),
     "border-start-color": (
       property: border-left-color,
       class: border-start,
       values: map-merge($theme-colors, ("white": $white)),
+      vars: true,
       rtl: true
     ),
     "border-width": (

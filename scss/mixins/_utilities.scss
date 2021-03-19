@@ -54,7 +54,7 @@
       .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
           @if $generate-vars == true {
-            #{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}, $value) if($enable-important-utilities, !important, null);
+            #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
           }
           @else {
             @if $generate-rtl == true {
