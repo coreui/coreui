@@ -1,5 +1,5 @@
 /*!
-  * CoreUI base-component.js v4.0.0-alpha.2 (https://coreui.io)
+  * CoreUI base-component.js v4.0.0-alpha.3 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -35,7 +35,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '4.0.0-alpha.2';
+  var VERSION = '4.0.0-alpha.3';
 
   var BaseComponent = /*#__PURE__*/function () {
     function BaseComponent(element) {

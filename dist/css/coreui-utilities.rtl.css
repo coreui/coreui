@@ -1,7 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.2
+ * @version v4.0.0-alpha.3
+ * @link https://coreui.io/
+ * Copyright (c) 2021 creativeLabs Łukasz Holeczek
+ * License MIT  (https://coreui.io/license/)
+*/
+/*!
+ * CoreUI - HTML, CSS, and JavaScript UI Components Library
+ * @version v4.0.0-alpha.3
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -104,21 +111,20 @@
 .fixed-top {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   z-index: 1030;
 }
 
 .fixed-bottom {
   position: fixed;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1030;
 }
 
 .sticky-top {
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1020;
@@ -126,7 +132,6 @@
 
 @media (min-width: 576px) {
   .sticky-sm-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -134,7 +139,6 @@
 }
 @media (min-width: 768px) {
   .sticky-md-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -142,7 +146,6 @@
 }
 @media (min-width: 992px) {
   .sticky-lg-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -150,7 +153,6 @@
 }
 @media (min-width: 1200px) {
   .sticky-xl-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -158,7 +160,6 @@
 }
 @media (min-width: 1400px) {
   .sticky-xxl-top {
-    position: -webkit-sticky;
     position: sticky;
     top: 0;
     z-index: 1020;
@@ -180,9 +181,9 @@
 .stretched-link::after {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 1;
   content: "";
 }
@@ -318,7 +319,6 @@
 }
 
 .position-sticky {
-  position: -webkit-sticky !important;
   position: sticky !important;
 }
 
@@ -347,35 +347,35 @@
 }
 
 .start-0 {
-  right: 0 !important;
-}
-
-.start-50 {
-  right: 50% !important;
-}
-
-.start-100 {
-  right: 100% !important;
-}
-
-.end-0 {
   left: 0 !important;
 }
 
-.end-50 {
+.start-50 {
   left: 50% !important;
 }
 
-.end-100 {
+.start-100 {
   left: 100% !important;
 }
 
+.end-0 {
+  right: 0 !important;
+}
+
+.end-50 {
+  right: 50% !important;
+}
+
+.end-100 {
+  right: 100% !important;
+}
+
 .translate-middle {
-  transform: translate(50%, -50%) !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .translate-middle-x {
-  transform: translateX(50%) !important;
+  transform: translateX(-50%) !important;
 }
 
 .translate-middle-y {
@@ -423,183 +423,183 @@
 }
 
 .border-primary {
-  border-color: #321fdb !important;
+  border-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-secondary {
-  border-color: #9da5b1 !important;
+  border-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-success {
-  border-color: #2eb85c !important;
+  border-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-info {
-  border-color: #39f !important;
+  border-color: var(--cui-info, #39f) !important;
 }
 
 .border-warning {
-  border-color: #f9b115 !important;
+  border-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-danger {
-  border-color: #e55353 !important;
+  border-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-light {
-  border-color: #ebedef !important;
+  border-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-dark {
-  border-color: #4f5d73 !important;
+  border-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-white {
-  border-color: #fff !important;
+  border-color: var(--cui-white, #fff) !important;
 }
 
 .border-top-primary {
-  border-top-color: #321fdb !important;
+  border-top-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-top-secondary {
-  border-top-color: #9da5b1 !important;
+  border-top-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-top-success {
-  border-top-color: #2eb85c !important;
+  border-top-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-top-info {
-  border-top-color: #39f !important;
+  border-top-color: var(--cui-info, #39f) !important;
 }
 
 .border-top-warning {
-  border-top-color: #f9b115 !important;
+  border-top-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-top-danger {
-  border-top-color: #e55353 !important;
+  border-top-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-top-light {
-  border-top-color: #ebedef !important;
+  border-top-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-top-dark {
-  border-top-color: #4f5d73 !important;
+  border-top-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-top-white {
-  border-top-color: #fff !important;
+  border-top-color: var(--cui-white, #fff) !important;
 }
 
 .border-end-primary {
-  border-left-color: #321fdb !important;
+  border-right-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-end-secondary {
-  border-left-color: #9da5b1 !important;
+  border-right-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-end-success {
-  border-left-color: #2eb85c !important;
+  border-right-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-end-info {
-  border-left-color: #39f !important;
+  border-right-color: var(--cui-info, #39f) !important;
 }
 
 .border-end-warning {
-  border-left-color: #f9b115 !important;
+  border-right-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-end-danger {
-  border-left-color: #e55353 !important;
+  border-right-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-end-light {
-  border-left-color: #ebedef !important;
+  border-right-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-end-dark {
-  border-left-color: #4f5d73 !important;
+  border-right-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-end-white {
-  border-left-color: #fff !important;
+  border-right-color: var(--cui-white, #fff) !important;
 }
 
 .border-bottom-primary {
-  border-bottom-color: #321fdb !important;
+  border-bottom-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-bottom-secondary {
-  border-bottom-color: #9da5b1 !important;
+  border-bottom-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-bottom-success {
-  border-bottom-color: #2eb85c !important;
+  border-bottom-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-bottom-info {
-  border-bottom-color: #39f !important;
+  border-bottom-color: var(--cui-info, #39f) !important;
 }
 
 .border-bottom-warning {
-  border-bottom-color: #f9b115 !important;
+  border-bottom-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-bottom-danger {
-  border-bottom-color: #e55353 !important;
+  border-bottom-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-bottom-light {
-  border-bottom-color: #ebedef !important;
+  border-bottom-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-bottom-dark {
-  border-bottom-color: #4f5d73 !important;
+  border-bottom-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-bottom-white {
-  border-bottom-color: #fff !important;
+  border-bottom-color: var(--cui-white, #fff) !important;
 }
 
 .border-start-primary {
-  border-right-color: #321fdb !important;
+  border-left-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-start-secondary {
-  border-right-color: #9da5b1 !important;
+  border-left-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-start-success {
-  border-right-color: #2eb85c !important;
+  border-left-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-start-info {
-  border-right-color: #39f !important;
+  border-left-color: var(--cui-info, #39f) !important;
 }
 
 .border-start-warning {
-  border-right-color: #f9b115 !important;
+  border-left-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-start-danger {
-  border-right-color: #e55353 !important;
+  border-left-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-start-light {
-  border-right-color: #ebedef !important;
+  border-left-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-start-dark {
-  border-right-color: #4f5d73 !important;
+  border-left-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-start-white {
-  border-right-color: #fff !important;
+  border-left-color: var(--cui-white, #fff) !important;
 }
 
 .border-1 {
@@ -991,38 +991,38 @@
 }
 
 .mx-0 {
-  margin-left: 0 !important;
   margin-right: 0 !important;
+  margin-left: 0 !important;
 }
 
 .mx-1 {
-  margin-left: 0.25rem !important;
   margin-right: 0.25rem !important;
+  margin-left: 0.25rem !important;
 }
 
 .mx-2 {
-  margin-left: 0.5rem !important;
   margin-right: 0.5rem !important;
+  margin-left: 0.5rem !important;
 }
 
 .mx-3 {
-  margin-left: 1rem !important;
   margin-right: 1rem !important;
+  margin-left: 1rem !important;
 }
 
 .mx-4 {
-  margin-left: 1.5rem !important;
   margin-right: 1.5rem !important;
+  margin-left: 1.5rem !important;
 }
 
 .mx-5 {
-  margin-left: 3rem !important;
   margin-right: 3rem !important;
+  margin-left: 3rem !important;
 }
 
 .mx-auto {
-  margin-left: auto !important;
   margin-right: auto !important;
+  margin-left: auto !important;
 }
 
 .my-0 {
@@ -1197,33 +1197,33 @@
 }
 
 .px-0 {
-  padding-left: 0 !important;
   padding-right: 0 !important;
+  padding-left: 0 !important;
 }
 
 .px-1 {
-  padding-left: 0.25rem !important;
   padding-right: 0.25rem !important;
+  padding-left: 0.25rem !important;
 }
 
 .px-2 {
-  padding-left: 0.5rem !important;
   padding-right: 0.5rem !important;
+  padding-left: 0.5rem !important;
 }
 
 .px-3 {
-  padding-left: 1rem !important;
   padding-right: 1rem !important;
+  padding-left: 1rem !important;
 }
 
 .px-4 {
-  padding-left: 1.5rem !important;
   padding-right: 1.5rem !important;
+  padding-left: 1.5rem !important;
 }
 
 .px-5 {
-  padding-left: 3rem !important;
   padding-right: 3rem !important;
+  padding-left: 3rem !important;
 }
 
 .py-0 {
@@ -1475,128 +1475,136 @@
 .text-nowrap {
   white-space: nowrap !important;
 }
+
+/* rtl:begin:remove */
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+/* rtl:end:remove */
 .text-primary {
-  color: var(--cui-text-primary, #321fdb) !important;
+  color: var(--cui-primary, #321fdb) !important;
 }
 
 .text-secondary {
-  color: var(--cui-text-secondary, #9da5b1) !important;
+  color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .text-success {
-  color: var(--cui-text-success, #2eb85c) !important;
+  color: var(--cui-success, #2eb85c) !important;
 }
 
 .text-info {
-  color: var(--cui-text-info, #39f) !important;
+  color: var(--cui-info, #39f) !important;
 }
 
 .text-warning {
-  color: var(--cui-text-warning, #f9b115) !important;
+  color: var(--cui-warning, #f9b115) !important;
 }
 
 .text-danger {
-  color: var(--cui-text-danger, #e55353) !important;
+  color: var(--cui-danger, #e55353) !important;
 }
 
 .text-light {
-  color: var(--cui-text-light, #ebedef) !important;
+  color: var(--cui-light, #ebedef) !important;
 }
 
 .text-dark {
-  color: var(--cui-text-dark, #4f5d73) !important;
+  color: var(--cui-dark, #4f5d73) !important;
 }
 
 .text-white {
-  color: var(--cui-text-white, #fff) !important;
+  color: var(--cui-white, #fff) !important;
 }
 
 .text-body {
-  color: var(--cui-text-body, rgba(44, 56, 74, 0.95)) !important;
+  color: var(--cui-body, rgba(44, 56, 74, 0.95)) !important;
 }
 
 .text-muted {
-  color: var(--cui-text-muted, rgba(44, 56, 74, 0.38)) !important;
+  color: var(--cui-muted, rgba(44, 56, 74, 0.38)) !important;
 }
 
 .text-black-50 {
-  color: var(--cui-text-black-50, rgba(0, 0, 21, 0.5)) !important;
+  color: var(--cui-black-50, rgba(0, 0, 21, 0.5)) !important;
 }
 
 .text-white-50 {
-  color: var(--cui-text-white-50, rgba(255, 255, 255, 0.5)) !important;
+  color: var(--cui-white-50, rgba(255, 255, 255, 0.5)) !important;
 }
 
 .text-reset {
-  color: var(--cui-text-reset, inherit) !important;
+  color: var(--cui-reset, inherit) !important;
 }
 
 .text-high-emphasis-inverse {
-  color: var(--cui-text-high-emphasis-inverse, rgba(255, 255, 255, 0.87)) !important;
+  color: var(--cui-high-emphasis-inverse, rgba(255, 255, 255, 0.87)) !important;
 }
 
 .text-medium-emphasis-inverse {
-  color: var(--cui-text-medium-emphasis-inverse, rgba(255, 255, 255, 0.6)) !important;
+  color: var(--cui-medium-emphasis-inverse, rgba(255, 255, 255, 0.6)) !important;
 }
 
 .text-disabled-inverse {
-  color: var(--cui-text-disabled-inverse, rgba(255, 255, 255, 0.38)) !important;
+  color: var(--cui-disabled-inverse, rgba(255, 255, 255, 0.38)) !important;
 }
 
 .text-high-emphasis {
-  color: var(--cui-text-high-emphasis, rgba(44, 56, 74, 0.95)) !important;
+  color: var(--cui-high-emphasis, rgba(44, 56, 74, 0.95)) !important;
 }
 
 .text-medium-emphasis {
-  color: var(--cui-text-medium-emphasis, rgba(44, 56, 74, 0.681)) !important;
+  color: var(--cui-medium-emphasis, rgba(44, 56, 74, 0.681)) !important;
 }
 
 .text-disabled {
-  color: var(--cui-text-disabled, rgba(44, 56, 74, 0.38)) !important;
+  color: var(--cui-disabled, rgba(44, 56, 74, 0.38)) !important;
 }
 
 .bg-primary {
-  background-color: var(--cui-bg-primary, #321fdb) !important;
+  background-color: var(--cui-primary, #321fdb) !important;
 }
 
 .bg-secondary {
-  background-color: var(--cui-bg-secondary, #9da5b1) !important;
+  background-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .bg-success {
-  background-color: var(--cui-bg-success, #2eb85c) !important;
+  background-color: var(--cui-success, #2eb85c) !important;
 }
 
 .bg-info {
-  background-color: var(--cui-bg-info, #39f) !important;
+  background-color: var(--cui-info, #39f) !important;
 }
 
 .bg-warning {
-  background-color: var(--cui-bg-warning, #f9b115) !important;
+  background-color: var(--cui-warning, #f9b115) !important;
 }
 
 .bg-danger {
-  background-color: var(--cui-bg-danger, #e55353) !important;
+  background-color: var(--cui-danger, #e55353) !important;
 }
 
 .bg-light {
-  background-color: var(--cui-bg-light, #ebedef) !important;
+  background-color: var(--cui-light, #ebedef) !important;
 }
 
 .bg-dark {
-  background-color: var(--cui-bg-dark, #4f5d73) !important;
+  background-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .bg-body {
-  background-color: var(--cui-bg-body, #fff) !important;
+  background-color: var(--cui-body, #fff) !important;
 }
 
 .bg-white {
-  background-color: var(--cui-bg-white, #fff) !important;
+  background-color: var(--cui-white, #fff) !important;
 }
 
 .bg-transparent {
-  background-color: var(--cui-bg-transparent, transparent) !important;
+  background-color: var(--cui-transparent, transparent) !important;
 }
 
 .bg-gradient {
@@ -1604,20 +1612,14 @@
 }
 
 .user-select-all {
-  -webkit-user-select: all !important;
-  -moz-user-select: all !important;
   user-select: all !important;
 }
 
 .user-select-auto {
-  -webkit-user-select: auto !important;
-  -moz-user-select: auto !important;
   user-select: auto !important;
 }
 
 .user-select-none {
-  -webkit-user-select: none !important;
-  -moz-user-select: none !important;
   user-select: none !important;
 }
 
@@ -1658,8 +1660,8 @@
 }
 
 .rounded-top {
-  border-top-right-radius: 0.25rem !important;
   border-top-left-radius: 0.25rem !important;
+  border-top-right-radius: 0.25rem !important;
 }
 
 .rounded-end {
@@ -1668,8 +1670,8 @@
 }
 
 .rounded-bottom {
-  border-bottom-left-radius: 0.25rem !important;
   border-bottom-right-radius: 0.25rem !important;
+  border-bottom-left-radius: 0.25rem !important;
 }
 
 .rounded-start {
@@ -1963,38 +1965,38 @@
   }
 
   .mx-sm-0 {
-    margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .mx-sm-1 {
-    margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .mx-sm-2 {
-    margin-left: 0.5rem !important;
     margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
 
   .mx-sm-3 {
-    margin-left: 1rem !important;
     margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
 
   .mx-sm-4 {
-    margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
 
   .mx-sm-5 {
-    margin-left: 3rem !important;
     margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .mx-sm-auto {
-    margin-left: auto !important;
     margin-right: auto !important;
+    margin-left: auto !important;
   }
 
   .my-sm-0 {
@@ -2169,33 +2171,33 @@
   }
 
   .px-sm-0 {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .px-sm-1 {
-    padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   .px-sm-2 {
-    padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
 
   .px-sm-3 {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .px-sm-4 {
-    padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 
   .px-sm-5 {
-    padding-left: 3rem !important;
     padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   .py-sm-0 {
@@ -2614,38 +2616,38 @@
   }
 
   .mx-md-0 {
-    margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .mx-md-1 {
-    margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .mx-md-2 {
-    margin-left: 0.5rem !important;
     margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
 
   .mx-md-3 {
-    margin-left: 1rem !important;
     margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
 
   .mx-md-4 {
-    margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
 
   .mx-md-5 {
-    margin-left: 3rem !important;
     margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .mx-md-auto {
-    margin-left: auto !important;
     margin-right: auto !important;
+    margin-left: auto !important;
   }
 
   .my-md-0 {
@@ -2820,33 +2822,33 @@
   }
 
   .px-md-0 {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .px-md-1 {
-    padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   .px-md-2 {
-    padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
 
   .px-md-3 {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .px-md-4 {
-    padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 
   .px-md-5 {
-    padding-left: 3rem !important;
     padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   .py-md-0 {
@@ -3265,38 +3267,38 @@
   }
 
   .mx-lg-0 {
-    margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .mx-lg-1 {
-    margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .mx-lg-2 {
-    margin-left: 0.5rem !important;
     margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
 
   .mx-lg-3 {
-    margin-left: 1rem !important;
     margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
 
   .mx-lg-4 {
-    margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
 
   .mx-lg-5 {
-    margin-left: 3rem !important;
     margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .mx-lg-auto {
-    margin-left: auto !important;
     margin-right: auto !important;
+    margin-left: auto !important;
   }
 
   .my-lg-0 {
@@ -3471,33 +3473,33 @@
   }
 
   .px-lg-0 {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .px-lg-1 {
-    padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   .px-lg-2 {
-    padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
 
   .px-lg-3 {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .px-lg-4 {
-    padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 
   .px-lg-5 {
-    padding-left: 3rem !important;
     padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   .py-lg-0 {
@@ -3916,38 +3918,38 @@
   }
 
   .mx-xl-0 {
-    margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .mx-xl-1 {
-    margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .mx-xl-2 {
-    margin-left: 0.5rem !important;
     margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
 
   .mx-xl-3 {
-    margin-left: 1rem !important;
     margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
 
   .mx-xl-4 {
-    margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
 
   .mx-xl-5 {
-    margin-left: 3rem !important;
     margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .mx-xl-auto {
-    margin-left: auto !important;
     margin-right: auto !important;
+    margin-left: auto !important;
   }
 
   .my-xl-0 {
@@ -4122,33 +4124,33 @@
   }
 
   .px-xl-0 {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .px-xl-1 {
-    padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   .px-xl-2 {
-    padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
 
   .px-xl-3 {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .px-xl-4 {
-    padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 
   .px-xl-5 {
-    padding-left: 3rem !important;
     padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   .py-xl-0 {
@@ -4567,38 +4569,38 @@
   }
 
   .mx-xxl-0 {
-    margin-left: 0 !important;
     margin-right: 0 !important;
+    margin-left: 0 !important;
   }
 
   .mx-xxl-1 {
-    margin-left: 0.25rem !important;
     margin-right: 0.25rem !important;
+    margin-left: 0.25rem !important;
   }
 
   .mx-xxl-2 {
-    margin-left: 0.5rem !important;
     margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
   }
 
   .mx-xxl-3 {
-    margin-left: 1rem !important;
     margin-right: 1rem !important;
+    margin-left: 1rem !important;
   }
 
   .mx-xxl-4 {
-    margin-left: 1.5rem !important;
     margin-right: 1.5rem !important;
+    margin-left: 1.5rem !important;
   }
 
   .mx-xxl-5 {
-    margin-left: 3rem !important;
     margin-right: 3rem !important;
+    margin-left: 3rem !important;
   }
 
   .mx-xxl-auto {
-    margin-left: auto !important;
     margin-right: auto !important;
+    margin-left: auto !important;
   }
 
   .my-xxl-0 {
@@ -4773,33 +4775,33 @@
   }
 
   .px-xxl-0 {
-    padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
 
   .px-xxl-1 {
-    padding-left: 0.25rem !important;
     padding-right: 0.25rem !important;
+    padding-left: 0.25rem !important;
   }
 
   .px-xxl-2 {
-    padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
   }
 
   .px-xxl-3 {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
+    padding-left: 1rem !important;
   }
 
   .px-xxl-4 {
-    padding-left: 1.5rem !important;
     padding-right: 1.5rem !important;
+    padding-left: 1.5rem !important;
   }
 
   .px-xxl-5 {
-    padding-left: 3rem !important;
     padding-right: 3rem !important;
+    padding-left: 3rem !important;
   }
 
   .py-xxl-0 {
@@ -4998,4 +5000,5 @@
     display: none !important;
   }
 }
+
 /*# sourceMappingURL=coreui-utilities.rtl.css.map */

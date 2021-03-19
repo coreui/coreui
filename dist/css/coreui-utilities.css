@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.2
+ * @version v4.0.0-alpha.3
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -423,183 +423,183 @@
 }
 
 .border-primary {
-  border-color: #321fdb !important;
+  border-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-secondary {
-  border-color: #9da5b1 !important;
+  border-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-success {
-  border-color: #2eb85c !important;
+  border-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-info {
-  border-color: #39f !important;
+  border-color: var(--cui-info, #39f) !important;
 }
 
 .border-warning {
-  border-color: #f9b115 !important;
+  border-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-danger {
-  border-color: #e55353 !important;
+  border-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-light {
-  border-color: #ebedef !important;
+  border-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-dark {
-  border-color: #4f5d73 !important;
+  border-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-white {
-  border-color: #fff !important;
+  border-color: var(--cui-white, #fff) !important;
 }
 
 .border-top-primary {
-  border-top-color: #321fdb !important;
+  border-top-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-top-secondary {
-  border-top-color: #9da5b1 !important;
+  border-top-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-top-success {
-  border-top-color: #2eb85c !important;
+  border-top-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-top-info {
-  border-top-color: #39f !important;
+  border-top-color: var(--cui-info, #39f) !important;
 }
 
 .border-top-warning {
-  border-top-color: #f9b115 !important;
+  border-top-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-top-danger {
-  border-top-color: #e55353 !important;
+  border-top-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-top-light {
-  border-top-color: #ebedef !important;
+  border-top-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-top-dark {
-  border-top-color: #4f5d73 !important;
+  border-top-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-top-white {
-  border-top-color: #fff !important;
+  border-top-color: var(--cui-white, #fff) !important;
 }
 
 .border-end-primary {
-  border-right-color: #321fdb !important;
+  border-right-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-end-secondary {
-  border-right-color: #9da5b1 !important;
+  border-right-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-end-success {
-  border-right-color: #2eb85c !important;
+  border-right-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-end-info {
-  border-right-color: #39f !important;
+  border-right-color: var(--cui-info, #39f) !important;
 }
 
 .border-end-warning {
-  border-right-color: #f9b115 !important;
+  border-right-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-end-danger {
-  border-right-color: #e55353 !important;
+  border-right-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-end-light {
-  border-right-color: #ebedef !important;
+  border-right-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-end-dark {
-  border-right-color: #4f5d73 !important;
+  border-right-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-end-white {
-  border-right-color: #fff !important;
+  border-right-color: var(--cui-white, #fff) !important;
 }
 
 .border-bottom-primary {
-  border-bottom-color: #321fdb !important;
+  border-bottom-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-bottom-secondary {
-  border-bottom-color: #9da5b1 !important;
+  border-bottom-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-bottom-success {
-  border-bottom-color: #2eb85c !important;
+  border-bottom-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-bottom-info {
-  border-bottom-color: #39f !important;
+  border-bottom-color: var(--cui-info, #39f) !important;
 }
 
 .border-bottom-warning {
-  border-bottom-color: #f9b115 !important;
+  border-bottom-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-bottom-danger {
-  border-bottom-color: #e55353 !important;
+  border-bottom-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-bottom-light {
-  border-bottom-color: #ebedef !important;
+  border-bottom-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-bottom-dark {
-  border-bottom-color: #4f5d73 !important;
+  border-bottom-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-bottom-white {
-  border-bottom-color: #fff !important;
+  border-bottom-color: var(--cui-white, #fff) !important;
 }
 
 .border-start-primary {
-  border-left-color: #321fdb !important;
+  border-left-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-start-secondary {
-  border-left-color: #9da5b1 !important;
+  border-left-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-start-success {
-  border-left-color: #2eb85c !important;
+  border-left-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-start-info {
-  border-left-color: #39f !important;
+  border-left-color: var(--cui-info, #39f) !important;
 }
 
 .border-start-warning {
-  border-left-color: #f9b115 !important;
+  border-left-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-start-danger {
-  border-left-color: #e55353 !important;
+  border-left-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-start-light {
-  border-left-color: #ebedef !important;
+  border-left-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-start-dark {
-  border-left-color: #4f5d73 !important;
+  border-left-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-start-white {
-  border-left-color: #fff !important;
+  border-left-color: var(--cui-white, #fff) !important;
 }
 
 .border-1 {
@@ -1484,127 +1484,127 @@
 
 /* rtl:end:remove */
 .text-primary {
-  color: var(--cui-text-primary, #321fdb) !important;
+  color: var(--cui-primary, #321fdb) !important;
 }
 
 .text-secondary {
-  color: var(--cui-text-secondary, #9da5b1) !important;
+  color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .text-success {
-  color: var(--cui-text-success, #2eb85c) !important;
+  color: var(--cui-success, #2eb85c) !important;
 }
 
 .text-info {
-  color: var(--cui-text-info, #39f) !important;
+  color: var(--cui-info, #39f) !important;
 }
 
 .text-warning {
-  color: var(--cui-text-warning, #f9b115) !important;
+  color: var(--cui-warning, #f9b115) !important;
 }
 
 .text-danger {
-  color: var(--cui-text-danger, #e55353) !important;
+  color: var(--cui-danger, #e55353) !important;
 }
 
 .text-light {
-  color: var(--cui-text-light, #ebedef) !important;
+  color: var(--cui-light, #ebedef) !important;
 }
 
 .text-dark {
-  color: var(--cui-text-dark, #4f5d73) !important;
+  color: var(--cui-dark, #4f5d73) !important;
 }
 
 .text-white {
-  color: var(--cui-text-white, #fff) !important;
+  color: var(--cui-white, #fff) !important;
 }
 
 .text-body {
-  color: var(--cui-text-body, rgba(44, 56, 74, 0.95)) !important;
+  color: var(--cui-body, rgba(44, 56, 74, 0.95)) !important;
 }
 
 .text-muted {
-  color: var(--cui-text-muted, rgba(44, 56, 74, 0.38)) !important;
+  color: var(--cui-muted, rgba(44, 56, 74, 0.38)) !important;
 }
 
 .text-black-50 {
-  color: var(--cui-text-black-50, rgba(0, 0, 21, 0.5)) !important;
+  color: var(--cui-black-50, rgba(0, 0, 21, 0.5)) !important;
 }
 
 .text-white-50 {
-  color: var(--cui-text-white-50, rgba(255, 255, 255, 0.5)) !important;
+  color: var(--cui-white-50, rgba(255, 255, 255, 0.5)) !important;
 }
 
 .text-reset {
-  color: var(--cui-text-reset, inherit) !important;
+  color: var(--cui-reset, inherit) !important;
 }
 
 .text-high-emphasis-inverse {
-  color: var(--cui-text-high-emphasis-inverse, rgba(255, 255, 255, 0.87)) !important;
+  color: var(--cui-high-emphasis-inverse, rgba(255, 255, 255, 0.87)) !important;
 }
 
 .text-medium-emphasis-inverse {
-  color: var(--cui-text-medium-emphasis-inverse, rgba(255, 255, 255, 0.6)) !important;
+  color: var(--cui-medium-emphasis-inverse, rgba(255, 255, 255, 0.6)) !important;
 }
 
 .text-disabled-inverse {
-  color: var(--cui-text-disabled-inverse, rgba(255, 255, 255, 0.38)) !important;
+  color: var(--cui-disabled-inverse, rgba(255, 255, 255, 0.38)) !important;
 }
 
 .text-high-emphasis {
-  color: var(--cui-text-high-emphasis, rgba(44, 56, 74, 0.95)) !important;
+  color: var(--cui-high-emphasis, rgba(44, 56, 74, 0.95)) !important;
 }
 
 .text-medium-emphasis {
-  color: var(--cui-text-medium-emphasis, rgba(44, 56, 74, 0.681)) !important;
+  color: var(--cui-medium-emphasis, rgba(44, 56, 74, 0.681)) !important;
 }
 
 .text-disabled {
-  color: var(--cui-text-disabled, rgba(44, 56, 74, 0.38)) !important;
+  color: var(--cui-disabled, rgba(44, 56, 74, 0.38)) !important;
 }
 
 .bg-primary {
-  background-color: var(--cui-bg-primary, #321fdb) !important;
+  background-color: var(--cui-primary, #321fdb) !important;
 }
 
 .bg-secondary {
-  background-color: var(--cui-bg-secondary, #9da5b1) !important;
+  background-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .bg-success {
-  background-color: var(--cui-bg-success, #2eb85c) !important;
+  background-color: var(--cui-success, #2eb85c) !important;
 }
 
 .bg-info {
-  background-color: var(--cui-bg-info, #39f) !important;
+  background-color: var(--cui-info, #39f) !important;
 }
 
 .bg-warning {
-  background-color: var(--cui-bg-warning, #f9b115) !important;
+  background-color: var(--cui-warning, #f9b115) !important;
 }
 
 .bg-danger {
-  background-color: var(--cui-bg-danger, #e55353) !important;
+  background-color: var(--cui-danger, #e55353) !important;
 }
 
 .bg-light {
-  background-color: var(--cui-bg-light, #ebedef) !important;
+  background-color: var(--cui-light, #ebedef) !important;
 }
 
 .bg-dark {
-  background-color: var(--cui-bg-dark, #4f5d73) !important;
+  background-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .bg-body {
-  background-color: var(--cui-bg-body, #fff) !important;
+  background-color: var(--cui-body, #fff) !important;
 }
 
 .bg-white {
-  background-color: var(--cui-bg-white, #fff) !important;
+  background-color: var(--cui-white, #fff) !important;
 }
 
 .bg-transparent {
-  background-color: var(--cui-bg-transparent, transparent) !important;
+  background-color: var(--cui-transparent, transparent) !important;
 }
 
 .bg-gradient {

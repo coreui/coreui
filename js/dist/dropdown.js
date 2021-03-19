@@ -1,5 +1,5 @@
 /*!
-  * CoreUI dropdown.js v4.0.0-alpha.2 (https://coreui.io)
+  * CoreUI dropdown.js v4.0.0-alpha.3 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -90,7 +90,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.2): alert.js
+   * CoreUI (v4.0.0-alpha.3): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -469,7 +469,7 @@
       } // We need to trim the value because custom properties can also include spaces
 
 
-      var isEnd = getComputedStyle(this._menu).getPropertyValue('--coreui-position').trim() === 'end';
+      var isEnd = getComputedStyle(this._menu).getPropertyValue('--cui-position').trim() === 'end';
 
       if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
         return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;

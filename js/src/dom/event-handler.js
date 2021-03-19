@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.2): dom/event-handler.js
+ * CoreUI (v4.0.0-alpha.3): dom/event-handler.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/event-handler.js
