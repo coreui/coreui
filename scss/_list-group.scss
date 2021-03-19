@@ -7,7 +7,7 @@
   flex-direction: column;
 
   // No need to set list-style: none; since .list-group-item is block level
-  padding-left: 0; // reset padding because ul and ol
+  @include ltr-rtl("padding-left", 0); // reset padding because ul and ol
   margin-bottom: 0;
   @include border-radius($list-group-border-radius);
 }
@@ -35,6 +35,7 @@
   &:active {
     color: var(--#{$variable-prefix}list-group-action-active-color, $list-group-action-active-color);
     background-color: var(--#{$variable-prefix}list-group-action-active-bg, $list-group-action-active-bg);
+    border-color: var(--#{$variable-prefix}list-group-action-active-border-color);
   }
 }
 
@@ -114,11 +115,11 @@
 
         + .list-group-item {
           border-top-width: $list-group-border-width;
-          border-left-width: 0;
+          @include ltr-rtl("border-left-width", 0);
 
           &.active {
-            margin-left: -$list-group-border-width;
-            border-left-width: $list-group-border-width;
+            @include ltr-rtl("margin-left", -$list-group-border-width);
+            @include ltr-rtl("border-left-width", $list-group-border-width);
           }
         }
       }
@@ -152,9 +153,9 @@
 // Organizationally, this must come after the `:hover` states.
 
 @each $state, $map in $list-group-variants {
-  $background: var(--#{$variable-prefix}list-group-background, map-get($map, "background"));
-  $background-hover: var(--#{$variable-prefix}list-group-background-hover, map-get($map, "background-hover"));
-  $color: var(--#{$variable-prefix}list-group-color, contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state));
+  $background: map-get($map, "background");
+  $background-hover: map-get($map, "background-hover");
+  $color: contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state);
 
   @include list-group-item-variant($state, $background, $background-hover, $color);
 }

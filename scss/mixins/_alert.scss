@@ -1,10 +1,8 @@
+// scss-docs-start alert-variant-mixin
 @mixin alert-variant($background, $border-color, $color, $link-color) {
-  color: $color;
-  @include gradient-bg($background);
-  border-color: $border-color;
-
-  .alert-link {
-    color: $link-color;
-  }
+  --#{$variable-prefix}alert-color: #{$color};
+  --#{$variable-prefix}alert-bg: #{$background};
+  --#{$variable-prefix}alert-border-color: #{$border-color};
+  --#{$variable-prefix}alert-link-color: #{$link-color};
 }
 // scss-docs-end alert-variant-mixin

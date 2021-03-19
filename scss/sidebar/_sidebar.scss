@@ -10,48 +10,46 @@
   padding: $sidebar-padding-y $sidebar-padding-x;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
   background: var(--#{$variable-prefix}sidebar-bg, $sidebar-bg);
-  border-right: var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color);
+  @include ltr-rtl("border-right", var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color));
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-width};
-  }
-
-  // + [data-coreui-reliant="sidebar"] {
-  //   @include transition($sidebar-reliant-transition);
-  // }
-
   @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
-    --is-mobile: true;
+    --#{$variable-prefix}is-mobile: true;
     position: fixed;
     top: 0;
     bottom: 0;
     z-index: $zindex-fixed + 1;
 
-    &:not(.sidebar-right){
-      left: 0;
+    &:not(.sidebar-end){
+      @include ltr-rtl("left", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
     }
-    &.sidebar-right {
-      right: 0;
+    &.sidebar-end {
+      @include ltr-rtl("right", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
 
+  }
+
+  &:not(.sidebar-end){
+    @include ltr-rtl("margin-left", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy: 0;
+      --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-width};
     }
   }
 
-  &:not(.sidebar-right){
-    // margin-left: - $sidebar-width;
-    margin-left: 0;
-  }
-
-  &.sidebar-right {
+  &.sidebar-end {
     order: 99;
-    // margin-right: - $sidebar-width;
-    margin-right: 0;
-
+    @include ltr-rtl("margin-right", 0);
+    ~ * {
+      --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-width};
+    }
   }
 
   &[class*="bg-"]  {
@@ -59,15 +57,17 @@
   }
 
   &.hide {
-    &:not(.sidebar-right){
-      margin-left: - $sidebar-width;
+    &:not(.sidebar-end){
+      @include ltr-rtl("margin-left", - $sidebar-width);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
     }
-    &.sidebar-right {
-      margin-right: - $sidebar-width;
-    }
-
-    ~ * {
-      --#{$variable-prefix}sidebar-occupy: 0;
+    &.sidebar-end {
+      @include ltr-rtl("margin-right", - $sidebar-width);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
   }
 
@@ -76,15 +76,17 @@
       flex: 0 0 $value;
       width: $value;
 
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy: #{$value};
+      &:not(.sidebar-end).hide {
+        @include ltr-rtl("margin-left", - $value);
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-start: #{$value};
+        }
       }
-
-      &:not(.sidebar-right).hide {
-        margin-left: - $value;
-      }
-      &.sidebar-right.hide {
-        margin-right: - $value;
+      &.sidebar-end.hide {
+        @include ltr-rtl("margin-right", - $value);
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-end: #{$value};
+        }
       }
     }
   }
@@ -96,12 +98,12 @@
       bottom: 0;
       z-index: $zindex-fixed;
 
-      &:not(.sidebar-right) {
-        left: 0;
+      &:not(.sidebar-end) {
+        @include ltr-rtl("left", 0);
       }
 
-      &.sidebar-right {
-        right: 0;
+      &.sidebar-end {
+        @include ltr-rtl("right", 0);
       }
     }
   }
@@ -120,12 +122,12 @@
     bottom: 0;
     z-index: $zindex-fixed + 2;
 
-    &:not(.sidebar-right) {
-      left: 0;
+    &:not(.sidebar-end) {
+      @include ltr-rtl("left", 0);
     }
 
-    &.sidebar-right {
-      right: 0;
+    &.sidebar-end {
+      @include ltr-rtl("right", 0);
     }
   }
 }
@@ -133,7 +135,7 @@
 .sidebar-close {
   position: absolute;
   top: 0;
-  right: 0;
+  @include ltr-rtl("right", 0);
   width: $sidebar-brand-height;
   height: $sidebar-header-height;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
@@ -202,11 +204,14 @@
     width: $sidebar-toggler-indicator-width;
     height: $sidebar-toggler-indicator-height;
     content: "";
-    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, $sidebar-toggler-indicator);
+    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
     background-repeat: no-repeat;
     background-position: center;
     background-size: $sidebar-toggler-indicator-height / 4;
     @include transition($sidebar-toggler-transition);
+    @include rtl() {
+      transform: rotate(-180deg);
+    }
   }
 
   &:focus {
@@ -216,11 +221,11 @@
   &:hover {
     background-color: var(--#{$variable-prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, $sidebar-toggler-hover-indicator);
+      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, escape-svg($sidebar-toggler-hover-indicator-icon));
     }
   }
 
-  .sidebar-right & {
+  .sidebar-end & {
     justify-content: flex-start;
     &::before {
       transform: rotate(-180deg);
@@ -233,7 +238,7 @@
   @include media-breakpoint-down($mobile-breakpoint) {
     position: fixed;
     top: 0;
-    left: 0;
+    @include ltr-rtl("left", 0);
     z-index: $zindex-fixed;
     width: 100vw;
     height: 100vh;
@@ -251,73 +256,30 @@
   @include media-breakpoint-down($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     .sidebar:not(.show).sidebar-self-hiding#{$infix} {
-      &:not(.sidebar-right) {
-        margin-left: - $sidebar-width;
+      &:not(.sidebar-end) {
+        @include ltr-rtl("margin-left", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
           &.sidebar-#{$width} {
-            margin-left: - $value;
+            @include ltr-rtl("margin-left", - $value);
           }
         }
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-start: 0;
+        }
       }
-      &.sidebar-right {
-        margin-right: - $sidebar-width;
+      &.sidebar-end {
+        @include ltr-rtl("margin-right", - $sidebar-width);
 
         @each $width, $value in $sidebar-widths {
           &.sidebar-#{$width} {
-            margin-right: - $value;
+            @include ltr-rtl("margin-right", - $value);
           }
         }
-      }
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy: 0;
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-end: 0;
+        }
       }
     }
   }
 }
-
-// Responsive behavior
-// stylelint-disable selector-max-class
-// @each $breakpoint in map-keys($grid-breakpoints) {
-//   @include media-breakpoint-up($breakpoint) {
-//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//     .sidebar.sidebar#{$infix}-show,
-//     .sidebar.sidebar-show {
-//       &:not(.sidebar-right){
-//         margin-left: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             ~ [data-coreui-reliant="sidebar"] {
-//               margin-left: $sidebar-width;
-//             }
-//             @each $width, $value in $sidebar-widths {
-//               &.sidebar-#{$width} {
-//                 ~ [data-coreui-reliant="sidebar"] {
-//                   margin-left: $value;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//       &.sidebar-right {
-//         margin-right: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             ~ [data-coreui-reliant="sidebar"] {
-//               margin-right: $sidebar-width;
-//             }
-//             @each $width, $value in $sidebar-widths {
-//               &.sidebar-#{$width} {
-//                 ~ [data-coreui-reliant="sidebar"] {
-//                   margin-right: $value;
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-//

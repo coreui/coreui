@@ -95,6 +95,10 @@ class Navigation extends BaseComponent {
 
   _setActiveLink() {
     Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
+      if (element.classList.contains(CLASS_NAME_NAV_GROUP_TOGGLE)) {
+        return
+      }
+
       let currentUrl = String(window.location)
 
       const urlHasParams = /\?.*=/

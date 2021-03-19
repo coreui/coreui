@@ -9,7 +9,7 @@
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
-    margin-right: $form-check-padding-start;
+    @include ltr-rtl("margin-right", $form-check-padding-start);
   }
 }
 
@@ -103,11 +103,11 @@
 //
 
 .form-switch {
-  padding-left: $form-switch-padding-start;
+  @include ltr-rtl("padding-left", $form-switch-padding-start);
 
   .form-check-input {
     width: $form-switch-width;
-    margin-left: $form-switch-padding-start * -1;
+    @include ltr-rtl("margin-left", $form-switch-padding-start * -1);
     background-image: var(--#{$variable-prefix}form-switch-bg-image, escape-svg($form-switch-bg-image));
     background-position: left center;
     @include border-radius($form-switch-border-radius);
@@ -134,19 +134,19 @@
 
   .form-switch-#{$width} {
     min-height: $height;
-    padding-left: $value + .5em;
+    @include ltr-rtl("padding-left", $value + .5em);
 
     .form-check-input {
       width: $value;
       height: $height;
-      margin-left: ($value + .5em) * -1;
+      @include ltr-rtl("margin-left", ($value + .5em) * -1);
     }
   }
 }
 
 .form-check-inline {
   display: inline-flex;
-  margin-right: $form-check-inline-margin-end;
+  @include ltr-rtl("margin-right", $form-check-inline-margin-end);
 }
 
 .btn-check {

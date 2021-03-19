@@ -172,10 +172,10 @@ address {
 
 // Lists
 
-ol,
-ul {
-  padding-left: 2rem;
-}
+// ol,
+// ul {
+//   @include ltr-rtl("padding-left", 2rem); // TODO: find solution
+// }
 
 ol,
 ul,
@@ -199,7 +199,7 @@ dt {
 
 dd {
   margin-bottom: .5rem;
-  margin-left: 0; // 1
+  @include ltr-rtl("margin-left", 0); // 1
 }
 
 
@@ -512,7 +512,7 @@ fieldset {
 //    See https://github.com/twbs/bootstrap/issues/29712
 
 legend {
-  float: left; // 1
+  @include ltr-rtl("float", left); // 1
   width: 100%;
   padding: 0;
   margin-bottom: $legend-margin-bottom;

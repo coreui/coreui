@@ -7,44 +7,73 @@
   font-family: $btn-font-family;
   font-weight: $btn-font-weight;
   line-height: $btn-line-height;
-  color: var(--#{$variable-prefix}body-color, $body-color);
+  color: var(--#{$variable-prefix}btn-color, $body-color);
   text-align: center;
   text-decoration: if($link-decoration == none, null, none);
   white-space: $btn-white-space;
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
-  background-color: transparent;
-  border: $btn-border-width solid transparent;
+  @include gradient-bg(var(--#{$variable-prefix}btn-bg, transparent));
+  border: $btn-border-width solid var(--#{$variable-prefix}btn-border-color, transparent);
+  @include box-shadow(var(--#{$variable-prefix}btn-box-shadow, $btn-box-shadow));
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 
   &:hover {
-    color: var(--#{$variable-prefix}body-color, $body-color);
+    color: var(--#{$variable-prefix}btn-hover-color, $body-color);
+    @include gradient-bg(var(--#{$variable-prefix}btn-hover-bg));
     text-decoration: if($link-hover-decoration == underline, none, null);
+    border-color: var(--#{$variable-prefix}btn-hover-border-color, transparent);
   }
 
   .btn-check:focus + &,
   &:focus {
+    color: var(--#{$variable-prefix}btn-hover-color);
+    @include gradient-bg(var(--#{$variable-prefix}btn-hover-bg));
+    border-color: var(--#{$variable-prefix}btn-hover-border-color, transparent);
     outline: 0;
-    box-shadow: $btn-focus-box-shadow;
+    // box-shadow: $btn-focus-box-shadow; // TODO: check this solution
+    @if $enable-shadows {
+      @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow));
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow);
+    }
   }
 
   .btn-check:checked + &,
   .btn-check:active + &,
   &:active,
-  &.active {
+  &.active,
+  .show > &.dropdown-toggle {
+    color: var(--#{$variable-prefix}btn-active-color);
+    background-color: var(--#{$variable-prefix}btn-active-bg);
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    border-color: var(--#{$variable-prefix}btn-active-border-color, transparent);
     @include box-shadow($btn-active-box-shadow);
 
     &:focus {
-      @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow);
+      // @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow); // TODO: check this solution
+      @if $enable-shadows {
+        @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow));
+      } @else {
+        // Avoid using mixin so we can pass custom focus shadow properly
+        box-shadow: 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow);
+      }
     }
   }
 
   &:disabled,
   &.disabled,
   fieldset:disabled & {
+    color: var(--#{$variable-prefix}btn-disabled-color);
     pointer-events: none;
+    background-color: var(--#{$variable-prefix}btn-disabled-bg);
+    // Remove CSS gradients if they're enabled
+    background-image: if($enable-gradients, none, null);
+    border-color: var(--#{$variable-prefix}btn-disabled-border-color, transparent);
     opacity: $btn-disabled-opacity;
     @include box-shadow(none);
   }
@@ -59,48 +88,55 @@
 @each $state, $map in $button-variants {
   .btn-#{$state} {
     @include button-variant(
-      $background: var(--#{$variable-prefix}btn-background, map-get($map, "background")),
-      $border: var(--#{$variable-prefix}btn-border-color, map-get($map, "border")),
-      $color: var(--#{$variable-prefix}btn-color, map-get($map, "color")),
-      $hover-background: var(--#{$variable-prefix}btn-hover-background, map-get($map, "hover-background")),
-      $hover-border: var(--#{$variable-prefix}btn-hover-border, map-get($map, "hover-border")),
-      $hover-color: var(--#{$variable-prefix}btn-hover-color, map-get($map, "hover-color")),
-      $active-background: var(--#{$variable-prefix}btn-active-background, map-get($map, "active-background")),
-      $active-border: var(--#{$variable-prefix}btn-active-border, map-get($map, "active-border")),
-      $active-color: var(--#{$variable-prefix}btn-active-color, map-get($map, "active-color")),
-      $disabled-background: var(--#{$variable-prefix}btn-disabled-background, map-get($map, "disabled-background")),
-      $disabled-border: var(--#{$variable-prefix}btn-disabled-border, map-get($map, "disabled-border")),
-      $disabled-color: var(--#{$variable-prefix}btn-disabled-color, map-get($map, "disabled-color")),
-      $shadow: var(--#{$variable-prefix}btn-shadow, map-get($map, "shadow"))
+      $background: map-get($map, "background"),
+      $border-color: map-get($map, "border-color"),
+      $color: map-get($map, "color"),
+      $hover-background: map-get($map, "hover-background"),
+      $hover-border-color: map-get($map, "hover-border-color"),
+      $hover-color: map-get($map, "hover-color"),
+      $active-background: map-get($map, "active-background"),
+      $active-border-color: map-get($map, "active-border-color"),
+      $active-color: map-get($map, "active-color"),
+      $disabled-background: map-get($map, "disabled-background"),
+      $disabled-border-color: map-get($map, "disabled-border-color"),
+      $disabled-color: map-get($map, "disabled-color"),
+      $shadow: map-get($map, "shadow")
     );
   }
 }
 // scss-docs-end button-modifiers
 
 // scss-docs-start button-outline-modifiers
-@each $state, $map in $button-variants {
+@each $state, $map in $button-outline-ghost-variants {
   .btn-outline-#{$state} {
     @include button-outline-variant(
-      $color: var(--#{$variable-prefix}btn-outline-color, map-get($map, "background")),
-      $color-hover: var(--#{$variable-prefix}btn-outline-hover-color, map-get($map, "color")),
-      $active-background: var(--#{$variable-prefix}btn-outline-active-background, map-get($map, "background")),
-      $active-border: var(--#{$variable-prefix}btn-outline-active-border, map-get($map, "background")),
-      $active-color: var(--#{$variable-prefix}btn-outline-active-color, map-get($map, "active-color")),
-      $shadow: var(--#{$variable-prefix}btn-outline-shadow, map-get($map, "shadow"))
+      $color: map-get($map, "color"),
+      $hover-background: map-get($map, "hover-background"),
+      $hover-border-color: map-get($map, "hover-border-color"),
+      $hover-color: map-get($map, "hover-color"),
+      $active-background: map-get($map, "active-background"),
+      $active-border-color: map-get($map, "active-border-color"),
+      $active-color: map-get($map, "active-color"),
+      $disabled-color: map-get($map, "disabled-color"),
+      $shadow: map-get($map, "shadow")
     );
   }
 }
 // scss-docs-end button-outline-modifiers
 
 // scss-docs-start button-ghost-modifiers
-@each $state, $map in $button-variants {
+@each $state, $map in $button-outline-ghost-variants {
   .btn-ghost-#{$state} {
     @include button-ghost-variant(
-      $color: var(--#{$variable-prefix}btn-ghost-color, map-get($map, "background")),
-      $color-hover: var(--#{$variable-prefix}btn-ghost-hover-color, map-get($map, "color")),
-      $active-background: var(--#{$variable-prefix}btn-ghost-active-background, map-get($map, "background")),
-      $active-border: var(--#{$variable-prefix}btn-ghost-active-border, map-get($map, "background")),
-      $shadow: var(--#{$variable-prefix}btn-ghost-shadow, map-get($map, "shadow"))
+      $color: map-get($map, "color"),
+      $hover-background: map-get($map, "hover-background"),
+      $hover-border-color: map-get($map, "hover-border-color"),
+      $hover-color: map-get($map, "hover-color"),
+      $active-background: map-get($map, "active-background"),
+      $active-border-color: map-get($map, "active-border-color"),
+      $active-color: map-get($map, "active-color"),
+      $disabled-color: map-get($map, "disabled-color"),
+      $shadow: map-get($map, "shadow")
     );
   }
 }

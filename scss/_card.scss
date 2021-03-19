@@ -69,7 +69,7 @@
   }
 
   + .card-link {
-    margin-left: $card-spacer-x;
+    @include ltr-rtl("margin-left", $card-spacer-x);
   }
 }
 
@@ -174,8 +174,8 @@
       margin-bottom: 0;
 
       + .card {
-        margin-left: 0;
-        border-left: 0;
+        @include ltr-rtl("margin-left", 0);
+        @include ltr-rtl("border-left", 0);
       }
 
       // Handle rounded corners

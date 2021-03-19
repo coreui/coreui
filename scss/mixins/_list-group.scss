@@ -2,22 +2,13 @@
 
 @mixin list-group-item-variant($state, $background, $background-hover, $color) {
   .list-group-item-#{$state} {
-    color: $color;
-    background-color: $background;
-
-    &.list-group-item-action {
-      &:hover,
-      &:focus {
-        color: $color;
-        background-color: $background-hover;
-      }
-
-      &.active {
-        color: $white;
-        background-color: $color;
-        border-color: $color;
-      }
-    }
+    --#{$variable-prefix}list-group-color: #{$color};
+    --#{$variable-prefix}list-group-bg: #{$background};
+    --#{$variable-prefix}list-group-hover-bg: #{$background-hover};
+    --#{$variable-prefix}list-group-action-hover-color: #{$color};
+    --#{$variable-prefix}list-group-action-active-color: #{$white};
+    --#{$variable-prefix}list-group-action-active-bg: #{$color};
+    --#{$variable-prefix}list-group-action-active-border-color: #{$color};
   }
 }
 // scss-docs-end list-group-mixin

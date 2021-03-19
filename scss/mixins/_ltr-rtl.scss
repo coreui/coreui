@@ -1,0 +1,60 @@
+@mixin ltr {
+  @if $enable-ltr {
+    html:not([dir="rtl"]) & {
+      @content;
+    }
+  }
+}
+
+@mixin rtl {
+  @if $enable-rtl {
+    *[dir="rtl"] & {
+      @content;
+    }
+  }
+}
+
+@function reflect($element) {
+  @if type-of($element) == string {
+    @if str-index($element, "left") {
+      @return str-replace($element, "left", "right");
+    }
+    @if str-index($element, "right") {
+      @return str-replace($element, "right", "left");
+    }
+  }
+
+  @return $element;
+}
+
+@mixin ltr-rtl($property, $value, $property-rtl: null, $value-rtl: null, $important: null) {
+  $property-reflected: reflect($property);
+  $value-reflected: reflect($value);
+
+  @if $enable-ltr and $enable-rtl {
+    @include ltr() {
+      #{$property}: $value $important;
+    }
+    @include rtl() {
+      @if $value-rtl {
+        #{$property-reflected}: $value-rtl $important;
+      }
+      @else {
+        #{$property-reflected}: $value-reflected $important;
+      }
+    }
+  }
+  @else {
+    @if $enable-rtl {
+      @if $value-rtl {
+        #{$property-reflected}: $value-rtl $important;
+      }
+      @else {
+        #{$property-reflected}: $value-reflected $important;
+      }
+    }
+    @else {
+      #{$property}: $value $important;
+    }
+  }
+}

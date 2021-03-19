@@ -30,6 +30,7 @@
 
     // Generate also CSS Variable
     $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), "false");
+    $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), "false");
 
     @if map-get($utility, rfs) {
       // Inside the media query
@@ -53,10 +54,15 @@
       .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
           @if $generate-vars == true {
-            #{$property}: var(--#{$variable-prefix}#{$property-class + $infix + $property-class-modifier}, $value) if($enable-important-utilities, !important, null);
+            #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
           }
           @else {
-            #{$property}: $value if($enable-important-utilities, !important, null);
+            @if $generate-rtl == true {
+              @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
+            }
+            @else {
+              #{$property}: $value if($enable-important-utilities, !important, null);
+            }
           }
         }
       }

@@ -59,7 +59,7 @@
         }
 
         &.nav-dropdown-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, $sidebar-nav-group-indicator-hover);
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
@@ -75,7 +75,7 @@
         }
 
         &.nav-group-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, $sidebar-nav-group-indicator-hover);
+          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
@@ -91,7 +91,7 @@
     @include transition(inherit);
 
     &:first-child {
-      margin-left: - $sidebar-nav-link-padding-x;
+      @include ltr-rtl("margin-left", - $sidebar-nav-link-padding-x);
     }
   }
 
@@ -116,7 +116,7 @@
       }
 
       > .nav-group-toggle::after {
-        transform: rotate(-90deg);
+        transform: rotate(180deg);
       }
 
       + .show {
@@ -130,15 +130,14 @@
 
     &::after {
       display: block;
-      flex: 0 8px;
-      height: 8px;
-      margin-left: auto;
+      flex: 0 12px;
+      height: 12px;
+      @include ltr-rtl("margin-left", auto);
       content: "";
-      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, $sidebar-nav-group-indicator);
+      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator-icon));
       background-repeat: no-repeat;
       background-position: center;
       @include transition($sidebar-nav-group-indicator-transition);
-      // transition: transform $layout-transition-speed; TODO: fix
     }
   }
 
@@ -148,17 +147,19 @@
     list-style: none;
 
     .nav-link {
-      padding-left: $sidebar-nav-icon-width;
+      @include ltr-rtl("padding-left", $sidebar-nav-icon-width);
 
       .nav-icon {
-        margin-left: - $sidebar-nav-icon-width;
+        @include ltr-rtl("margin-left", - $sidebar-nav-icon-width);
       }
     }
   }
-}
 
-.sidebar-nav-sm {
-  .nav-link {
-    padding: ($sidebar-nav-link-padding-y / 2) $sidebar-nav-link-padding-x;
+  &.compact,
+  .compact {
+    .nav-link {
+      padding-top: ($sidebar-nav-link-padding-y / 2);
+      padding-bottom: ($sidebar-nav-link-padding-y / 2);
+    }
   }
 }

@@ -33,8 +33,8 @@
 
 @mixin border-end-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-top-right-radius: valid-radius($radius);
-    border-bottom-right-radius: valid-radius($radius);
+    @include ltr-rtl("border-top-right-radius", valid-radius($radius));
+    @include ltr-rtl("border-bottom-right-radius", valid-radius($radius));
   }
 }
 
@@ -47,8 +47,8 @@
 
 @mixin border-start-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-top-left-radius: valid-radius($radius);
-    border-bottom-left-radius: valid-radius($radius);
+    @include ltr-rtl("border-top-left-radius", valid-radius($radius));
+    @include ltr-rtl("border-bottom-left-radius", valid-radius($radius));
   }
 }
 
@@ -60,19 +60,19 @@
 
 @mixin border-top-end-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-top-right-radius: valid-radius($radius);
+    @include ltr-rtl("border-top-right-radius", valid-radius($radius));
   }
 }
 
 @mixin border-bottom-end-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-bottom-right-radius: valid-radius($radius);
+    @include ltr-rtl("border-bottom-right-radius", valid-radius($radius));
   }
 }
 
 @mixin border-bottom-start-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-bottom-left-radius: valid-radius($radius);
+    @include ltr-rtl("border-bottom-left-radius", valid-radius($radius));
   }
 }
 // scss-docs-end border-radius-mixins

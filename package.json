@@ -17,10 +17,9 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs-serve",
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
-    "changelog": "auto-changelog --template changelog.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.0-alpha.0",
-    "css": "npm-run-all css-compile css-prefix css-rtl css-minify",
+    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.0-alpha.2",
+    "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
-    "css-rtl": "cross-env NODE_ENV=RTL postcss --config build/postcss.config.js --dir \"dist/css\" --ext \".rtl.css\" \"dist/css/*.css\" \"!dist/css/*.min.css\" \"!dist/css/*.rtl.css\"",
     "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
     "css-lint-stylelint": "stylelint \"**/*.{css,scss}\" --cache --cache-location .cache/.stylelintcache --rd",
     "css-lint-vars": "fusv scss/ docs/assets/scss/",
@@ -67,7 +66,6 @@
     "netlify": "cross-env-shell HUGO_BASEURL=$DEPLOY_PRIME_URL npm-run-all dist release-sri docs-build",
     "watch": "npm-run-all --parallel watch-*",
     "watch-css-main": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile css-prefix\"",
-    "watch-css-dist": "nodemon --watch dist/css/ --ext css --ignore \"dist/css/*.rtl.*\" --exec \"npm run css-rtl\"",
     "watch-css-docs": "nodemon --watch docs/assets/scss/ --ext scss --exec \"npm run css-lint\"",
     "watch-js-main": "nodemon --watch js/src/ --ext js --exec \"npm-run-all js-lint js-compile\"",
     "watch-js-docs": "nodemon --watch docs/assets/js/ --ext js --exec \"npm run js-lint\""
@@ -126,6 +124,7 @@
     "npm-run-all": "^4.1.5",
     "postcss": "^8.2.6",
     "postcss-cli": "^8.3.1",
+    "postcss-combine-duplicated-selectors": "^10.0.2",
     "rollup": "^2.40.0",
     "rollup-plugin-istanbul": "^3.0.0",
     "rtlcss": "^3.1.2",

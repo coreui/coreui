@@ -39,11 +39,11 @@
       bottom: 0;
 
       &::before {
-        transform: rotate(-180deg);
+        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
       }
     }
 
-    &.sidebar-right .sidebar-toggler::before {
+    &.sidebar-end .sidebar-toggler::before {
       transform: rotate(0deg);
     }
   }
@@ -51,8 +51,11 @@
 
 .sidebar-narrow {
   @extend %sidebar-narrow;
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  &:not(.sidebar-end) ~ * {
+    --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+  }
+  &.sidebar-end ~ * {
+    --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
   }
 }
 
@@ -60,8 +63,11 @@
   position: fixed;
   z-index: $zindex-fixed + 1;
 
-  ~ * {
-    --#{$variable-prefix}sidebar-occupy: #{$sidebar-narrow-width};
+  &:not(.sidebar-end) ~ * {
+    --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+  }
+  &.sidebar-end ~ * {
+    --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
   }
 
   &:not(:hover) {
@@ -71,11 +77,11 @@
   &:hover {
     .sidebar-toggler {
       &::before {
-        transform: rotate(-180deg);
+        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
       }
     }
 
-    &.sidebar-right .sidebar-toggler::before {
+    &.sidebar-end .sidebar-toggler::before {
       transform: rotate(0deg);
     }
   }
@@ -88,11 +94,11 @@
     .sidebar:not(.show).sidebar-self-hiding#{$infix} {
       &.sidebar-narrow,
       &.sidebar-narrow-unfoldable {
-        &:not(.sidebar-right) {
-          margin-left: - $sidebar-narrow-width;
+        &:not(.sidebar-end) {
+          @include ltr-rtl("margin-left", - $sidebar-narrow-width);
         }
-        &.sidebar-right {
-          margin-right: - $sidebar-narrow-width;
+        &.sidebar-end {
+          @include ltr-rtl("margin-right", - $sidebar-narrow-width);
         }
       }
     }
@@ -105,7 +111,7 @@
 //     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 //     .sidebar.sidebar#{$infix}-show,
 //     .sidebar.sidebar-show {
-//       &:not(.sidebar-right){
+//       &:not(.sidebar-end){
 //         margin-left: 0;
 //         @include media-breakpoint-up($mobile-breakpoint) {
 //           &.sidebar-fixed {
@@ -118,7 +124,7 @@
 //           }
 //         }
 //       }
-//       &.sidebar-right {
+//       &.sidebar-end {
 //         margin-right: 0;
 //         @include media-breakpoint-up($mobile-breakpoint) {
 //           &.sidebar-fixed {

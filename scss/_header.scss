@@ -61,7 +61,7 @@
 .header-brand {
   padding-top: $header-brand-padding-y;
   padding-bottom: $header-brand-padding-y;
-  margin-right: $header-brand-margin-end;
+  @include ltr-rtl("margin-right", $header-brand-margin-end);
   @include font-size($header-brand-font-size);
   color: var(--#{$variable-prefix}header-brand-color, $header-brand-color);
   text-decoration: if($link-decoration == none, null, none);
@@ -81,7 +81,7 @@
 .header-nav {
   display: flex;
   flex-direction: row; // cannot use `inherit` to get the `.header`s value
-  padding-left: 0;
+  @include ltr-rtl("padding-left", 0);
   margin-bottom: 0;
   list-style: none;
 
@@ -159,12 +159,12 @@
 .header-toggler-icon {
   display: block;
   height: $header-toggler-font-size * 1.25;
-  background-image: var(--#{$variable-prefix}header-toggler-icon-bg, $header-toggler-icon-bg);
+  background-image: var(--#{$variable-prefix}header-toggler-icon-bg, escape-svg($header-toggler-icon-bg));
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 
   &:hover {
-    background-image: var(--#{$variable-prefix}header-toggler-hover-icon-bg, $header-toggler-hover-icon-bg);
+    background-image: var(--#{$variable-prefix}header-toggler-hover-icon-bg, escape-svg($header-toggler-hover-icon-bg));
   }
 }
