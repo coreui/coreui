@@ -4,6 +4,8 @@
 
 ## [v4.0.0-alpha.3](https://github.com/coreui/coreui/compare/v4.0.0-alpha.2...v4.0.0-alpha.3)
 
+> 19 March 2021
+
 ### Features
 
 - feat: add RTL support [`0934ada`](https://github.com/coreui/coreui/commit/0934ada4355c90607d13b3bf19dd82252339387e)
