@@ -88,16 +88,16 @@
 @each $state, $map in $button-variants {
   .btn-#{$state} {
     @include button-variant(
-      $background: map-get($map, "background"),
+      $background: map-get($map, "bg"),
       $border-color: map-get($map, "border-color"),
       $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-background"),
+      $hover-background: map-get($map, "hover-bg"),
       $hover-border-color: map-get($map, "hover-border-color"),
       $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-background"),
+      $active-background: map-get($map, "active-bg"),
       $active-border-color: map-get($map, "active-border-color"),
       $active-color: map-get($map, "active-color"),
-      $disabled-background: map-get($map, "disabled-background"),
+      $disabled-background: map-get($map, "disabled-bg"),
       $disabled-border-color: map-get($map, "disabled-border-color"),
       $disabled-color: map-get($map, "disabled-color"),
       $shadow: map-get($map, "shadow")
@@ -111,10 +111,10 @@
   .btn-outline-#{$state} {
     @include button-outline-variant(
       $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-background"),
+      $hover-background: map-get($map, "hover-bg"),
       $hover-border-color: map-get($map, "hover-border-color"),
       $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-background"),
+      $active-background: map-get($map, "active-bg"),
       $active-border-color: map-get($map, "active-border-color"),
       $active-color: map-get($map, "active-color"),
       $disabled-color: map-get($map, "disabled-color"),
@@ -129,10 +129,10 @@
   .btn-ghost-#{$state} {
     @include button-ghost-variant(
       $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-background"),
+      $hover-background: map-get($map, "hover-bg"),
       $hover-border-color: map-get($map, "hover-border-color"),
       $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-background"),
+      $active-background: map-get($map, "active-bg"),
       $active-border-color: map-get($map, "active-border-color"),
       $active-color: map-get($map, "active-color"),
       $disabled-color: map-get($map, "disabled-color"),
