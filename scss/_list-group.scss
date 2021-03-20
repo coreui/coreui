@@ -153,9 +153,9 @@
 // Organizationally, this must come after the `:hover` states.
 
 @each $state, $map in $list-group-variants {
-  $background: map-get($map, "background");
-  $background-hover: map-get($map, "background-hover");
-  $color: contrast-ratio-correction(map-get($map, "color"), map-get($map, "background"), abs($alert-color-scale), $state);
+  $background: map-get($map, "bg");
+  $background-hover: map-get($map, "bg-hover");
+  $color: contrast-ratio-correction(map-get($map, "color"), map-get($map, "bg"), abs($alert-color-scale), $state);
 
   @include list-group-item-variant($state, $background, $background-hover, $color);
 }
