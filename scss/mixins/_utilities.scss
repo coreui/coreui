@@ -16,6 +16,10 @@
       $properties: append((), $properties);
     }
 
+    // Use class prefix if present
+    $property-class-prefix: if(map-has-key($utility, prefix), map-get($utility, prefix), null);
+    $property-class-prefix: if($property-class-prefix == null, "", $property-class-prefix);
+
     // Use custom class if present
     $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
@@ -29,8 +33,11 @@
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
 
     // Generate also CSS Variable
-    $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), "false");
-    $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), "false");
+    $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), false);
+    $generate-only-vars: if(map-has-key($utility, only-vars), map-get($utility, only-vars), false);
+
+    // Generate RTL version
+    $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), false);
 
     @if map-get($utility, rfs) {
       // Inside the media query
@@ -51,10 +58,15 @@
       @if $is-rtl == false {
         /* rtl:begin:remove */
       }
-      .#{$property-class + $infix + $property-class-modifier} {
+      .#{$property-class-prefix + $property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
-          @if $generate-vars == true {
-            #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
+          @if $generate-vars == true or $generate-only-vars == true {
+            @if $generate-only-vars {
+              #{$property}: var(--#{$variable-prefix}#{$key}) if($enable-important-utilities, !important, null);
+            }
+            @else {
+              #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
+            }
           }
           @else {
             @if $generate-rtl == true {
