@@ -85,60 +85,20 @@
 //
 // scss-docs-start btn-variant-loops
 // scss-docs-start button-modifiers
-@each $state, $map in $button-variants {
-  .btn-#{$state} {
-    @include button-variant(
-      $background: map-get($map, "bg"),
-      $border-color: map-get($map, "border-color"),
-      $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-bg"),
-      $hover-border-color: map-get($map, "hover-border-color"),
-      $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-bg"),
-      $active-border-color: map-get($map, "active-border-color"),
-      $active-color: map-get($map, "active-color"),
-      $disabled-background: map-get($map, "disabled-bg"),
-      $disabled-border-color: map-get($map, "disabled-border-color"),
-      $disabled-color: map-get($map, "disabled-color"),
-      $shadow: map-get($map, "shadow")
-    );
-  }
+@each $state, $variant in $button-variants {
+  @include button-variant($state, $variant);
 }
 // scss-docs-end button-modifiers
 
 // scss-docs-start button-outline-modifiers
-@each $state, $map in $button-outline-ghost-variants {
-  .btn-outline-#{$state} {
-    @include button-outline-variant(
-      $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-bg"),
-      $hover-border-color: map-get($map, "hover-border-color"),
-      $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-bg"),
-      $active-border-color: map-get($map, "active-border-color"),
-      $active-color: map-get($map, "active-color"),
-      $disabled-color: map-get($map, "disabled-color"),
-      $shadow: map-get($map, "shadow")
-    );
-  }
+@each $state, $variant in $button-outline-ghost-variants {
+  @include button-outline-variant($state, $variant);
 }
 // scss-docs-end button-outline-modifiers
 
 // scss-docs-start button-ghost-modifiers
-@each $state, $map in $button-outline-ghost-variants {
-  .btn-ghost-#{$state} {
-    @include button-ghost-variant(
-      $color: map-get($map, "color"),
-      $hover-background: map-get($map, "hover-bg"),
-      $hover-border-color: map-get($map, "hover-border-color"),
-      $hover-color: map-get($map, "hover-color"),
-      $active-background: map-get($map, "active-bg"),
-      $active-border-color: map-get($map, "active-border-color"),
-      $active-color: map-get($map, "active-color"),
-      $disabled-color: map-get($map, "disabled-color"),
-      $shadow: map-get($map, "shadow")
-    );
-  }
+@each $state, $variant in $button-outline-ghost-variants {
+  @include button-ghost-variant($state, $variant);
 }
 // scss-docs-end button-ghost-modifiers
 // scss-docs-end btn-variant-loops

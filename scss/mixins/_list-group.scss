@@ -1,6 +1,10 @@
 // List Groups
 // scss-docs-start list-group-mixin
-@mixin list-group-item-variant($state, $background, $background-hover, $color) {
+@mixin list-group-item-variant($state, $variant) {
+  $background: map-get($variant, "bg");
+  $background-hover: map-get($variant, "bg-hover");
+  $color: contrast-ratio-correction(map-get($variant, "color"), map-get($variant, "bg"), abs($alert-color-scale), $state);
+
   .list-group-item-#{$state} {
     --#{$variable-prefix}list-group-color: #{$color};
     --#{$variable-prefix}list-group-bg: #{$background};

@@ -4,84 +4,90 @@
 // and disabled options for all buttons
 
 // scss-docs-start btn-variant-mixin
-@mixin button-variant(
-  $background,
-  $border-color,
-  $color,
-  $hover-background,
-  $hover-border-color,
-  $hover-color,
-  $active-background,
-  $active-border-color,
-  $active-color,
-  $disabled-background,
-  $disabled-border-color,
-  $disabled-color,
-  $shadow
-) {
-  --#{$variable-prefix}btn-bg: #{$background};
-  --#{$variable-prefix}btn-border-color: #{$border-color};
-  --#{$variable-prefix}btn-color: #{$color};
-  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
-  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
-  --#{$variable-prefix}btn-hover-color: #{$hover-color};
-  --#{$variable-prefix}btn-active-bg: #{$active-background};
-  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
-  --#{$variable-prefix}btn-active-color: #{$active-color};
-  --#{$variable-prefix}btn-disabled-bg: #{$disabled-background};
-  --#{$variable-prefix}btn-disabled-border-color: #{$disabled-border-color};
-  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
-  --#{$variable-prefix}btn-shadow: #{$shadow};
+@mixin button-variant($state, $variant) {
+  $background: map-get($variant, "bg");
+  $border-color: map-get($variant, "border-color");
+  $color: map-get($variant, "color");
+  $hover-background: map-get($variant, "hover-bg");
+  $hover-border-color: map-get($variant, "hover-border-color");
+  $hover-color: map-get($variant, "hover-color");
+  $active-background: map-get($variant, "active-bg");
+  $active-border-color: map-get($variant, "active-border-color");
+  $active-color: map-get($variant, "active-color");
+  $disabled-background: map-get($variant, "disabled-bg");
+  $disabled-border-color: map-get($variant, "disabled-border-color");
+  $disabled-color: map-get($variant, "disabled-color");
+  $shadow: map-get($variant, "shadow");
+
+  .btn-#{$state} {
+    --#{$variable-prefix}btn-bg: #{$background};
+    --#{$variable-prefix}btn-border-color: #{$border-color};
+    --#{$variable-prefix}btn-color: #{$color};
+    --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+    --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+    --#{$variable-prefix}btn-hover-color: #{$hover-color};
+    --#{$variable-prefix}btn-active-bg: #{$active-background};
+    --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+    --#{$variable-prefix}btn-active-color: #{$active-color};
+    --#{$variable-prefix}btn-disabled-bg: #{$disabled-background};
+    --#{$variable-prefix}btn-disabled-border-color: #{$disabled-border-color};
+    --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
+    --#{$variable-prefix}btn-shadow: #{$shadow};
+  }
 }
 // scss-docs-end btn-variant-mixin
 
 // scss-docs-start btn-outline-variant-mixin
-@mixin button-outline-variant(
-  $color,
-  $hover-background,
-  $hover-border-color,
-  $hover-color,
-  $active-background,
-  $active-border-color,
-  $active-color,
-  $disabled-color,
-  $shadow
-) {
-  --#{$variable-prefix}btn-border-color: #{$color};
-  --#{$variable-prefix}btn-color: #{$color};
-  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
-  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
-  --#{$variable-prefix}btn-hover-color: #{$hover-color};
-  --#{$variable-prefix}btn-active-bg: #{$active-background};
-  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
-  --#{$variable-prefix}btn-active-color: #{$active-color};
-  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
-  --#{$variable-prefix}btn-shadow: #{$shadow};
+@mixin button-outline-variant($state, $variant) {
+  $color: map-get($variant, "color");
+  $hover-background: map-get($variant, "hover-bg");
+  $hover-border-color: map-get($variant, "hover-border-color");
+  $hover-color: map-get($variant, "hover-color");
+  $active-background: map-get($variant, "active-bg");
+  $active-border-color: map-get($variant, "active-border-color");
+  $active-color: map-get($variant, "active-color");
+  $disabled-color: map-get($variant, "disabled-color");
+  $shadow: map-get($variant, "shadow");
+
+  .btn-outline-#{$state} {
+    --#{$variable-prefix}btn-border-color: #{$color};
+    --#{$variable-prefix}btn-color: #{$color};
+    --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+    --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+    --#{$variable-prefix}btn-hover-color: #{$hover-color};
+    --#{$variable-prefix}btn-active-bg: #{$active-background};
+    --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+    --#{$variable-prefix}btn-active-color: #{$active-color};
+    --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
+    --#{$variable-prefix}btn-shadow: #{$shadow};
+  }
 }
 // scss-docs-end btn-outline-variant-mixin
 
 // Button Ghost
 
-@mixin button-ghost-variant(
-  $color,
-  $hover-background,
-  $hover-border-color,
-  $hover-color,
-  $active-background,
-  $active-border-color,
-  $active-color,
-  $disabled-color,
-  $shadow
-) {
-  --#{$variable-prefix}btn-color: #{$color};
-  --#{$variable-prefix}btn-hover-bg: #{$hover-background};
-  --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
-  --#{$variable-prefix}btn-hover-color: #{$hover-color};
-  --#{$variable-prefix}btn-active-bg: #{$active-background};
-  --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
-  --#{$variable-prefix}btn-active-color: #{$active-color};
-  --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
-  --#{$variable-prefix}btn-shadow: #{$shadow};
+@mixin button-ghost-variant($state, $variant) {
+  $color: map-get($variant, "color");
+  $hover-background: map-get($variant, "hover-bg");
+  $hover-border-color: map-get($variant, "hover-border-color");
+  $hover-color: map-get($variant, "hover-color");
+  $active-background: map-get($variant, "active-bg");
+  $active-border-color: map-get($variant, "active-border-color");
+  $active-color: map-get($variant, "active-color");
+  $disabled-color: map-get($variant, "disabled-color");
+  $shadow: map-get($variant, "shadow");
+
+  .btn-ghost-#{$state} {
+    --#{$variable-prefix}btn-color: #{$color};
+    --#{$variable-prefix}btn-hover-bg: #{$hover-background};
+    --#{$variable-prefix}btn-hover-border-color: #{$hover-border-color};
+    --#{$variable-prefix}btn-hover-color: #{$hover-color};
+    --#{$variable-prefix}btn-active-bg: #{$active-background};
+    --#{$variable-prefix}btn-active-border-color: #{$active-border-color};
+    --#{$variable-prefix}btn-active-color: #{$active-color};
+    --#{$variable-prefix}btn-disabled-color: #{$disabled-color};
+    --#{$variable-prefix}btn-shadow: #{$shadow};
+  }
 }
 
 // Button sizes
