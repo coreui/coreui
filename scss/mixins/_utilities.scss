@@ -16,10 +16,6 @@
       $properties: append((), $properties);
     }
 
-    // Use class prefix if present
-    $property-class-prefix: if(map-has-key($utility, prefix), map-get($utility, prefix), null);
-    $property-class-prefix: if($property-class-prefix == null, "", $property-class-prefix);
-
     // Use custom class if present
     $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
@@ -32,12 +28,15 @@
     // Don't prefix if value key is null (eg. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
 
-    // Generate also CSS Variable
+    // Generate CSS Variable
     $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), false);
     $generate-only-vars: if(map-has-key($utility, only-vars), map-get($utility, only-vars), false);
 
     // Generate RTL version
     $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), false);
+
+    // // Add theme prefix
+    // $theme-prefix: if(map-has-key($utility, theme-prefix), map-get($utility, theme-prefix), false);
 
     @if map-get($utility, rfs) {
       // Inside the media query
@@ -58,7 +57,8 @@
       @if $is-rtl == false {
         /* rtl:begin:remove */
       }
-      .#{$property-class-prefix + $property-class + $infix + $property-class-modifier} {
+
+      .#{$property-class + $infix + $property-class-modifier} {
         @each $property in $properties {
           @if $generate-vars == true or $generate-only-vars == true {
             @if $generate-only-vars {
