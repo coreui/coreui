@@ -7,7 +7,7 @@ aliases: "/migration/"
 toc: true
 ---
 
-## v4.0.0-alpha.3
+## v4.0.0-alpha.4
 
 ### Utilities
 
@@ -24,7 +24,7 @@ toc: true
 - Dropdown menus now have a `data-coreui-popper="static"` attribute set when the positioning of the dropdown is static and `data-coreui-popper="none"` when dropdown is in the navbar. This is added by our JavaScript and helps us use custom position styles without interfering with Popper's positioning.
 - `popperConfig` can be passed as a function that accepts the Bootstrap's default Popper config as an argument, so that you can merge this default configuration in your way.
 
-## v4.0.0-alpha.3
+## v4.0.0-alpha.4
 
 ### Sidebar
 

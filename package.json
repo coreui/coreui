@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten by the CoreUI Team",
-  "version": "4.0.0-alpha.3",
+  "version": "4.0.0-alpha.4",
   "version_short": "4.0",
   "keywords": [
     "css",
@@ -17,7 +17,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs-serve",
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
-    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.0-alpha.3",
+    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.0-alpha.4",
     "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
     "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
