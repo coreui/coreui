@@ -55,7 +55,8 @@ function walkAsync(directory, excludedDirectories, fileCallback, errback) {
   })
 }
 
-function replaceRecursively(directory, excludedDirectories, allowedExtensions, original, replacement) {
+// eslint-disable-next-line max-params
+function replaceRecursively(directory, excludedDirectories, excludedFiles, allowedExtensions, original, replacement) {
   original = new RegExp(regExpQuote(original), 'g')
   replacement = regExpQuoteReplacement(replacement)
   const updateFile = DRY_RUN ?
@@ -67,7 +68,7 @@ function replaceRecursively(directory, excludedDirectories, allowedExtensions, o
       }
     } :
     filepath => {
-      if (allowedExtensions.has(path.parse(filepath).ext)) {
+      if (allowedExtensions.has(path.parse(filepath).ext) && !excludedFiles.has(path.parse(filepath).base)) {
         sh.sed('-i', original, replacement, filepath)
       }
     }
@@ -94,6 +95,9 @@ function main(args) {
     'node_modules',
     'resources'
   ])
+  const EXCLUDED_FILES = new Set([
+    'CHANGELOG.md'
+  ])
   const INCLUDED_EXTENSIONS = new Set([
     // This extension allowlist is how we avoid modifying binary files
     '',
@@ -106,7 +110,7 @@ function main(args) {
     '.txt',
     '.yml'
   ])
-  replaceRecursively('.', EXCLUDED_DIRS, INCLUDED_EXTENSIONS, oldVersion, newVersion)
+  replaceRecursively('.', EXCLUDED_DIRS, EXCLUDED_FILES, INCLUDED_EXTENSIONS, oldVersion, newVersion)
 }
 
 main(process.argv.slice(2))
