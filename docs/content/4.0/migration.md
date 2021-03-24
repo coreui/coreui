@@ -7,6 +7,27 @@ aliases: "/migration/"
 toc: true
 ---
 
+## v4.0.0-alpha.5
+
+### Components
+
+- Added new [`.list-group-numbered` modifier]({{< docsref "/components/list-group#numbered" >}}) to list groups.
+
+### JavaScript
+
+- All plugins can now accept a CSS selector as the first argument. You can either pass a DOM element or any valid CSS selector to create a new instance of the plugin:
+
+  ```js
+  var modal = new coreui.Modal('#myModal')
+  var dropdown = new coreui.Dropdown('[data-coreui-toggle="dropdown"]')
+  ```
+
+- Dropped `flip` option for dropdown plugin in favor of native popper configuration. You can now disable the flipping behavior by passing an empty array for [`fallbackPlacements`](https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements) option in [flip](https://popper.js.org/docs/v2/modifiers/flip/) modifier.
+
+### Utilities
+
+- Dropped the `0` entry in `$border-widths` map to remove the duplicated `.border-0` class.
+
 ## v4.0.0-alpha.4
 
 ### Utilities
@@ -24,9 +45,9 @@ toc: true
 - Dropdown menus now have a `data-coreui-popper="static"` attribute set when the positioning of the dropdown is static and `data-coreui-popper="none"` when dropdown is in the navbar. This is added by our JavaScript and helps us use custom position styles without interfering with Popper's positioning.
 - `popperConfig` can be passed as a function that accepts the Bootstrap's default Popper config as an argument, so that you can merge this default configuration in your way.
 
-## v4.0.0-alpha.4
+### Components
 
-### Sidebar
+#### Sidebar
 
 - Change responsive behavior
 

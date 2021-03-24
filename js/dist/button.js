@@ -15,38 +15,6 @@
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
-  function _inheritsLoose(subClass, superClass) {
-    subClass.prototype = Object.create(superClass.prototype);
-    subClass.prototype.constructor = subClass;
-
-    _setPrototypeOf(subClass, superClass);
-  }
-
-  function _setPrototypeOf(o, p) {
-    _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {
-      o.__proto__ = p;
-      return o;
-    };
-
-    return _setPrototypeOf(o, p);
-  }
-
   /**
    * --------------------------------------------------------------------------
    * CoreUI (v4.0.0-alpha.4): alert.js
@@ -57,9 +25,10 @@
    * --------------------------------------------------------------------------
    */
 
-  var getjQuery = function getjQuery() {
-    var _window = window,
-        jQuery = _window.jQuery;
+  const getjQuery = () => {
+    const {
+      jQuery
+    } = window;
 
     if (jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
       return jQuery;
@@ -68,7 +37,7 @@
     return null;
   };
 
-  var onDOMContentLoaded = function onDOMContentLoaded(callback) {
+  const onDOMContentLoaded = callback => {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', callback);
     } else {
@@ -76,17 +45,17 @@
     }
   };
 
-  var defineJQueryPlugin = function defineJQueryPlugin(name, plugin) {
-    onDOMContentLoaded(function () {
-      var $ = getjQuery();
+  const defineJQueryPlugin = (name, plugin) => {
+    onDOMContentLoaded(() => {
+      const $ = getjQuery();
       /* istanbul ignore if */
 
       if ($) {
-        var JQUERY_NO_CONFLICT = $.fn[name];
+        const JQUERY_NO_CONFLICT = $.fn[name];
         $.fn[name] = plugin.jQueryInterface;
         $.fn[name].Constructor = plugin;
 
-        $.fn[name].noConflict = function () {
+        $.fn[name].noConflict = () => {
           $.fn[name] = JQUERY_NO_CONFLICT;
           return plugin.jQueryInterface;
         };
@@ -95,43 +64,49 @@
   };
 
   /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.0-alpha.4): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's button.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+  /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var NAME = 'button';
-  var DATA_KEY = 'coreui.button';
-  var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
-  var CLASS_NAME_ACTIVE = 'active';
-  var SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="button"]';
-  var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
+  const NAME = 'button';
+  const DATA_KEY = 'coreui.button';
+  const EVENT_KEY = `.${DATA_KEY}`;
+  const DATA_API_KEY = '.data-api';
+  const CLASS_NAME_ACTIVE = 'active';
+  const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="button"]';
+  const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
   /**
    * ------------------------------------------------------------------------
    * Class Definition
    * ------------------------------------------------------------------------
    */
 
-  var Button = /*#__PURE__*/function (_BaseComponent) {
-    _inheritsLoose(Button, _BaseComponent);
+  class Button extends BaseComponent__default['default'] {
+    // Getters
+    static get DATA_KEY() {
+      return DATA_KEY;
+    } // Public
 
-    function Button() {
-      return _BaseComponent.apply(this, arguments) || this;
-    }
 
-    var _proto = Button.prototype;
-
-    // Public
-    _proto.toggle = function toggle() {
+    toggle() {
       // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
       this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE));
     } // Static
-    ;
 
-    Button.jQueryInterface = function jQueryInterface(config) {
+
+    static jQueryInterface(config) {
       return this.each(function () {
-        var data = Data__default['default'].get(this, DATA_KEY);
+        let data = Data__default['default'].get(this, DATA_KEY);
 
         if (!data) {
           data = new Button(this);
@@ -141,18 +116,9 @@
           data[config]();
         }
       });
-    };
+    }
 
-    _createClass(Button, null, [{
-      key: "DATA_KEY",
-      get: // Getters
-      function get() {
-        return DATA_KEY;
-      }
-    }]);
-
-    return Button;
-  }(BaseComponent__default['default']);
+  }
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
@@ -160,10 +126,10 @@
    */
 
 
-  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
     event.preventDefault();
-    var button = event.target.closest(SELECTOR_DATA_TOGGLE);
-    var data = Data__default['default'].get(button, DATA_KEY);
+    const button = event.target.closest(SELECTOR_DATA_TOGGLE);
+    let data = Data__default['default'].get(button, DATA_KEY);
 
     if (!data) {
       data = new Button(button);

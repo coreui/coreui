@@ -39,31 +39,35 @@ In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two
 
 ```scss
 // Custom.scss
-// Option A: Include all of Bootstrap
+// Option A: Include all of CoreUI
 
-@import "../node_modules/coreui/scss/bootstrap";
+@import "../node_modules/@coreui/coreui/scss/coreui";
 
-// Add custom code after this
+// Then add additional custom code here
 ```
 
 ```scss
 // Custom.scss
-// Option B: Include parts of Bootstrap
+// Option B: Include parts of CoreUI
 
-// Required
-@import "../node_modules/coreui/scss/functions";
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../node_modules/@coreui/coreui/scss/functions";
 
-// Include custom variable default overrides here
+// 2. Include any default variable overrides here
 
-// Optional
-@import "../node_modules/coreui/scss/root";
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
-@import "../node_modules/coreui/scss/images";
-@import "../node_modules/coreui/scss/containers";
-@import "../node_modules/coreui/scss/grid";
+// 3. Include remainder of required CoreUI stylesheets
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+
+// 4. Include any optional CoreUI components as you like
+@import "../node_modules/@coreui/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
+@import "../node_modules/@coreui/coreui/scss/images";
+@import "../node_modules/@coreui/coreui/scss/containers";
+@import "../node_modules/@coreui/coreui/scss/grid";
+
+// 5. Add additional custom code here
 ```
 
 With that setup in place, you can begin to modify any of the Sass variables and maps in your `custom.scss`. You can also start to add parts of CoreUI for Bootstrap under the `// Optional` section as needed. We suggest using the full import stack from our `coreui.scss` file as your starting point.
@@ -80,24 +84,26 @@ Here's an example that changes the `background-color` and `color` for the `<body
 
 ```scss
 // Required
-@import "../node_modules/coreui/scss/functions";
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
+@import "../node_modules/@coreui/coreui/scss/functions";
 
-// Your variable overrides
+// Default variable overrides
 $body-bg: #000;
 $body-color: #111;
 
+// Required
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+
 // CoreUI and its default variables
 
-// Optional
-@import "../node_modules/coreui/scss/root";
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
+// Optional CoreUI components here
+@import "../node_modules/@coreui/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
 // etc
 ```
 
-Repeat as necessary for any variable in Bootstrap, including the global options below.
+Repeat as necessary for any variable in CoreUI, including the global options below.
 
 {{< callout info >}}
 {{< partial "callout-info-npm-starter.md" >}}
@@ -147,16 +153,16 @@ To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aw
 
 ```scss
 // Required
-@import "../node_modules/coreui/scss/functions";
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
+@import "../node_modules/@coreui/coreui/scss/functions";
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/mixins";
 
 $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 
 // Optional
-@import "../node_modules/coreui/scss/root";
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
+@import "../node_modules/@coreui/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
 // etc
 ```
 

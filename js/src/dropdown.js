@@ -62,7 +62,6 @@ const CLASS_NAME_DROPSTART = 'dropstart'
 const CLASS_NAME_NAVBAR = 'navbar'
 
 const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="dropdown"]'
-const SELECTOR_FORM_CHILD = '.dropdown form'
 const SELECTOR_MENU = '.dropdown-menu'
 const SELECTOR_NAVBAR_NAV = '.navbar-nav'
 const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)'
@@ -256,7 +255,6 @@ class Dropdown extends BaseComponent {
   _addEventListeners() {
     EventHandler.on(this._element, EVENT_CLICK, event => {
       event.preventDefault()
-      event.stopPropagation()
       this.toggle()
     })
   }
@@ -380,8 +378,14 @@ class Dropdown extends BaseComponent {
   }
 
   static clearMenus(event) {
-    if (event && (event.button === RIGHT_MOUSE_BUTTON || (event.type === 'keyup' && event.key !== TAB_KEY))) {
-      return
+    if (event) {
+      if (event.button === RIGHT_MOUSE_BUTTON || (event.type === 'keyup' && event.key !== TAB_KEY)) {
+        return
+      }
+
+      if (/input|select|textarea|form/i.test(event.target.tagName)) {
+        return
+      }
     }
 
     const toggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE)
@@ -405,11 +409,16 @@ class Dropdown extends BaseComponent {
         continue
       }
 
-      if (event && ((event.type === 'click' &&
-          /input|textarea/i.test(event.target.tagName)) ||
-          (event.type === 'keyup' && event.key === TAB_KEY)) &&
-          dropdownMenu.contains(event.target)) {
-        continue
+      if (event) {
+        // Don't close the menu if the clicked element or one of its parents is the dropdown button
+        if ([context._element].some(element => event.composedPath().includes(element))) {
+          continue
+        }
+
+        // Tab navigation through the dropdown menu shouldn't close the menu
+        if (event.type === 'keyup' && event.key === TAB_KEY && dropdownMenu.contains(event.target)) {
+          continue
+        }
       }
 
       const hideEvent = EventHandler.trigger(toggles[i], EVENT_HIDE, relatedTarget)
@@ -522,10 +531,8 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus)
 EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus)
 EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
   event.preventDefault()
-  event.stopPropagation()
-  Dropdown.dropdownInterface(this, 'toggle')
+  Dropdown.dropdownInterface(this)
 })
-EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, e => e.stopPropagation())
 
 /**
  * ------------------------------------------------------------------------

@@ -25,9 +25,9 @@ Offcanvas is a sidebar component that can be toggled via JavaScript to appear fr
 
 ### Offcanvas components
 
-Below is a _static_ offcanvas example (meaning its `position`, `display`, and `visibility` have been overridden). Offcanvas includes support for a header with a close button and an optional body class for some initial `padding`. We suggest that you include offcanvas headers with dismiss actions whenever possible, or provide an explicit dismiss action.
+Below is an offcanvas example that is shown by default (via `.show` on `.offcanvas`). Offcanvas includes support for a header with a close button and an optional body class for some initial `padding`. We suggest that you include offcanvas headers with dismiss actions whenever possible, or provide an explicit dismiss action.
 
-{{< example class="bd-example-offcanvas p-0 bg-light" >}}
+{{< example class="bd-example-offcanvas p-0 bg-light overflow-hidden" >}}
 <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
@@ -117,16 +117,16 @@ Try the right and bottom examples out below.
 </div>
 {{< /example >}}
 
-## Options
+## Backdrop
 
-By default, we disable scrolling on the `<body>` when an offcanvas is visible and use a gray backdrop. Use the `data-coreui-body` attribute to enable `<body>` scrolling, or a combination of both options
+Scrolling the `<body>` element is disabled when an offcanvas and its backdrop are visible. Use the `data-coreui-scroll` attribute to toggle `<body>` scrolling and `data-coreui-backdrop` to toggle the backdrop.
 
 {{< example >}}
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">Enable backdrop (default)</button>
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
 
-<div class="offcanvas offcanvas-start" data-coreui-body="scroll" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+<div class="offcanvas offcanvas-start" data-coreui-body="scroll" data-coreui-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
     <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
@@ -135,7 +135,7 @@ By default, we disable scrolling on the `<body>` when an offcanvas is visible an
     <p>Try scrolling the rest of the page to see this option in action.</p>
   </div>
 </div>
-<div class="offcanvas offcanvas-start" data-coreui-body="backdrop" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
     <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
@@ -144,7 +144,7 @@ By default, we disable scrolling on the `<body>` when an offcanvas is visible an
     <p>.....</p>
   </div>
 </div>
-<div class="offcanvas offcanvas-start" data-coreui-body="scroll,backdrop" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+<div class="offcanvas offcanvas-start" data-coreui-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdroped with scrolling</h5>
     <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
@@ -168,9 +168,6 @@ The offcanvas plugin utilizes a few classes and attributes to handle the heavy l
 - `.offcanvas-start` hides the offcanvas on the left
 - `.offcanvas-end` hides the offcanvas on the right
 - `.offcanvas-bottom` hides the offcanvas on the bottom
-- `data-coreui-body="scroll"` enables `<body>` scrolling when offcanvas is open
-- `data-coreui-body="backdrop"` disables scrolling and creates a backdrop over the `<body>` when offcanvas is open `(default)`
-- `data-coreui-body="backdrop,scroll"` combines both options to enable `<body>` scrolling and create a backdrop over the `<body>` when offcanvas is open
 
 Add a dismiss button with the `data-coreui-dismiss="offcanvas"` attribute, which triggers the JavaScript functionality. Be sure to use the `<button>` element with it for proper behavior across all devices.
 
@@ -189,6 +186,18 @@ var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
 })
 ```
 
+### Options
+
+Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-backdrop=""`.
+
+{{< bs-table "table" >}}
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `backdrop` | boolean | `true` | Apply a backdrop on body while offcanvas is open |
+| `keyboard` | boolean | `true` | Closes the offcanvas when escape key is pressed |
+| `scroll` | boolean | `false` | Allow body scrolling while offcanvas is open |
+{{< /bs-table >}}
+
 ### Methods
 
 {{< callout danger >}}
@@ -204,43 +213,27 @@ var myOffcanvas = document.getElementById('myOffcanvas')
 var bsOffcanvas = new bootstrap.Offcanvas(myOffcanvas)
 ```
 
+{{< bs-table "table" >}}
 | Method | Description |
 | --- | --- |
 | `toggle` | Toggles an offcanvas element to shown or hidden. **Returns to the caller before the offcanvas element has actually been shown or hidden** (i.e. before the `shown.coreui.offcanvas` or `hidden.coreui.offcanvas` event occurs). |
 | `show` | Shows an offcanvas element. **Returns to the caller before the offcanvas element has actually been shown** (i.e. before the `shown.coreui.offcanvas` event occurs).|
 | `hide` | Hides an offcanvas element. **Returns to the caller before the offcanvas element has actually been hidden** (i.e. before the `hidden.coreui.offcanvas` event occurs).|
 | `_getInstance` | *Static* method which allows you to get the offcanvas instance associated with a DOM element |
+{{< /bs-table >}}
 
 ### Events
 
 Bootstrap's offcanvas class exposes a few events for hooking into offcanvas functionality.
 
-<table class="table table-bordered table-striped">
-  <thead>
-    <tr>
-      <th style="width: 150px;">Event Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>show.coreui.offcanvas</td>
-      <td>This event fires immediately when the <code>show</code> instance method is called.</td>
-    </tr>
-    <tr>
-      <td>shown.coreui.offcanvas</td>
-      <td>This event is fired when an offcanvas element has been made visible to the user (will wait for CSS transitions to complete).</td>
-    </tr>
-    <tr>
-      <td>hide.coreui.offcanvas</td>
-      <td>This event is fired immediately when the <code>hide</code> method has been called.</td>
-    </tr>
-    <tr>
-      <td>hidden.coreui.offcanvas</td>
-      <td>This event is fired when an offcanvas element has been hidden from the user (will wait for CSS transitions to complete).</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Event type | Description |
+| --- | --- |
+| `show.coreui.offcanvas` | This event fires immediately when the `show` instance method is called. |
+| `shown.coreui.offcanvas` | This event is fired when an offcanvas element has been made visible to the user (will wait for CSS transitions to complete). |
+| `hide.coreui.offcanvas` | This event is fired immediately when the `hide` method has been called. |
+| `hidden.coreui.offcanvas` | This event is fired when an offcanvas element has been hidden from the user (will wait for CSS transitions to complete). |
+{{< /bs-table >}}
 
 ```js
 var myOffcanvas = document.getElementById('myOffcanvas')

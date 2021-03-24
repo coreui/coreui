@@ -1112,7 +1112,7 @@ describe('Dropdown', () => {
 
       btnDropdown.addEventListener('shown.coreui.dropdown', () => {
         // Popper adds this attribute when we use it
-        expect(dropdownMenu.getAttribute('x-placement')).toEqual(null)
+        expect(dropdownMenu.getAttribute('data-popper-placement')).toEqual(null)
         done()
       })
 
@@ -1782,5 +1782,52 @@ describe('Dropdown', () => {
     })
 
     triggerDropdown.dispatchEvent(keydown)
+  })
+
+  it('should allow `data-coreui-toggle="dropdown"` click events to bubble up', () => {
+    fixtureEl.innerHTML = [
+      '<div class="dropdown">',
+      '  <button class="btn dropdown-toggle" data-coreui-toggle="dropdown">Dropdown</button>',
+      '  <div class="dropdown-menu">',
+      '    <a class="dropdown-item" href="#">Secondary link</a>',
+      '  </div>',
+      '</div>'
+    ].join('')
+
+    const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
+    const clickListener = jasmine.createSpy('clickListener')
+    const delegatedClickListener = jasmine.createSpy('delegatedClickListener')
+
+    btnDropdown.addEventListener('click', clickListener)
+    document.addEventListener('click', delegatedClickListener)
+
+    btnDropdown.click()
+
+    expect(clickListener).toHaveBeenCalled()
+    expect(delegatedClickListener).toHaveBeenCalled()
+  })
+
+  it('should open the dropdown when clicking the child element inside `data-coreui-toggle="dropdown"`', done => {
+    fixtureEl.innerHTML = [
+      '<div class="container">',
+      '  <div class="dropdown">',
+      '    <button class="btn dropdown-toggle" data-coreui-toggle="dropdown"><span id="childElement">Dropdown</span></button>',
+      '    <div class="dropdown-menu">',
+      '      <a class="dropdown-item" href="#subMenu">Sub menu</a>',
+      '    </div>',
+      '  </div>',
+      '</div>'
+    ].join('')
+
+    const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
+    const childElement = fixtureEl.querySelector('#childElement')
+
+    btnDropdown.addEventListener('shown.coreui.dropdown', () => setTimeout(() => {
+      expect(btnDropdown.classList.contains('show')).toEqual(true)
+      expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
+      done()
+    }))
+
+    childElement.click()
   })
 })

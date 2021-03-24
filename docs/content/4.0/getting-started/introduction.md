@@ -24,7 +24,7 @@ Copy-paste the stylesheet `<link>` into your `<head>` before all other styleshee
 
 ### JS
 
-Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins and [Popper](https://popper.js.org/). Place **one of following `<script>`s** near the end of your pages, right before the closing `</body>` tag, to enable them.
+Many of our components require the use of JavaScript to function. Specifically, they require our own JavaScript plugins and [Popper](https://popper.js.org/). Place **one of the following `<script>`s** near the end of your pages, right before the closing `</body>` tag, to enable them.
 
 #### Bundle
 
@@ -100,6 +100,9 @@ Be sure to have your pages set up with the latest design and development standar
   </body>
 </html>
 ```
+
+For next steps, visit the [Layout docs]({{< docsref "/layout/grid" >}}) or [our official examples]({{< docsref "/examples" >}}) to start laying out your site's content and components.
+
 ## Important globals
 
 CoreUI for Bootstrap employs a handful of important global styles and settings that you'll need to be aware of when using it, all of which are almost exclusively geared towards the *normalization* of cross browser styles. Let's dive in.
@@ -127,7 +130,7 @@ You can see an example of this in action in the [starter template](#starter-temp
 
 ### Box-sizing
 
-For more straightforward sizing in CSS, we switch the global `box-sizing` value from `content-box` to `border-box`. This ensures `padding` does not affect the final computed width of an element, but it can cause problems with some third party software like Google Maps and Google Custom Search Engine.
+For more straightforward sizing in CSS, we switch the global `box-sizing` value from `content-box` to `border-box`. This ensures `padding` does not affect the final computed width of an element, but it can cause problems with some third-party software like Google Maps and Google Custom Search Engine.
 
 On the rare occasion you need to override it, use something like the following:
 

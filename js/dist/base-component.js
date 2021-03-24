@@ -13,32 +13,25 @@
 
   var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
 
-  function _defineProperties(target, props) {
-    for (var i = 0; i < props.length; i++) {
-      var descriptor = props[i];
-      descriptor.enumerable = descriptor.enumerable || false;
-      descriptor.configurable = true;
-      if ("value" in descriptor) descriptor.writable = true;
-      Object.defineProperty(target, descriptor.key, descriptor);
-    }
-  }
-
-  function _createClass(Constructor, protoProps, staticProps) {
-    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-    if (staticProps) _defineProperties(Constructor, staticProps);
-    return Constructor;
-  }
-
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.0-alpha.4): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's base-component.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '4.0.0-alpha.4';
+  const VERSION = '4.0.0-alpha.4';
 
-  var BaseComponent = /*#__PURE__*/function () {
-    function BaseComponent(element) {
+  class BaseComponent {
+    constructor(element) {
       element = typeof element === 'string' ? document.querySelector(element) : element;
 
       if (!element) {
@@ -49,28 +42,22 @@
       Data__default['default'].set(this._element, this.constructor.DATA_KEY, this);
     }
 
-    var _proto = BaseComponent.prototype;
-
-    _proto.dispose = function dispose() {
+    dispose() {
       Data__default['default'].remove(this._element, this.constructor.DATA_KEY);
       this._element = null;
     }
     /** Static */
-    ;
 
-    BaseComponent.getInstance = function getInstance(element) {
+
+    static getInstance(element) {
       return Data__default['default'].get(element, this.DATA_KEY);
-    };
+    }
 
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
+    static get VERSION() {
+      return VERSION;
+    }
 
-    return BaseComponent;
-  }();
+  }
 
   return BaseComponent;
 

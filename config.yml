@@ -46,7 +46,6 @@ params:
   authors:              "Lukasz Holeczek, Andrzej Kopanski"
   social_image_path:    /4.0/assets/brand/coreui-social.jpg
   social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
-
   current_version:      "4.0.0-alpha.4"
   current_ruby_version: "4.0.0-alpha.4"
   docs_version:         "4.0"
@@ -63,6 +62,7 @@ params:
     dist:               "https://github.com/coreui/coreui/releases/download/v4.0.0-alpha.4/coreui-4.0.0-alpha.4-dist.zip"
 
   cdn:
+  # See https://www.srihash.org for info on how to generate the hashes
     css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.0-alpha.4/dist/css/coreui.min.css"
     css_hash:        "sha384-xUjkPBI56rBrpBIPWcgh/w8Pe/iSvonEIieCv2yl24JA1oFvdurv4N9or048okLb"
     css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.0-alpha.4/dist/css/coreui.rtl.min.css"

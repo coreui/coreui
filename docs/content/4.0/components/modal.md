@@ -513,6 +513,75 @@ exampleModal.addEventListener('show.coreui.modal', function (event) {
 })
 ```
 
+### Toggle between modals
+
+Toggle between multiple modals with some clever placement of the `data-coreui-target` and `data-coreui-toggle` attributes. For example, you could toggle a password reset modal from within an already open sign in modal. **Please note multiple modals cannot be open at the same time**—this method simply toggles between two separate modals.
+
+<div class="bd-example">
+  <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Modal 1</h5>
+          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Show a second modal and hide this one with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-coreui-target="#exampleModalToggle2" data-coreui-toggle="modal" data-coreui-dismiss="modal">Open second modal</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel2">Modal 2</h5>
+          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Hide this modal and show the first with the button below.
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" data-coreui-target="#exampleModalToggle" data-coreui-toggle="modal" data-coreui-dismiss="modal">Back to first</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a class="btn btn-primary" data-coreui-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+</div>
+
+```html
+<!-- First modal dialog -->
+<div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      ...
+      <div class="modal-footer">
+        <!-- Toogle to second dialog -->
+        <button class="btn btn-primary" data-coreui-target="#modal2" data-coreui-toggle="modal" data-coreui-dismiss="modal">Open #modal2</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Second modal dialog -->
+<div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      ...
+      <div class="modal-footer">
+        <!-- Toogle to first dialog, `data-coreui-dismiss` attribute can be omitted - clicking on link will close dialog anyway -->
+        <a class="btn btn-primary" href="#modal" data-coreui-toggle="modal" role="button">Open #modal</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Open first dialog -->
+<a class="btn btn-primary" data-coreui-toggle="modal" href="#modal" role="button">Open #modal</a>
+```
+
 ### Change animation
 
 The `$modal-fade-transform` variable determines the transform state of `.modal-dialog` before the modal fade-in animation, the `$modal-show-transform` variable determines the transform of `.modal-dialog` at the end of the modal fade-in animation.
@@ -882,6 +951,13 @@ Manually opens a modal. **Returns to the caller before the modal has actually be
 
 ```js
 myModal.show()
+```
+
+Also, you can pass a DOM element as an argument that can be received in the modal events (as the `relatedTarget` property).
+
+```js
+var modalToggle = document.getElementById('toggleMyModal') // relatedTarget
+myModal.show(modalToggle)
 ```
 
 #### hide

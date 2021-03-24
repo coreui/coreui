@@ -120,7 +120,6 @@ p {
 
 abbr[title],
 abbr[data-coreui-original-title] {
-  text-decoration: underline;
   text-decoration: underline dotted;
   cursor: help;
   text-decoration-skip-ink: none;
