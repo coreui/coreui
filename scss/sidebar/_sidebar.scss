@@ -14,29 +14,6 @@
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  @include media-breakpoint-down($mobile-breakpoint) {
-    // Some of our components use this property to detect if the sidebar has mobile behavior.
-    --#{$variable-prefix}is-mobile: true;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: $zindex-fixed + 1;
-
-    &:not(.sidebar-end){
-      @include ltr-rtl("left", 0);
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy-start: 0;
-      }
-    }
-    &.sidebar-end {
-      @include ltr-rtl("right", 0);
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy-end: 0;
-      }
-    }
-
-  }
-
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
     ~ * {
@@ -128,6 +105,28 @@
 
     &.sidebar-end {
       @include ltr-rtl("right", 0);
+    }
+  }
+
+  @include media-breakpoint-down($mobile-breakpoint) {
+    // Some of our components use this property to detect if the sidebar has mobile behavior.
+    --#{$variable-prefix}is-mobile: true;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: $zindex-fixed + 1;
+
+    &:not(.sidebar-end){
+      @include ltr-rtl("left", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
+    }
+    &.sidebar-end {
+      @include ltr-rtl("right", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
   }
 }

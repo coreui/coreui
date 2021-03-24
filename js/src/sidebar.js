@@ -29,11 +29,11 @@ const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
 const Default = {
-  breakpoint: false
+  //
 }
 
 const DefaultType = {
-  breakpoint: '(boolean|string)'
+  //
 }
 
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
@@ -46,7 +46,6 @@ const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
 const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'
 
 const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/
-// const REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -102,7 +101,6 @@ class Sidebar extends BaseComponent {
     }
 
     if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
-    // if (this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
       this._element.classList.add(CLASS_NAME_SHOW)
     }
 
@@ -230,19 +228,6 @@ class Sidebar extends BaseComponent {
     return config
   }
 
-  // _getBreakpoint() {
-  //   if (this._config.breakpoint) {
-  //     return this._config.breakpoint
-  //   }
-
-  //   const breakpoint = this._element.className.match(REGEXP_SIDEBAR_SHOW_BREAKPOINT)
-  //   if (breakpoint) {
-  //     return breakpoint[1]
-  //   }
-
-  //   return false
-  // }
-
   _createShowClass() {
     if (this._breakpoint && !this._isMobile()) {
       return `${CLASS_NAME_SIDEBAR}-${this._breakpoint}-${CLASS_NAME_SHOW}`
@@ -252,7 +237,7 @@ class Sidebar extends BaseComponent {
   }
 
   _isMobile() {
-    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--is-mobile'))
+    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'))
   }
 
   _isIOS() {
@@ -290,8 +275,6 @@ class Sidebar extends BaseComponent {
     return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
   }
 
-  // eslint-disable-next-line no-warning-comments
-  // TODO: this method is not bulletproof
   _isVisible() {
     const rect = this._element.getBoundingClientRect()
     return (
@@ -325,7 +308,7 @@ class Sidebar extends BaseComponent {
   }
 
   _clickOutListener(event, sidebar) {
-    if (event.target.closest(SELECTOR_SIDEBAR) === null) { // or use:
+    if (event.target.closest(SELECTOR_SIDEBAR) === null) {
       event.preventDefault()
       event.stopPropagation()
       sidebar.hide()
