@@ -64,11 +64,23 @@ Using utilities you can change the border on one side only, or you can change al
 <span class="border border-4"></span>
 <span class="border border-5"></span>
 
+<span class="border border-1 border-info"></span>
+<span class="border border-2 border-info"></span>
+<span class="border border-3 border-info"></span>
+<span class="border border-4 border-info"></span>
+<span class="border border-5 border-info"></span>
+
 <span class="border-start border-start-1"></span>
 <span class="border-start border-start-2"></span>
 <span class="border-start border-start-3"></span>
 <span class="border-start border-start-4"></span>
 <span class="border-start border-start-5"></span>
+
+<span class="border-start border-start-1 border-start-info"></span>
+<span class="border-start border-start-2 border-start-info"></span>
+<span class="border-start border-start-3 border-start-info"></span>
+<span class="border-start border-start-4 border-start-info"></span>
+<span class="border-start border-start-5 border-start-info"></span>
 {{< /example >}}
 
 ## Border-radius

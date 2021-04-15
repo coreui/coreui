@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.0-alpha.4 (https://coreui.io)
+  * CoreUI v4.0.0-alpha.5 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -7,7 +7,7 @@ import * as Popper from '@popperjs/core';
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/index.js
@@ -237,7 +237,7 @@ const defineJQueryPlugin = (name, plugin) => {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dom/data.js
+ * CoreUI (v4.0.0-alpha.5): dom/data.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dom/data.js
@@ -294,7 +294,7 @@ var Data = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dom/event-handler.js
+ * CoreUI (v4.0.0-alpha.5): dom/event-handler.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -568,7 +568,7 @@ const EventHandler = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's base-component.js
@@ -581,7 +581,7 @@ const EventHandler = {
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '4.0.0-alpha.4';
+const VERSION = '4.0.0-alpha.5';
 
 class BaseComponent {
   constructor(element) {
@@ -614,7 +614,7 @@ class BaseComponent {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
@@ -739,7 +739,7 @@ defineJQueryPlugin(NAME$d, Alert);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's button.js
@@ -822,7 +822,7 @@ defineJQueryPlugin(NAME$c, Button);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dom/manipulator.js
+ * CoreUI (v4.0.0-alpha.5): dom/manipulator.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -899,7 +899,7 @@ const Manipulator = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dom/selector-engine.js
+ * CoreUI (v4.0.0-alpha.5): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -973,7 +973,7 @@ const SelectorEngine = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): carousel.js
+ * CoreUI (v4.0.0-alpha.5): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -1549,7 +1549,7 @@ defineJQueryPlugin(NAME$b, Carousel);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): collapse.js
+ * CoreUI (v4.0.0-alpha.5): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -1925,7 +1925,7 @@ defineJQueryPlugin(NAME$a, Collapse);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dropdown.js
+ * CoreUI (v4.0.0-alpha.5): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -2432,7 +2432,7 @@ defineJQueryPlugin(NAME$9, Dropdown);
 
 /**
  * --------------------------------------------------------------------------
-  * CoreUI (v4.0.0-alpha.4): modal.js
+  * CoreUI (v4.0.0-alpha.5): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -3003,7 +3003,7 @@ defineJQueryPlugin(NAME$8, Modal);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -3355,7 +3355,7 @@ const _resetElementAttributes = (selector, styleProp) => {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): dropdown.js
+ * CoreUI (v4.0.0-alpha.5): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's offcanvas.js
@@ -3622,7 +3622,7 @@ defineJQueryPlugin(NAME$6, Offcanvas);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): alert.js
+ * CoreUI (v4.0.0-alpha.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -3738,7 +3738,7 @@ function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): tooltip.js
+ * CoreUI (v4.0.0-alpha.5): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -4483,7 +4483,7 @@ defineJQueryPlugin(NAME$5, Tooltip);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): popover.js
+ * CoreUI (v4.0.0-alpha.5): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -4636,7 +4636,7 @@ defineJQueryPlugin(NAME$4, Popover);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): scrollspy.js
+ * CoreUI (v4.0.0-alpha.5): scrollspy.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's scrollspy.js
@@ -4900,7 +4900,7 @@ defineJQueryPlugin(NAME$3, ScrollSpy);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): sidebar.js
+ * CoreUI (v4.0.0-alpha.5): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -4914,22 +4914,18 @@ const NAME$2 = 'sidebar';
 const DATA_KEY$2 = 'coreui.sidebar';
 const EVENT_KEY$2 = `.${DATA_KEY$2}`;
 const DATA_API_KEY$1 = '.data-api';
-const Default$1 = {
-  breakpoint: false
+const Default$1 = {//
 };
-const DefaultType$1 = {
-  breakpoint: '(boolean|string)'
+const DefaultType$1 = {//
 };
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop';
 const CLASS_NAME_FADE$2 = 'fade';
-const CLASS_NAME_HIDE$1 = 'hide';
 const CLASS_NAME_SHOW$2 = 'show';
 const CLASS_NAME_SIDEBAR = 'sidebar';
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow';
 const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid';
 const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable';
-const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/; // const REGEXP_SIDEBAR_SHOW_BREAKPOINT = /sidebar-(sm|md|lg|xl|xxl)-show/
-
+const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/;
 const EVENT_HIDE$2 = `hide${EVENT_KEY$2}`;
 const EVENT_HIDDEN$2 = `hidden${EVENT_KEY$2}`;
 const EVENT_SHOW$2 = `show${EVENT_KEY$2}`;
@@ -4948,8 +4944,7 @@ const SELECTOR_SIDEBAR = '.sidebar';
 class Sidebar extends BaseComponent {
   constructor(element, config) {
     super(element);
-    this._config = this._getConfig(config); // this._breakpoint = this._getBreakpoint()
-
+    this._config = this._getConfig(config);
     this._show = this._isVisible();
     this._mobile = this._isMobile();
     this._overlaid = this._isOverlaid();
@@ -4974,12 +4969,7 @@ class Sidebar extends BaseComponent {
   show() {
     EventHandler.trigger(this._element, EVENT_SHOW$2);
 
-    if (this._element.classList.contains(CLASS_NAME_HIDE$1)) {
-      this._element.classList.remove(CLASS_NAME_HIDE$1);
-    }
-
     if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
-      // if (this._element.className.match(REGEXP_SIDEBAR_SELF_HIDING)) {
       this._element.classList.add(CLASS_NAME_SHOW$2);
     }
 
@@ -5011,8 +5001,6 @@ class Sidebar extends BaseComponent {
       this._element.classList.remove(CLASS_NAME_SHOW$2);
     }
 
-    this._element.classList.add(CLASS_NAME_HIDE$1);
-
     if (this._isMobile()) {
       this._removeBackdrop();
     }
@@ -5035,7 +5023,7 @@ class Sidebar extends BaseComponent {
   }
 
   toggle() {
-    if (this._show) {
+    if (this._isVisible()) {
       this.hide();
       return;
     }
@@ -5101,17 +5089,7 @@ class Sidebar extends BaseComponent {
     };
     typeCheckConfig(NAME$2, config, this.constructor.DefaultType);
     return config;
-  } // _getBreakpoint() {
-  //   if (this._config.breakpoint) {
-  //     return this._config.breakpoint
-  //   }
-  //   const breakpoint = this._element.className.match(REGEXP_SIDEBAR_SHOW_BREAKPOINT)
-  //   if (breakpoint) {
-  //     return breakpoint[1]
-  //   }
-  //   return false
-  // }
-
+  }
 
   _createShowClass() {
     if (this._breakpoint && !this._isMobile()) {
@@ -5122,22 +5100,7 @@ class Sidebar extends BaseComponent {
   }
 
   _isMobile() {
-    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--is-mobile'));
-  }
-
-  _isIOS() {
-    const iOSDevices = ['iPad Simulator', 'iPhone Simulator', 'iPod Simulator', 'iPad', 'iPhone', 'iPod'];
-    const platform = Boolean(navigator.platform);
-
-    if (platform) {
-      while (iOSDevices.length) {
-        if (navigator.platform === iOSDevices.pop()) {
-          return true;
-        }
-      }
-    }
-
-    return false;
+    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'));
   }
 
   _isNarrow() {
@@ -5150,9 +5113,7 @@ class Sidebar extends BaseComponent {
 
   _isUnfoldable() {
     return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
-  } // eslint-disable-next-line no-warning-comments
-  // TODO: this method is not bulletproof
-
+  }
 
   _isVisible() {
     const rect = this._element.getBoundingClientRect();
@@ -5192,7 +5153,6 @@ class Sidebar extends BaseComponent {
 
   _clickOutListener(event, sidebar) {
     if (event.target.closest(SELECTOR_SIDEBAR) === null) {
-      // or use:
       event.preventDefault();
       event.stopPropagation();
       sidebar.hide();
@@ -5285,7 +5245,7 @@ defineJQueryPlugin(NAME$2, Sidebar);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): tab.js
+ * CoreUI (v4.0.0-alpha.5): tab.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tab.js
@@ -5474,7 +5434,7 @@ defineJQueryPlugin(NAME$1, Tab);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-alpha.4): toast.js
+ * CoreUI (v4.0.0-alpha.5): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js

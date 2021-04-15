@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.4
+ * @version v4.0.0-alpha.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.4
+ * @version v4.0.0-alpha.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -5121,6 +5121,7 @@ textarea.form-control-lg {
 }
 
 .toast-container {
+  z-index: 1090;
   width: max-content;
   max-width: 100%;
   pointer-events: none;
@@ -6404,27 +6405,6 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-@media (max-width: 767.98px) {
-  .sidebar {
-    --cui-is-mobile: true;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 1031;
-  }
-  .sidebar:not(.sidebar-end) {
-    right: 0;
-  }
-  .sidebar:not(.sidebar-end) ~ * {
-    --cui-sidebar-occupy-start: 0;
-  }
-  .sidebar.sidebar-end {
-    left: 0;
-  }
-  .sidebar.sidebar-end ~ * {
-    --cui-sidebar-occupy-end: 0;
-  }
-}
 .sidebar:not(.sidebar-end) {
   margin-right: 0;
 }
@@ -6533,6 +6513,27 @@ textarea.form-control-lg {
 }
 .sidebar.sidebar-overlaid.sidebar-end {
   left: 0;
+}
+@media (max-width: 767.98px) {
+  .sidebar {
+    --cui-is-mobile: true;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1031;
+  }
+  .sidebar:not(.sidebar-end) {
+    right: 0;
+  }
+  .sidebar:not(.sidebar-end) ~ * {
+    --cui-sidebar-occupy-start: 0;
+  }
+  .sidebar.sidebar-end {
+    left: 0;
+  }
+  .sidebar.sidebar-end ~ * {
+    --cui-sidebar-occupy-end: 0;
+  }
 }
 
 .sidebar-close {
@@ -7685,39 +7686,39 @@ textarea.form-control-lg {
 }
 
 .border-end-primary {
-  border-right-color: var(--cui-primary, #321fdb) !important;
+  border-left-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-end-secondary {
-  border-right-color: var(--cui-secondary, #9da5b1) !important;
+  border-left-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-end-success {
-  border-right-color: var(--cui-success, #2eb85c) !important;
+  border-left-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-end-info {
-  border-right-color: var(--cui-info, #39f) !important;
+  border-left-color: var(--cui-info, #39f) !important;
 }
 
 .border-end-warning {
-  border-right-color: var(--cui-warning, #f9b115) !important;
+  border-left-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-end-danger {
-  border-right-color: var(--cui-danger, #e55353) !important;
+  border-left-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-end-light {
-  border-right-color: var(--cui-light, #ebedef) !important;
+  border-left-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-end-dark {
-  border-right-color: var(--cui-dark, #4f5d73) !important;
+  border-left-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-end-white {
-  border-right-color: var(--cui-white, #fff) !important;
+  border-left-color: var(--cui-white, #fff) !important;
 }
 
 .border-bottom-primary {
@@ -7757,39 +7758,39 @@ textarea.form-control-lg {
 }
 
 .border-start-primary {
-  border-left-color: var(--cui-primary, #321fdb) !important;
+  border-right-color: var(--cui-primary, #321fdb) !important;
 }
 
 .border-start-secondary {
-  border-left-color: var(--cui-secondary, #9da5b1) !important;
+  border-right-color: var(--cui-secondary, #9da5b1) !important;
 }
 
 .border-start-success {
-  border-left-color: var(--cui-success, #2eb85c) !important;
+  border-right-color: var(--cui-success, #2eb85c) !important;
 }
 
 .border-start-info {
-  border-left-color: var(--cui-info, #39f) !important;
+  border-right-color: var(--cui-info, #39f) !important;
 }
 
 .border-start-warning {
-  border-left-color: var(--cui-warning, #f9b115) !important;
+  border-right-color: var(--cui-warning, #f9b115) !important;
 }
 
 .border-start-danger {
-  border-left-color: var(--cui-danger, #e55353) !important;
+  border-right-color: var(--cui-danger, #e55353) !important;
 }
 
 .border-start-light {
-  border-left-color: var(--cui-light, #ebedef) !important;
+  border-right-color: var(--cui-light, #ebedef) !important;
 }
 
 .border-start-dark {
-  border-left-color: var(--cui-dark, #4f5d73) !important;
+  border-right-color: var(--cui-dark, #4f5d73) !important;
 }
 
 .border-start-white {
-  border-left-color: var(--cui-white, #fff) !important;
+  border-right-color: var(--cui-white, #fff) !important;
 }
 
 .border-1 {

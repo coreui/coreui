@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-alpha.4
+ * @version v4.0.0-alpha.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -5157,6 +5157,7 @@ textarea.form-control-lg {
 }
 
 .toast-container {
+  z-index: 1090;
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -6464,27 +6465,6 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-@media (max-width: 767.98px) {
-  .sidebar {
-    --cui-is-mobile: true;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    z-index: 1031;
-  }
-  .sidebar:not(.sidebar-end) {
-    left: 0;
-  }
-  .sidebar:not(.sidebar-end) ~ * {
-    --cui-sidebar-occupy-start: 0;
-  }
-  .sidebar.sidebar-end {
-    right: 0;
-  }
-  .sidebar.sidebar-end ~ * {
-    --cui-sidebar-occupy-end: 0;
-  }
-}
 .sidebar:not(.sidebar-end) {
   margin-left: 0;
 }
@@ -6594,6 +6574,27 @@ textarea.form-control-lg {
 }
 .sidebar.sidebar-overlaid.sidebar-end {
   right: 0;
+}
+@media (max-width: 767.98px) {
+  .sidebar {
+    --cui-is-mobile: true;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1031;
+  }
+  .sidebar:not(.sidebar-end) {
+    left: 0;
+  }
+  .sidebar:not(.sidebar-end) ~ * {
+    --cui-sidebar-occupy-start: 0;
+  }
+  .sidebar.sidebar-end {
+    right: 0;
+  }
+  .sidebar.sidebar-end ~ * {
+    --cui-sidebar-occupy-end: 0;
+  }
 }
 
 .sidebar-close {

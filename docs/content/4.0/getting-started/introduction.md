@@ -101,7 +101,7 @@ Be sure to have your pages set up with the latest design and development standar
 </html>
 ```
 
-For next steps, visit the [Layout docs]({{< docsref "/layout/grid" >}}) or [our official examples]({{< docsref "/examples" >}}) to start laying out your site's content and components.
+For next steps, visit the [Layout docs]({{< docsref "/layout/grid" >}}) to start laying out your site's content and components.
 
 ## Important globals
 
