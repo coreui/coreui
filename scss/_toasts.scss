@@ -20,6 +20,7 @@
 }
 
 .toast-container {
+  z-index: $zindex-toaster;
   width: max-content;
   max-width: 100%;
   pointer-events: none;
