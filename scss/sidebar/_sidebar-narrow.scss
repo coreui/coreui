@@ -104,39 +104,3 @@
     }
   }
 }
-
-// Responsive behavior
-// @each $breakpoint in map-keys($grid-breakpoints) {
-//   @include media-breakpoint-up($breakpoint) {
-//     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-//     .sidebar.sidebar#{$infix}-show,
-//     .sidebar.sidebar-show {
-//       &:not(.sidebar-end){
-//         margin-left: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             &.sidebar-narrow,
-//             &.sidebar-narrow-unfoldable {
-//               ~ [data-coreui-reliant="sidebar"] {
-//                 margin-left: $sidebar-narrow-width;
-//               }
-//             }
-//           }
-//         }
-//       }
-//       &.sidebar-end {
-//         margin-right: 0;
-//         @include media-breakpoint-up($mobile-breakpoint) {
-//           &.sidebar-fixed {
-//             &.sidebar-narrow,
-//             &.sidebar-narrow-unfoldable {
-//               ~ [data-coreui-reliant="sidebar"] {
-//                 margin-right: $sidebar-narrow-width;
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
