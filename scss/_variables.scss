@@ -829,7 +829,7 @@ $input-transition:                      border-color .15s ease-in-out, box-shado
 // scss-docs-start form-check-variables
 $form-check-input-width:                  1em !default;
 $form-check-min-height:                   $font-size-base * $line-height-base !default;
-$form-check-padding-start:                .375em !default;
+$form-check-padding-start:                $form-check-input-width + .5em !default;
 $form-check-margin-bottom:                .125rem !default;
 $form-check-label-color:                  unset !default;
 $form-check-label-cursor:                 null !default;
@@ -865,7 +865,7 @@ $form-check-inline-margin-end:    1rem !default;
 // scss-docs-start form-switch-variables
 $form-switch-color:               rgba(0, 0, 0, .25) !default;
 $form-switch-width:               1.5em !default;
-$form-switch-padding-start:       .375em !default;
+$form-switch-padding-start:       $form-switch-width + .5em !default;
 $form-switch-bg-image:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='3' fill='#{$form-switch-color}'/></svg>") !default;
 $form-switch-border-radius:       $form-switch-width !default;
 $form-switch-transition:          background-position .15s ease-in-out !default;
@@ -878,8 +878,14 @@ $form-switch-checked-bg-image:    url("data:image/svg+xml,<svg xmlns='http://www
 $form-switch-checked-bg-position: right center !default;
 
 $form-switch-widths: (
-  lg: 2em,
-  xl: 2.5em
+  lg: (
+    width: 1.75em,
+    height: 1.25em
+  ),
+  xl: (
+    width: 2em,
+    height: 1.5em
+  )
 ) !default;
 // scss-docs-end form-switch-variables
 

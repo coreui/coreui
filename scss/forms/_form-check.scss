@@ -3,19 +3,23 @@
 //
 
 .form-check {
-  display: flex;
-  align-items: center;
+  display: block;
   min-height: $form-check-min-height;
+  @include ltr-rtl("padding-left", $form-check-padding-start);
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
-    @include ltr-rtl("margin-right", $form-check-padding-start);
+    // float: left;
+    // margin-left: $form-check-padding-start * -1;
+    @include ltr-rtl("float", left);
+    @include ltr-rtl("margin-left", $form-check-padding-start * -1);
   }
 }
 
 .form-check-input {
   width: $form-check-input-width;
   height: $form-check-input-width;
+  margin-top: ($line-height-base - $form-check-input-width) / 2; // line-height minus check height
   vertical-align: top;
   background-color: var(--#{$variable-prefix}form-check-input-bg, $form-check-input-bg);
   background-repeat: no-repeat;
@@ -129,23 +133,44 @@
   }
 }
 
-@each $width, $value in $form-switch-widths {
-  $height: $value / 3 * 2;
+@each $size, $map in $form-switch-widths {
+  $width: map-get($map, "width");
+  $height: map-get($map, "height");
 
-  .form-switch-#{$width} {
+  .form-switch-#{$size} {
     min-height: $height;
-    @include ltr-rtl("padding-left", $value + .5em);
+    @include ltr-rtl("padding-left", $width + .5em);
 
     .form-check-input {
-      width: $value;
+      width: $width;
       height: $height;
-      @include ltr-rtl("margin-left", ($value + .5em) * -1);
+      @include ltr-rtl("margin-left", ($width + .5em) * -1);
+    }
+
+    .form-check-label {
+      // stylelint-disable-next-line function-disallowed-list
+      padding-top: calc((#{$height} - #{$font-size-base}) / 2);
     }
   }
+
+  // $height: $value / 3 * 2;
+
+  // .form-switch-#{$width} {
+  //   min-height: $height;
+  //   @include ltr-rtl("padding-left", $value + .5em);
+
+  //   .form-check-input {
+  //     width: $value;
+  //     height: $height;
+  //     @include ltr-rtl("margin-left", ($value + .5em) * -1);
+  //   }
+
+  //   .form-check-label {}
+  // }
 }
 
 .form-check-inline {
-  display: inline-flex;
+  display: inline-block;
   @include ltr-rtl("margin-right", $form-check-inline-margin-end);
 }
 
