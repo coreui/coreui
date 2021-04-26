@@ -252,7 +252,7 @@
 
 // Responsive behavior
 @each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-down($breakpoint) {
+  @include media-breakpoint-down(breakpoint-next($breakpoint)) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
     .sidebar:not(.show).sidebar-self-hiding#{$infix} {
       &:not(.sidebar-end) {
