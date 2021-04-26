@@ -517,7 +517,7 @@ exampleModal.addEventListener('show.coreui.modal', function (event) {
 
 Toggle between multiple modals with some clever placement of the `data-coreui-target` and `data-coreui-toggle` attributes. For example, you could toggle a password reset modal from within an already open sign in modal. **Please note multiple modals cannot be open at the same time**—this method simply toggles between two separate modals.
 
-<div class="bd-example">
+<div class="docs-example">
   <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

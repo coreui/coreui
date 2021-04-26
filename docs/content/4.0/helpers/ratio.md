@@ -51,7 +51,7 @@ Each `.ratio-*` class includes a CSS custom property (or CSS variable) in the se
 
 For example, to create a 2x1 aspect ratio, set `aspect-ratio: 50%` on the `.ratio`.
 
-{{< example class="bd-example-ratios" >}}
+{{< example class="docs-example-ratios" >}}
 <div class="ratio" style="aspect-ratio: 50%;">
   <div>2x1</div>
 </div>

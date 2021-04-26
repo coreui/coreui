@@ -39,7 +39,7 @@
     })
   }
 
-  document.querySelectorAll('.bd-example .toast')
+  document.querySelectorAll('.docs-example .toast')
     .forEach(function (toastNode) {
       var toast = new coreui.Toast(toastNode, {
         autohide: false

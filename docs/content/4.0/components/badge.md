@@ -59,7 +59,7 @@ Add any of the below-mentioned classes to modify the presentation of a badge. Pl
 
 ## Pill badges
 
-Apply the `.badge-pill` modifier class to make badges rounded.
+Apply the `.rounded-pill` modifier class to make badges rounded.
 
 {{< example >}}
 {{< badge.inline >}}

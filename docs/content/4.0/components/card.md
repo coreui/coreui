@@ -452,7 +452,7 @@ Use [border utilities]({{< docsref "/utilities/borders" >}}) to change just the 
 {{- range (index $.Site.Data "theme-colors") }}
 <div class="card border-{{ .name }} mb-3" style="max-width: 18rem;">
   <div class="card-header">Header</div>
-  <div class="card-body{{ if not .contrast_color }} text-{{ .name }}{{ end }}">
+  <div class="card-body text-{{ .name }}">
     <h5 class="card-title">{{ .name | title }} card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
@@ -463,14 +463,14 @@ Use [border utilities]({{< docsref "/utilities/borders" >}}) to change just the 
 
 ### Top border
 
-Use [border utilities]({{< docsref "/utilities/borders" >}}) to change just the `border-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
+Use [border utilities]({{< docsref "/utilities/borders" >}}) to change just the `border-top-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
 
 {{< example >}}
 {{< card.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
 <div class="card border-top-{{ .name }} border-top-3 mb-3" style="max-width: 18rem;">
   <div class="card-header">Header</div>
-  <div class="card-body{{ if not .contrast_color }} text-{{ .name }}{{ end }}">
+  <div class="card-body text-{{ .name }}">
     <h5 class="card-title">{{ .name | title }} card title</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
   </div>
