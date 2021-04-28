@@ -7,7 +7,7 @@ aliases: "/migration/"
 toc: true
 ---
 
-## v4.0.0-alpha.5
+## v4.0.0-beta.0
 
 ### Components
 
@@ -28,7 +28,7 @@ toc: true
 
 - Dropped the `0` entry in `$border-widths` map to remove the duplicated `.border-0` class.
 
-## v4.0.0-alpha.5
+## v4.0.0-beta.0
 
 ### Utilities
 

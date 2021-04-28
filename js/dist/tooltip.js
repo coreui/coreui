@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tooltip.js v4.0.0-alpha.5 (https://coreui.io)
+  * CoreUI tooltip.js v4.0.0-beta.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -40,7 +40,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.5): alert.js
+   * CoreUI (v4.0.0-beta.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -199,7 +199,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.5): alert.js
+   * CoreUI (v4.0.0-beta.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -315,7 +315,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-alpha.5): tooltip.js
+   * CoreUI (v4.0.0-beta.0): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
