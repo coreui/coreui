@@ -203,7 +203,7 @@
   &:hover {
     background-color: var(--#{$variable-prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$variable-prefix}sidebar-toggler-hover-indicator, escape-svg($sidebar-toggler-hover-indicator-icon));
+      background-image: var(--#{$variable-prefix}sidebar-indicator-toggler-hover-icon, escape-svg($sidebar-toggler-indicator-hover-icon));
     }
   }
 
