@@ -59,7 +59,7 @@
 
 .accordion-item {
   margin-bottom: -$accordion-border-width;
-  background-color: $accordion-bg;
+  background-color: var(--#{$variable-prefix}accordion-bg, $accordion-bg);
   border: $accordion-border-width solid var(--#{$variable-prefix}accordion-border-color, $accordion-border-color);
 
   &:first-of-type {
