@@ -90,7 +90,7 @@
       const valueType = value && isElement(value) ? 'element' : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new TypeError(`${componentName.toUpperCase()}: ` + `Option "${property}" provided type "${valueType}" ` + `but expected type "${expectedTypes}".`);
+        throw new TypeError(`${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`);
       }
     });
   };
@@ -279,7 +279,6 @@
         this._element.classList.remove(CLASS_NAME_SHOW);
       }
 
-      EventHandler__default['default'].off(this._element, EVENT_CLICK_DISMISS);
       super.dispose();
       this._config = null;
     } // Private

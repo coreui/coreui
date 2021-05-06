@@ -15,7 +15,6 @@ import {
   isElement,
   typeCheckConfig
 } from './util/index'
-import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
 import SelectorEngine from './dom/selector-engine'
@@ -158,6 +157,7 @@ class ScrollSpy extends BaseComponent {
   _getConfig(config) {
     config = {
       ...Default,
+      ...Manipulator.getDataAttributes(this._element),
       ...(typeof config === 'object' && config ? config : {})
     }
 
@@ -281,20 +281,17 @@ class ScrollSpy extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      let data = Data.get(this, DATA_KEY)
-      const _config = typeof config === 'object' && config
+      const data = ScrollSpy.getInstance(this) || new ScrollSpy(this, typeof config === 'object' ? config : {})
 
-      if (!data) {
-        data = new ScrollSpy(this, _config)
+      if (typeof config !== 'string') {
+        return
       }
 
-      if (typeof config === 'string') {
-        if (typeof data[config] === 'undefined') {
-          throw new TypeError(`No method named "${config}"`)
-        }
-
-        data[config]()
+      if (typeof data[config] === 'undefined') {
+        throw new TypeError(`No method named "${config}"`)
       }
+
+      data[config]()
     })
   }
 }
@@ -307,7 +304,7 @@ class ScrollSpy extends BaseComponent {
 
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
   SelectorEngine.find(SELECTOR_DATA_SPY)
-    .forEach(spy => new ScrollSpy(spy, Manipulator.getDataAttributes(spy)))
+    .forEach(spy => new ScrollSpy(spy))
 })
 
 /**

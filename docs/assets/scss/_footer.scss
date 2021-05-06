@@ -7,12 +7,13 @@
   @include font-size(.875rem);
 
   a {
-    font-weight: 600;
     color: $gray-700;
+    text-decoration: none;
 
     &:hover,
     &:focus {
       color: $link-color;
+      text-decoration: underline;
     }
   }
 }

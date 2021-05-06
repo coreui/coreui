@@ -450,7 +450,7 @@ describe('Tooltip', () => {
 
       tooltipEl.addEventListener('shown.coreui.tooltip', () => {
         expect(document.querySelector('.tooltip')).not.toBeNull()
-        expect(EventHandler.on).toHaveBeenCalled()
+        expect(EventHandler.on).toHaveBeenCalledWith(jasmine.any(Object), 'mouseover', noop)
         document.documentElement.ontouchstart = undefined
         done()
       })
@@ -889,7 +889,7 @@ describe('Tooltip', () => {
 
       tooltipEl.addEventListener('hidden.coreui.tooltip', () => {
         expect(document.querySelector('.tooltip')).toBeNull()
-        expect(EventHandler.off).toHaveBeenCalled()
+        expect(EventHandler.off).toHaveBeenCalledWith(jasmine.any(Object), 'mouseover', noop)
         document.documentElement.ontouchstart = undefined
         done()
       })

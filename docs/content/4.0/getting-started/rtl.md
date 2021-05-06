@@ -112,10 +112,18 @@ $enable-ltr: true;
 $enable-rtl: true;
 ```
 
-After running Sass then RTLCSS, each selector in your CSS files will be prepended by `.ltr`, and `.rtl` for RTL files. Now you're able to use both files on the same page, and simply use `.ltr` or `.rtl` on your components wrappers to use one or the other direction.
 
+After running Sass, each selector in your CSS files will be prepended by `html:not([dir=rtl])`, and `*[dir=rtl]` for RTL files. Now you're able to use both files on the same page.
+
+### RTL only
+
+By default LTR is enable and RTL is disable, but you can easily change it and use only RTL.
+
+```scss
+$enable-ltr: false;
+$enable-rtl: true;
+```
 
 ## Additional resources
 
-- [RTLCSS](https://rtlcss.com/)
 - [RTL Styling 101](https://rtlstyling.com/posts/rtl-styling)

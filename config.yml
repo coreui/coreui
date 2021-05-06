@@ -46,6 +46,7 @@ params:
   authors:              "Lukasz Holeczek, Andrzej Kopanski"
   social_image_path:    /4.0/assets/brand/coreui-social.jpg
   social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
+
   current_version:      "4.0.0-beta.0"
   current_ruby_version: "4.0.0-beta.0"
   docs_version:         "4.0"
@@ -71,5 +72,5 @@ params:
     js_hash:         "sha384-r9UuCGxKqS76V4DsQtwbCKmJoREyVX9UYgGcLStRK+ZTrMXjpKS5IwmCCi9FzHJZ"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.0-beta.0/dist/js/coreui.bundle.min.js"
     js_bundle_hash:  "sha384-EEvn1uBLu9/DmDUYGfy+tzxC7/24HZV4R9jRi+06LYWkC1fQaSzukAR8b2rAz+nb"
-    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.0/dist/umd/popper.min.js"
+    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     popper_hash:      "sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"

@@ -51,7 +51,7 @@ const getSelector = element => {
 
     // Just in case some CMS puts out a full URL with the anchor appended
     if (hrefAttr.includes('#') && !hrefAttr.startsWith('#')) {
-      hrefAttr = '#' + hrefAttr.split('#')[1]
+      hrefAttr = `#${hrefAttr.split('#')[1]}`
     }
 
     selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null
@@ -131,9 +131,7 @@ const typeCheckConfig = (componentName, config, configTypes) => {
 
     if (!new RegExp(expectedTypes).test(valueType)) {
       throw new TypeError(
-        `${componentName.toUpperCase()}: ` +
-        `Option "${property}" provided type "${valueType}" ` +
-        `but expected type "${expectedTypes}".`
+        `${componentName.toUpperCase()}: Option "${property}" provided type "${valueType}" but expected type "${expectedTypes}".`
       )
     }
   })
@@ -195,7 +193,7 @@ const findShadowRoot = element => {
   return findShadowRoot(element.parentNode)
 }
 
-const noop = () => function () {}
+const noop = () => {}
 
 const reflow = element => element.offsetHeight
 
@@ -235,6 +233,12 @@ const defineJQueryPlugin = (name, plugin) => {
   })
 }
 
+const execute = callback => {
+  if (typeof callback === 'function') {
+    callback()
+  }
+}
+
 export {
   getUID,
   getSelectorFromElement,
@@ -252,5 +256,6 @@ export {
   getjQuery,
   onDOMContentLoaded,
   isRTL,
-  defineJQueryPlugin
+  defineJQueryPlugin,
+  execute
 }
