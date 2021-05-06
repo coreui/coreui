@@ -4,7 +4,6 @@
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:unicorn/recommended",
-    "xo/esnext",
     "xo/browser"
   ],
   "rules": {
