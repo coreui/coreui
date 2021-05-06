@@ -1,5 +1,6 @@
 // List Groups
 
+// scss-docs-start list-group-mixin
 @mixin list-group-item-variant($state, $background, $background-hover, $color) {
   .list-group-item-#{$state} {
     color: $color;
