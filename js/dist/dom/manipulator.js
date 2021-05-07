@@ -1,5 +1,5 @@
 /*!
-  * CoreUI manipulator.js v4.0.0-beta.0 (https://coreui.io)
+  * CoreUI manipulator.js v4.0.0-rc.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-beta.0): dom/manipulator.js
+   * CoreUI (v4.0.0-rc.0): dom/manipulator.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js

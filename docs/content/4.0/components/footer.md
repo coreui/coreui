@@ -27,7 +27,7 @@ Here's what you need to know before getting started with the aside menu:
 <footer class="footer">
   <div>
     <a href="https://coreui.io">CoreUI</a>
-    <span>&copy; 2020 creativeLabs.</span>
+    <span>&copy; 2021 creativeLabs.</span>
   </div>
   <div>
     <span>Powered by</span>
