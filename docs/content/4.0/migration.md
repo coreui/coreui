@@ -9,11 +9,8 @@ toc: true
 
 ## Dependencies
 
-- Dropped jQuery.
 - Upgraded from Popper v1.x to Popper v2.x.
 - Replaced Libsass with Dart Sass as our Sass compiler given Libsass was deprecated.
-- Migrated from Jekyll to Hugo for building our documentation
-
 ## Browser support
 
 - Dropped Internet Explorer 10 and 11
@@ -25,18 +22,6 @@ toc: true
 - Dropped Android < 6
 
 <hr class="my-5">
-
-## Documentation changes
-
-- Redesigned homepage, docs layout, and footer.
-- Added [new Parcel guide](https://getbootstrap.com/docs/5.0/getting-started/parcel/).
-- Added [new Customize section](https://getbootstrap.com/docs/5.0/customize/overview/), replacing [v4's Theming page](https://getbootstrap.com/docs/4.6/getting-started/theming/), with new details on Sass, global configuration options, color schemes, CSS variables, and more.
-- Reorganized all form documentation into [new Forms section](https://getbootstrap.com/docs/5.0/forms/overview/), breaking apart the content into more focused pages.
-- Similarly, updated [the Layout section](https://getbootstrap.com/docs/5.0/layout/breakpoints/), to flesh out grid content more clearly.
-- Renamed "Navs" component page to "Navs & Tabs".
-- Renamed "Checks" page to "Checks & radios".
-- Redesigned the navbar and added a new subnav to make it easier to get around our sites and docs versions.
-- Added new keyboard shortcut for the search field: <kbd>Ctrl + /</kbd>.
 
 ## Sass
 
@@ -50,7 +35,7 @@ toc: true
 
 - <span class="badge bg-danger">Breaking</span> Dropped `color()`, `theme-color()`, and `gray()` functions in favor of variables.
 
-- <span class="badge bg-danger">Breaking</span> Renamed `theme-color-level()` function to `color-level()` and now accepts any color you want instead of only `$theme-color` colors.` was later on dropped in `v5.0.0-alpha3`.
+- <span class="badge bg-danger">Breaking</span> Renamed `theme-color-level()` function to `color-level()` .
 
 - <span class="badge bg-danger">Breaking</span> Renamed `$enable-prefers-reduced-motion-media-query` and `$enable-pointer-cursor-for-buttons` to `$enable-reduced-motion` and `$enable-button-pointers` for brevity.
 
@@ -87,7 +72,7 @@ toc: true
 - **New breakpoint!** Added new `xxl` breakpoint for `1400px` and up. No changes to all other breakpoints.
 
 - **Improved gutters.** Gutters are now set in rems, and are narrower than v4 (`1.5rem`, or about `24px`, down from `30px`). This aligns our grid system's gutters with our spacing utilities.
-  - Added new [gutter class](https://getbootstrap.com/docs/5.0/layout/gutters/) (`.g-*`, `.gx-*`, and `.gy-*`) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
+  - Added new [gutter class](https://coreui.io/docs/4.0/layout/gutters/) (`.g-*`, `.gx-*`, and `.gy-*`) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
   - <span class="badge bg-danger">Breaking</span> Renamed `.no-gutters` to `.g-0` to match new gutter utilities.
 
 - Columns no longer have `position: relative` applied, so you may have to add `.position-relative` to some elements to restore that behavior.
@@ -150,7 +135,7 @@ toc: true
 
 - <span class="badge bg-danger">Breaking</span> Dropped `.input-group-append` and `.input-group-prepend`. You can now just add buttons and `.input-group-text` as direct children of the input groups.
 
-- The longstanding [Missing border radius on input group with validation feedback bug](https://github.com/twbs/bootstrap/issues/25110) is finally fixed by adding an additional `.has-validation` class to input groups with validation.
+- The longstanding "Missing border radius on input group with validation feedback bug" is finally fixed by adding an additional `.has-validation` class to input groups with validation.
 
 - <span class="badge bg-danger">Breaking</span> **Dropped form-specific layout classes for our grid system.** Use our grid and utilities instead of `.form-group`, `.form-row`, or `.form-inline`.
 
@@ -196,9 +181,9 @@ toc: true
 
 ### Buttons
 
-- <span class="badge bg-danger">Breaking</span> **[Toggle buttons](http://getbootstrap.com/docs/5.0/forms/checks-radios/#toggle-buttons), with checkboxes or radios, no longer require JavaScript and have new markup.** We no long require a wrapping element, add `.btn-check` to the `<input>`, and pair it with any `.btn` classes on the `<label>`. _The docs for this has moved from our Buttons page to the new Forms section._
+- <span class="badge bg-danger">Breaking</span> **[Toggle buttons](https://coreui.io/docs/4.0/forms/checks-radios/#toggle-buttons), with checkboxes or radios, no longer require JavaScript and have new markup.** We no long require a wrapping element, add `.btn-check` to the `<input>`, and pair it with any `.btn` classes on the `<label>`. _The docs for this has moved from our Buttons page to the new Forms section._
 
-- <span class="badge bg-danger">Breaking</span> **Dropped `.btn-block` for utilities.** Instead of using `.btn-block` on the `.btn`, wrap your buttons with `.d-grid` and a `.gap-*` utility to space them as needed. Switch to responsive classes for even more control over them. [Read the docs for some examples.](http://getbootstrap.com/docs/5.0/components/buttons/#block-buttons)
+- <span class="badge bg-danger">Breaking</span> **Dropped `.btn-block` for utilities.** Instead of using `.btn-block` on the `.btn`, wrap your buttons with `.d-grid` and a `.gap-*` utility to space them as needed. Switch to responsive classes for even more control over them. [Read the docs for some examples.](https://coreui.io/docs/4.0/components/buttons/#block-buttons)
 
 - Updated our `button-variant()` and `button-outline-variant()` mixins to support additional parameters.
 
@@ -250,6 +235,21 @@ toc: true
 
 - Dropdowns now support `.dropdown-item`s wrapped in `<li>`s.
 
+### Footer
+
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-footer` to `.footer`.
+
+### Header
+
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-header` to `.header`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-header-brand` to `.header-brand`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-header-nav` to `.header-nav`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-header-toggler` to `.header-toggler`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-header-text` to `.header-text`.
+- <span class="badge bg-danger">Breaking</span> Dropped the `.c-header-nav-item` — use the `.nav-item` instead.
+- <span class="badge bg-danger">Breaking</span> Dropped the `.c-header-nav-link` — use the `.nav-link` instead.
+
+
 ### Jumbotron
 
 - <span class="badge bg-danger">Breaking</span> Dropped the jumbotron component as it can be replicated with utilities.
@@ -281,6 +281,17 @@ toc: true
 - <span class="badge bg-danger">Breaking</span> Renamed `.arrow` to `.popover-arrow` in our default popover template.
 
 - Renamed `whiteList` option to `allowList`.
+
+### Sidebar
+
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar` to `.sidebar`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar-brand` to `.sidebar-brand`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar-footer` to `.sidebar-footer`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar-header` to `.sidebar-header`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar-nav` to `.sidebar-nav`.
+- <span class="badge bg-danger">Breaking</span> Renamed `.c-sidebar-toggler` to `.sidebar-toggler`.
+- <span class="badge bg-danger">Breaking</span> Dropped the `.c-sidebar-nav-item` — use the `.nav-item` instead.
+- <span class="badge bg-danger">Breaking</span> Dropped the `.c-sidebar-nav-link` — use the `.nav-link` instead.
 
 ### Spinners
 
@@ -362,8 +373,6 @@ toc: true
 - `bootstrap-utilities.css` now also includes our helpers. Helpers don't need to be imported in custom builds anymore.
 
 ## JavaScript
-
-- **Dropped jQuery dependency** and rewrote plugins to be in regular JavaScript.
 
 - <span class="badge bg-danger">Breaking</span> Data attributes for all JavaScript plugins are now namespaced to help distinguish Bootstrap functionality from third parties and your own code. For example, we use `data-coreui-toggle` instead of `data-toggle`.
 

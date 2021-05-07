@@ -911,7 +911,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 {{< example >}}
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-coreui-toggle="dropdown" data-coreui-auto-close="true" aria-expanded="false">
     Default dropdown
   </button>
   <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
@@ -922,7 +922,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-bs-toggle="dropdown" data-bs-auto-close="inside" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-coreui-toggle="dropdown" data-coreui-auto-close="inside" aria-expanded="false">
     Clickable outside
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
@@ -933,7 +933,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-coreui-toggle="dropdown" data-coreui-auto-close="outside" aria-expanded="false">
     Clickable inside
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
@@ -944,7 +944,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickable" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickable" data-coreui-toggle="dropdown" data-coreui-auto-close="false" aria-expanded="false">
     Manual close
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickable">
