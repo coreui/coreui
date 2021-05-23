@@ -1947,6 +1947,7 @@ progress {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: transparent;
   --cui-table-border-color: #d8dbe0;
+  --cui-table-accent-bg: transparent;
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-striped-bg: rgba(0, 0, 21, 0.05);
   --cui-table-active-color: rgba(44, 56, 74, 0.95);
@@ -2209,7 +2210,7 @@ progress {
 .form-control[type=file] {
   overflow: hidden;
 }
-.form-control[type=file]:not(:disabled):not(:read-only) {
+.form-control[type=file]:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
 .form-control:focus {
@@ -2226,7 +2227,7 @@ progress {
   color: var(--cui-input-placeholder-color, #8a93a2);
   opacity: 1;
 }
-.form-control:disabled, .form-control:read-only {
+.form-control:disabled, .form-control[readonly] {
   background-color: var(--cui-input-disabled-bg, #d8dbe0);
   border-color: var(--cui-input-disabled-border-color, #b1b7c1);
   opacity: 1;
@@ -2250,7 +2251,7 @@ progress {
     transition: none;
   }
 }
-.form-control:hover:not(:disabled):not(:read-only)::file-selector-button {
+.form-control:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: var(--cui-form-file-button-hover-bg, #cdd0d5);
 }
 .form-control::-webkit-file-upload-button {
@@ -2272,7 +2273,7 @@ progress {
     transition: none;
   }
 }
-.form-control:hover:not(:disabled):not(:read-only)::-webkit-file-upload-button {
+.form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
   background-color: var(--cui-form-file-button-hover-bg, #cdd0d5);
 }
 
@@ -2341,7 +2342,7 @@ textarea.form-control-lg {
   height: auto;
   padding: 0.375rem;
 }
-.form-control-color:not(:disabled):not(:read-only) {
+.form-control-color:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
 .form-control-color::-moz-color-swatch {
@@ -2884,6 +2885,11 @@ textarea.form-control-lg {
 .was-validated .input-group .form-control:valid, .input-group .form-control.is-valid,
 .was-validated .input-group .form-select:valid,
 .input-group .form-select.is-valid {
+  z-index: 1;
+}
+.was-validated .input-group .form-control:valid:focus, .input-group .form-control.is-valid:focus,
+.was-validated .input-group .form-select:valid:focus,
+.input-group .form-select.is-valid:focus {
   z-index: 3;
 }
 
@@ -2968,6 +2974,11 @@ textarea.form-control-lg {
 .was-validated .input-group .form-control:invalid, .input-group .form-control.is-invalid,
 .was-validated .input-group .form-select:invalid,
 .input-group .form-select.is-invalid {
+  z-index: 2;
+}
+.was-validated .input-group .form-control:invalid:focus, .input-group .form-control.is-invalid:focus,
+.was-validated .input-group .form-select:invalid:focus,
+.input-group .form-select.is-invalid:focus {
   z-index: 3;
 }
 
@@ -5160,14 +5171,6 @@ textarea.form-control-lg {
   word-wrap: break-word;
 }
 
-.modal-open {
-  overflow: hidden;
-}
-.modal-open .modal {
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -5176,7 +5179,8 @@ textarea.form-control-lg {
   display: none;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   outline: 0;
 }
 

@@ -9,16 +9,6 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.EventHandler = factory());
 }(this, (function () { 'use strict';
 
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-rc.0): alert.js
-   * Licensed under MIT (https://coreui.io/license)
-   *
-   * This component is a modified version of the Bootstrap's  util/index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-
   const getjQuery = () => {
     const {
       jQuery

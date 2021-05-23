@@ -4,26 +4,16 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/selector-engine.js'), require('./tooltip.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/selector-engine', './tooltip'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Popover = factory(global.Data, global.SelectorEngine, global.Tooltip));
-}(this, (function (Data, SelectorEngine, Tooltip) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/data.js'), require('./tooltip.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/data', './tooltip'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Popover = factory(global.SelectorEngine, global.Data, global.Tooltip));
+}(this, (function (SelectorEngine, Data, Tooltip) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
-  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip);
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-rc.0): alert.js
-   * Licensed under MIT (https://coreui.io/license)
-   *
-   * This component is a modified version of the Bootstrap's  util/index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
 
   const getjQuery = () => {
     const {
@@ -45,12 +35,13 @@
     }
   };
 
-  const defineJQueryPlugin = (name, plugin) => {
+  const defineJQueryPlugin = plugin => {
     onDOMContentLoaded(() => {
       const $ = getjQuery();
       /* istanbul ignore if */
 
       if ($) {
+        const name = plugin.NAME;
         const JQUERY_NO_CONFLICT = $.fn[name];
         $.fn[name] = plugin.jQueryInterface;
         $.fn[name].Constructor = plugin;
@@ -125,16 +116,8 @@
       return NAME;
     }
 
-    static get DATA_KEY() {
-      return DATA_KEY;
-    }
-
     static get Event() {
       return Event;
-    }
-
-    static get EVENT_KEY() {
-      return EVENT_KEY;
     }
 
     static get DefaultType() {
@@ -144,6 +127,24 @@
 
     isWithContent() {
       return this.getTitle() || this._getContent();
+    }
+
+    getTipElement() {
+      if (this.tip) {
+        return this.tip;
+      }
+
+      this.tip = super.getTipElement();
+
+      if (!this.getTitle()) {
+        this.tip.removeChild(SelectorEngine__default['default'].findOne(SELECTOR_TITLE, this.tip));
+      }
+
+      if (!this._getContent()) {
+        this.tip.removeChild(SelectorEngine__default['default'].findOne(SELECTOR_CONTENT, this.tip));
+      }
+
+      return this.tip;
     }
 
     setContent() {
@@ -167,7 +168,7 @@
     }
 
     _getContent() {
-      return this._element.getAttribute('data-coreui-content') || this.config.content;
+      return this._element.getAttribute('data-coreui-content') || this._config.content;
     }
 
     _cleanTipClass() {
@@ -185,10 +186,6 @@
         let data = Data__default['default'].get(this, DATA_KEY);
 
         const _config = typeof config === 'object' ? config : null;
-
-        if (!data && /dispose|hide/.test(config)) {
-          return;
-        }
 
         if (!data) {
           data = new Popover(this, _config);
@@ -214,7 +211,7 @@
    */
 
 
-  defineJQueryPlugin(NAME, Popover);
+  defineJQueryPlugin(Popover);
 
   return Popover;
 

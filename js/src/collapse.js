@@ -10,11 +10,9 @@
 
 import {
   defineJQueryPlugin,
-  emulateTransitionEnd,
+  getElement,
   getSelectorFromElement,
   getElementFromSelector,
-  getTransitionDurationFromElement,
-  isElement,
   reflow,
   typeCheckConfig
 } from './util/index'
@@ -110,8 +108,8 @@ class Collapse extends BaseComponent {
     return Default
   }
 
-  static get DATA_KEY() {
-    return DATA_KEY
+  static get NAME() {
+    return NAME
   }
 
   // Public
@@ -203,11 +201,8 @@ class Collapse extends BaseComponent {
 
     const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1)
     const scrollSize = `scroll${capitalizedDimension}`
-    const transitionDuration = getTransitionDurationFromElement(this._element)
 
-    EventHandler.one(this._element, 'transitionend', complete)
-
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(complete, this._element, true)
     this._element.style[dimension] = `${this._element[scrollSize]}px`
   }
 
@@ -253,22 +248,12 @@ class Collapse extends BaseComponent {
     }
 
     this._element.style[dimension] = ''
-    const transitionDuration = getTransitionDurationFromElement(this._element)
 
-    EventHandler.one(this._element, 'transitionend', complete)
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(complete, this._element, true)
   }
 
   setTransitioning(isTransitioning) {
     this._isTransitioning = isTransitioning
-  }
-
-  dispose() {
-    super.dispose()
-    this._config = null
-    this._parent = null
-    this._triggerArray = null
-    this._isTransitioning = null
   }
 
   // Private
@@ -290,14 +275,7 @@ class Collapse extends BaseComponent {
   _getParent() {
     let { parent } = this._config
 
-    if (isElement(parent)) {
-      // it's a jQuery object
-      if (typeof parent.jquery !== 'undefined' || typeof parent[0] !== 'undefined') {
-        parent = parent[0]
-      }
-    } else {
-      parent = SelectorEngine.findOne(parent)
-    }
+    parent = getElement(parent)
 
     const selector = `${SELECTOR_DATA_TOGGLE}[data-coreui-parent="${parent}"]`
 
@@ -408,6 +386,6 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
  * add .Collapse to jQuery only if jQuery is present
  */
 
-defineJQueryPlugin(NAME, Collapse)
+defineJQueryPlugin(Collapse)
 
 export default Collapse

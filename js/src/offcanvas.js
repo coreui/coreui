@@ -10,9 +10,7 @@
 
 import {
   defineJQueryPlugin,
-  emulateTransitionEnd,
   getElementFromSelector,
-  getTransitionDurationFromElement,
   isDisabled,
   isVisible,
   typeCheckConfig
@@ -83,12 +81,12 @@ class Offcanvas extends BaseComponent {
 
   // Getters
 
-  static get Default() {
-    return Default
+  static get NAME() {
+    return NAME
   }
 
-  static get DATA_KEY() {
-    return DATA_KEY
+  static get Default() {
+    return Default
   }
 
   // Public
@@ -127,9 +125,7 @@ class Offcanvas extends BaseComponent {
       EventHandler.trigger(this._element, EVENT_SHOWN, { relatedTarget })
     }
 
-    const transitionDuration = getTransitionDurationFromElement(this._element)
-    EventHandler.one(this._element, 'transitionend', completeCallBack)
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(completeCallBack, this._element, true)
   }
 
   hide() {
@@ -162,18 +158,13 @@ class Offcanvas extends BaseComponent {
       EventHandler.trigger(this._element, EVENT_HIDDEN)
     }
 
-    const transitionDuration = getTransitionDurationFromElement(this._element)
-    EventHandler.one(this._element, 'transitionend', completeCallback)
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(completeCallback, this._element, true)
   }
 
   dispose() {
     this._backdrop.dispose()
     super.dispose()
     EventHandler.off(document, EVENT_FOCUSIN)
-
-    this._config = null
-    this._backdrop = null
   }
 
   // Private
@@ -283,6 +274,6 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
  * ------------------------------------------------------------------------
  */
 
-defineJQueryPlugin(NAME, Offcanvas)
+defineJQueryPlugin(Offcanvas)
 
 export default Offcanvas

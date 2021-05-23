@@ -16,10 +16,9 @@ toc: true
 - Dropped Internet Explorer 10 and 11
 - Dropped Microsoft Edge < 16 (Legacy Edge)
 - Dropped Firefox < 60
-- Dropped Safari < 10
-- Dropped iOS Safari < 10
+- Dropped Safari < 12
+- Dropped iOS Safari < 12
 - Dropped Chrome < 60
-- Dropped Android < 6
 
 <hr class="my-5">
 
@@ -155,7 +154,7 @@ toc: true
 
 ### Accordion
 
-- Added [new accordion component]({{< docsref "/components/accordion" >}}!
+- Added [new accordion component]({{< docsref "/components/accordion" >}}).
 
 ### Alerts
 
@@ -205,7 +204,7 @@ toc: true
 
 - Replaced chevron icons for carousel controls with new SVGs from [Bootstrap Icons]({{< param "icons" >}}).
 
-### Close buttton
+### Close button
 
 - <span class="badge bg-danger">Breaking</span> Renamed `.close` to `.btn-close` for a less generic name.
 
@@ -317,7 +316,7 @@ toc: true
 
 ## Utilities
 
-- <span class="badge bg-danger">Breaking</span> Renamed several utilities to use logical property names instead of directoinal names with the addition of RTL support:
+- <span class="badge bg-danger">Breaking</span> Renamed several utilities to use logical property names instead of directional names with the addition of RTL support:
   - Renamed `.left-*` and `.right-*` to `.start-*` and `.end-*`.
   - Renamed `.float-left` and `.float-right` to `.float-start` and `.float-end`.
   - Renamed `.border-left` and `.border-right` to `.border-start` and `.border-end`.

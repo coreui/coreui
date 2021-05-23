@@ -96,8 +96,8 @@ class Modal extends BaseComponent {
     return Default
   }
 
-  static get DATA_KEY() {
-    return DATA_KEY
+  static get NAME() {
+    return NAME
   }
 
   // Public
@@ -148,7 +148,7 @@ class Modal extends BaseComponent {
   }
 
   hide(event) {
-    if (event) {
+    if (event && ['A', 'AREA'].includes(event.target.tagName)) {
       event.preventDefault()
     }
 
@@ -179,20 +179,14 @@ class Modal extends BaseComponent {
     EventHandler.off(this._element, EVENT_CLICK_DISMISS)
     EventHandler.off(this._dialog, EVENT_MOUSEDOWN_DISMISS)
 
-    if (isAnimated) {
-      const transitionDuration = getTransitionDurationFromElement(this._element)
-
-      EventHandler.one(this._element, 'transitionend', event => this._hideModal(event))
-      emulateTransitionEnd(this._element, transitionDuration)
-    } else {
-      this._hideModal()
-    }
+    this._queueCallback(() => this._hideModal(), this._element, isAnimated)
   }
 
   dispose() {
     [window, this._dialog]
       .forEach(htmlElement => EventHandler.off(htmlElement, EVENT_KEY))
 
+    this._backdrop.dispose()
     super.dispose()
 
     /**
@@ -201,14 +195,6 @@ class Modal extends BaseComponent {
      * It will remove `EVENT_CLICK_DATA_API` event that should remain
      */
     EventHandler.off(document, EVENT_FOCUSIN)
-
-    this._config = null
-    this._dialog = null
-    this._backdrop.dispose()
-    this._backdrop = null
-    this._isShown = null
-    this._ignoreBackdropClick = null
-    this._isTransitioning = null
   }
 
   handleUpdate() {
@@ -274,14 +260,7 @@ class Modal extends BaseComponent {
       })
     }
 
-    if (isAnimated) {
-      const transitionDuration = getTransitionDurationFromElement(this._dialog)
-
-      EventHandler.one(this._dialog, 'transitionend', transitionComplete)
-      emulateTransitionEnd(this._dialog, transitionDuration)
-    } else {
-      transitionComplete()
-    }
+    this._queueCallback(transitionComplete, this._dialog, isAnimated)
   }
 
   _enforceFocus() {
@@ -465,6 +444,6 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
  * add .Modal to jQuery only if jQuery is present
  */
 
-defineJQueryPlugin(NAME, Modal)
+defineJQueryPlugin(Modal)
 
 export default Modal

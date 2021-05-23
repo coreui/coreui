@@ -58,6 +58,7 @@ const defaultPluginConfig = {
   }
 }
 
+// eslint-disable-next-line complexity
 const getConfigByPluginKey = pluginKey => {
   if (
     pluginKey === 'Data' ||

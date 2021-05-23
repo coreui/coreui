@@ -1,3 +1,5 @@
+import SelectorEngine from '../dom/selector-engine'
+
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.0-rc.0): alert.js
@@ -103,7 +105,29 @@ const triggerTransitionEnd = element => {
   element.dispatchEvent(new Event(TRANSITION_END))
 }
 
-const isElement = obj => (obj[0] || obj).nodeType
+const isElement = obj => {
+  if (!obj || typeof obj !== 'object') {
+    return false
+  }
+
+  if (typeof obj.jquery !== 'undefined') {
+    obj = obj[0]
+  }
+
+  return typeof obj.nodeType !== 'undefined'
+}
+
+const getElement = obj => {
+  if (isElement(obj)) { // it's a jQuery object or a node element
+    return obj.jquery ? obj[0] : obj
+  }
+
+  if (typeof obj === 'string' && obj.length > 0) {
+    return SelectorEngine.findOne(obj)
+  }
+
+  return null
+}
 
 const emulateTransitionEnd = (element, duration) => {
   let called = false
@@ -138,20 +162,11 @@ const typeCheckConfig = (componentName, config, configTypes) => {
 }
 
 const isVisible = element => {
-  if (!element) {
+  if (!isElement(element) || element.getClientRects().length === 0) {
     return false
   }
 
-  if (element.style && element.parentNode && element.parentNode.style) {
-    const elementStyle = getComputedStyle(element)
-    const parentNodeStyle = getComputedStyle(element.parentNode)
-
-    return elementStyle.display !== 'none' &&
-      parentNodeStyle.display !== 'none' &&
-      elementStyle.visibility !== 'hidden'
-  }
-
-  return false
+  return getComputedStyle(element).getPropertyValue('visibility') === 'visible'
 }
 
 const isDisabled = element => {
@@ -217,11 +232,12 @@ const onDOMContentLoaded = callback => {
 
 const isRTL = () => document.documentElement.dir === 'rtl'
 
-const defineJQueryPlugin = (name, plugin) => {
+const defineJQueryPlugin = plugin => {
   onDOMContentLoaded(() => {
     const $ = getjQuery()
     /* istanbul ignore if */
     if ($) {
+      const name = plugin.NAME
       const JQUERY_NO_CONFLICT = $.fn[name]
       $.fn[name] = plugin.jQueryInterface
       $.fn[name].Constructor = plugin
@@ -239,7 +255,36 @@ const execute = callback => {
   }
 }
 
+/**
+ * Return the previous/next element of a list.
+ *
+ * @param {array} list    The list of elements
+ * @param activeElement   The active element
+ * @param shouldGetNext   Choose to get next or previous element
+ * @param isCycleAllowed
+ * @return {Element|elem} The proper element
+ */
+const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed) => {
+  let index = list.indexOf(activeElement)
+
+  // if the element does not exist in the list return an element depending on the direction and if cycle is allowed
+  if (index === -1) {
+    return list[!shouldGetNext && isCycleAllowed ? list.length - 1 : 0]
+  }
+
+  const listLength = list.length
+
+  index += shouldGetNext ? 1 : -1
+
+  if (isCycleAllowed) {
+    index = (index + listLength) % listLength
+  }
+
+  return list[Math.max(0, Math.min(index, listLength - 1))]
+}
+
 export {
+  getElement,
   getUID,
   getSelectorFromElement,
   getElementFromSelector,
@@ -252,6 +297,7 @@ export {
   isDisabled,
   findShadowRoot,
   noop,
+  getNextActiveElement,
   reflow,
   getjQuery,
   onDOMContentLoaded,

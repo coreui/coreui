@@ -4,26 +4,16 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.Data, global.EventHandler, global.Base));
-}(this, (function (Data, EventHandler, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/data', './dom/event-handler', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.SelectorEngine, global.Data, global.EventHandler, global.Base));
+}(this, (function (SelectorEngine, Data, EventHandler, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-rc.0): alert.js
-   * Licensed under MIT (https://coreui.io/license)
-   *
-   * This component is a modified version of the Bootstrap's  util/index.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
 
   const getjQuery = () => {
     const {
@@ -45,12 +35,13 @@
     }
   };
 
-  const defineJQueryPlugin = (name, plugin) => {
+  const defineJQueryPlugin = plugin => {
     onDOMContentLoaded(() => {
       const $ = getjQuery();
       /* istanbul ignore if */
 
       if ($) {
+        const name = plugin.NAME;
         const JQUERY_NO_CONFLICT = $.fn[name];
         $.fn[name] = plugin.jQueryInterface;
         $.fn[name].Constructor = plugin;
@@ -93,8 +84,8 @@
 
   class Button extends BaseComponent__default['default'] {
     // Getters
-    static get DATA_KEY() {
-      return DATA_KEY;
+    static get NAME() {
+      return NAME;
     } // Public
 
 
@@ -144,7 +135,7 @@
    * add .Button to jQuery only if jQuery is present
    */
 
-  defineJQueryPlugin(NAME, Button);
+  defineJQueryPlugin(Button);
 
   return Button;
 
