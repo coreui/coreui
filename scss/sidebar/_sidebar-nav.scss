@@ -11,6 +11,35 @@
   overflow-y: auto;
   list-style: none;
 
+  // Firefox scrollbars
+  @-moz-document url-prefix() {
+    scrollbar-width: thin;
+  }
+
+  // Chrome, Edge scrollbars
+
+  /* total width */
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  /* background of the scrollbar except button or resizer */
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* scrollbar itself */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .375);
+    @include border-radius(8px);
+  }
+
+  /* set button(top and bottom of the scrollbar) */
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
   .nav-title {
     padding: $sidebar-nav-title-padding-y $sidebar-nav-title-padding-x;
     margin-top: $sidebar-nav-title-margin-top;
