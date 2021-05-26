@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.1): scrollspy.js
+ * CoreUI (v4.0.0-rc.2): scrollspy.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's scrollspy.js

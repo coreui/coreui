@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.1): tooltip.js
+ * CoreUI (v4.0.0-rc.2): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
