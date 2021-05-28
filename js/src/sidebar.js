@@ -85,6 +85,10 @@ class Sidebar extends BaseComponent {
     return DefaultType
   }
 
+  static get NAME() {
+    return NAME
+  }
+
   // Public
 
   show() {
