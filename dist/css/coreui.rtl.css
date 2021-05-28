@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-rc.2
+ * @version v4.0.0-rc.3
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-rc.2
+ * @version v4.0.0-rc.3
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -6858,29 +6858,6 @@ textarea.form-control-lg {
   overflow-x: hidden;
   overflow-y: auto;
   list-style: none;
-  /* total width */
-  /* background of the scrollbar except button or resizer */
-  /* scrollbar itself */
-  /* set button(top and bottom of the scrollbar) */
-}
-@-moz-document url-prefix() {
-  .sidebar-nav {
-    scrollbar-width: thin;
-  }
-}
-.sidebar-nav::-webkit-scrollbar {
-  width: 8px;
-  background-color: transparent;
-}
-.sidebar-nav::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-.sidebar-nav::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.375);
-  border-radius: 8px;
-}
-.sidebar-nav::-webkit-scrollbar-button {
-  display: none;
 }
 .sidebar-nav .nav-title {
   padding: 0.75rem 1rem;
