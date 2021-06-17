@@ -34,6 +34,7 @@ const DefaultType = {}
 
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
 const CLASS_NAME_FADE = 'fade'
+const CLASS_NAME_HIDE = 'hide'
 const CLASS_NAME_SHOW = 'show'
 const CLASS_NAME_SIDEBAR = 'sidebar'
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
@@ -44,6 +45,7 @@ const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
+const EVENT_RESIZE = 'resize'
 const EVENT_SHOW = `show${EVENT_KEY}`
 const EVENT_SHOWN = `shown${EVENT_KEY}`
 const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
@@ -94,6 +96,10 @@ class Sidebar extends BaseComponent {
   show() {
     EventHandler.trigger(this._element, EVENT_SHOW)
 
+    if (this._element.classList.contains(CLASS_NAME_HIDE)) {
+      this._element.classList.remove(CLASS_NAME_HIDE)
+    }
+
     if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
       this._element.classList.add(CLASS_NAME_SHOW)
     }
@@ -124,6 +130,8 @@ class Sidebar extends BaseComponent {
 
     if (this._element.classList.contains(CLASS_NAME_SHOW)) {
       this._element.classList.remove(CLASS_NAME_SHOW)
+    } else {
+      this._element.classList.add(CLASS_NAME_HIDE)
     }
 
     if (this._isMobile()) {
@@ -314,6 +322,18 @@ class Sidebar extends BaseComponent {
     EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_CLOSE, event => {
       event.preventDefault()
       this.hide()
+    })
+
+    EventHandler.on(window, EVENT_RESIZE, () => {
+      // eslint-disable-next-line no-console
+      console.log('resized')
+      // eslint-disable-next-line no-console
+      console.log(this._mobile)
+      // eslint-disable-next-line no-console
+      console.log(this._show)
+      if (this._isMobile() && this._isVisible()) {
+        this.hide()
+      }
     })
   }
 
