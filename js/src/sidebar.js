@@ -134,6 +134,10 @@ class Sidebar extends BaseComponent {
       this._element.classList.add(CLASS_NAME_HIDE)
     }
 
+    if (this._isVisible()) {
+      this._element.classList.add(CLASS_NAME_HIDE)
+    }
+
     if (this._isMobile()) {
       this._removeBackdrop()
     }
