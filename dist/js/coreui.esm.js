@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.0-rc.3 (https://coreui.io)
+  * CoreUI v4.0.0-rc.4 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -7,7 +7,7 @@ import * as Popper from '@popperjs/core';
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dom/selector-engine.js
+ * CoreUI (v4.0.0-rc.4): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -81,7 +81,7 @@ const SelectorEngine = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/index.js
@@ -363,7 +363,7 @@ const getNextActiveElement = (list, activeElement, shouldGetNext, isCycleAllowed
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dom/data.js
+ * CoreUI (v4.0.0-rc.4): dom/data.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dom/data.js
@@ -420,7 +420,7 @@ var Data = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dom/event-handler.js
+ * CoreUI (v4.0.0-rc.4): dom/event-handler.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -712,7 +712,7 @@ const EventHandler = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's base-component.js
@@ -725,7 +725,7 @@ const EventHandler = {
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '4.0.0-rc.3';
+const VERSION = '4.0.0-rc.4';
 
 class BaseComponent {
   constructor(element) {
@@ -784,7 +784,7 @@ class BaseComponent {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's alert.js
@@ -902,7 +902,7 @@ defineJQueryPlugin(Alert);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's button.js
@@ -985,7 +985,7 @@ defineJQueryPlugin(Button);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dom/manipulator.js
+ * CoreUI (v4.0.0-rc.4): dom/manipulator.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -1062,7 +1062,7 @@ const Manipulator = {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): carousel.js
+ * CoreUI (v4.0.0-rc.4): carousel.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's carousel.js
@@ -1611,7 +1611,7 @@ defineJQueryPlugin(Carousel);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): collapse.js
+ * CoreUI (v4.0.0-rc.4): collapse.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's collapse.js
@@ -1969,7 +1969,7 @@ defineJQueryPlugin(Collapse);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dropdown.js
+ * CoreUI (v4.0.0-rc.4): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's dropdown.js
@@ -2668,7 +2668,7 @@ class Backdrop {
 
 /**
  * --------------------------------------------------------------------------
-  * CoreUI (v4.0.0-rc.3): modal.js
+  * CoreUI (v4.0.0-rc.4): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
@@ -2702,7 +2702,7 @@ const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$8}`;
 const EVENT_SHOW$4 = `show${EVENT_KEY$8}`;
 const EVENT_SHOWN$4 = `shown${EVENT_KEY$8}`;
 const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$8}`;
-const EVENT_RESIZE = `resize${EVENT_KEY$8}`;
+const EVENT_RESIZE$1 = `resize${EVENT_KEY$8}`;
 const EVENT_CLICK_DISMISS$2 = `click.dismiss${EVENT_KEY$8}`;
 const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$8}`;
 const EVENT_MOUSEUP_DISMISS = `mouseup.dismiss${EVENT_KEY$8}`;
@@ -2935,9 +2935,9 @@ class Modal extends BaseComponent {
 
   _setResizeEvent() {
     if (this._isShown) {
-      EventHandler.on(window, EVENT_RESIZE, () => this._adjustDialog());
+      EventHandler.on(window, EVENT_RESIZE$1, () => this._adjustDialog());
     } else {
-      EventHandler.off(window, EVENT_RESIZE);
+      EventHandler.off(window, EVENT_RESIZE$1);
     }
   }
 
@@ -3099,7 +3099,7 @@ defineJQueryPlugin(Modal);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -3389,7 +3389,7 @@ defineJQueryPlugin(NAME$7);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): dropdown.js
+ * CoreUI (v4.0.0-rc.4): dropdown.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's offcanvas.js
@@ -3652,7 +3652,7 @@ defineJQueryPlugin(Offcanvas);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): alert.js
+ * CoreUI (v4.0.0-rc.4): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -3768,7 +3768,7 @@ function sanitizeHtml(unsafeHtml, allowList, sanitizeFn) {
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): tooltip.js
+ * CoreUI (v4.0.0-rc.4): tooltip.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
@@ -4465,7 +4465,7 @@ defineJQueryPlugin(Tooltip);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): popover.js
+ * CoreUI (v4.0.0-rc.4): popover.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's popover.js
@@ -4624,7 +4624,7 @@ defineJQueryPlugin(Popover);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): scrollspy.js
+ * CoreUI (v4.0.0-rc.4): scrollspy.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's scrollspy.js
@@ -4878,7 +4878,7 @@ defineJQueryPlugin(ScrollSpy);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): sidebar.js
+ * CoreUI (v4.0.0-rc.4): sidebar.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
@@ -4896,6 +4896,7 @@ const Default$1 = {};
 const DefaultType$1 = {};
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop';
 const CLASS_NAME_FADE$2 = 'fade';
+const CLASS_NAME_HIDE$1 = 'hide';
 const CLASS_NAME_SHOW$2 = 'show';
 const CLASS_NAME_SIDEBAR = 'sidebar';
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow';
@@ -4904,6 +4905,7 @@ const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable';
 const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/;
 const EVENT_HIDE$2 = `hide${EVENT_KEY$2}`;
 const EVENT_HIDDEN$2 = `hidden${EVENT_KEY$2}`;
+const EVENT_RESIZE = 'resize';
 const EVENT_SHOW$2 = `show${EVENT_KEY$2}`;
 const EVENT_SHOWN$2 = `shown${EVENT_KEY$2}`;
 const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$2}${DATA_API_KEY$1}`;
@@ -4949,6 +4951,10 @@ class Sidebar extends BaseComponent {
   show() {
     EventHandler.trigger(this._element, EVENT_SHOW$2);
 
+    if (this._element.classList.contains(CLASS_NAME_HIDE$1)) {
+      this._element.classList.remove(CLASS_NAME_HIDE$1);
+    }
+
     if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
       this._element.classList.add(CLASS_NAME_SHOW$2);
     }
@@ -4979,6 +4985,8 @@ class Sidebar extends BaseComponent {
 
     if (this._element.classList.contains(CLASS_NAME_SHOW$2)) {
       this._element.classList.remove(CLASS_NAME_SHOW$2);
+    } else {
+      this._element.classList.add(CLASS_NAME_HIDE$1);
     }
 
     if (this._isMobile()) {
@@ -5175,6 +5183,18 @@ class Sidebar extends BaseComponent {
       event.preventDefault();
       this.hide();
     });
+    EventHandler.on(window, EVENT_RESIZE, () => {
+      // eslint-disable-next-line no-console
+      console.log('resized'); // eslint-disable-next-line no-console
+
+      console.log(this._mobile); // eslint-disable-next-line no-console
+
+      console.log(this._show);
+
+      if (this._isMobile() && this._isVisible()) {
+        this.hide();
+      }
+    });
   } // Static
 
 
@@ -5225,7 +5245,7 @@ defineJQueryPlugin(NAME$2);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): tab.js
+ * CoreUI (v4.0.0-rc.4): tab.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's tab.js
@@ -5426,7 +5446,7 @@ defineJQueryPlugin(Tab);
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.3): toast.js
+ * CoreUI (v4.0.0-rc.4): toast.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's toast.js

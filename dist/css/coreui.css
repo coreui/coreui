@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-rc.3
+ * @version v4.0.0-rc.4
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -6492,6 +6492,18 @@ textarea.form-control-lg {
 .sidebar.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 16rem;
 }
+.sidebar.hide:not(.sidebar-end) {
+  margin-left: -16rem;
+}
+.sidebar.hide:not(.sidebar-end) ~ * {
+  --cui-sidebar-occupy-start: 0;
+}
+.sidebar.hide.sidebar-end {
+  margin-right: -16rem;
+}
+.sidebar.hide.sidebar-end ~ * {
+  --cui-sidebar-occupy-end: 0;
+}
 .sidebar[class*=bg-] {
   border-color: rgba(0, 0, 21, 0.1);
 }
@@ -6505,6 +6517,18 @@ textarea.form-control-lg {
 .sidebar.sidebar-sm.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 12rem;
 }
+.sidebar.sidebar-sm.hide:not(.sidebar-end) {
+  margin-left: -12rem;
+}
+.sidebar.sidebar-sm.hide:not(.sidebar-end) ~ * {
+  --cui-sidebar-occupy-start: 0;
+}
+.sidebar.sidebar-sm.hide.sidebar-end {
+  margin-right: -12rem;
+}
+.sidebar.sidebar-sm.hide.sidebar-end ~ * {
+  --cui-sidebar-occupy-end: 0;
+}
 .sidebar.sidebar-lg {
   flex: 0 0 20rem;
   width: 20rem;
@@ -6515,6 +6539,18 @@ textarea.form-control-lg {
 .sidebar.sidebar-lg.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 20rem;
 }
+.sidebar.sidebar-lg.hide:not(.sidebar-end) {
+  margin-left: -20rem;
+}
+.sidebar.sidebar-lg.hide:not(.sidebar-end) ~ * {
+  --cui-sidebar-occupy-start: 0;
+}
+.sidebar.sidebar-lg.hide.sidebar-end {
+  margin-right: -20rem;
+}
+.sidebar.sidebar-lg.hide.sidebar-end ~ * {
+  --cui-sidebar-occupy-end: 0;
+}
 .sidebar.sidebar-xl {
   flex: 0 0 24rem;
   width: 24rem;
@@ -6524,6 +6560,18 @@ textarea.form-control-lg {
 }
 .sidebar.sidebar-xl.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 24rem;
+}
+.sidebar.sidebar-xl.hide:not(.sidebar-end) {
+  margin-left: -24rem;
+}
+.sidebar.sidebar-xl.hide:not(.sidebar-end) ~ * {
+  --cui-sidebar-occupy-start: 0;
+}
+.sidebar.sidebar-xl.hide.sidebar-end {
+  margin-right: -24rem;
+}
+.sidebar.sidebar-xl.hide.sidebar-end ~ * {
+  --cui-sidebar-occupy-end: 0;
 }
 @media (min-width: 768px) {
   .sidebar.sidebar-fixed {

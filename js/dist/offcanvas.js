@@ -1,5 +1,5 @@
 /*!
-  * CoreUI offcanvas.js v4.0.0-rc.3 (https://coreui.io)
+  * CoreUI offcanvas.js v4.0.0-rc.4 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -412,7 +412,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.0-rc.3): dropdown.js
+   * CoreUI (v4.0.0-rc.4): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's offcanvas.js
