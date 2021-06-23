@@ -1462,6 +1462,9 @@ $progress-bar-color:                $high-emphasis-inverse !default;
 $progress-bar-bg:                   $primary !default;
 $progress-bar-animation-timing:     1s linear infinite !default;
 $progress-bar-transition:           width .6s ease !default;
+
+$progress-group-margin-bottom:         $spacer !default;
+$progress-group-header-margin-bottom:  $spacer * .25 !default;
 // scss-docs-end progress-variables
 
 // List group

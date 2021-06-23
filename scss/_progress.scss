@@ -59,11 +59,10 @@
   }
 }
 
-//TODO: move all values to variables.scss
 .progress-group {
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: $spacer;
+  margin-bottom: $progress-group-margin-bottom;
 }
 
 .progress-group-prepend {
@@ -71,15 +70,11 @@
   align-self: center;
 }
 
-.progress-group-icon {
-  font-size: $font-size-lg;
-}
-
 .progress-group-header {
   display: flex;
   flex-basis: 100%;
   align-items: center;
-  margin-bottom: ($spacer * .25);
+  margin-bottom: $progress-group-header-margin-bottom;
 }
 
 .progress-group-bars {
