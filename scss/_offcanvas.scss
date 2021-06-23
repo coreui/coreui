@@ -1,4 +1,3 @@
-// TODO: add RTL support
 .offcanvas {
   position: fixed;
   bottom: 0;
@@ -24,7 +23,7 @@
   .btn-close {
     padding: ($offcanvas-padding-y * .5) ($offcanvas-padding-x * .5);
     margin-top: $offcanvas-padding-y * -.5;
-    margin-right: $offcanvas-padding-x * -.5;
+    @include ltr-rtl("margin-right", $offcanvas-padding-x * -.5);
     margin-bottom: $offcanvas-padding-y * -.5;
   }
 }

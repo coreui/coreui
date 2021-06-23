@@ -44,7 +44,7 @@
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
   $num: divide($size, $columns);
-  margin-left: if($num == 0, 0, percentage($num)); // TODO: RTL
+  @include ltr-rtl("margin-left", if($num == 0, 0, percentage($num)));
 }
 
 // Row columns
