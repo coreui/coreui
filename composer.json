@@ -1,6 +1,6 @@
 {
-  "name": "twbs/bootstrap",
-  "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+  "name": "coreui/coreui",
+  "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintain by the CoreUI Team",
   "keywords": [
     "css",
     "js",
@@ -11,19 +11,15 @@
     "framework",
     "web"
   ],
-  "homepage": "https://getbootstrap.com/",
+  "homepage": "https://coreui.io/",
   "authors": [
     {
-      "name": "Mark Otto",
-      "email": "markdotto@gmail.com"
-    },
-    {
-      "name": "Jacob Thornton",
-      "email": "jacobthornton@gmail.com"
+      "name": "The CoreUI Team",
+      "homepage": "https://github.com/orgs/coreui/people",
     }
   ],
   "support": {
-    "issues": "https://github.com/twbs/bootstrap/issues"
+    "issues": "https://github.com/coreui/coreui/issues"
   },
   "license": "MIT",
   "replace": {

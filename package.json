@@ -1,6 +1,6 @@
 {
   "name": "@coreui/coreui",
-  "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten by the CoreUI Team",
+  "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintain by the CoreUI Team",
   "version": "4.0.0-rc.4",
   "config": {
     "version_short": "4.0"

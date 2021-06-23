@@ -3,16 +3,16 @@
 /* eslint-env meteor */
 
 Package.describe({
-  name: 'twbs:bootstrap', // https://atmospherejs.com/twbs/bootstrap
-  summary: 'The most popular front-end framework for developing responsive, mobile first projects on the web.',
-  version: '5.0.2',
-  git: 'https://github.com/twbs/bootstrap.git'
+  name: 'coreui:coreui', // https://atmospherejs.com/coreui/coreui
+  summary: 'The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintain by the CoreUI Team.',
+  version: '4.0.0-rc.4',
+  git: 'https://github.com/coreui/coreui.git'
 })
 
 Package.onUse(api => {
   api.versionsFrom('METEOR@1.0')
   api.addFiles([
-    'dist/css/bootstrap.css',
-    'dist/js/bootstrap.js'
+    'dist/css/coreui.css',
+    'dist/js/coreui.js'
   ], 'client')
 })
