@@ -27,8 +27,8 @@
   &::-webkit-slider-thumb {
     width: $form-range-thumb-width;
     height: $form-range-thumb-height;
-    margin-top: ($form-range-track-height - $form-range-thumb-height) / 2; // Webkit specific
-    @include gradient-bg($form-range-thumb-bg); // TODO: vars
+    margin-top: ($form-range-track-height - $form-range-thumb-height) * .5; // Webkit specific
+    @include gradient-bg($form-range-thumb-bg);
     border: $form-range-thumb-border;
     @include border-radius($form-range-thumb-border-radius);
     @include box-shadow($form-range-thumb-box-shadow);

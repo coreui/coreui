@@ -229,6 +229,26 @@
   float: var(--bs-float-none, none) !important;
 }
 
+.opacity-0 {
+  opacity: var(--bs-opacity-0, 0) !important;
+}
+
+.opacity-25 {
+  opacity: var(--bs-opacity-25, 0.25) !important;
+}
+
+.opacity-50 {
+  opacity: var(--bs-opacity-50, 0.5) !important;
+}
+
+.opacity-75 {
+  opacity: var(--bs-opacity-75, 0.75) !important;
+}
+
+.opacity-100 {
+  opacity: var(--bs-opacity-100, 1) !important;
+}
+
 .overflow-auto {
   overflow: var(--bs-overflow-auto, auto) !important;
 }
