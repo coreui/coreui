@@ -211,8 +211,8 @@ class Tooltip extends BaseComponent {
 
     EventHandler.off(this._element.closest(`.${CLASS_NAME_MODAL}`), 'hide.coreui.modal', this._hideModalHandler)
 
-    if (this.tip && this.tip.parentNode) {
-      this.tip.parentNode.removeChild(this.tip)
+    if (this.tip) {
+      this.tip.remove()
     }
 
     if (this._popper) {
@@ -317,8 +317,8 @@ class Tooltip extends BaseComponent {
         return
       }
 
-      if (this._hoverState !== HOVER_STATE_SHOW && tip.parentNode) {
-        tip.parentNode.removeChild(tip)
+      if (this._hoverState !== HOVER_STATE_SHOW) {
+        tip.remove()
       }
 
       this._cleanTipClass()
@@ -725,12 +725,7 @@ class Tooltip extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      let data = Data.get(this, DATA_KEY)
-      const _config = typeof config === 'object' && config
-
-      if (!data) {
-        data = new Tooltip(this, _config)
-      }
+      const data = Tooltip.getOrCreateInstance(this, config)
 
       if (typeof config === 'string') {
         if (typeof data[config] === 'undefined') {

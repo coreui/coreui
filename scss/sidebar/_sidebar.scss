@@ -219,7 +219,7 @@
     background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
     background-repeat: no-repeat;
     background-position: center;
-    background-size: $sidebar-toggler-indicator-height / 4;
+    background-size: $sidebar-toggler-indicator-height * .25;
     @include transition($sidebar-toggler-transition);
     @include rtl() {
       transform: rotate(-180deg);

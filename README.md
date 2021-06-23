@@ -151,7 +151,7 @@ Editor preferences are available in the [editor config](https://github.com/coreu
 
 Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
-- Read and subscribe to [The Official CoreUI Blog](https://coreui.io/blog/).
+- Read and subscribe to [The Official CoreUI Blog](https://blog.coreui.io/).
 - Join [the official Community](https://community.coreui.io/).
 
 You can also follow [@core_ui on Twitter](https://twitter.com/core_ui).

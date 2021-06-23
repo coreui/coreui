@@ -78,7 +78,7 @@ Every Sass variable in CoreUI for Bootstrap includes the `!default` flag allowin
 
 You will find the complete list of Bootstrap's variables in `scss/_variables.scss`. Some variables are set to `null`, these variables don't output the property unless they are overridden in your configuration.
 
-Variable overrides must come after our functions, variables, and mixins are imported, but before the rest of the imports.
+Variable overrides must come after our functions are imported, but before the rest of the imports.
 
 Here's an example that changes the `background-color` and `color` for the `<body>` when importing and compiling CoreUI for Bootstrap via npm:
 
@@ -124,7 +124,7 @@ $primary: #0074d9;
 $danger: #ff4136;
 ```
 
-Later on, theses variables are set in Bootstrap's `$theme-colors` map:
+Later on, these variables are set in Bootstrap's `$theme-colors` map:
 
 ```scss
 $theme-colors: (

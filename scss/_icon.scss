@@ -10,7 +10,7 @@
     // TODO: create variable with a range
     @for $i from 2 through 9 {
       &.icon-#{$i}xl {
-        @include icon-size($i * ($icon-size-xl / 1.5));
+        @include icon-size($i * divide($icon-size-xl, 1.5));
       }
     }
 

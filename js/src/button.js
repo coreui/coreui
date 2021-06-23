@@ -9,7 +9,6 @@
  */
 
 import { defineJQueryPlugin } from './util/index'
-import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import BaseComponent from './base-component'
 
@@ -54,11 +53,7 @@ class Button extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      let data = Data.get(this, DATA_KEY)
-
-      if (!data) {
-        data = new Button(this)
-      }
+      const data = Button.getOrCreateInstance(this)
 
       if (config === 'toggle') {
         data[config]()
@@ -77,11 +72,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
   event.preventDefault()
 
   const button = event.target.closest(SELECTOR_DATA_TOGGLE)
-
-  let data = Data.get(button, DATA_KEY)
-  if (!data) {
-    data = new Button(button)
-  }
+  const data = Button.getOrCreateInstance(button)
 
   data.toggle()
 })

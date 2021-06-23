@@ -4,15 +4,14 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/data', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.SelectorEngine, global.Data, global.EventHandler, global.Manipulator, global.Base));
-}(this, (function (SelectorEngine, Data, EventHandler, Manipulator, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.SelectorEngine, global.EventHandler, global.Manipulator, global.Base));
+}(this, (function (SelectorEngine, EventHandler, Manipulator, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
   var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
@@ -106,9 +105,18 @@
     return null;
   };
 
+  const DOMContentLoadedCallbacks = [];
+
   const onDOMContentLoaded = callback => {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
+      // add listener on the first call when the document is in loading state
+      if (!DOMContentLoadedCallbacks.length) {
+        document.addEventListener('DOMContentLoaded', () => {
+          DOMContentLoadedCallbacks.forEach(callback => callback());
+        });
+      }
+
+      DOMContentLoadedCallbacks.push(callback);
     } else {
       callback();
     }
@@ -206,6 +214,10 @@
   const ORDER_PREV = 'prev';
   const DIRECTION_LEFT = 'left';
   const DIRECTION_RIGHT = 'right';
+  const KEY_TO_DIRECTION = {
+    [ARROW_LEFT_KEY]: DIRECTION_RIGHT,
+    [ARROW_RIGHT_KEY]: DIRECTION_LEFT
+  };
   const EVENT_SLIDE = `slide${EVENT_KEY}`;
   const EVENT_SLID = `slid${EVENT_KEY}`;
   const EVENT_KEYDOWN = `keydown${EVENT_KEY}`;
@@ -274,9 +286,7 @@
 
 
     next() {
-      if (!this._isSliding) {
-        this._slide(ORDER_NEXT);
-      }
+      this._slide(ORDER_NEXT);
     }
 
     nextWhenVisible() {
@@ -288,9 +298,7 @@
     }
 
     prev() {
-      if (!this._isSliding) {
-        this._slide(ORDER_PREV);
-      }
+      this._slide(ORDER_PREV);
     }
 
     pause(event) {
@@ -352,7 +360,8 @@
 
     _getConfig(config) {
       config = { ...Default,
-        ...config
+        ...Manipulator__default['default'].getDataAttributes(this._element),
+        ...(typeof config === 'object' ? config : {})
       };
       typeCheckConfig(NAME, config, DefaultType);
       return config;
@@ -450,14 +459,12 @@
         return;
       }
 
-      if (event.key === ARROW_LEFT_KEY) {
+      const direction = KEY_TO_DIRECTION[event.key];
+
+      if (direction) {
         event.preventDefault();
 
-        this._slide(DIRECTION_RIGHT);
-      } else if (event.key === ARROW_RIGHT_KEY) {
-        event.preventDefault();
-
-        this._slide(DIRECTION_LEFT);
+        this._slide(direction);
       }
     }
 
@@ -538,6 +545,10 @@
 
       if (nextElement && nextElement.classList.contains(CLASS_NAME_ACTIVE)) {
         this._isSliding = false;
+        return;
+      }
+
+      if (this._isSliding) {
         return;
       }
 
@@ -624,10 +635,10 @@
 
 
     static carouselInterface(element, config) {
-      let data = Data__default['default'].get(element, DATA_KEY);
-      let _config = { ...Default,
-        ...Manipulator__default['default'].getDataAttributes(element)
-      };
+      const data = Carousel.getOrCreateInstance(element, config);
+      let {
+        _config
+      } = data;
 
       if (typeof config === 'object') {
         _config = { ..._config,
@@ -636,10 +647,6 @@
       }
 
       const action = typeof config === 'string' ? config : _config.slide;
-
-      if (!data) {
-        data = new Carousel(element, _config);
-      }
 
       if (typeof config === 'number') {
         data.to(config);
@@ -680,7 +687,7 @@
       Carousel.carouselInterface(target, config);
 
       if (slideIndex) {
-        Data__default['default'].get(target, DATA_KEY).to(slideIndex);
+        Carousel.getInstance(target).to(slideIndex);
       }
 
       event.preventDefault();
@@ -699,7 +706,7 @@
     const carousels = SelectorEngine__default['default'].find(SELECTOR_DATA_RIDE);
 
     for (let i = 0, len = carousels.length; i < len; i++) {
-      Carousel.carouselInterface(carousels[i], Data__default['default'].get(carousels[i], DATA_KEY));
+      Carousel.carouselInterface(carousels[i], Carousel.getInstance(carousels[i]));
     }
   });
   /**

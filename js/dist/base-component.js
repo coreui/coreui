@@ -70,28 +70,40 @@
     return null;
   };
 
-  const emulateTransitionEnd = (element, duration) => {
-    let called = false;
-    const durationPadding = 5;
-    const emulatedDuration = duration + durationPadding;
-
-    function listener() {
-      called = true;
-      element.removeEventListener(TRANSITION_END, listener);
-    }
-
-    element.addEventListener(TRANSITION_END, listener);
-    setTimeout(() => {
-      if (!called) {
-        triggerTransitionEnd(element);
-      }
-    }, emulatedDuration);
-  };
-
   const execute = callback => {
     if (typeof callback === 'function') {
       callback();
     }
+  };
+
+  const executeAfterTransition = (callback, transitionElement, waitForTransition = true) => {
+    if (!waitForTransition) {
+      execute(callback);
+      return;
+    }
+
+    const durationPadding = 5;
+    const emulatedDuration = getTransitionDurationFromElement(transitionElement) + durationPadding;
+    let called = false;
+
+    const handler = ({
+      target
+    }) => {
+      if (target !== transitionElement) {
+        return;
+      }
+
+      called = true;
+      transitionElement.removeEventListener(TRANSITION_END, handler);
+      execute(callback);
+    };
+
+    transitionElement.addEventListener(TRANSITION_END, handler);
+    setTimeout(() => {
+      if (!called) {
+        triggerTransitionEnd(transitionElement);
+      }
+    }, emulatedDuration);
   };
 
   /**
@@ -132,20 +144,17 @@
     }
 
     _queueCallback(callback, element, isAnimated = true) {
-      if (!isAnimated) {
-        execute(callback);
-        return;
-      }
-
-      const transitionDuration = getTransitionDurationFromElement(element);
-      EventHandler__default['default'].one(element, 'transitionend', () => execute(callback));
-      emulateTransitionEnd(element, transitionDuration);
+      executeAfterTransition(callback, element, isAnimated);
     }
     /** Static */
 
 
     static getInstance(element) {
       return Data__default['default'].get(element, this.DATA_KEY);
+    }
+
+    static getOrCreateInstance(element, config = {}) {
+      return this.getInstance(element) || new this(element, typeof config === 'object' ? config : null);
     }
 
     static get VERSION() {

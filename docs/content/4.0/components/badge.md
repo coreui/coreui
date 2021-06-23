@@ -10,9 +10,11 @@ toc: true
 bootstrap: true
 ---
 
-## Example
+## Examples
 
 Bootstrap badge scale to suit the size of the parent element by using relative font sizing and `em` units.
+
+### Headings
 
 {{< example >}}
 <h1>Example heading <span class="badge bg-secondary">New</span></h1>
@@ -22,6 +24,8 @@ Bootstrap badge scale to suit the size of the parent element by using relative f
 <h5>Example heading <span class="badge bg-secondary">New</span></h5>
 <h6>Example heading <span class="badge bg-secondary">New</span></h6>
 {{< /example >}}
+
+### Buttons
 
 Badges can be used as part of links or buttons to provide a counter.
 
@@ -35,10 +39,28 @@ Remark that depending on how you use them, badges may be complicated for users o
 
 Unless the context is clear, consider including additional context with a visually hidden piece of additional text.
 
+### Positioned
+
+Use utilities to modify a `.badge` and position it in the corner of a link or button.
+
 {{< example >}}
-<button type="button" class="btn btn-primary">
-  Profile <span class="badge bg-secondary">9</span>
-  <span class="visually-hidden">unread messages</span>
+<button type="button" class="btn btn-primary position-relative">
+  Inbox
+  <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    99+
+    <span class="visually-hidden">unread messages</span>
+  </span>
+</button>
+{{< /example >}}
+
+You can also replace the `.badge` class with a few more utilities without a count for a more generic indicator.
+
+{{< example >}}
+<button type="button" class="btn btn-primary position-relative">
+  Profile
+  <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+    <span class="visually-hidden">New alerts</span>
+  </span>
 </button>
 {{< /example >}}
 

@@ -4,10 +4,10 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./dom/selector-engine.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['@popperjs/core', './dom/selector-engine', './dom/data', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Popper, global.SelectorEngine, global.Data, global.EventHandler, global.Manipulator, global.Base));
-}(this, (function (Popper, SelectorEngine, Data, EventHandler, Manipulator, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./dom/selector-engine.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['@popperjs/core', './dom/selector-engine', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Popper, global.SelectorEngine, global.EventHandler, global.Manipulator, global.Base));
+}(this, (function (Popper, SelectorEngine, EventHandler, Manipulator, BaseComponent) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -33,7 +33,6 @@
 
   var Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
   var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
   var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
   var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
   var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
@@ -150,9 +149,18 @@
     return null;
   };
 
+  const DOMContentLoadedCallbacks = [];
+
   const onDOMContentLoaded = callback => {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
+      // add listener on the first call when the document is in loading state
+      if (!DOMContentLoadedCallbacks.length) {
+        document.addEventListener('DOMContentLoaded', () => {
+          DOMContentLoadedCallbacks.forEach(callback => callback());
+        });
+      }
+
+      DOMContentLoadedCallbacks.push(callback);
     } else {
       callback();
     }
@@ -548,13 +556,7 @@
 
 
     static dropdownInterface(element, config) {
-      let data = Data__default['default'].get(element, DATA_KEY);
-
-      const _config = typeof config === 'object' ? config : null;
-
-      if (!data) {
-        data = new Dropdown(element, _config);
-      }
+      const data = Dropdown.getOrCreateInstance(element, config);
 
       if (typeof config === 'string') {
         if (typeof data[config] === 'undefined') {
@@ -579,7 +581,7 @@
       const toggles = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
 
       for (let i = 0, len = toggles.length; i < len; i++) {
-        const context = Data__default['default'].get(toggles[i], DATA_KEY);
+        const context = Dropdown.getInstance(toggles[i]);
 
         if (!context || context._config.autoClose === false) {
           continue;

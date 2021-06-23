@@ -50,8 +50,8 @@
       --#{$variable-prefix}position: start;
 
       &[data-coreui-popper] {
-        right: auto #{"/* rtl:ignore */"};
-        left: 0 #{"/* rtl:ignore */"};
+        right: auto;
+        left: 0;
       }
     }
 
@@ -59,8 +59,8 @@
       --#{$variable-prefix}position: end;
 
       &[data-coreui-popper] {
-        right: 0 #{"/* rtl:ignore */"};
-        left: auto #{"/* rtl:ignore */"};
+        right: 0;
+        left: auto;
       }
     }
   }

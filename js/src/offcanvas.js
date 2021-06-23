@@ -15,8 +15,7 @@ import {
   isVisible,
   typeCheckConfig
 } from './util/index'
-import { hide as scrollBarHide, reset as scrollBarReset } from './util/scrollbar'
-import Data from './dom/data'
+import ScrollBarHelper from './util/scrollbar'
 import EventHandler from './dom/event-handler'
 import BaseComponent from './base-component'
 import SelectorEngine from './dom/selector-engine'
@@ -112,7 +111,7 @@ class Offcanvas extends BaseComponent {
     this._backdrop.show()
 
     if (!this._config.scroll) {
-      scrollBarHide()
+      new ScrollBarHelper().hide()
       this._enforceFocusOnElement(this._element)
     }
 
@@ -152,7 +151,7 @@ class Offcanvas extends BaseComponent {
       this._element.style.visibility = 'hidden'
 
       if (!this._config.scroll) {
-        scrollBarReset()
+        new ScrollBarHelper().reset()
       }
 
       EventHandler.trigger(this._element, EVENT_HIDDEN)
@@ -214,7 +213,7 @@ class Offcanvas extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      const data = Data.get(this, DATA_KEY) || new Offcanvas(this, typeof config === 'object' ? config : {})
+      const data = Offcanvas.getOrCreateInstance(this, config)
 
       if (typeof config !== 'string') {
         return
@@ -259,14 +258,13 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
     Offcanvas.getInstance(allReadyOpen).hide()
   }
 
-  const data = Data.get(target, DATA_KEY) || new Offcanvas(target)
-
+  const data = Offcanvas.getOrCreateInstance(target)
   data.toggle(this)
 })
 
-EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  SelectorEngine.find(OPEN_SELECTOR).forEach(el => (Data.get(el, DATA_KEY) || new Offcanvas(el)).show())
-})
+EventHandler.on(window, EVENT_LOAD_DATA_API, () =>
+  SelectorEngine.find(OPEN_SELECTOR).forEach(el => Offcanvas.getOrCreateInstance(el).show())
+)
 
 /**
  * ------------------------------------------------------------------------

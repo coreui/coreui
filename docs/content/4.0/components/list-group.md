@@ -470,6 +470,15 @@ var triggerEl = document.querySelector('#trigger')
 var tab = coreui.Tab.getInstance(triggerEl) // Returns a Bootstrap tab instance
 ```
 
+#### getOrCreateInstance
+
+*Static* method which allows you to get the tab instance associated with a DOM element, or create a new one in case it wasn't initialised
+
+```js
+var triggerEl = document.querySelector('#trigger')
+var tab = bootstrap.Tab.getOrCreateInstance(triggerEl) // Returns a Bootstrap tab instance
+```
+
 ### Events
 
 When showing a new tab, the events fire in the following order:
@@ -509,11 +518,13 @@ If no tab was already active, the `hide.coreui.tab` and `hidden.coreui.tab` even
 </table>
 
 ```js
-var tabEl = document.querySelector('a[data-coreui-toggle="list"]')
-tabEl.addEventListener('shown.coreui.tab', function (event) {
-  event.target // newly activated tab
-  event.relatedTarget // previous active tab
-})
+var tabElms = document.querySelectorAll('a[data-coreui-toggle="list"]')
+tabElms.forEach(function(tabElm) {
+  tabElm.addEventListener('shown.coreui.tab', function (event) {
+    event.target // newly activated tab
+    event.relatedTarget // previous active tab
+  })
+}
 ```
 
 ## Customizing

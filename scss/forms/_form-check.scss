@@ -19,7 +19,7 @@
 .form-check-input {
   width: $form-check-input-width;
   height: $form-check-input-width;
-  margin-top: ($line-height-base - $form-check-input-width) / 2; // line-height minus check height
+  margin-top: ($line-height-base - $form-check-input-width) * .5; // line-height minus check height
   vertical-align: top;
   background-color: var(--#{$variable-prefix}form-check-input-bg, $form-check-input-bg);
   background-repeat: no-repeat;
@@ -152,21 +152,6 @@
       padding-top: calc((#{$height} - #{$font-size-base}) / 2);
     }
   }
-
-  // $height: $value / 3 * 2;
-
-  // .form-switch-#{$width} {
-  //   min-height: $height;
-  //   @include ltr-rtl("padding-left", $value + .5em);
-
-  //   .form-check-input {
-  //     width: $value;
-  //     height: $height;
-  //     @include ltr-rtl("margin-left", ($value + .5em) * -1);
-  //   }
-
-  //   .form-check-label {}
-  // }
 }
 
 .form-check-inline {

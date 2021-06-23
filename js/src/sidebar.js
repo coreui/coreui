@@ -108,6 +108,17 @@ class Sidebar extends BaseComponent {
       this._showBackdrop()
     }
 
+    this._queueCallback(() => {
+      if (this._isVisible() === true) {
+        this._show = true
+        if (this._isMobile() || this._isOverlaid()) {
+          this._addClickOutListener()
+        }
+
+        EventHandler.trigger(this._element, EVENT_SHOWN)
+      }
+    })
+
     const complete = () => {
       if (this._isVisible() === true) {
         this._show = true
@@ -119,10 +130,7 @@ class Sidebar extends BaseComponent {
       }
     }
 
-    const transitionDuration = getTransitionDurationFromElement(this._element)
-
-    EventHandler.one(this._element, 'transitionend', complete)
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(complete, this._element, true)
   }
 
   hide() {
@@ -153,10 +161,7 @@ class Sidebar extends BaseComponent {
       }
     }
 
-    const transitionDuration = getTransitionDurationFromElement(this._element)
-
-    EventHandler.one(this._element, 'transitionend', complete)
-    emulateTransitionEnd(this._element, transitionDuration)
+    this._queueCallback(complete, this._element, true)
   }
 
   toggle() {
@@ -344,12 +349,7 @@ class Sidebar extends BaseComponent {
   // Static
 
   static sidebarInterface(element, config) {
-    let data = Data.get(element, DATA_KEY)
-    const _config = typeof config === 'object' && config
-
-    if (!data) {
-      data = new Sidebar(element, _config)
-    }
+    const data = Sidebar.getOrCreateInstance(element, config)
 
     if (typeof config === 'string') {
       if (typeof data[config] === 'undefined') {

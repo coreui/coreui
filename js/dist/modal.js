@@ -95,22 +95,17 @@
     return typeof obj.nodeType !== 'undefined';
   };
 
-  const emulateTransitionEnd = (element, duration) => {
-    let called = false;
-    const durationPadding = 5;
-    const emulatedDuration = duration + durationPadding;
-
-    function listener() {
-      called = true;
-      element.removeEventListener(TRANSITION_END, listener);
+  const getElement = obj => {
+    if (isElement(obj)) {
+      // it's a jQuery object or a node element
+      return obj.jquery ? obj[0] : obj;
     }
 
-    element.addEventListener(TRANSITION_END, listener);
-    setTimeout(() => {
-      if (!called) {
-        triggerTransitionEnd(element);
-      }
-    }, emulatedDuration);
+    if (typeof obj === 'string' && obj.length > 0) {
+      return SelectorEngine__default['default'].findOne(obj);
+    }
+
+    return null;
   };
 
   const typeCheckConfig = (componentName, config, configTypes) => {
@@ -147,9 +142,18 @@
     return null;
   };
 
+  const DOMContentLoadedCallbacks = [];
+
   const onDOMContentLoaded = callback => {
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
+      // add listener on the first call when the document is in loading state
+      if (!DOMContentLoadedCallbacks.length) {
+        document.addEventListener('DOMContentLoaded', () => {
+          DOMContentLoadedCallbacks.forEach(callback => callback());
+        });
+      }
+
+      DOMContentLoadedCallbacks.push(callback);
     } else {
       callback();
     }
@@ -182,87 +186,143 @@
     }
   };
 
+  const executeAfterTransition = (callback, transitionElement, waitForTransition = true) => {
+    if (!waitForTransition) {
+      execute(callback);
+      return;
+    }
+
+    const durationPadding = 5;
+    const emulatedDuration = getTransitionDurationFromElement(transitionElement) + durationPadding;
+    let called = false;
+
+    const handler = ({
+      target
+    }) => {
+      if (target !== transitionElement) {
+        return;
+      }
+
+      called = true;
+      transitionElement.removeEventListener(TRANSITION_END, handler);
+      execute(callback);
+    };
+
+    transitionElement.addEventListener(TRANSITION_END, handler);
+    setTimeout(() => {
+      if (!called) {
+        triggerTransitionEnd(transitionElement);
+      }
+    }, emulatedDuration);
+  };
+
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.1): util/scrollBar.js
+   * Bootstrap (v5.0.2): util/scrollBar.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
   const SELECTOR_FIXED_CONTENT = '.fixed-top, .fixed-bottom, .is-fixed, .sticky-top';
   const SELECTOR_STICKY_CONTENT = '.sticky-top';
 
-  const getWidth = () => {
-    // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth#usage_notes
-    const documentWidth = document.documentElement.clientWidth;
-    return Math.abs(window.innerWidth - documentWidth);
-  };
-
-  const hide = (width = getWidth()) => {
-    _disableOverFlow(); // give padding to element to balances the hidden scrollbar width
-
-
-    _setElementAttributes('body', 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements, to keep shown fullwidth
-
-
-    _setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
-
-    _setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', calculatedValue => calculatedValue - width);
-  };
-
-  const _disableOverFlow = () => {
-    const actualValue = document.body.style.overflow;
-
-    if (actualValue) {
-      Manipulator__default['default'].setDataAttribute(document.body, 'overflow', actualValue);
+  class ScrollBarHelper {
+    constructor() {
+      this._element = document.body;
     }
 
-    document.body.style.overflow = 'hidden';
-  };
+    getWidth() {
+      // https://developer.mozilla.org/en-US/docs/Web/API/Window/innerWidth#usage_notes
+      const documentWidth = document.documentElement.clientWidth;
+      return Math.abs(window.innerWidth - documentWidth);
+    }
 
-  const _setElementAttributes = (selector, styleProp, callback) => {
-    const scrollbarWidth = getWidth();
-    SelectorEngine__default['default'].find(selector).forEach(element => {
-      if (element !== document.body && window.innerWidth > element.clientWidth + scrollbarWidth) {
-        return;
-      }
+    hide() {
+      const width = this.getWidth();
 
+      this._disableOverFlow(); // give padding to element to balance the hidden scrollbar width
+
+
+      this._setElementAttributes(this._element, 'paddingRight', calculatedValue => calculatedValue + width); // trick: We adjust positive paddingRight and negative marginRight to sticky-top elements to keep showing fullwidth
+
+
+      this._setElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight', calculatedValue => calculatedValue + width);
+
+      this._setElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight', calculatedValue => calculatedValue - width);
+    }
+
+    _disableOverFlow() {
+      this._saveInitialAttribute(this._element, 'overflow');
+
+      this._element.style.overflow = 'hidden';
+    }
+
+    _setElementAttributes(selector, styleProp, callback) {
+      const scrollbarWidth = this.getWidth();
+
+      const manipulationCallBack = element => {
+        if (element !== this._element && window.innerWidth > element.clientWidth + scrollbarWidth) {
+          return;
+        }
+
+        this._saveInitialAttribute(element, styleProp);
+
+        const calculatedValue = window.getComputedStyle(element)[styleProp];
+        element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
+      };
+
+      this._applyManipulationCallback(selector, manipulationCallBack);
+    }
+
+    reset() {
+      this._resetElementAttributes(this._element, 'overflow');
+
+      this._resetElementAttributes(this._element, 'paddingRight');
+
+      this._resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
+
+      this._resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
+    }
+
+    _saveInitialAttribute(element, styleProp) {
       const actualValue = element.style[styleProp];
 
       if (actualValue) {
         Manipulator__default['default'].setDataAttribute(element, styleProp, actualValue);
       }
+    }
 
-      const calculatedValue = window.getComputedStyle(element)[styleProp];
-      element.style[styleProp] = `${callback(Number.parseFloat(calculatedValue))}px`;
-    });
-  };
+    _resetElementAttributes(selector, styleProp) {
+      const manipulationCallBack = element => {
+        const value = Manipulator__default['default'].getDataAttribute(element, styleProp);
 
-  const reset = () => {
-    _resetElementAttributes('body', 'overflow');
+        if (typeof value === 'undefined') {
+          element.style.removeProperty(styleProp);
+        } else {
+          Manipulator__default['default'].removeDataAttribute(element, styleProp);
+          element.style[styleProp] = value;
+        }
+      };
 
-    _resetElementAttributes('body', 'paddingRight');
+      this._applyManipulationCallback(selector, manipulationCallBack);
+    }
 
-    _resetElementAttributes(SELECTOR_FIXED_CONTENT, 'paddingRight');
-
-    _resetElementAttributes(SELECTOR_STICKY_CONTENT, 'marginRight');
-  };
-
-  const _resetElementAttributes = (selector, styleProp) => {
-    SelectorEngine__default['default'].find(selector).forEach(element => {
-      const value = Manipulator__default['default'].getDataAttribute(element, styleProp);
-
-      if (typeof value === 'undefined') {
-        element.style.removeProperty(styleProp);
+    _applyManipulationCallback(selector, callBack) {
+      if (isElement(selector)) {
+        callBack(selector);
       } else {
-        Manipulator__default['default'].removeDataAttribute(element, styleProp);
-        element.style[styleProp] = value;
+        SelectorEngine__default['default'].find(selector, this._element).forEach(callBack);
       }
-    });
-  };
+    }
+
+    isOverflowing() {
+      return this.getWidth() > 0;
+    }
+
+  }
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.1): util/backdrop.js
+   * Bootstrap (v5.0.2): util/backdrop.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -270,14 +330,14 @@
     isVisible: true,
     // if false, we use the backdrop helper without adding any element to the dom
     isAnimated: false,
-    rootElement: document.body,
+    rootElement: 'body',
     // give the choice to place backdrop under different elements
     clickCallback: null
   };
   const DefaultType$1 = {
     isVisible: 'boolean',
     isAnimated: 'boolean',
-    rootElement: 'element',
+    rootElement: '(element|string)',
     clickCallback: '(function|null)'
   };
   const NAME$1 = 'backdrop';
@@ -345,8 +405,9 @@
     _getConfig(config) {
       config = { ...Default$1,
         ...(typeof config === 'object' ? config : {})
-      };
-      config.rootElement = config.rootElement || document.body;
+      }; // use getElement() with the default "body" to get a fresh Element on each instantiation
+
+      config.rootElement = getElement(config.rootElement);
       typeCheckConfig(NAME$1, config, DefaultType$1);
       return config;
     }
@@ -371,26 +432,13 @@
 
       EventHandler__default['default'].off(this._element, EVENT_MOUSEDOWN);
 
-      const {
-        parentNode
-      } = this._getElement();
-
-      if (parentNode) {
-        parentNode.removeChild(this._element);
-      }
+      this._element.remove();
 
       this._isAppended = false;
     }
 
     _emulateAnimation(callback) {
-      if (!this._config.isAnimated) {
-        execute(callback);
-        return;
-      }
-
-      const backdropTransitionDuration = getTransitionDurationFromElement(this._getElement());
-      EventHandler__default['default'].one(this._getElement(), 'transitionend', () => execute(callback));
-      emulateTransitionEnd(this._getElement(), backdropTransitionDuration);
+      executeAfterTransition(callback, this._getElement(), this._config.isAnimated);
     }
 
   }
@@ -460,6 +508,7 @@
       this._isShown = false;
       this._ignoreBackdropClick = false;
       this._isTransitioning = false;
+      this._scrollBar = new ScrollBarHelper();
     } // Getters
 
 
@@ -481,20 +530,22 @@
         return;
       }
 
-      if (this._isAnimated()) {
-        this._isTransitioning = true;
-      }
-
       const showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW, {
         relatedTarget
       });
 
-      if (this._isShown || showEvent.defaultPrevented) {
+      if (showEvent.defaultPrevented) {
         return;
       }
 
       this._isShown = true;
-      hide();
+
+      if (this._isAnimated()) {
+        this._isTransitioning = true;
+      }
+
+      this._scrollBar.hide();
+
       document.body.classList.add(CLASS_NAME_OPEN);
 
       this._adjustDialog();
@@ -583,7 +634,7 @@
     _getConfig(config) {
       config = { ...Default,
         ...Manipulator__default['default'].getDataAttributes(this._element),
-        ...config
+        ...(typeof config === 'object' ? config : {})
       };
       typeCheckConfig(NAME, config, DefaultType);
       return config;
@@ -686,7 +737,8 @@
 
         this._resetAdjustments();
 
-        reset();
+        this._scrollBar.reset();
+
         EventHandler__default['default'].trigger(this._element, EVENT_HIDDEN);
       });
     }
@@ -723,27 +775,32 @@
         return;
       }
 
-      const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
+      const {
+        classList,
+        scrollHeight,
+        style
+      } = this._element;
+      const isModalOverflowing = scrollHeight > document.documentElement.clientHeight; // return if the following background transition hasn't yet completed
 
-      if (!isModalOverflowing) {
-        this._element.style.overflowY = 'hidden';
+      if (!isModalOverflowing && style.overflowY === 'hidden' || classList.contains(CLASS_NAME_STATIC)) {
+        return;
       }
 
-      this._element.classList.add(CLASS_NAME_STATIC);
+      if (!isModalOverflowing) {
+        style.overflowY = 'hidden';
+      }
 
-      const modalTransitionDuration = getTransitionDurationFromElement(this._dialog);
-      EventHandler__default['default'].off(this._element, 'transitionend');
-      EventHandler__default['default'].one(this._element, 'transitionend', () => {
-        this._element.classList.remove(CLASS_NAME_STATIC);
+      classList.add(CLASS_NAME_STATIC);
+
+      this._queueCallback(() => {
+        classList.remove(CLASS_NAME_STATIC);
 
         if (!isModalOverflowing) {
-          EventHandler__default['default'].one(this._element, 'transitionend', () => {
-            this._element.style.overflowY = '';
-          });
-          emulateTransitionEnd(this._element, modalTransitionDuration);
+          this._queueCallback(() => {
+            style.overflowY = '';
+          }, this._dialog);
         }
-      });
-      emulateTransitionEnd(this._element, modalTransitionDuration);
+      }, this._dialog);
 
       this._element.focus();
     } // ----------------------------------------------------------------------
@@ -753,7 +810,9 @@
 
     _adjustDialog() {
       const isModalOverflowing = this._element.scrollHeight > document.documentElement.clientHeight;
-      const scrollbarWidth = getWidth();
+
+      const scrollbarWidth = this._scrollBar.getWidth();
+
       const isBodyOverflowing = scrollbarWidth > 0;
 
       if (!isBodyOverflowing && isModalOverflowing && !isRTL() || isBodyOverflowing && !isModalOverflowing && isRTL()) {
@@ -773,7 +832,7 @@
 
     static jQueryInterface(config, relatedTarget) {
       return this.each(function () {
-        const data = Modal.getInstance(this) || new Modal(this, typeof config === 'object' ? config : {});
+        const data = Modal.getOrCreateInstance(this, config);
 
         if (typeof config !== 'string') {
           return;
@@ -814,7 +873,7 @@
         }
       });
     });
-    const data = Modal.getInstance(target) || new Modal(target);
+    const data = Modal.getOrCreateInstance(target);
     data.toggle(this);
   });
   /**

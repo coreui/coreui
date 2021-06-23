@@ -7,8 +7,8 @@
 
 import {
   defineJQueryPlugin,
-  emulateTransitionEnd,
-  getTransitionDurationFromElement,
+  // emulateTransitionEnd,
+  // getTransitionDurationFromElement,
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
@@ -87,7 +87,8 @@ class Navigation extends BaseComponent {
   _getConfig(config) {
     config = {
       ...Default,
-      ...config
+      ...Manipulator.getDataAttributes(this._element),
+      ...(typeof config === 'object' ? config : {})
     }
     typeCheckConfig(NAME, config, DefaultType)
     return config
@@ -195,13 +196,10 @@ class Navigation extends BaseComponent {
     setTimeout(() => {
       element.style.height = `${height}px`
     }, 0)
-    const transitionDuration = getTransitionDurationFromElement(element)
 
-    EventHandler.one(element, 'transitionend', () => {
+    this._queueCallback(() => {
       element.style.height = 'auto'
-    })
-
-    emulateTransitionEnd(element, transitionDuration)
+    }, element, true)
   }
 
   _slideUp(element, callback) {
@@ -211,15 +209,11 @@ class Navigation extends BaseComponent {
       element.style.height = '0px'
     }, 0)
 
-    const transitionDuration = getTransitionDurationFromElement(element)
-
-    EventHandler.one(element, 'transitionend', () => {
+    this._queueCallback(() => {
       if (typeof callback === 'function') {
         callback()
       }
-    })
-
-    emulateTransitionEnd(element, transitionDuration)
+    }, element, true)
   }
 
   _toggleGroupItems(event) {
@@ -263,16 +257,7 @@ class Navigation extends BaseComponent {
   // Static
 
   static navigationInterface(element, config) {
-    let data = Data.get(element, DATA_KEY)
-    const _config = {
-      ...Default,
-      ...Manipulator.getDataAttributes(element),
-      ...(typeof config === 'object' && config ? config : {})
-    }
-
-    if (!data) {
-      data = new Navigation(element, _config)
-    }
+    const data = Navigation.getOrCreateInstance(element, config)
 
     if (typeof config === 'string') {
       if (typeof data[config] === 'undefined') {

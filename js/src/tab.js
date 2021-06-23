@@ -14,7 +14,6 @@ import {
   isDisabled,
   reflow
 } from './util/index'
-import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import SelectorEngine from './dom/selector-engine'
 import BaseComponent from './base-component'
@@ -184,7 +183,7 @@ class Tab extends BaseComponent {
 
   static jQueryInterface(config) {
     return this.each(function () {
-      const data = Data.get(this, DATA_KEY) || new Tab(this)
+      const data = Tab.getOrCreateInstance(this)
 
       if (typeof config === 'string') {
         if (typeof data[config] === 'undefined') {
@@ -212,7 +211,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
     return
   }
 
-  const data = Data.get(this, DATA_KEY) || new Tab(this)
+  const data = Tab.getOrCreateInstance(this)
   data.show()
 })
 
