@@ -334,12 +334,6 @@ class Sidebar extends BaseComponent {
     })
 
     EventHandler.on(window, EVENT_RESIZE, () => {
-      // eslint-disable-next-line no-console
-      console.log('resized')
-      // eslint-disable-next-line no-console
-      console.log(this._mobile)
-      // eslint-disable-next-line no-console
-      console.log(this._show)
       if (this._isMobile() && this._isVisible()) {
         this.hide()
       }
