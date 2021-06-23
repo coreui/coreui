@@ -7,12 +7,9 @@
 
 import {
   defineJQueryPlugin,
-  emulateTransitionEnd,
-  getTransitionDurationFromElement,
   reflow,
   typeCheckConfig
 } from './util/index'
-import Data from './dom/data'
 import EventHandler from './dom/event-handler'
 import Manipulator from './dom/manipulator'
 import BaseComponent from './base-component'
@@ -107,17 +104,6 @@ class Sidebar extends BaseComponent {
     if (this._isMobile()) {
       this._showBackdrop()
     }
-
-    this._queueCallback(() => {
-      if (this._isVisible() === true) {
-        this._show = true
-        if (this._isMobile() || this._isOverlaid()) {
-          this._addClickOutListener()
-        }
-
-        EventHandler.trigger(this._element, EVENT_SHOWN)
-      }
-    })
 
     const complete = () => {
       if (this._isVisible() === true) {
