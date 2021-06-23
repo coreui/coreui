@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0-rc.4
+ * @version v4.0.0-rc.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -423,14 +423,13 @@ legend + * {
   -webkit-appearance: textfield;
 }
 
-/* rtl:raw:
-[type="tel"],
-[type="url"],
-[type="email"],
-[type="number"] {
+*[dir=rtl] [type=tel],
+*[dir=rtl] [type=url],
+*[dir=rtl] [type=email],
+*[dir=rtl] [type=number] {
   direction: ltr;
 }
-*/
+
 ::-webkit-search-decoration {
   -webkit-appearance: none;
 }
@@ -4809,10 +4808,6 @@ textarea.form-control-lg {
   align-self: center;
 }
 
-.progress-group-icon {
-  font-size: 1.25rem;
-}
-
 .progress-group-header {
   display: flex;
   flex-basis: 100%;
@@ -6420,46 +6415,6 @@ textarea.form-control-lg {
   width: 1rem;
   height: 1rem;
   font-size: 1rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-2xl {
-  width: 2rem;
-  height: 2rem;
-  font-size: 2rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-3xl {
-  width: 3rem;
-  height: 3rem;
-  font-size: 3rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-4xl {
-  width: 4rem;
-  height: 4rem;
-  font-size: 4rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-5xl {
-  width: 5rem;
-  height: 5rem;
-  font-size: 5rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-6xl {
-  width: 6rem;
-  height: 6rem;
-  font-size: 6rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-7xl {
-  width: 7rem;
-  height: 7rem;
-  font-size: 7rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-8xl {
-  width: 8rem;
-  height: 8rem;
-  font-size: 8rem;
-}
-.icon:not(.icon-c-s):not(.icon-custom-size).icon-9xl {
-  width: 9rem;
-  height: 9rem;
-  font-size: 9rem;
 }
 .icon:not(.icon-c-s):not(.icon-custom-size).icon-xl {
   width: 1.5rem;

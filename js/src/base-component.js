@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.0-rc.4): alert.js
+ * CoreUI (v4.0.0-rc.5): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's base-component.js
@@ -21,7 +21,7 @@ import EventHandler from './dom/event-handler'
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '4.0.0-rc.4'
+const VERSION = '4.0.0-rc.5'
 
 class BaseComponent {
   constructor(element) {
