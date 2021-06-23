@@ -58,7 +58,6 @@ const defaultPluginConfig = {
   }
 }
 
-// eslint-disable-next-line complexity
 const getConfigByPluginKey = pluginKey => {
   switch (pluginKey) {
     case 'Alert':
