@@ -15,7 +15,7 @@
   "authors": [
     {
       "name": "The CoreUI Team",
-      "homepage": "https://github.com/orgs/coreui/people",
+      "homepage": "https://github.com/orgs/coreui/people"
     }
   ],
   "support": {
@@ -23,6 +23,6 @@
   },
   "license": "MIT",
   "replace": {
-    "twitter/bootstrap": "self.version"
+    "coreui/coreui": "self.version"
   }
 }
