@@ -57,11 +57,11 @@ Read the [Getting started page](https://coreui.io/docs/4.0/getting-started/intro
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/coreui/coreui)](https://packagist.org/packages/coreui/coreui)
 [![peerDependencies Status](https://img.shields.io/david/peer/coreui/coreui)](https://david-dm.org/coreui/coreui?type=peer)
 [![devDependency Status](https://img.shields.io/david/dev/coreui/coreui)](https://david-dm.org/coreui/coreui?type=dev)
-[![Coverage Status](https://img.shields.io/coveralls/github/coreui/coreui/v4-dev)](https://coveralls.io/github/coreui/coreui?branch=v4-dev)
-[![CSS gzip size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=gzip&label=CSS%20gzip%20size)](https://github.com/coreui/coreui/blob/v4-dev/dist/css/coreui.min.css)
-[![CSS Brotli size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=brotli&label=CSS%20Brotli%20size)](https://github.com/coreui/coreui/blob/v4-dev/dist/css/coreui.min.css)
-[![JS gzip size](https://img.badgesize.io/coreui/coreui/main/dist/js/coreui.min.js?compression=gzip&label=JS%20gzip%20size)](https://github.com/coreui/coreui/blob/v4-dev/dist/js/coreui.min.js)
-[![JS Brotli size](https://img.badgesize.io/coreui/coreui/main/dist/js/coreui.min.js?compression=brotli&label=JS%20Brotli%20size)](https://github.com/coreui/coreui/blob/v4-dev/dist/js/coreui.min.js)
+[![Coverage Status](https://img.shields.io/coveralls/github/coreui/coreui/main)](https://coveralls.io/github/coreui/coreui?branch=main)
+[![CSS gzip size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=gzip&label=CSS%20gzip%20size)](https://github.com/coreui/coreui/blob/main/dist/css/coreui.min.css)
+[![CSS Brotli size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=brotli&label=CSS%20Brotli%20size)](https://github.com/coreui/coreui/blob/main/dist/css/coreui.min.css)
+[![JS gzip size](https://img.badgesize.io/coreui/coreui/main/dist/js/coreui.min.js?compression=gzip&label=JS%20gzip%20size)](https://github.com/coreui/coreui/blob/main/dist/js/coreui.min.js)
+[![JS Brotli size](https://img.badgesize.io/coreui/coreui/main/dist/js/coreui.min.js?compression=brotli&label=JS%20Brotli%20size)](https://github.com/coreui/coreui/blob/main/dist/js/coreui.min.js)
 
 
 ## What's included
@@ -123,7 +123,7 @@ We provide compiled CSS and JS (`coreui.*`), as well as compiled and minified CS
 
 ## Bugs and feature requests
 
-Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/coreui/coreui/blob/v4-dev/.github/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/coreui/coreui/issues/new).
+Have a bug or a feature request? Please first read the [issue guidelines](https://github.com/coreui/coreui/blob/main/.github/CONTRIBUTING.md#using-the-issue-tracker) and search for existing and closed issues. If your problem or idea is not addressed yet, [please open a new issue](https://github.com/coreui/coreui/issues/new).
 
 ## Documentation
 
@@ -142,9 +142,9 @@ Learn more about using Hugo by reading its [documentation](https://gohugo.io/doc
 
 ## Contributing
 
-Please read through our [contributing guidelines](https://github.com/coreui/coreui/blob/v4-dev/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
+Please read through our [contributing guidelines](https://github.com/coreui/coreui/blob/main/.github/CONTRIBUTING.md). Included are directions for opening issues, coding standards, and notes on development.
 
-Editor preferences are available in the [editor config](https://github.com/coreui/coreui/blob/v4-dev/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
+Editor preferences are available in the [editor config](https://github.com/coreui/coreui/blob/main/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
 
 ## Community
@@ -180,4 +180,4 @@ CoreUI is designed as the extension of [Bootstrap](https://getbootstrap.com). Sp
 
 ## Copyright and license
 
-Copyright 2021 creativeLabs Łukasz Holeczek. Code released under the [MIT License](https://github.com/coreui/coreui/blob/v4-dev/LICENSE). Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
+Copyright 2021 creativeLabs Łukasz Holeczek. Code released under the [MIT License](https://github.com/coreui/coreui/blob/main/LICENSE). Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).

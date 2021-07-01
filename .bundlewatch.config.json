@@ -59,7 +59,7 @@
   ],
   "ci": {
     "trackBranches": [
-      "v4-dev"
+      "main"
     ]
   }
 }
