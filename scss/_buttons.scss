@@ -33,7 +33,6 @@
     @include gradient-bg(var(--#{$variable-prefix}btn-hover-bg));
     border-color: var(--#{$variable-prefix}btn-hover-border-color, transparent);
     outline: 0;
-    // box-shadow: $btn-focus-box-shadow; // TODO: check this solution
     @if $enable-shadows {
       @include box-shadow($btn-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow));
     } @else {
@@ -55,7 +54,6 @@
     @include box-shadow($btn-active-box-shadow);
 
     &:focus {
-      // @include box-shadow($btn-focus-box-shadow, $btn-active-box-shadow); // TODO: check this solution
       @if $enable-shadows {
         @include box-shadow($btn-active-box-shadow, 0 0 0 $btn-focus-width var(--#{$variable-prefix}btn-shadow));
       } @else {
