@@ -327,15 +327,5 @@ CoreUI's button component is built with a base-modifier class approach. This mea
 ##### Ghost button
 {{< scss-docs name="button-ghost-modifiers" file="scss/_buttons.scss" >}}
 
-<!-- TODO: #### Mixins
-There are four mixins for buttons: button and button outline variant mixins (both based on $theme-colors), plus a button size mixin.
-
-{{< scss-docs name="btn-variant-mixin" file="scss/mixins/_buttons.scss" >}}
-
-{{< scss-docs name="btn-outline-variant-mixin" file="scss/mixins/_buttons.scss" >}}
-
-{{< scss-docs name="btn-size-mixin" file="scss/mixins/_buttons.scss" >}} -->
-
-
 ### CSS Vars
 {{< css-vars-docs file="scss/_buttons.scss" >}}
