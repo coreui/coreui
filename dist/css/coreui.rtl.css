@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0
+ * @version v4.0.1
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.0
+ * @version v4.0.1
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -3458,7 +3458,7 @@ textarea.form-control-lg {
   margin: 0;
   font-size: 1rem;
   color: var(--cui-dropdown-color, rgba(44, 56, 74, 0.95));
-  text-align: left;
+  text-align: start;
   list-style: none;
   background-color: var(--cui-dropdown-bg, #fff);
   background-clip: padding-box;
@@ -6356,6 +6356,11 @@ textarea.form-control-lg {
   height: 1rem;
   font-size: 1rem;
 }
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-xxl {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
 .icon:not(.icon-c-s):not(.icon-custom-size).icon-xl {
   width: 1.5rem;
   height: 1.5rem;
@@ -6370,6 +6375,41 @@ textarea.form-control-lg {
   width: 0.875rem;
   height: 0.875rem;
   font-size: 0.875rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-3xl {
+  width: 3rem;
+  height: 3rem;
+  font-size: 3rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-4xl {
+  width: 4rem;
+  height: 4rem;
+  font-size: 4rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-5xl {
+  width: 5rem;
+  height: 5rem;
+  font-size: 5rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-6xl {
+  width: 6rem;
+  height: 6rem;
+  font-size: 6rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-7xl {
+  width: 7rem;
+  height: 7rem;
+  font-size: 7rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-8xl {
+  width: 8rem;
+  height: 8rem;
+  font-size: 8rem;
+}
+.icon:not(.icon-c-s):not(.icon-custom-size).icon-9xl {
+  width: 9rem;
+  height: 9rem;
+  font-size: 9rem;
 }
 
 .sidebar {
