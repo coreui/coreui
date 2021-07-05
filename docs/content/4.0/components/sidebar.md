@@ -74,7 +74,7 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
       </a>
     </li>
   </ul>
-  <button class="sidebar-minimizer c-brand-minimizer" type="button"></button>
+  <button class="sidebar-toggler" type="button"></button>
 </div>
 {{< /sidebar.inline >}}
 {{< /example >}}
