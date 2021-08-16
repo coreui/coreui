@@ -82,6 +82,10 @@ class Navigation extends BaseComponent {
     return DefaultType
   }
 
+  static get NAME() {
+    return NAME
+  }
+
   // Private
 
   _getConfig(config) {
@@ -293,6 +297,6 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
  * add .Navigation to jQuery only if jQuery is present
  */
 
-defineJQueryPlugin(NAME, Navigation)
+defineJQueryPlugin(Navigation)
 
 export default Navigation
