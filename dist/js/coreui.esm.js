@@ -3181,6 +3181,10 @@ class Navigation extends BaseComponent {
 
   static get DefaultType() {
     return DefaultType$6;
+  }
+
+  static get NAME() {
+    return NAME$7;
   } // Private
 
 
@@ -3396,7 +3400,7 @@ EventHandler.on(window, EVENT_LOAD_DATA_API$3, () => {
  * add .Navigation to jQuery only if jQuery is present
  */
 
-defineJQueryPlugin(NAME$7);
+defineJQueryPlugin(Navigation);
 
 /**
  * --------------------------------------------------------------------------
@@ -5208,7 +5212,7 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
  * ------------------------------------------------------------------------
  */
 
-defineJQueryPlugin(NAME$2);
+defineJQueryPlugin(Sidebar);
 
 /**
  * --------------------------------------------------------------------------

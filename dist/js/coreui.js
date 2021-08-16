@@ -3207,6 +3207,10 @@
 
     static get DefaultType() {
       return DefaultType$6;
+    }
+
+    static get NAME() {
+      return NAME$7;
     } // Private
 
 
@@ -3422,7 +3426,7 @@
    * add .Navigation to jQuery only if jQuery is present
    */
 
-  defineJQueryPlugin(NAME$7);
+  defineJQueryPlugin(Navigation);
 
   /**
    * --------------------------------------------------------------------------
@@ -5234,7 +5238,7 @@
    * ------------------------------------------------------------------------
    */
 
-  defineJQueryPlugin(NAME$2);
+  defineJQueryPlugin(Sidebar);
 
   /**
    * --------------------------------------------------------------------------
