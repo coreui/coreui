@@ -33,12 +33,9 @@ const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
 const CLASS_NAME_FADE = 'fade'
 const CLASS_NAME_HIDE = 'hide'
 const CLASS_NAME_SHOW = 'show'
-const CLASS_NAME_SIDEBAR = 'sidebar'
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
 const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid'
 const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable'
-
-const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/
 
 const EVENT_HIDE = `hide${EVENT_KEY}`
 const EVENT_HIDDEN = `hidden${EVENT_KEY}`
@@ -70,8 +67,6 @@ class Sidebar extends BaseComponent {
     this._unfoldable = this._isUnfoldable()
     this._backdrop = null
     this._addEventListeners()
-
-    // Data.set(element, DATA_KEY, this)
   }
 
   // Getters
@@ -97,11 +92,8 @@ class Sidebar extends BaseComponent {
       this._element.classList.remove(CLASS_NAME_HIDE)
     }
 
-    if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
-      this._element.classList.add(CLASS_NAME_SHOW)
-    }
-
     if (this._isMobile()) {
+      this._element.classList.add(CLASS_NAME_SHOW)
       this._showBackdrop()
     }
 
@@ -124,16 +116,12 @@ class Sidebar extends BaseComponent {
 
     if (this._element.classList.contains(CLASS_NAME_SHOW)) {
       this._element.classList.remove(CLASS_NAME_SHOW)
-    } else {
-      this._element.classList.add(CLASS_NAME_HIDE)
-    }
-
-    if (this._isVisible()) {
-      this._element.classList.add(CLASS_NAME_HIDE)
     }
 
     if (this._isMobile()) {
       this._removeBackdrop()
+    } else {
+      this._element.classList.add(CLASS_NAME_HIDE)
     }
 
     const complete = () => {
@@ -217,14 +205,6 @@ class Sidebar extends BaseComponent {
     return config
   }
 
-  _createShowClass() {
-    if (this._breakpoint && !this._isMobile()) {
-      return `${CLASS_NAME_SIDEBAR}-${this._breakpoint}-${CLASS_NAME_SHOW}`
-    }
-
-    return `${CLASS_NAME_SIDEBAR}-${CLASS_NAME_SHOW}`
-  }
-
   _isMobile() {
     return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'))
   }
@@ -244,10 +224,7 @@ class Sidebar extends BaseComponent {
   _isVisible() {
     const rect = this._element.getBoundingClientRect()
     return (
-      rect.top >= 0 &&
-      rect.left >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && /* or $(window).height() */
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth) /* or $(window).width() */
+      rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     )
   }
 

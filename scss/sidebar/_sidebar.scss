@@ -1,12 +1,17 @@
 .sidebar {
+  --#{$variable-prefix}sidebar-width: #{$sidebar-width};
+  ~ * {
+    --#{$variable-prefix}sidebar-width: #{$sidebar-width};
+  }
+
   position: relative;
   display: flex;
   // $sidebar-width is the width of the columns
-  flex: 0 0 $sidebar-width;
+  flex: 0 0 var(--#{$variable-prefix}sidebar-width);
   flex-direction: column;
   // put the nav on the left
   order: -1;
-  width: $sidebar-width;
+  width: var(--#{$variable-prefix}sidebar-width);
   padding: $sidebar-padding-y $sidebar-padding-x;
   color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
   background: var(--#{$variable-prefix}sidebar-bg, $sidebar-bg);
@@ -17,7 +22,7 @@
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-width};
+      --#{$variable-prefix}sidebar-occupy-start: #{var(--#{$variable-prefix}sidebar-width)};
     }
   }
 
@@ -25,21 +30,23 @@
     order: 99;
     @include ltr-rtl("margin-right", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-width};
+      --#{$variable-prefix}sidebar-occupy-end: #{var(--#{$variable-prefix}sidebar-width)};
     }
   }
 
-  &.hide {
-    &:not(.sidebar-end){
-      @include ltr-rtl("margin-left", - $sidebar-width);
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy-start: 0;
+  @include media-breakpoint-up($mobile-breakpoint) {
+    &.hide {
+      &:not(.sidebar-end){
+        @include ltr-rtl("margin-left", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-start: 0;
+        }
       }
-    }
-    &.sidebar-end {
-      @include ltr-rtl("margin-right", - $sidebar-width);
-      ~ * {
-        --#{$variable-prefix}sidebar-occupy-end: 0;
+      &.sidebar-end {
+        @include ltr-rtl("margin-right", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        ~ * {
+          --#{$variable-prefix}sidebar-occupy-end: 0;
+        }
       }
     }
   }
@@ -50,33 +57,10 @@
 
   @each $width, $value in $sidebar-widths {
     &.sidebar-#{$width} {
-      flex: 0 0 $value;
-      width: $value;
+      --#{$variable-prefix}sidebar-width: #{$value};
 
-      &:not(.sidebar-end) {
-        ~ * {
-          --#{$variable-prefix}sidebar-occupy-start: #{$value};
-        }
-      }
-      &.sidebar-end {
-        ~ * {
-          --#{$variable-prefix}sidebar-occupy-end: #{$value};
-        }
-      }
-
-      &.hide {
-        &:not(.sidebar-end){
-          @include ltr-rtl("margin-left", - $value);
-          ~ * {
-            --#{$variable-prefix}sidebar-occupy-start: 0;
-          }
-        }
-        &.sidebar-end {
-          @include ltr-rtl("margin-right", - $value);
-          ~ * {
-            --#{$variable-prefix}sidebar-occupy-end: 0;
-          }
-        }
+      ~ * {
+        --#{$variable-prefix}sidebar-width: #{$value};
       }
     }
   }
@@ -129,16 +113,24 @@
     bottom: 0;
     z-index: $zindex-fixed + 1;
 
-    &:not(.sidebar-end){
+    &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
       ~ * {
         --#{$variable-prefix}sidebar-occupy-start: 0 !important; // stylelint-disable-line
+      }
+
+      &:not(.show) {
+        @include ltr-rtl("margin-left", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
       }
     }
     &.sidebar-end {
       @include ltr-rtl("right", 0);
       ~ * {
         --#{$variable-prefix}sidebar-occupy-end: 0 !important; // stylelint-disable-line
+      }
+
+      &:not(.show) {
+        @include ltr-rtl("margin-right", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
       }
     }
   }
@@ -260,38 +252,5 @@
     // Fade for backdrop
     &.fade { opacity: 0; }
     &.show { opacity: $sidebar-backdrop-opacity; }
-  }
-}
-
-// Responsive behavior
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-down(breakpoint-next($breakpoint)) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-    .sidebar:not(.show).sidebar-self-hiding#{$infix} {
-      &:not(.sidebar-end) {
-        @include ltr-rtl("margin-left", - $sidebar-width);
-
-        @each $width, $value in $sidebar-widths {
-          &.sidebar-#{$width} {
-            @include ltr-rtl("margin-left", - $value);
-          }
-        }
-        ~ * {
-          --#{$variable-prefix}sidebar-occupy-start: 0;
-        }
-      }
-      &.sidebar-end {
-        @include ltr-rtl("margin-right", - $sidebar-width);
-
-        @each $width, $value in $sidebar-widths {
-          &.sidebar-#{$width} {
-            @include ltr-rtl("margin-right", - $value);
-          }
-        }
-        ~ * {
-          --#{$variable-prefix}sidebar-occupy-end: 0;
-        }
-      }
-    }
   }
 }
