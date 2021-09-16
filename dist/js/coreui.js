@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.1 (https://coreui.io)
+  * CoreUI v4.0.2 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -33,7 +33,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dom/selector-engine.js
+   * CoreUI (v4.0.2): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -107,7 +107,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -410,7 +410,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dom/event-handler.js
+   * CoreUI (v4.0.2): dom/event-handler.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -702,7 +702,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dom/data.js
+   * CoreUI (v4.0.2): dom/data.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dom/data.js
@@ -759,7 +759,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's base-component.js
@@ -772,7 +772,7 @@
    * ------------------------------------------------------------------------
    */
 
-  const VERSION = '4.0.1';
+  const VERSION = '4.0.2';
 
   class BaseComponent {
     constructor(element) {
@@ -828,7 +828,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's alert.js
@@ -939,7 +939,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's button.js
@@ -1013,7 +1013,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dom/manipulator.js
+   * CoreUI (v4.0.2): dom/manipulator.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -1090,7 +1090,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): carousel.js
+   * CoreUI (v4.0.2): carousel.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's carousel.js
@@ -1638,7 +1638,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): collapse.js
+   * CoreUI (v4.0.2): collapse.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's collapse.js
@@ -1996,7 +1996,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dropdown.js
+   * CoreUI (v4.0.2): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dropdown.js
@@ -2703,7 +2703,7 @@
 
   /**
    * --------------------------------------------------------------------------
-    * CoreUI (v4.0.1): modal.js
+    * CoreUI (v4.0.2): modal.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's modal.js
@@ -3145,7 +3145,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -3426,7 +3426,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): dropdown.js
+   * CoreUI (v4.0.2): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's offcanvas.js
@@ -3687,7 +3687,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -3803,7 +3803,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): tooltip.js
+   * CoreUI (v4.0.2): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
@@ -4494,7 +4494,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): popover.js
+   * CoreUI (v4.0.2): popover.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's popover.js
@@ -4646,7 +4646,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): scrollspy.js
+   * CoreUI (v4.0.2): scrollspy.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's scrollspy.js
@@ -4884,7 +4884,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): sidebar.js
+   * CoreUI (v4.0.2): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -4904,11 +4904,9 @@
   const CLASS_NAME_FADE$2 = 'fade';
   const CLASS_NAME_HIDE$1 = 'hide';
   const CLASS_NAME_SHOW$2 = 'show';
-  const CLASS_NAME_SIDEBAR = 'sidebar';
   const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow';
   const CLASS_NAME_SIDEBAR_OVERLAID = 'sidebar-overlaid';
   const CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE = 'sidebar-narrow-unfoldable';
-  const REGEXP_SIDEBAR_SELF_HIDING = /sidebar-self-hiding/;
   const EVENT_HIDE$2 = `hide${EVENT_KEY$2}`;
   const EVENT_HIDDEN$2 = `hidden${EVENT_KEY$2}`;
   const EVENT_RESIZE = 'resize';
@@ -4936,8 +4934,7 @@
       this._unfoldable = this._isUnfoldable();
       this._backdrop = null;
 
-      this._addEventListeners(); // Data.set(element, DATA_KEY, this)
-
+      this._addEventListeners();
     } // Getters
 
 
@@ -4961,11 +4958,9 @@
         this._element.classList.remove(CLASS_NAME_HIDE$1);
       }
 
-      if (REGEXP_SIDEBAR_SELF_HIDING.test(this._element.className)) {
-        this._element.classList.add(CLASS_NAME_SHOW$2);
-      }
-
       if (this._isMobile()) {
+        this._element.classList.add(CLASS_NAME_SHOW$2);
+
         this._showBackdrop();
       }
 
@@ -4989,16 +4984,12 @@
 
       if (this._element.classList.contains(CLASS_NAME_SHOW$2)) {
         this._element.classList.remove(CLASS_NAME_SHOW$2);
-      } else {
-        this._element.classList.add(CLASS_NAME_HIDE$1);
-      }
-
-      if (this._isVisible()) {
-        this._element.classList.add(CLASS_NAME_HIDE$1);
       }
 
       if (this._isMobile()) {
         this._removeBackdrop();
+      } else {
+        this._element.classList.add(CLASS_NAME_HIDE$1);
       }
 
       const complete = () => {
@@ -5085,14 +5076,6 @@
       return config;
     }
 
-    _createShowClass() {
-      if (this._breakpoint && !this._isMobile()) {
-        return `${CLASS_NAME_SIDEBAR}-${this._breakpoint}-${CLASS_NAME_SHOW$2}`;
-      }
-
-      return `${CLASS_NAME_SIDEBAR}-${CLASS_NAME_SHOW$2}`;
-    }
-
     _isMobile() {
       return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'));
     }
@@ -5112,11 +5095,7 @@
     _isVisible() {
       const rect = this._element.getBoundingClientRect();
 
-      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-      /* or $(window).height() */
-      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-      /* or $(window).width() */
-      ;
+      return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
     }
 
     _addClassName(className) {
@@ -5238,7 +5217,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): tab.js
+   * CoreUI (v4.0.2): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tab.js
@@ -5439,7 +5418,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): toast.js
+   * CoreUI (v4.0.2): toast.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's toast.js
@@ -5667,7 +5646,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): index.esm.js
+   * CoreUI (v4.0.2): index.esm.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

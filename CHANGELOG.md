@@ -1,7 +1,7 @@
 # Changelog
 
 <!-- auto-changelog-above -->
-## [v4.0.1-alpha.4](https://github.com/coreui/coreui/compare/v4.0.1-alpha.3...v4.0.1-alpha.4)
+## [v4.0.2-alpha.4](https://github.com/coreui/coreui/compare/v4.0.2-alpha.3...v4.0.2-alpha.4)
 
 > 22 March 2021
 
@@ -15,7 +15,7 @@
 - refactor: change `background` to `bg` [`6c32a05`](https://github.com/coreui/coreui/commit/6c32a05d759de9570bea3cc53c75d13a42efdbce)
 - refactor(Utilities): update generator [`6839124`](https://github.com/coreui/coreui/commit/68391246b2a2e003d8d4e928386c15638ed90128)
 
-## [v4.0.1-alpha.3](https://github.com/coreui/coreui/compare/v4.0.1-alpha.2...v4.0.1-alpha.3)
+## [v4.0.2-alpha.3](https://github.com/coreui/coreui/compare/v4.0.2-alpha.2...v4.0.2-alpha.3)
 
 > 19 March 2021
 
@@ -54,7 +54,7 @@
 - refactor: disable RTL by default [`58c153f`](https://github.com/coreui/coreui/commit/58c153ffa99c054c938ee680af518804b416d885)
 - refactor: change `--#{$variable-prefix}alert-bg` to `--#{$variable-prefix}alert-background` [`1b8f9e7`](https://github.com/coreui/coreui/commit/1b8f9e71dfc2da45b64008207d5b91f72f8c8ee3)
 
-## [v4.0.1-alpha.2](https://github.com/coreui/coreui/compare/v4.0.1-alpha.1...v4.0.1-alpha.2)
+## [v4.0.2-alpha.2](https://github.com/coreui/coreui/compare/v4.0.2-alpha.1...v4.0.2-alpha.2)
 
 > 19 March 2021
 
@@ -89,7 +89,7 @@
 - refactor: rename `_sidebarInterface` to `sidebarInterface` [`993069d`](https://github.com/coreui/coreui/commit/993069deef08f349a0e4092c36f9dfb4fa953a80)
 - refactor: add CSS Variables [`b823216`](https://github.com/coreui/coreui/commit/b823216f9e0c74fa18c2854b7eafcb3014422bf3)
 
-## [v4.0.1-alpha.1](https://github.com/coreui/coreui/compare/v4.0.1-alpha.0...v4.0.1-alpha.1)
+## [v4.0.2-alpha.1](https://github.com/coreui/coreui/compare/v4.0.2-alpha.0...v4.0.2-alpha.1)
 
 > 17 January 2021
 

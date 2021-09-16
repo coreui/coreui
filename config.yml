@@ -47,8 +47,8 @@ params:
   social_image_path:    /4.0/assets/brand/coreui-social.jpg
   social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
 
-  current_version:      "4.0.1"
-  current_ruby_version: "4.0.1"
+  current_version:      "4.0.2"
+  current_ruby_version: "4.0.2"
   docs_version:         "4.0"
   rfs_version:          "9.0.3"
   github_org:           "https://github.com/coreui"
@@ -59,18 +59,18 @@ params:
   icons:                "https://icons.coreui.io/"
 
   download:
-    source:             "https://github.com/coreui/coreui/archive/v4.0.1.zip"
-    dist:               "https://github.com/coreui/coreui/releases/download/v4.0.1/coreui-4.0.1-dist.zip"
+    source:             "https://github.com/coreui/coreui/archive/v4.0.2.zip"
+    dist:               "https://github.com/coreui/coreui/releases/download/v4.0.2/coreui-4.0.2-dist.zip"
 
   cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-    css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.1/dist/css/coreui.min.css"
+    css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.2/dist/css/coreui.min.css"
     css_hash:        "sha384-IjWb8M3Q0l1F86pSnKVKtx+wug9np99zmr4+EJuEnJQuPGUpM+8mTeEexFRkFlNb"
-    css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.1/dist/css/coreui.rtl.min.css"
+    css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.0.2/dist/css/coreui.rtl.min.css"
     css_rtl_hash:    "sha384-cOOAAex11wa2ijzOiL9sMsnqFdfPR73oQX1hZanTFCx5K73NAwfHVyZZ2i9D0oWI"
-    js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.1/dist/js/coreui.min.js"
+    js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.2/dist/js/coreui.min.js"
     js_hash:         "sha384-3KhTjJJe4HNZScxqT5TUdd17D0Ai5uizX4D9d/i9JdRrkL/MKIf0bQMpgr+OKY4l"
-    js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.1/dist/js/coreui.bundle.min.js"
+    js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.0.2/dist/js/coreui.bundle.min.js"
     js_bundle_hash:  "sha384-ZJEfijBiZSIQYxQmfRjs6mQpJ4+KW9RZ9p8iyxATw7FNhp93yZkGLV4+TkQ2cYnx"
     popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     popper_hash:      "sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
