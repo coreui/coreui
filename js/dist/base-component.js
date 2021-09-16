@@ -1,5 +1,5 @@
 /*!
-  * CoreUI base-component.js v4.0.1 (https://coreui.io)
+  * CoreUI base-component.js v4.0.2 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -108,7 +108,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.1): alert.js
+   * CoreUI (v4.0.2): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's base-component.js
@@ -121,7 +121,7 @@
    * ------------------------------------------------------------------------
    */
 
-  const VERSION = '4.0.1';
+  const VERSION = '4.0.2';
 
   class BaseComponent {
     constructor(element) {
