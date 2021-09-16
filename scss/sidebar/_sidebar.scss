@@ -1,8 +1,5 @@
 .sidebar {
   --#{$variable-prefix}sidebar-width: #{$sidebar-width};
-  ~ * {
-    --#{$variable-prefix}sidebar-width: #{$sidebar-width};
-  }
 
   position: relative;
   display: flex;
@@ -22,7 +19,7 @@
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-start: #{var(--#{$variable-prefix}sidebar-width)};
+      --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-width};
     }
   }
 
@@ -30,7 +27,7 @@
     order: 99;
     @include ltr-rtl("margin-right", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-end: #{var(--#{$variable-prefix}sidebar-width)};
+      --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-width};
     }
   }
 
@@ -58,9 +55,11 @@
   @each $width, $value in $sidebar-widths {
     &.sidebar-#{$width} {
       --#{$variable-prefix}sidebar-width: #{$value};
+      --#{$variable-prefix}sidebar-occupy-start: #{$value};
 
       ~ * {
         --#{$variable-prefix}sidebar-width: #{$value};
+        --#{$variable-prefix}sidebar-occupy-end: #{$value};
       }
     }
   }
@@ -98,10 +97,16 @@
 
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-start: 0;
+      }
     }
 
     &.sidebar-end {
       @include ltr-rtl("right", 0);
+      ~ * {
+        --#{$variable-prefix}sidebar-occupy-end: 0;
+      }
     }
   }
 
