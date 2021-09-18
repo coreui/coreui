@@ -55,11 +55,17 @@
   @each $width, $value in $sidebar-widths {
     &.sidebar-#{$width} {
       --#{$variable-prefix}sidebar-width: #{$value};
-      --#{$variable-prefix}sidebar-occupy-start: #{$value};
-
-      ~ * {
-        --#{$variable-prefix}sidebar-width: #{$value};
-        --#{$variable-prefix}sidebar-occupy-end: #{$value};
+      @include media-breakpoint-up($mobile-breakpoint) {
+        &:not(.sidebar-end):not(.hide) {
+          ~ * {
+            --#{$variable-prefix}sidebar-occupy-start: #{$value};
+          }
+        }
+        &.sidebar-end:not(.hide) {
+          ~ * {
+            --#{$variable-prefix}sidebar-occupy-end: #{$value};
+          }
+        }
       }
     }
   }

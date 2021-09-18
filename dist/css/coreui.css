@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.2
+ * @version v4.0.3
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -6563,27 +6563,36 @@ textarea.form-control-lg {
 }
 .sidebar.sidebar-sm {
   --cui-sidebar-width: 12rem;
-  --cui-sidebar-occupy-start: 12rem;
 }
-.sidebar.sidebar-sm ~ * {
-  --cui-sidebar-width: 12rem;
-  --cui-sidebar-occupy-end: 12rem;
+@media (min-width: 768px) {
+  .sidebar.sidebar-sm:not(.sidebar-end):not(.hide) ~ * {
+    --cui-sidebar-occupy-start: 12rem;
+  }
+  .sidebar.sidebar-sm.sidebar-end:not(.hide) ~ * {
+    --cui-sidebar-occupy-end: 12rem;
+  }
 }
 .sidebar.sidebar-lg {
   --cui-sidebar-width: 20rem;
-  --cui-sidebar-occupy-start: 20rem;
 }
-.sidebar.sidebar-lg ~ * {
-  --cui-sidebar-width: 20rem;
-  --cui-sidebar-occupy-end: 20rem;
+@media (min-width: 768px) {
+  .sidebar.sidebar-lg:not(.sidebar-end):not(.hide) ~ * {
+    --cui-sidebar-occupy-start: 20rem;
+  }
+  .sidebar.sidebar-lg.sidebar-end:not(.hide) ~ * {
+    --cui-sidebar-occupy-end: 20rem;
+  }
 }
 .sidebar.sidebar-xl {
   --cui-sidebar-width: 24rem;
-  --cui-sidebar-occupy-start: 24rem;
 }
-.sidebar.sidebar-xl ~ * {
-  --cui-sidebar-width: 24rem;
-  --cui-sidebar-occupy-end: 24rem;
+@media (min-width: 768px) {
+  .sidebar.sidebar-xl:not(.sidebar-end):not(.hide) ~ * {
+    --cui-sidebar-occupy-start: 24rem;
+  }
+  .sidebar.sidebar-xl.sidebar-end:not(.hide) ~ * {
+    --cui-sidebar-occupy-end: 24rem;
+  }
 }
 @media (min-width: 768px) {
   .sidebar.sidebar-fixed {

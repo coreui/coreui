@@ -2,7 +2,7 @@ import SelectorEngine from '../dom/selector-engine'
 
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.2): alert.js
+ * CoreUI (v4.0.3): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's  util/index.js
