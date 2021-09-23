@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintain by the CoreUI Team",
-  "version": "4.0.3",
+  "version": "4.0.4",
   "config": {
     "version_short": "4.0"
   },
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs-serve",
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
-    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.3",
+    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.0.4",
     "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
     "css-lint": "npm-run-all --continue-on-error --parallel css-lint-*",
@@ -118,7 +118,7 @@
     "karma-coverage-istanbul-reporter": "^3.0.3",
     "karma-detect-browsers": "^2.3.3",
     "karma-firefox-launcher": "^2.1.1",
-    "karma-jasmine": "^4.0.3",
+    "karma-jasmine": "^4.0.4",
     "karma-jasmine-html-reporter": "^1.7.0",
     "karma-rollup-preprocessor": "^7.0.7",
     "linkinator": "^2.14.0",
