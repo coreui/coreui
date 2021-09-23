@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
-  * CoreUI (v4.0.3): modal.js
+  * CoreUI (v4.0.4): modal.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's modal.js
