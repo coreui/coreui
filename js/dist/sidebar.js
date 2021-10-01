@@ -1,6 +1,6 @@
 /*!
   * CoreUI sidebar.js v3.4.0 (https://coreui.io)
-  * Copyright 2020 creativeLabs Łukasz Holeczek
+  * Copyright 2021 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -616,8 +616,8 @@
 
         _this5._toggleDropdown(event, _this5);
       });
-      EventHandler__default['default'].on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, function () {
-        if (_this5._isMobile()) {
+      EventHandler__default['default'].on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, function (event) {
+        if (_this5._isMobile() && !$(event.target).hasClass(CLASS_NAME_NAV_DROPDOWN_TOGGLE)) {
           _this5.close();
         }
       });

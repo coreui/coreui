@@ -1,6 +1,6 @@
 /*!
   * CoreUI v3.4.0 (https://coreui.io)
-  * Copyright 2020 creativeLabs Łukasz Holeczek
+  * Copyright 2021 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 import { createPopper } from '@popperjs/core';
@@ -5771,8 +5771,8 @@ var Sidebar = /*#__PURE__*/function () {
 
       _this5._toggleDropdown(event, _this5);
     });
-    EventHandler.on(this._element, EVENT_CLICK_DATA_API$8, SELECTOR_NAV_LINK$1, function () {
-      if (_this5._isMobile()) {
+    EventHandler.on(this._element, EVENT_CLICK_DATA_API$8, SELECTOR_NAV_LINK$1, function (event) {
+      if (_this5._isMobile() && !$$c(event.target).hasClass(CLASS_NAME_NAV_DROPDOWN_TOGGLE$1)) {
         _this5.close();
       }
     });

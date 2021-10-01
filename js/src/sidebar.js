@@ -522,8 +522,8 @@ class Sidebar {
       this._toggleDropdown(event, this)
     })
 
-    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, () => {
-      if (this._isMobile()) {
+    EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_LINK, event => {
+      if (this._isMobile() && ! $(event.target).hasClass(CLASS_NAME_NAV_DROPDOWN_TOGGLE)) {
         this.close()
       }
     })

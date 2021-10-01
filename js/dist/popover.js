@@ -1,6 +1,6 @@
 /*!
   * CoreUI popover.js v3.4.0 (https://coreui.io)
-  * Copyright 2020 creativeLabs Łukasz Holeczek
+  * Copyright 2021 creativeLabs Łukasz Holeczek
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
