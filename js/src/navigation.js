@@ -1,14 +1,12 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.0.4): alert.js
+ * CoreUI (v4.0.4): navigation.js
  * Licensed under MIT (https://coreui.io/license)
  * --------------------------------------------------------------------------
  */
 
 import {
   defineJQueryPlugin,
-  // emulateTransitionEnd,
-  // getTransitionDurationFromElement,
   typeCheckConfig
 } from './util/index'
 import Data from './dom/data'
@@ -80,6 +78,10 @@ class Navigation extends BaseComponent {
 
   static get DefaultType() {
     return DefaultType
+  }
+
+  static get NAME() {
+    return NAME
   }
 
   // Private
@@ -293,6 +295,6 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
  * add .Navigation to jQuery only if jQuery is present
  */
 
-defineJQueryPlugin(NAME, Navigation)
+defineJQueryPlugin(Navigation)
 
 export default Navigation

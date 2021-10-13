@@ -59,6 +59,7 @@ const SELECTOR_SIDEBAR = '.sidebar'
 class Sidebar extends BaseComponent {
   constructor(element, config) {
     super(element)
+
     this._config = this._getConfig(config)
     this._show = this._isVisible()
     this._mobile = this._isMobile()
@@ -66,6 +67,7 @@ class Sidebar extends BaseComponent {
     this._narrow = this._isNarrow()
     this._unfoldable = this._isUnfoldable()
     this._backdrop = null
+
     this._addEventListeners()
   }
 
@@ -342,6 +344,6 @@ EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
  * ------------------------------------------------------------------------
  */
 
-defineJQueryPlugin(NAME, Sidebar)
+defineJQueryPlugin(Sidebar)
 
 export default Sidebar
