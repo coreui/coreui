@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.4
+ * @version v4.0.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.0.4
+ * @version v4.0.5
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -6445,20 +6445,6 @@ textarea.form-control-lg {
 .sidebar.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 16rem;
 }
-@media (min-width: 768px) {
-  .sidebar.hide:not(.sidebar-end) {
-    margin-right: calc(-1 * var(--cui-sidebar-width));
-  }
-  .sidebar.hide:not(.sidebar-end) ~ * {
-    --cui-sidebar-occupy-start: 0;
-  }
-  .sidebar.hide.sidebar-end {
-    margin-left: calc(-1 * var(--cui-sidebar-width));
-  }
-  .sidebar.hide.sidebar-end ~ * {
-    --cui-sidebar-occupy-end: 0;
-  }
-}
 .sidebar[class*=bg-] {
   border-color: rgba(0, 0, 21, 0.1);
 }
@@ -6493,6 +6479,20 @@ textarea.form-control-lg {
   }
   .sidebar.sidebar-xl.sidebar-end:not(.hide) ~ * {
     --cui-sidebar-occupy-end: 24rem;
+  }
+}
+@media (min-width: 768px) {
+  .sidebar.hide:not(.sidebar-end) {
+    margin-right: calc(-1 * var(--cui-sidebar-width));
+  }
+  .sidebar.hide:not(.sidebar-end) ~ * {
+    --cui-sidebar-occupy-start: 0;
+  }
+  .sidebar.hide.sidebar-end {
+    margin-left: calc(-1 * var(--cui-sidebar-width));
+  }
+  .sidebar.hide.sidebar-end ~ * {
+    --cui-sidebar-occupy-end: 0;
   }
 }
 @media (min-width: 768px) {
