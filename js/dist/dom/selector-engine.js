@@ -7,7 +7,53 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.SelectorEngine = factory());
-}(this, (function () { 'use strict';
+})(this, (function () { 'use strict';
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.5): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's  util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+  const isElement = obj => {
+    if (!obj || typeof obj !== 'object') {
+      return false;
+    }
+
+    if (typeof obj.jquery !== 'undefined') {
+      obj = obj[0];
+    }
+
+    return typeof obj.nodeType !== 'undefined';
+  };
+
+  const isVisible = element => {
+    if (!isElement(element) || element.getClientRects().length === 0) {
+      return false;
+    }
+
+    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
+  };
+
+  const isDisabled = element => {
+    if (!element || element.nodeType !== Node.ELEMENT_NODE) {
+      return true;
+    }
+
+    if (element.classList.contains('disabled')) {
+      return true;
+    }
+
+    if (typeof element.disabled !== 'undefined') {
+      return element.disabled;
+    }
+
+    return element.hasAttribute('disabled') && element.getAttribute('disabled') !== 'false';
+  };
 
   /**
    * --------------------------------------------------------------------------
@@ -17,12 +63,6 @@
    * This component is a modified version of the Bootstrap's  dom/selector-engine.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
-   */
-
-  /**
-   * ------------------------------------------------------------------------
-   * Constants
-   * ------------------------------------------------------------------------
    */
   const NODE_TEXT = 3;
   const SelectorEngine = {
@@ -79,11 +119,16 @@
       }
 
       return [];
+    },
+
+    focusableChildren(element) {
+      const focusables = ['a', 'button', 'input', 'textarea', 'select', 'details', '[tabindex]', '[contenteditable="true"]'].map(selector => `${selector}:not([tabindex^="-"])`).join(', ');
+      return this.find(focusables, element).filter(el => !isDisabled(el) && isVisible(el));
     }
 
   };
 
   return SelectorEngine;
 
-})));
+}));
 //# sourceMappingURL=selector-engine.js.map

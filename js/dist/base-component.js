@@ -4,17 +4,25 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/selector-engine.js'), require('./dom/event-handler.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/selector-engine', './dom/event-handler'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Base = factory(global.Data, global.SelectorEngine, global.EventHandler));
-}(this, (function (Data, SelectorEngine, EventHandler) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Base = factory(global.Data, global.EventHandler));
+})(this, (function (Data, EventHandler) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
 
-  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
-  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  const Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
+  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.5): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's  util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
   const MILLISECONDS_MULTIPLIER = 1000;
   const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
@@ -64,7 +72,7 @@
     }
 
     if (typeof obj === 'string' && obj.length > 0) {
-      return SelectorEngine__default['default'].findOne(obj);
+      return document.querySelector(obj);
     }
 
     return null;
@@ -132,12 +140,12 @@
       }
 
       this._element = element;
-      Data__default['default'].set(this._element, this.constructor.DATA_KEY, this);
+      Data__default.default.set(this._element, this.constructor.DATA_KEY, this);
     }
 
     dispose() {
-      Data__default['default'].remove(this._element, this.constructor.DATA_KEY);
-      EventHandler__default['default'].off(this._element, this.constructor.EVENT_KEY);
+      Data__default.default.remove(this._element, this.constructor.DATA_KEY);
+      EventHandler__default.default.off(this._element, this.constructor.EVENT_KEY);
       Object.getOwnPropertyNames(this).forEach(propertyName => {
         this[propertyName] = null;
       });
@@ -150,7 +158,7 @@
 
 
     static getInstance(element) {
-      return Data__default['default'].get(element, this.DATA_KEY);
+      return Data__default.default.get(getElement(element), this.DATA_KEY);
     }
 
     static getOrCreateInstance(element, config = {}) {
@@ -177,5 +185,5 @@
 
   return BaseComponent;
 
-})));
+}));
 //# sourceMappingURL=base-component.js.map

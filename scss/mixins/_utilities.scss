@@ -51,6 +51,8 @@
       }
     }
 
+    $is-css-var: map-get($utility, css-var);
+    $is-local-vars: map-get($utility, local-vars);
     $is-rtl: map-get($utility, rtl);
 
     @if $value != null {
@@ -58,44 +60,65 @@
         /* rtl:begin:remove */
       }
 
-      .#{$property-class + $infix + $property-class-modifier} {
-        @each $property in $properties {
-          @if $generate-vars == true or $generate-only-vars == true {
-            @if $generate-only-vars {
-              @if $generate-rtl == true {
-                @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}), null, null, if($enable-important-utilities, !important, null));
-              }
-              @else {
-                #{$property}: var(--#{$variable-prefix}#{$key}) if($enable-important-utilities, !important, null);
-              }
-            }
-            @else {
-              @if $generate-rtl == true {
-                @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}, $value), null, null, if($enable-important-utilities, !important, null));
-              }
-              @else {
-                #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
-              }
-            }
+      // .#{$property-class + $infix + $property-class-modifier} {
+      //   @each $property in $properties {
+      //     @if $generate-vars == true or $generate-only-vars == true {
+      //       @if $generate-only-vars {
+      //         @if $generate-rtl == true {
+      //           @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}), null, null, if($enable-important-utilities, !important, null));
+      //         }
+      //         @else {
+      //           #{$property}: var(--#{$variable-prefix}#{$key}) if($enable-important-utilities, !important, null);
+      //         }
+      //       }
+      //       @else {
+      //         @if $generate-rtl == true {
+      //           @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}, $value), null, null, if($enable-important-utilities, !important, null));
+      //         }
+      //         @else {
+      //           #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
+      //         }
+      //       }
+      //     }
+      //     @else {
+      //       @if $generate-rtl == true {
+      //         @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
+      //       }
+      //       @else {
+      //         #{$property}: $value if($enable-important-utilities, !important, null);
+      //       }
+      //     }
+      @if $is-css-var {
+        .#{$property-class + $infix + $property-class-modifier} {
+          --#{$variable-prefix}#{$property-class}: #{$value};
+        }
+
+        @each $pseudo in $state {
+          .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
+            --#{$variable-prefix}#{$property-class}: #{$value};
           }
-          @else {
-            @if $generate-rtl == true {
-              @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
+        }
+      } @else {
+        .#{$property-class + $infix + $property-class-modifier} {
+          @each $property in $properties {
+            @if $is-local-vars {
+              @each $local-var, $value in $is-local-vars {
+                --#{$variable-prefix}#{$local-var}: #{$value};
+              }
             }
-            @else {
+            #{$property}: $value if($enable-important-utilities, !important, null);
+          }
+        }
+
+        @each $pseudo in $state {
+          .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
+            @each $property in $properties {
               #{$property}: $value if($enable-important-utilities, !important, null);
             }
           }
         }
       }
 
-      @each $pseudo in $state {
-        .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
-          @each $property in $properties {
-            #{$property}: $value if($enable-important-utilities, !important, null);
-          }
-        }
-      }
       @if $is-rtl == false {
         /* rtl:end:remove */
       }

@@ -36,7 +36,7 @@ describe('Dropdown', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Dropdown.DATA_KEY).toEqual('coreui.dropdown')
+      expect(Dropdown.DATA_KEY).toEqual('bs.dropdown')
     })
   })
 
@@ -57,26 +57,6 @@ describe('Dropdown', () => {
 
       expect(dropdownBySelector._element).toEqual(btnDropdown)
       expect(dropdownByElement._element).toEqual(btnDropdown)
-    })
-
-    it('should add a listener on trigger which do not have data-coreui-toggle="dropdown"', () => {
-      fixtureEl.innerHTML = [
-        '<div class="dropdown">',
-        '  <button class="btn">Dropdown</button>',
-        '  <div class="dropdown-menu">',
-        '    <a class="dropdown-item" href="#">Secondary link</a>',
-        '  </div>',
-        '</div>'
-      ].join('')
-
-      const btnDropdown = fixtureEl.querySelector('.btn')
-      const dropdown = new Dropdown(btnDropdown)
-
-      spyOn(dropdown, 'toggle')
-
-      btnDropdown.click()
-
-      expect(dropdown.toggle).toHaveBeenCalled()
     })
 
     it('should create offset modifier correctly when offset option is a function', done => {
@@ -596,8 +576,8 @@ describe('Dropdown', () => {
       const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
-      btnDropdown.addEventListener('show.coreui.dropdown', e => {
-        e.preventDefault()
+      btnDropdown.addEventListener('show.coreui.dropdown', event => {
+        event.preventDefault()
       })
 
       btnDropdown.addEventListener('shown.coreui.dropdown', () => {
@@ -723,8 +703,8 @@ describe('Dropdown', () => {
       const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdown = new Dropdown(btnDropdown)
 
-      btnDropdown.addEventListener('show.coreui.dropdown', e => {
-        e.preventDefault()
+      btnDropdown.addEventListener('show.coreui.dropdown', event => {
+        event.preventDefault()
       })
 
       btnDropdown.addEventListener('shown.coreui.dropdown', () => {
@@ -881,8 +861,8 @@ describe('Dropdown', () => {
       const dropdownMenu = fixtureEl.querySelector('.dropdown-menu')
       const dropdown = new Dropdown(btnDropdown)
 
-      btnDropdown.addEventListener('hide.coreui.dropdown', e => {
-        e.preventDefault()
+      btnDropdown.addEventListener('hide.coreui.dropdown', event => {
+        event.preventDefault()
       })
 
       btnDropdown.addEventListener('hidden.coreui.dropdown', () => {
@@ -943,21 +923,19 @@ describe('Dropdown', () => {
       ].join('')
 
       const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
-      spyOn(btnDropdown, 'addEventListener').and.callThrough()
-      spyOn(btnDropdown, 'removeEventListener').and.callThrough()
 
       const dropdown = new Dropdown(btnDropdown)
 
       expect(dropdown._popper).toBeNull()
       expect(dropdown._menu).not.toBeNull()
       expect(dropdown._element).not.toBeNull()
-      expect(btnDropdown.addEventListener).toHaveBeenCalledWith('click', jasmine.any(Function), jasmine.any(Boolean))
+      spyOn(EventHandler, 'off')
 
       dropdown.dispose()
 
       expect(dropdown._menu).toBeNull()
       expect(dropdown._element).toBeNull()
-      expect(btnDropdown.removeEventListener).toHaveBeenCalledWith('click', jasmine.any(Function), jasmine.any(Boolean))
+      expect(EventHandler.off).toHaveBeenCalledWith(btnDropdown, Dropdown.EVENT_KEY)
     })
 
     it('should dispose dropdown with Popper', () => {
@@ -1055,23 +1033,23 @@ describe('Dropdown', () => {
         showEventTriggered = true
       })
 
-      btnDropdown.addEventListener('shown.coreui.dropdown', e => {
+      btnDropdown.addEventListener('shown.coreui.dropdown', event => setTimeout(() => {
         expect(btnDropdown.classList.contains('show')).toEqual(true)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('true')
         expect(showEventTriggered).toEqual(true)
-        expect(e.relatedTarget).toEqual(btnDropdown)
+        expect(event.relatedTarget).toEqual(btnDropdown)
         document.body.click()
-      })
+      }))
 
       btnDropdown.addEventListener('hide.coreui.dropdown', () => {
         hideEventTriggered = true
       })
 
-      btnDropdown.addEventListener('hidden.coreui.dropdown', e => {
+      btnDropdown.addEventListener('hidden.coreui.dropdown', event => {
         expect(btnDropdown.classList.contains('show')).toEqual(false)
         expect(btnDropdown.getAttribute('aria-expanded')).toEqual('false')
         expect(hideEventTriggered).toEqual(true)
-        expect(e.relatedTarget).toEqual(btnDropdown)
+        expect(event.relatedTarget).toEqual(btnDropdown)
         done()
       })
 
@@ -1369,12 +1347,12 @@ describe('Dropdown', () => {
 
       const triggerDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
 
-      triggerDropdown.addEventListener('hide.coreui.dropdown', e => {
-        expect(e.clickEvent).toBeUndefined()
+      triggerDropdown.addEventListener('hide.coreui.dropdown', event => {
+        expect(event.clickEvent).toBeUndefined()
       })
 
-      triggerDropdown.addEventListener('hidden.coreui.dropdown', e => {
-        expect(e.clickEvent).toBeUndefined()
+      triggerDropdown.addEventListener('hidden.coreui.dropdown', event => {
+        expect(event.clickEvent).toBeUndefined()
         done()
       })
 

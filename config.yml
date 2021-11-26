@@ -25,7 +25,7 @@ publishDir:             "_gh_pages"
 module:
   mounts:
     - source:           dist
-      target:           static/4.0/dist
+      target:           static/4.1/dist
     - source:           docs/assets
       target:           assets
     - source:           docs/content
@@ -36,20 +36,20 @@ module:
       target:           layouts
     - source:           docs/static
       target:           static
-    - source:           docs/static/4.0/assets/img/favicons/apple-touch-icon.png
+    - source:           docs/static/4.1/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
-    - source:           docs/static/4.0/assets/img/favicons/favicon.ico
+    - source:           docs/static/4.1/assets/img/favicons/favicon.ico
       target:           static/favicon.ico
 
 params:
   description:          "Open Source Ui Components library built on top of Bootstrap 5."
   authors:              "Lukasz Holeczek, Andrzej Kopanski"
-  social_image_path:    /4.0/assets/brand/coreui-social.jpg
-  social_logo_path:     /4.0/assets/brand/coreui-social-logo.png
+  social_image_path:    /4.1/assets/brand/coreui-social.jpg
+  social_logo_path:     /4.1/assets/brand/coreui-social-logo.png
 
-  current_version:      "4.0.5"
-  current_ruby_version: "4.0.5"
-  docs_version:         "4.0"
+  current_version:      "4.1.0"
+  current_ruby_version: "4.1.0"
+  docs_version:         "4.1"
   rfs_version:          "9.0.3"
   github_org:           "https://github.com/coreui"
   repo:                 "https://github.com/coreui/coreui"

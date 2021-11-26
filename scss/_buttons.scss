@@ -14,9 +14,8 @@
   vertical-align: middle;
   cursor: if($enable-button-pointers, pointer, null);
   user-select: none;
-  @include gradient-bg(var(--#{$variable-prefix}btn-bg, transparent));
+  background-color: var(--#{$variable-prefix}btn-bg, transparent);
   border: $btn-border-width solid var(--#{$variable-prefix}btn-border-color, transparent);
-  @include box-shadow(var(--#{$variable-prefix}btn-box-shadow, $btn-box-shadow));
   @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-border-radius);
   @include transition($btn-transition);
 

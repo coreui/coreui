@@ -9,12 +9,12 @@
     - title: Contents
     - title: Browsers & devices
     - title: JavaScript
-    - title: Build tools
     - title: Webpack
     - title: Parcel
     - title: Accessibility
     - title: RFS
     - title: RTL
+    - title: Contribute
 
 - title: Customize
   icon: color-palette
@@ -85,6 +85,7 @@
     - title: Navbar
     - title: Offcanvas
     - title: Pagination
+    - title: Placeholders
     - title: Popovers
     - title: Progress
     - title: Scrollspy
@@ -100,9 +101,11 @@
     - title: Colored links
     - title: Ratio
     - title: Position
+    - title: Stacks
     - title: Visually hidden
     - title: Stretched link
     - title: Text truncation
+    - title: Vertical rule
 
 - title: Utilities
   icon: color-fill

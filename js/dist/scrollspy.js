@@ -4,17 +4,27 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ScrollSpy = factory(global.SelectorEngine, global.EventHandler, global.Manipulator, global.Base));
-}(this, (function (SelectorEngine, EventHandler, Manipulator, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ScrollSpy = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+})(this, (function (EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
 
-  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.5): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's  util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
 
   const toType = obj => {
     if (obj === null || obj === undefined) {
@@ -77,7 +87,7 @@
     }
 
     if (typeof obj === 'string' && obj.length > 0) {
-      return SelectorEngine__default['default'].findOne(obj);
+      return document.querySelector(obj);
     }
 
     return null;
@@ -193,7 +203,7 @@
    * ------------------------------------------------------------------------
    */
 
-  class ScrollSpy extends BaseComponent__default['default'] {
+  class ScrollSpy extends BaseComponent__default.default {
     constructor(element, config) {
       super(element);
       this._scrollElement = this._element.tagName === 'BODY' ? window : this._element;
@@ -202,7 +212,7 @@
       this._targets = [];
       this._activeTarget = null;
       this._scrollHeight = 0;
-      EventHandler__default['default'].on(this._scrollElement, EVENT_SCROLL, () => this._process());
+      EventHandler__default.default.on(this._scrollElement, EVENT_SCROLL, () => this._process());
       this.refresh();
 
       this._process();
@@ -225,16 +235,16 @@
       this._offsets = [];
       this._targets = [];
       this._scrollHeight = this._getScrollHeight();
-      const targets = SelectorEngine__default['default'].find(SELECTOR_LINK_ITEMS, this._config.target);
+      const targets = SelectorEngine__default.default.find(SELECTOR_LINK_ITEMS, this._config.target);
       targets.map(element => {
         const targetSelector = getSelectorFromElement(element);
-        const target = targetSelector ? SelectorEngine__default['default'].findOne(targetSelector) : null;
+        const target = targetSelector ? SelectorEngine__default.default.findOne(targetSelector) : null;
 
         if (target) {
           const targetBCR = target.getBoundingClientRect();
 
           if (targetBCR.width || targetBCR.height) {
-            return [Manipulator__default['default'][offsetMethod](target).top + offsetBase, targetSelector];
+            return [Manipulator__default.default[offsetMethod](target).top + offsetBase, targetSelector];
           }
         }
 
@@ -247,14 +257,14 @@
     }
 
     dispose() {
-      EventHandler__default['default'].off(this._scrollElement, EVENT_KEY);
+      EventHandler__default.default.off(this._scrollElement, EVENT_KEY);
       super.dispose();
     } // Private
 
 
     _getConfig(config) {
       config = { ...Default,
-        ...Manipulator__default['default'].getDataAttributes(this._element),
+        ...Manipulator__default.default.getDataAttributes(this._element),
         ...(typeof config === 'object' && config ? config : {})
       };
       config.target = getElement(config.target) || document.documentElement;
@@ -318,30 +328,30 @@
       this._clear();
 
       const queries = SELECTOR_LINK_ITEMS.split(',').map(selector => `${selector}[data-coreui-target="${target}"],${selector}[href="${target}"]`);
-      const link = SelectorEngine__default['default'].findOne(queries.join(','), this._config.target);
+      const link = SelectorEngine__default.default.findOne(queries.join(','), this._config.target);
       link.classList.add(CLASS_NAME_ACTIVE);
 
       if (link.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
-        SelectorEngine__default['default'].findOne(SELECTOR_DROPDOWN_TOGGLE, link.closest(SELECTOR_DROPDOWN)).classList.add(CLASS_NAME_ACTIVE);
+        SelectorEngine__default.default.findOne(SELECTOR_DROPDOWN_TOGGLE, link.closest(SELECTOR_DROPDOWN)).classList.add(CLASS_NAME_ACTIVE);
       } else {
-        SelectorEngine__default['default'].parents(link, SELECTOR_NAV_LIST_GROUP).forEach(listGroup => {
+        SelectorEngine__default.default.parents(link, SELECTOR_NAV_LIST_GROUP).forEach(listGroup => {
           // Set triggered links parents as active
           // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
-          SelectorEngine__default['default'].prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE)); // Handle special case when .nav-link is inside .nav-item
+          SelectorEngine__default.default.prev(listGroup, `${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`).forEach(item => item.classList.add(CLASS_NAME_ACTIVE)); // Handle special case when .nav-link is inside .nav-item
 
-          SelectorEngine__default['default'].prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
-            SelectorEngine__default['default'].children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE));
+          SelectorEngine__default.default.prev(listGroup, SELECTOR_NAV_ITEMS).forEach(navItem => {
+            SelectorEngine__default.default.children(navItem, SELECTOR_NAV_LINKS).forEach(item => item.classList.add(CLASS_NAME_ACTIVE));
           });
         });
       }
 
-      EventHandler__default['default'].trigger(this._scrollElement, EVENT_ACTIVATE, {
+      EventHandler__default.default.trigger(this._scrollElement, EVENT_ACTIVATE, {
         relatedTarget: target
       });
     }
 
     _clear() {
-      SelectorEngine__default['default'].find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classList.contains(CLASS_NAME_ACTIVE)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE));
+      SelectorEngine__default.default.find(SELECTOR_LINK_ITEMS, this._config.target).filter(node => node.classList.contains(CLASS_NAME_ACTIVE)).forEach(node => node.classList.remove(CLASS_NAME_ACTIVE));
     } // Static
 
 
@@ -369,8 +379,8 @@
    */
 
 
-  EventHandler__default['default'].on(window, EVENT_LOAD_DATA_API, () => {
-    SelectorEngine__default['default'].find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy));
+  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
+    SelectorEngine__default.default.find(SELECTOR_DATA_SPY).forEach(spy => new ScrollSpy(spy));
   });
   /**
    * ------------------------------------------------------------------------
@@ -383,5 +393,5 @@
 
   return ScrollSpy;
 
-})));
+}));
 //# sourceMappingURL=scrollspy.js.map

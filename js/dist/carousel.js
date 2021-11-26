@@ -4,18 +4,27 @@
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/selector-engine.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/selector-engine', './dom/event-handler', './dom/manipulator', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.SelectorEngine, global.EventHandler, global.Manipulator, global.Base));
-}(this, (function (SelectorEngine, EventHandler, Manipulator, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.EventHandler, global.Manipulator, global.SelectorEngine, global.Base));
+})(this, (function (EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
 
-  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  var BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
+  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
+  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
 
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.5): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's  util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
   const TRANSITION_END = 'transitionend'; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
   const toType = obj => {
@@ -90,8 +99,20 @@
 
     return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
   };
+  /**
+   * Trick to restart an element's animation
+   *
+   * @param {HTMLElement} element
+   * @return void
+   *
+   * @see https://www.charistheo.io/blog/2021/02/restart-a-css-animation-with-javascript/#restarting-a-css-animation
+   */
 
-  const reflow = element => element.offsetHeight;
+
+  const reflow = element => {
+    // eslint-disable-next-line no-unused-expressions
+    element.offsetHeight;
+  };
 
   const getjQuery = () => {
     const {
@@ -256,7 +277,7 @@
    * ------------------------------------------------------------------------
    */
 
-  class Carousel extends BaseComponent__default['default'] {
+  class Carousel extends BaseComponent__default.default {
     constructor(element, config) {
       super(element);
       this._items = null;
@@ -268,7 +289,7 @@
       this.touchStartX = 0;
       this.touchDeltaX = 0;
       this._config = this._getConfig(config);
-      this._indicatorsElement = SelectorEngine__default['default'].findOne(SELECTOR_INDICATORS, this._element);
+      this._indicatorsElement = SelectorEngine__default.default.findOne(SELECTOR_INDICATORS, this._element);
       this._touchSupported = 'ontouchstart' in document.documentElement || navigator.maxTouchPoints > 0;
       this._pointerEvent = Boolean(window.PointerEvent);
 
@@ -306,7 +327,7 @@
         this._isPaused = true;
       }
 
-      if (SelectorEngine__default['default'].findOne(SELECTOR_NEXT_PREV, this._element)) {
+      if (SelectorEngine__default.default.findOne(SELECTOR_NEXT_PREV, this._element)) {
         triggerTransitionEnd(this._element);
         this.cycle(true);
       }
@@ -333,7 +354,7 @@
     }
 
     to(index) {
-      this._activeElement = SelectorEngine__default['default'].findOne(SELECTOR_ACTIVE_ITEM, this._element);
+      this._activeElement = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
 
       const activeIndex = this._getItemIndex(this._activeElement);
 
@@ -342,7 +363,7 @@
       }
 
       if (this._isSliding) {
-        EventHandler__default['default'].one(this._element, EVENT_SLID, () => this.to(index));
+        EventHandler__default.default.one(this._element, EVENT_SLID, () => this.to(index));
         return;
       }
 
@@ -360,7 +381,7 @@
 
     _getConfig(config) {
       config = { ...Default,
-        ...Manipulator__default['default'].getDataAttributes(this._element),
+        ...Manipulator__default.default.getDataAttributes(this._element),
         ...(typeof config === 'object' ? config : {})
       };
       typeCheckConfig(NAME, config, DefaultType);
@@ -386,12 +407,12 @@
 
     _addEventListeners() {
       if (this._config.keyboard) {
-        EventHandler__default['default'].on(this._element, EVENT_KEYDOWN, event => this._keydown(event));
+        EventHandler__default.default.on(this._element, EVENT_KEYDOWN, event => this._keydown(event));
       }
 
       if (this._config.pause === 'hover') {
-        EventHandler__default['default'].on(this._element, EVENT_MOUSEENTER, event => this.pause(event));
-        EventHandler__default['default'].on(this._element, EVENT_MOUSELEAVE, event => this.cycle(event));
+        EventHandler__default.default.on(this._element, EVENT_MOUSEENTER, event => this.pause(event));
+        EventHandler__default.default.on(this._element, EVENT_MOUSELEAVE, event => this.cycle(event));
       }
 
       if (this._config.touch && this._touchSupported) {
@@ -400,8 +421,12 @@
     }
 
     _addTouchEventListeners() {
+      const hasPointerPenTouch = event => {
+        return this._pointerEvent && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH);
+      };
+
       const start = event => {
-        if (this._pointerEvent && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH)) {
+        if (hasPointerPenTouch(event)) {
           this.touchStartX = event.clientX;
         } else if (!this._pointerEvent) {
           this.touchStartX = event.touches[0].clientX;
@@ -414,7 +439,7 @@
       };
 
       const end = event => {
-        if (this._pointerEvent && (event.pointerType === POINTER_TYPE_PEN || event.pointerType === POINTER_TYPE_TOUCH)) {
+        if (hasPointerPenTouch(event)) {
           this.touchDeltaX = event.clientX - this.touchStartX;
         }
 
@@ -438,19 +463,19 @@
         }
       };
 
-      SelectorEngine__default['default'].find(SELECTOR_ITEM_IMG, this._element).forEach(itemImg => {
-        EventHandler__default['default'].on(itemImg, EVENT_DRAG_START, e => e.preventDefault());
+      SelectorEngine__default.default.find(SELECTOR_ITEM_IMG, this._element).forEach(itemImg => {
+        EventHandler__default.default.on(itemImg, EVENT_DRAG_START, event => event.preventDefault());
       });
 
       if (this._pointerEvent) {
-        EventHandler__default['default'].on(this._element, EVENT_POINTERDOWN, event => start(event));
-        EventHandler__default['default'].on(this._element, EVENT_POINTERUP, event => end(event));
+        EventHandler__default.default.on(this._element, EVENT_POINTERDOWN, event => start(event));
+        EventHandler__default.default.on(this._element, EVENT_POINTERUP, event => end(event));
 
         this._element.classList.add(CLASS_NAME_POINTER_EVENT);
       } else {
-        EventHandler__default['default'].on(this._element, EVENT_TOUCHSTART, event => start(event));
-        EventHandler__default['default'].on(this._element, EVENT_TOUCHMOVE, event => move(event));
-        EventHandler__default['default'].on(this._element, EVENT_TOUCHEND, event => end(event));
+        EventHandler__default.default.on(this._element, EVENT_TOUCHSTART, event => start(event));
+        EventHandler__default.default.on(this._element, EVENT_TOUCHMOVE, event => move(event));
+        EventHandler__default.default.on(this._element, EVENT_TOUCHEND, event => end(event));
       }
     }
 
@@ -469,7 +494,7 @@
     }
 
     _getItemIndex(element) {
-      this._items = element && element.parentNode ? SelectorEngine__default['default'].find(SELECTOR_ITEM, element.parentNode) : [];
+      this._items = element && element.parentNode ? SelectorEngine__default.default.find(SELECTOR_ITEM, element.parentNode) : [];
       return this._items.indexOf(element);
     }
 
@@ -481,9 +506,9 @@
     _triggerSlideEvent(relatedTarget, eventDirectionName) {
       const targetIndex = this._getItemIndex(relatedTarget);
 
-      const fromIndex = this._getItemIndex(SelectorEngine__default['default'].findOne(SELECTOR_ACTIVE_ITEM, this._element));
+      const fromIndex = this._getItemIndex(SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element));
 
-      return EventHandler__default['default'].trigger(this._element, EVENT_SLIDE, {
+      return EventHandler__default.default.trigger(this._element, EVENT_SLIDE, {
         relatedTarget,
         direction: eventDirectionName,
         from: fromIndex,
@@ -493,10 +518,10 @@
 
     _setActiveIndicatorElement(element) {
       if (this._indicatorsElement) {
-        const activeIndicator = SelectorEngine__default['default'].findOne(SELECTOR_ACTIVE, this._indicatorsElement);
+        const activeIndicator = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
         activeIndicator.classList.remove(CLASS_NAME_ACTIVE);
         activeIndicator.removeAttribute('aria-current');
-        const indicators = SelectorEngine__default['default'].find(SELECTOR_INDICATOR, this._indicatorsElement);
+        const indicators = SelectorEngine__default.default.find(SELECTOR_INDICATOR, this._indicatorsElement);
 
         for (let i = 0; i < indicators.length; i++) {
           if (Number.parseInt(indicators[i].getAttribute('data-coreui-slide-to'), 10) === this._getItemIndex(element)) {
@@ -509,7 +534,7 @@
     }
 
     _updateInterval() {
-      const element = this._activeElement || SelectorEngine__default['default'].findOne(SELECTOR_ACTIVE_ITEM, this._element);
+      const element = this._activeElement || SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
 
       if (!element) {
         return;
@@ -528,7 +553,7 @@
     _slide(directionOrOrder, element) {
       const order = this._directionToOrder(directionOrOrder);
 
-      const activeElement = SelectorEngine__default['default'].findOne(SELECTOR_ACTIVE_ITEM, this._element);
+      const activeElement = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
 
       const activeElementIndex = this._getItemIndex(activeElement);
 
@@ -574,7 +599,7 @@
       this._activeElement = nextElement;
 
       const triggerSlidEvent = () => {
-        EventHandler__default['default'].trigger(this._element, EVENT_SLID, {
+        EventHandler__default.default.trigger(this._element, EVENT_SLID, {
           relatedTarget: nextElement,
           direction: eventDirectionName,
           from: activeElementIndex,
@@ -675,8 +700,8 @@
         return;
       }
 
-      const config = { ...Manipulator__default['default'].getDataAttributes(target),
-        ...Manipulator__default['default'].getDataAttributes(this)
+      const config = { ...Manipulator__default.default.getDataAttributes(target),
+        ...Manipulator__default.default.getDataAttributes(this)
       };
       const slideIndex = this.getAttribute('data-coreui-slide-to');
 
@@ -701,9 +726,9 @@
    */
 
 
-  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, Carousel.dataApiClickHandler);
-  EventHandler__default['default'].on(window, EVENT_LOAD_DATA_API, () => {
-    const carousels = SelectorEngine__default['default'].find(SELECTOR_DATA_RIDE);
+  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, Carousel.dataApiClickHandler);
+  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
+    const carousels = SelectorEngine__default.default.find(SELECTOR_DATA_RIDE);
 
     for (let i = 0, len = carousels.length; i < len; i++) {
       Carousel.carouselInterface(carousels[i], Carousel.getInstance(carousels[i]));
@@ -720,5 +745,5 @@
 
   return Carousel;
 
-})));
+}));
 //# sourceMappingURL=carousel.js.map

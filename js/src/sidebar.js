@@ -236,7 +236,7 @@ class Sidebar extends BaseComponent {
 
   _removeBackdrop() {
     if (this._backdrop) {
-      this._backdrop.parentNode.removeChild(this._backdrop)
+      this._backdrop.remove()
       this._backdrop = null
     }
   }
@@ -246,7 +246,7 @@ class Sidebar extends BaseComponent {
       this._backdrop = document.createElement('div')
       this._backdrop.className = CLASS_NAME_BACKDROP
       this._backdrop.classList.add(CLASS_NAME_FADE)
-      document.body.appendChild(this._backdrop)
+      document.body.append(this._backdrop)
       reflow(this._backdrop)
       this._backdrop.classList.add(CLASS_NAME_SHOW)
     }

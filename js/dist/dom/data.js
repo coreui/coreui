@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Data = factory());
-}(this, (function () { 'use strict';
+})(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -25,7 +25,7 @@
    * ------------------------------------------------------------------------
    */
   const elementMap = new Map();
-  var data = {
+  const data = {
     set(element, key, instance) {
       if (!elementMap.has(element)) {
         elementMap.set(element, new Map());
@@ -68,5 +68,5 @@
 
   return data;
 
-})));
+}));
 //# sourceMappingURL=data.js.map

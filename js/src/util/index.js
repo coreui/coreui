@@ -1,5 +1,3 @@
-import SelectorEngine from '../dom/selector-engine'
-
 /**
  * --------------------------------------------------------------------------
  * CoreUI (v4.0.5): alert.js
@@ -123,7 +121,7 @@ const getElement = obj => {
   }
 
   if (typeof obj === 'string' && obj.length > 0) {
-    return SelectorEngine.findOne(obj)
+    return document.querySelector(obj)
   }
 
   return null
@@ -192,7 +190,18 @@ const findShadowRoot = element => {
 
 const noop = () => {}
 
-const reflow = element => element.offsetHeight
+/**
+ * Trick to restart an element's animation
+ *
+ * @param {HTMLElement} element
+ * @return void
+ *
+ * @see https://www.charistheo.io/blog/2021/02/restart-a-css-animation-with-javascript/#restarting-a-css-animation
+ */
+const reflow = element => {
+  // eslint-disable-next-line no-unused-expressions
+  element.offsetHeight
+}
 
 const getjQuery = () => {
   const { jQuery } = window

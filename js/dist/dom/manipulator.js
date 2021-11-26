@@ -7,7 +7,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Manipulator = factory());
-}(this, (function () { 'use strict';
+})(this, (function () { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -72,8 +72,8 @@
     offset(element) {
       const rect = element.getBoundingClientRect();
       return {
-        top: rect.top + document.body.scrollTop,
-        left: rect.left + document.body.scrollLeft
+        top: rect.top + window.pageYOffset,
+        left: rect.left + window.pageXOffset
       };
     },
 
@@ -88,5 +88,5 @@
 
   return Manipulator;
 
-})));
+}));
 //# sourceMappingURL=manipulator.js.map

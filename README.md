@@ -9,16 +9,14 @@
 <p align="center">
   Open Source UI Components Library built on top of Bootstrap 5.
   <br>
-  <a href="https://coreui.io/docs/4.0/"><strong>Explore CoreUI docs »</strong></a>
+  <a href="https://coreui.io/docs/4.1/"><strong>Explore CoreUI docs »</strong></a>
   <br>
   <br>
   <a href="https://github.com/coreui/coreui/issues/new?template=bug_report.md">Report bug</a>
   ·
   <a href="https://github.com/coreui/coreui/issues/new?template=feature_request.md">Request feature</a>
   ·
-  <a href="https://community.coreui.io/">Community</a>
-  ·
-  <a href="https://coreui.io/blog/">Blog</a>
+  <a href="https://blog.coreui.io/">Blog</a>
 </p>
 
 
@@ -47,7 +45,7 @@ Several quick start options are available:
 - Install with [yarn](https://yarnpkg.com/): `yarn add @coreui/coreui`
 - Install with [Composer](https://getcomposer.org/): `composer require coreui/coreui:4.0.5`
 
-Read the [Getting started page](https://coreui.io/docs/4.0/getting-started/introduction/) for information on the framework contents, templates and examples, and more.
+Read the [Getting started page](https://coreui.io/docs/4.1/getting-started/introduction/) for information on the framework contents, templates and examples, and more.
 
 
 ## Status
@@ -152,7 +150,6 @@ Editor preferences are available in the [editor config](https://github.com/coreu
 Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
 - Read and subscribe to [The Official CoreUI Blog](https://blog.coreui.io/).
-- Join [the official Community](https://community.coreui.io/).
 
 You can also follow [@core_ui on Twitter](https://twitter.com/core_ui).
 

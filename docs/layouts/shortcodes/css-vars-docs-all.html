@@ -5,12 +5,12 @@
 */ -}}
 
 {{- $path := .Get "path" -}}
-{{- $filepath := printf "docs/content/4.0/%s" $path -}}
+{{- $filepath := printf "docs/content/4.1/%s" $path -}}
 {{- $files    := readDir $filepath -}}
 {{- $ext := default "-" (.Get "type" ) -}}
 {{- if (fileExists $filepath) -}}
   {{- range $files -}}
-    {{- if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}{{ $content := readFile (printf "docs/content/4.0/%s/%s" $path .Name) -}}
+    {{- if (and (ne (substr .Name 0 1) "_") (not .IsDir)) }}{{ $content := readFile (printf "docs/content/4.1/%s/%s" $path .Name) -}}
       {{- $regexFileName := printf "css-vars-docs file=(.*)scss." -}}
       {{- $regexTitle := printf "title:(.*)" -}}
       {{- $matchFileName := (findRE $regexFileName $content 1) | uniq | sort -}}

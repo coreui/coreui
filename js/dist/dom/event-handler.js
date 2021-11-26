@@ -7,7 +7,17 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.EventHandler = factory());
-}(this, (function () { 'use strict';
+})(this, (function () { 'use strict';
+
+  /**
+   * --------------------------------------------------------------------------
+   * CoreUI (v4.0.5): alert.js
+   * Licensed under MIT (https://coreui.io/license)
+   *
+   * This component is a modified version of the Bootstrap's  util/index.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
 
   const getjQuery = () => {
     const {
@@ -89,7 +99,6 @@
             event.delegateTarget = target;
 
             if (handler.oneOff) {
-              // eslint-disable-next-line unicorn/consistent-destructuring
               EventHandler.off(element, event.type, selector, fn);
             }
 
@@ -315,5 +324,5 @@
 
   return EventHandler;
 
-})));
+}));
 //# sourceMappingURL=event-handler.js.map

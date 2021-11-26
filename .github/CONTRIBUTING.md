@@ -14,11 +14,14 @@ the preferred channel for [bug reports](#bug-reports), [features requests](#feat
 and [submitting pull requests](#pull-requests), but please respect the following
 restrictions:
 
-* Please **do not** use the issue tracker for personal support requests.
+* Please **do not** use the issue tracker for personal support requests. [GitHub Discussions](https://github.com/coreui/coreui/discussions) is better place to get help
 
 * Please **do not** post comments consisting solely of "+1" or ":thumbsup:".
   Use [GitHub's "reactions" feature](https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments)
   instead.
+
+* Please **do not** derail or troll issues. Keep the discussion on topic and
+  respect the opinions of others.
 
 ## Bug reports
 
