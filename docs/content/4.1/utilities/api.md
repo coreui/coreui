@@ -156,10 +156,10 @@ $utilities: (
 Output:
 
 ```css
-.text-opacity-25 { --bs-text-opacity: .25; }
-.text-opacity-50 { --bs-text-opacity: .5; }
-.text-opacity-75 { --bs-text-opacity: .75; }
-.text-opacity-100 { --bs-text-opacity: 1; }
+.text-opacity-25 { --cui-text-opacity: .25; }
+.text-opacity-50 { --cui-text-opacity: .5; }
+.text-opacity-75 { --cui-text-opacity: .75; }
+.text-opacity-100 { --cui-text-opacity: 1; }
 ```
 
 ### Local CSS variables
@@ -188,8 +188,8 @@ Output:
 
 ```css
 .bg-primary {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity)) !important;
+  --cui-bg-opacity: 1;
+  background-color: rgba(var(--cui-primary-rgb), var(--cui-bg-opacity)) !important;
 }
 ```
 

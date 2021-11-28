@@ -47,20 +47,20 @@ Consider our default `.bg-success` utility.
 
 ```css
 .bg-success {
-  --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-success-rgb), var(--bs-bg-opacity)) !important;
+  --cui-bg-opacity: 1;
+  background-color: rgba(var(--cui-success-rgb), var(--cui-bg-opacity)) !important;
 }
 ```
 
-We use an RGB version of our `--bs-success` (with the value of `25, 135, 84`) CSS variable and attached a second CSS variable, `--bs-bg-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.bg-success` now, your computed `color` value is `rgba(25, 135, 84, 1)`. The local CSS variable inside each `.bg-*` class avoids inheritance issues so nested instances of the utilities don't automatically have a modified alpha transparency.
+We use an RGB version of our `--cui-success` (with the value of `25, 135, 84`) CSS variable and attached a second CSS variable, `--cui-bg-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.bg-success` now, your computed `color` value is `rgba(25, 135, 84, 1)`. The local CSS variable inside each `.bg-*` class avoids inheritance issues so nested instances of the utilities don't automatically have a modified alpha transparency.
 
 ### Example
 
-To change that opacity, override `--bs-bg-opacity` via custom styles or inline styles.
+To change that opacity, override `--cui-bg-opacity` via custom styles or inline styles.
 
 {{< example >}}
 <div class="bg-success p-2 text-white">This is default success background</div>
-<div class="bg-success p-2" style="--bs-bg-opacity: .5;">This is 50% opacity success background</div>
+<div class="bg-success p-2" style="--cui-bg-opacity: .5;">This is 50% opacity success background</div>
 {{< /example >}}
 
 Or, choose from any of the `.bg-opacity` utilities:

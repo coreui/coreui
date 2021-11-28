@@ -43,20 +43,20 @@ Consider our default `.text-primary` utility.
 
 ```css
 .text-primary {
-  --bs-text-opacity: 1;
-  color: rgba(var(--bs-primary-rgb), var(--bs-text-opacity)) !important;
+  --cui-text-opacity: 1;
+  color: rgba(var(--cui-primary-rgb), var(--cui-text-opacity)) !important;
 }
 ```
 
-We use an RGB version of our `--bs-primary` (with the value of `13, 110, 253`) CSS variable and attached a second CSS variable, `--bs-text-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.text-primary` now, your computed `color` value is `rgba(13, 110, 253, 1)`. The local CSS variable inside each `.text-*` class avoids inheritance issues so nested instances of the utilities don't automatically have a modified alpha transparency.
+We use an RGB version of our `--cui-primary` (with the value of `13, 110, 253`) CSS variable and attached a second CSS variable, `--cui-text-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.text-primary` now, your computed `color` value is `rgba(13, 110, 253, 1)`. The local CSS variable inside each `.text-*` class avoids inheritance issues so nested instances of the utilities don't automatically have a modified alpha transparency.
 
 ### Example
 
-To change that opacity, override `--bs-text-opacity` via custom styles or inline styles.
+To change that opacity, override `--cui-text-opacity` via custom styles or inline styles.
 
 {{< example >}}
 <div class="text-primary">This is default primary text</div>
-<div class="text-primary" style="--bs-text-opacity: .5;">This is 50% opacity primary text</div>
+<div class="text-primary" style="--cui-text-opacity: .5;">This is 50% opacity primary text</div>
 {{< /example >}}
 
 Or, choose from any of the `.text-opacity` utilities:

@@ -77,7 +77,7 @@ In practice, those variables are then applied in Reboot like so:
 Which allows you to make real-time customizations however you like:
 
 ```html
-<body style="--bs-body-color: #333;">
+<body style="--cui-body-color: #333;">
   <!-- ... -->
 </body>
 ```

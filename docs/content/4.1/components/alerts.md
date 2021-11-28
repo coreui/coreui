@@ -42,7 +42,7 @@ var alertTrigger = document.getElementById('liveAlertBtn')
 
 function alert(message, type) {
   var wrapper = document.createElement('div')
-  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>'
+  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button></div>'
 
   alertPlaceholder.append(wrapper)
 }
@@ -172,7 +172,7 @@ var alerts =  [].slice.call(alertList).map(function (element) {
 ```
 
 {{< callout info >}}
-For the sole purpose of dismissing an alert, it isn't necessary to initialize the component manually via the JS API. By making use of `data-bs-dismiss="alert"`, the component will be initialized automatically and properly dismissed.
+For the sole purpose of dismissing an alert, it isn't necessary to initialize the component manually via the JS API. By making use of `data-coreui-dismiss="alert"`, the component will be initialized automatically and properly dismissed.
 
 See the [triggers](#triggers) section for more details.
 {{< /callout >}}
