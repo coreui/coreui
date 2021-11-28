@@ -39,7 +39,7 @@
 }
 
 // scss-docs-start responsive-breakpoints
-// We deliberately hardcode the `bs-` prefix because we check
+// We deliberately hardcode the `cui-` prefix because we check
 // this custom property in JS to determine Popper's positioning
 
 @each $breakpoint in map-keys($grid-breakpoints) {
