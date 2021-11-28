@@ -168,11 +168,11 @@ describe('Popover', () => {
       const spy = spyOn(popover, 'setContent').and.callThrough()
       let times = 1
 
-      popoverEl.addEventListener('hidden.bs.popover', () => {
+      popoverEl.addEventListener('hidden.coreui.popover', () => {
         popover.show()
       })
 
-      popoverEl.addEventListener('shown.bs.popover', () => {
+      popoverEl.addEventListener('shown.coreui.popover', () => {
         const popoverDisplayed = document.querySelector('.popover')
 
         expect(popoverDisplayed).not.toBeNull()

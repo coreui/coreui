@@ -278,7 +278,7 @@ describe('Modal', () => {
       modal.show()
     })
 
-    it('should close modal when a click occurred on a data-coreui-dismiss="modal" with "bs-target" outside of modal element', done => {
+    it('should close modal when a click occurred on a data-coreui-dismiss="modal" with "cui-target" outside of modal element', done => {
       fixtureEl.innerHTML = [
         '<button type="button" data-coreui-dismiss="modal" data-coreui-target="#modal1"></button>',
         '<div id="modal1" class="modal fade">',

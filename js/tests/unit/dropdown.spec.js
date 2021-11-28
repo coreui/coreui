@@ -36,7 +36,7 @@ describe('Dropdown', () => {
 
   describe('DATA_KEY', () => {
     it('should return plugin data key', () => {
-      expect(Dropdown.DATA_KEY).toEqual('bs.dropdown')
+      expect(Dropdown.DATA_KEY).toEqual('coreui.dropdown')
     })
   })
 
