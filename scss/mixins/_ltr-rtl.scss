@@ -58,3 +58,24 @@
     }
   }
 }
+
+@mixin ltr-rtl-value-only($property, $value, $value-rtl, $important: null) {
+  $value-reflected: reflect($value);
+
+  @if $enable-ltr and $enable-rtl {
+    @include ltr() {
+      #{$property}: $value $important;
+    }
+    @include rtl() {
+      #{$property}: $value-rtl $important;
+    }
+  }
+  @else {
+    @if $enable-rtl {
+      #{$property}: $value-rtl $important;
+    }
+    @else {
+      #{$property}: $value $important;
+    }
+  }
+}
