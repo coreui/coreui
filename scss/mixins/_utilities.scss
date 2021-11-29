@@ -35,8 +35,8 @@
     // Generate RTL version
     $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), false);
 
-    // // Add theme prefix
-    // $theme-prefix: if(map-has-key($utility, theme-prefix), map-get($utility, theme-prefix), false);
+    // Add theme prefix
+    $theme-prefix: if(map-has-key($utility, theme-prefix), map-get($utility, theme-prefix), false);
 
     @if map-get($utility, rfs) {
       // Inside the media query
@@ -60,34 +60,6 @@
         /* rtl:begin:remove */
       }
 
-      // .#{$property-class + $infix + $property-class-modifier} {
-      //   @each $property in $properties {
-      //     @if $generate-vars == true or $generate-only-vars == true {
-      //       @if $generate-only-vars {
-      //         @if $generate-rtl == true {
-      //           @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}), null, null, if($enable-important-utilities, !important, null));
-      //         }
-      //         @else {
-      //           #{$property}: var(--#{$variable-prefix}#{$key}) if($enable-important-utilities, !important, null);
-      //         }
-      //       }
-      //       @else {
-      //         @if $generate-rtl == true {
-      //           @include ltr-rtl($property, var(--#{$variable-prefix}#{$key}, $value), null, null, if($enable-important-utilities, !important, null));
-      //         }
-      //         @else {
-      //           #{$property}: var(--#{$variable-prefix}#{$key}, $value) if($enable-important-utilities, !important, null);
-      //         }
-      //       }
-      //     }
-      //     @else {
-      //       @if $generate-rtl == true {
-      //         @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
-      //       }
-      //       @else {
-      //         #{$property}: $value if($enable-important-utilities, !important, null);
-      //       }
-      //     }
       @if $is-css-var {
         .#{$property-class + $infix + $property-class-modifier} {
           --#{$variable-prefix}#{$property-class}: #{$value};
@@ -106,7 +78,12 @@
                 --#{$variable-prefix}#{$local-var}: #{$value};
               }
             }
-            #{$property}: $value if($enable-important-utilities, !important, null);
+            @if $generate-rtl == true {
+              @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
+            }
+            @else {
+              #{$property}: $value if($enable-important-utilities, !important, null);
+            }
           }
         }
 
