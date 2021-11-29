@@ -1,12 +1,7 @@
 /**
  * --------------------------------------------------------------------------
-<<<<<<< HEAD
- * CoreUI (v4.0.5): index.esm.js
+ * CoreUI (v4.1.0): index.esm.js
  * Licensed under MIT (https://coreui.io/license)
-=======
- * Bootstrap (v5.1.3): index.umd.js
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
->>>>>>> 21431c2e4642026a18add23c6f16c037e0480bb5
  * --------------------------------------------------------------------------
  */
 

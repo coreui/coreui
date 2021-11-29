@@ -1,5 +1,5 @@
 /*!
-  * CoreUI alert.js v4.0.5 (https://coreui.io)
+  * CoreUI alert.js v4.1.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -16,7 +16,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -127,7 +127,7 @@
   const enableDismissTrigger = (component, method = 'hide') => {
     const clickEvent = `click.dismiss${component.EVENT_KEY}`;
     const name = component.NAME;
-    EventHandler__default.default.on(document, clickEvent, `[data-bs-dismiss="${name}"]`, function (event) {
+    EventHandler__default.default.on(document, clickEvent, `[data-coreui-dismiss="${name}"]`, function (event) {
       if (['A', 'AREA'].includes(this.tagName)) {
         event.preventDefault();
       }
@@ -145,7 +145,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's alert.js

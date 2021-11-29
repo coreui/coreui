@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.0.5 (https://coreui.io)
+  * CoreUI v4.1.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -31,7 +31,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -345,7 +345,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dom/event-handler.js
+   * CoreUI (v4.1.0): dom/event-handler.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/event-handler.js
@@ -636,7 +636,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dom/data.js
+   * CoreUI (v4.1.0): dom/data.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dom/data.js
@@ -693,7 +693,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's base-component.js
@@ -706,7 +706,7 @@
    * ------------------------------------------------------------------------
    */
 
-  const VERSION = '4.0.5';
+  const VERSION = '4.1.0';
 
   class BaseComponent {
     constructor(element) {
@@ -770,7 +770,7 @@
   const enableDismissTrigger = (component, method = 'hide') => {
     const clickEvent = `click.dismiss${component.EVENT_KEY}`;
     const name = component.NAME;
-    EventHandler.on(document, clickEvent, `[data-bs-dismiss="${name}"]`, function (event) {
+    EventHandler.on(document, clickEvent, `[data-coreui-dismiss="${name}"]`, function (event) {
       if (['A', 'AREA'].includes(this.tagName)) {
         event.preventDefault();
       }
@@ -788,7 +788,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's alert.js
@@ -880,7 +880,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's button.js
@@ -954,7 +954,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dom/manipulator.js
+   * CoreUI (v4.1.0): dom/manipulator.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -1031,7 +1031,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dom/selector-engine.js
+   * CoreUI (v4.1.0): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/selector-engine.js
@@ -1104,7 +1104,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): carousel.js
+   * CoreUI (v4.1.0): carousel.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's carousel.js
@@ -1656,7 +1656,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): collapse.js
+   * CoreUI (v4.1.0): collapse.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's collapse.js
@@ -1978,7 +1978,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dropdown.js
+   * CoreUI (v4.1.0): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dropdown.js
@@ -2685,7 +2685,7 @@
     autofocus: 'boolean'
   };
   const NAME$9 = 'focustrap';
-  const DATA_KEY$9 = 'bs.focustrap';
+  const DATA_KEY$9 = 'coreui.focustrap';
   const EVENT_KEY$9 = `.${DATA_KEY$9}`;
   const EVENT_FOCUSIN$1 = `focusin${EVENT_KEY$9}`;
   const EVENT_KEYDOWN_TAB = `keydown.tab${EVENT_KEY$9}`;
@@ -2774,7 +2774,7 @@
 
   /**
    * --------------------------------------------------------------------------
-    * CoreUI (v4.0.5): modal.js
+    * CoreUI (v4.1.0): modal.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's modal.js
@@ -3206,7 +3206,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): navigation.js
+   * CoreUI (v4.1.0): navigation.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -3491,7 +3491,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dropdown.js
+   * CoreUI (v4.1.0): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's offcanvas.js
@@ -3750,7 +3750,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -3865,7 +3865,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): tooltip.js
+   * CoreUI (v4.1.0): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
@@ -4062,7 +4062,7 @@
 
       if (showEvent.defaultPrevented || !isInTheDom) {
         return;
-      } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-bs-original-title`
+      } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-coreui-original-title`
       // This will be removed later in favor of a `setContent` method
 
 
@@ -4578,7 +4578,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): popover.js
+   * CoreUI (v4.1.0): popover.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's popover.js
@@ -4691,7 +4691,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): scrollspy.js
+   * CoreUI (v4.1.0): scrollspy.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's scrollspy.js
@@ -4929,7 +4929,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): sidebar.js
+   * CoreUI (v4.1.0): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -5262,7 +5262,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): tab.js
+   * CoreUI (v4.1.0): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tab.js
@@ -5463,7 +5463,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): toast.js
+   * CoreUI (v4.1.0): toast.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's toast.js
@@ -5696,13 +5696,8 @@
 
   /**
    * --------------------------------------------------------------------------
-  <<<<<<< HEAD
-   * CoreUI (v4.0.5): index.esm.js
+   * CoreUI (v4.1.0): index.esm.js
    * Licensed under MIT (https://coreui.io/license)
-  =======
-   * Bootstrap (v5.1.3): index.umd.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  >>>>>>> 21431c2e4642026a18add23c6f16c037e0480bb5
    * --------------------------------------------------------------------------
    */
   const index_umd = {

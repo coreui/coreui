@@ -1,5 +1,5 @@
 /*!
-  * CoreUI offcanvas.js v4.0.5 (https://coreui.io)
+  * CoreUI offcanvas.js v4.1.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -18,7 +18,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -495,7 +495,7 @@
     autofocus: 'boolean'
   };
   const NAME$1 = 'focustrap';
-  const DATA_KEY$1 = 'bs.focustrap';
+  const DATA_KEY$1 = 'coreui.focustrap';
   const EVENT_KEY$1 = `.${DATA_KEY$1}`;
   const EVENT_FOCUSIN = `focusin${EVENT_KEY$1}`;
   const EVENT_KEYDOWN_TAB = `keydown.tab${EVENT_KEY$1}`;
@@ -592,7 +592,7 @@
   const enableDismissTrigger = (component, method = 'hide') => {
     const clickEvent = `click.dismiss${component.EVENT_KEY}`;
     const name = component.NAME;
-    EventHandler__default.default.on(document, clickEvent, `[data-bs-dismiss="${name}"]`, function (event) {
+    EventHandler__default.default.on(document, clickEvent, `[data-coreui-dismiss="${name}"]`, function (event) {
       if (['A', 'AREA'].includes(this.tagName)) {
         event.preventDefault();
       }
@@ -610,7 +610,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): dropdown.js
+   * CoreUI (v4.1.0): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's offcanvas.js

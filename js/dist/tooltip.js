@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tooltip.js v4.0.5 (https://coreui.io)
+  * CoreUI tooltip.js v4.1.0 (https://coreui.io)
   * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -38,7 +38,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -183,7 +183,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): alert.js
+   * CoreUI (v4.1.0): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -298,7 +298,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.0.5): tooltip.js
+   * CoreUI (v4.1.0): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
@@ -495,7 +495,7 @@
 
       if (showEvent.defaultPrevented || !isInTheDom) {
         return;
-      } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-bs-original-title`
+      } // A trick to recreate a tooltip in case a new title is given by using the NOT documented `data-coreui-original-title`
       // This will be removed later in favor of a `setContent` method
 
 
