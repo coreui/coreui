@@ -1,12 +1,12 @@
 {{ if eq hugo.Environment "production" -}}
-  <script src="/docs/{{ .Site.Params.docs_version }}/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }} crossorigin="anonymous"></script>
+  <script src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }} crossorigin="anonymous"></script>
 {{ else -}}
-  <script src="/docs/{{ .Site.Params.docs_version }}/dist/js/coreui.bundle.js"></script>
+  <script src="/dist/js/coreui.bundle.js"></script>
 {{- end }}
 
 {{- $vendor := resources.Match "js/vendor/*.js" -}}
 {{- $js := resources.Match "js/*.js" -}}
-{{- $targetDocsJSPath := printf "/%s/assets/js/docs.js" .Site.Params.docs_version -}}
+{{- $targetDocsJSPath := printf "/assets/js/docs.js" -}}
 {{- $docsJs := append $js $vendor | resources.Concat $targetDocsJSPath -}}
 
 {{- if eq hugo.Environment "production" -}}

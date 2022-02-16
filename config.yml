@@ -1,6 +1,7 @@
 languageCode:           "en"
 title:                  "CoreUI"
-baseURL:                "https://coreui.io/docs/"
+baseURL:                "https://coreui.io/docs/test/"
+canonifyURLs:           true
 enableInlineShortcodes: true
 
 markup:
@@ -25,7 +26,7 @@ publishDir:             "_gh_pages"
 module:
   mounts:
     - source:           dist
-      target:           static/4.1/dist
+      target:           static/dist
     - source:           docs/assets
       target:           assets
     - source:           docs/content
@@ -36,16 +37,16 @@ module:
       target:           layouts
     - source:           docs/static
       target:           static
-    - source:           docs/static/4.1/assets/img/favicons/apple-touch-icon.png
+    - source:           docs/static/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
-    - source:           docs/static/4.1/assets/img/favicons/favicon.ico
+    - source:           docs/static/assets/img/favicons/favicon.ico
       target:           static/favicon.ico
 
 params:
   description:          "Open Source Ui Components library built on top of Bootstrap 5."
   authors:              "Lukasz Holeczek, Andrzej Kopanski"
-  social_image_path:    /4.1/assets/brand/coreui-social.jpg
-  social_logo_path:     /4.1/assets/brand/coreui-social-logo.png
+  social_image_path:    /assets/brand/coreui-social.jpg
+  social_logo_path:     /assets/brand/coreui-social-logo.png
 
   current_version:      "4.1.0"
   current_ruby_version: "4.1.0"
@@ -69,8 +70,8 @@ params:
     css_rtl:         "https://cdn.jsdelivr.net/npm/coreui@4.1.0/dist/css/coreui.rtl.min.css"
     css_rtl_hash:    "sha384-eBONPC6n+WdGHCYY5sQbAA9aq+Bu6452Gf2naXp0IfliKwikP8z13yJ0kaO4rd6Y"
     js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.1.0/dist/js/coreui.min.js"
-    js_hash:         "sha384-2rRtqxwgmDQGWnWEYOtz1aFKQajfQe8X0CA+3bDSAjbwVecR9geDFn4kBiaZxke1"
+    js_hash:         "sha384-7/+Tb9TtfnEFZUMPhxgzDnd5OTnHu0qUI2+ePeBdyzIr5qCmOQ2OPEWSWACT7Z5Z"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.1.0/dist/js/coreui.bundle.min.js"
-    js_bundle_hash:  "sha384-17pOXfLH6r4tWshLBlj6J41DVqNMt9ECaHytAUXMqZBhdFi4lxRuCPJBiB9O8FVl"
+    js_bundle_hash:  "sha384-7KrxmBlr0Slm8VwVYMSZSosZDZ4ZAtTMZdHUerY46mQGo8GNsVpobPlOKVEQEvaw"
     popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
     popper_hash:      "sha384-ThCKQ0fDhFQh8PSFLvjhmjy7oRKp5gRbY+bcEnQWtRhuvli/qxsn0xMcMmzXkuIa"
