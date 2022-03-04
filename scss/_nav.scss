@@ -49,10 +49,9 @@
 
     &:hover,
     &:focus {
-      border-color: var(--#{$variable-prefix}nav-tabs-link-hover-border-color, $nav-tabs-link-hover-border-color);
-
       // Prevents active .nav-link tab overlapping focus outline of previous/next .nav-link
       isolation: isolate;
+      border-color: var(--#{$variable-prefix}nav-tabs-link-hover-border-color, $nav-tabs-link-hover-border-color);
     }
 
     &.disabled {

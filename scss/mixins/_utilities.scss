@@ -20,6 +20,9 @@
     $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
 
+    // Use custom CSS variable name if present, otherwise default to `class`
+    $css-variable-name: if(map-has-key($utility, css-variable-name), map-get($utility, css-variable-name), map-get($utility, class));
+
     // State params to generate pseudo-classes
     $state: if(map-has-key($utility, state), map-get($utility, state), ());
 
@@ -27,16 +30,6 @@
 
     // Don't prefix if value key is null (eg. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
-
-    // Generate CSS Variable
-    $generate-vars: if(map-has-key($utility, vars), map-get($utility, vars), false);
-    $generate-only-vars: if(map-has-key($utility, only-vars), map-get($utility, only-vars), false);
-
-    // Generate RTL version
-    $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), false);
-
-    // Add theme prefix
-    $theme-prefix: if(map-has-key($utility, theme-prefix), map-get($utility, theme-prefix), false);
 
     @if map-get($utility, rfs) {
       // Inside the media query
@@ -62,28 +55,23 @@
 
       @if $is-css-var {
         .#{$property-class + $infix + $property-class-modifier} {
-          --#{$variable-prefix}#{$property-class}: #{$value};
+          --#{$variable-prefix}#{$css-variable-name}: #{$value};
         }
 
         @each $pseudo in $state {
           .#{$property-class + $infix + $property-class-modifier}-#{$pseudo}:#{$pseudo} {
-            --#{$variable-prefix}#{$property-class}: #{$value};
+            --#{$variable-prefix}#{$css-variable-name}: #{$value};
           }
         }
       } @else {
         .#{$property-class + $infix + $property-class-modifier} {
           @each $property in $properties {
             @if $is-local-vars {
-              @each $local-var, $value in $is-local-vars {
-                --#{$variable-prefix}#{$local-var}: #{$value};
+              @each $local-var, $variable in $is-local-vars {
+                --#{$variable-prefix}#{$local-var}: #{$variable};
               }
             }
-            @if $generate-rtl == true {
-              @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
-            }
-            @else {
-              #{$property}: $value if($enable-important-utilities, !important, null);
-            }
+            #{$property}: $value if($enable-important-utilities, !important, null);
           }
         }
 
