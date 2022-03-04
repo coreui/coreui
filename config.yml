@@ -1,6 +1,6 @@
 languageCode:           "en"
 title:                  "CoreUI"
-baseURL:                "https://coreui.io/docs/test/"
+baseURL:                "https://coreui.io/docs/"
 canonifyURLs:           true
 enableInlineShortcodes: true
 
