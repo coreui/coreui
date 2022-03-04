@@ -369,6 +369,7 @@ class Carousel extends BaseComponent {
 
       const indicators = SelectorEngine.find(SELECTOR_INDICATOR, this._indicatorsElement)
 
+      // eslint-disable-next-line unicorn/no-for-loop
       for (let i = 0; i < indicators.length; i++) {
         if (Number.parseInt(indicators[i].getAttribute('data-coreui-slide-to'), 10) === this._getItemIndex(element)) {
           indicators[i].classList.add(CLASS_NAME_ACTIVE)

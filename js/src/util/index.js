@@ -8,17 +8,17 @@
  * --------------------------------------------------------------------------
  */
 
-const MAX_UID = 1000000
+const MAX_UID = 1_000_000
 const MILLISECONDS_MULTIPLIER = 1000
 const TRANSITION_END = 'transitionend'
 
 // Shoutout AngusCroll (https://goo.gl/pxwQGp)
-const toType = obj => {
-  if (obj === null || obj === undefined) {
-    return `${obj}`
+const toType = object => {
+  if (object === null || object === undefined) {
+    return `${object}`
   }
 
-  return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
+  return Object.prototype.toString.call(object).match(/\s([a-z]+)/i)[1].toLowerCase()
 }
 
 /**

@@ -236,7 +236,7 @@ describe('ScrollSpy', () => {
         contentEl,
         scrollSpy,
         spy,
-        cb: () => {
+        cb() {
           testElementIsActiveAfterScroll({
             elementSelector: '#a-2',
             targetSelector: '#div-2',
@@ -276,7 +276,7 @@ describe('ScrollSpy', () => {
         contentEl,
         scrollSpy,
         spy,
-        cb: () => {
+        cb() {
           testElementIsActiveAfterScroll({
             elementSelector: '#a-2',
             targetSelector: '#div-2',
@@ -316,7 +316,7 @@ describe('ScrollSpy', () => {
         contentEl,
         scrollSpy,
         spy,
-        cb: () => {
+        cb() {
           testElementIsActiveAfterScroll({
             elementSelector: '#a-2',
             targetSelector: '#div-2',
