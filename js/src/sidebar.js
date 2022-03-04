@@ -211,7 +211,7 @@ class Sidebar extends BaseComponent {
   _initializeBackDrop() {
     return new Backdrop({
       className: CLASS_NAME_BACKDROP,
-      isVisible: this._mobile,
+      isVisible: this._isMobile(),
       isAnimated: true,
       rootElement: this._element.parentNode,
       clickCallback: () => this.hide()
@@ -294,6 +294,7 @@ class Sidebar extends BaseComponent {
     EventHandler.on(window, EVENT_RESIZE, () => {
       if (this._isMobile() && this._isVisible()) {
         this.hide()
+        this._backdrop = this._initializeBackDrop()
       }
     })
   }
