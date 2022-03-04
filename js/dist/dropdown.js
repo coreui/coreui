@@ -1,6 +1,6 @@
 /*!
-  * CoreUI dropdown.js v4.1.0 (https://coreui.io)
-  * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI dropdown.js v4.1.1 (https://coreui.io)
+  * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -13,7 +13,7 @@
 
   function _interopNamespace(e) {
     if (e && e.__esModule) return e;
-    const n = Object.create(null);
+    const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
     if (e) {
       for (const k in e) {
         if (k !== 'default') {
@@ -37,7 +37,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): alert.js
+   * CoreUI (v4.1.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -45,12 +45,12 @@
    * --------------------------------------------------------------------------
    */
 
-  const toType = obj => {
-    if (obj === null || obj === undefined) {
-      return `${obj}`;
+  const toType = object => {
+    if (object === null || object === undefined) {
+      return `${object}`;
     }
 
-    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+    return Object.prototype.toString.call(object).match(/\s([a-z]+)/i)[1].toLowerCase();
   };
 
   const getSelector = element => {
@@ -124,7 +124,27 @@
       return false;
     }
 
-    return getComputedStyle(element).getPropertyValue('visibility') === 'visible';
+    const elementIsVisible = getComputedStyle(element).getPropertyValue('visibility') === 'visible'; // Handle `details` element as its content may falsie appear visible when it is closed
+
+    const closedDetails = element.closest('details:not([open])');
+
+    if (!closedDetails) {
+      return elementIsVisible;
+    }
+
+    if (closedDetails !== element) {
+      const summary = element.closest('summary');
+
+      if (summary && summary.parentNode !== closedDetails) {
+        return false;
+      }
+
+      if (summary === null) {
+        return false;
+      }
+    }
+
+    return elementIsVisible;
   };
 
   const isDisabled = element => {
@@ -224,7 +244,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): dropdown.js
+   * CoreUI (v4.1.1): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dropdown.js

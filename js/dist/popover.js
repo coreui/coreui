@@ -1,6 +1,6 @@
 /*!
-  * CoreUI popover.js v4.1.0 (https://coreui.io)
-  * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI popover.js v4.1.1 (https://coreui.io)
+  * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -15,7 +15,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): alert.js
+   * CoreUI (v4.1.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -73,7 +73,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): popover.js
+   * CoreUI (v4.1.1): popover.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's popover.js

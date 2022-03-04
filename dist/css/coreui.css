@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.1.0
+ * @version v4.1.1
  * @link https://coreui.io/
  * Copyright (c) 2021 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -3961,8 +3961,8 @@ textarea.form-control-lg {
   border-top-right-radius: 0.25rem;
 }
 .nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-  border-color: var(--cui-nav-tabs-link-hover-border-color, #d8dbe0 #d8dbe0 #c4c9d0);
   isolation: isolate;
+  border-color: var(--cui-nav-tabs-link-hover-border-color, #d8dbe0 #d8dbe0 #c4c9d0);
 }
 .nav-tabs .nav-link.disabled {
   color: var(--cui-nav-link-disabled-color, #8a93a2);
@@ -5560,8 +5560,8 @@ textarea.form-control-lg {
 
 .modal-footer {
   display: flex;
-  flex-wrap: wrap;
   flex-shrink: 0;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   padding: 0.75rem;
@@ -5749,8 +5749,8 @@ textarea.form-control-lg {
   text-transform: none;
   letter-spacing: normal;
   word-break: normal;
-  word-spacing: normal;
   white-space: normal;
+  word-spacing: normal;
   line-break: auto;
   font-size: 0.875rem;
   word-wrap: break-word;
@@ -5851,8 +5851,8 @@ textarea.form-control-lg {
   text-transform: none;
   letter-spacing: normal;
   word-break: normal;
-  word-spacing: normal;
   white-space: normal;
+  word-spacing: normal;
   line-break: auto;
   font-size: 0.875rem;
   word-wrap: break-word;
@@ -7177,6 +7177,7 @@ textarea.form-control-lg {
   }
 }
 .sidebar-nav .nav-group .nav-group-items {
+  padding: 0 0;
   overflow: hidden;
   transition: height 0.15s ease;
 }

@@ -1,6 +1,6 @@
 /*!
-  * CoreUI tooltip.js v4.1.0 (https://coreui.io)
-  * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI tooltip.js v4.1.1 (https://coreui.io)
+  * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -13,7 +13,7 @@
 
   function _interopNamespace(e) {
     if (e && e.__esModule) return e;
-    const n = Object.create(null);
+    const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
     if (e) {
       for (const k in e) {
         if (k !== 'default') {
@@ -38,7 +38,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): alert.js
+   * CoreUI (v4.1.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/index.js
@@ -47,12 +47,12 @@
    */
   const MAX_UID = 1000000;
 
-  const toType = obj => {
-    if (obj === null || obj === undefined) {
-      return `${obj}`;
+  const toType = object => {
+    if (object === null || object === undefined) {
+      return `${object}`;
     }
 
-    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+    return Object.prototype.toString.call(object).match(/\s([a-z]+)/i)[1].toLowerCase();
   };
   /**
    * --------------------------------------------------------------------------
@@ -183,7 +183,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): alert.js
+   * CoreUI (v4.1.1): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  util/sanitizer.js
@@ -298,7 +298,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): tooltip.js
+   * CoreUI (v4.1.1): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js

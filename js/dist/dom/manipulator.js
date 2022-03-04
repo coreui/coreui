@@ -1,6 +1,6 @@
 /*!
-  * CoreUI manipulator.js v4.1.0 (https://coreui.io)
-  * Copyright 2021 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI manipulator.js v4.1.1 (https://coreui.io)
+  * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.0): dom/manipulator.js
+   * CoreUI (v4.1.1): dom/manipulator.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js

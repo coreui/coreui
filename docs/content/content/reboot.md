@@ -20,9 +20,9 @@ Here are our guidelines and reasons for choosing what to override in Reboot:
 
 ## CSS variables
 
-<small class="d-inline-flex px-2 py-1 font-monospace text-muted border rounded-3">Added in v4.1.0</small>
+<small class="d-inline-flex px-2 py-1 font-monospace text-muted border rounded-3">Added in v4.1.1</small>
 
-With v4.1.0, we standardized our required `@import`s across all our CSS bundles (including `coreui.css`, `coreui-reboot.css`, and `coreui-grid.css` to include `_root.scss` . This adds `:root` level CSS variables to all bundles, regardless of how many of them are used in that bundle. Ultimately Bootstrap 5 will continue to see more CSS variables added over time.
+With v4.1.1, we standardized our required `@import`s across all our CSS bundles (including `coreui.css`, `coreui-reboot.css`, and `coreui-grid.css` to include `_root.scss` . This adds `:root` level CSS variables to all bundles, regardless of how many of them are used in that bundle. Ultimately Bootstrap 5 will continue to see more CSS variables added over time.
 
 ## Page defaults
 
