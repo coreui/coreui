@@ -2,7 +2,13 @@ languageCode:           "en"
 title:                  "CoreUI"
 baseURL:                "https://coreui.io/docs/"
 canonifyURLs:           true
-enableInlineShortcodes: true
+
+security:
+  enableInlineShortcodes: true
+  funcs:
+    getenv:
+      - ^HUGO_
+      - NETLIFY
 
 markup:
   goldmark:

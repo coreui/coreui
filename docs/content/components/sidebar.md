@@ -12,8 +12,9 @@ toc: true
 
 Here's what you need to know before getting started with the sidebar:
 
-- Sidebar requires a wrapping `.sidebar-`.
-- Sidebar is hidden by default. Force it to be shown by adding `.sidebar-{-sm|-md|-lg|-xl|-xxl}-show` or `.sidebar-show` to the `.sidebar`.
+- Sidebar requires a wrapping `.sidebar`.
+- Sidebar is hidden by default on mobile devices. Force it to be shown by adding `.show` to the `.sidebar`.
+- Sidebar is shown by default on desktop devices. Force it to be hidden by adding `.hide` to the `.sidebar`.
 - Ensure accessibility by using a `<nav>` element or, if using a more generic element such as a `<div>`, add a `role="navigation"` to `.sidebar-nav` to explicitly identify it as a landmark region for users of assistive technologies.
 
 Read on for an example and list of supported sub-components.
@@ -78,12 +79,6 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
 </div>
 {{< /sidebar.inline >}}
 {{< /example >}}
-
-## Responsive behaviors
-
-Sidebar can utilize `.sidebar-{-sm|-md|-lg|-xl|-xxl}-show` classes to change whether is visible or hidden. You can easily choose when to show or hide sidebar.
-
-For sidebar that is always visible, add the `.sidebar-show` class on the sidebar
 
 ## JavaScript behavior
 
