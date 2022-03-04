@@ -100,6 +100,7 @@
     @include transition($sidebar-nav-group-transition);
 
     .nav-group-items {
+      padding: $sidebar-nav-group-items-padding-y $sidebar-nav-group-items-padding-x;
       overflow: hidden;
       @include transition($sidebar-nav-group-items-transition);
     }
