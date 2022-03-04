@@ -7,12 +7,13 @@
 
 import {
   defineJQueryPlugin,
-  reflow,
   typeCheckConfig
 } from './util/index'
+import ScrollBarHelper from './util/scrollbar'
 import EventHandler from './dom/event-handler'
-import Manipulator from './dom/manipulator'
 import BaseComponent from './base-component'
+import Manipulator from './dom/manipulator'
+import Backdrop from './util/backdrop'
 
 /**
  * ------------------------------------------------------------------------
@@ -30,7 +31,6 @@ const Default = {}
 const DefaultType = {}
 
 const CLASS_NAME_BACKDROP = 'sidebar-backdrop'
-const CLASS_NAME_FADE = 'fade'
 const CLASS_NAME_HIDE = 'hide'
 const CLASS_NAME_SHOW = 'show'
 const CLASS_NAME_SIDEBAR_NARROW = 'sidebar-narrow'
@@ -66,8 +66,7 @@ class Sidebar extends BaseComponent {
     this._overlaid = this._isOverlaid()
     this._narrow = this._isNarrow()
     this._unfoldable = this._isUnfoldable()
-    this._backdrop = null
-
+    this._backdrop = this._initializeBackDrop()
     this._addEventListeners()
   }
 
@@ -96,7 +95,8 @@ class Sidebar extends BaseComponent {
 
     if (this._isMobile()) {
       this._element.classList.add(CLASS_NAME_SHOW)
-      this._showBackdrop()
+      this._backdrop.show()
+      new ScrollBarHelper().hide()
     }
 
     const complete = () => {
@@ -121,7 +121,8 @@ class Sidebar extends BaseComponent {
     }
 
     if (this._isMobile()) {
-      this._removeBackdrop()
+      this._backdrop.hide()
+      new ScrollBarHelper().reset()
     } else {
       this._element.classList.add(CLASS_NAME_HIDE)
     }
@@ -207,6 +208,16 @@ class Sidebar extends BaseComponent {
     return config
   }
 
+  _initializeBackDrop() {
+    return new Backdrop({
+      className: CLASS_NAME_BACKDROP,
+      isVisible: this._mobile,
+      isAnimated: true,
+      rootElement: this._element.parentNode,
+      clickCallback: () => this.hide()
+    })
+  }
+
   _isMobile() {
     return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'))
   }
@@ -226,30 +237,12 @@ class Sidebar extends BaseComponent {
   _isVisible() {
     const rect = this._element.getBoundingClientRect()
     return (
-      rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      rect.top >= 0 && rect.left >= 0 && Math.floor(rect.bottom) <= (window.innerHeight || document.documentElement.clientHeight) && Math.floor(rect.right) <= (window.innerWidth || document.documentElement.clientWidth)
     )
   }
 
   _addClassName(className) {
     this._element.classList.add(className)
-  }
-
-  _removeBackdrop() {
-    if (this._backdrop) {
-      this._backdrop.remove()
-      this._backdrop = null
-    }
-  }
-
-  _showBackdrop() {
-    if (!this._backdrop) {
-      this._backdrop = document.createElement('div')
-      this._backdrop.className = CLASS_NAME_BACKDROP
-      this._backdrop.classList.add(CLASS_NAME_FADE)
-      document.body.append(this._backdrop)
-      reflow(this._backdrop)
-      this._backdrop.classList.add(CLASS_NAME_SHOW)
-    }
   }
 
   _clickOutListener(event, sidebar) {
