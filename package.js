@@ -5,7 +5,7 @@
 Package.describe({
   name: 'coreui:coreui', // https://atmospherejs.com/coreui/coreui
   summary: 'The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintain by the CoreUI Team.',
-  version: '4.1.1',
+  version: '4.1.2',
   git: 'https://github.com/coreui/coreui.git'
 })
 
