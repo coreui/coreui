@@ -123,7 +123,7 @@
     "lockfile-lint": "^4.6.2",
     "nodemon": "^2.0.15",
     "npm-run-all": "^4.1.5",
-    "postcss": "^8.4.7",
+    "postcss": "^8.4.8",
     "postcss-cli": "^9.1.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "rollup": "^2.69.0",
