@@ -15,16 +15,15 @@
 }
 
 @function reflect($element) {
-  @if type-of($element) == string {
-    @if str-index($element, "left") {
-      @return str-replace($element, "left", "right");
-    }
-    @if str-index($element, "right") {
-      @return str-replace($element, "right", "left");
-    }
+  $string: #{$element};
+  @if str-index($string, "left") {
+    @return str-replace($string, "left", "right");
+  }
+  @if str-index($string, "right") {
+    @return str-replace($string, "right", "left");
   }
 
-  @return $element;
+  @return unquote($string);
 }
 
 @mixin ltr-rtl($property, $value, $property-rtl: null, $value-rtl: null, $important: null) {
@@ -59,7 +58,7 @@
   }
 }
 
-@mixin ltr-rtl-value-only($property, $value, $value-rtl, $important: null) {
+@mixin ltr-rtl-value-only($property, $value, $value-rtl: null, $important: null) {
   $value-reflected: reflect($value);
 
   @if $enable-ltr and $enable-rtl {
@@ -67,14 +66,21 @@
       #{$property}: $value $important;
     }
     @include rtl() {
-      #{$property}: $value-rtl $important;
+      @if $value-rtl {
+        #{$property}: $value-rtl $important;
+      } @else {
+        #{$property}: $value-reflected $important;
+      }
     }
   }
   @else {
     @if $enable-rtl {
-      #{$property}: $value-rtl $important;
-    }
-    @else {
+      @if $value-rtl {
+        #{$property}: $value-rtl $important;
+      } @else {
+        #{$property}: $value-reflected $important;
+      }
+    } @else {
       #{$property}: $value $important;
     }
   }
