@@ -323,7 +323,7 @@ Options for individual tooltips can alternatively be specified through the use o
 #### Using function with `popperConfig`
 
 ```js
-var tooltip = new bootstrap.Tooltip(element, {
+var tooltip = new coreui.Tooltip(element, {
   popperConfig: function (defaultBsPopperConfig) {
     // var newPopperConfig = {...}
     // use defaultBsPopperConfig if needed...
@@ -417,7 +417,7 @@ var tooltip = coreui.Tooltip.getInstance(exampleTriggerEl) // Returns a Bootstra
 
 ```js
 var exampleTriggerEl = document.getElementById('example')
-var tooltip = bootstrap.Tooltip.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap tooltip instance
+var tooltip = coreui.Tooltip.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap tooltip instance
 ```
 
 ### Events

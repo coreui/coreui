@@ -98,8 +98,8 @@ If you'd like to get a particular plugin instance, each plugin exposes a `getIns
 You can also use a CSS selector as the first argument instead of a DOM element to initialize the plugin. Currently the element for the plugin is found by the `querySelector` method since our plugins support a single element only.
 
 ```js
-var modal = new bootstrap.Modal('#myModal')
-var dropdown = new bootstrap.Dropdown('[data-coreui-toggle="dropdown"]')
+var modal = new coreui.Modal('#myModal')
+var dropdown = new coreui.Dropdown('[data-coreui-toggle="dropdown"]')
 ```
 
 ### Asynchronous functions and transitions

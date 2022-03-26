@@ -205,7 +205,7 @@ var cuiCollapse = new coreui.Collapse(myCollapse, {
         <code>getInstance</code>
       </td>
       <td>
-        Static method which allows you to get the collapse instance associated to a DOM element, you can use it like this: <code>bootstrap.Collapse.getInstance(element)</code>
+        Static method which allows you to get the collapse instance associated to a DOM element, you can use it like this: <code>coreui.Collapse.getInstance(element)</code>
       </td>
     </tr>
     <tr>
@@ -214,7 +214,7 @@ var cuiCollapse = new coreui.Collapse(myCollapse, {
       </td>
       <td>
         Static method which returns a collapse instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>bootstrap.Collapse.getOrCreateInstance(element)</code>
+        You can use it like this: <code>coreui.Collapse.getOrCreateInstance(element)</code>
       </td>
     </tr>
   </tbody>

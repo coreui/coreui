@@ -414,7 +414,7 @@ var carousel = new coreui.Carousel(myCarousel, {
         <code>getInstance</code>
       </td>
       <td>
-        Static method which allows you to get the carousel instance associated to a DOM element, you can use it like this: <code>bootstrap.Carousel.getInstance(element)</code>
+        Static method which allows you to get the carousel instance associated to a DOM element, you can use it like this: <code>coreui.Carousel.getInstance(element)</code>
       </td>
     </tr>
     <tr>
@@ -423,7 +423,7 @@ var carousel = new coreui.Carousel(myCarousel, {
       </td>
       <td>
         Static method which returns a carousel instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>bootstrap.Carousel.getOrCreateInstance(element)</code>
+        You can use it like this: <code>coreui.Carousel.getOrCreateInstance(element)</code>
       </td>
     </tr>
   </tbody>

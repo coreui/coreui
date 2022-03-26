@@ -92,7 +92,7 @@ var toastTrigger = document.getElementById('liveToastBtn')
 var toastLiveExample = document.getElementById('liveToast')
 if (toastTrigger) {
   toastTrigger.addEventListener('click', function () {
-    var toast = new bootstrap.Toast(toastLiveExample)
+    var toast = new coreui.Toast(toastLiveExample)
 
     toast.show()
   })
@@ -412,7 +412,7 @@ toast.dispose()
 
 ```js
 var myToastEl = document.getElementById('myToastEl')
-var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
+var myToast = coreui.Toast.getInstance(myToastEl) // Returns a Bootstrap toast instance
 ```
 
 #### getOrCreateInstance
@@ -421,7 +421,7 @@ var myToast = bootstrap.Toast.getInstance(myToastEl) // Returns a Bootstrap toas
 
 ```js
 var myToastEl = document.getElementById('myToastEl')
-var myToast = bootstrap.Toast.getOrCreateInstance(myToastEl) // Returns a Bootstrap toast instance
+var myToast = coreui.Toast.getOrCreateInstance(myToastEl) // Returns a Bootstrap toast instance
 ```
 
 ### Events

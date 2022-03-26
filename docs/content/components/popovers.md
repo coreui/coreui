@@ -298,7 +298,7 @@ Options for individual popovers can alternatively be specified through the use o
 #### Using function with `popperConfig`
 
 ```js
-var popover = new bootstrap.Popover(element, {
+var popover = new coreui.Popover(element, {
   popperConfig: function (defaultBsPopperConfig) {
     // var newPopperConfig = {...}
     // use defaultBsPopperConfig if needed...
@@ -393,7 +393,7 @@ var popover = coreui.Popover.getInstance(exampleTriggerEl) // Returns a Bootstra
 
 ```js
 var exampleTriggerEl = document.getElementById('example')
-var popover = bootstrap.Popover.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap popover instance
+var popover = coreui.Popover.getOrCreateInstance(exampleTriggerEl) // Returns a Bootstrap popover instance
 ```
 
 ### Events

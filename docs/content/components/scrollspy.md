@@ -304,7 +304,7 @@ var scrollSpy = coreui.ScrollSpy.getInstance(scrollSpyContentEl) // Returns a Bo
 
 ```js
 var scrollSpyContentEl = document.getElementById('content')
-var scrollSpy = bootstrap.ScrollSpy.getOrCreateInstance(scrollSpyContentEl) // Returns a Bootstrap scrollspy instance
+var scrollSpy = coreui.ScrollSpy.getOrCreateInstance(scrollSpyContentEl) // Returns a Bootstrap scrollspy instance
 ```
 
 ### Options

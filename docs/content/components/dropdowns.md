@@ -1066,7 +1066,7 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 #### Using function with `popperConfig`
 
 ```js
-var dropdown = new bootstrap.Dropdown(element, {
+var dropdown = new coreui.Dropdown(element, {
   popperConfig: function (defaultBsPopperConfig) {
     // var newPopperConfig = {...}
     // use defaultBsPopperConfig if needed...
@@ -1120,7 +1120,7 @@ var dropdown = new bootstrap.Dropdown(element, {
         <code>getInstance</code>
       </td>
       <td>
-        Static method which allows you to get the dropdown instance associated to a DOM element, you can use it like this: <code>bootstrap.Dropdown.getInstance(element)</code>
+        Static method which allows you to get the dropdown instance associated to a DOM element, you can use it like this: <code>coreui.Dropdown.getInstance(element)</code>
       </td>
     </tr>
     <tr>
@@ -1129,7 +1129,7 @@ var dropdown = new bootstrap.Dropdown(element, {
       </td>
       <td>
         Static method which returns a dropdown instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>bootstrap.Dropdown.getOrCreateInstance(element)</code>
+        You can use it like this: <code>coreui.Dropdown.getOrCreateInstance(element)</code>
       </td>
     </tr>
   </tbody>
