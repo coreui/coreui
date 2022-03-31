@@ -224,7 +224,7 @@
     display: block;
     height: 200px;
     visibility: visible;
-    transform: translate(0);
+    transform: translate(0) !important; // stylelint-disable-line declaration-no-important
   }
 }
 

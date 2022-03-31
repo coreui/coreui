@@ -79,5 +79,5 @@
 }
 
 .offcanvas.show {
-  transform: none;
+  transform: none !important; // stylelint-disable-line declaration-no-important
 }
