@@ -5,9 +5,9 @@
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  color: $offcanvas-color;
+  color: var(--#{$variable-prefix}offcanvas-color, $offcanvas-color);
   visibility: hidden;
-  background-color: $offcanvas-bg-color;
+  background-color: var(--#{$variable-prefix}offcanvas-bg-color, $offcanvas-bg-color);
   background-clip: padding-box;
   outline: 0;
   @include box-shadow($offcanvas-box-shadow);
@@ -15,7 +15,7 @@
 }
 
 .offcanvas-backdrop {
-  @include overlay-backdrop($zindex-offcanvas-backdrop, $offcanvas-backdrop-bg, $offcanvas-backdrop-opacity);
+  @include overlay-backdrop($zindex-offcanvas-backdrop, var(--#{$variable-prefix}offcanvas-backdrop-bg, $offcanvas-backdrop-bg), $offcanvas-backdrop-opacity);
 }
 
 .offcanvas-header {
@@ -47,7 +47,7 @@
   top: 0;
   @include ltr-rtl("left", 0);
   width: $offcanvas-horizontal-width;
-  @include ltr-rtl("border-right", $offcanvas-border-width solid $offcanvas-border-color);
+  @include ltr-rtl("border-right", $offcanvas-border-width solid var(--#{$variable-prefix}offcanvas-border-color, $offcanvas-border-color));
   @include ltr-rtl-value-only("transform", translateX(-100%), translateX(100%));
 }
 
@@ -55,7 +55,7 @@
   top: 0;
   @include ltr-rtl("right", 0);
   width: $offcanvas-horizontal-width;
-  @include ltr-rtl("border-left", $offcanvas-border-width solid $offcanvas-border-color);
+  @include ltr-rtl("border-left", $offcanvas-border-width solid var(--#{$variable-prefix}offcanvas-border-color, $offcanvas-border-color));
   @include ltr-rtl-value-only("transform", translateX(100%), translateX(-100%));
 }
 
@@ -65,7 +65,7 @@
   left: 0;
   height: $offcanvas-vertical-height;
   max-height: 100%;
-  border-bottom: $offcanvas-border-width solid $offcanvas-border-color;
+  border-bottom: $offcanvas-border-width solid var(--#{$variable-prefix}offcanvas-border-color, $offcanvas-border-color);
   transform: translateY(-100%);
 }
 
@@ -74,7 +74,7 @@
   left: 0;
   height: $offcanvas-vertical-height;
   max-height: 100%;
-  border-top: $offcanvas-border-width solid $offcanvas-border-color;
+  border-top: $offcanvas-border-width solid var(--#{$variable-prefix}offcanvas-border-color, $offcanvas-border-color);
   transform: translateY(100%);
 }
 
