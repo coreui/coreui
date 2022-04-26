@@ -101,7 +101,8 @@
 
   .btn-close {
     padding: ($modal-header-padding-y * .5) ($modal-header-padding-x * .5);
-    margin: ($modal-header-padding-y * -.5) ($modal-header-padding-x * -.5) ($modal-header-padding-y * -.5) auto;
+    @include ltr-rtl-value-only("margin", ($modal-header-padding-y * -.5) ($modal-header-padding-x * -.5) ($modal-header-padding-y * -.5) auto, ($modal-header-padding-y * -.5) auto ($modal-header-padding-y * -.5) ($modal-header-padding-x * -.5));
+    // margin: ($modal-header-padding-y * -.5) ($modal-header-padding-x * -.5) ($modal-header-padding-y * -.5) auto;
   }
 }
 
