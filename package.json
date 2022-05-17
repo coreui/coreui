@@ -126,7 +126,7 @@
     "postcss": "^8.4.7",
     "postcss-cli": "^9.1.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
-    "rollup": "^2.69.0",
+    "rollup": "^2.73.0",
     "rollup-plugin-istanbul": "^3.0.0",
     "rtlcss": "^3.5.0",
     "sass": "^1.49.9",
