@@ -22,7 +22,7 @@ This doesn't include documentation, source files, or any optional JavaScript dep
 Compile CoreUI for Bootstrap with your own asset pipeline by downloading our source Sass, JavaScript, and documentation files. This option requires some additional tooling:
 
 - Sass compiler (Libsass or Ruby Sass is supported) for compiling your CSS.
-- [Autoprefixer](https://github.com/postcss/autoprefixer) for CSS vendor prefixing
+- [Autoprefixer](https://github.com/postcss/autoprefixer) ([available as an online tool](https://goonlinetools.com/autoprefixer/)) for CSS vendor prefixing
 
 Should you require [build tools]({{< docsref "/getting-started/build-tools#tooling-setup" >}}), they are included for developing CoreUI for Bootstrap and its docs, but they're likely unsuitable for your own purposes.
 
