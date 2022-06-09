@@ -1,4 +1,5 @@
 {
+  "reportNeedlessDisables": false,
   "extends": [
     "stylelint-config-twbs-bootstrap"
   ],
