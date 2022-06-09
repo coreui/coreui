@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintained by the CoreUI Team",
-  "version": "4.1.5",
+  "version": "4.1.6",
   "config": {
     "version_short": "4.1"
   },
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "npm-run-all --parallel watch docs-serve",
     "bundlewatch": "bundlewatch --config .bundlewatch.config.json",
-    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.1.5",
+    "changelog": "auto-changelog --template build/changelog-template.hbs --commit-limit false --package --backfill-limit 0 --starting-version v4.1.6",
     "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:dist/css/",
     "css-lint": "npm-run-all --aggregate-output --continue-on-error --parallel css-lint-*",
@@ -83,7 +83,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@popperjs/core": "^2.11.2"
+    "@popperjs/core": "^2.11.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -107,7 +107,7 @@
     "glob": "^7.2.0",
     "globby": "^11.0.4",
     "hammer-simulator": "0.0.1",
-    "hugo-bin": "^0.81.1",
+    "hugo-bin": "^0.88.2",
     "ip": "^1.1.5",
     "jquery": "^3.6.0",
     "karma": "^6.3.17",
@@ -132,7 +132,7 @@
     "sass": "^1.49.9",
     "shelljs": "^0.8.5",
     "stylelint": "^14.5.3",
-    "stylelint-config-twbs-bootstrap": "^3.0.1",
+    "stylelint-config-twbs-bootstrap": "^4.0.0",
     "terser": "^5.12.0",
     "vnu-jar": "21.10.12"
   },
@@ -159,7 +159,7 @@
     },
     "dependencies": {},
     "peerDependencies": {
-      "@popperjs/core": "^2.11.2"
+      "@popperjs/core": "^2.11.5"
     }
   }
 }
