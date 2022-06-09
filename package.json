@@ -83,7 +83,7 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@popperjs/core": "^2.11.2"
+    "@popperjs/core": "^2.11.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
@@ -159,7 +159,7 @@
     },
     "dependencies": {},
     "peerDependencies": {
-      "@popperjs/core": "^2.11.2"
+      "@popperjs/core": "^2.11.5"
     }
   }
 }
