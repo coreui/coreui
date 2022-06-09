@@ -22,11 +22,14 @@
 
 ## Table of contents
 
+- [Table of contents](#table-of-contents)
 - [Quick start](#quick-start)
 - [Status](#status)
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Documentation](#documentation)
+  - [Running documentation locally](#running-documentation-locally)
+  - [Documentation for previous releases](#documentation-for-previous-releases)
 - [Contributing](#contributing)
 - [Community](#community)
 - [Versioning](#versioning)
@@ -39,7 +42,7 @@
 
 Several quick start options are available:
 
-- [Download the latest release](https://github.com/coreui/coreui/archive/v4.1.5.zip)
+- [Download the latest release](https://github.com/coreui/coreui/archive/v4.1.6.zip)
 - Clone the repo: `git clone https://github.com/coreui/coreui.git`
 - Install with [npm](https://www.npmjs.com/): `npm install @coreui/coreui`
 - Install with [yarn](https://yarnpkg.com/): `yarn add @coreui/coreui`
@@ -53,8 +56,6 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 [![Build Status](https://github.com/coreui/coreui/workflows/JS%20Tests/badge.svg?branch=main)](https://github.com/coreui/coreui/actions?query=workflow%3AJS+Tests+branch%3Amain)
 [![npm version](https://img.shields.io/npm/v/@coreui/coreui)](https://www.npmjs.com/package/@coreui/coreui)
 [![Packagist Prerelease](https://img.shields.io/packagist/vpre/coreui/coreui)](https://packagist.org/packages/coreui/coreui)
-[![peerDependencies Status](https://img.shields.io/david/peer/coreui/coreui)](https://david-dm.org/coreui/coreui?type=peer)
-[![devDependency Status](https://img.shields.io/david/dev/coreui/coreui)](https://david-dm.org/coreui/coreui?type=dev)
 [![Coverage Status](https://img.shields.io/coveralls/github/coreui/coreui/main)](https://coveralls.io/github/coreui/coreui?branch=main)
 [![CSS gzip size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=gzip&label=CSS%20gzip%20size)](https://github.com/coreui/coreui/blob/main/dist/css/coreui.min.css)
 [![CSS Brotli size](https://img.badgesize.io/coreui/coreui/main/dist/css/coreui.min.css?compression=brotli&label=CSS%20Brotli%20size)](https://github.com/coreui/coreui/blob/main/dist/css/coreui.min.css)
@@ -177,4 +178,4 @@ CoreUI is designed as the extension of [Bootstrap](https://getbootstrap.com). Sp
 
 ## Copyright and license
 
-Copyright 2021 creativeLabs Łukasz Holeczek. Code released under the [MIT License](https://github.com/coreui/coreui/blob/main/LICENSE). Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).
+Copyright 2022 creativeLabs Łukasz Holeczek. Code released under the [MIT License](https://github.com/coreui/coreui/blob/main/LICENSE). Docs released under [Creative Commons](https://creativecommons.org/licenses/by/3.0/).

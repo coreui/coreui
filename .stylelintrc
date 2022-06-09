@@ -1,5 +1,4 @@
 {
-  "reportNeedlessDisables": false,
   "extends": [
     "stylelint-config-twbs-bootstrap"
   ],
@@ -33,6 +32,6 @@
       {
           "camelCaseSvgKeywords": true
       }
-  ]
+    ]
   }
 }

@@ -35,7 +35,6 @@
   --#{$variable-prefix}gradient: #{$gradient};
 
   // Root and body
-  // stylelint-disable custom-property-empty-line-before
   // scss-docs-start root-body-variables
   @if $font-size-root != null {
     --#{$variable-prefix}root-font-size: #{$font-size-root};
@@ -50,5 +49,4 @@
   }
   --#{$variable-prefix}body-bg: #{$body-bg};
   // scss-docs-end root-body-variables
-  // stylelint-enable custom-property-empty-line-before
 }

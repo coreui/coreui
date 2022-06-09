@@ -1,6 +1,75 @@
 # Changelog
 
+## [v4.1.6](https://github.com/coreui/coreui/compare/v4.1.5...v4.1.6)
+
+> 9 June 2022
+
+- fix(scss) Replace color-adjust to print-color-adjust in _form-check.scss
+
+## [v4.1.5](https://github.com/coreui/coreui/compare/v4.1.4...v4.1.5)
+
+> 5 May 2022
+
+- fix(forms): revert angular validation classes commit
+
 <!-- auto-changelog-above -->
+## [v4.1.4](https://github.com/coreui/coreui/compare/v4.1.3...v4.1.4)
+
+> 28 April 2022
+
+- fix(Modal): set the proper close button position when RTL direction is enabled
+- fix(Toast): set the proper close button position when RTL direction is enabled
+
+## [v4.1.3](https://github.com/coreui/coreui/compare/v4.1.2...v4.1.3)
+
+> 10 March 2022
+
+- refactor(Offcanvas): add CSS vars support
+- fix(Offcanvas): offcanvas is not visible when LTR and RTL are enabled
+- docs: update content
+- fix: wrong select background-position and validation icon position when RTL is enabled.
+- refactor: update `reflect` function
+
+## [v4.1.2](https://github.com/coreui/coreui/compare/v4.1.1...v4.1.2)
+
+> 7 March 2022
+
+- fix: generate rtl utilities
+
+## [v4.1.1](https://github.com/coreui/coreui/compare/v4.1.0...v4.1.1)
+
+> 4 March 2022
+
+- chore: update dependencies and devDependencies
+- chore: update workflows
+- refactor(Sidebar): add variables to set `.nav-group-items` paddings
+- docs: update theme
+- build: update build scripts
+- build: update bundle watch
+- refactor: update `isVisible` function
+- fix(Sidebar): improve backdrop behavior
+- build: update build tools
+- chore: fix eslint errors
+- chore: fix stylelint warnings
+- fix(Sidebar): click outside listener on mobile devices
+- docs: remove version number from url
+
+## [v4.1.0](https://github.com/coreui/coreui/compare/v4.0.5...v4.1.0)
+
+> 29 November 2021
+
+
+- chore: update short version
+- refactor: update utilities generator
+- docs: update content
+- chore: update comments
+- refactor: update selectors
+- refactor: change DATA_KEY
+- tests: update tests
+- fix(Offcanvas): fix RTL
+- chore: update comments
+- refactor(Tables): update borders
+
 ## [v4.0.5-alpha.4](https://github.com/coreui/coreui/compare/v4.0.5-alpha.3...v4.0.5-alpha.4)
 
 > 22 March 2021
