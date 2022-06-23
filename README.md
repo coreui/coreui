@@ -16,7 +16,7 @@
   ·
   <a href="https://github.com/coreui/coreui/issues/new?template=feature_request.md">Request feature</a>
   ·
-  <a href="https://blog.coreui.io/">Blog</a>
+  <a href="https://coreui.io/blog/">Blog</a>
 </p>
 
 
@@ -143,6 +143,7 @@ Learn more about using Hugo by reading its [documentation](https://gohugo.io/doc
 CoreUI supports most popular frameworks.
 
 - [CoreUI for Angular](https://github.com/coreui/coreui-angular)
+- [CoreUI for Bootstrap (Vanilla JS)](https://github.com/coreui/coreui)
 - [CoreUI for React](https://github.com/coreui/coreui-react)
 - [CoreUI for Vue](https://github.com/coreui/coreui-vue)
 
