@@ -28,13 +28,14 @@
 - [What's included](#whats-included)
 - [Bugs and feature requests](#bugs-and-feature-requests)
 - [Documentation](#documentation)
-  - [Running documentation locally](#running-documentation-locally)
-  - [Documentation for previous releases](#documentation-for-previous-releases)
+- [Frameworks](#frameworks)
+- [Templates](#templates)
 - [Contributing](#contributing)
 - [Community](#community)
 - [Versioning](#versioning)
 - [Creators](#creators)
 - [Thanks](#thanks)
+- [Support CoreUI Development](#support-coreui-development)
 - [Copyright and license](#copyright-and-license)
 
 
@@ -137,7 +138,22 @@ The documentation for the CoreUI & CoreUI PRO is hosted at our website [CoreUI](
 
 Learn more about using Hugo by reading its [documentation](https://gohugo.io/documentation/).
 
-### Documentation for previous releases
+## Frameworks
+
+CoreUI supports most popular frameworks.
+
+- [CoreUI for Angular](https://github.com/coreui/coreui-angular)
+- [CoreUI for React](https://github.com/coreui/coreui-react)
+- [CoreUI for Vue](https://github.com/coreui/coreui-vue)
+
+## Templates
+
+Fully featured, out-of-the-box, templates for your application based on CoreUI.
+
+- [Angular Admin Template](https://coreui.io/angular)
+- [Bootstrap Admin Template](https://coreui.io/)
+- [React Admin Template](https://coreui.io/react)
+- [Vue Admin Template](https://coreui.io/vue)
 
 ## Contributing
 
@@ -145,14 +161,12 @@ Please read through our [contributing guidelines](https://github.com/coreui/core
 
 Editor preferences are available in the [editor config](https://github.com/coreui/coreui/blob/main/.editorconfig) for easy use in common text editors. Read more and download plugins at <https://editorconfig.org/>.
 
-
 ## Community
 
 Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
-- Read and subscribe to [The Official CoreUI Blog](https://blog.coreui.io/).
-
-You can also follow [@core_ui on Twitter](https://twitter.com/core_ui).
+- Read and subscribe to [The Official CoreUI Blog](https://coreui.io/blog).
+- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
 
 ## Versioning
 
@@ -172,9 +186,46 @@ See [the Releases section of our project](https://github.com/coreui/coreui/relea
 
 * <https://github.com/xidedix>
 
-
 ## Thanks
 CoreUI is designed as the extension of [Bootstrap](https://getbootstrap.com). Special thanks for [Bootstrap team](https://getbootstrap.com/docs/5.0/about/team/) and [Bootstrap's contributors](https://github.com/twbs/bootstrap/graphs/contributors).
+
+## Support CoreUI Development
+
+CoreUI is an MIT-licensed open source project and is completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing. You can support development by buying the [CoreUI PRO](https://coreui.io/pricing/) or by becoming a sponsor via [Open Collective](https://opencollective.com/coreui/).
+
+<!--- StartOpenCollectiveBackers -->
+
+### Platinum Sponsors
+
+Support this project by [becoming a Platinum Sponsor](https://opencollective.com/coreui/contribute/platinum-sponsor-40959/). A large company logo will be added here with a link to your website.
+
+<a href="https://opencollective.com/coreui/contribute/platinum-sponsor-40959/checkout"><img src="https://opencollective.com/coreui/tiers/platinum-sponsor/0/avatar.svg?avatarHeight=100"></a>
+
+### Gold Sponsors
+
+Support this project by [becoming a Gold Sponsor](https://opencollective.com/coreui/contribute/gold-sponsor-40960/). A big company logo will be added here with a link to your website.
+
+<a href="https://opencollective.com/coreui/contribute/gold-sponsor-40960/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a> 
+
+### Silver Sponsors
+
+Support this project by [becoming a Silver Sponsor](https://opencollective.com/coreui/contribute/silver-sponsor-40967/). A medium company logo will be added here with a link to your website.
+
+<a href="https://opencollective.com/coreui/contribute/silver-sponsor-40967/checkout"><img src="https://opencollective.com/coreui/tiers/gold-sponsor/0/avatar.svg?avatarHeight=100"></a>
+
+### Bronze Sponsors
+
+Support this project by [becoming a Bronze Sponsor](https://opencollective.com/coreui/contribute/bronze-sponsor-40966/). The company avatar will show up here with a link to your OpenCollective Profile.
+
+<a href="https://opencollective.com/coreui/contribute/bronze-sponsor-40966/checkout"><img src="https://opencollective.com/coreui/tiers/bronze-sponsor/0/avatar.svg?avatarHeight=100"></a> 
+
+### Backers
+
+Thanks to all the backers and sponsors! Support this project by [becoming a backer](https://opencollective.com/coreui/contribute/backer-40965/).
+
+<a href="https://opencollective.com/coreui/contribute/backer-40965/checkout" target="_blank" rel="noopener"><img src="https://opencollective.com/coreui/backers.svg?width=890"></a>
+
+<!--- EndOpenCollectiveBackers -->
 
 ## Copyright and license
 
