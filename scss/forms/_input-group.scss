@@ -49,11 +49,11 @@
   @include font-size($input-font-size); // Match inputs
   font-weight: $input-group-addon-font-weight;
   line-height: $input-line-height;
-  color: var(--#{$variable-prefix}input-group-addon-color, $input-group-addon-color);
+  color: var(--#{$prefix}input-group-addon-color, $input-group-addon-color);
   text-align: center;
   white-space: nowrap;
-  background-color: var(--#{$variable-prefix}input-group-addon-bg, $input-group-addon-bg);
-  border: $input-border-width solid var(--#{$variable-prefix}input-group-addon-border-color, $input-group-addon-border-color);
+  background-color: var(--#{$prefix}input-group-addon-bg, $input-group-addon-bg);
+  border: $input-border-width solid var(--#{$prefix}input-group-addon-border-color, $input-group-addon-border-color);
   @include border-radius($input-border-radius);
 }
 

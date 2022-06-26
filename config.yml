@@ -61,6 +61,7 @@ params:
   github_org:           "https://github.com/coreui"
   repo:                 "https://github.com/coreui/coreui"
   twitter:              "core_ui"
+  opencollective:       "coreui"
   community:            "https://github.com/coreui/coreui/discussions"
   blog:                 "https://coreui.io/blog/"
   icons:                "https://icons.coreui.io/"

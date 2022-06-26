@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Dropdowns
+title: Bootstrap dropdowns
 description: Bootstrap dropdown component allows you to toggle contextual overlays for displaying lists, links, and more html elements.
 group: components
 aliases:
@@ -18,7 +18,7 @@ Dropdowns are built on a third party library, [Popper.js](https://popper.js.org/
 
 ## Accessibility
 
-The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/WAI/PF/aria/roles#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
+The [<abbr title="Web Accessibility Initiative">WAI</abbr> <abbr title="Accessible Rich Internet Applications">ARIA</abbr>](https://www.w3.org/TR/wai-aria/) standard defines an actual [`role="menu"` widget](https://www.w3.org/TR/wai-aria/#menu), but this is specific to application-like menus which trigger actions or functions. <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus can only contain menu items, checkbox menu items, radio button menu items, radio button groups, and sub-menus.
 
 Bootstrap's dropdowns, on the other hand, are designed to be generic and applicable to a variety of situations and markup structures. For instance, it is possible to create dropdowns that contain additional inputs and form controls, such as search fields or login forms. For this reason, Bootstrap does not expect (nor automatically add) any of the `role` and `aria-` attributes required for true <abbr title="Accessible Rich Internet Applications">ARIA</abbr> menus. Authors will have to include these more specific attributes themselves.
 
@@ -34,10 +34,10 @@ Each single `.btn` can be changed into a dropdown toggle with small changes. Her
 
 {{< example >}}
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -49,11 +49,11 @@ And with `<a>` elements:
 
 {{< example >}}
 <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-coreui-toggle="dropdown" aria-expanded="false">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown link
   </a>
 
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -357,10 +357,10 @@ Opt into darker dropdowns to match a dark navbar or custom style by adding `.dro
 
 {{< example >}}
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-coreui-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown button
   </button>
-  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+  <ul class="dropdown-menu dropdown-menu-dark">
     <li><a class="dropdown-item active" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -382,10 +382,10 @@ And putting it to use in a navbar:
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
             Dropdown
           </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+          <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -401,8 +401,25 @@ And putting it to use in a navbar:
 
 {{< callout info >}}
 #### RTL
-Directions are mirrored when using Bootstrap in RTL, meaning `.dropstart` will appear on the right side.
+Directions are mirrored when using CoreUI in RTL, meaning `.dropstart` will appear on the right side.
 {{< /callout >}}
+
+### Centered
+
+Make the dropdown menu centered below the toggle with `.dropdown-center` on the parent element.
+
+{{< example >}}
+<div class="dropdown-center">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+    Centered dropdown
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Action two</a></li>
+    <li><a class="dropdown-item" href="#">Action three</a></li>
+  </ul>
+</div>
+{{< /example >}}
 
 ### Dropup
 
@@ -463,14 +480,31 @@ Trigger dropdown menus above elements by adding `.dropup` to the parent element.
 </div>
 ```
 
-### Dropright
+### Dropup centered
+
+Make the dropup menu centered above the toggle with `.dropup-center` on the parent element.
+
+{{< example >}}
+<div class="dropup-center dropup">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+    Centered dropup
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="#">Action</a></li>
+    <li><a class="dropdown-item" href="#">Action two</a></li>
+    <li><a class="dropdown-item" href="#">Action three</a></li>
+  </ul>
+</div>
+{{< /example >}}
+
+### Dropend
 
 Trigger dropdown menus at the right of the elements by adding `.dropend` to the parent element.
 
 <div class="docs-example">
   <div class="btn-group dropend">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
-      Dropright
+      Dropend
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -485,7 +519,7 @@ Trigger dropdown menus at the right of the elements by adding `.dropend` to the 
       Split dropend
     </button>
     <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropright</span>
+      <span class="visually-hidden">Toggle Dropend</span>
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -501,7 +535,7 @@ Trigger dropdown menus at the right of the elements by adding `.dropend` to the 
 <!-- Default dropend button -->
 <div class="btn-group dropend">
   <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
-    Dropright
+    Dropend
   </button>
   <ul class="dropdown-menu">
     <!-- Dropdown menu links -->
@@ -514,7 +548,7 @@ Trigger dropdown menus at the right of the elements by adding `.dropend` to the 
     Split dropend
   </button>
   <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
-    <span class="visually-hidden">Toggle Dropright</span>
+    <span class="visually-hidden">Toggle Dropend</span>
   </button>
   <ul class="dropdown-menu">
     <!-- Dropdown menu links -->
@@ -522,14 +556,14 @@ Trigger dropdown menus at the right of the elements by adding `.dropend` to the 
 </div>
 ```
 
-### Dropleft
+### Dropstart
 
 Trigger dropdown menus at the left of the elements by adding `.dropstart` to the parent element.
 
 <div class="docs-example">
   <div class="btn-group dropstart">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
-      Dropleft
+      Dropstart
     </button>
     <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -539,19 +573,17 @@ Trigger dropdown menus at the left of the elements by adding `.dropstart` to the
       <li><a class="dropdown-item" href="#">Separated link</a></li>
     </ul>
   </div>
-  <div class="btn-group">
-    <div class="btn-group dropstart" role="group">
-      <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
-        <span class="visually-hidden">Toggle Dropleft</span>
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Action</a></li>
-        <li><a class="dropdown-item" href="#">Another action</a></li>
-        <li><a class="dropdown-item" href="#">Something else here</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Separated link</a></li>
-      </ul>
-    </div>
+  <div class="btn-group dropstart">
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
+      <span class="visually-hidden">Toggle Dropstart</span>
+    </button>
+    <ul class="dropdown-menu">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+      <li><a class="dropdown-item" href="#">Something else here</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item" href="#">Separated link</a></li>
+    </ul>
     <button type="button" class="btn btn-secondary">
       Split dropstart
     </button>
@@ -570,15 +602,13 @@ Trigger dropdown menus at the left of the elements by adding `.dropstart` to the
 </div>
 
 <!-- Split dropstart button -->
-<div class="btn-group">
-  <div class="btn-group dropstart" role="group">
-    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
-      <span class="visually-hidden">Toggle Dropstart</span>
-    </button>
-    <ul class="dropdown-menu">
-      <!-- Dropdown menu links -->
-    </ul>
-  </div>
+<div class="btn-group dropstart">
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">
+    <span class="visually-hidden">Toggle Dropstart</span>
+  </button>
+  <ul class="dropdown-menu">
+    <!-- Dropdown menu links -->
+  </ul>
   <button type="button" class="btn btn-secondary">
     Split dropstart
   </button>
@@ -591,10 +621,10 @@ You can use `<a>` or `<button>` elements as dropdown items.
 
 {{< example >}}
 <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-coreui-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+  <ul class="dropdown-menu">
     <li><button class="dropdown-item" type="button">Action</button></li>
     <li><button class="dropdown-item" type="button">Another action</button></li>
     <li><button class="dropdown-item" type="button">Something else here</button></li>
@@ -700,10 +730,10 @@ Taking most of the options shown above, here's a small kitchen sink demo of vari
 
 {{< example >}}
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -852,25 +882,30 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
 {{< /example >}}
 
 {{< example >}}
-<form class="dropdown-menu p-4">
-  <div class="mb-3">
-    <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
-  </div>
-  <div class="mb-3">
-    <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
-  </div>
-  <div class="mb-3">
-    <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="dropdownCheck2">
-      <label class="form-check-label" for="dropdownCheck2">
-        Remember me
-      </label>
+<div class="dropdown">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-auto-close="outside">
+    Dropdown form
+  </button>
+  <form class="dropdown-menu p-4">
+    <div class="mb-3">
+      <label for="exampleDropdownFormEmail2" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleDropdownFormEmail2" placeholder="email@example.com">
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
+    <div class="mb-3">
+      <label for="exampleDropdownFormPassword2" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleDropdownFormPassword2" placeholder="Password">
+    </div>
+    <div class="mb-3">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="dropdownCheck2">
+        <label class="form-check-label" for="dropdownCheck2">
+          Remember me
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+</div>
 {{< /example >}}
 
 ## Dropdown options
@@ -880,10 +915,10 @@ Use `data-coreui-offset` or `data-coreui-reference` to change the location of th
 {{< example >}}
 <div class="d-flex">
   <div class="dropdown me-1">
-    <button type="button" class="btn btn-secondary dropdown-toggle" id="dropdownMenuOffset" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-offset="10,20">
+    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-offset="10,20">
       Offset
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+    <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
       <li><a class="dropdown-item" href="#">Another action</a></li>
       <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -891,10 +926,10 @@ Use `data-coreui-offset` or `data-coreui-reference` to change the location of th
   </div>
   <div class="btn-group">
     <button type="button" class="btn btn-secondary">Reference</button>
-    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" id="dropdownMenuReference" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-reference="parent">
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-reference="parent">
       <span class="visually-hidden">Toggle Dropdown</span>
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+    <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Action</a></li>
       <li><a class="dropdown-item" href="#">Another action</a></li>
       <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -911,10 +946,10 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 {{< example >}}
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-coreui-toggle="dropdown" data-coreui-auto-close="true" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="true" aria-expanded="false">
     Default dropdown
   </button>
-  <ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -922,10 +957,10 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableOutside" data-coreui-toggle="dropdown" data-coreui-auto-close="inside" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="inside" aria-expanded="false">
     Clickable outside
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableOutside">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -933,10 +968,10 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickableInside" data-coreui-toggle="dropdown" data-coreui-auto-close="outside" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="outside" aria-expanded="false">
     Clickable inside
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickableInside">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -944,10 +979,10 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 </div>
 
 <div class="btn-group">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuClickable" data-coreui-toggle="dropdown" data-coreui-auto-close="false" aria-expanded="false">
+  <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="false" aria-expanded="false">
     Manual close
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuClickable">
+  <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -969,10 +1004,10 @@ Add `data-coreui-toggle="dropdown"` to a link or button to toggle a dropdown.
 
 ```html
 <div class="dropdown">
-  <button id="dLabel" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+  <button type="button" data-coreui-toggle="dropdown" aria-expanded="false">
     Dropdown trigger
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dLabel">
+  <ul class="dropdown-menu">
     ...
   </ul>
 </div>
@@ -983,10 +1018,8 @@ Add `data-coreui-toggle="dropdown"` to a link or button to toggle a dropdown.
 Call the dropdowns via JavaScript:
 
 ```js
-var dropdownElementList = [].slice.call(document.querySelectorAll('.dropdown-toggle'))
-var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
-  return new coreui.Dropdown(dropdownToggleEl)
-})
+const dropdownElementList = document.querySelectorAll('.dropdown-toggle')
+const dropdownList = [...dropdownElementList].map(dropdownToggleEl => new coreui.Dropdown(dropdownToggleEl))
 ```
 
 {{< callout info >}}
@@ -997,78 +1030,27 @@ Regardless of whether you call your dropdown via JavaScript or instead use the d
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-offset=""`.
+{{< markdown >}}
+{{< partial "js-data-attributes.md" >}}
+{{< /markdown >}}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 100px;">Name</th>
-      <th style="width: 100px;">Type</th>
-      <th style="width: 50px;">Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>boundary</code></td>
-      <td>string | element</td>
-      <td><code>'clippingParents'</code></td>
-      <td>Overflow constraint boundary of the dropdown menu (applies only to Popper's preventOverflow modifier). By default it's <code>'clippingParents'</code> and can accept an HTMLElement reference (via JavaScript only). For more information refer to Popper's <a href="https://popper.js.org/docs/v2/utils/detect-overflow/#boundary">detectOverflow docs</a>.</td>
-    </tr>
-    <tr>
-      <td><code>reference</code></td>
-      <td>string | element | object</td>
-      <td><code>'toggle'</code></td>
-      <td>Reference element of the dropdown menu. Accepts the values of <code>'toggle'</code>, <code>'parent'</code>, an HTMLElement reference or an object providing <code>getBoundingClientRect</code>. For more information refer to Popper's <a href="https://popper.js.org/docs/v2/constructors/#createpopper">constructor docs</a> and <a href="https://popper.js.org/docs/v2/virtual-elements/">virtual element docs</a>.</td>
-    </tr>
-    <tr>
-      <td><code>display</code></td>
-      <td>string</td>
-      <td><code>'dynamic'</code></td>
-      <td>By default, we use Popper for dynamic positioning. Disable this with <code>static</code>.</td>
-    </tr>
-    <tr>
-      <td><code>offset</code></td>
-      <td>array | string | function</td>
-      <td><code>[0, 2]</code></td>
-      <td>
-        <p>Offset of the dropdown relative to its target. You can pass a string in data attributes with comma separated values like: <code>data-coreui-offset="10,20"</code></p>
-        <p>When a function is used to determine the offset, it is called with an object containing the popper placement, the reference, and popper rects as its first argument. The triggering element DOM node is passed as the second argument. The function must return an array with two numbers: <code>[<a href="https://popper.js.org/docs/v2/modifiers/offset/#skidding-1">skidding</a>, <a href="https://popper.js.org/docs/v2/modifiers/offset/#distance-1">distance</a>]</code>.</p>
-        <p>For more information refer to Popper's <a href="https://popper.js.org/docs/v2/modifiers/offset/#options">offset docs</a>.</p>
-      </td>
-    </tr>
-    <tr>
-      <td><code>autoClose</code></td>
-      <td>boolean | string</td>
-      <td><code>true</code></td>
-      <td>
-        <p>Configure the auto close behavior of the dropdown:</p>
-        <ul>
-          <li><code>true</code> - the dropdown will be closed by clicking outside or inside the dropdown menu.</li>
-          <li><code>false</code> - the dropdown will be closed by clicking the toggle button and manually calling <code>hide</code> or <code>toggle</code> method. (Also will not be closed by pressing <kbd>esc</kbd> key)</li>
-          <li><code>'inside'</code> - the dropdown will be closed (only) by clicking inside the dropdown menu.</li>
-          <li><code>'outside'</code> - the dropdown will be closed (only) by clicking outside the dropdown menu.</li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td><code>popperConfig</code></td>
-      <td>null | object | function</td>
-      <td><code>null</code></td>
-      <td>
-        <p>To change Bootstrap's default Popper config, see <a href="https://popper.js.org/docs/v2/constructors/#options">Popper's configuration</a>.</p>
-        <p>When a function is used to create the Popper configuration, it's called with an object that contains the Bootstrap's default Popper configuration. It helps you use and merge the default with your own configuration. The function must return a configuration object for Popper.</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `autoClose` | boolean, string | `true` | Configure the auto close behavior of the dropdown: <ul class="my-2"><li>`true` - the dropdown will be closed by clicking outside or inside the dropdown menu.</li><li>`false` - the dropdown will be closed by clicking the toggle button and manually calling `hide` or `toggle` method. (Also will not be closed by pressing <kbd>esc</kbd> key)</li><li>`'inside'` - the dropdown will be closed (only) by clicking inside the dropdown menu.</li>  <li>`'outside'` - the dropdown will be closed (only) by clicking outside the dropdown menu.</li></ul> Note: the dropdown can always be closed with the <kbd>ESC</kbd> key |
+| `boundary` | string, element | `'scrollParent'` | Overflow constraint boundary of the dropdown menu (applies only to Popper's preventOverflow modifier). By default it's `clippingParents` and can accept an HTMLElement reference (via JavaScript only). For more information refer to Popper's [detectOverflow docs](https://popper.js.org/docs/v2/utils/detect-overflow/#boundary). |
+| `display` | string | `'dynamic'` | By default, we use Popper for dynamic positioning. Disable this with `static`. |
+| `offset` | number, string, function | `[0, 2]` |  Offset of the dropdown relative to its target. You can pass a string in data attributes with comma separated values like: `data-coreui-offset="10,20"`. When a function is used to determine the offset, it is called with an object containing the popper placement, the reference, and popper rects as its first argument. The triggering element DOM node is passed as the second argument. The function must return an array with two numbers: [skidding](https://popper.js.org/docs/v2/modifiers/offset/#skidding-1), [distance](https://popper.js.org/docs/v2/modifiers/offset/#distance-1). For more information refer to Popper's [offset docs](https://popper.js.org/docs/v2/modifiers/offset/#options). |
+| `popperConfig` | null, object, function | `null` | To change Bootstrap's default Popper config, see [Popper's configuration](https://popper.js.org/docs/v2/constructors/#options). When a function is used to create the Popper configuration, it's called with an object that contains the Bootstrap's default Popper configuration. It helps you use and merge the default with your own configuration. The function must return a configuration object for Popper. |
+| `reference` | string, element | `'toggle'` | Reference element of the dropdown menu. Accepts the values of `'toggle'`, `'parent'`, an HTMLElement reference or an object providing `getBoundingClientRect`. For more information refer to Popper's [constructor docs](https://popper.js.org/docs/v2/constructors/#createpopper) and [virtual element docs](https://popper.js.org/docs/v2/virtual-elements/). |
+{{< /bs-table >}}
 
 #### Using function with `popperConfig`
 
 ```js
-var dropdown = new coreui.Dropdown(element, {
-  popperConfig: function (defaultBsPopperConfig) {
-    // var newPopperConfig = {...}
+const dropdown = new coreui.Dropdown(element, {
+  popperConfig(defaultBsPopperConfig) {
+    // const newPopperConfig = {...}
     // use defaultBsPopperConfig if needed...
     // return newPopperConfig
   }
@@ -1077,130 +1059,58 @@ var dropdown = new coreui.Dropdown(element, {
 
 ### Methods
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>toggle</code></td>
-      <td>
-        Toggles the dropdown menu of a given navbar or tabbed navigation.
-      </td>
-    </tr>
-    <tr>
-      <td><code>show</code></td>
-      <td>
-        Shows the dropdown menu of a given navbar or tabbed navigation.
-      </td>
-    </tr>
-    <tr>
-      <td><code>hide</code></td>
-      <td>
-        Hides the dropdown menu of a given navbar or tabbed navigation.
-      </td>
-    </tr>
-    <tr>
-      <td><code>update</code></td>
-      <td>
-        Updates the position of an element's dropdown.
-      </td>
-    </tr>
-    <tr>
-      <td><code>dispose</code></td>
-      <td>
-        Destroys an element's dropdown. (Removes stored data on the DOM element)
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>getInstance</code>
-      </td>
-      <td>
-        Static method which allows you to get the dropdown instance associated to a DOM element, you can use it like this: <code>coreui.Dropdown.getInstance(element)</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>getOrCreateInstance</code>
-      </td>
-      <td>
-        Static method which returns a dropdown instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>coreui.Dropdown.getOrCreateInstance(element)</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Method | Description |
+| --- | --- |
+| `dispose` | Destroys an element's dropdown. (Removes stored data on the DOM element) |
+| `getInstance` | Static method which allows you to get the dropdown instance associated to a DOM element, you can use it like this: `coreui.Dropdown.getInstance(element)` |
+| `getOrCreateInstance` | Static method which returns a dropdown instance associated to a DOM element or create a new one in case it wasn't initialized. You can use it like this: `coreui.Dropdown.getOrCreateInstance(element)`. |
+| `hide` | Hides the dropdown menu of a given navbar or tabbed navigation. |
+| `show` | Shows the dropdown menu of a given navbar or tabbed navigation. |
+| `toggle` | Toggles the dropdown menu of a given navbar or tabbed navigation. |
+| `update` | Updates the position of an element's dropdown. |
+{{< /bs-table >}}
 
 ### Events
 
 All dropdown events are fired at the `.dropdown-menu`'s parent element and have a `relatedTarget` property, whose value is the toggling anchor element.
 `hide.coreui.dropdown` and `hidden.coreui.dropdown` events have a `clickEvent` property (only when the original Event type is `click`) that contains an Event Object for the click event.
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>show.coreui.dropdown</code>
-      </td>
-      <td>
-        Fires immediately when the show instance method is called.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>shown.coreui.dropdown</code>
-      </td>
-      <td>
-        Fired when the dropdown has been made visible to the user and CSS transitions have completed.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>hide.coreui.dropdown</code>
-      </td>
-      <td>
-        Fires immediately when the hide instance method has been called.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>hidden.coreui.dropdown</code>
-      </td>
-      <td>
-        Fired when the dropdown has finished being hidden from the user and CSS transitions have completed.
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Event type | Description |
+| --- | --- |
+| `hide.coreui.dropdown` | Fires immediately when the `hide` instance method has been called. |
+| `hidden.coreui.dropdown` | Fired when the dropdown has finished being hidden from the user and CSS transitions have completed. |
+| `show.coreui.dropdown` | Fires immediately when the `show` instance method is called. |
+| `shown.coreui.dropdown` | Fired when the dropdown has been made visible to the user and CSS transitions have completed. |
+{{< /bs-table >}}
 
 ```js
-var myDropdown = document.getElementById('myDropdown')
-myDropdown.addEventListener('show.coreui.dropdown', function () {
+const myDropdown = document.getElementById('myDropdown')
+myDropdown.addEventListener('show.coreui.dropdown', event => {
   // do something...
 })
 ```
 
 ## Customizing
 
-### SASS
+### CSS Variables
 
-#### Variables
+Dropdowns use local CSS variables on `.dropdown-menu` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="dropdown-css-vars" file="scss/_dropdown.scss" >}}
+
+Customization through CSS variables can be seen on the `.dropdown-menu-dark` class where we override specific values without adding duplicate CSS selectors.
+
+{{< scss-docs name="dropdown-dark-css-vars" file="scss/_dropdown.scss" >}}
+
+### SASS variables
 
 Variables for all dropdowns:
 
 {{< scss-docs name="dropdown-variables" file="scss/_variables.scss" >}}
 
-Variables for the dark dropdown:
+Variables for the [dark dropdown](#dark-dropdowns):
 
 {{< scss-docs name="dropdown-dark-variables" file="scss/_variables.scss" >}}
 
@@ -1208,12 +1118,8 @@ Variables for the CSS-based carets that indicate a dropdown's interactivity:
 
 {{< scss-docs name="caret-variables" file="scss/_variables.scss" >}}
 
-#### Mixins
-Mixins are used to generate the CSS-based carets and can be found in scss/mixins/_caret.scss.
+### SASS mixins
+
+Mixins are used to generate the CSS-based carets and can be found in `scss/mixins/_caret.scss`.
 
 {{< scss-docs name="caret-mixins" file="scss/mixins/_caret.scss" >}}
-
-### CSS Vars
-{{< css-vars-docs file="scss/_dropdown.scss" >}}
-
-

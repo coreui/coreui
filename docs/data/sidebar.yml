@@ -80,8 +80,8 @@
     - title: Header
     - title: List group
     - title: Modal
-    - title: Navs & tabs
     - title: Navbar
+    - title: Navs & tabs
     - title: Offcanvas
     - title: Pagination
     - title: Placeholders
@@ -97,14 +97,15 @@
   icon: healing
   pages:
     - title: Clearfix
+    - title: Color & background
     - title: Colored links
-    - title: Ratio
     - title: Position
+    - title: Ratio
     - title: Stacks
-    - title: Visually hidden
     - title: Stretched link
     - title: Text truncation
     - title: Vertical rule
+    - title: Visually hidden
 
 - title: Utilities
   icon: color-fill

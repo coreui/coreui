@@ -31,7 +31,7 @@ Badges can be used as part of links or buttons to provide a counter.
 
 {{< example >}}
 <button type="button" class="btn btn-primary">
-  Notifications <span class="badge bg-secondary">4</span>
+  Notifications <span class="badge text-bg-secondary">4</span>
 </button>
 {{< /example >}}
 
@@ -71,7 +71,7 @@ Add any of the below-mentioned classes to modify the presentation of a badge. Pl
 {{< example >}}
 {{< badge.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<span class="badge bg-{{ .name }}{{ with .contrast_color }} text-{{ . }}{{ end }}">{{ .name | title }}</span>{{- end -}}
+<span class="badge text-bg-{{ .name }}">{{ .name | title }}</span>{{- end -}}
 {{< /badge.inline >}}
 {{< /example >}}
 
@@ -86,17 +86,18 @@ Apply the `.rounded-pill` modifier class to make badges rounded.
 {{< example >}}
 {{< badge.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<span class="badge rounded-pill bg-{{ .name }}{{ with .contrast_color }} text-{{ . }}{{ end }}">{{ .name | title }}</span>{{- end -}}
+<span class="badge rounded-pill text-bg-{{ .name }}">{{ .name | title }}</span>{{- end -}}
 {{< /badge.inline >}}
 {{< /example >}}
 
 ## Customizing
 
-### SASS
+### CSS Variables
 
-#### Variables
+Badges use local CSS variables on `.badge` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="badge-css-vars" file="scss/_badge.scss" >}}
+
+### SASS variables
 
 {{< scss-docs name="badge-variables" file="scss/_variables.scss" >}}
-
-### CSS Vars
-{{< css-vars-docs file="scss/_badge.scss" >}}

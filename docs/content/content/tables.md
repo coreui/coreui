@@ -80,11 +80,21 @@ Use `.table-striped` to add zebra-striping to any table row within the `<tbody>`
 
 {{< table class="table table-striped" >}}
 
+### Striped columns
+
+Use `.table-striped-columns` to add zebra-striping to any table column.
+
+{{< table class="table table-striped-columns" >}}
+
 These classes can also be added to table variants:
 
 {{< table class="table table-dark table-striped" >}}
 
+{{< table class="table table-dark table-striped-columns" >}}
+
 {{< table class="table table-success table-striped" >}}
+
+{{< table class="table table-success table-striped-columns" >}}
 
 ### Hoverable rows
 
@@ -94,7 +104,7 @@ Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
 {{< table class="table table-dark table-hover" >}}
 
-These hoverable rows can also be combined with the striped variant:
+These hoverable rows can also be combined with the striped rows variant:
 
 {{< table class="table table-striped table-hover" >}}
 
@@ -210,7 +220,7 @@ Highlight a table row or cell by adding a `.table-active` class.
 
 ## How do the variants and accented tables work?
 
-For the accented tables ([striped rows](#striped-rows), [hoverable rows](#hoverable-rows), and [active tables](#active-tables)), we used some techniques to make these effects work for all our [table variants](#variants):
+For the accented tables ([striped rows](#striped-rows), [striped columns](#striped-columns), [hoverable rows](#hoverable-rows), and [active tables](#active-tables)), we used some techniques to make these effects work for all our [table variants](#variants):
 
 - We start by setting the background of a table cell with the `--cui-table-bg` custom property. All table variants then set that custom property to colorize the table cells. This way, we don't get into trouble if semi-transparent colors are used as table backgrounds.
 - Then we add a gradient on the table cells with `background-image: linear-gradient(var(--cui-table-accent-bg), var(--cui-table-accent-bg));` to layer on top of any specified `background-color`. Since `--cui-table-accent-bg` is transparent by default, we have an invisible transparent linear gradient by default.
@@ -250,9 +260,45 @@ Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` 
 
 {{< table class="table table-dark table-sm" >}}
 
+## Table group dividers
+
+Add a thicker border, darker between table groups—`<thead>`, `<tbody>`, and `<tfoot>`—with `.table-group-divider`. Customize the color by changing the `border-top-color` (which we don't currently provide a utility class for at this time).
+
+{{< example >}}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody class="table-group-divider">
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+{{< /example >}}
+
 ## Vertical alignment
 
-Table cells of `<thead>` are always vertical aligned to the bottom. Table cells in `<tbody>` inherit their alignment from `<table>` and are aligned to the the top by default. Use the [vertical align]({{< docsref "/utilities/vertical-align" >}}) classes to re-align where needed.
+Table cells of `<thead>` are always vertical aligned to the bottom. Table cells in `<tbody>` inherit their alignment from `<table>` and are aligned to the top by default. Use the [vertical align]({{< docsref "/utilities/vertical-align" >}}) classes to re-align where needed.
 
 <div class="docs-example">
   <div class="table-responsive">
@@ -788,4 +834,4 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 #### Customizing
 
 - The factor variables (`$table-striped-bg-factor`, `$table-active-bg-factor` & `$table-hover-bg-factor`) are used to determine the contrast in table variants.
-- Apart from the light & dark table variants, theme colors are lightened by the `$table-bg-level` variable.
+- Apart from the light & dark table variants, theme colors are lightened by the `$table-bg-scale` variable.

@@ -33,6 +33,7 @@
   {{- end -}}
 
   {{- $match = replace $match $capture_start "" -}}
+  {{- $match = replace $match "#{$prefix}" "cui-" -}}
   {{- $match = replace $match $capture_end "" -}}
 
   {{- if (ne $strip_default "false") -}}

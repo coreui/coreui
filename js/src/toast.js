@@ -8,20 +8,13 @@
  * --------------------------------------------------------------------------
  */
 
-import {
-  defineJQueryPlugin,
-  reflow,
-  typeCheckConfig
-} from './util/index'
+import { defineJQueryPlugin, reflow } from './util/index'
 import EventHandler from './dom/event-handler'
-import Manipulator from './dom/manipulator'
 import BaseComponent from './base-component'
 import { enableDismissTrigger } from './util/component-functions'
 
 /**
- * ------------------------------------------------------------------------
  * Constants
- * ------------------------------------------------------------------------
  */
 
 const NAME = 'toast'
@@ -55,16 +48,13 @@ const Default = {
 }
 
 /**
- * ------------------------------------------------------------------------
- * Class Definition
- * ------------------------------------------------------------------------
+ * Class definition
  */
 
 class Toast extends BaseComponent {
   constructor(element, config) {
-    super(element)
+    super(element, config)
 
-    this._config = this._getConfig(config)
     this._timeout = null
     this._hasMouseInteraction = false
     this._hasKeyboardInteraction = false
@@ -72,13 +62,12 @@ class Toast extends BaseComponent {
   }
 
   // Getters
+  static get Default() {
+    return Default
+  }
 
   static get DefaultType() {
     return DefaultType
-  }
-
-  static get Default() {
-    return Default
   }
 
   static get NAME() {
@@ -86,7 +75,6 @@ class Toast extends BaseComponent {
   }
 
   // Public
-
   show() {
     const showEvent = EventHandler.trigger(this._element, EVENT_SHOW)
 
@@ -109,14 +97,13 @@ class Toast extends BaseComponent {
 
     this._element.classList.remove(CLASS_NAME_HIDE) // @deprecated
     reflow(this._element)
-    this._element.classList.add(CLASS_NAME_SHOW)
-    this._element.classList.add(CLASS_NAME_SHOWING)
+    this._element.classList.add(CLASS_NAME_SHOW, CLASS_NAME_SHOWING)
 
     this._queueCallback(complete, this._element, this._config.animation)
   }
 
   hide() {
-    if (!this._element.classList.contains(CLASS_NAME_SHOW)) {
+    if (!this.isShown()) {
       return
     }
 
@@ -128,8 +115,7 @@ class Toast extends BaseComponent {
 
     const complete = () => {
       this._element.classList.add(CLASS_NAME_HIDE) // @deprecated
-      this._element.classList.remove(CLASS_NAME_SHOWING)
-      this._element.classList.remove(CLASS_NAME_SHOW)
+      this._element.classList.remove(CLASS_NAME_SHOWING, CLASS_NAME_SHOW)
       EventHandler.trigger(this._element, EVENT_HIDDEN)
     }
 
@@ -140,26 +126,18 @@ class Toast extends BaseComponent {
   dispose() {
     this._clearTimeout()
 
-    if (this._element.classList.contains(CLASS_NAME_SHOW)) {
+    if (this.isShown()) {
       this._element.classList.remove(CLASS_NAME_SHOW)
     }
 
     super.dispose()
   }
 
-  // Private
-
-  _getConfig(config) {
-    config = {
-      ...Default,
-      ...Manipulator.getDataAttributes(this._element),
-      ...(typeof config === 'object' && config ? config : {})
-    }
-
-    typeCheckConfig(NAME, config, this.constructor.DefaultType)
-
-    return config
+  isShown() {
+    return this._element.classList.contains(CLASS_NAME_SHOW)
   }
+
+  // Private
 
   _maybeScheduleHide() {
     if (!this._config.autohide) {
@@ -215,7 +193,6 @@ class Toast extends BaseComponent {
   }
 
   // Static
-
   static jQueryInterface(config) {
     return this.each(function () {
       const data = Toast.getOrCreateInstance(this, config)
@@ -231,13 +208,14 @@ class Toast extends BaseComponent {
   }
 }
 
+/**
+ * Data API implementation
+ */
+
 enableDismissTrigger(Toast)
 
 /**
- * ------------------------------------------------------------------------
  * jQuery
- * ------------------------------------------------------------------------
- * add .Toast to jQuery only if jQuery is present
  */
 
 defineJQueryPlugin(Toast)

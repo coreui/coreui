@@ -1,25 +1,25 @@
 .sidebar {
-  --#{$variable-prefix}sidebar-width: #{$sidebar-width};
+  --#{$prefix}sidebar-width: #{$sidebar-width};
 
   position: relative;
   display: flex;
   // $sidebar-width is the width of the columns
-  flex: 0 0 var(--#{$variable-prefix}sidebar-width);
+  flex: 0 0 var(--#{$prefix}sidebar-width);
   flex-direction: column;
   // put the nav on the left
   order: -1;
-  width: var(--#{$variable-prefix}sidebar-width);
+  width: var(--#{$prefix}sidebar-width);
   padding: $sidebar-padding-y $sidebar-padding-x;
-  color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
-  background: var(--#{$variable-prefix}sidebar-bg, $sidebar-bg);
-  @include ltr-rtl("border-right", var(--#{$variable-prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$variable-prefix}sidebar-border-color, $sidebar-border-color));
+  color: var(--#{$prefix}sidebar-color, $sidebar-color);
+  background: var(--#{$prefix}sidebar-bg, $sidebar-bg);
+  @include ltr-rtl("border-right", var(--#{$prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$prefix}sidebar-border-color, $sidebar-border-color));
   box-shadow: none;
   @include transition($sidebar-transition);
 
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-start: #{$sidebar-width};
+      --#{$prefix}sidebar-occupy-start: #{$sidebar-width};
     }
   }
 
@@ -27,7 +27,7 @@
     order: 99;
     @include ltr-rtl("margin-right", 0);
     ~ * {
-      --#{$variable-prefix}sidebar-occupy-end: #{$sidebar-width};
+      --#{$prefix}sidebar-occupy-end: #{$sidebar-width};
     }
   }
 
@@ -37,16 +37,16 @@
 
   @each $width, $value in $sidebar-widths {
     &.sidebar-#{$width} {
-      --#{$variable-prefix}sidebar-width: #{$value};
+      --#{$prefix}sidebar-width: #{$value};
       @include media-breakpoint-up($mobile-breakpoint) {
         &:not(.sidebar-end):not(.hide) {
           ~ * {
-            --#{$variable-prefix}sidebar-occupy-start: #{$value};
+            --#{$prefix}sidebar-occupy-start: #{$value};
           }
         }
         &.sidebar-end:not(.hide) {
           ~ * {
-            --#{$variable-prefix}sidebar-occupy-end: #{$value};
+            --#{$prefix}sidebar-occupy-end: #{$value};
           }
         }
       }
@@ -56,15 +56,15 @@
   @include media-breakpoint-up($mobile-breakpoint) {
     &.hide {
       &:not(.sidebar-end){
-        @include ltr-rtl("margin-left", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
         ~ * {
-          --#{$variable-prefix}sidebar-occupy-start: 0;
+          --#{$prefix}sidebar-occupy-start: 0;
         }
       }
       &.sidebar-end {
-        @include ltr-rtl("margin-right", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
         ~ * {
-          --#{$variable-prefix}sidebar-occupy-end: 0;
+          --#{$prefix}sidebar-occupy-end: 0;
         }
       }
     }
@@ -104,21 +104,21 @@
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
       ~ * {
-        --#{$variable-prefix}sidebar-occupy-start: 0;
+        --#{$prefix}sidebar-occupy-start: 0;
       }
     }
 
     &.sidebar-end {
       @include ltr-rtl("right", 0);
       ~ * {
-        --#{$variable-prefix}sidebar-occupy-end: 0;
+        --#{$prefix}sidebar-occupy-end: 0;
       }
     }
   }
 
   @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
-    --#{$variable-prefix}is-mobile: true;
+    --#{$prefix}is-mobile: true;
     position: fixed;
     top: 0;
     bottom: 0;
@@ -127,21 +127,21 @@
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
       ~ * {
-        --#{$variable-prefix}sidebar-occupy-start: 0 !important; // stylelint-disable-line
+        --#{$prefix}sidebar-occupy-start: 0 !important; // stylelint-disable-line
       }
 
       &:not(.show) {
-        @include ltr-rtl("margin-left", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
       }
     }
     &.sidebar-end {
       @include ltr-rtl("right", 0);
       ~ * {
-        --#{$variable-prefix}sidebar-occupy-end: 0 !important; // stylelint-disable-line
+        --#{$prefix}sidebar-occupy-end: 0 !important; // stylelint-disable-line
       }
 
       &:not(.show) {
-        @include ltr-rtl("margin-right", calc(-1 * var(--#{$variable-prefix}sidebar-width)));
+        @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
       }
     }
   }
@@ -153,7 +153,7 @@
   @include ltr-rtl("right", 0);
   width: $sidebar-brand-height;
   height: $sidebar-header-height;
-  color: var(--#{$variable-prefix}sidebar-color, $sidebar-color);
+  color: var(--#{$prefix}sidebar-color, $sidebar-color);
   background: transparent;
   border: 0;
 
@@ -171,8 +171,8 @@
   flex: 0 0 $sidebar-brand-height;
   align-items: center;
   justify-content: center;
-  color: var(--#{$variable-prefix}sidebar-brand-color, $sidebar-brand-color);
-  background: var(--#{$variable-prefix}sidebar-brand-bg, $sidebar-brand-bg);
+  color: var(--#{$prefix}sidebar-brand-color, $sidebar-brand-color);
+  background: var(--#{$prefix}sidebar-brand-bg, $sidebar-brand-bg);
 
   .sidebar-brand-narrow {
     display: none;
@@ -183,7 +183,7 @@
   flex: 0 0 $sidebar-header-height;
   padding: $sidebar-header-padding-y $sidebar-header-padding-x;
   text-align: center;
-  background: var(--#{$variable-prefix}sidebar-header-bg, $sidebar-header-bg);
+  background: var(--#{$prefix}sidebar-header-bg, $sidebar-header-bg);
   @include transition($sidebar-header-height-transition);
 
   .nav-link {
@@ -196,7 +196,7 @@
 .sidebar-footer {
   flex: 0 0 $sidebar-footer-height;
   padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
-  background: var(--#{$variable-prefix}sidebar-footer-bg, $sidebar-footer-bg);
+  background: var(--#{$prefix}sidebar-footer-bg, $sidebar-footer-bg);
   @include transition($sidebar-footer-height-transition);
 }
 
@@ -207,7 +207,7 @@
   width: inherit;
   padding: 0;
   cursor: pointer;
-  background-color: var(--#{$variable-prefix}sidebar-toggler-bg, $sidebar-toggler-bg);
+  background-color: var(--#{$prefix}sidebar-toggler-bg, $sidebar-toggler-bg);
   border: 0;
 
   @include media-breakpoint-down($mobile-breakpoint) {
@@ -219,7 +219,7 @@
     width: $sidebar-toggler-indicator-width;
     height: $sidebar-toggler-indicator-height;
     content: "";
-    background-image: var(--#{$variable-prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
+    background-image: var(--#{$prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
     background-repeat: no-repeat;
     background-position: center;
     background-size: $sidebar-toggler-indicator-height * .25;
@@ -234,9 +234,9 @@
   }
 
   &:hover {
-    background-color: var(--#{$variable-prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
+    background-color: var(--#{$prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$variable-prefix}sidebar-toggler-indicator-hover, escape-svg($sidebar-toggler-indicator-hover-icon));
+      background-image: var(--#{$prefix}sidebar-toggler-indicator-hover, escape-svg($sidebar-toggler-indicator-hover-icon));
     }
   }
 

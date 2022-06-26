@@ -99,7 +99,7 @@
   justify-content: center; // 3. horizontally center contents
   width: $carousel-control-width;
   padding: 0;
-  color: var(--#{$variable-prefix}carousel-control-color, $carousel-control-color);
+  color: var(--#{$prefix}carousel-control-color, $carousel-control-color);
   text-align: center;
   background: none;
   border: 0;
@@ -109,7 +109,7 @@
   // Hover/focus state
   &:hover,
   &:focus {
-    color: var(--#{$variable-prefix}carousel-control-color, $carousel-control-color);
+    color: var(--#{$prefix}carousel-control-color, $carousel-control-color);
     text-decoration: none;
     outline: 0;
     opacity: $carousel-control-hover-opacity;
@@ -180,7 +180,7 @@
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
     cursor: pointer;
-    background-color: var(--#{$variable-prefix}carousel-indicator-active-bg, $carousel-indicator-active-bg);
+    background-color: var(--#{$prefix}carousel-indicator-active-bg, $carousel-indicator-active-bg);
     background-clip: padding-box;
     border: 0;
     // Use transparent borders to increase the hit area by 10px on top and bottom.
@@ -207,15 +207,15 @@
   left: (100% - $carousel-caption-width) * .5;
   padding-top: $carousel-caption-padding-y;
   padding-bottom: $carousel-caption-padding-y;
-  color: var(--#{$variable-prefix}carousel-caption-color, $carousel-caption-color);
+  color: var(--#{$prefix}carousel-caption-color, $carousel-caption-color);
   text-align: center;
 }
 
 // Dark mode carousel
 
 .carousel-dark {
-  --#{$variable-prefix}carousel-indicator-active-bg: #{$carousel-dark-indicator-active-bg};
-  --#{$variable-prefix}carousel-caption-color: #{$carousel-dark-caption-color};
+  --#{$prefix}carousel-indicator-active-bg: #{$carousel-dark-indicator-active-bg};
+  --#{$prefix}carousel-caption-color: #{$carousel-dark-caption-color};
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     filter: $carousel-dark-control-icon-filter;

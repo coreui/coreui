@@ -170,7 +170,6 @@ coreui/
 │   └── js/
 ├── docs/
 │   └──content/
-│      └── 4.1/
 ├── js/
 └── scss/
 ```

@@ -6,8 +6,8 @@
   justify-content: space-between; // space out brand from logo
   min-height: $header-min-height;
   padding: $header-padding-y $header-padding-x;
-  background: var(--#{$variable-prefix}header-bg, $header-bg);
-  border-bottom: var(--#{$variable-prefix}header-border-width, $header-border-width) solid var(--#{$variable-prefix}header-border-color, $header-border-color);
+  background: var(--#{$prefix}header-bg, $header-bg);
+  border-bottom: var(--#{$prefix}header-border-width, $header-border-width) solid var(--#{$prefix}header-border-color, $header-border-color);
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
@@ -51,7 +51,7 @@
   flex-basis: calc(100% + #{2 * $header-padding-x}); // stylelint-disable-line function-disallowed-list
   height: 0;
   margin: $header-padding-y (- $header-padding-x);
-  border-top: var(--#{$variable-prefix}header-divider-border-width, $header-divider-border-width) solid var(--#{$variable-prefix}header-divider-border-color, $header-divider-border-color);
+  border-top: var(--#{$prefix}header-divider-border-width, $header-divider-border-width) solid var(--#{$prefix}header-divider-border-color, $header-divider-border-color);
 }
 
 // Header brand
@@ -63,13 +63,13 @@
   padding-bottom: $header-brand-padding-y;
   @include ltr-rtl("margin-right", $header-brand-margin-end);
   @include font-size($header-brand-font-size);
-  color: var(--#{$variable-prefix}header-brand-color, $header-brand-color);
+  color: var(--#{$prefix}header-brand-color, $header-brand-color);
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
 
   &:hover,
   &:focus {
-    color: var(--#{$variable-prefix}header-brand-hover-color, $header-brand-hover-color);
+    color: var(--#{$prefix}header-brand-hover-color, $header-brand-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
 }
@@ -88,21 +88,21 @@
   .nav-link {
     padding-right: $header-nav-link-padding-x;
     padding-left: $header-nav-link-padding-x;
-    color: var(--#{$variable-prefix}header-color, $header-color);
+    color: var(--#{$prefix}header-color, $header-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}header-hover-color, $header-hover-color);
+      color: var(--#{$prefix}header-hover-color, $header-hover-color);
     }
 
     &.disabled {
-      color: var(--#{$variable-prefix}header-disabled-color, $header-disabled-color);
+      color: var(--#{$prefix}header-disabled-color, $header-disabled-color);
     }
   }
 
   .show > .nav-link,
   .nav-link.active {
-    color: var(--#{$variable-prefix}header-active-color, $header-active-color);
+    color: var(--#{$prefix}header-active-color, $header-active-color);
   }
 
   .dropdown-menu {
@@ -118,14 +118,14 @@
 .header-text {
   padding-top: $nav-link-padding-y;
   padding-bottom: $nav-link-padding-y;
-  color: var(--#{$variable-prefix}header-color, $header-color);
+  color: var(--#{$prefix}header-color, $header-color);
 
   a {
-    color: var(--#{$variable-prefix}header-active-color, $header-active-color);
+    color: var(--#{$prefix}header-active-color, $header-active-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}header-active-color, $header-active-color);
+      color: var(--#{$prefix}header-active-color, $header-active-color);
     }
   }
 }
@@ -134,12 +134,12 @@
   // min-width: 50px;
   padding: $header-toggler-padding-y $header-toggler-padding-x;
   @include font-size($header-toggler-font-size);
-  color: var(--#{$variable-prefix}header-color, $header-color);
-  background-color: var(--#{$variable-prefix}header-toggler-bg, $header-toggler-bg);
+  color: var(--#{$prefix}header-color, $header-color);
+  background-color: var(--#{$prefix}header-toggler-bg, $header-toggler-bg);
   border: 0; // remove default button style
   // @include borders($header-toggler-border);
   @include border-radius($header-toggler-border-radius);
-  // border-color: var(--#{$variable-prefix}header-toggler-border-color, $header-toggler-border-color);
+  // border-color: var(--#{$prefix}header-toggler-border-color, $header-toggler-border-color);
 
   &:hover {
     color: $body-color;
@@ -159,12 +159,12 @@
 .header-toggler-icon {
   display: block;
   height: $header-toggler-font-size * 1.25;
-  background-image: var(--#{$variable-prefix}header-toggler-icon-bg, escape-svg($header-toggler-icon-bg));
+  background-image: var(--#{$prefix}header-toggler-icon-bg, escape-svg($header-toggler-icon-bg));
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 
   &:hover {
-    background-image: var(--#{$variable-prefix}header-toggler-hover-icon-bg, escape-svg($header-toggler-hover-icon-bg));
+    background-image: var(--#{$prefix}header-toggler-hover-icon-bg, escape-svg($header-toggler-hover-icon-bg));
   }
 }

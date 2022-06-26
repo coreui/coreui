@@ -19,8 +19,9 @@ If you're not using a component, comment it out or delete it entirely. For examp
 
 Bootstrap's JavaScript includes every component in our primary dist files (`coreui.js` and `coreui.min.js`), and even our primary dependency (Popper) with our bundle files (`coreui.bundle.js` and `coreui.bundle.min.js`). While you're customizing via Sass, be sure to remove related JavaScript.
 
-For instance, assuming you're using your own JavaScript bundler like Webpack or Rollup, you'd only import the JavaScript you plan on using. In the example below, we show how to just include our modal JavaScript:
+For instance, assuming you're using your own JavaScript bundler like Webpack, Parcel, or Vite, you'd only import the JavaScript you plan on using. In the example below, we show how to just include our modal JavaScript:
 
+<!-- eslint-skip -->
 ```js
 // Import just what we need
 
@@ -44,6 +45,7 @@ This way, you're not including any JavaScript you don't intend to use for compon
 
 Files in `@coreui/coreui/js/dist` use the **default export**, so if you want to use one of them you have to do the following:
 
+<!-- eslint-skip -->
 ```js
 import Modal from '@coreui/coreui/js/dist/modal'
 

@@ -18,24 +18,32 @@
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
-  function normalizeData(val) {
-    if (val === 'true') {
+  function normalizeData(value) {
+    if (value === 'true') {
       return true;
     }
 
-    if (val === 'false') {
+    if (value === 'false') {
       return false;
     }
 
-    if (val === Number(val).toString()) {
-      return Number(val);
+    if (value === Number(value).toString()) {
+      return Number(value);
     }
 
-    if (val === '' || val === 'null') {
+    if (value === '' || value === 'null') {
       return null;
     }
 
-    return val;
+    if (typeof value !== 'string') {
+      return value;
+    }
+
+    try {
+      return JSON.parse(decodeURIComponent(value));
+    } catch (_unused) {
+      return value;
+    }
   }
 
   function normalizeDataKey(key) {
@@ -57,31 +65,19 @@
       }
 
       const attributes = {};
-      Object.keys(element.dataset).filter(key => key.startsWith('coreui')).forEach(key => {
+      const bsKeys = Object.keys(element.dataset).filter(key => key.startsWith('bs') && !key.startsWith('bsConfig'));
+
+      for (const key of bsKeys) {
         let pureKey = key.replace(/^coreui/, '');
         pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
         attributes[pureKey] = normalizeData(element.dataset[key]);
-      });
+      }
+
       return attributes;
     },
 
     getDataAttribute(element, key) {
       return normalizeData(element.getAttribute(`data-coreui-${normalizeDataKey(key)}`));
-    },
-
-    offset(element) {
-      const rect = element.getBoundingClientRect();
-      return {
-        top: rect.top + window.pageYOffset,
-        left: rect.left + window.pageXOffset
-      };
-    },
-
-    position(element) {
-      return {
-        top: element.offsetTop,
-        left: element.offsetLeft
-      };
     }
 
   };

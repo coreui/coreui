@@ -2,6 +2,7 @@
 /_gh_pages/
 # Hugo resources folder
 /resources/
+/.hugo_build.lock
 
 # Numerous always-ignore extensions
 *.diff

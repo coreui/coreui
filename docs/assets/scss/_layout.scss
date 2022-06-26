@@ -14,7 +14,10 @@
   }
 
   @include media-breakpoint-up(lg) {
+    display: grid;
+    grid-template-areas: "sidebar main";
     grid-template-columns: 1fr 5fr;
+    gap: $grid-gutter-width;
   }
 }
 
@@ -24,6 +27,11 @@
 
 .docs-main {
   grid-area: main;
+
+  @include media-breakpoint-down(lg) {
+    max-width: 760px;
+    margin-inline: auto;
+  }
 
   @include media-breakpoint-up(md) {
     display: grid;

@@ -22,15 +22,17 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 ### Subtractive
 
-{{< example class="docs-example-border-utils docs-example-border-utils-0" >}}
-<span class="border-0"></span>
-<span class="border-top-0"></span>
-<span class="border-end-0"></span>
-<span class="border-bottom-0"></span>
-<span class="border-start-0"></span>
+Or remove borders:
+
+{{< example class="docs-example-border-utils" >}}
+<span class="border border-0"></span>
+<span class="border border-top-0"></span>
+<span class="border border-end-0"></span>
+<span class="border border-bottom-0"></span>
+<span class="border border-start-0"></span>
 {{< /example >}}
 
-## Border color
+## Color
 
 Change the border color using utilities built on our theme colors.
 
@@ -56,6 +58,62 @@ Using utilities you can change the border on one side only, or you can change al
 {{< /example >}}
 
 ## Border-width
+Or modify the default `border-color` of a component:
+
+{{< example >}}
+<div class="mb-4">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control border-success" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+
+<div class="h4 pb-2 mb-4 text-danger border-bottom border-danger">
+  Dangerous heading
+</div>
+
+<div class="p-3 bg-info bg-opacity-10 border border-info border-start-0 rounded-end">
+  Changing border color and width
+</div>
+{{< /example >}}
+
+## Opacity
+
+{{< added-in "5.2.0" >}}
+
+Bootstrap `border-{color}` utilities are generated with Sass using CSS variables. This allows for real-time color changes without compilation and dynamic alpha transparency changes.
+
+### How it works
+
+Consider our default `.border-success` utility.
+
+```css
+.border-success {
+  --cui-border-opacity: 1;
+  border-color: rgba(var(--cui-success-rgb), var(--cui-border-opacity)) !important;
+}
+```
+
+We use an RGB version of our `--cui-success` (with the value of `25, 135, 84`) CSS variable and attached a second CSS variable, `--cui-border-opacity`, for the alpha transparency (with a default value `1` thanks to a local CSS variable). That means anytime you use `.border-success` now, your computed `color` value is `rgba(25, 135, 84, 1)`. The local CSS variable inside each `.border-*` class avoids inheritance issues so nested instances of the utilities don't automatically have a modified alpha transparency.
+
+### Example
+
+To change that opacity, override `--cui-border-opacity` via custom styles or inline styles.
+
+{{< example >}}
+<div class="border border-success p-2 mb-2">This is default success border</div>
+<div class="border border-success p-2" style="--cui-border-opacity: .5;">This is 50% opacity success border</div>
+{{< /example >}}
+
+Or, choose from any of the `.border-opacity` utilities:
+
+{{< example >}}
+<div class="border border-success p-2 mb-2">This is default success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-75">This is 75% opacity success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-50">This is 50% opacity success border</div>
+<div class="border border-success p-2 mb-2 border-opacity-25">This is 25% opacity success border</div>
+<div class="border border-success p-2 border-opacity-10">This is 10% opacity success border</div>
+{{< /example >}}
+
+## Width
 
 {{< example class="docs-example-border-utils" >}}
 <span class="border border-1"></span>
@@ -83,7 +141,7 @@ Using utilities you can change the border on one side only, or you can change al
 <span class="border-start border-start-5 border-start-info"></span>
 {{< /example >}}
 
-## Border-radius
+## Radius
 
 Add classes to an element to easily round its corners.
 
@@ -99,24 +157,30 @@ Add classes to an element to easily round its corners.
 
 ### Sizes
 
-Use the scaling classes for larger or smaller rounded corners. Sizes range from `0` to `3`, and can be configured by modifying the utilities API.
+Use the scaling classes for larger or smaller rounded corners. Sizes range from `0` to `5`, and can be configured by modifying the utilities API.
 
 {{< example class="docs-example-rounded-utils" >}}
 {{< placeholder width="75" height="75" class="rounded-0" title="Example non-rounded image" >}}
 {{< placeholder width="75" height="75" class="rounded-1" title="Example small rounded image" >}}
 {{< placeholder width="75" height="75" class="rounded-2" title="Example default rounded image" >}}
 {{< placeholder width="75" height="75" class="rounded-3" title="Example large rounded image" >}}
+{{< placeholder width="75" height="75" class="rounded-4" title="Example larger rounded image" >}}
+{{< placeholder width="75" height="75" class="rounded-5" title="Example extra large rounded image" >}}
 {{< /example >}}
 
-## Sass
+## CSS
 
 ### Variables
+
+{{< scss-docs name="root-border-var" file="scss/_root.scss" >}}
+
+### Sass variables
 
 {{< scss-docs name="border-variables" file="scss/_variables.scss" >}}
 
 {{< scss-docs name="border-radius-variables" file="scss/_variables.scss" >}}
 
-### Mixins
+### Sass mixins
 
 {{< scss-docs name="border-radius-mixins" file="scss/mixins/_border-radius.scss" >}}
 

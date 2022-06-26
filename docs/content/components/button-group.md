@@ -146,31 +146,25 @@ Feel free to combine input groups with button groups in your toolbars. Similar t
 
 Alternatively, of implementing button sizing classes to each button in a group, add `.btn-group-*` to all `.btn-group`, including each one when nesting multiple groups.
 
-<div class="docs-example">
-  <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-    <button type="button" class="btn btn-outline-dark">Left</button>
-    <button type="button" class="btn btn-outline-dark">Middle</button>
-    <button type="button" class="btn btn-outline-dark">Right</button>
-  </div>
-  <br>
-  <div class="btn-group" role="group" aria-label="Default button group">
-    <button type="button" class="btn btn-outline-dark">Left</button>
-    <button type="button" class="btn btn-outline-dark">Middle</button>
-    <button type="button" class="btn btn-outline-dark">Right</button>
-  </div>
-  <br>
-  <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-    <button type="button" class="btn btn-outline-dark">Left</button>
-    <button type="button" class="btn btn-outline-dark">Middle</button>
-    <button type="button" class="btn btn-outline-dark">Right</button>
-  </div>
+{{< example >}}
+<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+  <button type="button" class="btn btn-outline-dark">Left</button>
+  <button type="button" class="btn btn-outline-dark">Middle</button>
+  <button type="button" class="btn btn-outline-dark">Right</button>
 </div>
-
-```html
-<div class="btn-group btn-group-lg" role="group" aria-label="...">...</div>
-<div class="btn-group" role="group" aria-label="...">...</div>
-<div class="btn-group btn-group-sm" role="group" aria-label="...">...</div>
-```
+<br>
+<div class="btn-group" role="group" aria-label="Default button group">
+  <button type="button" class="btn btn-outline-dark">Left</button>
+  <button type="button" class="btn btn-outline-dark">Middle</button>
+  <button type="button" class="btn btn-outline-dark">Right</button>
+</div>
+<br>
+<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+  <button type="button" class="btn btn-outline-dark">Left</button>
+  <button type="button" class="btn btn-outline-dark">Middle</button>
+  <button type="button" class="btn btn-outline-dark">Right</button>
+</div>
+{{< /example >}}
 
 ## Nesting
 
@@ -182,10 +176,10 @@ Put a `.btn-group` inside another `.btn-group` when you need dropdown menus comb
   <button type="button" class="btn btn-primary">2</button>
 
   <div class="btn-group" role="group">
-    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown
     </button>
-    <ul class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+    <ul class="dropdown-menu">
       <li><a class="dropdown-item" href="#">Dropdown link</a></li>
       <li><a class="dropdown-item" href="#">Dropdown link</a></li>
     </ul>
@@ -197,6 +191,7 @@ Put a `.btn-group` inside another `.btn-group` when you need dropdown menus comb
 
 Create a set of buttons that appear vertically stacked rather than horizontally. **Split button dropdowns are not supported here.**
 
+{{< example >}}
 <div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
     <button type="button" class="btn btn-dark">Button</button>
@@ -207,7 +202,9 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
     <button type="button" class="btn btn-dark">Button</button>
   </div>
 </div>
+{{< /example >}}
 
+{{< example >}}
 <div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
     <button type="button" class="btn btn-primary">Button</button>
@@ -263,9 +260,15 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
     <label class="btn btn-outline-danger" for="vbtn-radio3">Radio 3</label>
   </div>
 </div>
+{{< /example >}}
 
-```html
-<div class="btn-group-vertical">
-  ...
+{{< example >}}
+<div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+  <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
+  <label class="btn btn-outline-danger" for="vbtn-radio1">Radio 1</label>
+  <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">
+  <label class="btn btn-outline-danger" for="vbtn-radio2">Radio 2</label>
+  <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio3" autocomplete="off">
+  <label class="btn btn-outline-danger" for="vbtn-radio3">Radio 3</label>
 </div>
-```
+{{< /example >}}

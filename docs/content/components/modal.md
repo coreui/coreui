@@ -22,10 +22,10 @@ Bootstrap modals are lightweight and multi-purpose popups. Modals are split into
 - Due to how HTML5 defines its semantics, [the `autofocus` HTML attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-autofocus) has no effect in Bootstrap modals. To achieve the same effect, use some custom JavaScript:
 
 ```js
-var myModal = document.getElementById('myModal')
-var myInput = document.getElementById('myInput')
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.coreui.modal', function () {
+myModal.addEventListener('shown.coreui.modal', () => {
   myInput.focus()
 })
 ```
@@ -42,8 +42,8 @@ Keep reading for demos and usage guidelines.
 
 Below is a _static_ modal example (meaning its `position` and `display` have been overridden). Included are the modal header, modal body (required for `padding`), and modal footer (optional). We ask that you include modal headers with dismiss actions whenever possible, or provide another explicit dismiss action.
 
-<div class="docs-example docs-example-modal">
-  <div class="modal" tabindex="-1">
+<div class="docs-example bg-light">
+  <div class="modal position-static d-block" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -94,7 +94,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>Woohoo, you're reading this text in a modal!</p>
+        <p>Woo-hoo, you're reading this text in a modal!</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
@@ -138,7 +138,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
 
 ### Static backdrop
 
-When backdrop is set to static, the modal will not close when clicking outside it. Click the button below to try it.
+When backdrop is set to static, the modal will not close when clicking outside of it. Click the button below to try it.
 
 <div class="modal fade" id="staticBackdropLive" data-coreui-backdrop="static" data-coreui-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLiveLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -148,7 +148,7 @@ When backdrop is set to static, the modal will not close when clicking outside i
         <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p>I will not close if you click outside me. Don't even try to press escape key.</p>
+        <p>I will not close if you click outside of me. Don't even try to press escape key.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
@@ -329,10 +329,10 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
       </div>
       <div class="modal-body">
         <h5>Popover in a modal</h5>
-        <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-coreui-content="Popover body content is set in this attribute." data-coreui-container="#exampleModalPopovers">button</a> triggers a popover on click.</p>
+        <p>This <a href="#" role="button" class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute." data-coreui-container="#exampleModalPopovers">button</a> triggers a popover on click.</p>
         <hr>
         <h5>Tooltips in a modal</h5>
-        <p><a href="#" class="tooltip-test" title="Tooltip" data-coreui-container="#exampleModalPopovers">This link</a> and <a href="#" class="tooltip-test" title="Tooltip" data-coreui-container="#exampleModalPopovers">that link</a> have tooltips on hover.</p>
+        <p><a href="#" data-coreui-toggle="tooltip" title="Tooltip" data-coreui-container="#exampleModalPopovers">This link</a> and <a href="#" data-coreui-toggle="tooltip" title="Tooltip" data-coreui-container="#exampleModalPopovers">that link</a> have tooltips on hover.</p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
@@ -351,10 +351,10 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
 ```html
 <div class="modal-body">
   <h5>Popover in a modal</h5>
-  <p>This <a href="#" role="button" class="btn btn-secondary popover-test" title="Popover title" data-coreui-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+  <p>This <a href="#" role="button" class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
   <hr>
   <h5>Tooltips in a modal</h5>
-  <p><a href="#" class="tooltip-test" title="Tooltip">This link</a> and <a href="#" class="tooltip-test" title="Tooltip">that link</a> have tooltips on hover.</p>
+  <p><a href="#" data-coreui-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-coreui-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
 </div>
 ```
 
@@ -448,7 +448,7 @@ Have a bunch of buttons that all trigger the same modal with slightly different 
 
 Below is a live demo followed by example HTML and JavaScript. For more information, [read the modal events docs](#events) for details on `relatedTarget`.
 
-{{< example >}}
+{{< example stackblitz_add_js="true" >}}
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@mdo">Open modal for @mdo</button>
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@fat">Open modal for @fat</button>
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@getbootstrap">Open modal for @getbootstrap</button>
@@ -482,20 +482,20 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
 {{< /example >}}
 
 ```js
-var exampleModal = document.getElementById('exampleModal')
-exampleModal.addEventListener('show.coreui.modal', function (event) {
+const exampleModal = document.getElementById('exampleModal')
+exampleModal.addEventListener('show.coreui.modal', event => {
   // Button that triggered the modal
-  var button = event.relatedTarget
+  const button = event.relatedTarget
   // Extract info from data-coreui-* attributes
-  var recipient = button.getAttribute('data-coreui-whatever')
+  const recipient = button.getAttribute('data-coreui-whatever')
   // If necessary, you could initiate an AJAX request here
   // and then do the updating in a callback.
   //
   // Update the modal's content.
-  var modalTitle = exampleModal.querySelector('.modal-title')
-  var modalBodyInput = exampleModal.querySelector('.modal-body input')
+  const modalTitle = exampleModal.querySelector('.modal-title')
+  const modalBodyInput = exampleModal.querySelector('.modal-body input')
 
-  modalTitle.textContent = 'New message to ' + recipient
+  modalTitle.textContent = `New message to ${recipient}`
   modalBodyInput.value = recipient
 })
 ```
@@ -572,37 +572,14 @@ Embedding YouTube videos in modals requires additional JavaScript not in Bootstr
 
 Modals have three optional sizes, available via modifier classes to be placed on a `.modal-dialog`. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Size</th>
-      <th>Class</th>
-      <th>Modal max-width</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Small</td>
-      <td><code>.modal-sm</code></td>
-      <td><code>300px</code></td>
-    </tr>
-    <tr>
-      <td>Default</td>
-      <td class="text-muted">None</td>
-      <td><code>500px</code></td>
-    </tr>
-    <tr>
-      <td>Large</td>
-      <td><code>.modal-lg</code></td>
-      <td><code>800px</code></td>
-    </tr>
-    <tr>
-      <td>Extra large</td>
-      <td><code>.modal-xl</code></td>
-      <td><code>1140px</code></td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Size | Class | Modal max-width
+| --- | --- | --- |
+| Small | `.modal-sm` | `300px` |
+| Default | <span class="text-muted">None</span> | `500px` |
+| Large | `.modal-lg` | `800px` |
+| Extra large | `.modal-xl` | `1140px` |
+{{< /bs-table >}}
 
 Our default modal without modifier class constitutes the "medium" size modal.
 
@@ -664,40 +641,16 @@ Our default modal without modifier class constitutes the "medium" size modal.
 
 Another override is the option to pop up a modal that covers the user viewport, available via modifier classes that are placed on a `.modal-dialog`.
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Class</th>
-      <th>Availability</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>.modal-fullscreen</code></td>
-      <td>Always</td>
-    </tr>
-    <tr>
-      <td><code>.modal-fullscreen-sm-down</code></td>
-      <td>Below <code>576px</code></td>
-    </tr>
-    <tr>
-      <td><code>.modal-fullscreen-md-down</code></td>
-      <td>Below <code>768px</code></td>
-    </tr>
-    <tr>
-      <td><code>.modal-fullscreen-lg-down</code></td>
-      <td>Below <code>992px</code></td>
-    </tr>
-    <tr>
-      <td><code>.modal-fullscreen-xl-down</code></td>
-      <td>Below <code>1200px</code></td>
-    </tr>
-    <tr>
-      <td><code>.modal-fullscreen-xxl-down</code></td>
-      <td>Below <code>1400px</code></td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Class | Availability |
+| --- | --- | --- |
+| `.modal-fullscreen` | Always |
+| `.modal-fullscreen-sm-down` | `576px` |
+| `.modal-fullscreen-md-down` | `768px` |
+| `.modal-fullscreen-lg-down` | `992px` |
+| `.modal-fullscreen-xl-down` | `1200px` |
+| `.modal-fullscreen-xxl-down` | `1400px` |
+{{< /bs-table >}}
 
 <div class="docs-example">
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreen">Full screen</button>
@@ -836,7 +789,7 @@ Activate a modal without writing JavaScript. Set `data-coreui-toggle="modal"` on
 {{% js-dismiss "modal" %}}
 
 {{< callout warning >}}
-While both ways to dismiss a modal are supported, keep in mind that dismissing from outside a modal does not match [the WAI-ARIA modal dialog design pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#dialog_modal). Do this at your own risk.
+While both ways to dismiss a modal are supported, keep in mind that dismissing from outside a modal does not match the [ARIA Authoring Practices Guide dialog (modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/). Do this at your own risk.
 {{< /callout >}}
 
 ### Via JavaScript
@@ -844,43 +797,24 @@ While both ways to dismiss a modal are supported, keep in mind that dismissing f
 Create a modal with a single line of JavaScript:
 
 ```js
-var myModal = new coreui.Modal(document.getElementById('myModal'), options)
+const myModal = new coreui.Modal(document.getElementById('myModal'), options)
+// or
+const myModalAlternative = new coreui.Modal('#myModal', options)
 ```
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-backdrop=""`.
+{{< markdown >}}
+{{< partial "js-data-attributes.md" >}}
+{{< /markdown >}}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 100px;">Name</th>
-      <th style="width: 50px;">Type</th>
-      <th style="width: 50px;">Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>backdrop</code></td>
-      <td>boolean or the string <code>'static'</code></td>
-      <td><code>true</code></td>
-      <td>Includes a modal-backdrop element. Alternatively, specify <code>static</code> for a backdrop which doesn't close the modal on click.</td>
-    </tr>
-    <tr>
-      <td><code>keyboard</code></td>
-      <td>boolean</td>
-      <td><code>true</code></td>
-      <td>Closes the modal when escape key is pressed</td>
-    </tr>
-    <tr>
-      <td><code>focus</code></td>
-      <td>boolean</td>
-      <td><code>true</code></td>
-      <td>Puts the focus on the modal when initialized.</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `backdrop` | boolean, `'static'` | `true` | Includes a modal-backdrop element. Alternatively, specify `static` for a backdrop which doesn't close the modal when clicked. |
+| `focus` | boolean | `true` | Puts the focus on the modal when initialized. |
+| `keyboard` | boolean | `true` | Closes the modal when escape key is pressed. |
+{{< /bs-table >}}
 
 ### Methods
 
@@ -893,132 +827,60 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 Activates your content as a modal. Accepts an optional options `object`.
 
 ```js
-var myModal = new coreui.Modal(document.getElementById('myModal'), {
+const myModal = new coreui.Modal('#myModal', {
   keyboard: false
 })
 ```
 
-#### toggle
-
-Manually toggles a modal. **Returns to the caller before the modal has actually been shown or hidden** (i.e. before the `shown.coreui.modal` or `hidden.coreui.modal` event occurs).
-
-```js
-myModal.toggle()
-```
-
-#### show
-
-Manually opens a modal. **Returns to the caller before the modal has actually been shown** (i.e. before the `shown.coreui.modal` event occurs).
-
-```js
-myModal.show()
-```
-
-Also, you can pass a DOM element as an argument that can be received in the modal events (as the `relatedTarget` property).
-
-```js
-var modalToggle = document.getElementById('toggleMyModal') // relatedTarget
-myModal.show(modalToggle)
-```
-
-#### hide
-
-Manually hides a modal. **Returns to the caller before the modal has actually been hidden** (i.e. before the `hidden.coreui.modal` event occurs).
-
-```js
-myModal.hide()
-```
-
-#### handleUpdate
-
-Manually readjust the modal's position if the height of a modal changes while it is open (i.e. in case a scrollbar appears).
-
-```js
-myModal.handleUpdate()
-```
-
-#### dispose
-
-Destroys an element's modal. (Removes stored data on the DOM element)
-
-```js
-myModal.dispose()
-```
-
-#### getInstance
-
-*Static* method which allows you to get the modal instance associated with a DOM element
-
-```js
-var myModalEl = document.getElementById('myModal')
-var modal = coreui.Modal.getInstance(myModalEl) // Returns a Bootstrap modal instance
-```
-
-#### getOrCreateInstance
-
-*Static* method which allows you to get the modal instance associated with a DOM element, or create a new one in case it wasn't initialized
-
-```js
-var myModalEl = document.querySelector('#myModal')
-var modal = bootstrap.Modal.getOrCreateInstance(myModalEl) // Returns a Bootstrap modal instance
-```
+{{< bs-table "table" >}}
+| Method | Description |
+| --- | --- |
+| `dispose` | Destroys an element's modal. (Removes stored data on the DOM element) |
+| `getInstance` | *Static* method which allows you to get the modal instance associated with a DOM element. |
+| `getOrCreateInstance` | *Static* method which allows you to get the modal instance associated with a DOM element, or create a new one in case it wasn't initialized. |
+| `handleUpdate` | Manually readjust the modal's position if the height of a modal changes while it is open (i.e. in case a scrollbar appears). |
+| `hide` | Manually hides a modal. **Returns to the caller before the modal has actually been hidden** (i.e. before the `hidden.coreui.modal` event occurs). |
+| `show` | Manually opens a modal. **Returns to the caller before the modal has actually been shown** (i.e. before the `shown.coreui.modal` event occurs). Also, you can pass a DOM element as an argument that can be received in the modal events (as the `relatedTarget` property). (i.e. `const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)` |
+| `toggle` | Manually toggles a modal. **Returns to the caller before the modal has actually been shown or hidden** (i.e. before the `shown.coreui.modal` or `hidden.coreui.modal` event occurs). |
+{{< /bs-table >}}
 
 ### Events
 
 Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 150px;">Event type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>show.coreui.modal</code></td>
-      <td>This event fires immediately when the <code>show</code> instance method is called. If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-    </tr>
-    <tr>
-      <td><code>shown.coreui.modal</code></td>
-      <td>This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the <code>relatedTarget</code> property of the event.</td>
-    </tr>
-    <tr>
-      <td><code>hide.coreui.modal</code></td>
-      <td>This event is fired immediately when the <code>hide</code> instance method has been called.</td>
-    </tr>
-    <tr>
-      <td><code>hidden.coreui.modal</code></td>
-      <td>This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete).</td>
-    </tr>
-    <tr>
-      <td><code>hidePrevented.coreui.modal</code></td>
-      <td>This event is fired when the modal is shown, its backdrop is <code>static</code> and a click outside the modal or an escape key press is performed with the keyboard option or <code>data-coreui-keyboard</code> set to <code>false</code>.</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Event | Description |
+| --- | --- |
+| `hide.coreui.modal` | This event is fired immediately when the `hide` instance method has been called. |
+| `hidden.coreui.modal` | This event is fired when the modal has finished being hidden from the user (will wait for CSS transitions to complete). |
+| `hidePrevented.coreui.modal` | This event is fired when the modal is shown, its backdrop is `static` and a click outside of the modal is performed. The event is also fired when the escape key is pressed and the `keyboard` option is set to `false`. |
+| `show.coreui.modal` | This event fires immediately when the `show` instance method is called. If caused by a click, the clicked element is available as the `relatedTarget` property of the event. |
+| `shown.coreui.modal` | This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the `relatedTarget` property of the event. |
+{{< /bs-table >}}
 
 ```js
-var myModalEl = document.getElementById('myModal')
-myModalEl.addEventListener('hidden.coreui.modal', function (event) {
+const myModalEl = document.getElementById('myModal')
+myModalEl.addEventListener('hidden.coreui.modal', event => {
   // do something...
 })
 ```
 
 ## Customizing
 
-### SASS
+### CSS variables
 
-#### Variables
+Modals use local CSS variables on `.modal` and `.modal-backdrop` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="modal-css-vars" file="scss/_modal.scss" >}}
+
+{{< scss-docs name="modal-backdrop-css-vars" file="scss/_modal.scss" >}}
+
+### SASS variables
 
 {{< scss-docs name="modal-variables" file="scss/_variables.scss" >}}
 
-#### Loop
+### SASS Loop
 
 [Responsive fullscreen modals](#fullscreen-modal) are generated via the `$breakpoints` map and a loop in `scss/_modal.scss`.
 
 {{< scss-docs name="modal-fullscreen-loop" file="scss/_modal.scss" >}}
-
-
-### CSS Vars
-{{< css-vars-docs file="scss/_modal.scss" >}}

@@ -24,14 +24,19 @@
           {{ partial "icons/twitter.svg" (dict "class" "icon icon-xl") }}
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://opencollective.com/{{ .Site.Params.opencollective }}" target="_blank" rel="noopener">
+          {{ partial "icons/opencollective.svg" (dict "class" "icon icon-xl") }}
+        </a>
+      </li>
     </ul>
 
     <a class="btn btn-outline-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="/getting-started/download/">
       {{ partial "icons/cloud-download.svg" (dict "class" "icon me-2") }}
       Download
     </a>
-    <a class="btn btn-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/pro/">
-      Get CoreUI PRO
+    <a class="btn btn-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/pricing/">
+      Buy CoreUI PRO
     </a>
   </nav>
 </header>

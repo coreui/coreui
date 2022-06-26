@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Progress
+title: Bootstrap progress
 description: Documentation and examples for using Bootstrap custom progress bars featuring support for stacked bars, animated backgrounds, and text labels.
 group: components
 toc: true
@@ -221,17 +221,19 @@ The striped gradient can also be animated. Add `.progress-bar-animated` to `.pro
 
 ## Customizing
 
-### SASS
+### CSS variables
 
-#### Variables
+Progress bars use local CSS variables on `.progress` for enhanced real-time customization. Values for the CSS variables are set via SASS, so Sass customization is still supported, too.
+
+{{< scss-docs name="progress-css-vars" file="scss/_progress.scss" >}}
+
+### SASS variables
 
 {{< scss-docs name="progress-variables" file="scss/_variables.scss" >}}
 
-#### Keyframes
+### Keyframes
 
 Used for creating the CSS animations for `.progress-bar-animated`. Included in `scss/_progress-bar.scss`.
 
 {{< scss-docs name="progress-keyframes" file="scss/_progress.scss" >}}
 
-### CSS Vars
-{{< css-vars-docs file="scss/_progress.scss" >}}

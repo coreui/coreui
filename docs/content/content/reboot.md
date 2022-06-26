@@ -20,7 +20,7 @@ Here are our guidelines and reasons for choosing what to override in Reboot:
 
 ## CSS variables
 
-<small class="d-inline-flex px-2 py-1 font-monospace text-muted border rounded-3">Added in v4.1.0</small>
+{{< added-in "4.1.0" >}}
 
 With v4.1.0, we standardized our required `@import`s across all our CSS bundles (including `coreui.css`, `coreui-reboot.css`, and `coreui-grid.css` to include `_root.scss` . This adds `:root` level CSS variables to all bundles, regardless of how many of them are used in that bundle. Ultimately Bootstrap 5 will continue to see more CSS variables added over time.
 
@@ -47,11 +47,13 @@ $font-family-sans-serif:
   "Segoe UI",
   // Android
   Roboto,
-  // Basic web fallback
-  "Helvetica Neue", Arial,
+  // older macOS and iOS
+  "Helvetica Neue"
   // Linux
   "Noto Sans",
   "Liberation Sans",
+  // Basic web fallback
+  Arial,
   // Sans serif fallback
   sans-serif,
   // Emoji fonts
@@ -62,76 +64,35 @@ Note that because the font stack includes emoji fonts, many common symbol/dingba
 
 This `font-family` is applied to the `<body>` and automatically inherited globally throughout Bootstrap. To switch the global `font-family`, update `$font-family-base` and recompile Bootstrap.
 
-## CSS variables
-
-As Bootstrap 5 continues to mature, more and more styles will be built with [CSS variables]({{< docsref "/customize/css-variables" >}}) as a means to provide more real-time customization without the need to always recompile Sass. Our approach is to take our source Sass variables and transform them into CSS variables. That way, even if you don't use CSS variables, you still have all the power of Sass. **This is still in-progress and will take time to fully implement.**
-
-For example, consider these `:root` CSS variables for common `<body>` styles:
-
-{{< scss-docs name="root-body-variables" file="scss/_root.scss" >}}
-
-In practice, those variables are then applied in Reboot like so:
-
-{{< scss-docs name="reboot-body-rules" file="scss/_reboot.scss" >}}
-
-Which allows you to make real-time customizations however you like:
-
-```html
-<body style="--cui-body-color: #333;">
-  <!-- ... -->
-</body>
-```
-
 ## Headings and paragraphs
 
 All heading elements—e.g., `<h1>`—and `<p>` are reset to have their `margin-top` removed. Headings have `margin-bottom: .5rem` added and paragraphs `margin-bottom: 1rem` for easy spacing.
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Heading</th>
-      <th>Example</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        {{< markdown >}}`<h1></h1>`{{< /markdown >}}
-      </td>
-      <td><span class="h1">h1. CoreUI heading</span></td>
-    </tr>
-    <tr>
-      <td>
-        {{< markdown >}}`<h2></h2>`{{< /markdown >}}
-      </td>
-      <td><span class="h2">h2. CoreUI heading</span></td>
-    </tr>
-    <tr>
-      <td>
-        {{< markdown >}}`<h3></h3>`{{< /markdown >}}
-      </td>
-      <td><span class="h3">h3. CoreUI heading</span></td>
-    </tr>
-    <tr>
-      <td>
-        {{< markdown >}}`<h4></h4>`{{< /markdown >}}
-      </td>
-      <td><span class="h4">h4. CoreUI heading</span></td>
-    </tr>
-    <tr>
-      <td>
-        {{< markdown >}}`<h5></h5>`{{< /markdown >}}
-      </td>
-      <td><span class="h5">h5. CoreUI heading</span></td>
-    </tr>
-    <tr>
-      <td>
-        {{< markdown >}}`<h6></h6>`{{< /markdown >}}
-      </td>
-      <td><span class="h6">h6. CoreUI heading</span></td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Heading | Example |
+| --- | --- |
+| `<h1></h1>` | <span class="h1">h1. Bootstrap heading</span> |
+| `<h2></h2>` | <span class="h2">h2. Bootstrap heading</span> |
+| `<h3></h3>` | <span class="h3">h3. Bootstrap heading</span> |
+| `<h4></h4>` | <span class="h4">h4. Bootstrap heading</span> |
+| `<h5></h5>` | <span class="h5">h5. Bootstrap heading</span> |
+| `<h6></h6>` | <span class="h6">h6. Bootstrap heading</span> |
+{{< /bs-table >}}
+
+## Horizontal rules
+
+The `<hr>` element has been simplified. Similar to browser defaults, `<hr>`s are styled via `border-top`, have a default `opacity: .25`, and automatically inherit their `border-color` via `color`, including when `color` is set via the parent. They can be modified with text, border, and opacity utilities.
+
+{{< example >}}
+<hr>
+
+<div class="text-success">
+  <hr>
+</div>
+
+<hr class="border border-danger border-2 opacity-50">
+<hr class="border border-primary border-3 opacity-75">
+{{< /example >}}
 
 ## Lists
 
@@ -214,41 +175,41 @@ For indicating sample output from a program use the `<samp>` tag.
 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class]({{< docsref "/content/tables" >}}).
 
-<div class="docs-example">
-  <table>
-    <caption>
-      This is an example table, and this is its caption to describe the contents.
-    </caption>
-    <thead>
-      <tr>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-        <th>Table heading</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-      <tr>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-        <td>Table cell</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+{{< example >}}
+<table>
+  <caption>
+    This is an example table, and this is its caption to describe the contents.
+  </caption>
+  <thead>
+    <tr>
+      <th>Table heading</th>
+      <th>Table heading</th>
+      <th>Table heading</th>
+      <th>Table heading</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+    </tr>
+    <tr>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+    </tr>
+    <tr>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+      <td>Table cell</td>
+    </tr>
+  </tbody>
+</table>
+{{< /example >}}
 
 ## Forms
 
