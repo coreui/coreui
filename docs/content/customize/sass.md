@@ -17,18 +17,18 @@ your-project/
 ├── scss
 │   └── custom.scss
 └── node_modules/
-    └── bootstrap
+    └── @coreui/coreui
         ├── js
         └── scss
 ```
 
-If you've downloaded our source files and aren't using a package manager, you'll want to manually setup something similar to that structure, keeping Bootstrap's source files separate from your own.
+If you've downloaded our source files and aren't using a package manager, you'll want to manually create something similar to that structure, keeping Bootstrap's source files separate from your own.
 
 ```text
 your-project/
 ├── scss
 │   └── custom.scss
-└── bootstrap/
+└── @coreui/coreui/
     ├── js
     └── scss
 ```
@@ -56,23 +56,28 @@ In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two
 // 2. Include any default variable overrides here
 
 // 3. Include remainder of required CoreUI stylesheets
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
-@import "../node_modules/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/variables";
 
-// 4. Include any optional CoreUI CSS as needed
-@import "../node_modules/coreui/scss/utilities";
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
-@import "../node_modules/coreui/scss/images";
-@import "../node_modules/coreui/scss/containers";
-@import "../node_modules/coreui/scss/grid";
-@import "../node_modules/coreui/scss/helpers";
+// 4. Include any default map overrides here
 
-// 5. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
-@import "../node_modules/coreui/scss/utilities/api";
+// 5. Include remainder of required parts
+@import "../node_modules/@coreui/coreui/scss/maps";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+@import "../node_modules/@coreui/coreui/scss/root";
 
-// 6. Add additional custom code here
+// 6. Optionally include any other parts as needed
+@import "../node_modules/@coreui/coreui/scss/utilities";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
+@import "../node_modules/@coreui/coreui/scss/images";
+@import "../node_modules/@coreui/coreui/scss/containers";
+@import "../node_modules/@coreui/coreui/scss/grid";
+@import "../node_modules/@coreui/coreui/scss/helpers";
+
+// 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@import "../node_modules/@coreui/coreui/scss/utilities/api";
+
+// 8. Add additional custom code here
 ```
 
 With that setup in place, you can begin to modify any of the Sass variables and maps in your `custom.scss`. You can also start to add parts of CoreUI for Bootstrap under the `// Optional` section as needed. We suggest using the full import stack from our `coreui.scss` file as your starting point.
@@ -96,21 +101,18 @@ $body-bg: #000;
 $body-color: #111;
 
 // Required
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
-@import "../node_modules/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/maps";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+@import "../node_modules/@coreui/coreui/scss/root";
 
 // Optional CoreUI components here
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
 // etc
 ```
 
 Repeat as necessary for any variable in CoreUI, including the global options below.
-
-{{< callout info >}}
-{{< partial "callout-info-npm-starter.md" >}}
-{{< /callout >}}
 
 ## Maps and loops
 
@@ -156,16 +158,17 @@ To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aw
 
 ```scss
 // Required
-@import "../node_modules/coreui/scss/functions";
-@import "../node_modules/coreui/scss/variables";
-@import "../node_modules/coreui/scss/mixins";
-@import "../node_modules/coreui/scss/root";
+@import "../node_modules/@coreui/coreui/scss/functions";
+@import "../node_modules/@coreui/coreui/scss/variables";
+@import "../node_modules/@coreui/coreui/scss/maps";
+@import "../node_modules/@coreui/coreui/scss/mixins";
+@import "../node_modules/@coreui/coreui/scss/root";
 
 $theme-colors: map-remove($theme-colors, "info", "light", "dark");
 
 // Optional
-@import "../node_modules/coreui/scss/reboot";
-@import "../node_modules/coreui/scss/type";
+@import "../node_modules/@coreui/coreui/scss/reboot";
+@import "../node_modules/@coreui/coreui/scss/type";
 // etc
 ```
 
@@ -206,7 +209,7 @@ In practice, you'd call the function and pass in the color and weight parameters
 
 ### Color contrast
 
-In order to meet [WCAG 2.0 accessibility standards for color contrast](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html), authors **must** provide [a contrast ratio of at least 4.5:1](https://www.w3.org/WAI/WCAG20/quickref/20160105/Overview.php#visual-audio-contrast-contrast), with very few exceptions.
+In order to meet the [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/TR/WCAG/) contrast requirements, authors **must** provide a minimum [text color contrast of 4.5:1](https://www.w3.org/TR/WCAG/#contrast-minimum) and a minimum [non-text color contrast of 3:1](https://www.w3.org/TR/WCAG/#non-text-contrast), with very few exceptions.
 
 An additional function we include in CoreUI for Bootstrap is the color contrast function, `color-contrast`. It utilizes the [WCAG 2.0 algorithm](https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests) for calculating contrast thresholds based on [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) in a `sRGB` colorspace to automatically return a light (`#fff`), dark (`#212529`) or black (`#000`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
 

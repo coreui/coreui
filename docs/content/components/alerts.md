@@ -29,7 +29,7 @@ Bootstrap alert is prepared for any length of text, as well as an optional close
 
 Click the button below to show an alert (hidden with inline styles to start), then dismiss (and destroy) it with the built-in close button.
 
-{{< example >}}
+{{< example stackblitz_add_js="true" >}}
 <div id="liveAlertPlaceholder"></div>
 <button type="button" class="btn btn-primary" id="liveAlertBtn">Show live alert</button>
 {{< /example >}}
@@ -37,18 +37,23 @@ Click the button below to show an alert (hidden with inline styles to start), th
 We use the following JavaScript to trigger our live alert demo:
 
 ```js
-var alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-var alertTrigger = document.getElementById('liveAlertBtn')
+const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
 
-function alert(message, type) {
-  var wrapper = document.createElement('div')
-  wrapper.innerHTML = '<div class="alert alert-' + type + ' alert-dismissible" role="alert">' + message + '<button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button></div>'
+const alert = (message, type) => {
+  const wrapper = document.createElement('div')
+  wrapper.innerHTML = [
+    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
+    `   <div>${message}</div>`,
+    '   <button type="button" class="btn-close" data-cui-dismiss="alert" aria-label="Close"></button>',
+    '</div>'
+  ].join('')
 
   alertPlaceholder.append(wrapper)
 }
 
+const alertTrigger = document.getElementById('liveAlertBtn')
 if (alertTrigger) {
-  alertTrigger.addEventListener('click', function () {
+  alertTrigger.addEventListener('click', () => {
     alert('Nice, you triggered this alert message!', 'success')
   })
 }
@@ -86,7 +91,7 @@ Similarly, you can use [flexbox utilities]({{< docsref "/utilities/flex" >}}) an
 
 {{< example >}}
 <div class="alert alert-primary d-flex align-items-center" role="alert">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
+  <svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
   </svg>
   <div>
@@ -99,37 +104,37 @@ Need more than one icon for your alerts? Consider using more Bootstrap Icons and
 
 {{< example >}}
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+  <symbol id="check-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
   </symbol>
-  <symbol id="info-fill" fill="currentColor" viewBox="0 0 16 16">
+  <symbol id="info-fill" viewBox="0 0 16 16">
     <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
   </symbol>
-  <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+  <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
     <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
   </symbol>
 </svg>
 
 <div class="alert alert-primary d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
   <div>
     An example alert with an icon
   </div>
 </div>
 <div class="alert alert-success d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
   <div>
     An example success alert with an icon
   </div>
 </div>
 <div class="alert alert-warning d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Warning:"><use xlink:href="#exclamation-triangle-fill"/></svg>
   <div>
     An example warning alert with an icon
   </div>
 </div>
 <div class="alert alert-danger d-flex align-items-center" role="alert">
-  <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
   <div>
     An example danger alert with an icon
   </div>
@@ -165,10 +170,8 @@ When an alert is dismissed, the element is completely removed from the page stru
 Initialize elements as alerts
 
 ```js
-var alertList = document.querySelectorAll('.alert')
-var alerts =  [].slice.call(alertList).map(function (element) {
-  return new coreui.Alert(element)
-})
+const alertList = document.querySelectorAll('.alert')
+const alerts = [...alertList].map(element => new coreui.Alert(element))
 ```
 
 {{< callout info >}}
@@ -185,53 +188,27 @@ See the [triggers](#triggers) section for more details.
 
 ### Methods
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>close</code>
-      </td>
-      <td>
-        Closes an alert by removing it from the DOM. If the <code>.fade</code> and <code>.show</code> classes are present on the element, the alert will fade out before it is removed.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>dispose</code>
-      </td>
-      <td>
-        Destroys an element's alert. (Removes stored data on the DOM element)
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>getInstance</code>
-      </td>
-      <td>
-        Static method which allows you to get the alert instance associated to a DOM element, you can use it like this: <code>coreui.Alert.getInstance(alert)</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>getOrCreateInstance</code>
-      </td>
-      <td>
-        Static method which returns an alert instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>bootstrap.Alert.getOrCreateInstance(element)</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+You can create an alert instance with the alert constructor, for example:
 
 ```js
-var alertNode = document.querySelector('.alert')
-var alert = coreui.Alert.getInstance(alertNode)
+const cAlert = new coreui.Alert('#myAlert')
+```
+
+This makes an alert listen for click events on descendant elements which have the `data-coreui-dismiss="alert"` attribute. (Not necessary when using the data-api’s auto-initialization.)
+
+{{< bs-table >}}
+| Method | Description |
+| --- | --- |
+| `close` | Closes an alert by removing it from the DOM. If the `.fade` and `.show` classes are present on the element, the alert will fade out before it is removed. |
+| `dispose` | Destroys an element's alert. (Removes stored data on the DOM element) |
+| `getInstance` | Static method which allows you to get the alert instance associated to a DOM element. For example: `coreui.Alert.getInstance(alert)`. |
+| `getOrCreateInstance` | Static method which returns an alert instance associated to a DOM element or create a new one in case it wasn't initialized. You can use it like this: `coreui.Alert.getOrCreateInstance(element)`. |
+{{< /bs-table >}}
+
+Basic usage:
+
+```js
+const alert = coreui.Alert.getOrCreateInstance('#myAlert')
 alert.close()
 ```
 
@@ -239,32 +216,16 @@ alert.close()
 
 Bootstrap's alert plugin exposes a few events for hooking into alert functionality.
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Event</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>close.coreui.alert</code></td>
-      <td>
-        Fires immediately when the <code>close</code> instance method is called.
-      </td>
-    </tr>
-    <tr>
-      <td><code>closed.coreui.alert</code></td>
-      <td>
-        Fired when the alert has been closed and CSS transitions have completed.
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Event | Description |
+| --- | --- |
+| `close.coreui.alert` | Fires immediately when the `close` instance method is called. |
+| `closed.coreui.alert` | Fired when the alert has been closed and CSS transitions have completed. |
+{{< /bs-table >}}
 
 ```js
-var myAlert = document.getElementById('myAlert')
-myAlert.addEventListener('closed.coreui.alert', function () {
+const myAlert = document.getElementById('myAlert')
+myAlert.addEventListener('closed.coreui.alert', event => {
   // do something, for instance, explicitly move focus to the most appropriate element,
   // so it doesn't get lost/reset to the start of the page
   // document.getElementById('...').focus()
@@ -273,19 +234,23 @@ myAlert.addEventListener('closed.coreui.alert', function () {
 
 ## Customizing
 
-### SASS
+### CSS Variables
 
-#### Variables
+Alerts use local CSS variables on `.alert` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="alert-css-vars" file="scss/_alert.scss" >}}
+
+### SASS variables
 
 {{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
 
-#### Variants
+### SASS variants
 
 CoreUI allows defining variant colors in two ways.
 
 Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
 
-##### Manual
+#### Manual
 
 You can define each color manually and keep full control of the component appearance.
 
@@ -301,7 +266,7 @@ $alert-variants: (
 );
 {{< /highlight >}}
 
-##### Color function
+#### Color function
 
 The color set can be generated automatically thanks to our `alert-color-map` function.
 
@@ -314,11 +279,16 @@ $alert-variants: (
 );
 {{< /highlight >}}
 
-#### Modifiers
+### SASS mixin
 
-CoreUI's alert component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.alert` while style variations are confined to modifier classes (e.g., `.alert-danger`). These modifier classes are built from the `$alert-variants` map to make customizing the number and name of our modifier classes.
+Used in combination with `$alert-variants` to create contextual modifier classes for our alerts.
+
+{{< scss-docs name="alert-variant-mixin" file="scss/mixins/_alert.scss" >}}
+
+### SASS loop
+
+Loop that generates the modifier classes with the `alert-variant()` mixin.
+
+{{< scss-docs name="alert-variants" file="scss/_variables.scss" >}}
 
 {{< scss-docs name="alert-modifiers" file="scss/_alert.scss" >}}
-
-### CSS Vars
-{{< css-vars-docs file="scss/_alert.scss" >}}

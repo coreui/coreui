@@ -225,62 +225,47 @@ Add `data-coreui-toggle="button"` to toggle a button's `active` state. If you're
 You can create a button instance with the button constructor, for example:
 
 ```js
-var button = document.getElementById('myButton')
-var cuiButton = new coreui.Button(button)
+const bsButton = new coreui.Button('#myButton')
 ```
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <code>toggle</code>
-      </td>
-      <td>
-        Toggles push state. Gives the button the appearance that it has been activated.
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>dispose</code>
-      </td>
-      <td>
-        Destroys an element's button. (Removes stored data on the DOM element)
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Method | Description |
+| --- | --- |
+| `toggle` | Toggles push state. Gives the button the appearance that it has been activated. |
+| `dispose` | Destroys an element's button. (Removes stored data on the DOM element) |
+| `getInstance` | Static method which allows you to get the button instance associated to a DOM element, you can use it like this: `coreui.Button.getInstance(element)`|
+| `getOrCreateInstance` | Static method which returns a button instance associated to a DOM element or create a new one in case it wasn't initialized. You can use it like this: `coreui.Button.getOrCreateInstance(element)` |
+{{< /bs-table >}}
 
 For example, to toggle all buttons
 
 ```js
-var buttons = document.querySelectorAll('.btn')
-buttons.forEach(function (button) {
-  var button = new coreui.Button(button)
+document.querySelectorAll('.btn').forEach(buttonElement => {
+  const button = coreui.Button.getOrCreateInstance(buttonElement)
   button.toggle()
 })
 ```
 
 ## Customizing
 
-### SASS
+### CSS variables
 
-#### Variables
+Buttons use local CSS variables on `.btn` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="btn-css-vars" file="scss/_buttons.scss" >}}
+
+Each `.btn-*` modifier class updates the appropriate CSS variables to minimize additional CSS rules with our `button-variant()`, `button-outline-variant()`, and `button-size()` mixins.
+
+
+### SASS variables
 
 {{< scss-docs name="btn-variables" file="scss/_variables.scss" >}}
 
-#### Variants
+### SASS variants
 
 CoreUI allows defining variant colors in two ways.
 
-Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
-
-##### Manual
+#### Manual
 
 You can define each color manually and keep full control of the component appearance.
 
@@ -305,7 +290,7 @@ $button-variants: (
 );
 {{< /highlight >}}
 
-##### Color function
+#### Color function
 
 The color set can be generated automatically thanks to our `button-color-map` function.
 
@@ -316,18 +301,26 @@ $button-variants: (
   "primary": btn-color-map($primary),
   ...
 );
-{{< /highlight >}}
+{{< /highlight >}} -->
 
-#### Modifiers
+### SASS mixins
 
 CoreUI's button component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.btn` while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$button-variants` map to make customizing the number and name of our modifier classes.
-##### Default button
-{{< scss-docs name="button-modifiers" file="scss/_buttons.scss" >}}
-##### Outline button
-{{< scss-docs name="button-outline-modifiers" file="scss/_buttons.scss" >}}
 
-##### Ghost button
-{{< scss-docs name="button-ghost-modifiers" file="scss/_buttons.scss" >}}
+There are three mixins for buttons: button and button outline variant mixins, plus a button size mixin.
 
-### CSS Vars
-{{< css-vars-docs file="scss/_buttons.scss" >}}
+{{< scss-docs name="btn-variant-mixin" file="scss/mixins/_buttons.scss" >}}
+
+{{< scss-docs name="btn-outline-variant-mixin" file="scss/mixins/_buttons.scss" >}}
+
+{{< scss-docs name="btn-ghost-variant-mixin" file="scss/mixins/_buttons.scss" >}}
+
+{{< scss-docs name="btn-size-mixin" file="scss/mixins/_buttons.scss" >}}
+
+### SASS loops
+
+Button variants (for regular and outline buttons) use their respective mixins with our `$theme-colors` map to generate the modifier classes in `scss/_buttons.scss`.
+
+{{< scss-docs name="button-variants" file="scss/_variables.scss" >}}
+
+{{< scss-docs name="btn-variant-loops" file="scss/_buttons.scss" >}}

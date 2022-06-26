@@ -26,6 +26,11 @@ Callout component is prepared for any length of text, as well as an optional ele
 
 ## Customizing
 
+### CSS variables
+
+Callouts use local CSS variables on .callout for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< css-vars-docs file="scss/_callout.scss" >}}
 ### SASS
 {{< scss-docs name="callout-variables" file="scss/_variables.scss" >}}
 
@@ -39,5 +44,3 @@ CoreUI's callout component is built with a base-modifier class approach. This me
 
 {{< scss-docs name="callout-modifiers" file="scss/_callout.scss" >}}
 
-### CSS Vars
-{{< css-vars-docs file="scss/_callout.scss" >}}

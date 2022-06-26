@@ -81,7 +81,7 @@ Adding in the previous and next controls. We recommend using `<button>` elements
 You can attach the indicators to the carousel, lengthwise the controls, too.
 
 {{< example >}}
-<div id="carouselExampleIndicators" class="carousel slide" data-coreui-ride="carousel">
+<div id="carouselExampleIndicators" class="carousel slide" data-coreui-ride="true">
   <div class="carousel-indicators">
     <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="1" aria-label="Slide 2"></button>
@@ -114,7 +114,7 @@ You can attach the indicators to the carousel, lengthwise the controls, too.
 You can add captions to slides with the `.carousel-caption` element within any `.carousel-item`. They can be immediately hidden on smaller viewports, as shown below, with optional [display utilities]({{< docsref "/utilities/display" >}}). We hide them with `.d-none` and draw them back on medium-sized devices with `.d-md-block`.
 
 {{< example >}}
-<div id="carouselExampleCaptions" class="carousel slide" data-coreui-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide" data-coreui-ride="false">
   <div class="carousel-indicators">
     <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="1" aria-label="Slide 2"></button>
@@ -156,7 +156,7 @@ You can add captions to slides with the `.carousel-caption` element within any `
 
 ### Crossfade
 
-Add `.carousel-fade` to your carousel to animate slides with a fade transition instead of a slide.
+Add `.carousel-fade` to your carousel to animate slides with a fade transition instead of a slide. Depending on your carousel content (e.g., text only slides), you may want to add `.bg-body` or some custom CSS to the `.carousel-item`s for proper crossfading.
 
 {{< example >}}
 <div id="carouselExampleFade" class="carousel slide carousel-fade" data-coreui-ride="carousel">
@@ -212,19 +212,19 @@ Add `data-coreui-interval=""` to a `.carousel-item` to change the amount of time
 
 ### Disable touch swiping
 
-Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the `data-coreui-touch` attribute. The example below also does not include the `data-coreui-ride` attribute and has `data-coreui-interval="false"` so it doesn't autoplay.
+Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the `data-coreui-touch` attribute. The example below also does not include the `data-coreui-ride` attribute so it doesn't autoplay.
 
 {{< example >}}
-<div id="carouselExampleControlsNoTouching" class="carousel slide" data-coreui-touch="false" data-coreui-interval="false">
+<div id="carouselExampleControlsNoTouching" class="carousel slide" data-coreui-touch="false">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#555" background="#777" text="First slide" >}}
+      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#555" background="#777" text="First slide" >}}
     </div>
     <div class="carousel-item">
-      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#444" background="#666" text="Second slide" >}}
+      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#444" background="#666" text="Second slide" >}}
     </div>
     <div class="carousel-item">
-      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
+      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#333" background="#555" text="Third slide" >}}
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExampleControlsNoTouching" data-coreui-slide="prev">
@@ -299,63 +299,25 @@ The `data-coreui-ride="carousel"` attribute is applied to mark a carousel as ani
 Call carousel manually with:
 
 ```js
-var myCarousel = document.querySelector('#myCarousel')
-var carousel = new coreui.Carousel(myCarousel)
+const carousel = new coreui.Carousel('#myCarousel')
 ```
 
 ### Options
 
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-interval=""`.
+{{< markdown >}}
+{{< partial "js-data-attributes.md" >}}
+{{< /markdown >}}
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 100px;">Name</th>
-      <th style="width: 50px;">Type</th>
-      <th style="width: 50px;">Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>interval</code></td>
-      <td>number</td>
-      <td><code>5000</code></td>
-      <td>The amount of time to delay between automatically cycling an item. If <code>false</code>, carousel will not automatically cycle.</td>
-    </tr>
-    <tr>
-      <td><code>keyboard</code></td>
-      <td>boolean</td>
-      <td><code>true</code></td>
-      <td>Whether the carousel should react to keyboard events.</td>
-    </tr>
-    <tr>
-      <td><code>pause</code></td>
-      <td>string | boolean</td>
-      <td><code>'hover'</code></td>
-      <td><p>If set to <code>'hover'</code>, pauses the cycling of the carousel on <code>mouseenter</code> and resumes the cycling of the carousel on <code>mouseleave</code>. If set to <code>false</code>, hovering over the carousel won't pause it.</p>
-      <p>On touch-enabled devices, when set to <code>'hover'</code>, cycling will pause on <code>touchend</code> (once the user finished interacting with the carousel) for two intervals, before automatically resuming. Note that this is in addition to the above mouse behavior.</p></td>
-    </tr>
-    <tr>
-      <td><code>ride</code></td>
-      <td>string | boolean</td>
-      <td><code>false</code></td>
-      <td>Autoplays the carousel after the user manually cycles the first item. If set to <code>'carousel'</code>, autoplays the carousel on load.</td>
-    </tr>
-    <tr>
-      <td><code>wrap</code></td>
-      <td>boolean</td>
-      <td><code>true</code></td>
-      <td>Whether the carousel should cycle continuously or have hard stops.</td>
-    </tr>
-    <tr>
-      <td><code>touch</code></td>
-      <td>boolean</td>
-      <td><code>true</code></td>
-      <td>Whether the carousel should support left/right swipe interactions on touchscreen devices.</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `interval` | number | `5000` | The amount of time to delay between automatically cycling an item. |
+| `keyboard` | boolean | `true` | Whether the carousel should react to keyboard events. |
+| `pause` | string, boolean | `"hover"` | If set to `"hover"`, pauses the cycling of the carousel on `mouseenter` and resumes the cycling of the carousel on `mouseleave`. If set to `false`, hovering over the carousel won't pause it. On touch-enabled devices, when set to `"hover"`, cycling will pause on `touchend` (once the user finished interacting with the carousel) for two intervals, before automatically resuming. This is in addition to the mouse behavior. |
+| `ride` | string, boolean | `false` | If set to `true`, autoplays the carousel after the user manually cycles the first item. If set to `"carousel"`, autoplays the carousel on load. |
+| `touch` | boolean | `true` | Whether the carousel should support left/right swipe interactions on touchscreen devices. |
+| `wrap` | boolean | `true` | Whether the carousel should cycle continuously or have hard stops. |
+{{< /bs-table >}}
 
 ### Methods
 
@@ -366,68 +328,26 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 You can create a carousel instance with the carousel constructor, for example, to initialize with additional options and start cycling through items:
 
 ```js
-var myCarousel = document.querySelector('#myCarousel')
-var carousel = new coreui.Carousel(myCarousel, {
+const myCarouselElement = document.querySelector('#myCarousel')
+const carousel = new coreui.Carousel(myCarouselElement, {
   interval: 2000,
   wrap: false
 })
 ```
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Method</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>cycle</code></td>
-      <td>Cycles through the carousel items from left to right.</td>
-    </tr>
-    <tr>
-      <td><code>pause</code></td>
-      <td>Stops the carousel from cycling through items.</td>
-    </tr>
-    <tr>
-      <td><code>prev</code></td>
-      <td>Cycles to the previous item. <strong>Returns to the caller before the previous item has been shown</strong> (e.g., before the <code>slid.coreui.carousel</code> event occurs).</td>
-    </tr>
-    <tr>
-      <td><code>next</code></td>
-      <td>Cycles to the next item. <strong>Returns to the caller before the next item has been shown</strong> (e.g., before the <code>slid.coreui.carousel</code> event occurs).</td>
-    </tr>
-    <tr>
-      <td><code>nextWhenVisible</code></td>
-      <td>Don't cycle carousel to next when the page isn't visible or the carousel or its parent isn't visible. <strong>Returns to the caller before the target item has been shown</strong>
-    </tr>
-    <tr>
-      <td><code>to</code></td>
-      <td>Cycles the carousel to a particular frame (0 based, similar to an array). <strong>Returns to the caller before the target item has been shown</strong> (e.g., before the <code>slid.coreui.carousel</code> event occurs).</td>
-    </tr>
-    <tr>
-      <td><code>dispose</code></td>
-      <td>Destroys an element's carousel. (Removes stored data on the DOM element)</td>
-    </tr>
-    <tr>
-      <td>
-        <code>getInstance</code>
-      </td>
-      <td>
-        Static method which allows you to get the carousel instance associated to a DOM element, you can use it like this: <code>coreui.Carousel.getInstance(element)</code>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>getOrCreateInstance</code>
-      </td>
-      <td>
-        Static method which returns a carousel instance associated to a DOM element or create a new one in case it wasn't initialized.
-        You can use it like this: <code>coreui.Carousel.getOrCreateInstance(element)</code>
-      </td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Method | Description |
+| --- | --- |
+| `cycle` | Cycles through the carousel items from left to right. |
+| `dispose` | Destroys an element's carousel. (Removes stored data on the DOM element) |
+| `getInstance` | Static method which allows you to get the carousel instance associated to a DOM element, you can use it like this: `coreui.Carousel.getInstance(element)` |
+| `getOrCreateInstance` | Static method which returns a carousel instance associated to a DOM element or create a new one in case it wasn't initialized. You can use it like this: `coreui.Carousel.getOrCreateInstance(element)` |
+| `next` | Cycles to the next item. **Returns to the caller before the next item has been shown** (e.g., before the `slid.coreui.carousel` event occurs). |
+| `nextWhenVisible` | Don't cycle carousel to next when the page isn't visible or the carousel or its parent isn't visible. **Returns to the caller before the target item has been shown** |
+| `pause` | Stops the carousel from cycling through items. |
+| `prev` | Cycles to the previous item. **Returns to the caller before the previous item has been shown** (e.g., before the `slid.coreui.carousel` event occurs). |
+| `to` | Cycles the carousel to a particular frame (0 based, similar to an array). **Returns to the caller before the target item has been shown** (e.g., before the `slid.coreui.carousel` event occurs). |
+{{< /bs-table >}}
 
 ### Events
 
@@ -440,36 +360,22 @@ Bootstrap's carousel class exposes two events for hooking into carousel function
 
 All carousel events are fired at the carousel itself (i.e. at the `<div class="carousel">`).
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 150px;">Event type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>slide.coreui.carousel</code></td>
-      <td>Fires immediately when the <code>slide</code> instance method is invoked.</td>
-    </tr>
-    <tr>
-      <td><code>slid.coreui.carousel</code></td>
-      <td>Fired when the carousel has completed its slide transition.</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table >}}
+| Event type | Description |
+| --- | --- |
+| `slid.coreui.carousel` | Fired when the carousel has completed its slide transition. |
+| `slide.coreui.carousel` | Fires immediately when the `slide` instance method is invoked. |
+{{< /bs-table >}}
 
 ```js
-var myCarousel = document.getElementById('myCarousel')
+const myCarousel = document.getElementById('myCarousel')
 
-myCarousel.addEventListener('slide.coreui.carousel', function () {
+myCarousel.addEventListener('slide.coreui.carousel', event => {
   // do something...
 })
 ```
 ## Customizing
 
-### SASS
-
-#### Variables
+### SASS Variables
 
 {{< scss-docs name="carousel-variables" file="scss/_variables.scss" >}}

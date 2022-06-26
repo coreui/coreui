@@ -12,20 +12,20 @@
   @include font-size($form-select-font-size);
   font-weight: $form-select-font-weight;
   line-height: $form-select-line-height;
-  color: var(--#{$variable-prefix}form-select-color, $form-select-color);
-  background-color: var(--#{$variable-prefix}form-select-bg, $form-select-bg);
+  color: var(--#{$prefix}form-select-color, $form-select-color);
+  background-color: var(--#{$prefix}form-select-bg, $form-select-bg);
   background-image: escape-svg($form-select-indicator);
   background-repeat: no-repeat;
   @include ltr-rtl-value-only("background-position", $form-select-bg-position);
   background-size: $form-select-bg-size;
-  border: $form-select-border-width solid var(--#{$variable-prefix}form-select-border-color, $form-select-border-color);
+  border: $form-select-border-width solid var(--#{$prefix}form-select-border-color, $form-select-border-color);
   @include border-radius($form-select-border-radius, 0);
   @include box-shadow($form-select-box-shadow);
   @include transition($form-select-transition);
   appearance: none;
 
   &:focus {
-    border-color: var(--#{$variable-prefix}form-select-focus-border-color, $form-select-focus-border-color);
+    border-color: var(--#{$prefix}form-select-focus-border-color, $form-select-focus-border-color);
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
@@ -42,15 +42,15 @@
   }
 
   &:disabled {
-    color: var(--#{$variable-prefix}form-select-disabled-color, $form-select-disabled-color);
-    background-color: var(--#{$variable-prefix}form-select-disabled-bg, $form-select-disabled-bg);
-    border-color: var(--#{$variable-prefix}form-select-disabled-border-color, $form-select-disabled-border-color);
+    color: var(--#{$prefix}form-select-disabled-color, $form-select-disabled-color);
+    background-color: var(--#{$prefix}form-select-disabled-bg, $form-select-disabled-bg);
+    border-color: var(--#{$prefix}form-select-disabled-border-color, $form-select-disabled-border-color);
   }
 
   // Remove outline from select box in FF
   &:-moz-focusring {
     color: transparent;
-    text-shadow: 0 0 0 var(--#{$variable-prefix}form-select-color, $form-select-color);
+    text-shadow: 0 0 0 var(--#{$prefix}form-select-color, $form-select-color);
   }
 }
 

@@ -53,7 +53,7 @@ Pull in CoreUI's **source files** into nearly any project with some of the most 
 Install CoreUI for Bootstrap in your Node.js powered apps with [the npm package](https://www.npmjs.com/package/@coreui/coreui):
 
 ```sh
-npm install coreui
+npm install @coreui/coreui
 ```
 
 `const coreui = require('@coreui/coreui')` or `import coreui from '@coreui/coreui'` will load all of CoreUI's plugins onto a `coreui` object.

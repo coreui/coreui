@@ -11,13 +11,14 @@ CoreUI for Bootstrap utilities are generated with our utility API and can be use
 
 The `$utilities` map contains all our utilities and is later merged with your custom `$utilities` map, if present. The utility map contains a keyed list of utility groups which accept the following options:
 
-{{< bs-table "table text-start" >}}
+{{< bs-table "table table-utilities" >}}
 | Option | Type | Default&nbsp;value | Description |
 | --- | --- | --- | --- |
 | [`property`](#property) | **Required** | – | Name of the property, this can be a string or an array of strings (e.g., horizontal paddings or margins). |
-| [`values`](#values) | **Required** | – | List of values, or a map if you don't want the class name to be the same as the value. If `null` is used as map key, it isn't compiled. |
-| [`class`](#class) | Optional | null | Name of the generated class. If not provided and `property` is an array of strings, `class` will default to the first element of the `property` array. |
+| [`values`](#values) | **Required** | – | List of values, or a map if you don't want the class name to be the same as the value. If `null` is used as map key, `class` is not prepended to the class name. |
+| [`class`](#class) | Optional | null | Name of the generated class. If not provided and `property` is an array of strings, `class` will default to the first element of the `property` array. If not provided and `property` is a string, the `values` keys are used for the `class` names. |
 | [`css-var`](#css-variable-utilities) | Optional | `false` | Boolean to generate CSS variables instead of CSS rules. |
+| [`css-variable-name`](#css-variable-utilities) | Optional | null | Custom un-prefixed name for the CSS variable inside the ruleset. |
 | [`local-vars`](#local-css-variables) | Optional | null | Map of local CSS variables to generate in addition to the CSS rules. |
 | [`state`](#states) | Optional | null | List of pseudo-class variants (e.g., `:hover` or `:focus`) to generate. |
 | [`responsive`](#responsive) | Optional | `false` | Boolean indicating if responsive classes should be generated. |
@@ -134,14 +135,39 @@ Output:
 .o-100 { opacity: 1 !important; }
 ```
 
+If `class: null`, generates classes for each of the `values` keys:
+
+```scss
+$utilities: (
+  "visibility": (
+    property: visibility,
+    class: null,
+    values: (
+      visible: visible,
+      invisible: hidden,
+    )
+  )
+);
+```
+
+Output:
+
+```css
+.visible { visibility: visible !important; }
+.invisible { visibility: hidden !important; }
+```
+
 ### CSS variable utilities
 
-Set the `css-var` boolean option to `true` and the API will generate local CSS variables for the given selector instead of the usual `property: value` rules. Consider our `.text-opacity-*` utilities:
+Set the `css-var` boolean option to `true` and the API will generate local CSS variables for the given selector instead of the usual `property: value` rules. Add an optional `css-variable-name` to set a different CSS variable name than the class name.
+
+Consider our `.text-opacity-*` utilities. If we add the `css-variable-name` option, we'll get a custom output.
 
 ```scss
 $utilities: (
   "text-opacity": (
     css-var: true,
+    css-variable-name: text-alpha,
     class: text-opacity,
     values: (
       25: .25,
@@ -363,6 +389,8 @@ New utilities can be added to the default `$utilities` map with a `map-merge`. M
 ```scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
 $utilities: map-merge(
@@ -376,6 +404,8 @@ $utilities: map-merge(
     )
   )
 );
+
+@import "bootstrap/scss/utilities/api";
 ```
 
 ### Modify utilities
@@ -385,6 +415,8 @@ Modify existing utilities in the default `$utilities` map with `map-get` and `ma
 ```scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
 $utilities: map-merge(
@@ -401,6 +433,8 @@ $utilities: map-merge(
     ),
   )
 );
+
+@import "bootstrap/scss/utilities/api";
 ```
 
 #### Enable responsive
@@ -410,6 +444,8 @@ You can enable responsive classes for an existing set of utilities that are not 
 ```scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
 $utilities: map-merge(
@@ -420,6 +456,8 @@ $utilities: map-merge(
     ),
   )
 );
+
+@import "bootstrap/scss/utilities/api";
 ```
 
 This will now generate responsive variations of `.border` and `.border-0` for each breakpoint. Your generated CSS will look like this:
@@ -461,6 +499,8 @@ Missing v4 utilities, or used to another naming convention? The utilities API ca
 ```scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
 $utilities: map-merge(
@@ -471,15 +511,34 @@ $utilities: map-merge(
     ),
   )
 );
+
+@import "bootstrap/scss/utilities/api";
 ```
 
 ### Remove utilities
 
-Remove any of the default utilities by setting the group key to `null`. For example, to remove all our `width` utilities, create a `$utilities` `map-merge` and add `"width": null` within.
+Remove any of the default utilities with the [`map-remove()` Sass function](https://sass-lang.com/documentation/modules/map#remove).
 
 ```scss
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+// Remove multiple utilities with a comma-separated list
+$utilities: map-remove($utilities, "width", "float");
+
+@import "bootstrap/scss/utilities/api";
+```
+
+You can also use the [`map-merge()` Sass function](https://sass-lang.com/documentation/modules/map#merge) and set the group key to `null` to remove the utility.
+
+```scss
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
 @import "bootstrap/scss/utilities";
 
 $utilities: map-merge(
@@ -488,6 +547,44 @@ $utilities: map-merge(
     "width": null
   )
 );
+
+@import "bootstrap/scss/utilities/api";
+```
+
+### Add, remove, modify
+
+You can add, remove, and modify many utilities all at once with the [`map-merge()` Sass function](https://sass-lang.com/documentation/modules/map#merge). Here's how you can combine the previous examples into one larger map.
+
+```scss
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    // Remove the `width` utility
+    "width": null,
+
+    // Make an existing utility responsive
+    "border": map-merge(
+      map-get($utilities, "border"),
+      ( responsive: true ),
+    ),
+
+    // Add new utilities
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    )
+  )
+);
+
+@import "bootstrap/scss/utilities/api";
 ```
 
 #### Remove utility in RTL

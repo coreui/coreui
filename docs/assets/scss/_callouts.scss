@@ -6,36 +6,30 @@
   padding: 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  border: 1px solid $gray-200;
-  border-left-width: .25rem;
-  @include border-radius();
+  background-color: var(--bd-callout-bg, var(--cui-gray-100));
+  border-left: .25rem solid var(--bd-callout-border, var(--cui-gray-300));
 
   h4 {
     margin-bottom: .25rem;
   }
 
-  p:last-child {
+  > :last-child {
     margin-bottom: 0;
-  }
-
-  code {
-    @include border-radius();
   }
 
   + .docs-callout {
     margin-top: -.25rem;
   }
+
+  .highlight {
+    background-color: rgba($black, .05);
+  }
 }
 
 // Variations
-.docs-callout-info {
-  border-left-color: $bd-info;
-}
-
-.docs-callout-warning {
-  border-left-color: $bd-warning;
-}
-
-.docs-callout-danger {
-  border-left-color: $bd-danger;
+@each $variant in $bd-callout-variants {
+  .docs-callout-#{$variant} {
+    --bd-callout-bg: rgba(var(--cui-#{$variant}-rgb), .075);
+    --bd-callout-border: rgba(var(--cui-#{$variant}-rgb), .5);
+  }
 }

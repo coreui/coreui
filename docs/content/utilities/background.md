@@ -37,9 +37,9 @@ Do you need a gradient in your custom CSS? Just add `background-image: var(gradi
 
 ## Opacity
 
-<small class="d-inline-flex px-2 py-1 font-monospace text-muted border rounded-3">Added in v5.1.0</small>
+{{< added-in "4.1.0" >}}
 
-As of v5.1.0, `background-color` utilities are generated with Sass using CSS variables. This allows for real-time color changes without compilation and dynamic alpha transparency changes.
+As of v4.1.0, `background-color` utilities are generated with Sass using CSS variables. This allows for real-time color changes without compilation and dynamic alpha transparency changes.
 
 ### How it works
 
@@ -103,11 +103,11 @@ Grayscale colors are also available as a Sass map. **This map is not used to gen
 
 RGB colors are generated from a separate Sass map:
 
-{{< scss-docs name="theme-colors-rgb" file="scss/_variables.scss" >}}
+{{< scss-docs name="theme-colors-rgb" file="scss/_maps.scss" >}}
 
 And background color opacities build on that with their own map that's consumed by the utilities API:
 
-{{< scss-docs name="utilities-bg-colors" file="scss/_variables.scss" >}}
+{{< scss-docs name="utilities-bg-colors" file="scss/_maps.scss" >}}
 
 ### Mixins
 

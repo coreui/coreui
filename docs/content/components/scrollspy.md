@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Scrollspy
+title: Bootstrap scrollspy
 description: Automatically update Bootstrap navigation or list group components based on scroll position to indicate which link is currently active in the viewport.
 group: components
 toc: true
@@ -254,114 +254,63 @@ body {
 After adding `position: relative;` in your CSS, call the scrollspy via JavaScript:
 
 ```js
-var scrollSpy = new coreui.ScrollSpy(document.body, {
+const scrollSpy = new coreui.ScrollSpy(document.body, {
   target: '#navbar-example'
 })
 ```
 
-{{< callout danger >}}
-#### Resolvable ID targets required
+### Options
 
-Navbar links must have resolvable id targets. For example, a `<a href="#home">home</a>` must correspond to something in the DOM like `<div id="home"></div>`.
-{{< /callout >}}
+{{< markdown >}}
+{{< partial "js-data-attributes.md" >}}
+{{< /markdown >}}
 
-{{< callout info >}}
-#### Non-visible target elements ignored
+{{< bs-table "table" >}}
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `rootMargin` | string | `0px 0px -40%` | Intersection Observer [rootMargin](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) valid units, when calculating scroll position. |
+| `smoothScroll` | boolean | `false` | Enables smooth scrolling when a user clicks on a link that refers to ScrollSpy observables. |
+| `target` | string \| jQuery object \| DOM element |  | Specifies element to apply Scrollspy plugin. |
+{{< /bs-table >}}
 
-Target elements that are not visible will be ignored and their corresponding nav items will never be highlighted.
+{{< callout warning >}}
+**Deprecated Options**
+
+Up until v5.1.3 we were using `offset` & `method` options, which are now deprecated and replaced by `rootMargin`.
+To keep backwards compatibility, we will continue to parse a given `offset` to `rootMargin`, but this feature will be removed in **v6**.
 {{< /callout >}}
 
 ### Methods
 
-#### refresh
+{{< bs-table "table" >}}
+| Method | Description |
+| --- | --- |
+| `dispose` | Destroys an element's scrollspy. (Removes stored data on the DOM element) |
+| `getInstance` | *Static* method to get the scrollspy instance associated with a DOM element |
+| `getOrCreateInstance` | *Static* method to get the scrollspy instance associated with a DOM element, or to create a new one in case it wasn't initialized. |
+| `refresh` | When adding or removing elements in the DOM, you'll need to call the refresh method. |
+{{< /bs-table >}}
 
-When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:
+Here's an example using the refresh method:
 
 ```js
-var dataSpyList = [].slice.call(document.querySelectorAll('[data-coreui-spy="scroll"]'))
-dataSpyList.forEach(function (dataSpyEl) {
-  coreui.ScrollSpy.getInstance(dataSpyEl)
-    .refresh()
+const dataSpyList = document.querySelectorAll('[data-coreui-spy="scroll"]')
+dataSpyList.forEach(dataSpyEl => {
+  coreui.ScrollSpy.getInstance(dataSpyEl).refresh()
 })
 ```
 
-#### dispose
-
-Destroys an element's scrollspy. (Removes stored data on the DOM element)
-
-#### getInstance
-
-*Static* method which allows you to get the scrollspy instance associated with a DOM element
-
-```js
-var scrollSpyContentEl = document.getElementById('content')
-var scrollSpy = coreui.ScrollSpy.getInstance(scrollSpyContentEl) // Returns a Bootstrap scrollspy instance
-```
-
-#### getOrCreateInstance
-
-*Static* method which allows you to get the scrollspy instance associated with a DOM element, or create a new one in case it wasn't initialized
-
-```js
-var scrollSpyContentEl = document.getElementById('content')
-var scrollSpy = coreui.ScrollSpy.getOrCreateInstance(scrollSpyContentEl) // Returns a Bootstrap scrollspy instance
-```
-
-### Options
-
-Options can be passed via data attributes or JavaScript. For data attributes, append the option name to `data-coreui-`, as in `data-coreui-offset=""`.
-
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 100px;">Name</th>
-      <th style="width: 100px;">Type</th>
-      <th style="width: 50px;">Default</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>offset</code></td>
-      <td>number</td>
-      <td><code>10</code></td>
-      <td>Pixels to offset from top when calculating position of scroll.</td>
-    </tr>
-    <tr>
-      <td><code>method</code></td>
-      <td>string</td>
-      <td><code>auto</code></td>
-      <td>Finds which section the spied element is in. <code>auto</code> will choose the best method to get scroll coordinates. <code>offset</code> will use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect"><code>Element.getBoundingClientRect()</code></a> method to get scroll coordinates. <code>position</code> will use the <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop"><code>HTMLElement.offsetTop</code></a> and <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetLeft"><code>HTMLElement.offsetLeft</code></a> properties to get scroll coordinates.</td>
-    </tr>
-    <tr>
-      <td><code>target</code></td>
-      <td>string | jQuery object | DOM element</td>
-      <td></td>
-      <td>Specifies element to apply Scrollspy plugin.</td>
-    </tr>
-  </tbody>
-</table>
-
 ### Events
 
-<table class="table">
-  <thead>
-    <tr>
-      <th style="width: 150px;">Event type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>activate.coreui.scrollspy</code></td>
-      <td>This event fires on the scroll element whenever a new item becomes activated by the scrollspy.</td>
-    </tr>
-  </tbody>
-</table>
+{{< bs-table "table" >}}
+| Event | Description |
+| --- | --- |
+| `activate.coreui.scrollspy` | This event fires on the scroll element whenever an anchor is activated by the scrollspy. |
+{{< /bs-table >}}
 
 ```js
-var firstScrollSpyEl = document.querySelector('[data-coreui-spy="scroll"]')
-firstScrollSpyEl.addEventListener('activate.coreui.scrollspy', function () {
+const firstScrollSpyEl = document.querySelector('[data-coreui-spy="scroll"]')
+firstScrollSpyEl.addEventListener('activate.coreui.scrollspy', () => {
   // do something...
 })
 ```

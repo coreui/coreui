@@ -88,9 +88,7 @@ Quickly change the `font-weight` or `font-style` of text with these utilities. `
 
 {{< example >}}
 <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
-<p class="fw-bold">Bold text.</p>
-<p class="fw-semibold">Semibold text.</p>
-<p class="fw-medium">Medium weight text.</p>
+<p class="fw-semibold">Semibold weight text.</p>
 <p class="fw-normal">Normal weight text.</p>
 <p class="fw-light">Light weight text.</p>
 <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>

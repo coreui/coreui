@@ -7,19 +7,19 @@
 {{- $file := .Get "file" -}}
 {{- $strip_default := .Get "strip-default" | default "true" -}}
 
-{{- $regex := printf "(--#{\\$variable-prefix}[^,|)|:]*)" -}}
+{{- $regex := printf "(--#{\\$prefix}[^,|)|:]*)" -}}
 
 {{- $css := readFile $file -}}
 {{- $match := (findRE $regex $css) | uniq | sort -}}
 
 {{- if (eq (len $match) 0) -}}
-  {{- errorf "Got no matches for %q in %q! (called in %q)" $file $.Page.Path -}}
+  {{- errorf "Got no matches for %q in %q! (called in %q)" $file -}}
 {{- end -}}
 
 {{- $result := delimit $match "\n" -}}
 
 {{- if (ne $strip_default "false") -}}
-  {{- $result = replace $result "#{$variable-prefix}" "cui-" -}}
+  {{- $result = replace $result "#{$prefix}" "cui-" -}}
 {{- end -}}
 
 {{- highlight $result "scss" "" -}}

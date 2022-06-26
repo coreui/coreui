@@ -1,8 +1,8 @@
 /*!
  * CoreUI Docs (https://coreui.io/docs/)
  * Copyright 2022 creativeLabs Łukasz Holeczek
- * Copyright 2011-2020 The Bootstrap Authors
- * Copyright 2011-2020 Twitter, Inc.
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
@@ -39,7 +39,7 @@ $enable-cssgrid: true; // stylelint-disable-line scss/dollar-variable-default
 
 // Load docs components
 @import "variables";
-@import "subnav";
+@import "ads";
 @import "masthead";
 @import "content";
 @import "skippy";

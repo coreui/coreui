@@ -5,14 +5,12 @@
   $background-hover: map-get($variant, "bg-hover");
   $color: contrast-ratio-correction(map-get($variant, "color"), map-get($variant, "bg"), abs($alert-color-scale), $state);
 
-  .list-group-item-#{$state} {
-    --#{$variable-prefix}list-group-color: #{$color};
-    --#{$variable-prefix}list-group-bg: #{$background};
-    --#{$variable-prefix}list-group-hover-bg: #{$background-hover};
-    --#{$variable-prefix}list-group-action-hover-color: #{$color};
-    --#{$variable-prefix}list-group-action-active-color: #{$white};
-    --#{$variable-prefix}list-group-action-active-bg: #{$color};
-    --#{$variable-prefix}list-group-action-active-border-color: #{$color};
-  }
+  --#{$prefix}list-group-color: #{$color};
+  --#{$prefix}list-group-bg: #{$background};
+  --#{$prefix}list-group-hover-bg: #{$background-hover};
+  --#{$prefix}list-group-action-hover-color: #{$color};
+  --#{$prefix}list-group-action-active-color: #{$white};
+  --#{$prefix}list-group-action-active-bg: #{$color};
+  --#{$prefix}list-group-action-active-border-color: #{$color};
 }
 // scss-docs-end list-group-mixin

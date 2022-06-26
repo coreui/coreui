@@ -6,8 +6,8 @@
   justify-content: space-between; // space out brand from logo
   min-height: $subheader-min-height;
   padding: $subheader-padding-y $subheader-padding-x;
-  background: var(--#{$variable-prefix}subheader-bg, $subheader-bg);
-  border-bottom: var(--#{$variable-prefix}subheader-border-width, $subheader-border-width) solid var(--#{$variable-prefix}subheader-border-color, $subheader-border-color);
+  background: var(--#{$prefix}subheader-bg, $subheader-bg);
+  border-bottom: var(--#{$prefix}subheader-border-width, $subheader-border-width) solid var(--#{$prefix}subheader-border-color, $subheader-border-color);
 }
 
 .subheader-sticky {
@@ -30,21 +30,21 @@
   .nav-link {
     padding-right: $subheader-nav-link-padding-x;
     padding-left: $subheader-nav-link-padding-x;
-    color: var(--#{$variable-prefix}subheader-color, $subheader-color);
+    color: var(--#{$prefix}subheader-color, $subheader-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}subheader-hover-color, $subheader-hover-color);
+      color: var(--#{$prefix}subheader-hover-color, $subheader-hover-color);
     }
 
     &.disabled {
-      color: var(--#{$variable-prefix}subheader-disabled-color, $subheader-disabled-color);
+      color: var(--#{$prefix}subheader-disabled-color, $subheader-disabled-color);
     }
   }
 
   .show > .nav-link,
   .nav-link.active {
-    color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+    color: var(--#{$prefix}subheader-active-color, $subheader-active-color);
   }
 
   .dropdown-menu {
@@ -59,14 +59,14 @@
 .subheader-text {
   padding-top: $nav-link-padding-y;
   padding-bottom: $nav-link-padding-y;
-  color: var(--#{$variable-prefix}subheader-color, $subheader-color);
+  color: var(--#{$prefix}subheader-color, $subheader-color);
 
   a {
-    color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+    color: var(--#{$prefix}subheader-active-color, $subheader-active-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$variable-prefix}subheader-active-color, $subheader-active-color);
+      color: var(--#{$prefix}subheader-active-color, $subheader-active-color);
     }
   }
 }

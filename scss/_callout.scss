@@ -1,8 +1,8 @@
 .callout {
   padding: $callout-padding-y $callout-padding-x;
   margin: $callout-margin-y $callout-margin-x;
-  border: var(--#{$variable-prefix}callout-border-width, $callout-border-width) solid var(--#{$variable-prefix}callout-border-color, $callout-border-color);
-  @include ltr-rtl("border-left-width", var(--#{$variable-prefix}callout-border-left-width, $callout-border-left-width));
+  border: var(--#{$prefix}callout-border-width, $callout-border-width) solid var(--#{$prefix}callout-border-color, $callout-border-color);
+  @include ltr-rtl("border-left-width", var(--#{$prefix}callout-border-left-width, $callout-border-left-width));
   @include border-radius($callout-border-radius);
 }
 
@@ -10,7 +10,7 @@
 // Generate contextual modifier classes for colorizing the collor.
 @each $state, $value in $callout-variants {
   .callout-#{$state} {
-    @include ltr-rtl("border-left-color", var(--#{$variable-prefix}callout-border-left-color, $value));
+    @include ltr-rtl("border-left-color", var(--#{$prefix}callout-border-left-color, $value));
   }
 }
 // scss-docs-end callout-modifiers

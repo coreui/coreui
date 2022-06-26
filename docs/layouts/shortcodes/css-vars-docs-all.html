@@ -24,7 +24,7 @@
         {{ printf "#### %s\n" (replace $title "Bootstrap" "" | title) }}
         {{ printf "\n" }}
 
-        {{- $regex := printf "(--#{\\$variable-prefix}[^,|)|:]*)" -}}
+        {{- $regex := printf "(--#{\\$prefix}[^,|)|:]*)" -}}
 
         {{- $css := readFile $scssFileName -}}
         {{- $match := (findRE $regex $css) | uniq | sort -}}

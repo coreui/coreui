@@ -15,7 +15,7 @@ Bootstrap's grid system uses a series of containers, rows, and columns to layout
 {{< /callout >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col">
       Column
@@ -63,77 +63,79 @@ Bootstrap's grid system can adapt across all six default breakpoints, and any br
 
 As noted above, each of these breakpoints have their own container, unique class prefix, and modifiers. Here's how the grid changes across these breakpoints:
 
-<table class="table mb-4">
-  <thead>
-    <tr>
-      <th scope="col"></th>
-      <th scope="col">
-        xs<br>
-        <span class="fw-normal">&lt;576px</span>
-      </th>
-      <th scope="col">
-        sm<br>
-        <span class="fw-normal">&ge;576px</span>
-      </th>
-      <th scope="col">
-        md<br>
-        <span class="fw-normal">&ge;768px</span>
-      </th>
-      <th scope="col">
-        lg<br>
-        <span class="fw-normal">&ge;992px</span>
-      </th>
-      <th scope="col">
-        xl<br>
-        <span class="fw-normal">&ge;1200px</span>
-      </th>
-      <th scope="col">
-        xxl<br>
-        <span class="fw-normal">&ge;1400px</span>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th class="text-nowrap" scope="row">Container <code class="fw-normal">max-width</code></th>
-      <td>None (auto)</td>
-      <td>540px</td>
-      <td>720px</td>
-      <td>960px</td>
-      <td>1140px</td>
-      <td>1320px</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Class prefix</th>
-      <td><code>.col-</code></td>
-      <td><code>.col-sm-</code></td>
-      <td><code>.col-md-</code></td>
-      <td><code>.col-lg-</code></td>
-      <td><code>.col-xl-</code></td>
-      <td><code>.col-xxl-</code></td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row"># of columns</th>
-      <td colspan="6">12</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Gutter width</th>
-      <td colspan="6">1.5rem (.75rem on left and right)</td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Custom gutters</th>
-      <td colspan="6"><a href="{{< docsref "/layout/gutters" >}}">Yes</a></td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Nestable</th>
-      <td colspan="6"><a href="#nesting">Yes</a></td>
-    </tr>
-    <tr>
-      <th class="text-nowrap" scope="row">Column ordering</th>
-      <td colspan="6"><a href="{{< docsref "/layout/columns#reordering" >}}">Yes</a></td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table mb-4">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">
+          xs<br>
+          <span class="fw-normal">&lt;576px</span>
+        </th>
+        <th scope="col">
+          sm<br>
+          <span class="fw-normal">&ge;576px</span>
+        </th>
+        <th scope="col">
+          md<br>
+          <span class="fw-normal">&ge;768px</span>
+        </th>
+        <th scope="col">
+          lg<br>
+          <span class="fw-normal">&ge;992px</span>
+        </th>
+        <th scope="col">
+          xl<br>
+          <span class="fw-normal">&ge;1200px</span>
+        </th>
+        <th scope="col">
+          xxl<br>
+          <span class="fw-normal">&ge;1400px</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="text-nowrap" scope="row">Container <code class="fw-normal">max-width</code></th>
+        <td>None (auto)</td>
+        <td>540px</td>
+        <td>720px</td>
+        <td>960px</td>
+        <td>1140px</td>
+        <td>1320px</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">Class prefix</th>
+        <td><code>.col-</code></td>
+        <td><code>.col-sm-</code></td>
+        <td><code>.col-md-</code></td>
+        <td><code>.col-lg-</code></td>
+        <td><code>.col-xl-</code></td>
+        <td><code>.col-xxl-</code></td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row"># of columns</th>
+        <td colspan="6">12</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">Gutter width</th>
+        <td colspan="6">1.5rem (.75rem on left and right)</td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">Custom gutters</th>
+        <td colspan="6"><a href="{{< docsref "/layout/gutters" >}}">Yes</a></td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">Nestable</th>
+        <td colspan="6"><a href="#nesting">Yes</a></td>
+      </tr>
+      <tr>
+        <th class="text-nowrap" scope="row">Column ordering</th>
+        <td colspan="6"><a href="{{< docsref "/layout/columns#reordering" >}}">Yes</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 ## Auto-layout columns
 
@@ -144,7 +146,7 @@ Utilize breakpoint-specific column classes for easy column sizing without an exp
 For example, here are two grid layouts that apply to every device and viewport, from `xs` to `xxl`. Add any number of unit-less classes for each breakpoint you need and every column will be the same width.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col">
       1 of 2
@@ -172,7 +174,7 @@ For example, here are two grid layouts that apply to every device and viewport, 
 Auto-layout for flexbox grid columns also means you can set the width of one column and have the sibling columns automatically resize around it. You may use predefined grid classes (as shown below), grid mixins, or inline widths. Note that the other columns will resize no matter the width of the center column.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col">
       1 of 3
@@ -203,7 +205,7 @@ Auto-layout for flexbox grid columns also means you can set the width of one col
 Use `col-{breakpoint}-auto` classes to size columns based on the natural width of their content.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row justify-content-md-center">
     <div class="col col-lg-2">
       1 of 3
@@ -238,7 +240,7 @@ Bootstrap's grid includes six tiers of predefined classes for building complex r
 For grids that are the same from the smallest of devices to the largest, use the `.col` and `.col-*` classes. Specify a numbered class when you need a particularly sized column; otherwise, feel free to stick to `.col`.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col">col</div>
     <div class="col">col</div>
@@ -257,7 +259,7 @@ For grids that are the same from the smallest of devices to the largest, use the
 Using a single set of `.col-sm-*` classes, you can create a basic grid system that starts out stacked and becomes horizontal at the small breakpoint (`sm`).
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col-sm-8">col-sm-8</div>
     <div class="col-sm-4">col-sm-4</div>
@@ -275,7 +277,7 @@ Using a single set of `.col-sm-*` classes, you can create a basic grid system th
 Don't want your columns to simply stack in some grid tiers? Use a combination of different classes for each tier as needed. See the example below for a better idea of how it all works.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <!-- Stack the columns on mobile by making one full-width and the other half-width -->
   <div class="row">
     <div class="col-md-8">.col-md-8</div>
@@ -304,7 +306,7 @@ Use the responsive `.row-cols-*` classes to quickly set the number of columns th
 Use these row columns classes to quickly create basic grid layouts or to control your card layouts.
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-2">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -315,7 +317,7 @@ Use these row columns classes to quickly create basic grid layouts or to control
 {{< /example >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-3">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -326,7 +328,7 @@ Use these row columns classes to quickly create basic grid layouts or to control
 {{< /example >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-auto">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -337,7 +339,7 @@ Use these row columns classes to quickly create basic grid layouts or to control
 {{< /example >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-4">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -348,7 +350,7 @@ Use these row columns classes to quickly create basic grid layouts or to control
 {{< /example >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-4">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -359,7 +361,7 @@ Use these row columns classes to quickly create basic grid layouts or to control
 {{< /example >}}
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
     <div class="col">Column</div>
     <div class="col">Column</div>
@@ -388,7 +390,7 @@ You can also use the accompanying Sass mixin, `row-cols()`:
 To nest your content with the default grid, add a new `.row` and set of `.col-sm-*` columns within an existing `.col-sm-*` column. Nested rows should include a set of columns that add up to 12 or fewer (it is not required that you use all 12 available columns).
 
 {{< example class="docs-example-row" >}}
-<div class="container">
+<div class="container text-center">
   <div class="row">
     <div class="col-sm-3">
       Level 1: .col-sm-3

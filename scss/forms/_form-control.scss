@@ -10,10 +10,10 @@
   @include font-size($input-font-size);
   font-weight: $input-font-weight;
   line-height: $input-line-height;
-  color: var(--#{$variable-prefix}input-color, $input-color);
-  background-color: var(--#{$variable-prefix}input-bg, $input-bg);
+  color: var(--#{$prefix}input-color, $input-color);
+  background-color: var(--#{$prefix}input-bg, $input-bg);
   background-clip: padding-box;
-  border: $input-border-width solid var(--#{$variable-prefix}input-border-color, $input-border-color);
+  border: $input-border-width solid var(--#{$prefix}input-border-color, $input-border-color);
   appearance: none; // Fix appearance for date inputs in Safari
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
@@ -32,9 +32,9 @@
 
   // Customize the `:focus` state to imitate native WebKit styles.
   &:focus {
-    color: var(--#{$variable-prefix}input-focus-color, $input-focus-color);
-    background-color: var(--#{$variable-prefix}input-focus-bg, $input-focus-bg);
-    border-color: var(--#{$variable-prefix}input-focus-border-color, $input-focus-border-color);
+    color: var(--#{$prefix}input-focus-color, $input-focus-color);
+    background-color: var(--#{$prefix}input-focus-bg, $input-focus-bg);
+    border-color: var(--#{$prefix}input-focus-border-color, $input-focus-border-color);
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
@@ -54,20 +54,20 @@
 
   // Placeholder
   &::placeholder {
-    color: var(--#{$variable-prefix}input-placeholder-color, $input-placeholder-color);
+    color: var(--#{$prefix}input-placeholder-color, $input-placeholder-color);
     // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
     opacity: 1;
   }
 
-  // Disabled and read-only inputs
+  // Disabled inputs
   //
   // HTML5 says that controls under a fieldset > legend:first-child won't be
   // disabled if the fieldset is disabled. Due to implementation difficulty, we
   // don't honor that edge case; we style them as disabled anyway.
-  &:disabled,
-  &[readonly] {
-    background-color: var(--#{$variable-prefix}input-disabled-bg, $input-disabled-bg);
-    border-color: var(--#{$variable-prefix}input-disabled-border-color, $input-disabled-border-color);
+  &:disabled {
+    color: $input-disabled-color;
+    background-color: $input-disabled-bg;
+    border-color: $input-disabled-border-color;
     // iOS fix for unreadable disabled content; see https://github.com/twbs/bootstrap/issues/11655.
     opacity: 1;
   }
@@ -77,8 +77,8 @@
     padding: $input-padding-y $input-padding-x;
     margin: (-$input-padding-y) (-$input-padding-x);
     margin-inline-end: $input-padding-x;
-    color: var(--#{$variable-prefix}form-file-button-color, $form-file-button-color);
-    @include gradient-bg(var(--#{$variable-prefix}form-file-button-bg, $form-file-button-bg));
+    color: var(--#{$prefix}form-file-button-color, $form-file-button-color);
+    @include gradient-bg(var(--#{$prefix}form-file-button-bg, $form-file-button-bg));
     pointer-events: none;
     border-color: inherit;
     border-style: solid;
@@ -89,26 +89,7 @@
   }
 
   &:hover:not(:disabled):not([readonly])::file-selector-button {
-    background-color: var(--#{$variable-prefix}form-file-button-hover-bg, $form-file-button-hover-bg);
-  }
-
-  &::-webkit-file-upload-button {
-    padding: $input-padding-y $input-padding-x;
-    margin: (-$input-padding-y) (-$input-padding-x);
-    margin-inline-end: $input-padding-x;
-    color: var(--#{$variable-prefix}form-file-button-color, $form-file-button-color);
-    @include gradient-bg(var(--#{$variable-prefix}form-file-button-bg, $form-file-button-bg));
-    pointer-events: none;
-    border-color: inherit;
-    border-style: solid;
-    border-width: 0;
-    border-inline-end-width: $input-border-width;
-    border-radius: 0; // stylelint-disable-line property-disallowed-list
-    @include transition($btn-transition);
-  }
-
-  &:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
-    background-color: var(--#{$variable-prefix}form-file-button-hover-bg, $form-file-button-hover-bg);
+    background-color: var(--#{$prefix}form-file-button-hover-bg, $form-file-button-hover-bg);
   }
 }
 
@@ -123,10 +104,14 @@
   padding: $input-padding-y 0;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
   line-height: $input-line-height;
-  color: var(--#{$variable-prefix}input-plaintext-color, $input-plaintext-color);
+  color: var(--#{$prefix}input-plaintext-color, $input-plaintext-color);
   background-color: transparent;
   border: solid transparent;
   border-width: $input-border-width 0;
+
+  &:focus {
+    outline: 0;
+  }
 
   &.form-control-sm,
   &.form-control-lg {
@@ -153,12 +138,6 @@
     margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
     margin-inline-end: $input-padding-x-sm;
   }
-
-  &::-webkit-file-upload-button {
-    padding: $input-padding-y-sm $input-padding-x-sm;
-    margin: (-$input-padding-y-sm) (-$input-padding-x-sm);
-    margin-inline-end: $input-padding-x-sm;
-  }
 }
 
 .form-control-lg {
@@ -168,12 +147,6 @@
   @include border-radius($input-border-radius-lg);
 
   &::file-selector-button {
-    padding: $input-padding-y-lg $input-padding-x-lg;
-    margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
-    margin-inline-end: $input-padding-x-lg;
-  }
-
-  &::-webkit-file-upload-button {
     padding: $input-padding-y-lg $input-padding-x-lg;
     margin: (-$input-padding-y-lg) (-$input-padding-x-lg);
     margin-inline-end: $input-padding-x-lg;
@@ -200,7 +173,7 @@ textarea {
 
 .form-control-color {
   width: $form-color-width;
-  height: auto; // Override fixed browser height
+  height: $input-height;
   padding: $input-padding-y;
 
   &:not(:disabled):not([readonly]) {
@@ -208,12 +181,14 @@ textarea {
   }
 
   &::-moz-color-swatch {
-    height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
+    border: 0 !important; // stylelint-disable-line declaration-no-important
     @include border-radius($input-border-radius);
   }
 
   &::-webkit-color-swatch {
-    height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
     @include border-radius($input-border-radius);
   }
+
+  &.form-control-sm { height: $input-height-sm; }
+  &.form-control-lg { height: $input-height-lg; }
 }

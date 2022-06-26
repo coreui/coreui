@@ -16,7 +16,7 @@
     margin-top: $sidebar-nav-title-margin-top;
     font-size: 80%;
     font-weight: 700;
-    color: var(--#{$variable-prefix}sidebar-nav-title-color, $sidebar-nav-title-color);
+    color: var(--#{$prefix}sidebar-nav-title-color, $sidebar-nav-title-color);
     text-transform: uppercase;
     @include transition($sidebar-nav-title-transition);
   }
@@ -26,56 +26,56 @@
     flex: 1;
     align-items: center;
     padding: $sidebar-nav-link-padding-y $sidebar-nav-link-padding-x;
-    color: var(--#{$variable-prefix}sidebar-nav-link-color, $sidebar-nav-link-color);
+    color: var(--#{$prefix}sidebar-nav-link-color, $sidebar-nav-link-color);
     text-decoration: none;
     white-space: nowrap;
-    background: var(--#{$variable-prefix}sidebar-nav-link-bg, $sidebar-nav-link-bg);
+    background: var(--#{$prefix}sidebar-nav-link-bg, $sidebar-nav-link-bg);
     @include transition($sidebar-nav-link-transition);
 
     &.active {
-      color: var(--#{$variable-prefix}sidebar-nav-link-active-color, $sidebar-nav-link-active-color);
-      background: var(--#{$variable-prefix}sidebar-nav-link-active-bg, $sidebar-nav-link-active-bg);
+      color: var(--#{$prefix}sidebar-nav-link-active-color, $sidebar-nav-link-active-color);
+      background: var(--#{$prefix}sidebar-nav-link-active-bg, $sidebar-nav-link-active-bg);
 
       .nav-icon {
-        color: var(--#{$variable-prefix}sidebar-nav-link-active-icon-color, $sidebar-nav-link-active-icon-color);
+        color: var(--#{$prefix}sidebar-nav-link-active-icon-color, $sidebar-nav-link-active-icon-color);
       }
     }
 
     &.disabled {
-      color: var(--#{$variable-prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
+      color: var(--#{$prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
       pointer-events: none;
       cursor: not-allowed;
       background: transparent;
 
       .nav-icon {
-        color: var(--#{$variable-prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
+        color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
       }
 
       &:hover {
-        color: var(--#{$variable-prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
+        color: var(--#{$prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
 
         .nav-icon {
-          color: var(--#{$variable-prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
+          color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
         }
 
         &.nav-dropdown-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
+          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
 
     @media (hover: hover), (-ms-high-contrast: none) {
       &:hover {
-        color: var(--#{$variable-prefix}sidebar-nav-link-hover-color, $sidebar-nav-link-hover-color);
+        color: var(--#{$prefix}sidebar-nav-link-hover-color, $sidebar-nav-link-hover-color);
         text-decoration: none;
-        background: var(--#{$variable-prefix}sidebar-nav-link-hover-bg, $sidebar-nav-link-hover-bg);
+        background: var(--#{$prefix}sidebar-nav-link-hover-bg, $sidebar-nav-link-hover-bg);
 
         .nav-icon {
-          color: var(--#{$variable-prefix}sidebar-nav-link-hover-icon-color, $sidebar-nav-link-hover-icon-color);
+          color: var(--#{$prefix}sidebar-nav-link-hover-icon-color, $sidebar-nav-link-hover-icon-color);
         }
 
         &.nav-group-toggle::after {
-          background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
+          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
         }
       }
     }
@@ -85,7 +85,7 @@
     flex: 0 0 $sidebar-nav-icon-width;
     height: $sidebar-nav-icon-height;
     font-size: $sidebar-nav-icon-font-size;
-    color: var(--#{$variable-prefix}sidebar-nav-link-icon-color, $sidebar-nav-link-icon-color);
+    color: var(--#{$prefix}sidebar-nav-link-icon-color, $sidebar-nav-link-icon-color);
     text-align: center;
     fill: currentColor;
     @include transition(inherit);
@@ -110,10 +110,10 @@
     }
 
     &.show {
-      background: var(--#{$variable-prefix}sidebar-nav-group-bg, $sidebar-nav-group-bg);
+      background: var(--#{$prefix}sidebar-nav-group-bg, $sidebar-nav-group-bg);
 
       .nav-group-toggle {
-        color: var(--#{$variable-prefix}sidebar-nav-group-toggle-show-color, $sidebar-nav-group-toggle-show-color);
+        color: var(--#{$prefix}sidebar-nav-group-toggle-show-color, $sidebar-nav-group-toggle-show-color);
       }
 
       > .nav-group-toggle::after {
@@ -135,7 +135,7 @@
       height: 12px;
       @include ltr-rtl("margin-left", auto);
       content: "";
-      background-image: var(--#{$variable-prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator-icon));
+      background-image: var(--#{$prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator-icon));
       background-repeat: no-repeat;
       background-position: center;
       @include transition($sidebar-nav-group-indicator-transition);

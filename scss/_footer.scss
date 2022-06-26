@@ -5,9 +5,9 @@
   justify-content: space-between;
   min-height: $footer-min-height;
   padding: $footer-padding-y $footer-padding-x;
-  color: var(--#{$variable-prefix}footer-color, $footer-color);
-  background: var(--#{$variable-prefix}footer-bg, $footer-bg);
-  border-top: var(--#{$variable-prefix}footer-border-width, $footer-border-width) solid var(--#{$variable-prefix}footer-border-color, $footer-border-color);
+  color: var(--#{$prefix}footer-color, $footer-color);
+  background: var(--#{$prefix}footer-bg, $footer-bg);
+  border-top: var(--#{$prefix}footer-border-width, $footer-border-width) solid var(--#{$prefix}footer-border-color, $footer-border-color);
 }
 
 .footer-fixed {

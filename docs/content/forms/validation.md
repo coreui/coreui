@@ -165,7 +165,7 @@ We recommend using client-side validation, but in case you require server-side v
 
 For invalid fields, ensure that the invalid feedback/error message is associated with the relevant form field using `aria-describedby` (noting that this attribute allows more than one `id` to be referenced, in case the field already points to additional form text).
 
-To fix [issues with border radii](https://github.com/twbs/bootstrap/issues/25110), input groups require an additional `.has-validation` class.
+To fix [issues with border radius](https://github.com/twbs/bootstrap/issues/25110), input groups require an additional `.has-validation` class.
 
 {{< example >}}
 <form class="row g-3">
@@ -246,7 +246,7 @@ Validation styles are available for the following form controls and components:
 <form class="was-validated">
   <div class="mb-3">
     <label for="validationTextarea" class="form-label">Textarea</label>
-    <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Required example textarea" required></textarea>
+    <textarea class="form-control" id="validationTextarea" placeholder="Required example textarea" required></textarea>
     <div class="invalid-feedback">
       Please enter a message in the textarea.
     </div>
@@ -378,5 +378,3 @@ Used to iterate over `$form-validation-states` map values to generate our valida
 ### Customizing
 
 Validation states can be customized via Sass with the `$form-validation-states` map. Located in our `_variables.scss` file, this Sass map is how we generate the default `valid`/`invalid` validation states. Included is a nested map for customizing each state's color, icon, tooltip color, and focus shadow. While no other states are supported by browsers, those using custom styles can easily add more complex form feedback.
-
-Please note that **we do not recommend customizing `$form-validation-states` values without also modifying the `form-validation-state` mixin**.
