@@ -324,9 +324,9 @@ class Sidebar extends BaseComponent {
  */
 
 EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
-  Array.from(document.querySelectorAll(SELECTOR_SIDEBAR)).forEach(element => {
+  for (const element of Array.from(document.querySelectorAll(SELECTOR_SIDEBAR))) {
     Sidebar.sidebarInterface(element)
-  })
+  }
 })
 
 /**
