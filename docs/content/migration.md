@@ -392,8 +392,8 @@ toc: true
 - **All plugins can now accept a CSS selector as the first argument.** You can either pass a DOM element or any valid CSS selector to create a new instance of the plugin:
 
   ```js
-  var modal = new coreui.Modal('#myModal')
-  var dropdown = new coreui.Dropdown('[data-coreui-toggle="dropdown"]')
+  const modal = new coreui.Modal('#myModal')
+  const dropdown = new coreui.Dropdown('[data-coreui-toggle="dropdown"]')
   ```
 
 - `popperConfig` can be passed as a function that accepts the Bootstrap's default Popper config as an argument, so that you can merge this default configuration in your way. **Applies to dropdowns, popovers, and tooltips.**
