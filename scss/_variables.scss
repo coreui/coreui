@@ -1178,6 +1178,7 @@ $form-validation-states: (
 $zindex-dropdown:                   1000 !default;
 $zindex-sticky:                     1020 !default;
 $zindex-fixed:                      1030 !default;
+$zindex-sidebar-backdrop:           1030 !default;
 $zindex-offcanvas-backdrop:         1040 !default;
 $zindex-offcanvas:                  1045 !default;
 $zindex-modal-backdrop:             1050 !default;
@@ -1853,7 +1854,6 @@ $sidebar-narrow-width:                     4rem !default;
 
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
-$sidebar-backdrop-transition:              opacity .15s linear !default;
 
 $sidebar-nav-title-padding-y:              .75rem !default;
 $sidebar-nav-title-padding-x:              1rem !default;

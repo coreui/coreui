@@ -1,5 +1,29 @@
 .sidebar {
+  // scss-docs-start sidebar-css-vars
   --#{$prefix}sidebar-width: #{$sidebar-width};
+  --#{$prefix}sidebar-bg: #{$sidebar-bg};
+  --#{$prefix}sidebar-color: #{$sidebar-color};
+  --#{$prefix}sidebar-border-width: #{$sidebar-border-width};
+  --#{$prefix}sidebar-border-color: #{$sidebar-border-color};
+  --#{$prefix}sidebar-brand-color: #{$sidebar-brand-color};
+  --#{$prefix}sidebar-brand-height: #{$sidebar-brand-height};
+  --#{$prefix}sidebar-brand-bg: #{$sidebar-brand-bg};
+  --#{$prefix}sidebar-header-height: #{$sidebar-header-height};
+  --#{$prefix}sidebar-header-bg: #{$sidebar-header-bg};
+  --#{$prefix}sidebar-header-padding-x: #{$sidebar-header-padding-x};
+  --#{$prefix}sidebar-header-padding-y: #{$sidebar-header-padding-y};
+  --#{$prefix}sidebar-footer-bg: #{$sidebar-footer-bg};
+  --#{$prefix}sidebar-footer-height: #{$sidebar-footer-height};
+  --#{$prefix}sidebar-footer-padding-x: #{$sidebar-footer-padding-x};
+  --#{$prefix}sidebar-footer-padding-y: #{$sidebar-footer-padding-y};
+  --#{$prefix}sidebar-toggler-bg: #{$sidebar-toggler-bg};
+  --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
+  --#{$prefix}sidebar-toggler-indicator: escape-svg($sidebar-toggler-indicator-icon);
+  --#{$prefix}sidebar-toggler-indicator-width: #{$sidebar-toggler-indicator-width};
+  --#{$prefix}sidebar-toggler-indicator-height: #{$sidebar-toggler-indicator-height};
+  --#{$prefix}sidebar-toggler-hover-bg: $sidebar-toggler-hover-bg;
+  --#{$prefix}sidebar-toggler-indicator-hover: escape-svg($sidebar-toggler-indicator-hover-icon);
+  // scss-docs-end sidebar-css-vars
 
   position: relative;
   display: flex;
@@ -10,9 +34,9 @@
   order: -1;
   width: var(--#{$prefix}sidebar-width);
   padding: $sidebar-padding-y $sidebar-padding-x;
-  color: var(--#{$prefix}sidebar-color, $sidebar-color);
-  background: var(--#{$prefix}sidebar-bg, $sidebar-bg);
-  @include ltr-rtl("border-right", var(--#{$prefix}sidebar-border-width, $sidebar-border-width) solid var(--#{$prefix}sidebar-border-color, $sidebar-border-color));
+  color: var(--#{$prefix}sidebar-color);
+  background: var(--#{$prefix}sidebar-bg);
+  @include ltr-rtl("border-right", var(--#{$prefix}sidebar-border-width) solid var(--#{$prefix}sidebar-border-color));
   box-shadow: none;
   @include transition($sidebar-transition);
 
@@ -151,9 +175,9 @@
   position: absolute;
   top: 0;
   @include ltr-rtl("right", 0);
-  width: $sidebar-brand-height;
-  height: $sidebar-header-height;
-  color: var(--#{$prefix}sidebar-color, $sidebar-color);
+  width: var(--#{$prefix}sidebar-width);
+  height: var(--#{$prefix}sidebar-header-height);
+  color: var(--#{$prefix}sidebar-color);
   background: transparent;
   border: 0;
 
@@ -168,11 +192,11 @@
 
 .sidebar-brand {
   display: flex;
-  flex: 0 0 $sidebar-brand-height;
+  flex: 0 0 var(--#{$prefix}sidebar-brand-height);
   align-items: center;
   justify-content: center;
-  color: var(--#{$prefix}sidebar-brand-color, $sidebar-brand-color);
-  background: var(--#{$prefix}sidebar-brand-bg, $sidebar-brand-bg);
+  color: var(--#{$prefix}sidebar-brand-color);
+  background: var(--#{$prefix}sidebar-brand-bg);
 
   .sidebar-brand-narrow {
     display: none;
@@ -180,34 +204,34 @@
 }
 
 .sidebar-header {
-  flex: 0 0 $sidebar-header-height;
-  padding: $sidebar-header-padding-y $sidebar-header-padding-x;
+  flex: 0 0 var(--#{$prefix}sidebar-header-height);
+  padding: var(--#{$prefix}sidebar-header-padding-y) var(--#{$prefix}sidebar-header-padding-x);
   text-align: center;
-  background: var(--#{$prefix}sidebar-header-bg, $sidebar-header-bg);
+  background: var(--#{$prefix}sidebar-header-bg);
   @include transition($sidebar-header-height-transition);
 
   .nav-link {
     display: flex;
     align-items: center;
-    min-height: $sidebar-header-height;
+    min-height: var(--#{$prefix}sidebar-header-height);
   }
 }
 
 .sidebar-footer {
-  flex: 0 0 $sidebar-footer-height;
-  padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
-  background: var(--#{$prefix}sidebar-footer-bg, $sidebar-footer-bg);
+  flex: 0 0 var(--#{$prefix}sidebar-footer-height);
+  padding: var(--#{$prefix}sidebar-footer-padding-y) var(--#{$prefix}sidebar-footer-padding-x);
+  background: var(--#{$prefix}sidebar-footer-bg);
   @include transition($sidebar-footer-height-transition);
 }
 
 .sidebar-toggler {
   display: flex;
-  flex: 0 0 $sidebar-toggler-height;
+  flex: 0 0 var(--#{$prefix}sidebar-toggler-height);
   justify-content: flex-end;
   width: inherit;
   padding: 0;
   cursor: pointer;
-  background-color: var(--#{$prefix}sidebar-toggler-bg, $sidebar-toggler-bg);
+  background-color: var(--#{$prefix}sidebar-toggler-bg);
   border: 0;
 
   @include media-breakpoint-down($mobile-breakpoint) {
@@ -216,13 +240,13 @@
 
   &::before {
     display: block;
-    width: $sidebar-toggler-indicator-width;
-    height: $sidebar-toggler-indicator-height;
+    width: var(--#{$prefix}sidebar-toggler-indicator-width);
+    height: var(--#{$prefix}sidebar-toggler-indicator-height);
     content: "";
-    background-image: var(--#{$prefix}sidebar-toggler-indicator, escape-svg($sidebar-toggler-indicator-icon));
+    background-image: var(--#{$prefix}sidebar-toggler-indicator);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: $sidebar-toggler-indicator-height * .25;
+    background-size: calc(var(--#{$prefix}sidebar-toggler-indicator-height) * .25); // stylelint-disable-line function-disallowed-list
     @include transition($sidebar-toggler-transition);
     @include rtl() {
       transform: rotate(-180deg);
@@ -234,9 +258,9 @@
   }
 
   &:hover {
-    background-color: var(--#{$prefix}sidebar-toggler-hover-bg, $sidebar-toggler-hover-bg);
+    background-color: var(--#{$prefix}sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$prefix}sidebar-toggler-indicator-hover, escape-svg($sidebar-toggler-indicator-hover-icon));
+      background-image: var(--#{$prefix}sidebar-toggler-indicator-hover);
     }
   }
 
@@ -249,19 +273,15 @@
 }
 
 // Backdrop background
-.sidebar-backdrop {
-  @include media-breakpoint-down($mobile-breakpoint) {
-    position: fixed;
-    top: 0;
-    @include ltr-rtl("left", 0);
-    z-index: $zindex-fixed;
-    width: 100vw;
-    height: 100vh;
-    background-color: $sidebar-backdrop-bg;
-    @include transition($sidebar-backdrop-transition);
 
-    // Fade for backdrop
-    &.fade { opacity: 0; }
-    &.show { opacity: $sidebar-backdrop-opacity; }
+.sidebar-backdrop {
+  // scss-docs-start sidebar-backdrop-css-vars
+  --#{$prefix}backdrop-zindex: #{$zindex-sidebar-backdrop};
+  --#{$prefix}backdrop-bg: #{$sidebar-backdrop-bg};
+  --#{$prefix}backdrop-opacity: #{$sidebar-backdrop-opacity};
+  // scss-docs-end sidebar-backdrop-css-vars
+
+  @include media-breakpoint-down($mobile-breakpoint) {
+    @include overlay-backdrop(var(--#{$prefix}backdrop-zindex), var(--#{$prefix}backdrop-bg), var(--#{$prefix}backdrop-opacity));
   }
 }
