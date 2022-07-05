@@ -2,6 +2,8 @@
   // scss-docs-start sidebar-css-vars
   --#{$prefix}sidebar-width: #{$sidebar-width};
   --#{$prefix}sidebar-bg: #{$sidebar-bg};
+  --#{$prefix}sidebar-padding-x: #{$sidebar-padding-x};
+  --#{$prefix}sidebar-padding-y: #{$sidebar-padding-y};
   --#{$prefix}sidebar-color: #{$sidebar-color};
   --#{$prefix}sidebar-border-width: #{$sidebar-border-width};
   --#{$prefix}sidebar-border-color: #{$sidebar-border-color};
@@ -18,11 +20,43 @@
   --#{$prefix}sidebar-footer-padding-y: #{$sidebar-footer-padding-y};
   --#{$prefix}sidebar-toggler-bg: #{$sidebar-toggler-bg};
   --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
-  --#{$prefix}sidebar-toggler-indicator: escape-svg($sidebar-toggler-indicator-icon);
+  --#{$prefix}sidebar-toggler-indicator: #{escape-svg($sidebar-toggler-indicator-icon)};
   --#{$prefix}sidebar-toggler-indicator-width: #{$sidebar-toggler-indicator-width};
   --#{$prefix}sidebar-toggler-indicator-height: #{$sidebar-toggler-indicator-height};
-  --#{$prefix}sidebar-toggler-hover-bg: $sidebar-toggler-hover-bg;
-  --#{$prefix}sidebar-toggler-indicator-hover: escape-svg($sidebar-toggler-indicator-hover-icon);
+  --#{$prefix}sidebar-toggler-hover-bg: #{$sidebar-toggler-hover-bg};
+  --#{$prefix}sidebar-toggler-indicator-hover: #{escape-svg($sidebar-toggler-indicator-hover-icon)};
+
+  --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
+
+  --#{$prefix}sidebar-nav-title-padding-x: #{$sidebar-nav-title-padding-x};
+  --#{$prefix}sidebar-nav-title-padding-y: #{$sidebar-nav-title-padding-y};
+  --#{$prefix}sidebar-nav-title-margin-top: #{$sidebar-nav-title-margin-top};
+  --#{$prefix}sidebar-nav-title-color: #{$sidebar-nav-title-color};
+  --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-nav-link-padding-x};
+  --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-nav-link-padding-y};
+  --#{$prefix}sidebar-nav-link-color: #{$sidebar-nav-link-color};
+  --#{$prefix}sidebar-nav-link-bg: #{$sidebar-nav-link-bg};
+  --#{$prefix}sidebar-nav-link-border-color: #{$sidebar-nav-link-border-color};
+  --#{$prefix}sidebar-nav-link-border: #{$sidebar-nav-link-border-width} solid var(--#{$prefix}sidebar-nav-link-border-color);
+  --#{$prefix}sidebar-nav-link-border-radius: #{$sidebar-nav-link-border-radius};
+  --#{$prefix}sidebar-nav-link-active-color: #{$sidebar-nav-link-active-color};
+  --#{$prefix}sidebar-nav-link-active-bg: #{$sidebar-nav-link-active-bg};
+  --#{$prefix}sidebar-nav-link-active-icon-color: #{$sidebar-nav-link-active-icon-color};
+  --#{$prefix}sidebar-nav-link-disabled-color: #{$sidebar-nav-link-disabled-color};
+  --#{$prefix}sidebar-nav-link-disabled-icon-color: #{$sidebar-nav-link-disabled-icon-color};
+  --#{$prefix}sidebar-nav-link-hover-color: #{$sidebar-nav-link-hover-color};
+  --#{$prefix}sidebar-nav-link-hover-bg: #{$sidebar-nav-link-hover-bg};
+  --#{$prefix}sidebar-nav-link-hover-icon-color: #{$sidebar-nav-link-hover-icon-color};
+  --#{$prefix}sidebar-nav-icon-width: #{$sidebar-nav-icon-width};
+  --#{$prefix}sidebar-nav-icon-height: #{$sidebar-nav-icon-height};
+  --#{$prefix}sidebar-nav-icon-font-size: #{$sidebar-nav-icon-font-size};
+  --#{$prefix}sidebar-nav-link-icon-color: #{$sidebar-nav-link-icon-color};
+  --#{$prefix}sidebar-nav-group-bg: #{$sidebar-nav-group-bg};
+  --#{$prefix}sidebar-nav-group-items-padding-y: #{$sidebar-nav-group-items-padding-y};
+  --#{$prefix}sidebar-nav-group-items-padding-x: #{$sidebar-nav-group-items-padding-x};
+  --#{$prefix}sidebar-nav-group-indicator: #{escape-svg($sidebar-nav-group-indicator-icon)};
+  --#{$prefix}sidebar-nav-group-indicator-hover: #{escape-svg($sidebar-nav-group-indicator-hover-icon)};
+  --#{$prefix}sidebar-nav-group-toggle-show-color: #{$sidebar-nav-group-toggle-show-color};
   // scss-docs-end sidebar-css-vars
 
   position: relative;
@@ -33,7 +67,7 @@
   // put the nav on the left
   order: -1;
   width: var(--#{$prefix}sidebar-width);
-  padding: $sidebar-padding-y $sidebar-padding-x;
+  padding: var(--#{$prefix}sidebar-padding-y) var(--#{$prefix}sidebar-padding-x);
   color: var(--#{$prefix}sidebar-color);
   background: var(--#{$prefix}sidebar-bg);
   @include ltr-rtl("border-right", var(--#{$prefix}sidebar-border-width) solid var(--#{$prefix}sidebar-border-color));

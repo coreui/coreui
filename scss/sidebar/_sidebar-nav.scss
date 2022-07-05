@@ -12,11 +12,11 @@
   list-style: none;
 
   .nav-title {
-    padding: $sidebar-nav-title-padding-y $sidebar-nav-title-padding-x;
-    margin-top: $sidebar-nav-title-margin-top;
+    padding: var(--#{$prefix}sidebar-nav-title-padding-y) var(--#{$prefix}sidebar-nav-title-padding-x);
+    margin-top: var(--#{$prefix}sidebar-nav-title-margin-top);
     font-size: 80%;
     font-weight: 700;
-    color: var(--#{$prefix}sidebar-nav-title-color, $sidebar-nav-title-color);
+    color: var(--#{$prefix}sidebar-nav-title-color);
     text-transform: uppercase;
     @include transition($sidebar-nav-title-transition);
   }
@@ -25,73 +25,75 @@
     display: flex;
     flex: 1;
     align-items: center;
-    padding: $sidebar-nav-link-padding-y $sidebar-nav-link-padding-x;
-    color: var(--#{$prefix}sidebar-nav-link-color, $sidebar-nav-link-color);
+    padding: var(--#{$prefix}sidebar-nav-link-padding-y) var(--#{$prefix}sidebar-nav-link-padding-x);
+    color: var(--#{$prefix}sidebar-nav-link-color);
     text-decoration: none;
     white-space: nowrap;
-    background: var(--#{$prefix}sidebar-nav-link-bg, $sidebar-nav-link-bg);
+    background: var(--#{$prefix}sidebar-nav-link-bg);
+    border: var(--#{$prefix}sidebar-nav-link-border);
+    @include border-radius(var(--#{$prefix}sidebar-nav-link-border-radius));
     @include transition($sidebar-nav-link-transition);
 
     &.active {
-      color: var(--#{$prefix}sidebar-nav-link-active-color, $sidebar-nav-link-active-color);
-      background: var(--#{$prefix}sidebar-nav-link-active-bg, $sidebar-nav-link-active-bg);
+      color: var(--#{$prefix}sidebar-nav-link-active-color);
+      background: var(--#{$prefix}sidebar-nav-link-active-bg);
 
       .nav-icon {
-        color: var(--#{$prefix}sidebar-nav-link-active-icon-color, $sidebar-nav-link-active-icon-color);
+        color: var(--#{$prefix}sidebar-nav-link-active-icon-color);
       }
     }
 
     &.disabled {
-      color: var(--#{$prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
+      color: var(--#{$prefix}sidebar-nav-link-disabled-color);
       pointer-events: none;
       cursor: not-allowed;
       background: transparent;
 
       .nav-icon {
-        color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
+        color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color);
       }
 
       &:hover {
-        color: var(--#{$prefix}sidebar-nav-link-disabled-color, $sidebar-nav-link-disabled-color);
+        color: var(--#{$prefix}sidebar-nav-link-disabled-color);
 
         .nav-icon {
-          color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color, $sidebar-nav-link-disabled-icon-color);
+          color: var(--#{$prefix}sidebar-nav-link-disabled-icon-color);
         }
 
         &.nav-dropdown-toggle::after {
-          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
+          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover);
         }
       }
     }
 
     @media (hover: hover), (-ms-high-contrast: none) {
       &:hover {
-        color: var(--#{$prefix}sidebar-nav-link-hover-color, $sidebar-nav-link-hover-color);
+        color: var(--#{$prefix}sidebar-nav-link-hover-color);
         text-decoration: none;
-        background: var(--#{$prefix}sidebar-nav-link-hover-bg, $sidebar-nav-link-hover-bg);
+        background: var(--#{$prefix}sidebar-nav-link-hover-bg);
 
         .nav-icon {
-          color: var(--#{$prefix}sidebar-nav-link-hover-icon-color, $sidebar-nav-link-hover-icon-color);
+          color: var(--#{$prefix}sidebar-nav-link-hover-icon-color);
         }
 
         &.nav-group-toggle::after {
-          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover, escape-svg($sidebar-nav-group-indicator-hover-icon));
+          background-image: var(--#{$prefix}sidebar-nav-group-indicator-hover);
         }
       }
     }
   }
 
   .nav-icon {
-    flex: 0 0 $sidebar-nav-icon-width;
-    height: $sidebar-nav-icon-height;
-    font-size: $sidebar-nav-icon-font-size;
-    color: var(--#{$prefix}sidebar-nav-link-icon-color, $sidebar-nav-link-icon-color);
+    flex: 0 0 var(--#{$prefix}sidebar-nav-icon-width);
+    height: var(--#{$prefix}sidebar-nav-icon-height);
+    font-size: var(--#{$prefix}sidebar-nav-icon-font-size);
+    color: var(--#{$prefix}sidebar-nav-link-icon-color);
     text-align: center;
     fill: currentColor;
     @include transition(inherit);
 
     &:first-child {
-      @include ltr-rtl("margin-left", - $sidebar-nav-link-padding-x);
+      @include ltr-rtl("margin-left", calc(var(--#{$prefix}sidebar-nav-link-padding-x) * -1));
     }
   }
 
@@ -100,7 +102,7 @@
     @include transition($sidebar-nav-group-transition);
 
     .nav-group-items {
-      padding: $sidebar-nav-group-items-padding-y $sidebar-nav-group-items-padding-x;
+      padding: var(--#{$prefix}sidebar-nav-group-items-padding-y) var(--#{$prefix}sidebar-nav-group-items-padding-x);
       overflow: hidden;
       @include transition($sidebar-nav-group-items-transition);
     }
@@ -110,10 +112,10 @@
     }
 
     &.show {
-      background: var(--#{$prefix}sidebar-nav-group-bg, $sidebar-nav-group-bg);
+      background: var(--#{$prefix}sidebar-nav-group-bg);
 
       .nav-group-toggle {
-        color: var(--#{$prefix}sidebar-nav-group-toggle-show-color, $sidebar-nav-group-toggle-show-color);
+        color: var(--#{$prefix}sidebar-nav-group-toggle-show-color);
       }
 
       > .nav-group-toggle::after {
@@ -135,7 +137,7 @@
       height: 12px;
       @include ltr-rtl("margin-left", auto);
       content: "";
-      background-image: var(--#{$prefix}sidebar-nav-group-indicator, escape-svg($sidebar-nav-group-indicator-icon));
+      background-image: var(--#{$prefix}sidebar-nav-group-indicator);
       background-repeat: no-repeat;
       background-position: center;
       @include transition($sidebar-nav-group-indicator-transition);
@@ -144,14 +146,13 @@
 
   .nav-group-items {
     padding: 0;
-    // overflow-y: hidden;
     list-style: none;
 
     .nav-link {
-      @include ltr-rtl("padding-left", $sidebar-nav-icon-width);
+      @include ltr-rtl("padding-left", var(--#{$prefix}sidebar-nav-icon-width));
 
       .nav-icon {
-        @include ltr-rtl("margin-left", - $sidebar-nav-icon-width);
+        @include ltr-rtl("margin-left", calc(var(--#{$prefix}sidebar-nav-icon-width) * -1));
       }
     }
   }
@@ -159,8 +160,8 @@
   &.compact,
   .compact {
     .nav-link {
-      padding-top: $sidebar-nav-link-padding-y * .5;
-      padding-bottom: $sidebar-nav-link-padding-y * .5;
+      padding-top: calc(var(--#{$prefix}sidebar-nav-link-padding-y) * .5); // stylelint-disable-line function-disallowed-list
+      padding-bottom: calc(var(--#{$prefix}sidebar-nav-link-padding-y) * .5); // stylelint-disable-line function-disallowed-list
     }
   }
 }

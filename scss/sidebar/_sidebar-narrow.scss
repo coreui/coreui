@@ -1,14 +1,14 @@
 %sidebar-narrow {
   @include media-breakpoint-up($mobile-breakpoint) {
     z-index: $zindex-fixed + 1;
-    flex: 0 0 $sidebar-narrow-width;
-    width: $sidebar-narrow-width;
-    padding-bottom: $sidebar-toggler-height;
+    flex: 0 0 var(--#{$prefix}sidebar-narrow-width);
+    width: var(--#{$prefix}sidebar-narrow-width);
+    padding-bottom: var(--#{$prefix}sidebar-toggler-height);
     overflow: visible;
 
     &.sidebar-fixed {
       z-index: $zindex-fixed + 1;
-      width: $sidebar-narrow-width;
+      width: var(--#{$prefix}sidebar-narrow-width);
     }
 
     .sidebar-brand-full {
@@ -95,10 +95,10 @@
       &.sidebar-narrow,
       &.sidebar-narrow-unfoldable {
         &:not(.sidebar-end) {
-          @include ltr-rtl("margin-left", - $sidebar-narrow-width);
+          @include ltr-rtl("margin-left", calc(var(--#{$prefix}sidebar-narrow-width) * -1));
         }
         &.sidebar-end {
-          @include ltr-rtl("margin-right", - $sidebar-narrow-width);
+          @include ltr-rtl("margin-right", calc(var(--#{$prefix}sidebar-narrow-width) * -1));
         }
       }
     }
