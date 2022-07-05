@@ -274,10 +274,12 @@ When the container is within your header, its horizontal padding is removed at b
 
 ## Customizing
 
-### SASS
+### CSS variables
 
-#### Variables
+Sidebars use local CSS variables on `.header` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="header-css-vars" file="scss/_header.scss" >}}
+
+### SASS variables
+
 {{< scss-docs name="header-variables" file="scss/_variables.scss" >}}
-
-### CSS Vars
-{{< css-vars-docs file="scss/_header.scss" >}}

@@ -1722,13 +1722,16 @@ $header-brand-hover-color:      shade-color($gray-900, 10%) !default;
 $header-toggler-padding-y:      .25rem !default;
 $header-toggler-padding-x:      .75rem !default;
 $header-toggler-font-size:      $font-size-lg !default;
+$header-toggler-color:          $header-color !default;
 $header-toggler-bg:             transparent !default;
 $header-toggler-border-radius:  $btn-border-radius !default;
+$header-toggler-hover-color:    $header-active-color !default;
 
 $header-toggler-icon-bg:        url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
 $header-toggler-hover-icon-bg:  url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-hover-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
 
 $header-nav-link-padding-x:     .5rem !default;
+$header-nav-link-padding-y:     .5rem !default;
 
 $header-divider-border-width:   1px !default;
 $header-divider-border-color:   $header-border-color !default;

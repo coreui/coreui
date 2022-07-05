@@ -1,13 +1,42 @@
 .header {
+  // scss-docs-start header-css-vars
+  --#{$prefix}header-min-height: #{$header-min-height};
+  --#{$prefix}header-padding-x: #{$header-padding-x};
+  --#{$prefix}header-padding-y: #{$header-padding-y};
+  --#{$prefix}header-bg: #{$header-bg};
+  --#{$prefix}header-color: #{$header-color};
+  --#{$prefix}header-border-color: #{$header-border-color};
+  --#{$prefix}header-border: #{$header-border-width} solid var(--#{$prefix}header-border-color);
+  --#{$prefix}header-hover-color: #{$header-hover-color};
+  --#{$prefix}header-disabled-color: #{$header-disabled-color};
+  --#{$prefix}header-active-color: #{$header-active-color};
+  --#{$prefix}header-brand-padding-y: #{$header-brand-padding-y};
+  --#{$prefix}header-brand-color: #{$header-brand-color};
+  --#{$prefix}header-brand-hover-color: #{$header-brand-hover-color};
+  --#{$prefix}header-toggler-padding-x: #{$header-toggler-padding-x};
+  --#{$prefix}header-toggler-padding-y: #{$header-toggler-padding-y};
+  --#{$prefix}header-toggler-bg: #{$header-toggler-bg};
+  --#{$prefix}header-toggler-color: #{$header-toggler-color};
+  --#{$prefix}header-toggler-border-radius: #{$header-toggler-border-radius};
+  --#{$prefix}header-toggler-hover-color: #{$header-toggler-hover-color};
+  --#{$prefix}header-toggler-icon-bg: #{escape-svg($header-toggler-icon-bg)};
+  --#{$prefix}header-toggler-hover-icon-bg: #{escape-svg($header-toggler-hover-icon-bg)};
+  --#{$prefix}header-nav-link-padding-x: #{$header-nav-link-padding-x};
+  --#{$prefix}header-nav-link-padding-y: #{$header-nav-link-padding-y};
+  --#{$prefix}header-divider-border-color: #{$header-divider-border-color};
+  --#{$prefix}header-divider-border: #{$header-divider-border-width} solid var(--#{$prefix}header-divider-border-color);
+  --#{$prefix}subheader-min-height: #{$subheader-min-height};
+  // scss-docs-end header-css-vars
+
   position: relative;
   display: flex;
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  min-height: $header-min-height;
-  padding: $header-padding-y $header-padding-x;
-  background: var(--#{$prefix}header-bg, $header-bg);
-  border-bottom: var(--#{$prefix}header-border-width, $header-border-width) solid var(--#{$prefix}header-border-color, $header-border-color);
+  min-height: var(--#{$prefix}header-min-height);
+  padding: var(--#{$prefix}header-padding-y) var(--#{$prefix}header-padding-x);
+  background: var(--#{$prefix}header-bg);
+  border-bottom: var(--#{$prefix}header-border);
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
@@ -32,12 +61,12 @@
 
   .container:first-child,
   .container-fluid:first-child {
-    min-height: $header-min-height - (2 * $header-padding-y);
+    min-height: calc(var(--#{$prefix}header-min-height) - (2 * var(--#{$prefix}header-padding-y))); // stylelint-disable-line function-disallowed-list
   }
 
   .container:nth-child(n+2),
   .container-fluid:nth-child(n+2) {
-    min-height: $subheader-min-height - (2 * $header-padding-y);
+    min-height: calc(var(--#{$prefix}subheader-min-height) - (2 * var(--#{$prefix}header-padding-y))); // stylelint-disable-line function-disallowed-list
   }
 
   &.header-sticky {
@@ -48,10 +77,10 @@
 }
 
 .header-divider {
-  flex-basis: calc(100% + #{2 * $header-padding-x}); // stylelint-disable-line function-disallowed-list
+  flex-basis: calc(100% + (2 * var(--#{$prefix}header-padding-x))); // stylelint-disable-line function-disallowed-list
   height: 0;
-  margin: $header-padding-y (- $header-padding-x);
-  border-top: var(--#{$prefix}header-divider-border-width, $header-divider-border-width) solid var(--#{$prefix}header-divider-border-color, $header-divider-border-color);
+  margin: var(--#{$prefix}header-padding-y) calc(var(--#{$prefix}header-padding-x) * -1); // stylelint-disable-line function-disallowed-list
+  border-top: var(--#{$prefix}header-divider-border);
 }
 
 // Header brand
@@ -59,17 +88,17 @@
 // Used for brand, project, or site names.
 
 .header-brand {
-  padding-top: $header-brand-padding-y;
-  padding-bottom: $header-brand-padding-y;
+  padding-top: var(--#{$prefix}header-brand-padding-y);
+  padding-bottom: var(--#{$prefix}header-brand-padding-y);
   @include ltr-rtl("margin-right", $header-brand-margin-end);
   @include font-size($header-brand-font-size);
-  color: var(--#{$prefix}header-brand-color, $header-brand-color);
+  color: var(--#{$prefix}header-brand-color);
   text-decoration: if($link-decoration == none, null, none);
   white-space: nowrap;
 
   &:hover,
   &:focus {
-    color: var(--#{$prefix}header-brand-hover-color, $header-brand-hover-color);
+    color: var(--#{$prefix}header-brand-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
   }
 }
@@ -86,23 +115,22 @@
   list-style: none;
 
   .nav-link {
-    padding-right: $header-nav-link-padding-x;
-    padding-left: $header-nav-link-padding-x;
-    color: var(--#{$prefix}header-color, $header-color);
+    padding: var(--#{$prefix}header-nav-link-padding-y) var(--#{$prefix}header-nav-link-padding-x);
+    color: var(--#{$prefix}header-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$prefix}header-hover-color, $header-hover-color);
+      color: var(--#{$prefix}header-hover-color);
     }
 
     &.disabled {
-      color: var(--#{$prefix}header-disabled-color, $header-disabled-color);
+      color: var(--#{$prefix}header-disabled-color);
     }
   }
 
   .show > .nav-link,
   .nav-link.active {
-    color: var(--#{$prefix}header-active-color, $header-active-color);
+    color: var(--#{$prefix}header-active-color);
   }
 
   .dropdown-menu {
@@ -116,30 +144,30 @@
 //
 
 .header-text {
-  padding-top: $nav-link-padding-y;
-  padding-bottom: $nav-link-padding-y;
-  color: var(--#{$prefix}header-color, $header-color);
+  padding-top: var(--#{$prefix}header-nav-link-padding-y);
+  padding-bottom: var(--#{$prefix}header-nav-link-padding-y);
+  color: var(--#{$prefix}header-color);
 
   a {
-    color: var(--#{$prefix}header-active-color, $header-active-color);
+    color: var(--#{$prefix}header-active-color);
 
     &:hover,
     &:focus {
-      color: var(--#{$prefix}header-active-color, $header-active-color);
+      color: var(--#{$prefix}header-active-color);
     }
   }
 }
 
 .header-toggler {
-  padding: $header-toggler-padding-y $header-toggler-padding-x;
+  padding: var(--#{$prefix}header-toggler-padding-y) var(--#{$prefix}header-toggler-padding-x);
   @include font-size($header-toggler-font-size);
-  color: var(--#{$prefix}header-color, $header-color);
-  background-color: var(--#{$prefix}header-toggler-bg, $header-toggler-bg);
+  color: var(--#{$prefix}header-toggler-color);
+  background-color: var(--#{$prefix}header-toggler-bg);
   border: 0; // remove default button style
-  @include border-radius($header-toggler-border-radius);
+  @include border-radius(var(--#{$prefix}header-toggler-border-radius));
 
   &:hover {
-    color: $body-color;
+    color: var(--#{$prefix}header-toggler-hover-color);
     text-decoration: none;
   }
 
@@ -156,12 +184,12 @@
 .header-toggler-icon {
   display: block;
   height: $header-toggler-font-size * 1.25;
-  background-image: var(--#{$prefix}header-toggler-icon-bg, escape-svg($header-toggler-icon-bg));
+  background-image: var(--#{$prefix}header-toggler-icon-bg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 100% 100%;
 
   &:hover {
-    background-image: var(--#{$prefix}header-toggler-hover-icon-bg, escape-svg($header-toggler-hover-icon-bg));
+    background-image: var(--#{$prefix}header-toggler-hover-icon-bg);
   }
 }
