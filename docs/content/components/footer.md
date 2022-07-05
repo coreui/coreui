@@ -38,10 +38,12 @@ Here's what you need to know before getting started with the aside menu:
 
 ## Customizing
 
-### SASS
+### CSS variables
 
-#### Variables
+Sidebars use local CSS variables on `.footer` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="footer-css-vars" file="scss/_footer.scss" >}}
+
+### SASS variables
+
 {{< scss-docs name="footer-variables" file="scss/_variables.scss" >}}
-
-### CSS Vars
-{{< css-vars-docs file="scss/_footer.scss" >}}
