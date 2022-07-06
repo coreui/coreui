@@ -38,13 +38,13 @@ Import [CoreUI's JavaScript]({{< docsref "/getting-started/javascript" >}}) in y
 
 ```js
 // Import all plugins
-import * as coreui from '@coreui/coreui';
+import * as coreui from '@coreui/coreui'
 
 // Or import only needed plugins
-import { Tooltip as Tooltip, Toast as Toast, Popover as Popover } from '@coreui/coreui';
+import { Tooltip, Toast, Popover } from '@coreui/coreui'
 
 // Or import just one
-import Alert as Alert from '../node_modules/@coreui/coreui/js/dist/alert';
+import Alert from '../node_modules/@coreui/coreui/js/dist/alert'
 ```
 
 ## Importing CSS

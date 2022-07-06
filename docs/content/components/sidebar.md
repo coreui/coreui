@@ -92,7 +92,7 @@ var sidebar = new coreui.Sidebar(mySidebar)
 {{< /highlight >}}
 
 
-{{< bs-table "table text-left" >}}
+{{< bs-table >}}
 | Method | Description |
 | --- | --- |
 | `show` | Shows the sidebar. |
@@ -111,7 +111,7 @@ sidebar.close()
 
 Bootstrap's alert plugin exposes a few events for hooking into alert functionality.
 
-{{< bs-table "table text-left" >}}
+{{< bs-table >}}
 | Event | Description |
 | --- | --- |
 | `hidden.coreui.sidebar` | This event is fired immediately when the `hide` instance method has been called. |

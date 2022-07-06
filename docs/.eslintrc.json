@@ -22,11 +22,13 @@
       // Configuration for fenced code blocks goes with the override for
       // the code block's virtual filename, for example:
       "parserOptions": {
+        "sourceType": "module",
         "ecmaFeatures": {
           "impliedStrict": true
         }
       },
       "rules": {
+        "import/no-unresolved": "off",
         "no-array-for-each": "off",
         "no-undef": "off",
         "no-unused-vars": "off",
