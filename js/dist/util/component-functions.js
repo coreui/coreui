@@ -1,5 +1,5 @@
 /*!
-  * CoreUI component-functions.js v4.1.6 (https://coreui.io)
+  * CoreUI component-functions.js v4.2.0 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */

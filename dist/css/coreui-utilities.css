@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.1.6
+ * @version v4.2.0
  * @link https://coreui.io/
  * Copyright (c) 2022 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -289,6 +289,7 @@
   align-self: stretch;
   width: 1px;
   min-height: 1em;
+  padding: 0;
   background-color: currentColor;
   opacity: 0.25;
 }
@@ -585,6 +586,150 @@
 .border-white {
   --cui-border-opacity: 1;
   border-color: rgba(var(--cui-white-rgb), var(--cui-border-opacity)) !important;
+}
+
+.border-top-primary {
+  border-top-color: #321fdb !important;
+}
+
+.border-top-secondary {
+  border-top-color: #9da5b1 !important;
+}
+
+.border-top-success {
+  border-top-color: #2eb85c !important;
+}
+
+.border-top-info {
+  border-top-color: #39f !important;
+}
+
+.border-top-warning {
+  border-top-color: #f9b115 !important;
+}
+
+.border-top-danger {
+  border-top-color: #e55353 !important;
+}
+
+.border-top-light {
+  border-top-color: #ebedef !important;
+}
+
+.border-top-dark {
+  border-top-color: #4f5d73 !important;
+}
+
+.border-top-white {
+  border-top-color: #fff !important;
+}
+
+.border-end-primary {
+  border-right-color: #321fdb !important;
+}
+
+.border-end-secondary {
+  border-right-color: #9da5b1 !important;
+}
+
+.border-end-success {
+  border-right-color: #2eb85c !important;
+}
+
+.border-end-info {
+  border-right-color: #39f !important;
+}
+
+.border-end-warning {
+  border-right-color: #f9b115 !important;
+}
+
+.border-end-danger {
+  border-right-color: #e55353 !important;
+}
+
+.border-end-light {
+  border-right-color: #ebedef !important;
+}
+
+.border-end-dark {
+  border-right-color: #4f5d73 !important;
+}
+
+.border-end-white {
+  border-right-color: #fff !important;
+}
+
+.border-bottom-primary {
+  border-bottom-color: #321fdb !important;
+}
+
+.border-bottom-secondary {
+  border-bottom-color: #9da5b1 !important;
+}
+
+.border-bottom-success {
+  border-bottom-color: #2eb85c !important;
+}
+
+.border-bottom-info {
+  border-bottom-color: #39f !important;
+}
+
+.border-bottom-warning {
+  border-bottom-color: #f9b115 !important;
+}
+
+.border-bottom-danger {
+  border-bottom-color: #e55353 !important;
+}
+
+.border-bottom-light {
+  border-bottom-color: #ebedef !important;
+}
+
+.border-bottom-dark {
+  border-bottom-color: #4f5d73 !important;
+}
+
+.border-bottom-white {
+  border-bottom-color: #fff !important;
+}
+
+.border-start-primary {
+  border-left-color: #321fdb !important;
+}
+
+.border-start-secondary {
+  border-left-color: #9da5b1 !important;
+}
+
+.border-start-success {
+  border-left-color: #2eb85c !important;
+}
+
+.border-start-info {
+  border-left-color: #39f !important;
+}
+
+.border-start-warning {
+  border-left-color: #f9b115 !important;
+}
+
+.border-start-danger {
+  border-left-color: #e55353 !important;
+}
+
+.border-start-light {
+  border-left-color: #ebedef !important;
+}
+
+.border-start-dark {
+  border-left-color: #4f5d73 !important;
+}
+
+.border-start-white {
+  border-left-color: #fff !important;
 }
 
 .border-1 {

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v4.1.6 (https://coreui.io)
+  * CoreUI sidebar.js v4.2.0 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -19,7 +19,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.6): sidebar.js
+   * CoreUI (v4.2.0): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -329,9 +329,9 @@
 
 
   EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
-    Array.from(document.querySelectorAll(SELECTOR_SIDEBAR)).forEach(element => {
+    for (const element of Array.from(document.querySelectorAll(SELECTOR_SIDEBAR))) {
       Sidebar.sidebarInterface(element);
-    });
+    }
   });
   /**
    * ------------------------------------------------------------------------

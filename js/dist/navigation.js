@@ -1,5 +1,5 @@
 /*!
-  * CoreUI navigation.js v4.1.6 (https://coreui.io)
+  * CoreUI navigation.js v4.2.0 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -19,7 +19,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.6): navigation.js
+   * CoreUI (v4.2.0): navigation.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -97,9 +97,9 @@
     }
 
     _setActiveLink() {
-      Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK)).forEach(element => {
+      for (const element of Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK))) {
         if (element.classList.contains(CLASS_NAME_NAV_GROUP_TOGGLE)) {
-          return;
+          continue;
         }
 
         let currentUrl = String(window.location);
@@ -116,7 +116,8 @@
         }
 
         if (this._config.activeLinksExact && element.href === currentUrl) {
-          element.classList.add(CLASS_NAME_ACTIVE);
+          element.classList.add(CLASS_NAME_ACTIVE); // eslint-disable-next-line unicorn/no-array-for-each
+
           Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
             element.classList.add(CLASS_NAME_SHOW);
             element.setAttribute('aria-expanded', true);
@@ -124,13 +125,14 @@
         }
 
         if (!this._config.activeLinksExact && element.href.startsWith(currentUrl)) {
-          element.classList.add(CLASS_NAME_ACTIVE);
+          element.classList.add(CLASS_NAME_ACTIVE); // eslint-disable-next-line unicorn/no-array-for-each
+
           Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
             element.classList.add(CLASS_NAME_SHOW);
             element.setAttribute('aria-expanded', true);
           });
         }
-      });
+      }
     }
 
     _getParents(element, selector) {
@@ -229,12 +231,12 @@
 
 
       if (this._config.groupsAutoCollapse === true) {
-        this._getSiblings(toggler.parentNode, filter).forEach(element => {
+        for (const element of this._getSiblings(toggler.parentNode, filter)) {
           this._slideUp(SelectorEngine__default.default.findOne(SELECTOR_NAV_GROUP_ITEMS, element), () => {
             element.classList.remove(CLASS_NAME_SHOW);
             element.setAttribute('aria-expanded', false);
           });
-        });
+        }
       }
 
       if (toggler.parentNode.classList.contains(CLASS_NAME_SHOW)) {
@@ -288,9 +290,9 @@
 
 
   EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
-    Array.from(document.querySelectorAll(SELECTOR_DATA_NAVIGATION)).forEach(element => {
+    for (const element of Array.from(document.querySelectorAll(SELECTOR_DATA_NAVIGATION))) {
       Navigation.navigationInterface(element);
-    });
+    }
   });
   /**
    * ------------------------------------------------------------------------

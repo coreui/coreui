@@ -1,5 +1,5 @@
 /*!
-  * CoreUI manipulator.js v4.1.6 (https://coreui.io)
+  * CoreUI manipulator.js v4.2.0 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.1.6): dom/manipulator.js
+   * CoreUI (v4.2.0): dom/manipulator.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's  dom/manipulator.js
@@ -65,9 +65,9 @@
       }
 
       const attributes = {};
-      const bsKeys = Object.keys(element.dataset).filter(key => key.startsWith('bs') && !key.startsWith('bsConfig'));
+      const coreuiKeys = Object.keys(element.dataset).filter(key => key.startsWith('coreui') && !key.startsWith('coreuiConfig'));
 
-      for (const key of bsKeys) {
+      for (const key of coreuiKeys) {
         let pureKey = key.replace(/^coreui/, '');
         pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
         attributes[pureKey] = normalizeData(element.dataset[key]);
