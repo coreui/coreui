@@ -55,9 +55,9 @@ const Manipulator = {
     }
 
     const attributes = {}
-    const bsKeys = Object.keys(element.dataset).filter(key => key.startsWith('bs') && !key.startsWith('bsConfig'))
+    const coreuiKeys = Object.keys(element.dataset).filter(key => key.startsWith('coreui') && !key.startsWith('coreuiConfig'))
 
-    for (const key of bsKeys) {
+    for (const key of coreuiKeys) {
       let pureKey = key.replace(/^coreui/, '')
       pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length)
       attributes[pureKey] = normalizeData(element.dataset[key])
