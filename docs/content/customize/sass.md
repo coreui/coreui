@@ -22,7 +22,7 @@ your-project/
         └── scss
 ```
 
-If you've downloaded our source files and aren't using a package manager, you'll want to manually create something similar to that structure, keeping Bootstrap's source files separate from your own.
+If you've downloaded our source files and aren't using a package manager, you'll want to manually create something similar to that structure, keeping CoreUI's source files separate from your own.
 
 ```text
 your-project/
@@ -35,7 +35,7 @@ your-project/
 
 ## Importing
 
-In your `custom.scss`, you'll import Bootstrap's source Sass files. You have two options: include all of Bootstrap, or pick the parts you need. We encourage the latter, though be aware there are some requirements and dependencies across our components. You also will need to include some JavaScript for our plugins.
+In your `custom.scss`, you'll import CoreUI's source Sass files. You have two options: include all of CoreUI, or pick the parts you need. We encourage the latter, though be aware there are some requirements and dependencies across our components. You also will need to include some JavaScript for our plugins.
 
 ```scss
 // Custom.scss

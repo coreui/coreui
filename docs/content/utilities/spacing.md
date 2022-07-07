@@ -110,7 +110,7 @@ When using `display: grid`, you can make use of `gap` utilities on the parent gr
 </div>
 {{< /example >}}
 
-Support includes responsive options for all of Bootstrap's grid breakpoints, as well as six sizes from the `$spacers` map (`0`–`5`). There is no `.gap-auto` utility class as it's effectively the same as `.gap-0`.
+Support includes responsive options for all of CoreUI's grid breakpoints, as well as six sizes from the `$spacers` map (`0`–`5`). There is no `.gap-auto` utility class as it's effectively the same as `.gap-0`.
 
 ## Sass
 
