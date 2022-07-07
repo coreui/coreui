@@ -120,11 +120,11 @@ Bootstrap doesn't include `color` and `background-color` utilities for every col
 Here's an example that generates text color utilities (e.g., `.text-purple-500`) using the above steps.
 
 ```scss
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/maps";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import "@coreui/coreui/scss/functions";
+@import "@coreui/coreui/scss/variables";
+@import "@coreui/coreui/scss/maps";
+@import "@coreui/coreui/scss/mixins";
+@import "@coreui/coreui/scss/utilities";
 
 $all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
 
@@ -145,7 +145,7 @@ $utilities: map-merge(
   )
 );
 
-@import "bootstrap/scss/utilities/api";
+@import "@coreui/coreui/scss/utilities/api";
 ```
 
 This will generate new `.text-{color}-{level}` utilities for every color and level. You can do the same for any other utility and property as well.
