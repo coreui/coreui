@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Contents
-description: Discover what's included in Bootstrap, including our precompiled and source code flavors.
+description: Discover what's included in CoreUI, including our precompiled and source code flavors.
 group: getting-started
 toc: true
 ---
@@ -62,7 +62,7 @@ coreui/
     └── coreui.min.js.map
 ```
 
-This is the most basic form of Bootstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (`coreui.*`), as well as compiled and minified CSS and JS (`coreui.min.*`). [source maps](https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps) (`coreui.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`coreui.bundle.js` and minified `coreui.bundle.min.js`) include [Popper](https://popper.js.org/).
+This is the most basic form of CoreUI: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (`coreui.*`), as well as compiled and minified CSS and JS (`coreui.min.*`). [source maps](https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps) (`coreui.*.map`) are available for use with certain browsers' developer tools. Bundled JS files (`coreui.bundle.js` and minified `coreui.bundle.min.js`) include [Popper](https://popper.js.org/).
 
 ## CSS files
 

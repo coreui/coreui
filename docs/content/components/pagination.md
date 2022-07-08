@@ -160,19 +160,16 @@ Or with `.justify-content-end`:
 
 ## Customizing
 
-### SASS
+### CSS Variables
 
 Pagination now uses local CSS variables on `.pagination` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
 {{< scss-docs name="pagination-css-vars" file="scss/_pagination.scss" >}}
 
-### Sass variables
+### SASS variables
 
 {{< scss-docs name="pagination-variables" file="scss/_variables.scss" >}}
 
-### Sass mixins
+### SASS mixins
 
 {{< scss-docs name="pagination-mixin" file="scss/mixins/_pagination.scss" >}}
-
-### CSS Vars
-{{< scss-docs name="pagination-css-vars" file="scss/_pagination.scss" >}}

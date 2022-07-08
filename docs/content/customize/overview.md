@@ -22,7 +22,7 @@ sections:
 
 ## Overview
 
-There are multiple ways to customize Bootstrap. Your best path can depend on your project, the complexity of your build tools, the version of CoreUI for Bootstrap you're using, browser support, and more.
+There are multiple ways to customize CoreUI for Bootstrap. Your best path can depend on your project, the complexity of your build tools, the version of CoreUI for Bootstrap you're using, browser support, and more.
 
 Our two preferred methods are:
 

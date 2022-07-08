@@ -127,3 +127,15 @@
     - title: Text
     - title: Vertical align
     - title: Visibility
+
+- title: Templates
+  icon: devices
+  pages:
+    - title: Admin & Dashboard
+      badge:
+        color: success
+        text: New
+    - title: Download
+    - title: Installation
+    - title: Customize
+    - title: Contents
