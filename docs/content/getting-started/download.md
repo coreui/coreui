@@ -98,7 +98,7 @@ composer require coreui/coreui:{{< param current_version >}}
 
 <!-- ### NuGet
 
-If you develop in .NET, you can also install and manage Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/coreui.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
+If you develop in .NET, you can also install and manage CoreUI for Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/coreui.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
 
 ```powershell
 Install-Package bootstrap

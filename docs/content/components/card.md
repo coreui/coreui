@@ -301,7 +301,7 @@ You can instantly change the text arrangement of any card—in its whole or spec
 
 ## Navigation
 
-Add some navigation to a card's header (or block) with Bootstrap's [nav components]({{< docsref "/components/navs-tabs" >}}).
+Add some navigation to a card's header (or block) with CoreUI for Bootstrap's [nav components]({{< docsref "/components/navs-tabs" >}}).
 
 {{< example >}}
 <div class="card text-center">

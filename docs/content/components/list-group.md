@@ -246,7 +246,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 
 ## Checkboxes and radios
 
-Place Bootstrap's checkboxes and radios within list group items and customize as needed. You can use them without `<label>`s, but please remember to include an `aria-label` attribute and value for accessibility.
+Place CoreUI for Bootstrap's checkboxes and radios within list group items and customize as needed. You can use them without `<label>`s, but please remember to include an `aria-label` attribute and value for accessibility.
 
 {{< example >}}
 <ul class="list-group">

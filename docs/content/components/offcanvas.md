@@ -315,7 +315,7 @@ const bsOffcanvas = new coreui.Offcanvas('#myOffcanvas')
 
 ### Events
 
-Bootstrap's offcanvas class exposes a few events for hooking into offcanvas functionality.
+CoreUI for Bootstrap's offcanvas class exposes a few events for hooking into offcanvas functionality.
 
 {{< bs-table "table" >}}
 | Event type | Description |

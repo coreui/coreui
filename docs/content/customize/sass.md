@@ -10,7 +10,7 @@ Utilize our source Sass files to take advantage of variables, maps, mixins, and 
 
 ## File structure
 
-Whenever possible, avoid modifying Bootstrap's core files. For Sass, that means creating your own stylesheet that imports CoreUI for Bootstrap so you can modify and extend it. Assuming you're using a package manager like npm, you'll have a file structure that looks like this:
+Whenever possible, avoid modifying CoreUI for Bootstrap's core files. For Sass, that means creating your own stylesheet that imports CoreUI for Bootstrap so you can modify and extend it. Assuming you're using a package manager like npm, you'll have a file structure that looks like this:
 
 ```text
 your-project/
@@ -84,9 +84,9 @@ With that setup in place, you can begin to modify any of the Sass variables and 
 
 ## Variable defaults
 
-Every Sass variable in CoreUI for Bootstrap includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying Bootstrap's source code. Copy and paste variables as needed, modify their values, and remove the `!default` flag. If a variable has already been assigned, then it won't be re-assigned by the default values in Bootstrap.
+Every Sass variable in CoreUI for Bootstrap includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying CoreUI for Bootstrap's source code. Copy and paste variables as needed, modify their values, and remove the `!default` flag. If a variable has already been assigned, then it won't be re-assigned by the default values in Bootstrap.
 
-You will find the complete list of Bootstrap's variables in `scss/_variables.scss`. Some variables are set to `null`, these variables don't output the property unless they are overridden in your configuration.
+You will find the complete list of CoreUI for Bootstrap's variables in `scss/_variables.scss`. Some variables are set to `null`, these variables don't output the property unless they are overridden in your configuration.
 
 Variable overrides must come after our functions are imported, but before the rest of the imports.
 
@@ -129,7 +129,7 @@ $primary: #0074d9;
 $danger: #ff4136;
 ```
 
-Later on, these variables are set in Bootstrap's `$theme-colors` map:
+Later on, these variables are set in CoreUI for Bootstrap's `$theme-colors` map:
 
 ```scss
 $theme-colors: (
@@ -191,7 +191,7 @@ Next to the [Sass maps]({{< docsref "/customize/color#color-sass-maps" >}}) we h
 }
 ```
 
-You can lighten or darken colors with Bootstrap's `tint-color()` and `shade-color()` functions. These functions will mix colors with black or white, unlike Sass' native `lighten()` and `darken()` functions which will change the lightness by a fixed amount, which often doesn't lead to the desired effect.
+You can lighten or darken colors with CoreUI for Bootstrap's `tint-color()` and `shade-color()` functions. These functions will mix colors with black or white, unlike Sass' native `lighten()` and `darken()` functions which will change the lightness by a fixed amount, which often doesn't lead to the desired effect.
 
 {{< scss-docs name="color-functions" file="scss/_functions.scss" >}}
 
@@ -283,7 +283,7 @@ $border-width: 0;
 
 ## Mixins
 
-Our `scss/mixins/` directory has a ton of mixins that power parts of Bootstrap and can also be used across your own project.
+Our `scss/mixins/` directory has a ton of mixins that power parts of CoreUI for Bootstrap and can also be used across your own project.
 
 ### Color schemes
 

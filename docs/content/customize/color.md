@@ -8,7 +8,7 @@ toc: true
 
 ## Theme colors
 
-We use a subset of all colors to create a smaller color palette for generating color schemes, also available as Sass variables and a Sass map in Bootstrap's `scss/_variables.scss` file.
+We use a subset of all colors to create a smaller color palette for generating color schemes, also available as Sass variables and a Sass map in CoreUI for Bootstrap's `scss/_variables.scss` file.
 
 <div class="row">
   {{< theme-colors.inline >}}
@@ -81,13 +81,13 @@ Our `tint-color()` and `shade-color()` functions use `mix()` alongside our `$the
 
 ## Color Sass maps
 
-Bootstrap's source Sass files include three maps to help you quickly and easily loop over a list of colors and their hex values.
+CoreUI for Bootstrap's source Sass files include three maps to help you quickly and easily loop over a list of colors and their hex values.
 
 - `$colors` lists all our available base (`500`) colors
 - `$theme-colors` lists all semantically named theme colors (shown below)
 - `$grays` lists all tints and shades of gray
 
-Within `scss/_variables.scss`, you'll find Bootstrap's color variables and Sass map. Here's an example of the `$colors` Sass map:
+Within `scss/_variables.scss`, you'll find CoreUI for Bootstrap's color variables and Sass map. Here's an example of the `$colors` Sass map:
 
 {{< scss-docs name="colors-map" file="scss/_variables.scss" >}}
 

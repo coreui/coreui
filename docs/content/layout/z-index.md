@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Z-index
-description: While not a part of Bootstrap's grid system, z-indexes play an important part in how our components overlay and interact with one another.
+description: While not a part of CoreUI for Bootstrap's grid system, z-indexes play an important part in how our components overlay and interact with one another.
 group: layout
 ---
 

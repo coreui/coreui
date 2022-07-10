@@ -66,7 +66,7 @@ You can also replace the `.badge` class with a few more utilities without a coun
 
 ## Contextual variations
 
-Add any of the below-mentioned classes to modify the presentation of a badge. Please note that when using Bootstrap's default `.bg-light`, you'll likely need a text color utility like `.text-dark` for proper styling. This is because background utilities do not set anything but `background-color`.
+Add any of the below-mentioned classes to modify the presentation of a badge. Please note that when using CoreUI for Bootstrap's default `.bg-light`, you'll likely need a text color utility like `.text-dark` for proper styling. This is because background utilities do not set anything but `background-color`.
 
 {{< example >}}
 {{< badge.inline >}}

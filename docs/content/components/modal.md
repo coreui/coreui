@@ -12,7 +12,7 @@ bootstrap: true
 
 ## How it works
 
-Bootstrap modals are lightweight and multi-purpose popups. Modals are split into three primary sections: header, body, and footer. Each has its role and so should be used accordingly. Before getting started with Bootstrap's modal component, be sure to read the following as our menu options have recently changed.
+Bootstrap modals are lightweight and multi-purpose popups. Modals are split into three primary sections: header, body, and footer. Each has its role and so should be used accordingly. Before getting started with CoreUI for Bootstrap's modal component, be sure to read the following as our menu options have recently changed.
 
 - Modals are built with HTML, CSS, and JavaScript. They're positioned over everything else in the document and remove scroll from the `<body>` so that modal content scrolls instead.
 - Clicking on the modal "backdrop" will automatically close the modal.
@@ -846,7 +846,7 @@ const myModal = new coreui.Modal('#myModal', {
 
 ### Events
 
-Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
+CoreUI for Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
 
 {{< bs-table >}}
 | Event | Description |

@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Bootstrap navs and tabs
-description: Documentation and examples for how to use Bootstrap's included navigation components.
+description: Documentation and examples for how to use CoreUI for Bootstrap's included navigation components.
 group: components
 aliases: "/4.1/components/navs/"
 toc: true

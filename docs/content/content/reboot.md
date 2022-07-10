@@ -22,7 +22,7 @@ Here are our guidelines and reasons for choosing what to override in Reboot:
 
 {{< added-in "4.1.0" >}}
 
-With v4.1.0, we standardized our required `@import`s across all our CSS bundles (including `coreui.css`, `coreui-reboot.css`, and `coreui-grid.css` to include `_root.scss` . This adds `:root` level CSS variables to all bundles, regardless of how many of them are used in that bundle. Ultimately Bootstrap 5 will continue to see more CSS variables added over time.
+With v4.1.0, we standardized our required `@import`s across all our CSS bundles (including `coreui.css`, `coreui-reboot.css`, and `coreui-grid.css` to include `_root.scss` . This adds `:root` level CSS variables to all bundles, regardless of how many of them are used in that bundle. Ultimately CoreUI will continue to see more CSS variables added over time.
 
 ## Page defaults
 

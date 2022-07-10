@@ -214,7 +214,7 @@ alert.close()
 
 ### Events
 
-Bootstrap's alert plugin exposes a few events for hooking into alert functionality.
+CoreUI for Bootstrap's alert plugin exposes a few events for hooking into alert functionality.
 
 {{< bs-table >}}
 | Event | Description |

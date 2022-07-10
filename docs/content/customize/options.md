@@ -7,7 +7,7 @@ group: customize
 
 Customize CoreUI for Bootstrap with our built-in custom variables file and easily toggle global CSS preferences with new `$enable-*` Sass variables. Override a variable's value and recompile with `npm run test` as needed.
 
-You can find and customize these variables for key global options in Bootstrap's `scss/_variables.scss` file.
+You can find and customize these variables for key global options in CoreUI for Bootstrap's `scss/_variables.scss` file.
 
 {{< bs-table "table table-options" >}}
 | Variable                       | Values                             | Description                                                                            |

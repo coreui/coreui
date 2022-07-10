@@ -102,7 +102,7 @@ Be sure to add `aria-expanded` to the control component. This attribute explicit
 
 If your control element is targeting a single collapsible element – i.e., the `data-coreui-target` attribute is pointing to an `id` selector – you should attach the `aria-controls` attribute to the control part, including the `id` of the collapsible element. Modern screen readers and related assistive technologies address this attribute to provide users with extra shortcuts to navigate directly to the collapsible element itself.
 
-Note that Bootstrap's current implementation does not cover the various *optional* keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
+Note that CoreUI for Bootstrap's current implementation does not cover the various *optional* keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
 ## Usage
 
 The collapse plugin utilizes a few classes to handle the heavy lifting:
@@ -170,7 +170,7 @@ const bsCollapse = new coreui.Collapse('#myCollapse', {
 
 ### Events
 
-Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
+CoreUI for Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
 
 {{< bs-table >}}
 | Event type | Description |
