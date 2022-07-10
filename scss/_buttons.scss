@@ -100,6 +100,12 @@
 // Alternate buttons
 //
 
+.btn-transparent {
+  --#{$prefix}btn-active-border-color: transparent;
+  --#{$prefix}btn-disabled-border-color: transparent;
+  --#{$prefix}btn-hover-border-color: transparent;
+}
+
 // scss-docs-start btn-variant-loops
 @each $state, $variant in $button-variants {
   .btn-#{$state} {
