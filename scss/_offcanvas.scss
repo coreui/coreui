@@ -80,7 +80,7 @@
 
       &.showing,
       &.show:not(.hiding) {
-        transform: none;
+        transform: none !important; // stylelint-disable-line declaration-no-important
       }
 
       &.showing,
