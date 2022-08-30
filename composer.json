@@ -21,8 +21,5 @@
   "support": {
     "issues": "https://github.com/coreui/coreui/issues"
   },
-  "license": "MIT",
-  "replace": {
-    "coreui/coreui": "self.version"
-  }
+  "license": "MIT"
 }
