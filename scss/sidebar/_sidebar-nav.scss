@@ -97,6 +97,10 @@
     }
   }
 
+  svg.nav-icon {
+    overflow: hidden; // fix chrome 105+ width issue
+  }
+
   .nav-group {
     position: relative;
     @include transition($sidebar-nav-group-transition);
