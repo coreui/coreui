@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tab.js v4.2.1 (https://coreui.io)
+  * CoreUI tab.js v4.2.2 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -17,7 +17,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.1): tab.js
+   * CoreUI (v4.2.2): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tab.js

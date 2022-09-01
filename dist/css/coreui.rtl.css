@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.1
+ * @version v4.2.2
  * @link https://coreui.io/
  * Copyright (c) 2022 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.1
+ * @version v4.2.2
  * @link https://coreui.io/
  * Copyright (c) 2022 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -7636,6 +7636,9 @@ textarea.form-control-lg {
 }
 .sidebar-nav .nav-icon:first-child {
   margin-right: calc(var(--cui-sidebar-nav-link-padding-x) * -1);
+}
+.sidebar-nav svg.nav-icon {
+  overflow: hidden;
 }
 .sidebar-nav .nav-group {
   position: relative;

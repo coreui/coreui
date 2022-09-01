@@ -423,7 +423,7 @@ Cards include various options for customizing their backgrounds, borders, and co
 
 ### Background and color
 
-{{< added-in "4.2.1" >}}
+{{< added-in "4.2.2" >}}
 
 Set a `background-color` with contrasting foreground `color` with [our `.text-bg-{color}` helpers]({{< docsref "helpers/color-background" >}}). Previously it was required to manually pair your choice of [`.text-{color}`]({{< docsref "/utilities/colors" >}}) and [`.bg-{color}`]({{< docsref "/utilities/background" >}}) utilities for styling, which you still may use if you prefer.
 

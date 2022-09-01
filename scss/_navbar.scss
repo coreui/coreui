@@ -258,7 +258,7 @@
 // Styles for switching between navbars with light or dark background.
 
 .navbar-light {
-  @include deprecate("`.navbar-light`", "v4.2.1", "v6.0.0", true);
+  @include deprecate("`.navbar-light`", "v4.2.2", "v6.0.0", true);
 }
 
 .navbar-dark {
