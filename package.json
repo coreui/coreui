@@ -83,13 +83,13 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@popperjs/core": "^2.11.5"
+    "@popperjs/core": "^2.11.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
-    "@popperjs/core": "^2.11.5",
+    "@popperjs/core": "^2.11.6",
     "@rollup/plugin-babel": "^5.3.1",
     "@rollup/plugin-commonjs": "^22.0.0",
     "@rollup/plugin-node-resolve": "^13.3.0",
@@ -156,7 +156,7 @@
     },
     "dependencies": {},
     "peerDependencies": {
-      "@popperjs/core": "^2.11.5"
+      "@popperjs/core": "^2.11.6"
     }
   },
   "dependencies": {
