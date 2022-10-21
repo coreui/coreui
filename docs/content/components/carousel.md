@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/carousel/"
 toc: true
 bootstrap: true
+other_frameworks: carousel
 ---
 
 ## How it works

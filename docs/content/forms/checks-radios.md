@@ -5,6 +5,7 @@ description: Create consistent cross-browser and cross-device checkboxes and rad
 group: forms
 aliases: "/4.1/forms/checks/"
 toc: true
+other_frameworks: checkbox, radio, switch
 ---
 
 ## Approach

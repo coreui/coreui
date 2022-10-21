@@ -9,6 +9,7 @@ aliases:
   - "/components/bootstrap/card/"
 toc: true
 bootstrap: true
+other_frameworks: card
 ---
 
 ## About

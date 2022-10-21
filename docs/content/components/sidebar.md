@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/sidebar/"
 toc: true
+other_frameworks: sidebar
 ---
 
 ## How it works

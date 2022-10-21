@@ -5,6 +5,7 @@ description: Documentation and examples for how to use CoreUI for Bootstrap's in
 group: components
 aliases: "/4.1/components/navs/"
 toc: true
+other_frameworks: navs-tabs
 ---
 
 ## Base nav

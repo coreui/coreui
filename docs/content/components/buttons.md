@@ -9,6 +9,7 @@ aliases:
   - "/components/bootstrap/button/"
 toc: true
 bootstrap: true
+other_frameworks: button
 ---
 
 ## Examples

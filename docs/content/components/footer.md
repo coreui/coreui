@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/footer/"
 toc: true
+other_frameworks: footer
 ---
 
 <style>

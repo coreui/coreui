@@ -3,6 +3,14 @@
   <main class="docs-main order-1">
     <div class="docs-intro ps-lg-4">
       {{ partial "breadcrumb" . }}
+      {{ if .Page.Params.pro_component }}
+      <div class="bg-danger bg-opacity-10 border-start border-start-5 border-start-danger p-4 pb-3 mb-5">
+        <h3 class="mb-4">CoreUI PRO Component</h3>
+        <p>
+          To use this component you must have a CoreUI PRO license. Buy the <a href="https://coreui.io/pricing/?docs=coreui">CoreUI PRO</a>, and get access to PRO components, and dedicated support.
+        </p>
+      </div>
+      {{ else }}
       <div class="bg-info bg-opacity-10 border-start border-start-5 border-start-info p-4 pb-3 mb-5">
         <h3 class="mb-4">Support CoreUI Development</h3>
         <p>
@@ -17,9 +25,26 @@
           <li>Give us a star ⭐️ on <a href="https://github.com/coreui/coreui" target="_blank">Github</a>.</li>
         </ul>
       </div>
+      {{ end }}
       <h1 class="docs-title" id="content">{{ .Title | markdownify }}</h1>
       <p class="docs-lead">{{ .Page.Params.Description | markdownify }}</p>
       {{ partial "ads" . }}
+      {{ if .Page.Params.other_frameworks }}
+      <h2>Other frameworks</h2>
+      <p>CoreUI components are available as native Angular, React, and Vue components. To learn more please visit the following pages.</p>
+      <ul>
+        {{ $components := split $.Page.Params.other_frameworks ", " }}
+        {{ range $component, $value := .Site.Data.other_frameworks }}
+          {{ if in $components $component }}
+            {{ range $framework, $url := $value }}
+              {{ if ne $framework "bootstrap" }}
+                <li><a href="{{ $url }}">{{ humanize $framework }} {{ humanize $component | title }}</a></li>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </ul>
+      {{ end }}
     </div>
 
     {{ if (eq .Page.Params.toc true) }}

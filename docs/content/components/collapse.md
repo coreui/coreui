@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/collapse/"
 toc: true
 bootstrap: true
+other_frameworks: collapse
 ---
 
 ## How it works

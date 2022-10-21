@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/breadcrumb/"
 toc: true
 bootstrap: true
+other_frameworks: breadcrumb
 ---
 
 ## Example

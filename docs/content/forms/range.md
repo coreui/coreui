@@ -4,6 +4,7 @@ title: Range
 description: Use our custom range inputs for consistent cross-browser styling and built-in customization.
 group: forms
 toc: true
+other_frameworks: range
 ---
 
 ## Overview

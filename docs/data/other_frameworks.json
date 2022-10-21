@@ -1,0 +1,241 @@
+{
+  "accordion": {
+    "angular": "https://coreui.io/angular/docs/components/accordion",
+    "bootstrap": "https://coreui.io/docs/components/accordion/",
+    "react": "https://coreui.io/react/docs/components/accordion/",
+    "vue": "https://coreui.io/vue/docs/components/accordion.html"
+  },
+  "alert": {
+    "angular": "https://coreui.io/angular/docs/components/alert",
+    "bootstrap": "https://coreui.io/docs/components/alerts/",
+    "react": "https://coreui.io/react/docs/components/alert/",
+    "vue": "https://coreui.io/vue/docs/components/alert.html"
+  },
+  "avatar": {
+    "angular": "https://coreui.io/angular/docs/components/avatar",
+    "bootstrap": "https://coreui.io/docs/components/avatar/",
+    "react": "https://coreui.io/react/docs/components/avatar/",
+    "vue": "https://coreui.io/vue/docs/components/avatar.html"
+  },
+  "badge": {
+    "angular": "https://coreui.io/angular/docs/components/badge",
+    "bootstrap": "https://coreui.io/docs/components/badge/",
+    "react": "https://coreui.io/react/docs/components/badge/",
+    "vue": "https://coreui.io/vue/docs/components/badge.html"
+  },
+  "breadcrumb": {
+    "angular": "https://coreui.io/angular/docs/components/breadcrumb",
+    "bootstrap": "https://coreui.io/docs/components/breadcrumb/",
+    "react": "https://coreui.io/react/docs/components/breadcrumb/",
+    "vue": "https://coreui.io/vue/docs/components/breadcrumb.html"
+  },
+  "button": {
+    "angular": "https://coreui.io/angular/docs/components/button",
+    "bootstrap": "https://coreui.io/docs/components/buttons/",
+    "react": "https://coreui.io/react/docs/components/button/",
+    "vue": "https://coreui.io/vue/docs/components/button.html"
+  },
+  "button-group": {
+    "angular": "https://coreui.io/angular/docs/components/button-group",
+    "bootstrap": "https://coreui.io/docs/components/button-group/",
+    "react": "https://coreui.io/react/docs/components/button-group/",
+    "vue": "https://coreui.io/vue/docs/components/button-group.html"
+  },
+  "callout": {
+    "angular": "https://coreui.io/angular/docs/components/callout",
+    "bootstrap": "https://coreui.io/docs/components/callout/",
+    "react": "https://coreui.io/react/docs/components/callout/",
+    "vue": "https://coreui.io/vue/docs/components/callout.html"
+  },
+  "card": {
+    "angular": "https://coreui.io/angular/docs/components/card",
+    "bootstrap": "https://coreui.io/docs/components/card/",
+    "react": "https://coreui.io/react/docs/components/card/",
+    "vue": "https://coreui.io/vue/docs/components/card.html"
+  },
+  "carousel": {
+    "angular": "https://coreui.io/angular/docs/components/carousel",
+    "bootstrap": "https://coreui.io/docs/components/carousel/",
+    "react": "https://coreui.io/react/docs/components/carousel/",
+    "vue": "https://coreui.io/vue/docs/components/carousel.html"
+  },
+  "checkbox": {
+    "angular": "https://coreui.io/angular/docs/forms/checks-radios",
+    "bootstrap": "https://coreui.io/docs/forms/checks-radios/",
+    "react": "https://coreui.io/react/docs/forms/checkbox/",
+    "vue": "https://coreui.io/vue/docs/forms/checkbox.html"
+  },
+  "close-button": {
+    "angular": "https://coreui.io/angular/docs/components/close-button",
+    "bootstrap": "https://coreui.io/docs/components/close-button/",
+    "react": "https://coreui.io/react/docs/components/close-button/",
+    "vue": "https://coreui.io/vue/docs/components/close-button.html"
+  },
+  "collapse": {
+    "angular": "https://coreui.io/angular/docs/components/collapse",
+    "bootstrap": "https://coreui.io/docs/components/collapse/",
+    "react": "https://coreui.io/react/docs/components/collapse/",
+    "vue": "https://coreui.io/vue/docs/components/collapse.html"
+  },
+  "dropdown": {
+    "angular": "https://coreui.io/angular/docs/components/dropdown",
+    "bootstrap": "https://coreui.io/docs/components/dropdowns/",
+    "react": "https://coreui.io/react/docs/components/dropdown/",
+    "vue": "https://coreui.io/vue/docs/components/dropdown.html"
+  },
+  "footer": {
+    "angular": "https://coreui.io/angular/docs/components/footer",
+    "bootstrap": "https://coreui.io/docs/components/footer/",
+    "react": "https://coreui.io/react/docs/components/footer/",
+    "vue": "https://coreui.io/vue/docs/components/footer.html"
+  },
+  "header": {
+    "angular": "https://coreui.io/angular/docs/components/header",
+    "bootstrap": "https://coreui.io/docs/components/header/",
+    "react": "https://coreui.io/react/docs/components/header/",
+    "vue": "https://coreui.io/vue/docs/components/header.html"
+  },
+  "icon": {
+    "angular": "https://coreui.io/angular/docs/components/icon",
+    "bootstrap": "https://coreui.io/docs/components/icon/",
+    "react": "https://coreui.io/react/docs/components/icon/",
+    "vue": "https://coreui.io/vue/docs/components/icon.html"
+  },
+  "image": {
+    "angular": "https://coreui.io/angular/docs/components/image",
+    "bootstrap": "https://coreui.io/docs/content/images/",
+    "react": "https://coreui.io/react/docs/components/image/",
+    "vue": "https://coreui.io/vue/docs/components/image.html"
+  },
+  "input": {
+    "angular": "https://coreui.io/angular/docs/forms/input",
+    "bootstrap": "https://coreui.io/docs/forms/form-control/",
+    "react": "https://coreui.io/react/docs/forms/input/",
+    "vue": "https://coreui.io/vue/docs/forms/input.html"
+  },
+  "input-group": {
+    "angular": "https://coreui.io/angular/docs/forms/input-group",
+    "bootstrap": "https://coreui.io/docs/forms/input-group/",
+    "react": "https://coreui.io/react/docs/forms/input-group/",
+    "vue": "https://coreui.io/vue/docs/forms/input-group.html"
+  },
+  "floating-labels": {
+    "angular": "https://coreui.io/angular/docs/forms/floating-labels",
+    "bootstrap": "https://coreui.io/docs/forms/floating-labels/",
+    "react": "https://coreui.io/react/docs/forms/floating-labels/",
+    "vue": "https://coreui.io/vue/docs/forms/floating-labels.html"
+  },
+  "list-group": {
+    "angular": "https://coreui.io/angular/docs/components/list-group",
+    "bootstrap": "https://coreui.io/docs/components/list-group/",
+    "react": "https://coreui.io/react/docs/components/list-group/",
+    "vue": "https://coreui.io/vue/docs/components/list-group.html"
+  },
+  "modal": {
+    "angular": "https://coreui.io/angular/docs/components/modal",
+    "bootstrap": "https://coreui.io/docs/components/modal/",
+    "react": "https://coreui.io/react/docs/components/modal/",
+    "vue": "https://coreui.io/vue/docs/components/modal.html"
+  },
+  "navbar": {
+    "bootstrap": "https://coreui.io/docs/components/navbar/",
+    "react": "https://coreui.io/react/docs/components/navbar/",
+    "vue": "https://coreui.io/vue/docs/components/navbar.html"
+  },
+  "navs-tabs": {
+    "angular": "https://coreui.io/angular/docs/components/nav",
+    "bootstrap": "https://coreui.io/docs/components/navs-tabs/",
+    "react": "https://coreui.io/react/docs/components/navs-tabs/",
+    "vue": "https://coreui.io/vue/docs/components/navs-tabs.html"
+  },
+  "offcanvas": {
+    "angular": "https://coreui.io/angular/docs/components/offcanvas",
+    "bootstrap": "https://coreui.io/docs/components/offcanvas/",
+    "react": "https://coreui.io/react/docs/components/offcanvas/",
+    "vue": "https://coreui.io/vue/docs/components/offcanvas.html"
+  },
+  "pagination": {
+    "angular": "https://coreui.io/angular/docs/components/pagination",
+    "bootstrap": "https://coreui.io/docs/components/pagination/",
+    "react": "https://coreui.io/react/docs/components/pagination/",
+    "vue": "https://coreui.io/vue/docs/components/pagination.html"
+  },
+  "placeholder": {
+    "angular": "https://coreui.io/angular/docs/components/placeholder",
+    "bootstrap": "https://coreui.io/docs/components/placeholders/",
+    "react": "https://coreui.io/react/docs/components/placeholder/",
+    "vue": "https://coreui.io/vue/docs/components/placeholder.html"
+  },
+  "popover": {
+    "angular": "https://coreui.io/angular/docs/components/popover",
+    "bootstrap": "https://coreui.io/docs/components/popovers/",
+    "react": "https://coreui.io/react/docs/components/popover/",
+    "vue": "https://coreui.io/vue/docs/components/popover.html"
+  },
+  "progress": {
+    "angular": "https://coreui.io/angular/docs/components/progress",
+    "bootstrap": "https://coreui.io/docs/components/progress/",
+    "react": "https://coreui.io/react/docs/components/progress/",
+    "vue": "https://coreui.io/vue/docs/components/progress.html"
+  },
+  "radio": {
+    "angular": "https://coreui.io/angular/docs/forms/checks-radios",
+    "bootstrap": "https://coreui.io/docs/forms/checks-radios/",
+    "react": "https://coreui.io/react/docs/forms/radio/",
+    "vue": "https://coreui.io/vue/docs/forms/radio.html"
+  },
+  "range": {
+    "angular": "https://coreui.io/angular/docs/forms/range",
+    "bootstrap": "https://coreui.io/docs/forms/range/",
+    "react": "https://coreui.io/react/docs/forms/range/",
+    "vue": "https://coreui.io/vue/docs/forms/range.html"
+  },
+  "select": {
+    "angular": "https://coreui.io/angular/docs/forms/select",
+    "bootstrap": "https://coreui.io/docs/forms/select/",
+    "react": "https://coreui.io/react/docs/forms/select/",
+    "vue": "https://coreui.io/vue/docs/forms/select.html"
+  },
+  "sidebar": {
+    "angular": "https://coreui.io/angular/docs/components/sidebar",
+    "bootstrap": "https://coreui.io/docs/components/sidebar/",
+    "react": "https://coreui.io/react/docs/components/sidebar/",
+    "vue": "https://coreui.io/vue/docs/components/sidebar.html"
+  },
+  "spinner": {
+    "angular": "https://coreui.io/angular/docs/components/spinner",
+    "bootstrap": "https://coreui.io/docs/components/spinners/",
+    "react": "https://coreui.io/react/docs/components/spinner/",
+    "vue": "https://coreui.io/vue/docs/components/spinner.html"
+  },
+  "switch": {
+    "angular": "https://coreui.io/angular/docs/forms/checks-radios",
+    "bootstrap": "https://coreui.io/docs/forms/checks-radios/",
+    "react": "https://coreui.io/react/docs/forms/switch/",
+    "vue": "https://coreui.io/vue/docs/forms/switch.html"
+  },
+  "table": {
+    "angular": "https://coreui.io/angular/docs/components/table",
+    "bootstrap": "https://coreui.io/docs/content/tables/",
+    "react": "https://coreui.io/react/docs/components/table/",
+    "vue": "https://coreui.io/vue/docs/components/table.html"
+  },
+  "textarea": {
+    "angular": "https://coreui.io/angular/docs/forms/form-control",
+    "bootstrap": "https://coreui.io/docs/forms/form-control/",
+    "react": "https://coreui.io/react/docs/forms/textarea/",
+    "vue": "https://coreui.io/vue/docs/forms/textarea.html"
+  },
+  "toast": {
+    "angular": "https://coreui.io/angular/docs/components/toast",
+    "bootstrap": "https://coreui.io/docs/components/toasts/",
+    "react": "https://coreui.io/react/docs/components/toast/",
+    "vue": "https://coreui.io/vue/docs/components/toast.html"
+  },
+  "tooltip": {
+    "angular": "https://coreui.io/angular/docs/components/tooltip",
+    "bootstrap": "https://coreui.io/docs/components/tooltips/",
+    "react": "https://coreui.io/react/docs/components/tooltip/",
+    "vue": "https://coreui.io/vue/docs/components/tooltip.html"
+  }
+}

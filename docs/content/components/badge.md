@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/badge/"
 toc: true
 bootstrap: true
+other_frameworks: badge
 ---
 
 ## Examples

@@ -8,6 +8,7 @@ aliases:
   - "/4.1/components/"
 toc: true
 bootstrap: true
+other_frameworks: accordion
 ---
 
 ## How it works

@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/dropdowns/"
 toc: true
 bootstrap: true
+other_frameworks: dropdown
 ---
 
 ## Overview

@@ -4,6 +4,7 @@ title: Floating labels
 description: Create beautifully simple form labels that float over your input fields.
 group: forms
 toc: true
+other_frameworks: floating-labels
 ---
 
 ## Example

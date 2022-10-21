@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/alerts/"
 toc: true
+other_frameworks: alert
 ---
 
 ## Examples

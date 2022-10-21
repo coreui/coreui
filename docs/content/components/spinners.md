@@ -4,6 +4,7 @@ title: Bootstrap spinners
 description: Indicate the loading state of a component or page with Bootstrap spinners, built entirely with HTML, CSS, and no JavaScript.
 group: components
 toc: true
+other_frameworks: spinner
 ---
 
 ## About

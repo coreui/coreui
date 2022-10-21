@@ -8,6 +8,7 @@ aliases:
   - "/components/bootstrap/list-group/"
 toc: true
 bootstrap: true
+other_frameworks: list-group
 ---
 
 ## Basic example

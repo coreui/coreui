@@ -4,6 +4,7 @@ title: Bootstrap pagination
 description: Documentation and examples for showing pagination to indicate a series of related content exists across multiple pages.
 group: components
 toc: true
+other_frameworks: pagination
 ---
 
 ## Overview

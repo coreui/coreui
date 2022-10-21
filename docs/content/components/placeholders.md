@@ -5,6 +5,7 @@ description: Use loading placeholders for your components or pages to indicate s
 group: components
 toc: true
 added: "5.1"
+other_frameworks: placeholder
 ---
 
 ## About
