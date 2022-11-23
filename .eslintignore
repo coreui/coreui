@@ -4,4 +4,6 @@
 /_gh_pages/
 /js/coverage/
 /js/tests/integration/
+/docs/content/_index.html
 /docs/static/sw.js
+/docs/layouts/
