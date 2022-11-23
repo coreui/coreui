@@ -42,11 +42,11 @@
     }
 
     thead {
-      border-bottom: 2px solid currentColor;
+      border-bottom: 2px solid currentcolor;
     }
 
     tbody:not(:first-child) {
-      border-top: 2px solid currentColor;
+      border-top: 2px solid currentcolor;
     }
 
     th,
@@ -92,7 +92,7 @@
 .bi {
   width: 1em;
   height: 1em;
-  fill: currentColor;
+  fill: currentcolor;
 }
 
 .icon-link {

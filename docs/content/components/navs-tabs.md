@@ -598,69 +598,20 @@ To make tabs fade in, add `.fade` to each `.tab-pane`. The first tab pane must a
 
 #### constructor
 
-Activates a tab element and content container. Tab should have either a `data-coreui-target` or an `href` targeting a container node in the DOM.
-
-```html
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active" id="home-tab" data-coreui-toggle="tab" data-coreui-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="profile-tab" data-coreui-toggle="tab" data-coreui-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="messages-tab" data-coreui-toggle="tab" data-coreui-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Messages</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link" id="settings-tab" data-coreui-toggle="tab" data-coreui-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Settings</button>
-  </li>
-</ul>
-
-<div class="tab-content">
-  <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">...</div>
-  <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">...</div>
-  <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">...</div>
-  <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab" tabindex="0">...</div>
-</div>
-
-<script>
-  const firstTabEl = document.querySelector('#myTab li:last-child button')
-  const firstTab = new coreui.Tab(firstTabEl)
-
-  firstTab.show()
-</script>
-```
-
-#### show
-
-Selects the given tab and shows its associated pane. Any other tab that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (i.e. before the `shown.coreui.tab` event occurs).
+You can create a tab instance with the constructor, for example:
 
 ```js
-const someTabTriggerEl = document.querySelector('#someTabTrigger')
-const tab = new coreui.Tab(someTabTriggerEl)
-
-tab.show()
+const cuiTab = new coreui.Tab('#myTab')
 ```
 
-#### dispose
-
-Destroys an element's tab.
-
-#### getInstance
-
-*Static* method which allows you to get the tab instance associated with a DOM element
-
-```js
-const tab = coreui.Tab.getInstance('#trigger') // Returns a Bootstrap tab instance
-```
-
-#### getOrCreateInstance
-
-*Static* method which allows you to get the tab instance associated with a DOM element, or create a new one in case it wasn't initialized
-
-```js
-const tab = coreui.Tab.getOrCreateInstance('#trigger') // Returns a Bootstrap tab instance
-```
+{{< bs-table >}}
+| Method | Description |
+| --- | --- |
+| `dispose` | Destroys an element's tab. |
+| `getInstance` | *Static* method which allows you to get the tab instance associated with a DOM element, you can use it like this: `coreui.Tab.getInstance(element)`. |
+| `getOrCreateInstance` | *Static* method which allows you to get the tab instance associated with a DOM element, or create a new one in case it wasn't initialized You can use it like this: `coreui.Tab.getOrCreateInstance(element)`. |
+| `show` | Selects the given tab and shows its associated pane. Any other tab that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (i.e. before the `shown.coreui.tab` event occurs). |
+{{< /bs-table >}}
 
 ### Events
 

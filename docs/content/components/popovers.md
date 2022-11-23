@@ -32,7 +32,9 @@ Things to know when using the popover plugin:
 
 Keep reading to see how popovers work with some examples.
 
-## Example: Enable popovers everywhere
+## Examples
+
+### Enable popovers everywhere
 
 One way to initialize all popovers on a page would be to select them by their `data-coreui-toggle` attribute:
 
@@ -41,17 +43,7 @@ const popoverTriggerList = document.querySelectorAll('[data-coreui-toggle="popov
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new coreui.Popover(popoverTriggerEl))
 ```
 
-## Example: Using the `container` option
-
-When you have some styles on a parent element that interfere with a popover, you'll want to specify a custom `container` so that the popover's HTML appears within that element instead.
-
-```js
-const popover = new coreui.Popover(document.querySelector('.example-popover'), {
-  container: 'body'
-})
-```
-
-## Example
+### Live demo
 
 {{< example >}}
 <button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
@@ -73,6 +65,32 @@ Four options are available: top, right, bottom, and left aligned. Directions are
 </button>
 <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">
   Popover on left
+</button>
+{{< /example >}}
+
+### Using the `container` option
+
+When you have some styles on a parent element that interfere with a popover, you'll want to specify a custom `container` so that the popover's HTML appears within that element instead.
+
+```js
+const popover = new coreui.Popover(document.querySelector('.example-popover'), {
+  container: 'body'
+})
+```
+
+### Custom popovers
+
+<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.2</small>
+
+You can customize the appearance of popovers using [CSS variables](#variables). We set a custom class with `data-coreui-custom-class="custom-popover"` to scope our custom appearance and use it to override some of the local CSS variables.
+{{< scss-docs name="custom-popovers" file="docs/assets/scss/_component-examples.scss" >}}
+{{< example >}}
+<button type="button" class="btn btn-secondary"
+        data-coreui-toggle="popover" data-coreui-placement="right"
+        data-coreui-custom-class="custom-popover"
+        data-coreui-title="Custom popover"
+        data-coreui-content="This popover is themed via CSS variables.">
+  Custom popover
 </button>
 {{< /example >}}
 
@@ -152,7 +170,7 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
 | `popperConfig` | null, object, function | `null` | To change CoreUI for Bootstrap's default Popper config, see [Popper's configuration](https://popper.js.org/docs/v2/constructors/#options). When a function is used to create the Popper configuration, it's called with an object that contains the CoreUI for Bootstrap's default Popper configuration. It helps you use and merge the default with your own configuration. The function must return a configuration object for Popper.|
 | `sanitize` | boolean | `true` | Enable or disable the sanitization. If activated `'template'`, `'content'` and `'title'` options will be sanitized. |
 | `sanitizeFn` | null, function | `null` | Here you can supply your own sanitize function. This can be useful if you prefer to use a dedicated library to perform sanitization. |
-| `selector` | string, false | `false` | If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to also apply popovers to dynamically added DOM elements (`jQuery.on` support). See [this issue]({{< param repo >}}/issues/4215) and [an informative example](https://codepen.io/Johann-S/pen/djJYPb). |
+| `selector` | string, false | `false` | If a selector is provided, popover objects will be delegated to the specified targets. In practice, this is used to also apply popovers to dynamically added DOM elements (`jQuery.on` support). See [this issue]({{< param repo >}}/issues/4215) and [an informative example](https://codepen.io/Johann-S/pen/djJYPb). **Note**: `title` attribute must not be used as a selector. |
 | `template` | string | `'<div class="popover" role="popover"><div class="popover-arrow"></div><div class="popover-inner"></div></div>'` | Base HTML to use when creating the popover. The popover's `title` will be injected into the `.popover-inner`. `.popover-arrow` will become the popover's arrow. The outermost wrapper element should have the `.popover` class and `role="popover"`. |
 | `title` | string, element, function | `''` | Default title value if `title` attribute isn't present. If a function is given, it will be called with its `this` reference set to the element that the popover is attached to. |
 | `trigger` | string | `'hover focus'` | How popover is triggered: click, hover, focus, manual. You may pass multiple triggers; separate them with a space. `'manual'` indicates that the popover will be triggered programmatically via the `.popover('show')`, `.popover('hide')` and `.popover('toggle')` methods; this value cannot be combined with any other trigger. `'hover'` on its own will result in popovers that cannot be triggered via the keyboard, and should only be used if alternative methods for conveying the same information for keyboard users is present. |

@@ -80,22 +80,6 @@ You can use a link with the `href` attribute, or a button with the `data-coreui-
 </div>
 {{< /example >}}
 
-### Dark offcanvas
-
-Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
-
-{{< example class="docs-example-offcanvas p-0 bg-light overflow-hidden" >}}
-<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
-    <button type="button" class="btn-close btn-close-white" data-coreui-dismiss="offcanvasDark" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <p>Place offcanvas content here.</p>
-  </div>
-</div>
-{{< /example >}}
-
 ### Body scrolling
 
 Scrolling the `<body>` element is disabled when an offcanvas and its backdrop are visible. Use the `data-coreui-scroll` attribute to enable `<body>` scrolling.
@@ -150,6 +134,24 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
     <div>
       I will not close if you click outside of me.
     </div>
+  </div>
+</div>
+{{< /example >}}
+
+## Dark offcanvas
+
+<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.2</small>
+
+Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
+
+{{< example class="docs-example-offcanvas p-0 bg-light overflow-hidden" >}}
+<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
+    <button type="button" class="btn-close btn-close-white" data-coreui-dismiss="offcanvasDark" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <p>Place offcanvas content here.</p>
   </div>
 </div>
 {{< /example >}}
