@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.2): dom/selector-engine.js
+ * CoreUI (v4.2.3): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This is a modified version of the Bootstrap's dom/manipulator.js

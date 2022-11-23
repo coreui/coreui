@@ -1,13 +1,13 @@
 /*!
-  * CoreUI collapse.js v4.2.2 (https://coreui.io)
+  * CoreUI collapse.js v4.2.3 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./util/index'), require('./dom/event-handler'), require('./dom/selector-engine'), require('./base-component')) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./util/index.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
   typeof define === 'function' && define.amd ? define(['./util/index', './dom/event-handler', './dom/selector-engine', './base-component'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Collapse = factory(global.Index, global.EventHandler, global.SelectorEngine, global.BaseComponent));
-})(this, (function (index, EventHandler, SelectorEngine, BaseComponent) { 'use strict';
+})(this, (function (index_js, EventHandler, SelectorEngine, BaseComponent) { 'use strict';
 
   const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
 
@@ -17,13 +17,14 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.2): collapse.js
+   * CoreUI (v4.2.3): collapse.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's collapse.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
   /**
    * Constants
    */
@@ -55,6 +56,7 @@
     parent: '(null|element)',
     toggle: 'boolean'
   };
+
   /**
    * Class definition
    */
@@ -65,41 +67,34 @@
       this._isTransitioning = false;
       this._triggerArray = [];
       const toggleList = SelectorEngine__default.default.find(SELECTOR_DATA_TOGGLE);
-
       for (const elem of toggleList) {
-        const selector = index.getSelectorFromElement(elem);
+        const selector = SelectorEngine__default.default.getSelectorFromElement(elem);
         const filterElement = SelectorEngine__default.default.find(selector).filter(foundElement => foundElement === this._element);
-
         if (selector !== null && filterElement.length) {
           this._triggerArray.push(elem);
         }
       }
-
       this._initializeChildren();
-
       if (!this._config.parent) {
         this._addAriaAndCollapsedClass(this._triggerArray, this._isShown());
       }
-
       if (this._config.toggle) {
         this.toggle();
       }
-    } // Getters
+    }
 
-
+    // Getters
     static get Default() {
       return Default;
     }
-
     static get DefaultType() {
       return DefaultType;
     }
-
     static get NAME() {
       return NAME;
-    } // Public
+    }
 
-
+    // Public
     toggle() {
       if (this._isShown()) {
         this.hide();
@@ -107,206 +102,154 @@
         this.show();
       }
     }
-
     show() {
       if (this._isTransitioning || this._isShown()) {
         return;
       }
+      let activeChildren = [];
 
-      let activeChildren = []; // find active children
-
+      // find active children
       if (this._config.parent) {
         activeChildren = this._getFirstLevelChildren(SELECTOR_ACTIVES).filter(element => element !== this._element).map(element => Collapse.getOrCreateInstance(element, {
           toggle: false
         }));
       }
-
       if (activeChildren.length && activeChildren[0]._isTransitioning) {
         return;
       }
-
       const startEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW);
-
       if (startEvent.defaultPrevented) {
         return;
       }
-
       for (const activeInstance of activeChildren) {
         activeInstance.hide();
       }
-
       const dimension = this._getDimension();
-
       this._element.classList.remove(CLASS_NAME_COLLAPSE);
-
       this._element.classList.add(CLASS_NAME_COLLAPSING);
-
       this._element.style[dimension] = 0;
-
       this._addAriaAndCollapsedClass(this._triggerArray, true);
-
       this._isTransitioning = true;
-
       const complete = () => {
         this._isTransitioning = false;
-
         this._element.classList.remove(CLASS_NAME_COLLAPSING);
-
         this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
-
         this._element.style[dimension] = '';
         EventHandler__default.default.trigger(this._element, EVENT_SHOWN);
       };
-
       const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       const scrollSize = `scroll${capitalizedDimension}`;
-
       this._queueCallback(complete, this._element, true);
-
       this._element.style[dimension] = `${this._element[scrollSize]}px`;
     }
-
     hide() {
       if (this._isTransitioning || !this._isShown()) {
         return;
       }
-
       const startEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE);
-
       if (startEvent.defaultPrevented) {
         return;
       }
-
       const dimension = this._getDimension();
-
       this._element.style[dimension] = `${this._element.getBoundingClientRect()[dimension]}px`;
-      index.reflow(this._element);
-
+      index_js.reflow(this._element);
       this._element.classList.add(CLASS_NAME_COLLAPSING);
-
       this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
-
       for (const trigger of this._triggerArray) {
-        const element = index.getElementFromSelector(trigger);
-
+        const element = SelectorEngine__default.default.getElementFromSelector(trigger);
         if (element && !this._isShown(element)) {
           this._addAriaAndCollapsedClass([trigger], false);
         }
       }
-
       this._isTransitioning = true;
-
       const complete = () => {
         this._isTransitioning = false;
-
         this._element.classList.remove(CLASS_NAME_COLLAPSING);
-
         this._element.classList.add(CLASS_NAME_COLLAPSE);
-
         EventHandler__default.default.trigger(this._element, EVENT_HIDDEN);
       };
-
       this._element.style[dimension] = '';
-
       this._queueCallback(complete, this._element, true);
     }
-
     _isShown(element = this._element) {
       return element.classList.contains(CLASS_NAME_SHOW);
-    } // Private
-
-
-    _configAfterMerge(config) {
-      config.toggle = Boolean(config.toggle); // Coerce string values
-
-      config.parent = index.getElement(config.parent);
-      return config;
     }
 
+    // Private
+    _configAfterMerge(config) {
+      config.toggle = Boolean(config.toggle); // Coerce string values
+      config.parent = index_js.getElement(config.parent);
+      return config;
+    }
     _getDimension() {
       return this._element.classList.contains(CLASS_NAME_HORIZONTAL) ? WIDTH : HEIGHT;
     }
-
     _initializeChildren() {
       if (!this._config.parent) {
         return;
       }
-
       const children = this._getFirstLevelChildren(SELECTOR_DATA_TOGGLE);
-
       for (const element of children) {
-        const selected = index.getElementFromSelector(element);
-
+        const selected = SelectorEngine__default.default.getElementFromSelector(element);
         if (selected) {
           this._addAriaAndCollapsedClass([element], this._isShown(selected));
         }
       }
     }
-
     _getFirstLevelChildren(selector) {
-      const children = SelectorEngine__default.default.find(CLASS_NAME_DEEPER_CHILDREN, this._config.parent); // remove children if greater depth
-
+      const children = SelectorEngine__default.default.find(CLASS_NAME_DEEPER_CHILDREN, this._config.parent);
+      // remove children if greater depth
       return SelectorEngine__default.default.find(selector, this._config.parent).filter(element => !children.includes(element));
     }
-
     _addAriaAndCollapsedClass(triggerArray, isOpen) {
       if (!triggerArray.length) {
         return;
       }
-
       for (const element of triggerArray) {
         element.classList.toggle(CLASS_NAME_COLLAPSED, !isOpen);
         element.setAttribute('aria-expanded', isOpen);
       }
-    } // Static
+    }
 
-
+    // Static
     static jQueryInterface(config) {
       const _config = {};
-
       if (typeof config === 'string' && /show|hide/.test(config)) {
         _config.toggle = false;
       }
-
       return this.each(function () {
         const data = Collapse.getOrCreateInstance(this, _config);
-
         if (typeof config === 'string') {
           if (typeof data[config] === 'undefined') {
             throw new TypeError(`No method named "${config}"`);
           }
-
           data[config]();
         }
       });
     }
-
   }
+
   /**
    * Data API implementation
    */
-
 
   EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
     if (event.target.tagName === 'A' || event.delegateTarget && event.delegateTarget.tagName === 'A') {
       event.preventDefault();
     }
-
-    const selector = index.getSelectorFromElement(this);
-    const selectorElements = SelectorEngine__default.default.find(selector);
-
-    for (const element of selectorElements) {
+    for (const element of SelectorEngine__default.default.getMultipleElementsFromSelector(this)) {
       Collapse.getOrCreateInstance(element, {
         toggle: false
       }).toggle();
     }
   });
+
   /**
    * jQuery
    */
 
-  index.defineJQueryPlugin(Collapse);
+  index_js.defineJQueryPlugin(Collapse);
 
   return Collapse;
 

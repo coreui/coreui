@@ -1,6 +1,6 @@
 # Changelog
 
-## [v4.2.2](https://github.com/coreui/coreui/compare/v4.1.5...v4.2.2)
+## [v4.2.3](https://github.com/coreui/coreui/compare/v4.1.5...v4.2.3)
 
 > 9 June 2022
 
