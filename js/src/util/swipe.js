@@ -1,13 +1,16 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.0-beta1): util/swipe.js
+ * CoreUI (v4.2.2): tab.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This is a modified version of the Bootstrap's util/swipe.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import Config from './config'
-import EventHandler from '../dom/event-handler'
-import { execute } from './index'
+import Config from './config.js'
+import EventHandler from '../dom/event-handler.js'
+import { execute } from './index.js'
 
 /**
  * Constants

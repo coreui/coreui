@@ -96,7 +96,7 @@
       @include ltr-rtl("margin-left", calc(var(--#{$prefix}sidebar-nav-link-padding-x) * -1));
     }
   }
-
+  // stylelint-disable-next-line selector-no-qualifying-type
   svg.nav-icon {
     overflow: hidden; // fix chrome 105+ width issue
   }

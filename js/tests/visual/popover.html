@@ -33,10 +33,9 @@
 
     <script src="../../../dist/js/coreui.bundle.js"></script>
     <script>
-      var popoverElements = document.querySelectorAll('[data-coreui-toggle="popover"]')
-      for (const popoverEl of popoverElements) {
-        new coreui.Popover(popoverEl)
-      }
+      /* global coreui: false */
+
+      document.querySelectorAll('[data-coreui-toggle="popover"]').forEach(popoverEl => new coreui.Popover(popoverEl))
     </script>
   </body>
 </html>

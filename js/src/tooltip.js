@@ -9,12 +9,12 @@
  */
 
 import * as Popper from '@popperjs/core'
-import { defineJQueryPlugin, findShadowRoot, getElement, getUID, isRTL, noop } from './util/index'
-import { DefaultAllowlist } from './util/sanitizer'
-import EventHandler from './dom/event-handler'
-import Manipulator from './dom/manipulator'
-import BaseComponent from './base-component'
-import TemplateFactory from './util/template-factory'
+import { defineJQueryPlugin, execute, findShadowRoot, getElement, getUID, isRTL, noop } from './util/index.js'
+import { DefaultAllowlist } from './util/sanitizer.js'
+import EventHandler from './dom/event-handler.js'
+import Manipulator from './dom/manipulator.js'
+import BaseComponent from './base-component.js'
+import TemplateFactory from './util/template-factory.js'
 
 /**
  * Constants
@@ -114,15 +114,20 @@ class Tooltip extends BaseComponent {
     // Private
     this._isEnabled = true
     this._timeout = 0
-    this._isHovered = false
+    this._isHovered = null
     this._activeTrigger = {}
     this._popper = null
     this._templateFactory = null
+    this._newContent = null
 
     // Protected
     this.tip = null
 
     this._setListeners()
+
+    if (!this._config.selector) {
+      this._fixTitle()
+    }
   }
 
   // Getters
@@ -151,25 +156,12 @@ class Tooltip extends BaseComponent {
     this._isEnabled = !this._isEnabled
   }
 
-  toggle(event) {
+  toggle() {
     if (!this._isEnabled) {
       return
     }
 
-    if (event) {
-      const context = this._initializeOnDelegatedTarget(event)
-
-      context._activeTrigger.click = !context._activeTrigger.click
-
-      if (context._isWithActiveTrigger()) {
-        context._enter()
-      } else {
-        context._leave()
-      }
-
-      return
-    }
-
+    this._activeTrigger.click = !this._activeTrigger.click
     if (this._isShown()) {
       this._leave()
       return
@@ -183,8 +175,8 @@ class Tooltip extends BaseComponent {
 
     EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler)
 
-    if (this.tip) {
-      this.tip.remove()
+    if (this._element.getAttribute('data-coreui-original-title')) {
+      this._element.setAttribute('title', this._element.getAttribute('data-coreui-original-title'))
     }
 
     this._disposePopper()
@@ -208,6 +200,9 @@ class Tooltip extends BaseComponent {
       return
     }
 
+    // todo v6 remove this OR make it optional
+    this._disposePopper()
+
     const tip = this._getTipElement()
 
     this._element.setAttribute('aria-describedby', tip.getAttribute('id'))
@@ -219,11 +214,7 @@ class Tooltip extends BaseComponent {
       EventHandler.trigger(this._element, this.constructor.eventName(EVENT_INSERTED))
     }
 
-    if (this._popper) {
-      this._popper.update()
-    } else {
-      this._createPopper(tip)
-    }
+    this._popper = this._createPopper(tip)
 
     tip.classList.add(CLASS_NAME_SHOW)
 
@@ -238,14 +229,13 @@ class Tooltip extends BaseComponent {
     }
 
     const complete = () => {
-      const previousHoverState = this._isHovered
-
-      this._isHovered = false
       EventHandler.trigger(this._element, this.constructor.eventName(EVENT_SHOWN))
 
-      if (previousHoverState) {
+      if (this._isHovered === false) {
         this._leave()
       }
+
+      this._isHovered = false
     }
 
     this._queueCallback(complete, this.tip, this._isAnimated())
@@ -275,7 +265,7 @@ class Tooltip extends BaseComponent {
     this._activeTrigger[TRIGGER_CLICK] = false
     this._activeTrigger[TRIGGER_FOCUS] = false
     this._activeTrigger[TRIGGER_HOVER] = false
-    this._isHovered = false
+    this._isHovered = null // it is a trick to support manual triggering
 
     const complete = () => {
       if (this._isWithActiveTrigger()) {
@@ -283,13 +273,11 @@ class Tooltip extends BaseComponent {
       }
 
       if (!this._isHovered) {
-        tip.remove()
+        this._disposePopper()
       }
 
       this._element.removeAttribute('aria-describedby')
       EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDDEN))
-
-      this._disposePopper()
     }
 
     this._queueCallback(complete, this.tip, this._isAnimated())
@@ -308,7 +296,7 @@ class Tooltip extends BaseComponent {
 
   _getTipElement() {
     if (!this.tip) {
-      this.tip = this._createTipElement(this._getContentForTemplate())
+      this.tip = this._createTipElement(this._newContent || this._getContentForTemplate())
     }
 
     return this.tip
@@ -338,17 +326,9 @@ class Tooltip extends BaseComponent {
   }
 
   setContent(content) {
-    let isShown = false
-    if (this.tip) {
-      isShown = this._isShown()
-      this.tip.remove()
-      this.tip = null
-    }
-
-    this._disposePopper()
-    this.tip = this._createTipElement(content)
-
-    if (isShown) {
+    this._newContent = content
+    if (this._isShown()) {
+      this._disposePopper()
       this.show()
     }
   }
@@ -376,7 +356,7 @@ class Tooltip extends BaseComponent {
   }
 
   _getTitle() {
-    return this._config.title
+    return this._resolvePossibleFunction(this._config.title) || this._element.getAttribute('data-coreui-original-title')
   }
 
   // Private
@@ -393,11 +373,9 @@ class Tooltip extends BaseComponent {
   }
 
   _createPopper(tip) {
-    const placement = typeof this._config.placement === 'function' ?
-      this._config.placement.call(this, tip, this._element) :
-      this._config.placement
+    const placement = execute(this._config.placement, [this, tip, this._element])
     const attachment = AttachmentMap[placement.toUpperCase()]
-    this._popper = Popper.createPopper(this._element, tip, this._getPopperConfig(attachment))
+    return Popper.createPopper(this._element, tip, this._getPopperConfig(attachment))
   }
 
   _getOffset() {
@@ -415,7 +393,7 @@ class Tooltip extends BaseComponent {
   }
 
   _resolvePossibleFunction(arg) {
-    return typeof arg === 'function' ? arg.call(this._element) : arg
+    return execute(arg, [this._element])
   }
 
   _getPopperConfig(attachment) {
@@ -461,7 +439,7 @@ class Tooltip extends BaseComponent {
 
     return {
       ...defaultBsPopperConfig,
-      ...(typeof this._config.popperConfig === 'function' ? this._config.popperConfig(defaultBsPopperConfig) : this._config.popperConfig)
+      ...execute(this._config.popperConfig, [defaultBsPopperConfig])
     }
   }
 
@@ -470,7 +448,10 @@ class Tooltip extends BaseComponent {
 
     for (const trigger of triggers) {
       if (trigger === 'click') {
-        EventHandler.on(this._element, this.constructor.eventName(EVENT_CLICK), this._config.selector, event => this.toggle(event))
+        EventHandler.on(this._element, this.constructor.eventName(EVENT_CLICK), this._config.selector, event => {
+          const context = this._initializeOnDelegatedTarget(event)
+          context.toggle()
+        })
       } else if (trigger !== TRIGGER_MANUAL) {
         const eventIn = trigger === TRIGGER_HOVER ?
           this.constructor.eventName(EVENT_MOUSEENTER) :
@@ -501,29 +482,20 @@ class Tooltip extends BaseComponent {
     }
 
     EventHandler.on(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler)
-
-    if (this._config.selector) {
-      this._config = {
-        ...this._config,
-        trigger: 'manual',
-        selector: ''
-      }
-    } else {
-      this._fixTitle()
-    }
   }
 
   _fixTitle() {
-    const title = this._config.originalTitle
+    const title = this._element.getAttribute('title')
 
     if (!title) {
       return
     }
 
-    if (!this._element.getAttribute('aria-label') && !this._element.textContent) {
+    if (!this._element.getAttribute('aria-label') && !this._element.textContent.trim()) {
       this._element.setAttribute('aria-label', title)
     }
 
+    this._element.setAttribute('data-coreui-original-title', title) // DO NOT USE IT. Is only for backwards compatibility
     this._element.removeAttribute('title')
   }
 
@@ -594,8 +566,6 @@ class Tooltip extends BaseComponent {
       }
     }
 
-    config.originalTitle = this._element.getAttribute('title') || ''
-    config.title = this._resolvePossibleFunction(config.title) || config.originalTitle
     if (typeof config.title === 'number') {
       config.title = config.title.toString()
     }
@@ -610,11 +580,14 @@ class Tooltip extends BaseComponent {
   _getDelegateConfig() {
     const config = {}
 
-    for (const key in this._config) {
-      if (this.constructor.Default[key] !== this._config[key]) {
-        config[key] = this._config[key]
+    for (const [key, value] of Object.entries(this._config)) {
+      if (this.constructor.Default[key] !== value) {
+        config[key] = value
       }
     }
+
+    config.selector = false
+    config.trigger = 'manual'
 
     // In the future can be replaced with:
     // const keysWithDifferentValues = Object.entries(this._config).filter(entry => this.constructor.Default[entry[0]] !== this._config[entry[0]])
@@ -626,6 +599,11 @@ class Tooltip extends BaseComponent {
     if (this._popper) {
       this._popper.destroy()
       this._popper = null
+    }
+
+    if (this.tip) {
+      this.tip.remove()
+      this.tip = null
     }
   }
 

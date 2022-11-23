@@ -1,14 +1,17 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.0-beta1): util/template-factory.js
+ * CoreUI (v4.2.2): tab.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This is a modified version of the Bootstrap's util/template-factory.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { DefaultAllowlist, sanitizeHtml } from './sanitizer'
-import { getElement, isElement } from '../util/index'
-import SelectorEngine from '../dom/selector-engine'
-import Config from './config'
+import { DefaultAllowlist, sanitizeHtml } from './sanitizer.js'
+import { execute, getElement, isElement } from './index.js'
+import SelectorEngine from '../dom/selector-engine.js'
+import Config from './config.js'
 
 /**
  * Constants
@@ -143,7 +146,7 @@ class TemplateFactory extends Config {
   }
 
   _resolvePossibleFunction(arg) {
-    return typeof arg === 'function' ? arg(this) : arg
+    return execute(arg, [this])
   }
 
   _putElementInTemplate(element, templateElement) {

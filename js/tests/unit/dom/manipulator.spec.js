@@ -33,7 +33,7 @@ describe('Manipulator', () => {
   })
 
   describe('removeDataAttribute', () => {
-    it('should only remove cui-prefixed data attribute', () => {
+    it('should only remove bs-prefixed data attribute', () => {
       fixtureEl.innerHTML = '<div data-coreui-key="value" data-key-bs="postfixed" data-key="value"></div>'
 
       const div = fixtureEl.querySelector('div')
@@ -60,8 +60,8 @@ describe('Manipulator', () => {
       expect().nothing()
     })
 
-    it('should get only cui-prefixed data attributes without bs namespace', () => {
-      fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-another="value" data-target-bs="#element" data-in-coreui-out="in-between"></div>'
+    it('should get only bs-prefixed data attributes without bs namespace', () => {
+      fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-another="value" data-target-bs="#element" data-in-bs-out="in-between"></div>'
 
       const div = fixtureEl.querySelector('div')
 
@@ -71,7 +71,7 @@ describe('Manipulator', () => {
       })
     })
 
-    it('should omit `bs-config` data attribute', () => {
+    it('should omit `coreui-config` data attribute', () => {
       fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-coreui-config=\'{"testBool":false}\'></div>'
 
       const div = fixtureEl.querySelector('div')
@@ -84,7 +84,7 @@ describe('Manipulator', () => {
   })
 
   describe('getDataAttribute', () => {
-    it('should only get cui-prefixed data attribute', () => {
+    it('should only get bs-prefixed data attribute', () => {
       fixtureEl.innerHTML = '<div data-coreui-key="value" data-test-bs="postFixed" data-toggle="tab"></div>'
 
       const div = fixtureEl.querySelector('div')

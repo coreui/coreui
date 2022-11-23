@@ -1,13 +1,16 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap (v5.2.0-beta1): util/scrollBar.js
+ * CoreUI (v4.2.2): tab.js
+ * Licensed under MIT (https://coreui.io/license)
+ *
+ * This is a modified version of the Bootstrap's util/scrollBar.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import SelectorEngine from '../dom/selector-engine'
-import Manipulator from '../dom/manipulator'
-import { isElement } from './index'
+import SelectorEngine from '../dom/selector-engine.js'
+import Manipulator from '../dom/manipulator.js'
+import { isElement } from './index.js'
 
 /**
  * Constants

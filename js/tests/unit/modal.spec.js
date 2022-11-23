@@ -288,7 +288,7 @@ describe('Modal', () => {
       })
     })
 
-    it('should close modal when a click occurred on a data-coreui-dismiss="modal" with "bs-target" outside of modal element', () => {
+    it('should close modal when a click occurred on a data-coreui-dismiss="modal" with "coreui-target" outside of modal element', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = [
           '<button type="button" data-coreui-dismiss="modal" data-coreui-target="#modal1"></button>',
@@ -644,7 +644,9 @@ describe('Modal', () => {
           const mouseDown = createEvent('mousedown')
 
           modalEl.dispatchEvent(mouseDown)
+          modalEl.click()
           modalEl.dispatchEvent(mouseDown)
+          modalEl.click()
 
           setTimeout(() => {
             expect(spy).toHaveBeenCalledTimes(1)
@@ -713,16 +715,48 @@ describe('Modal', () => {
         const dialogEl = modalEl.querySelector('.modal-dialog')
         const modal = new Modal(modalEl)
 
-        spyOn(modal, 'hide')
+        const spy = spyOn(modal, 'hide')
 
         modalEl.addEventListener('shown.coreui.modal', () => {
           const mouseDown = createEvent('mousedown')
 
           dialogEl.dispatchEvent(mouseDown)
-          expect(modal.hide).not.toHaveBeenCalled()
+          modalEl.click()
+          expect(spy).not.toHaveBeenCalled()
 
           modalEl.dispatchEvent(mouseDown)
-          expect(modal.hide).toHaveBeenCalled()
+          modalEl.click()
+          expect(spy).toHaveBeenCalled()
+          resolve()
+        })
+
+        modal.show()
+      })
+    })
+
+    it('should not close modal when clicking on an element removed from modal content', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = [
+          '<div class="modal">',
+          ' <div class="modal-dialog">',
+          '   <button class="btn">BTN</button>',
+          ' </div>',
+          '</div>'
+        ].join('')
+
+        const modalEl = fixtureEl.querySelector('.modal')
+        const buttonEl = modalEl.querySelector('.btn')
+        const modal = new Modal(modalEl)
+
+        const spy = spyOn(modal, 'hide')
+        buttonEl.addEventListener('click', () => {
+          buttonEl.remove()
+        })
+
+        modalEl.addEventListener('shown.coreui.modal', () => {
+          modalEl.dispatchEvent(createEvent('mousedown'))
+          buttonEl.click()
+          expect(spy).not.toHaveBeenCalled()
           resolve()
         })
 

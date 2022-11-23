@@ -52,26 +52,17 @@
 
     <script src="../../../dist/js/coreui.bundle.js"></script>
     <script>
-      window.addEventListener('load', function () {
-        var toastElements = document.querySelectorAll('.toast')
-        for (const toastEl of toastElements) {
-          new coreui.Toast(toastEl)
-        }
+      /* global coreui: false */
 
-        document.getElementById('btnShowToast').addEventListener('click', function () {
-          var toastElements = document.querySelectorAll('.toast')
-          for (const toastEl of toastElements) {
-            var toast = coreui.Toast.getInstance(toastEl)
-            toast.show()
-          }
+      window.addEventListener('load', () => {
+        document.querySelectorAll('.toast').forEach(toastEl => new coreui.Toast(toastEl))
+
+        document.getElementById('btnShowToast').addEventListener('click', () => {
+          document.querySelectorAll('.toast').forEach(toastEl => coreui.Toast.getInstance(toastEl).show())
         })
 
-        document.getElementById('btnHideToast').addEventListener('click', function () {
-          var toastElements = document.querySelectorAll('.toast')
-          for (const toastEl of toastElements) {
-            var toast = coreui.Toast.getInstance(toastEl)
-            toast.hide()
-          }
+        document.getElementById('btnHideToast').addEventListener('click', () => {
+          document.querySelectorAll('.toast').forEach(toastEl => coreui.Toast.getInstance(toastEl).hide())
         })
       })
     </script>

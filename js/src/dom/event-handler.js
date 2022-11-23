@@ -1,14 +1,14 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.2): dom/event-handler.js
+ * CoreUI (v4.2.2): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
- * This component is a modified version of the Bootstrap's  dom/event-handler.js
+ * This is a modified version of the Bootstrap's dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { getjQuery } from '../util/index'
+import { getjQuery } from '../util/index.js'
 
 /**
  * Constants
@@ -92,7 +92,7 @@ function getElementEvents(element) {
 
 function bootstrapHandler(element, fn) {
   return function handler(event) {
-    event.delegateTarget = element
+    hydrateObj(event, { delegateTarget: element })
 
     if (handler.oneOff) {
       EventHandler.off(element, event.type, fn)
@@ -112,7 +112,7 @@ function bootstrapDelegationHandler(element, selector, fn) {
           continue
         }
 
-        event.delegateTarget = target
+        hydrateObj(event, { delegateTarget: target })
 
         if (handler.oneOff) {
           EventHandler.off(element, event.type, selector, fn)
@@ -201,9 +201,8 @@ function removeHandler(element, events, typeEvent, handler, delegationSelector) 
 function removeNamespacedHandlers(element, events, typeEvent, namespace) {
   const storeElementEvent = events[typeEvent] || {}
 
-  for (const handlerKey of Object.keys(storeElementEvent)) {
+  for (const [handlerKey, event] of Object.entries(storeElementEvent)) {
     if (handlerKey.includes(namespace)) {
-      const event = storeElementEvent[handlerKey]
       removeHandler(element, events, typeEvent, event.callable, event.delegationSelector)
     }
   }
@@ -251,11 +250,10 @@ const EventHandler = {
       }
     }
 
-    for (const keyHandlers of Object.keys(storeElementEvent)) {
+    for (const [keyHandlers, event] of Object.entries(storeElementEvent)) {
       const handlerKey = keyHandlers.replace(stripUidRegex, '')
 
       if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
-        const event = storeElementEvent[keyHandlers]
         removeHandler(element, events, typeEvent, event.callable, event.delegationSelector)
       }
     }
@@ -303,13 +301,18 @@ const EventHandler = {
   }
 }
 
-function hydrateObj(obj, meta) {
-  for (const [key, value] of Object.entries(meta || {})) {
-    Object.defineProperty(obj, key, {
-      get() {
-        return value
-      }
-    })
+function hydrateObj(obj, meta = {}) {
+  for (const [key, value] of Object.entries(meta)) {
+    try {
+      obj[key] = value
+    } catch {
+      Object.defineProperty(obj, key, {
+        configurable: true,
+        get() {
+          return value
+        }
+      })
+    }
   }
 
   return obj

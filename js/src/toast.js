@@ -8,10 +8,10 @@
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin, reflow } from './util/index'
-import EventHandler from './dom/event-handler'
-import BaseComponent from './base-component'
-import { enableDismissTrigger } from './util/component-functions'
+import { defineJQueryPlugin, reflow } from './util/index.js'
+import EventHandler from './dom/event-handler.js'
+import BaseComponent from './base-component.js'
+import { enableDismissTrigger } from './util/component-functions.js'
 
 /**
  * Constants
@@ -156,15 +156,20 @@ class Toast extends BaseComponent {
   _onInteraction(event, isInteracting) {
     switch (event.type) {
       case 'mouseover':
-      case 'mouseout':
+      case 'mouseout': {
         this._hasMouseInteraction = isInteracting
         break
+      }
+
       case 'focusin':
-      case 'focusout':
+      case 'focusout': {
         this._hasKeyboardInteraction = isInteracting
         break
-      default:
+      }
+
+      default: {
         break
+      }
     }
 
     if (isInteracting) {

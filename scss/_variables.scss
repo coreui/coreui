@@ -36,9 +36,9 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 
-$high-emphasis:            rgba(shift-color($gray-base, +26), .95) !default;
-$medium-emphasis:          rgba(shift-color($gray-base, +26), .681) !default;
-$disabled:                 rgba(shift-color($gray-base, +26), .38) !default;
+$high-emphasis:            rgba(shift-color($gray-base, +26%), .95) !default;
+$medium-emphasis:          rgba(shift-color($gray-base, +26%), .681) !default;
+$disabled:                 rgba(shift-color($gray-base, +26%), .38) !default;
 
 $high-emphasis-inverse:    rgba($white, .87) !default;
 $medium-emphasis-inverse:  rgba($white, .6) !default;
@@ -109,13 +109,13 @@ $danger-25:    #f9d4d4 !default;
 
 $light-dark:     $gray-100 !default;
 $light-base:     $gray-100 !default;
-$light-50:       shift-color($light-base, -70) !default;
-$light-25:       shift-color($light-base, -80) !default;
+$light-50:       shift-color($light-base, -70%) !default;
+$light-25:       shift-color($light-base, -80%) !default;
 
 $dark-dark:      $gray-900 !default;
 $dark-base:      $gray-900 !default;
-$dark-50:        shift-color($dark-base, -70) !default;
-$dark-25:        shift-color($dark-base, -80) !default;
+$dark-50:        shift-color($dark-base, -70%) !default;
+$dark-25:        shift-color($dark-base, -80%) !default;
 // fusv-enable
 
 // scss-docs-start theme-color-variables
@@ -1389,7 +1389,7 @@ $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem !default;
 $accordion-padding-x:                     1.25rem !default;
-$accordion-color:                         var(--#{$prefix}body-color) !default;
+$accordion-color:                         $body-color !default; // Sass variable because of $accordion-button-icon
 $accordion-bg:                            $body-bg !default;
 $accordion-border-width:                  $border-width !default;
 $accordion-border-color:                  var(--#{$prefix}border-color) !default;
@@ -1464,7 +1464,7 @@ $popover-box-shadow:                $box-shadow !default;
 
 $popover-header-font-size:          $font-size-base !default;
 $popover-header-bg:                 shade-color($popover-bg, 6%) !default;
-$popover-header-color:              var(--#{$prefix}heading-color) !default;
+$popover-header-color:              $headings-color !default;
 $popover-header-padding-y:          .5rem !default;
 $popover-header-padding-x:          $spacer !default;
 
@@ -1822,11 +1822,13 @@ $carousel-control-next-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://
 
 $carousel-transition-duration:       .6s !default;
 $carousel-transition:                transform $carousel-transition-duration ease-in-out !default; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+// scss-docs-end carousel-variables
 
+// scss-docs-start carousel-dark-variables
 $carousel-dark-indicator-active-bg:  $black !default;
 $carousel-dark-caption-color:        $high-emphasis !default;
 $carousel-dark-control-icon-filter:  invert(1) grayscale(100) !default;
-// scss-docs-end carousel-variables
+// scss-docs-end carousel-dark-variables
 
 // scss-docs-start sidebar-variables
 $sidebar-width:                            16rem !default;

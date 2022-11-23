@@ -5,12 +5,12 @@
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index'
-import ScrollBarHelper from './util/scrollbar'
-import EventHandler from './dom/event-handler'
-import BaseComponent from './base-component'
-import Manipulator from './dom/manipulator'
-import Backdrop from './util/backdrop'
+import { defineJQueryPlugin } from './util/index.js'
+import ScrollBarHelper from './util/scrollbar.js'
+import EventHandler from './dom/event-handler.js'
+import BaseComponent from './base-component.js'
+import Manipulator from './dom/manipulator.js'
+import Backdrop from './util/backdrop.js'
 
 /**
  * ------------------------------------------------------------------------
