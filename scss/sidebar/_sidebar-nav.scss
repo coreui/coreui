@@ -89,7 +89,7 @@
     font-size: var(--#{$prefix}sidebar-nav-icon-font-size);
     color: var(--#{$prefix}sidebar-nav-link-icon-color);
     text-align: center;
-    fill: currentColor;
+    fill: currentcolor;
     @include transition(inherit);
 
     &:first-child {

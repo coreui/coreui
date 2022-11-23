@@ -3,7 +3,7 @@
   color: inherit;
   text-align: center;
   vertical-align: -.125rem; // Fix the position of icon
-  fill: currentColor;
+  fill: currentcolor;
   &:not(.icon-c-s):not(.icon-custom-size) {
     @include icon-size($icon-size-base);
 
