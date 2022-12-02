@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v4.2.3 (https://coreui.io)
+  * CoreUI v4.2.4 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -31,7 +31,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/index.js
@@ -281,7 +281,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dom/selector-engine.js
+   * CoreUI (v4.2.4): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's dom/event-handler.js
@@ -506,7 +506,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dom/selector-engine.js
+   * CoreUI (v4.2.4): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's dom/data.js
@@ -557,7 +557,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dom/selector-engine.js
+   * CoreUI (v4.2.4): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's dom/manipulator.js
@@ -617,7 +617,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/config.js
@@ -672,7 +672,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): alert.js
+   * CoreUI (v4.2.4): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's base-component.js
@@ -684,7 +684,7 @@
    * Constants
    */
 
-  const VERSION = '4.2.3';
+  const VERSION = '4.2.4';
 
   /**
    * Class definition
@@ -743,7 +743,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dom/selector-engine.js
+   * CoreUI (v4.2.4): dom/selector-engine.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's dom/selector-engine.js
@@ -834,7 +834,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/component-functions.js
@@ -861,7 +861,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): alert.js
+   * CoreUI (v4.2.4): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's alert.js
@@ -938,7 +938,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): alert.js
+   * CoreUI (v4.2.4): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's button.js
@@ -1004,7 +1004,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/swipe.js
@@ -1126,7 +1126,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): carousel.js
+   * CoreUI (v4.2.4): carousel.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's carousel.js
@@ -1501,7 +1501,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): collapse.js
+   * CoreUI (v4.2.4): collapse.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's collapse.js
@@ -1737,7 +1737,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dropdown.js
+   * CoreUI (v4.2.4): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dropdown.js
@@ -2107,7 +2107,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/scrollBar.js
@@ -2207,7 +2207,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/backdrop.js
@@ -2334,7 +2334,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/focustrap.js
@@ -2435,7 +2435,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): modal.js
+   * CoreUI (v4.2.4): modal.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's modal.js
@@ -2744,7 +2744,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): navigation.js
+   * CoreUI (v4.2.4): navigation.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -2998,7 +2998,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): dropdown.js
+   * CoreUI (v4.2.4): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's offcanvas.js
@@ -3231,7 +3231,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/sanitizer.js
@@ -3329,7 +3329,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/template-factory.js
@@ -3467,7 +3467,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tooltip.js
+   * CoreUI (v4.2.4): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
@@ -3981,7 +3981,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): popover.js
+   * CoreUI (v4.2.4): popover.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's popover.js
@@ -4064,7 +4064,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): scrollspy.js
+   * CoreUI (v4.2.4): scrollspy.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's scrollspy.js
@@ -4326,7 +4326,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): sidebar.js
+   * CoreUI (v4.2.4): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -4606,7 +4606,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tab.js
@@ -4870,7 +4870,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): toast.js
+   * CoreUI (v4.2.4): toast.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's toast.js
@@ -5056,7 +5056,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): index.esm.js
+   * CoreUI (v4.2.4): index.esm.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */

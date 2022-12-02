@@ -434,7 +434,7 @@ $enable-rtl:                  false !default;
 
 // Prefix for :root CSS variables
 
-$variable-prefix:             cui- !default; // Deprecated in v4.2.3 for the shorter `$prefix`
+$variable-prefix:             cui- !default; // Deprecated in v4.2.4 for the shorter `$prefix`
 $prefix:                      $variable-prefix !default;
 
 // Set mobile breakpoint
@@ -722,8 +722,8 @@ $hr-margin-y:                 $spacer !default;
 $hr-color:                    inherit !default;
 
 // fusv-disable
-$hr-bg-color:                 null !default; // Deprecated in v4.2.3
-$hr-height:                   null !default; // Deprecated in v4.2.3
+$hr-bg-color:                 null !default; // Deprecated in v4.2.4
+$hr-height:                   null !default; // Deprecated in v4.2.4
 // fusv-enable
 
 $hr-border-color:             null !default; // Allows for inherited colors
@@ -1294,7 +1294,7 @@ $dropdown-header-color:             $gray-600 !default;
 $dropdown-header-padding-x:         $dropdown-item-padding-x !default;
 $dropdown-header-padding-y:         $dropdown-padding-y !default;
 // fusv-disable
-$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x !default; // Deprecated in v4.2.3
+$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x !default; // Deprecated in v4.2.4
 // fusv-enable
 // scss-docs-end dropdown-variables
 
@@ -1994,6 +1994,6 @@ $kbd-padding-x:                     .375rem !default;
 $kbd-font-size:                     $code-font-size !default;
 $kbd-color:                         var(--#{$prefix}body-bg) !default;
 $kbd-bg:                            var(--#{$prefix}body-color) !default;
-$nested-kbd-font-weight:            null !default; // Deprecated in v4.2.3, removing in v6
+$nested-kbd-font-weight:            null !default; // Deprecated in v4.2.4, removing in v6
 
 $pre-color:                         unset !default;

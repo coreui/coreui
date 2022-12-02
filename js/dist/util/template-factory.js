@@ -1,5 +1,5 @@
 /*!
-  * CoreUI template-factory.js v4.2.3 (https://coreui.io)
+  * CoreUI template-factory.js v4.2.4 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -16,7 +16,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): tab.js
+   * CoreUI (v4.2.4): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/template-factory.js

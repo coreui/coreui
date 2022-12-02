@@ -1,5 +1,5 @@
 /*!
-  * CoreUI carousel.js v4.2.3 (https://coreui.io)
+  * CoreUI carousel.js v4.2.4 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -19,7 +19,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.3): carousel.js
+   * CoreUI (v4.2.4): carousel.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's carousel.js
