@@ -76,5 +76,5 @@
     --#{$prefix}breakpoint-#{$name}: #{$value};
   }
 
-  --#{$prefix}-mobile-breakpoint: #{$mobile-breakpoint};
+  --#{$prefix}mobile-breakpoint: #{$mobile-breakpoint};
 }
