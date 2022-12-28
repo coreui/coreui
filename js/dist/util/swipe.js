@@ -1,5 +1,5 @@
 /*!
-  * CoreUI swipe.js v4.2.4 (https://coreui.io)
+  * CoreUI swipe.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,14 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Swipe = factory(global.Config, global.EventHandler, global.Index));
 })(this, (function (Config, EventHandler, index_js) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const Config__default = /*#__PURE__*/_interopDefaultLegacy(Config);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tab.js
+   * CoreUI (v4.2.5): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/swipe.js
@@ -54,7 +49,7 @@
    * Class definition
    */
 
-  class Swipe extends Config__default.default {
+  class Swipe extends Config {
     constructor(element, config) {
       super();
       this._element = element;
@@ -80,7 +75,7 @@
 
     // Public
     dispose() {
-      EventHandler__default.default.off(this._element, EVENT_KEY);
+      EventHandler.off(this._element, EVENT_KEY);
     }
 
     // Private
@@ -117,13 +112,13 @@
     }
     _initEvents() {
       if (this._supportPointerEvents) {
-        EventHandler__default.default.on(this._element, EVENT_POINTERDOWN, event => this._start(event));
-        EventHandler__default.default.on(this._element, EVENT_POINTERUP, event => this._end(event));
+        EventHandler.on(this._element, EVENT_POINTERDOWN, event => this._start(event));
+        EventHandler.on(this._element, EVENT_POINTERUP, event => this._end(event));
         this._element.classList.add(CLASS_NAME_POINTER_EVENT);
       } else {
-        EventHandler__default.default.on(this._element, EVENT_TOUCHSTART, event => this._start(event));
-        EventHandler__default.default.on(this._element, EVENT_TOUCHMOVE, event => this._move(event));
-        EventHandler__default.default.on(this._element, EVENT_TOUCHEND, event => this._end(event));
+        EventHandler.on(this._element, EVENT_TOUCHSTART, event => this._start(event));
+        EventHandler.on(this._element, EVENT_TOUCHMOVE, event => this._move(event));
+        EventHandler.on(this._element, EVENT_TOUCHEND, event => this._end(event));
       }
     }
     _eventIsPointerPenTouch(event) {

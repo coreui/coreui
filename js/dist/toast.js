@@ -1,5 +1,5 @@
 /*!
-  * CoreUI toast.js v4.2.4 (https://coreui.io)
+  * CoreUI toast.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,14 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Toast = factory(global.Index, global.EventHandler, global.BaseComponent, global.ComponentFunctions));
 })(this, (function (index_js, EventHandler, BaseComponent, componentFunctions_js) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): toast.js
+   * CoreUI (v4.2.5): toast.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's toast.js
@@ -58,7 +53,7 @@
    * Class definition
    */
 
-  class Toast extends BaseComponent__default.default {
+  class Toast extends BaseComponent {
     constructor(element, config) {
       super(element, config);
       this._timeout = null;
@@ -80,7 +75,7 @@
 
     // Public
     show() {
-      const showEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW);
+      const showEvent = EventHandler.trigger(this._element, EVENT_SHOW);
       if (showEvent.defaultPrevented) {
         return;
       }
@@ -90,7 +85,7 @@
       }
       const complete = () => {
         this._element.classList.remove(CLASS_NAME_SHOWING);
-        EventHandler__default.default.trigger(this._element, EVENT_SHOWN);
+        EventHandler.trigger(this._element, EVENT_SHOWN);
         this._maybeScheduleHide();
       };
       this._element.classList.remove(CLASS_NAME_HIDE); // @deprecated
@@ -102,14 +97,14 @@
       if (!this.isShown()) {
         return;
       }
-      const hideEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
       if (hideEvent.defaultPrevented) {
         return;
       }
       const complete = () => {
         this._element.classList.add(CLASS_NAME_HIDE); // @deprecated
         this._element.classList.remove(CLASS_NAME_SHOWING, CLASS_NAME_SHOW);
-        EventHandler__default.default.trigger(this._element, EVENT_HIDDEN);
+        EventHandler.trigger(this._element, EVENT_HIDDEN);
       };
       this._element.classList.add(CLASS_NAME_SHOWING);
       this._queueCallback(complete, this._element, this._config.animation);
@@ -164,10 +159,10 @@
       this._maybeScheduleHide();
     }
     _setListeners() {
-      EventHandler__default.default.on(this._element, EVENT_MOUSEOVER, event => this._onInteraction(event, true));
-      EventHandler__default.default.on(this._element, EVENT_MOUSEOUT, event => this._onInteraction(event, false));
-      EventHandler__default.default.on(this._element, EVENT_FOCUSIN, event => this._onInteraction(event, true));
-      EventHandler__default.default.on(this._element, EVENT_FOCUSOUT, event => this._onInteraction(event, false));
+      EventHandler.on(this._element, EVENT_MOUSEOVER, event => this._onInteraction(event, true));
+      EventHandler.on(this._element, EVENT_MOUSEOUT, event => this._onInteraction(event, false));
+      EventHandler.on(this._element, EVENT_FOCUSIN, event => this._onInteraction(event, true));
+      EventHandler.on(this._element, EVENT_FOCUSOUT, event => this._onInteraction(event, false));
     }
     _clearTimeout() {
       clearTimeout(this._timeout);

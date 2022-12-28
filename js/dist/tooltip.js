@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tooltip.js v4.2.4 (https://coreui.io)
+  * CoreUI tooltip.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,10 +9,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Tooltip = factory(global["@popperjs/core"], global.Index, global.Sanitizer, global.EventHandler, global.Manipulator, global.BaseComponent, global.TemplateFactory));
 })(this, (function (Popper, index_js, sanitizer_js, EventHandler, Manipulator, BaseComponent, TemplateFactory) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+  function _interopNamespaceDefault(e) {
     const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
     if (e) {
       for (const k in e) {
@@ -29,15 +26,11 @@
     return Object.freeze(n);
   }
 
-  const Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-  const TemplateFactory__default = /*#__PURE__*/_interopDefaultLegacy(TemplateFactory);
+  const Popper__namespace = /*#__PURE__*/_interopNamespaceDefault(Popper);
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tooltip.js
+   * CoreUI (v4.2.5): tooltip.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's tooltip.js
@@ -121,7 +114,7 @@
    * Class definition
    */
 
-  class Tooltip extends BaseComponent__default.default {
+  class Tooltip extends BaseComponent {
     constructor(element, config) {
       if (typeof Popper__namespace === 'undefined') {
         throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
@@ -179,7 +172,7 @@
     }
     dispose() {
       clearTimeout(this._timeout);
-      EventHandler__default.default.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
+      EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
       if (this._element.getAttribute('data-coreui-original-title')) {
         this._element.setAttribute('title', this._element.getAttribute('data-coreui-original-title'));
       }
@@ -193,7 +186,7 @@
       if (!(this._isWithContent() && this._isEnabled)) {
         return;
       }
-      const showEvent = EventHandler__default.default.trigger(this._element, this.constructor.eventName(EVENT_SHOW));
+      const showEvent = EventHandler.trigger(this._element, this.constructor.eventName(EVENT_SHOW));
       const shadowRoot = index_js.findShadowRoot(this._element);
       const isInTheDom = (shadowRoot || this._element.ownerDocument.documentElement).contains(this._element);
       if (showEvent.defaultPrevented || !isInTheDom) {
@@ -209,7 +202,7 @@
       } = this._config;
       if (!this._element.ownerDocument.documentElement.contains(this.tip)) {
         container.append(tip);
-        EventHandler__default.default.trigger(this._element, this.constructor.eventName(EVENT_INSERTED));
+        EventHandler.trigger(this._element, this.constructor.eventName(EVENT_INSERTED));
       }
       this._popper = this._createPopper(tip);
       tip.classList.add(CLASS_NAME_SHOW);
@@ -220,11 +213,11 @@
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
       if ('ontouchstart' in document.documentElement) {
         for (const element of [].concat(...document.body.children)) {
-          EventHandler__default.default.on(element, 'mouseover', index_js.noop);
+          EventHandler.on(element, 'mouseover', index_js.noop);
         }
       }
       const complete = () => {
-        EventHandler__default.default.trigger(this._element, this.constructor.eventName(EVENT_SHOWN));
+        EventHandler.trigger(this._element, this.constructor.eventName(EVENT_SHOWN));
         if (this._isHovered === false) {
           this._leave();
         }
@@ -236,7 +229,7 @@
       if (!this._isShown()) {
         return;
       }
-      const hideEvent = EventHandler__default.default.trigger(this._element, this.constructor.eventName(EVENT_HIDE));
+      const hideEvent = EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDE));
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -247,7 +240,7 @@
       // empty mouseover listeners we added for iOS support
       if ('ontouchstart' in document.documentElement) {
         for (const element of [].concat(...document.body.children)) {
-          EventHandler__default.default.off(element, 'mouseover', index_js.noop);
+          EventHandler.off(element, 'mouseover', index_js.noop);
         }
       }
       this._activeTrigger[TRIGGER_CLICK] = false;
@@ -263,7 +256,7 @@
           this._disposePopper();
         }
         this._element.removeAttribute('aria-describedby');
-        EventHandler__default.default.trigger(this._element, this.constructor.eventName(EVENT_HIDDEN));
+        EventHandler.trigger(this._element, this.constructor.eventName(EVENT_HIDDEN));
       };
       this._queueCallback(complete, this.tip, this._isAnimated());
     }
@@ -311,7 +304,7 @@
       if (this._templateFactory) {
         this._templateFactory.changeContent(content);
       } else {
-        this._templateFactory = new TemplateFactory__default.default({
+        this._templateFactory = new TemplateFactory({
           ...this._config,
           // the `content` var has to be after `this._config`
           // to override config.content in case of popover
@@ -403,19 +396,19 @@
       const triggers = this._config.trigger.split(' ');
       for (const trigger of triggers) {
         if (trigger === 'click') {
-          EventHandler__default.default.on(this._element, this.constructor.eventName(EVENT_CLICK), this._config.selector, event => {
+          EventHandler.on(this._element, this.constructor.eventName(EVENT_CLICK), this._config.selector, event => {
             const context = this._initializeOnDelegatedTarget(event);
             context.toggle();
           });
         } else if (trigger !== TRIGGER_MANUAL) {
           const eventIn = trigger === TRIGGER_HOVER ? this.constructor.eventName(EVENT_MOUSEENTER) : this.constructor.eventName(EVENT_FOCUSIN);
           const eventOut = trigger === TRIGGER_HOVER ? this.constructor.eventName(EVENT_MOUSELEAVE) : this.constructor.eventName(EVENT_FOCUSOUT);
-          EventHandler__default.default.on(this._element, eventIn, this._config.selector, event => {
+          EventHandler.on(this._element, eventIn, this._config.selector, event => {
             const context = this._initializeOnDelegatedTarget(event);
             context._activeTrigger[event.type === 'focusin' ? TRIGGER_FOCUS : TRIGGER_HOVER] = true;
             context._enter();
           });
-          EventHandler__default.default.on(this._element, eventOut, this._config.selector, event => {
+          EventHandler.on(this._element, eventOut, this._config.selector, event => {
             const context = this._initializeOnDelegatedTarget(event);
             context._activeTrigger[event.type === 'focusout' ? TRIGGER_FOCUS : TRIGGER_HOVER] = context._element.contains(event.relatedTarget);
             context._leave();
@@ -427,7 +420,7 @@
           this.hide();
         }
       };
-      EventHandler__default.default.on(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
+      EventHandler.on(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
     }
     _fixTitle() {
       const title = this._element.getAttribute('title');
@@ -471,7 +464,7 @@
       return Object.values(this._activeTrigger).includes(true);
     }
     _getConfig(config) {
-      const dataAttributes = Manipulator__default.default.getDataAttributes(this._element);
+      const dataAttributes = Manipulator.getDataAttributes(this._element);
       for (const dataAttribute of Object.keys(dataAttributes)) {
         if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
           delete dataAttributes[dataAttribute];

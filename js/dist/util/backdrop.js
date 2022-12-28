@@ -1,5 +1,5 @@
 /*!
-  * CoreUI backdrop.js v4.2.4 (https://coreui.io)
+  * CoreUI backdrop.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,14 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Backdrop = factory(global.EventHandler, global.Index, global.Config));
 })(this, (function (EventHandler, index_js, Config) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Config__default = /*#__PURE__*/_interopDefaultLegacy(Config);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tab.js
+   * CoreUI (v4.2.5): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/backdrop.js
@@ -53,7 +48,7 @@
    * Class definition
    */
 
-  class Backdrop extends Config__default.default {
+  class Backdrop extends Config {
     constructor(config) {
       super();
       this._config = this._getConfig(config);
@@ -103,7 +98,7 @@
       if (!this._isAppended) {
         return;
       }
-      EventHandler__default.default.off(this._element, EVENT_MOUSEDOWN);
+      EventHandler.off(this._element, EVENT_MOUSEDOWN);
       this._element.remove();
       this._isAppended = false;
     }
@@ -131,7 +126,7 @@
       }
       const element = this._getElement();
       this._config.rootElement.append(element);
-      EventHandler__default.default.on(element, EVENT_MOUSEDOWN, () => {
+      EventHandler.on(element, EVENT_MOUSEDOWN, () => {
         index_js.execute(this._config.clickCallback);
       });
       this._isAppended = true;

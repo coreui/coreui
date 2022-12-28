@@ -1,5 +1,5 @@
 /*!
-  * CoreUI navigation.js v4.2.4 (https://coreui.io)
+  * CoreUI navigation.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,17 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.Index, global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.BaseComponent));
 })(this, (function (index_js, Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): navigation.js
+   * CoreUI (v4.2.5): navigation.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -60,13 +52,13 @@
    * ------------------------------------------------------------------------
    */
 
-  class Navigation extends BaseComponent__default.default {
+  class Navigation extends BaseComponent {
     constructor(element, config) {
       super(element);
       this._config = this._getConfig(config);
       this._setActiveLink();
       this._addEventListeners();
-      Data__default.default.set(element, DATA_KEY, this);
+      Data.set(element, DATA_KEY, this);
     }
     // Getters
 
@@ -88,7 +80,7 @@
     _getConfig(config) {
       config = {
         ...Default,
-        ...Manipulator__default.default.getDataAttributes(this._element),
+        ...Manipulator.getDataAttributes(this._element),
         ...(typeof config === 'object' ? config : {})
       };
       return config;
@@ -209,14 +201,14 @@
       // Close other groups
       if (this._config.groupsAutoCollapse === true) {
         for (const element of this._getSiblings(toggler.parentNode, filter)) {
-          this._slideUp(SelectorEngine__default.default.findOne(SELECTOR_NAV_GROUP_ITEMS, element), () => {
+          this._slideUp(SelectorEngine.findOne(SELECTOR_NAV_GROUP_ITEMS, element), () => {
             element.classList.remove(CLASS_NAME_SHOW);
             element.setAttribute('aria-expanded', false);
           });
         }
       }
       if (toggler.parentNode.classList.contains(CLASS_NAME_SHOW)) {
-        this._slideUp(SelectorEngine__default.default.findOne(SELECTOR_NAV_GROUP_ITEMS, toggler.parentNode), () => {
+        this._slideUp(SelectorEngine.findOne(SELECTOR_NAV_GROUP_ITEMS, toggler.parentNode), () => {
           toggler.parentNode.classList.remove(CLASS_NAME_SHOW);
           toggler.parentNode.setAttribute('aria-expanded', false);
         });
@@ -224,10 +216,10 @@
       }
       toggler.parentNode.classList.add(CLASS_NAME_SHOW);
       toggler.parentNode.setAttribute('aria-expanded', true);
-      this._slideDown(SelectorEngine__default.default.findOne(SELECTOR_NAV_GROUP_ITEMS, toggler.parentNode));
+      this._slideDown(SelectorEngine.findOne(SELECTOR_NAV_GROUP_ITEMS, toggler.parentNode));
     }
     _addEventListeners() {
-      EventHandler__default.default.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_GROUP_TOGGLE, event => {
+      EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_NAV_GROUP_TOGGLE, event => {
         event.preventDefault();
         this._toggleGroupItems(event, this);
       });
@@ -256,7 +248,7 @@
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
-  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
+  EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
     for (const element of Array.from(document.querySelectorAll(SELECTOR_DATA_NAVIGATION))) {
       Navigation.navigationInterface(element);
     }

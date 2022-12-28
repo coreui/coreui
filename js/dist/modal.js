@@ -1,5 +1,5 @@
 /*!
-  * CoreUI modal.js v4.2.4 (https://coreui.io)
+  * CoreUI modal.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,18 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Modal = factory(global.Index, global.EventHandler, global.SelectorEngine, global.Scrollbar, global.BaseComponent, global.Backdrop, global.Focustrap, global.ComponentFunctions));
 })(this, (function (index_js, EventHandler, SelectorEngine, ScrollBarHelper, BaseComponent, Backdrop, FocusTrap, componentFunctions_js) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const ScrollBarHelper__default = /*#__PURE__*/_interopDefaultLegacy(ScrollBarHelper);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-  const Backdrop__default = /*#__PURE__*/_interopDefaultLegacy(Backdrop);
-  const FocusTrap__default = /*#__PURE__*/_interopDefaultLegacy(FocusTrap);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): modal.js
+   * CoreUI (v4.2.5): modal.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's modal.js
@@ -70,15 +61,15 @@
    * Class definition
    */
 
-  class Modal extends BaseComponent__default.default {
+  class Modal extends BaseComponent {
     constructor(element, config) {
       super(element, config);
-      this._dialog = SelectorEngine__default.default.findOne(SELECTOR_DIALOG, this._element);
+      this._dialog = SelectorEngine.findOne(SELECTOR_DIALOG, this._element);
       this._backdrop = this._initializeBackDrop();
       this._focustrap = this._initializeFocusTrap();
       this._isShown = false;
       this._isTransitioning = false;
-      this._scrollBar = new ScrollBarHelper__default.default();
+      this._scrollBar = new ScrollBarHelper();
       this._addEventListeners();
     }
 
@@ -101,7 +92,7 @@
       if (this._isShown || this._isTransitioning) {
         return;
       }
-      const showEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW, {
+      const showEvent = EventHandler.trigger(this._element, EVENT_SHOW, {
         relatedTarget
       });
       if (showEvent.defaultPrevented) {
@@ -118,7 +109,7 @@
       if (!this._isShown || this._isTransitioning) {
         return;
       }
-      const hideEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -130,7 +121,7 @@
     }
     dispose() {
       for (const htmlElement of [window, this._dialog]) {
-        EventHandler__default.default.off(htmlElement, EVENT_KEY);
+        EventHandler.off(htmlElement, EVENT_KEY);
       }
       this._backdrop.dispose();
       this._focustrap.deactivate();
@@ -142,14 +133,14 @@
 
     // Private
     _initializeBackDrop() {
-      return new Backdrop__default.default({
+      return new Backdrop({
         isVisible: Boolean(this._config.backdrop),
         // 'static' option will be translated to true, and booleans will keep their value,
         isAnimated: this._isAnimated()
       });
     }
     _initializeFocusTrap() {
-      return new FocusTrap__default.default({
+      return new FocusTrap({
         trapElement: this._element
       });
     }
@@ -163,7 +154,7 @@
       this._element.setAttribute('aria-modal', true);
       this._element.setAttribute('role', 'dialog');
       this._element.scrollTop = 0;
-      const modalBody = SelectorEngine__default.default.findOne(SELECTOR_MODAL_BODY, this._dialog);
+      const modalBody = SelectorEngine.findOne(SELECTOR_MODAL_BODY, this._dialog);
       if (modalBody) {
         modalBody.scrollTop = 0;
       }
@@ -174,14 +165,14 @@
           this._focustrap.activate();
         }
         this._isTransitioning = false;
-        EventHandler__default.default.trigger(this._element, EVENT_SHOWN, {
+        EventHandler.trigger(this._element, EVENT_SHOWN, {
           relatedTarget
         });
       };
       this._queueCallback(transitionComplete, this._dialog, this._isAnimated());
     }
     _addEventListeners() {
-      EventHandler__default.default.on(this._element, EVENT_KEYDOWN_DISMISS, event => {
+      EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS, event => {
         if (event.key !== ESCAPE_KEY) {
           return;
         }
@@ -192,14 +183,14 @@
         }
         this._triggerBackdropTransition();
       });
-      EventHandler__default.default.on(window, EVENT_RESIZE, () => {
+      EventHandler.on(window, EVENT_RESIZE, () => {
         if (this._isShown && !this._isTransitioning) {
           this._adjustDialog();
         }
       });
-      EventHandler__default.default.on(this._element, EVENT_MOUSEDOWN_DISMISS, event => {
+      EventHandler.on(this._element, EVENT_MOUSEDOWN_DISMISS, event => {
         // a bad trick to segregate clicks that may start inside dialog but end outside, and avoid listen to scrollbar clicks
-        EventHandler__default.default.one(this._element, EVENT_CLICK_DISMISS, event2 => {
+        EventHandler.one(this._element, EVENT_CLICK_DISMISS, event2 => {
           if (this._element !== event.target || this._element !== event2.target) {
             return;
           }
@@ -223,14 +214,14 @@
         document.body.classList.remove(CLASS_NAME_OPEN);
         this._resetAdjustments();
         this._scrollBar.reset();
-        EventHandler__default.default.trigger(this._element, EVENT_HIDDEN);
+        EventHandler.trigger(this._element, EVENT_HIDDEN);
       });
     }
     _isAnimated() {
       return this._element.classList.contains(CLASS_NAME_FADE);
     }
     _triggerBackdropTransition() {
-      const hideEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE_PREVENTED);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -294,17 +285,17 @@
    * Data API implementation
    */
 
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    const target = SelectorEngine__default.default.getElementFromSelector(this);
+  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+    const target = SelectorEngine.getElementFromSelector(this);
     if (['A', 'AREA'].includes(this.tagName)) {
       event.preventDefault();
     }
-    EventHandler__default.default.one(target, EVENT_SHOW, showEvent => {
+    EventHandler.one(target, EVENT_SHOW, showEvent => {
       if (showEvent.defaultPrevented) {
         // only register focus restorer if modal will actually get shown
         return;
       }
-      EventHandler__default.default.one(target, EVENT_HIDDEN, () => {
+      EventHandler.one(target, EVENT_HIDDEN, () => {
         if (index_js.isVisible(this)) {
           this.focus();
         }
@@ -312,7 +303,7 @@
     });
 
     // avoid conflict when clicking modal toggler while another one is open
-    const alreadyOpen = SelectorEngine__default.default.findOne(OPEN_SELECTOR);
+    const alreadyOpen = SelectorEngine.findOne(OPEN_SELECTOR);
     if (alreadyOpen) {
       Modal.getInstance(alreadyOpen).hide();
     }

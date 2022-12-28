@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sanitizer.js v4.2.4 (https://coreui.io)
+  * CoreUI sanitizer.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tab.js
+   * CoreUI (v4.2.5): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/sanitizer.js
@@ -110,7 +110,7 @@
   exports.DefaultAllowlist = DefaultAllowlist;
   exports.sanitizeHtml = sanitizeHtml;
 
-  Object.defineProperties(exports, { __esModule: { value: true }, [Symbol.toStringTag]: { value: 'Module' } });
+  Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 
 }));
 //# sourceMappingURL=sanitizer.js.map

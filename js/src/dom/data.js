@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.4): dom/selector-engine.js
+ * CoreUI (v4.2.5): dom/selector-engine.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This is a modified version of the Bootstrap's dom/data.js

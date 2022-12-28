@@ -1,5 +1,5 @@
 /*!
-  * CoreUI alert.js v4.2.4 (https://coreui.io)
+  * CoreUI alert.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,14 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Alert = factory(global.Index, global.EventHandler, global.BaseComponent, global.ComponentFunctions));
 })(this, (function (index_js, EventHandler, BaseComponent, componentFunctions_js) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): alert.js
+   * CoreUI (v4.2.5): alert.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's alert.js
@@ -40,7 +35,7 @@
    * Class definition
    */
 
-  class Alert extends BaseComponent__default.default {
+  class Alert extends BaseComponent {
     // Getters
     static get NAME() {
       return NAME;
@@ -48,7 +43,7 @@
 
     // Public
     close() {
-      const closeEvent = EventHandler__default.default.trigger(this._element, EVENT_CLOSE);
+      const closeEvent = EventHandler.trigger(this._element, EVENT_CLOSE);
       if (closeEvent.defaultPrevented) {
         return;
       }
@@ -60,7 +55,7 @@
     // Private
     _destroyElement() {
       this._element.remove();
-      EventHandler__default.default.trigger(this._element, EVENT_CLOSED);
+      EventHandler.trigger(this._element, EVENT_CLOSED);
       this.dispose();
     }
 

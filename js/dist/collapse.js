@@ -1,5 +1,5 @@
 /*!
-  * CoreUI collapse.js v4.2.4 (https://coreui.io)
+  * CoreUI collapse.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,15 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Collapse = factory(global.Index, global.EventHandler, global.SelectorEngine, global.BaseComponent));
 })(this, (function (index_js, EventHandler, SelectorEngine, BaseComponent) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): collapse.js
+   * CoreUI (v4.2.5): collapse.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's collapse.js
@@ -61,15 +55,15 @@
    * Class definition
    */
 
-  class Collapse extends BaseComponent__default.default {
+  class Collapse extends BaseComponent {
     constructor(element, config) {
       super(element, config);
       this._isTransitioning = false;
       this._triggerArray = [];
-      const toggleList = SelectorEngine__default.default.find(SELECTOR_DATA_TOGGLE);
+      const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE);
       for (const elem of toggleList) {
-        const selector = SelectorEngine__default.default.getSelectorFromElement(elem);
-        const filterElement = SelectorEngine__default.default.find(selector).filter(foundElement => foundElement === this._element);
+        const selector = SelectorEngine.getSelectorFromElement(elem);
+        const filterElement = SelectorEngine.find(selector).filter(foundElement => foundElement === this._element);
         if (selector !== null && filterElement.length) {
           this._triggerArray.push(elem);
         }
@@ -117,7 +111,7 @@
       if (activeChildren.length && activeChildren[0]._isTransitioning) {
         return;
       }
-      const startEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW);
+      const startEvent = EventHandler.trigger(this._element, EVENT_SHOW);
       if (startEvent.defaultPrevented) {
         return;
       }
@@ -135,7 +129,7 @@
         this._element.classList.remove(CLASS_NAME_COLLAPSING);
         this._element.classList.add(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
         this._element.style[dimension] = '';
-        EventHandler__default.default.trigger(this._element, EVENT_SHOWN);
+        EventHandler.trigger(this._element, EVENT_SHOWN);
       };
       const capitalizedDimension = dimension[0].toUpperCase() + dimension.slice(1);
       const scrollSize = `scroll${capitalizedDimension}`;
@@ -146,7 +140,7 @@
       if (this._isTransitioning || !this._isShown()) {
         return;
       }
-      const startEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE);
+      const startEvent = EventHandler.trigger(this._element, EVENT_HIDE);
       if (startEvent.defaultPrevented) {
         return;
       }
@@ -156,7 +150,7 @@
       this._element.classList.add(CLASS_NAME_COLLAPSING);
       this._element.classList.remove(CLASS_NAME_COLLAPSE, CLASS_NAME_SHOW);
       for (const trigger of this._triggerArray) {
-        const element = SelectorEngine__default.default.getElementFromSelector(trigger);
+        const element = SelectorEngine.getElementFromSelector(trigger);
         if (element && !this._isShown(element)) {
           this._addAriaAndCollapsedClass([trigger], false);
         }
@@ -166,7 +160,7 @@
         this._isTransitioning = false;
         this._element.classList.remove(CLASS_NAME_COLLAPSING);
         this._element.classList.add(CLASS_NAME_COLLAPSE);
-        EventHandler__default.default.trigger(this._element, EVENT_HIDDEN);
+        EventHandler.trigger(this._element, EVENT_HIDDEN);
       };
       this._element.style[dimension] = '';
       this._queueCallback(complete, this._element, true);
@@ -190,16 +184,16 @@
       }
       const children = this._getFirstLevelChildren(SELECTOR_DATA_TOGGLE);
       for (const element of children) {
-        const selected = SelectorEngine__default.default.getElementFromSelector(element);
+        const selected = SelectorEngine.getElementFromSelector(element);
         if (selected) {
           this._addAriaAndCollapsedClass([element], this._isShown(selected));
         }
       }
     }
     _getFirstLevelChildren(selector) {
-      const children = SelectorEngine__default.default.find(CLASS_NAME_DEEPER_CHILDREN, this._config.parent);
+      const children = SelectorEngine.find(CLASS_NAME_DEEPER_CHILDREN, this._config.parent);
       // remove children if greater depth
-      return SelectorEngine__default.default.find(selector, this._config.parent).filter(element => !children.includes(element));
+      return SelectorEngine.find(selector, this._config.parent).filter(element => !children.includes(element));
     }
     _addAriaAndCollapsedClass(triggerArray, isOpen) {
       if (!triggerArray.length) {
@@ -233,12 +227,12 @@
    * Data API implementation
    */
 
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
     if (event.target.tagName === 'A' || event.delegateTarget && event.delegateTarget.tagName === 'A') {
       event.preventDefault();
     }
-    for (const element of SelectorEngine__default.default.getMultipleElementsFromSelector(this)) {
+    for (const element of SelectorEngine.getMultipleElementsFromSelector(this)) {
       Collapse.getOrCreateInstance(element, {
         toggle: false
       }).toggle();

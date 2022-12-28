@@ -1,5 +1,5 @@
 /*!
-  * CoreUI template-factory.js v4.2.4 (https://coreui.io)
+  * CoreUI template-factory.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,14 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.TemplateFactory = factory(global.Sanitizer, global.Index, global.SelectorEngine, global.Config));
 })(this, (function (sanitizer_js, index_js, SelectorEngine, Config) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const Config__default = /*#__PURE__*/_interopDefaultLegacy(Config);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tab.js
+   * CoreUI (v4.2.5): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/template-factory.js
@@ -57,7 +52,7 @@
    * Class definition
    */
 
-  class TemplateFactory extends Config__default.default {
+  class TemplateFactory extends Config {
     constructor(config) {
       super();
       this._config = this._getConfig(config);
@@ -117,7 +112,7 @@
       }
     }
     _setContent(template, content, selector) {
-      const templateElement = SelectorEngine__default.default.findOne(selector, template);
+      const templateElement = SelectorEngine.findOne(selector, template);
       if (!templateElement) {
         return;
       }

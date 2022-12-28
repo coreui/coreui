@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v4.2.4 (https://coreui.io)
+  * CoreUI sidebar.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,17 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Sidebar = factory(global.Index, global.Scrollbar, global.EventHandler, global.BaseComponent, global.Manipulator, global.Backdrop));
 })(this, (function (index_js, ScrollBarHelper, EventHandler, BaseComponent, Manipulator, Backdrop) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const ScrollBarHelper__default = /*#__PURE__*/_interopDefaultLegacy(ScrollBarHelper);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const Backdrop__default = /*#__PURE__*/_interopDefaultLegacy(Backdrop);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): sidebar.js
+   * CoreUI (v4.2.5): sidebar.js
    * Licensed under MIT (https://coreui.io/license)
    * --------------------------------------------------------------------------
    */
@@ -59,7 +51,7 @@
    * ------------------------------------------------------------------------
    */
 
-  class Sidebar extends BaseComponent__default.default {
+  class Sidebar extends BaseComponent {
     constructor(element, config) {
       super(element);
       this._config = this._getConfig(config);
@@ -87,14 +79,14 @@
     // Public
 
     show() {
-      EventHandler__default.default.trigger(this._element, EVENT_SHOW);
+      EventHandler.trigger(this._element, EVENT_SHOW);
       if (this._element.classList.contains(CLASS_NAME_HIDE)) {
         this._element.classList.remove(CLASS_NAME_HIDE);
       }
       if (this._isMobile()) {
         this._element.classList.add(CLASS_NAME_SHOW);
         this._backdrop.show();
-        new ScrollBarHelper__default.default().hide();
+        new ScrollBarHelper().hide();
       }
       const complete = () => {
         if (this._isVisible() === true) {
@@ -102,19 +94,19 @@
           if (this._isMobile() || this._isOverlaid()) {
             this._addClickOutListener();
           }
-          EventHandler__default.default.trigger(this._element, EVENT_SHOWN);
+          EventHandler.trigger(this._element, EVENT_SHOWN);
         }
       };
       this._queueCallback(complete, this._element, true);
     }
     hide() {
-      EventHandler__default.default.trigger(this._element, EVENT_HIDE);
+      EventHandler.trigger(this._element, EVENT_HIDE);
       if (this._element.classList.contains(CLASS_NAME_SHOW)) {
         this._element.classList.remove(CLASS_NAME_SHOW);
       }
       if (this._isMobile()) {
         this._backdrop.hide();
-        new ScrollBarHelper__default.default().reset();
+        new ScrollBarHelper().reset();
       } else {
         this._element.classList.add(CLASS_NAME_HIDE);
       }
@@ -124,7 +116,7 @@
           if (this._isMobile() || this._isOverlaid()) {
             this._removeClickOutListener();
           }
-          EventHandler__default.default.trigger(this._element, EVENT_HIDDEN);
+          EventHandler.trigger(this._element, EVENT_HIDDEN);
         }
       };
       this._queueCallback(complete, this._element, true);
@@ -180,13 +172,13 @@
     _getConfig(config) {
       config = {
         ...Default,
-        ...Manipulator__default.default.getDataAttributes(this._element),
+        ...Manipulator.getDataAttributes(this._element),
         ...(typeof config === 'object' ? config : {})
       };
       return config;
     }
     _initializeBackDrop() {
-      return new Backdrop__default.default({
+      return new Backdrop({
         className: CLASS_NAME_BACKDROP,
         isVisible: this._isMobile(),
         isAnimated: true,
@@ -221,12 +213,12 @@
       }
     }
     _addClickOutListener() {
-      EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, event => {
+      EventHandler.on(document, EVENT_CLICK_DATA_API, event => {
         this._clickOutListener(event, this);
       });
     }
     _removeClickOutListener() {
-      EventHandler__default.default.off(document, EVENT_CLICK_DATA_API);
+      EventHandler.off(document, EVENT_CLICK_DATA_API);
     }
 
     // Sidebar navigation
@@ -237,9 +229,9 @@
       if (this._overlaid && this._show) {
         this._addClickOutListener();
       }
-      EventHandler__default.default.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
+      EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
         event.preventDefault();
-        const toggle = Manipulator__default.default.getDataAttribute(event.target, 'toggle');
+        const toggle = Manipulator.getDataAttribute(event.target, 'toggle');
         if (toggle === 'narrow') {
           this.toggleNarrow();
         }
@@ -247,11 +239,11 @@
           this.toggleUnfoldable();
         }
       });
-      EventHandler__default.default.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_CLOSE, event => {
+      EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_CLOSE, event => {
         event.preventDefault();
         this.hide();
       });
-      EventHandler__default.default.on(window, EVENT_RESIZE, () => {
+      EventHandler.on(window, EVENT_RESIZE, () => {
         if (this._isMobile() && this._isVisible()) {
           this.hide();
           this._backdrop = this._initializeBackDrop();
@@ -283,7 +275,7 @@
    * ------------------------------------------------------------------------
    */
 
-  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
+  EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
     for (const element of Array.from(document.querySelectorAll(SELECTOR_SIDEBAR))) {
       Sidebar.sidebarInterface(element);
     }

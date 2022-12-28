@@ -1,5 +1,5 @@
 /*!
-  * CoreUI popover.js v4.2.4 (https://coreui.io)
+  * CoreUI popover.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,13 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Popover = factory(global.Index, global.Tooltip));
 })(this, (function (index_js, Tooltip) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): popover.js
+   * CoreUI (v4.2.5): popover.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's popover.js
@@ -31,7 +27,7 @@
   const SELECTOR_TITLE = '.popover-header';
   const SELECTOR_CONTENT = '.popover-body';
   const Default = {
-    ...Tooltip__default.default.Default,
+    ...Tooltip.Default,
     content: '',
     offset: [0, 8],
     placement: 'right',
@@ -39,7 +35,7 @@
     trigger: 'click'
   };
   const DefaultType = {
-    ...Tooltip__default.default.DefaultType,
+    ...Tooltip.DefaultType,
     content: '(null|string|element|function)'
   };
 
@@ -47,7 +43,7 @@
    * Class definition
    */
 
-  class Popover extends Tooltip__default.default {
+  class Popover extends Tooltip {
     // Getters
     static get Default() {
       return Default;

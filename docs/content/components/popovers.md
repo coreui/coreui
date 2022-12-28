@@ -80,7 +80,7 @@ const popover = new coreui.Popover(document.querySelector('.example-popover'), {
 
 ### Custom popovers
 
-<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.4</small>
+<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.5</small>
 
 You can customize the appearance of popovers using [CSS variables](#variables). We set a custom class with `data-coreui-custom-class="custom-popover"` to scope our custom appearance and use it to override some of the local CSS variables.
 {{< scss-docs name="custom-popovers" file="docs/assets/scss/_component-examples.scss" >}}

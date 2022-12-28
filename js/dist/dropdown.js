@@ -1,5 +1,5 @@
 /*!
-  * CoreUI dropdown.js v4.2.4 (https://coreui.io)
+  * CoreUI dropdown.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,10 +9,7 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global["@popperjs/core"], global.Index, global.EventHandler, global.Manipulator, global.SelectorEngine, global.BaseComponent));
 })(this, (function (Popper, index_js, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  function _interopNamespace(e) {
-    if (e && e.__esModule) return e;
+  function _interopNamespaceDefault(e) {
     const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
     if (e) {
       for (const k in e) {
@@ -29,15 +26,11 @@
     return Object.freeze(n);
   }
 
-  const Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
+  const Popper__namespace = /*#__PURE__*/_interopNamespaceDefault(Popper);
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): dropdown.js
+   * CoreUI (v4.2.5): dropdown.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's dropdown.js
@@ -107,13 +100,13 @@
    * Class definition
    */
 
-  class Dropdown extends BaseComponent__default.default {
+  class Dropdown extends BaseComponent {
     constructor(element, config) {
       super(element, config);
       this._popper = null;
       this._parent = this._element.parentNode; // dropdown wrapper
       // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
-      this._menu = SelectorEngine__default.default.next(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.prev(this._element, SELECTOR_MENU)[0] || SelectorEngine__default.default.findOne(SELECTOR_MENU, this._parent);
+      this._menu = SelectorEngine.next(this._element, SELECTOR_MENU)[0] || SelectorEngine.prev(this._element, SELECTOR_MENU)[0] || SelectorEngine.findOne(SELECTOR_MENU, this._parent);
       this._inNavbar = this._detectNavbar();
     }
 
@@ -139,7 +132,7 @@
       const relatedTarget = {
         relatedTarget: this._element
       };
-      const showEvent = EventHandler__default.default.trigger(this._element, EVENT_SHOW, relatedTarget);
+      const showEvent = EventHandler.trigger(this._element, EVENT_SHOW, relatedTarget);
       if (showEvent.defaultPrevented) {
         return;
       }
@@ -151,14 +144,14 @@
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
       if ('ontouchstart' in document.documentElement && !this._parent.closest(SELECTOR_NAVBAR_NAV)) {
         for (const element of [].concat(...document.body.children)) {
-          EventHandler__default.default.on(element, 'mouseover', index_js.noop);
+          EventHandler.on(element, 'mouseover', index_js.noop);
         }
       }
       this._element.focus();
       this._element.setAttribute('aria-expanded', true);
       this._menu.classList.add(CLASS_NAME_SHOW);
       this._element.classList.add(CLASS_NAME_SHOW);
-      EventHandler__default.default.trigger(this._element, EVENT_SHOWN, relatedTarget);
+      EventHandler.trigger(this._element, EVENT_SHOWN, relatedTarget);
     }
     hide() {
       if (index_js.isDisabled(this._element) || !this._isShown()) {
@@ -184,7 +177,7 @@
 
     // Private
     _completeHide(relatedTarget) {
-      const hideEvent = EventHandler__default.default.trigger(this._element, EVENT_HIDE, relatedTarget);
+      const hideEvent = EventHandler.trigger(this._element, EVENT_HIDE, relatedTarget);
       if (hideEvent.defaultPrevented) {
         return;
       }
@@ -193,7 +186,7 @@
       // empty mouseover listeners we added for iOS support
       if ('ontouchstart' in document.documentElement) {
         for (const element of [].concat(...document.body.children)) {
-          EventHandler__default.default.off(element, 'mouseover', index_js.noop);
+          EventHandler.off(element, 'mouseover', index_js.noop);
         }
       }
       if (this._popper) {
@@ -202,8 +195,8 @@
       this._menu.classList.remove(CLASS_NAME_SHOW);
       this._element.classList.remove(CLASS_NAME_SHOW);
       this._element.setAttribute('aria-expanded', 'false');
-      Manipulator__default.default.removeDataAttribute(this._menu, 'popper');
-      EventHandler__default.default.trigger(this._element, EVENT_HIDDEN, relatedTarget);
+      Manipulator.removeDataAttribute(this._menu, 'popper');
+      EventHandler.trigger(this._element, EVENT_HIDDEN, relatedTarget);
     }
     _getConfig(config) {
       config = super._getConfig(config);
@@ -286,7 +279,7 @@
 
       // Disable Popper if we have a static display or Dropdown is in Navbar
       if (this._inNavbar || this._config.display === 'static') {
-        Manipulator__default.default.setDataAttribute(this._menu, 'popper', 'static'); // todo:v6 remove
+        Manipulator.setDataAttribute(this._menu, 'popper', 'static'); // todo:v6 remove
         defaultBsPopperConfig.modifiers = [{
           name: 'applyStyles',
           enabled: false
@@ -301,7 +294,7 @@
       key,
       target
     }) {
-      const items = SelectorEngine__default.default.find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(element => index_js.isVisible(element));
+      const items = SelectorEngine.find(SELECTOR_VISIBLE_ITEMS, this._menu).filter(element => index_js.isVisible(element));
       if (!items.length) {
         return;
       }
@@ -328,7 +321,7 @@
       if (event.button === RIGHT_MOUSE_BUTTON || event.type === 'keyup' && event.key !== TAB_KEY) {
         return;
       }
-      const openToggles = SelectorEngine__default.default.find(SELECTOR_DATA_TOGGLE_SHOWN);
+      const openToggles = SelectorEngine.find(SELECTOR_DATA_TOGGLE_SHOWN);
       for (const toggle of openToggles) {
         const context = Dropdown.getInstance(toggle);
         if (!context || context._config.autoClose === false) {
@@ -369,7 +362,7 @@
       event.preventDefault();
 
       // todo: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.2/forms/input-group/
-      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default.default.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.next(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine__default.default.findOne(SELECTOR_DATA_TOGGLE, event.delegateTarget.parentNode);
+      const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine.next(this, SELECTOR_DATA_TOGGLE)[0] || SelectorEngine.findOne(SELECTOR_DATA_TOGGLE, event.delegateTarget.parentNode);
       const instance = Dropdown.getOrCreateInstance(getToggleButton);
       if (isUpOrDownEvent) {
         event.stopPropagation();
@@ -390,11 +383,11 @@
    * Data API implementation
    */
 
-  EventHandler__default.default.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
-  EventHandler__default.default.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
-  EventHandler__default.default.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
+  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
+  EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+  EventHandler.on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
+  EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
+  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
     event.preventDefault();
     Dropdown.getOrCreateInstance(this).toggle();
   });

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI config.js v4.2.4 (https://coreui.io)
+  * CoreUI config.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,13 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Config = factory(global.Index, global.Manipulator));
 })(this, (function (index_js, Manipulator) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): tab.js
+   * CoreUI (v4.2.5): tab.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This is a modified version of the Bootstrap's util/config.js
@@ -48,12 +44,12 @@
       return config;
     }
     _mergeConfigObj(config, element) {
-      const jsonConfig = index_js.isElement(element) ? Manipulator__default.default.getDataAttribute(element, 'config') : {}; // try to parse
+      const jsonConfig = index_js.isElement(element) ? Manipulator.getDataAttribute(element, 'config') : {}; // try to parse
 
       return {
         ...this.constructor.Default,
         ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
-        ...(index_js.isElement(element) ? Manipulator__default.default.getDataAttributes(element) : {}),
+        ...(index_js.isElement(element) ? Manipulator.getDataAttributes(element) : {}),
         ...(typeof config === 'object' ? config : {})
       };
     }

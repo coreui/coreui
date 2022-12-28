@@ -1,5 +1,5 @@
 /*!
-  * CoreUI carousel.js v4.2.4 (https://coreui.io)
+  * CoreUI carousel.js v4.2.5 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -9,17 +9,9 @@
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Carousel = factory(global.Index, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Swipe, global.BaseComponent));
 })(this, (function (index_js, EventHandler, Manipulator, SelectorEngine, Swipe, BaseComponent) { 'use strict';
 
-  const _interopDefaultLegacy = e => e && typeof e === 'object' && 'default' in e ? e : { default: e };
-
-  const EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  const Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  const SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
-  const Swipe__default = /*#__PURE__*/_interopDefaultLegacy(Swipe);
-  const BaseComponent__default = /*#__PURE__*/_interopDefaultLegacy(BaseComponent);
-
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.4): carousel.js
+   * CoreUI (v4.2.5): carousel.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's carousel.js
@@ -91,7 +83,7 @@
    * Class definition
    */
 
-  class Carousel extends BaseComponent__default.default {
+  class Carousel extends BaseComponent {
     constructor(element, config) {
       super(element, config);
       this._interval = null;
@@ -99,7 +91,7 @@
       this._isSliding = false;
       this.touchTimeout = null;
       this._swipeHelper = null;
-      this._indicatorsElement = SelectorEngine__default.default.findOne(SELECTOR_INDICATORS, this._element);
+      this._indicatorsElement = SelectorEngine.findOne(SELECTOR_INDICATORS, this._element);
       this._addEventListeners();
       if (this._config.ride === CLASS_NAME_CAROUSEL) {
         this.cycle();
@@ -148,7 +140,7 @@
         return;
       }
       if (this._isSliding) {
-        EventHandler__default.default.one(this._element, EVENT_SLID, () => this.cycle());
+        EventHandler.one(this._element, EVENT_SLID, () => this.cycle());
         return;
       }
       this.cycle();
@@ -159,7 +151,7 @@
         return;
       }
       if (this._isSliding) {
-        EventHandler__default.default.one(this._element, EVENT_SLID, () => this.to(index));
+        EventHandler.one(this._element, EVENT_SLID, () => this.to(index));
         return;
       }
       const activeIndex = this._getItemIndex(this._getActive());
@@ -183,19 +175,19 @@
     }
     _addEventListeners() {
       if (this._config.keyboard) {
-        EventHandler__default.default.on(this._element, EVENT_KEYDOWN, event => this._keydown(event));
+        EventHandler.on(this._element, EVENT_KEYDOWN, event => this._keydown(event));
       }
       if (this._config.pause === 'hover') {
-        EventHandler__default.default.on(this._element, EVENT_MOUSEENTER, () => this.pause());
-        EventHandler__default.default.on(this._element, EVENT_MOUSELEAVE, () => this._maybeEnableCycle());
+        EventHandler.on(this._element, EVENT_MOUSEENTER, () => this.pause());
+        EventHandler.on(this._element, EVENT_MOUSELEAVE, () => this._maybeEnableCycle());
       }
-      if (this._config.touch && Swipe__default.default.isSupported()) {
+      if (this._config.touch && Swipe.isSupported()) {
         this._addTouchEventListeners();
       }
     }
     _addTouchEventListeners() {
-      for (const img of SelectorEngine__default.default.find(SELECTOR_ITEM_IMG, this._element)) {
-        EventHandler__default.default.on(img, EVENT_DRAG_START, event => event.preventDefault());
+      for (const img of SelectorEngine.find(SELECTOR_ITEM_IMG, this._element)) {
+        EventHandler.on(img, EVENT_DRAG_START, event => event.preventDefault());
       }
       const endCallBack = () => {
         if (this._config.pause !== 'hover') {
@@ -221,7 +213,7 @@
         rightCallback: () => this._slide(this._directionToOrder(DIRECTION_RIGHT)),
         endCallback: endCallBack
       };
-      this._swipeHelper = new Swipe__default.default(this._element, swipeConfig);
+      this._swipeHelper = new Swipe(this._element, swipeConfig);
     }
     _keydown(event) {
       if (/input|textarea/i.test(event.target.tagName)) {
@@ -240,10 +232,10 @@
       if (!this._indicatorsElement) {
         return;
       }
-      const activeIndicator = SelectorEngine__default.default.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
+      const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
       activeIndicator.classList.remove(CLASS_NAME_ACTIVE);
       activeIndicator.removeAttribute('aria-current');
-      const newActiveIndicator = SelectorEngine__default.default.findOne(`[data-coreui-slide-to="${index}"]`, this._indicatorsElement);
+      const newActiveIndicator = SelectorEngine.findOne(`[data-coreui-slide-to="${index}"]`, this._indicatorsElement);
       if (newActiveIndicator) {
         newActiveIndicator.classList.add(CLASS_NAME_ACTIVE);
         newActiveIndicator.setAttribute('aria-current', 'true');
@@ -269,7 +261,7 @@
       }
       const nextElementIndex = this._getItemIndex(nextElement);
       const triggerEvent = eventName => {
-        return EventHandler__default.default.trigger(this._element, eventName, {
+        return EventHandler.trigger(this._element, eventName, {
           relatedTarget: nextElement,
           direction: this._orderToDirection(order),
           from: this._getItemIndex(activeElement),
@@ -312,10 +304,10 @@
       return this._element.classList.contains(CLASS_NAME_SLIDE);
     }
     _getActive() {
-      return SelectorEngine__default.default.findOne(SELECTOR_ACTIVE_ITEM, this._element);
+      return SelectorEngine.findOne(SELECTOR_ACTIVE_ITEM, this._element);
     }
     _getItems() {
-      return SelectorEngine__default.default.find(SELECTOR_ITEM, this._element);
+      return SelectorEngine.find(SELECTOR_ITEM, this._element);
     }
     _clearInterval() {
       if (this._interval) {
@@ -358,8 +350,8 @@
    * Data API implementation
    */
 
-  EventHandler__default.default.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
-    const target = SelectorEngine__default.default.getElementFromSelector(this);
+  EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_SLIDE, function (event) {
+    const target = SelectorEngine.getElementFromSelector(this);
     if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
       return;
     }
@@ -371,7 +363,7 @@
       carousel._maybeEnableCycle();
       return;
     }
-    if (Manipulator__default.default.getDataAttribute(this, 'slide') === 'next') {
+    if (Manipulator.getDataAttribute(this, 'slide') === 'next') {
       carousel.next();
       carousel._maybeEnableCycle();
       return;
@@ -379,8 +371,8 @@
     carousel.prev();
     carousel._maybeEnableCycle();
   });
-  EventHandler__default.default.on(window, EVENT_LOAD_DATA_API, () => {
-    const carousels = SelectorEngine__default.default.find(SELECTOR_DATA_RIDE);
+  EventHandler.on(window, EVENT_LOAD_DATA_API, () => {
+    const carousels = SelectorEngine.find(SELECTOR_DATA_RIDE);
     for (const carousel of carousels) {
       Carousel.getOrCreateInstance(carousel);
     }
