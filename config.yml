@@ -76,12 +76,12 @@ params:
   cdn:
   # See https://www.srihash.org for info on how to generate the hashes
     css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.4/dist/css/coreui.min.css"
-    css_hash:        "sha384-xSyvfN8PJimLhlxiQHc2KC+YHgV0qJpr3zVccSQqHZcICy4GBxMFkFdtDAy3/N44"
+    css_hash:        "sha384-PEo/NAKJEN318LeDvYUzENW9J05vrbldkVc8xOWwrQujVv1nuRcTXfVbH8axvSNk"
     css_rtl:         "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.4/dist/css/coreui.rtl.min.css"
-    css_rtl_hash:    "sha384-a5VQJhcH0QxZkTD3Tov8HHT1dC67y5mPi4A7b0vUsCFmc/BG1A4toX5kCciRHvVI"
+    css_rtl_hash:    "sha384-Bqf/KsKKm1lO23SM0zVyg6p2lGyrXX8CQwc+/981hPnR5mLGUqA5KuhFryCtyWz0"
     js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.4/dist/js/coreui.min.js"
-    js_hash:         "sha384-WHvSDZaDrlwCuVIrspLiBNuVEpwuRqYA8gBwBQXNSO8y4q3tUcP2HJ74ixDbaN0d"
+    js_hash:         "sha384-qVaUi0julBP4h0s04mnrTlvDtEOEV4Y7Qha1dxyAeRTV87JfHb6RGCdJP0vue7/6"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.4/dist/js/coreui.bundle.min.js"
-    js_bundle_hash:  "sha384-xRP7Wu8WAVfL2gQin33Prg2mTtZD6bDu5dv1DAUxZpS+P8BDEXGw6DaYQQQ9C9CL"
+    js_bundle_hash:  "sha384-XnSpd7G8ncnmaNrhAS8dlJjDQYu+PgdHUELHmKwWkH8NfvjcbRZV99kucyeq2y29"
     popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     popper_hash:      "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
