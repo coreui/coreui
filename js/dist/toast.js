@@ -1,5 +1,5 @@
 /*!
-  * CoreUI toast.js v4.2.5 (https://coreui.io)
+  * CoreUI toast.js v4.2.6 (https://coreui.io)
   * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
@@ -11,7 +11,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.5): toast.js
+   * CoreUI (v4.2.6): toast.js
    * Licensed under MIT (https://coreui.io/license)
    *
    * This component is a modified version of the Bootstrap's toast.js

@@ -1,14 +1,14 @@
 @charset "UTF-8";
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.5
+ * @version v4.2.6
  * @link https://coreui.io/
  * Copyright (c) 2022 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
 */
 /*!
  * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.5
+ * @version v4.2.6
  * @link https://coreui.io/
  * Copyright (c) 2022 creativeLabs Łukasz Holeczek
  * License MIT  (https://coreui.io/license/)
@@ -87,7 +87,7 @@
   --cui-breakpoint-lg: 992px;
   --cui-breakpoint-xl: 1200px;
   --cui-breakpoint-xxl: 1400px;
-  --cui--mobile-breakpoint: md;
+  --cui-mobile-breakpoint: md;
 }
 
 *,

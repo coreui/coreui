@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.5): alert.js
+ * CoreUI (v4.2.6): alert.js
  * Licensed under MIT (https://coreui.io/license)
  *
  * This component is a modified version of the Bootstrap's base-component.js
@@ -17,7 +17,7 @@ import Config from './util/config.js'
  * Constants
  */
 
-const VERSION = '4.2.5'
+const VERSION = '4.2.6'
 
 /**
  * Class definition
