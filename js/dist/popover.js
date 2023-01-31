@@ -1,6 +1,6 @@
 /*!
   * CoreUI popover.js v4.2.6 (https://coreui.io)
-  * Copyright 2022 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://coreui.io)
   */
 (function (global, factory) {
