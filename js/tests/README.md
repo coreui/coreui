@@ -59,8 +59,8 @@ it('should show a tooltip without the animation', () => {
       animation: false
     })
 
-  tooltipEl.addEventListener('shown.coreui.tooltip', () => {
-    const tip = document.querySelector('.tooltip')
+    tooltipEl.addEventListener('shown.coreui.tooltip', () => {
+      const tip = document.querySelector('.tooltip')
 
       expect(tip).not.toBeNull()
       expect(tip.classList.contains('fade')).toEqual(false)
