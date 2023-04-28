@@ -17,7 +17,7 @@ Things to know when using the toast plugin:
 - Toasts will automatically hide if you do not specify `autohide: false`.
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 ## Examples
@@ -28,7 +28,7 @@ To encourage extensible and predictable toasts, we recommend a header and body. 
 
 Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your "toasted" content and strongly encourage a dismiss button.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
@@ -88,16 +88,8 @@ Click the button below to show a toast (positioned with our utilities in the low
 
 We use the following JavaScript to trigger our live toast demo:
 
-```js
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
-  toastTrigger.addEventListener('click', () => {
-    const toast = new coreui.Toast(toastLiveExample)
-    toast.show()
-  })
-}
-```
+{{< js-docs name="live-toast" file="docs/assets/js/snippets.js" >}}
+
 
 ### Translucent
 
@@ -121,7 +113,7 @@ Toasts are slightly translucent to blend in with what's below them.
 
 You can stack toasts by wrapping them in a toast container, which will vertically add some spacing.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div class="toast-container position-static">
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
@@ -153,7 +145,7 @@ You can stack toasts by wrapping them in a toast container, which will verticall
 
 Customize your toasts by removing sub-components, tweaking them with [utilities]({{< docsref "/utilities/api" >}}), or by adding your own markup. Here we've created a simpler toast by removing the default `.toast-header`, adding a custom hide icon from [Bootstrap Icons]({{< param icons >}}), and using some [flexbox utilities]({{< docsref "/utilities/flex" >}}) to adjust the layout.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="d-flex">
     <div class="toast-body">
@@ -166,7 +158,7 @@ Customize your toasts by removing sub-components, tweaking them with [utilities]
 
 Alternatively, you can also add additional controls and components to toasts.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-body">
     Hello, world! This is a toast message.
@@ -182,7 +174,7 @@ Alternatively, you can also add additional controls and components to toasts.
 
 Building on the above example, you can create different toast color schemes with our [color]({{< docsref "/utilities/colors" >}}) and [background]({{< docsref "/utilities/background" >}}) utilities. Here we've added `.text-bg-primary` to the `.toast`, and then added `.btn-close-white` to our close button. For a crisp edge, we remove the default border with `.border-0`.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="d-flex">
     <div class="toast-body">
@@ -308,7 +300,7 @@ As the content you're displaying changes, be sure to update the [`delay` timeout
 
 When using `autohide: false`, you must add a close button to allow users to dismiss the toast.
 
-{{< example class="bg-light" >}}
+{{< example class=" bg-body-tertiary" >}}
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">
   <div class="toast-header">
     {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
@@ -353,7 +345,7 @@ const toastList = [...toastElList].map(toastEl => new coreui.Toast(toastEl, opti
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 {{< bs-table "table" >}}

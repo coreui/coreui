@@ -22,11 +22,11 @@ Things to know when using the tooltip plugin:
 - Tooltips can be triggered thanks to an element inside a shadow DOM.
 
 {{< callout info >}}
-{{< partial "callout-info-sanitizer.md" >}}
+{{< partial "callouts/info-sanitizer.md" >}}
 {{< /callout >}}
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 Got all that? Great, let's see how they work with some examples.
@@ -207,7 +207,7 @@ const tooltip = new coreui.Tooltip(element, {
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 {{< bs-table "table" >}}

@@ -6,6 +6,364 @@ group: customize
 toc: true
 ---
 
+## Colors
+
+{{< added-in "4.3.0" >}}
+
+Bootstrap's color palette has continued to expand and become more nuanced in v4.3.0. We've added new variables for `secondary` and `tertiary` text and background colors, plus `{color}-bg-subtle`, `{color}-border-subtle`, and `{color}-text-emphasis` for our theme colors. These new colors are available through Sass and CSS variables (but not our color maps or utility classes) with the express goal of making it easier to customize across multiple colors modes like light and dark. These new variables are globally set on `:root` and are adapted for our new dark color mode while our original theme colors remain unchanged.
+
+Colors ending in `-rgb` provide the `red, green, blue` values for use in `rgb()` and `rgba()` color modes. For example, `rgba(var(--cui-secondary-bg-rgb), .5)`.
+
+{{< callout warning>}}
+**Heads up!** There's some potential confusion with our new secondary and tertiary colors, and our existing secondary theme color, as well as our light and dark theme colors. Expect this to be ironed out in v6.
+{{< /callout >}}
+
+<table class="table table-swatches">
+  <thead>
+    <tr>
+      <th style="width: 340px;">Description</th>
+      <th style="width: 200px;" class="ps-0">Swatch</th>
+      <th>Variables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        {{< markdown >}}**Body —** Default foreground (color) and background, including components.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-body-color);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-body-color`<br>`--cui-body-color-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-body-bg);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-body-bg`<br>`--cui-body-bg-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        {{< markdown >}}**Secondary —** Use the `color` option for lighter text. Use the `bg` option for dividers and to indicate disabled component states.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-secondary-color);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-secondary-color`<br>`--cui-secondary-color-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-secondary-bg);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-secondary-bg`<br>`--cui-secondary-bg-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        {{< markdown >}}**Tertiary —** Use the `color` option for even lighter text. Use the `bg` option to style backgrounds for hover states, accents, and wells.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-tertiary-color);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-tertiary-color`<br>`--cui-tertiary-color-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-tertiary-bg);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-tertiary-bg`<br>`--cui-tertiary-bg-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{< markdown >}}**Emphasis —** For higher contrast text. Not applicable for backgrounds.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-emphasis-color);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-emphasis-color`<br>`--cui-emphasis-color-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        {{< markdown >}}**Border —** For component borders, dividers, and rules. Use `--cui-border-color-translucent` to blend with backgrounds with an `rgba()` value.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-border-color);">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-border-color`<br>`--cui-border-color-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Primary —** Main theme color, used for hyperlinks, focus styles, and component and form active states.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-primary">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-primary`<br>`--cui-primary-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-primary-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-primary-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-primary-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-primary-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-primary-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-primary-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Success —** Theme color used for positive or successful actions and information.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-success">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-success`<br>`--cui-success-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-success-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-success-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-success-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-success-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-success-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-success-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Danger —** Theme color used for errors and dangerous actions.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-danger">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-danger`<br>`--cui-danger-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-danger-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-danger-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-danger-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-danger-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-danger-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-danger-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Warning —** Theme color used for non-destructive warning messages.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-warning">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-warning`<br>`--cui-warning-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-warning-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-warning-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-warning-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-warning-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-warning-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-warning-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Info —** Theme color used for neutral and informative content.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-info">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-info`<br>`--cui-info-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-info-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-info-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-info-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-info-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-info-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-info-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Light —** Additional theme option for less contrasting colors.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-light">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-light`<br>`--cui-light-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-light-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-light-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-light-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-light-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-light-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-light-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        {{< markdown >}}**Dark —** Additional theme option for higher contrasting colors.{{< /markdown >}}
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-dark">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-dark`<br>`--cui-dark-rgb`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-dark-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-dark-bg-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-dark-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-dark-border-subtle`{{< /markdown >}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-dark-text-emphasis)">Text</div>
+      </td>
+      <td>
+        {{< markdown >}}`--cui-dark-text-emphasis`{{< /markdown >}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Using the new colors
+
+These new colors are accessible via CSS variables and utility classes—like `--cui-primary-bg-subtle` and `.bg-primary-subtle`—allowing you to compose your own CSS rules with the variables, or to quickly apply styles via classes. The utilities are built with the color's associated CSS variables, and since we customize those CSS variables for dark mode, they are also adaptive to color mode by default.
+
+{{< example >}}
+<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">
+  Example element with utilities
+</div>
+{{< /example >}}
+
 ## Theme colors
 
 We use a subset of all colors to create a smaller color palette for generating color schemes, also available as Sass variables and a Sass map in CoreUI for Bootstrap's `scss/_variables.scss` file.
@@ -14,7 +372,7 @@ We use a subset of all colors to create a smaller color palette for generating c
   {{< theme-colors.inline >}}
   {{- range (index $.Site.Data "theme-colors") }}
     <div class="col-md-4">
-      <div class="p-3 mb-3 bg-{{ .name }} {{ if .contrast_color }}text-{{ .contrast_color }}{{ else }}text-white{{ end }}">{{ .name | title }}</div>
+      <div class="p-3 mb-3 text-bg-{{ .name }} rounded-3">{{ .name | title }}</div>
     </div>
   {{ end -}}
   {{< /theme-colors.inline >}}

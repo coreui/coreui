@@ -593,7 +593,7 @@ To make tabs fade in, add `.fade` to each `.tab-pane`. The first tab pane must a
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 #### constructor

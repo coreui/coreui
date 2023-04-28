@@ -3,16 +3,16 @@
 //
 
 .footer {
-  --cui-footer-bg: #f0f4f7;
+  --cui-footer-bg: var(--cui-tertiary-bg);
   @include font-size(.875rem);
 
   a {
-    color: $gray-700;
+    color: var(--#{$prefix}tertiary-color);
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $link-color;
+      color: var(--cui-link-hover-color);
       text-decoration: underline;
     }
   }

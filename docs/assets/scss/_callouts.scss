@@ -3,11 +3,14 @@
 //
 
 .docs-callout {
+  --#{$prefix}link-color-rgb: var(--cd-callout-link);
+  --#{$prefix}code-color: var(--cd-callout-code-color);
+
   padding: 1.25rem;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  background-color: var(--bd-callout-bg, var(--cui-gray-100));
-  border-left: .25rem solid var(--bd-callout-border, var(--cui-gray-300));
+  background-color: var(--cd-callout-bg, var(--cui-gray-100));
+  border-left: .25rem solid var(--cd-callout-border, var(--cui-gray-300));
 
   h4 {
     margin-bottom: .25rem;
@@ -27,9 +30,10 @@
 }
 
 // Variations
-@each $variant in $bd-callout-variants {
+@each $variant in $cd-callout-variants {
   .docs-callout-#{$variant} {
-    --bd-callout-bg: rgba(var(--cui-#{$variant}-rgb), .075);
-    --bd-callout-border: rgba(var(--cui-#{$variant}-rgb), .5);
+    --cd-callout-color: var(--cui-#{$variant}-text-emphasis);
+    --cd-callout-bg: rgba(var(--cui-#{$variant}-rgb), .1);
+    --cd-callout-border: var(--cui-#{$variant});
   }
 }

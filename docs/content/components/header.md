@@ -26,7 +26,7 @@ Here's what you need to know before getting started with the header component:
 - Ensure accessibility by using a `<header>` element or, if using a more generic element such as a `<div>`, add a `role="navigation"` to every header to explicitly identify it as a landmark region for users of assistive technologies.
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 Read on for an example and list of supported sub-components.

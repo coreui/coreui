@@ -19,6 +19,9 @@
 <meta name="robots" content="{{ . }}">
 {{- end }}
 
+{{- $colorModeJS := printf "/assets/js/color-modes.js" -}}
+<script src="{{ $colorModeJS | relURL }}"></script>
+
 {{ partial "stylesheet" . }}
 {{ partial "favicons" . }}
 {{ partial "social" . }}

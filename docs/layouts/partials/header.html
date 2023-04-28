@@ -1,4 +1,4 @@
-<header class="header header-sticky mb-5">
+<header class="docs-header header header-sticky mb-5">
   <div class="container-fluid">
     <button class="header-toggler d-lg-none" type="button" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
       {{ partial "icons/hamburger.svg" (dict "class" "bi" "width" "32" "height" "32") }}
@@ -21,11 +21,50 @@
           {{ partial "icons/opencollective.svg" (dict "class" "icon icon-xl") }}
         </a>
       </li>
+      <li class="nav-item py-2 py-lg-1">
+        <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-body text-opacity-75"></div>
+        <hr class="d-lg-none my-2 text-white-50">
+      </li>
+      <li class="nav-item dropdown">
+        <button class="btn btn-link nav-link py-2 px-2 px-lg-2 dropdown-toggle d-flex align-items-center"
+                type="button"
+                aria-expanded="false"
+                data-coreui-toggle="dropdown"
+                data-coreui-display="static">
+          {{ partial "icons/contrast.svg" (dict "class" "theme-icon-active icon icon-xl") }}
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bd-theme" style="--cui-dropdown-min-width: 8rem;">
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-coreui-theme-value="light">
+              {{ partial "icons/sun.svg" (dict "class" "theme-icon icon icon-lg me-2") }}
+              Light
+              {{ partial "icons/check.svg" (dict "class" "icon bi ms-auto d-none") }}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center" data-coreui-theme-value="dark">
+              {{ partial "icons/moon.svg" (dict "class" "theme-icon icon icon-lg me-2") }}
+              Dark
+              {{ partial "icons/check.svg" (dict "class" "icon bi ms-auto d-none") }}
+            </button>
+          </li>
+          <li>
+            <button type="button" class="dropdown-item d-flex align-items-center active" data-coreui-theme-value="auto">
+              {{ partial "icons/contrast.svg" (dict "class" "theme-icon icon icon-lg me-2") }}
+              Auto
+              {{ partial "icons/check.svg" (dict "class" "icon bi ms-auto d-none") }}
+            </button>
+          </li>
+        </ul>
+      </li>
     </ul>
-
     <a class="btn btn-outline-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="/getting-started/download/">
       {{ partial "icons/cloud-download.svg" (dict "class" "icon me-2") }}
       Download
+    </a>
+    <a class="btn btn-outline-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/about/services/?docs=coreui-header-button">
+      {{ partial "icons/handshake.svg" (dict "class" "icon me-2") }}
+      Hire Us
     </a>
     <a class="btn btn-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/pricing/?framework=bootstrap&docs=coreui-header-button">
       Buy CoreUI PRO

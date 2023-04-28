@@ -19,7 +19,7 @@ Offcanvas is a sidebar component that can be toggled via JavaScript to appear fr
 **Heads up!** Given how CSS handles animations, you cannot use `margin` or `translate` on an `.offcanvas` element. Instead, use the class as an independent wrapping element.
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 ## Examples
@@ -144,7 +144,7 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
 
 Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
 
-{{< example class="docs-example-offcanvas p-0 bg-light overflow-hidden" >}}
+{{< example class="docs-example-offcanvas p-0 bg-body-secondary overflow-hidden" >}}
 <div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
   <div class="offcanvas-header">
     <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
@@ -295,7 +295,7 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new coreui.Of
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 Activates your content as an offcanvas element. Accepts an optional options `object`.

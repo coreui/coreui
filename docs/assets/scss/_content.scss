@@ -3,12 +3,13 @@
 //
 
 .docs-content {
-  // Offset content from fixed navbar when jumping to headings
-  > :target {
-    padding-top: 5rem;
-    margin-top: -5rem;
+  > h2,
+  > h3,
+  > h4 {
+    --cui-heading-color: var(--cui-emphasis-color);
   }
 
+  // Offset content from fixed navbar when jumping to headings
   > h2:not(:first-child) {
     margin-top: 3rem;
   }
@@ -32,6 +33,9 @@
   // Override Bootstrap defaults
   > .table,
   > .table-responsive .table {
+    --cui-table-border-color: var(--cui-border-color);
+
+    max-width: 100%;
     margin-bottom: 1.5rem;
     @include font-size(.875rem);
 
@@ -60,6 +64,14 @@
       }
     }
 
+    th {
+      color: var(--cui-emphasis-color);
+    }
+
+    strong {
+      color: var(--cui-emphasis-color);
+    }
+
     // Prevent breaking of code
     // stylelint-disable-next-line selector-max-compound-selectors
     th,
@@ -80,7 +92,18 @@
   min-width: 280px;
 }
 
+.table-swatches {
+  th {
+    color: var(--cui-emphasis-color);
+  }
+
+  td code {
+    white-space: nowrap;
+  }
+}
+
 .docs-title {
+  --cui-heading-color: var(--cui-emphasis-color);
   @include font-size(3rem);
 }
 
@@ -92,31 +115,49 @@
 .bi {
   width: 1em;
   height: 1em;
+  vertical-align: -.125em;
   fill: currentcolor;
-}
-
-.icon-link {
-  display: flex;
-  align-items: center;
-  text-decoration-color: rgba($primary, .5);
-  text-underline-offset: .5rem;
-  backface-visibility: hidden;
-
-  .bi {
-    width: 1.5em;
-    height: 1.5em;
-    transition: .2s ease-in-out transform; // stylelint-disable-line property-disallowed-list
-  }
-
-  &:hover {
-    .bi {
-      transform: translate3d(5px, 0, 0);
-    }
-  }
 }
 
 .border-lg-start {
   @include media-breakpoint-up(lg) {
-    border-left: $border-width solid $border-color;
+    border-left: var(--cui-border-width) solid var(--cui-border-color);
   }
 }
+
+// stylelint-disable selector-no-qualifying-type
+.docs-summary-link {
+  color: var(--cui-link-color);
+
+  &:hover,
+  details[open] > & {
+    color: var(--cui-link-hover-color);
+  }
+}
+// stylelint-enable selector-no-qualifying-type
+
+// scss-docs-start custom-color-mode
+[data-coreui-theme="blue"] {
+  --cui-body-color: var(--cui-white);
+  --cui-body-color-rgb: #{to-rgb($white)};
+  --cui-body-bg: var(--cui-blue);
+  --cui-body-bg-rgb: #{to-rgb($blue)};
+  --cui-tertiary-bg: #{$blue-600};
+
+  .dropdown-menu {
+    --cui-dropdown-bg: #{mix($blue-500, $blue-600)};
+    --cui-dropdown-link-active-bg: #{$blue-700};
+  }
+
+  .btn-secondary {
+    --cui-btn-bg: #{mix($gray-600, $blue-400, .5)};
+    --cui-btn-border-color: #{rgba($white, .25)};
+    --cui-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+    --cui-btn-hover-border-color: #{rgba($white, .25)};
+    --cui-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+    --cui-btn-active-border-color: #{rgba($white, .5)};
+    --cui-btn-focus-border-color: #{rgba($white, .5)};
+    --cui-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
+  }
+}
+// scss-docs-end custom-color-mode

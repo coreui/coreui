@@ -16,6 +16,7 @@ If you use a bundler (Webpack, Rollup...), you can use `/js/dist/*.js` files whi
 
 We provide a version of CoreUI for Bootstrap built as `ESM` (`coreui.esm.js` and `coreui.esm.min.js`) which allows you to use CoreUI for Bootstrap as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
 
+<!-- eslint-skip -->
 ```html
 <script type="module">
   import { Toast } from 'coreui.esm.min.js'
@@ -58,6 +59,7 @@ CoreUI for Bootstrap provides custom events for most plugins' unique actions. Ge
 
 All infinitive events provide [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) functionality. This provides the ability to stop the execution of an action before it starts. Returning false from an event handler will also automatically call `preventDefault()`.
 
+<!-- eslint-skip -->
 ```js
 const myModal = document.getElementById('myModal')
 

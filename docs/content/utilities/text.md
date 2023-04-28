@@ -38,7 +38,7 @@ Wrap text with a `.text-wrap` class.
 Prevent text from wrapping with a `.text-nowrap` class.
 
 {{< example >}}
-<div class="text-nowrap docs-highlight" style="width: 8rem;">
+<div class="text-nowrap bg-body-secondary border" style="width: 8rem;">
   This text should overflow the parent.
 </div>
 {{< /example >}}
@@ -89,6 +89,7 @@ Quickly change the `font-weight` or `font-style` of text with these utilities. `
 {{< example >}}
 <p class="fw-bolder">Bolder weight text (relative to the parent element).</p>
 <p class="fw-semibold">Semibold weight text.</p>
+<p class="fw-medium">Medium weight text.</p>
 <p class="fw-normal">Normal weight text.</p>
 <p class="fw-light">Light weight text.</p>
 <p class="fw-lighter">Lighter weight text (relative to the parent element).</p>
@@ -120,7 +121,7 @@ Change a selection to our monospace font stack with `.font-monospace`.
 Reset a text or link's color with `.text-reset`, so that it inherits the color from its parent.
 
 {{< example >}}
-<p class="text-muted">
+<p class="text-body-secondary">
   Muted text with a <a href="#" class="text-reset">reset link</a>.
 </p>
 {{< /example >}}

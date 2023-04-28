@@ -33,12 +33,47 @@
   {{- end -}}
 
   {{- $match = replace $match $capture_start "" -}}
-  {{- $match = replace $match "#{$prefix}" "cui-" -}}
   {{- $match = replace $match $capture_end "" -}}
 
   {{- if (ne $strip_default "false") -}}
     {{- $match = replace $match " !default" "" -}}
   {{- end -}}
 
-  {{- highlight $match "scss" "" -}}
+  <div class="docs-example-snippet docs-code-snippet docs-scss-docs">
+    <div class="d-flex align-items-center highlight-toolbar ps-3 pe-2 py-1 border-bottom">
+      <a class="font-monospace link-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover small" href="{{ .Site.Params.repo }}/blob/v{{ .Site.Params.current_version }}/{{ $file | replaceRE `\\` "/" }}">
+        {{- $file -}}
+      </a>
+      <div class="d-flex ms-auto">
+        <button type="button" class="btn-clipboard mt-0 me-0" title="Copy to clipboard">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+            <polygon fill="var(--ci-primary-color, currentColor)" points="408 432 376 432 376 464 112 464 112 136 144 136 144 104 80 104 80 496 408 496 408 432" class="ci-primary"/>
+            <path fill="var(--ci-primary-color, currentColor)" d="M176,16V400H496V153.373L358.627,16ZM464,368H208V48H312V200H464Zm0-200H344V48h1.372L464,166.627Z" class="ci-primary"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    {{- $unindent := 0 -}}
+    {{- $found := false -}}
+    {{- $first_line:= index (split $match "\n") 0 -}}
+    {{- range $char := split $first_line "" -}}
+      {{- if and (eq $char " ") (not $found) -}}
+        {{- $unindent = add $unindent 1 -}}
+      {{- else -}}
+        {{- $found = true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $output := "" -}}
+    {{- if (gt $unindent 0) -}}
+      {{- $prefix := (strings.Repeat $unindent " ") -}}
+      {{- range $line := split $match "\n" -}}
+        {{- $line = strings.TrimPrefix $prefix $line -}}
+        {{ $output = printf "%s%s\n" $output $line }}
+      {{- end -}}
+      {{- $output = chomp $output -}}
+    {{- else -}}
+      {{- $output = $match -}}
+    {{- end -}}
+    {{- highlight $output "scss" "" -}}
+  </div>
 {{- end -}}

@@ -188,7 +188,7 @@ Contextual classes also work with `.list-group-item-action`. Note the addition o
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ## With badges
@@ -423,7 +423,7 @@ To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane 
 #### constructor
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 Activates your content as a tab element.

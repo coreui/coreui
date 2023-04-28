@@ -15,7 +15,7 @@
 //   Doing so gives us access to the same core utilities provided by Bootstrap.
 //   For example, consistent media queries through those mixins.
 //
-// - Bootstrap's **docs variables** are prefixed with `$bd-`.
+// - Bootstrap's **docs variables** are prefixed with `$cd-`.
 //   These custom colors avoid collision with the components Bootstrap provides.
 //
 // - Classes are prefixed with `.docs-`.
@@ -39,20 +39,23 @@ $enable-cssgrid: true; // stylelint-disable-line scss/dollar-variable-default
 
 // Load docs components
 @import "variables";
-@import "ads";
+@import "search";
 @import "masthead";
+@import "ads";
 @import "content";
 @import "skippy";
+@import "header";
 @import "sidebar";
 @import "layout";
 @import "toc";
 @import "footer";
 @import "component-examples";
+@import "buttons";
 @import "callouts";
 @import "colors";
 @import "clipboard-js";
 @import "placeholder-img";
-@import "search";
+@import "scrolling";
 
 // Load docs dependencies
 @import "syntax";

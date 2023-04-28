@@ -587,6 +587,8 @@ $utilities: map-merge(
 @import "@coreui/coreui/scss/utilities/api";
 ```
 
+<!---
+TODO: add in v5
 #### Remove utility in RTL
 
 Some edge cases make [RTL styling difficult](https://rtlstyling.com/posts/rtl-styling#common-things-that-might-not-work-for-rtl), such as line breaks in Arabic. Thus utilities can be dropped from RTL output by setting the `rtl` option to `false`:
@@ -614,3 +616,4 @@ Output:
 ```
 
 This doesn't output anything in RTL, thanks to [the RTLCSS `remove` control directive](https://rtlcss.com/learn/usage-guide/control-directives/#remove).
+-->

@@ -59,7 +59,7 @@ Subtitles are managed by adding a `.card-subtitle` to a `<h*>` tag. If the `.car
 <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link">Card link</a>
     <a href="#" class="card-link">Another link</a>
@@ -197,7 +197,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
-  <div class="card-footer text-muted">
+  <div class="card-footer text-body-secondary">
     2 days ago
   </div>
 </div>
@@ -213,7 +213,7 @@ Using the grid, wrap cards in columns and rows as needed.
 
 {{< example >}}
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-6 mb-3 mb-sm-0">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Special title treatment</h5>
@@ -239,7 +239,7 @@ Using the grid, wrap cards in columns and rows as needed.
 Use some of [available sizing utilities]({{< docsref "/utilities/sizing" >}}) to rapidly set a card's width.
 
 {{< example >}}
-<div class="card w-75">
+<div class="card w-75 mb-3">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -275,7 +275,7 @@ Use custom CSS in your stylesheets or as inline styles to set a width.
 You can instantly change the text arrangement of any card—in its whole or specific parts—with [text align classes]({{< docsref "/utilities/text#text-alignment" >}}).
 
 {{< example >}}
-<div class="card" style="width: 18rem;">
+<div class="card mb-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -283,7 +283,7 @@ You can instantly change the text arrangement of any card—in its whole or spec
   </div>
 </div>
 
-<div class="card text-center" style="width: 18rem;">
+<div class="card text-center mb-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">Special title treatment</h5>
     <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -364,14 +364,14 @@ Similar to headers and footers, cards can include top and bottom "image caps"—
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
   </div>
 </div>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title">Card title</h5>
     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
   </div>
   {{< placeholder width="100%" height="180" class="card-img-bottom" text="Image cap" >}}
 </div>
@@ -411,7 +411,7 @@ Using a combination of grid and utility classes, cards can be made horizontal in
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
       </div>
     </div>
   </div>
@@ -443,7 +443,7 @@ Set a `background-color` with contrasting foreground `color` with [our `.text-bg
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ### Border
@@ -512,7 +512,7 @@ Use card groups to render cards as a single, attached element with equal width a
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
     </div>
   </div>
   <div class="card">
@@ -520,7 +520,7 @@ Use card groups to render cards as a single, attached element with equal width a
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
     </div>
   </div>
   <div class="card">
@@ -528,7 +528,7 @@ Use card groups to render cards as a single, attached element with equal width a
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
     </div>
   </div>
 </div>
@@ -545,7 +545,7 @@ When using card groups with footers, their content will automatically line up.
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-body-secondary">Last updated 3 mins ago</small>
     </div>
   </div>
   <div class="card">
@@ -555,7 +555,7 @@ When using card groups with footers, their content will automatically line up.
       <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-body-secondary">Last updated 3 mins ago</small>
     </div>
   </div>
   <div class="card">
@@ -565,7 +565,7 @@ When using card groups with footers, their content will automatically line up.
       <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
     </div>
     <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+      <small class="text-body-secondary">Last updated 3 mins ago</small>
     </div>
   </div>
 </div>
@@ -714,7 +714,7 @@ Just like with card groups, card footers will automatically line up.
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
       </div>
     </div>
   </div>
@@ -726,7 +726,7 @@ Just like with card groups, card footers will automatically line up.
         <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
       </div>
     </div>
   </div>
@@ -738,7 +738,7 @@ Just like with card groups, card footers will automatically line up.
         <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last updated 3 mins ago</small>
+        <small class="text-body-secondary">Last updated 3 mins ago</small>
       </div>
     </div>
   </div>

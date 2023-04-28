@@ -841,7 +841,7 @@ Separate groups of related menu items with a divider.
 Place any freeform text within a dropdown menu with text and use [spacing utilities]({{< docsref "/utilities/spacing" >}}). Note that you'll likely need additional sizing styles to constrain the menu width.
 
 {{< example >}}
-<div class="dropdown-menu p-4 text-muted" style="max-width: 200px;">
+<div class="dropdown-menu p-4 text-body-secondary" style="max-width: 200px;">
   <p>
     Some example text that's free-flowing within the dropdown menu.
   </p>
@@ -959,7 +959,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 <div class="btn-group">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="inside" aria-expanded="false">
-    Clickable outside
+    Clickable inside
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>
@@ -970,7 +970,7 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 <div class="btn-group">
   <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="outside" aria-expanded="false">
-    Clickable inside
+    Clickable outside
   </button>
   <ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Menu item</a></li>

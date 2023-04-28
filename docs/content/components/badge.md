@@ -77,7 +77,7 @@ Add any of the below-mentioned classes to modify the presentation of a badge. Pl
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ## Pill badges

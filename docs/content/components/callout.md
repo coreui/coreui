@@ -22,7 +22,7 @@ Callout component is prepared for any length of text, as well as an optional ele
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ## Customizing
