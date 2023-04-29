@@ -1,27 +1,20 @@
-/*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
-*/
+@import "mixins/banner";
+@include bsBanner(Grid);
 
 $include-column-box-sizing: true !default;
 
 @import "functions";
 @import "variables";
+@import "variables-dark";
 @import "maps";
 
 @import "mixins/ltr-rtl";
-@import "mixins/lists";
 @import "mixins/breakpoints";
 @import "mixins/container";
 @import "mixins/grid";
 @import "mixins/utilities";
 
 @import "vendor/rfs";
-
-@import "root";
 
 @import "containers";
 @import "grid";

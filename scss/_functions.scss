@@ -188,7 +188,7 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   );
 
   @each $name, $value in $rgb {
-    $value: if(divide($value, 255) < .03928, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));
+    $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), nth($_luminance-list, $value + 1));
     $rgb: map-merge($rgb, ($name: $value));
   }
 
@@ -217,17 +217,6 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   @return if($weight > 0, shade-color($color, $weight), tint-color($color, -$weight));
 }
 // scss-docs-end color-functions
-
-// scss-docs-start alert-color-functions
-@function alert-color-map($color) {
-  @return (
-    "alert-bg": shift-color($color, $alert-bg-scale),
-    "alert-border": shift-color($color, $alert-border-scale),
-    "alert-color": shift-color($color, $alert-color-scale),
-    "base-color": $color
-  );
-}
-// scss-docs-end alert-color-functions
 
 // scss-docs-start button-color-functions
 @function btn-color($color, $shade, $tint) {
@@ -266,16 +255,6 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
   );
 }
 // scss-docs-end button-color-functions
-
-// scss-docs-start list-group-color-functions
-@function list-group-color-map($color) {
-  @return (
-    "bg": shift-color($color, $list-group-item-bg-scale),
-    "bg-hover": shade-color($color, 10%),
-    "color": shift-color($color, $list-group-item-color-scale)
-  );
-}
-// scss-docs-end list-group-color-functions
 
 // scss-docs-start table-color-functions
 @function table-color-map($background, $body-bg: $body-bg) {
@@ -379,4 +358,9 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
     $result: $result * map-get($unit-map, $dividend-unit);
   }
   @return $result;
+}
+
+// Generate selectors for theme variants
+@function theme-prefix($theme, $selector) {
+  @return #{"[data-coreui-theme="$theme + "] ." + $theme + "\\:" + $selector + ", [data-coreui-theme="$theme + "] ." + $theme + "\\:" + $selector + ":not([class*='#{$theme}:'])"};
 }

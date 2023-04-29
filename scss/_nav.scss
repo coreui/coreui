@@ -28,12 +28,19 @@
   font-weight: var(--#{$prefix}nav-link-font-weight);
   color: var(--#{$prefix}nav-link-color);
   text-decoration: if($link-decoration == none, null, none);
+  background: none;
+  border: 0;
   @include transition($nav-link-transition);
 
   &:hover,
   &:focus {
     color: var(--#{$prefix}nav-link-hover-color);
     text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  &:focus-visible {
+    outline: 0;
+    box-shadow: $nav-link-focus-box-shadow;
   }
 
   // Disabled state lightens text

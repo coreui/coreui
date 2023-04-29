@@ -7,5 +7,5 @@
   @include font-size($form-text-font-size);
   font-style: $form-text-font-style;
   font-weight: $form-text-font-weight;
-  color: var(--#{$prefix}form-text-color, $form-text-color);
+  color: $form-text-color;
 }

@@ -42,6 +42,7 @@
 //
 
 .badge-sm {
-  padding: $badge-padding-y-sm $badge-padding-x-sm;
+  --#{$prefix}badge-padding-x: #{$badge-padding-x-sm};
+  --#{$prefix}badge-padding-y: #{$badge-padding-y-sm};
   @include font-size($badge-font-size-sm);
 }

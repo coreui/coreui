@@ -10,7 +10,7 @@
   @include rfs($btn-font-size, --#{$prefix}btn-font-size);
   --#{$prefix}btn-font-weight: #{$btn-font-weight};
   --#{$prefix}btn-line-height: #{$btn-line-height};
-  --#{$prefix}btn-color: #{$body-color};
+  --#{$prefix}btn-color: #{$btn-color};
   --#{$prefix}btn-bg: transparent;
   --#{$prefix}btn-border-width: #{$btn-border-width};
   --#{$prefix}btn-border-color: transparent;
@@ -191,4 +191,26 @@
 
 .btn-sm {
   @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    @each $state, $variant in $button-variants-dark {
+      .btn-#{$state} {
+        @include button-variant($variant);
+      }
+    }
+
+    @each $state, $variant in $button-outline-ghost-variants-dark {
+      .btn-outline-#{$state} {
+        @include button-outline-variant($variant);
+      }
+    }
+
+    @each $state, $variant in $button-outline-ghost-variants-dark {
+      .btn-ghost-#{$state} {
+        @include button-ghost-variant($variant);
+      }
+    }
+  }
 }

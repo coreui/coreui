@@ -2,6 +2,14 @@
 //
 // Rows contain your columns.
 
+:root {
+  @each $name, $value in $grid-breakpoints {
+    --#{$prefix}breakpoint-#{$name}: #{$value};
+  }
+
+  --#{$prefix}mobile-breakpoint: #{$mobile-breakpoint};
+}
+
 @if $enable-grid-classes {
   .row {
     @include make-row();

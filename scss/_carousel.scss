@@ -96,7 +96,7 @@
   justify-content: center; // 3. horizontally center contents
   width: $carousel-control-width;
   padding: 0;
-  color: var(--#{$prefix}carousel-control-color, $carousel-control-color);
+  color: $carousel-control-color;
   text-align: center;
   background: none;
   border: 0;
@@ -106,7 +106,7 @@
   // Hover/focus state
   &:hover,
   &:focus {
-    color: var(--#{$prefix}carousel-control-color, $carousel-control-color);
+    color: $carousel-control-color;
     text-decoration: none;
     outline: 0;
     opacity: $carousel-control-hover-opacity;
@@ -165,7 +165,6 @@
   margin-right: $carousel-control-width;
   margin-bottom: 1rem;
   margin-left: $carousel-control-width;
-  list-style: none;
 
   [data-coreui-target] {
     box-sizing: content-box;
@@ -177,7 +176,7 @@
     margin-left: $carousel-indicator-spacer;
     text-indent: -999px;
     cursor: pointer;
-    background-color: var(--#{$prefix}carousel-indicator-active-bg, $carousel-indicator-active-bg);
+    background-color: $carousel-indicator-active-bg;
     background-clip: padding-box;
     border: 0;
     // Use transparent borders to increase the hit area by 10px on top and bottom.
@@ -204,15 +203,13 @@
   left: (100% - $carousel-caption-width) * .5;
   padding-top: $carousel-caption-padding-y;
   padding-bottom: $carousel-caption-padding-y;
-  color: var(--#{$prefix}carousel-caption-color, $carousel-caption-color);
+  color: $carousel-caption-color;
   text-align: center;
 }
 
 // Dark mode carousel
 
-.carousel-dark {
-  --#{$prefix}carousel-indicator-active-bg: #{$carousel-dark-indicator-active-bg};
-  --#{$prefix}carousel-caption-color: #{$carousel-dark-caption-color};
+@mixin carousel-dark() {
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     filter: $carousel-dark-control-icon-filter;
@@ -224,5 +221,24 @@
 
   .carousel-caption {
     color: $carousel-dark-caption-color;
+  }
+}
+
+.carousel-dark {
+  @include carousel-dark();
+}
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    @if $color-mode-type == "media-query" {
+      .carousel {
+        @include carousel-dark();
+      }
+    } @else {
+      .carousel,
+      &.carousel {
+        @include carousel-dark();
+      }
+    }
   }
 }

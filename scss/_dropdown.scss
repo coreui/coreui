@@ -90,7 +90,7 @@
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .dropdown-menu#{$infix}-start {
-      --#{$prefix}position: start;
+      --cui-position: start;
 
       &[data-coreui-popper] {
         right: auto;
@@ -99,7 +99,7 @@
     }
 
     .dropdown-menu#{$infix}-end {
-      --#{$prefix}position: end;
+      --cui-position: end;
 
       &[data-coreui-popper] {
         right: 0;
@@ -145,7 +145,6 @@
 .dropstart {
   .dropdown-menu[data-coreui-popper] {
     top: 0;
-
     @include ltr-rtl("right", 100%);
     @include ltr-rtl("left", auto);
     margin-top: 0;
@@ -185,6 +184,7 @@
   white-space: nowrap; // prevent links from randomly breaking onto new lines
   background-color: transparent; // For `<button>`s
   border: 0; // For `<button>`s
+  @include border-radius(var(--#{$prefix}dropdown-item-border-radius, 0));
 
   &:hover,
   &:focus {

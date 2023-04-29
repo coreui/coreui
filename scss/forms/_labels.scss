@@ -7,7 +7,7 @@
   @include font-size($form-label-font-size);
   font-style: $form-label-font-style;
   font-weight: $form-label-font-weight;
-  color: var(--#{$prefix}form-label-color, $form-label-color);
+  color: $form-label-color;
 }
 
 // For use with horizontal and inline forms, when you need the label (or legend)
@@ -20,7 +20,7 @@
   font-style: $form-label-font-style;
   font-weight: $form-label-font-weight;
   line-height: $input-line-height;
-  color: var(--#{$prefix}form-label-color, $form-label-color);
+  color: $form-label-color;
 }
 
 .col-form-label-lg {

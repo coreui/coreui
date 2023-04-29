@@ -1,6 +1,6 @@
 // Utility generator
 // Used to generate utilities & print utilities
-@mixin generate-utility($utility, $infix, $is-rfs-media-query: false) {
+@mixin generate-utility($utility, $infix: "", $is-rfs-media-query: false) {
   $values: map-get($utility, values);
 
   // If the values are a list or string, convert it into a map
@@ -31,9 +31,6 @@
     // Don't prefix if value key is null (e.g. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
 
-    // Generate RTL version
-    $generate-rtl: if(map-has-key($utility, rtl), map-get($utility, rtl), false);
-
     @if map-get($utility, rfs) {
       // Inside the media query
       @if $is-rfs-media-query {
@@ -48,6 +45,7 @@
     }
 
     $is-css-var: map-get($utility, css-var);
+    $is-dark-mode: map-get($utility, dark-mode);
     $is-local-vars: map-get($utility, local-vars);
     $is-rtl: map-get($utility, rtl);
 
@@ -57,8 +55,15 @@
       }
 
       @if $is-css-var {
-        .#{$property-class + $infix + $property-class-modifier} {
-          --#{$prefix}#{$css-variable-name}: #{$value};
+        @if $enable-dark-mode and $is-dark-mode {
+          #{theme-prefix("dark", "#{$property-class + $infix + $property-class-modifier}")},
+          .#{$property-class + $infix + $property-class-modifier} {
+            --#{$prefix}#{$css-variable-name}: #{$value};
+          }
+        } @else {
+          .#{$property-class + $infix + $property-class-modifier} {
+            --#{$prefix}#{$css-variable-name}: #{$value};
+          }
         }
 
         @each $pseudo in $state {
@@ -67,17 +72,32 @@
           }
         }
       } @else {
-        .#{$property-class + $infix + $property-class-modifier} {
-          @each $property in $properties {
-            @if $is-local-vars {
-              @each $local-var, $variable in $is-local-vars {
-                --#{$prefix}#{$local-var}: #{$variable};
+        @if $enable-dark-mode and $is-dark-mode {
+          #{theme-prefix("dark", "#{$property-class + $infix + $property-class-modifier}")},
+          .#{$property-class + $infix + $property-class-modifier} {
+            @each $property in $properties {
+              @if $is-local-vars {
+                @each $local-var, $variable in $is-local-vars {
+                  --#{$prefix}#{$local-var}: #{$variable};
+                }
               }
-            }
-            @if $generate-rtl == true {
-              @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
-            } @else {
               #{$property}: $value if($enable-important-utilities, !important, null);
+            }
+          }
+        } @else {
+          .#{$property-class + $infix + $property-class-modifier} {
+            @each $property in $properties {
+              @if $is-local-vars {
+                @each $local-var, $variable in $is-local-vars {
+                  --#{$prefix}#{$local-var}: #{$variable};
+                }
+              }
+              @if $is-rtl == true {
+                @include ltr-rtl($property, $value, null, null, if($enable-important-utilities, !important, null));
+              } @else {
+                #{$property}: $value if($enable-important-utilities, !important, null);
+              }
+
             }
           }
         }

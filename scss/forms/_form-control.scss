@@ -10,10 +10,10 @@
   @include font-size($input-font-size);
   font-weight: $input-font-weight;
   line-height: $input-line-height;
-  color: var(--#{$prefix}input-color, $input-color);
-  background-color: var(--#{$prefix}input-bg, $input-bg);
+  color: $input-color;
+  background-color: $input-bg;
   background-clip: padding-box;
-  border: $input-border-width solid var(--#{$prefix}input-border-color, $input-border-color);
+  border: $input-border-width solid $input-border-color;
   appearance: none; // Fix appearance for date inputs in Safari
 
   // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
@@ -32,9 +32,9 @@
 
   // Customize the `:focus` state to imitate native WebKit styles.
   &:focus {
-    color: var(--#{$prefix}input-focus-color, $input-focus-color);
-    background-color: var(--#{$prefix}input-focus-bg, $input-focus-bg);
-    border-color: var(--#{$prefix}input-focus-border-color, $input-focus-border-color);
+    color: $input-focus-color;
+    background-color: $input-focus-bg;
+    border-color: $input-focus-border-color;
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($input-box-shadow, $input-focus-box-shadow);
@@ -44,12 +44,31 @@
     }
   }
 
-  // Add some height to date inputs on iOS
-  // https://github.com/twbs/bootstrap/issues/23307
-  // TODO: we can remove this workaround once https://bugs.webkit.org/show_bug.cgi?id=198959 is resolved
   &::-webkit-date-and-time-value {
+    // On Android Chrome, form-control's "width: 100%" makes the input width too small
+    // Tested under Android 11 / Chrome 89, Android 12 / Chrome 100, Android 13 / Chrome 109
+    //
+    // On iOS Safari, form-control's "appearance: none" + "width: 100%" makes the input width too small
+    // Tested under iOS 16.2 / Safari 16.2
+    min-width: 85px; // Seems to be a good minimum safe width
+
+    // Add some height to date inputs on iOS
+    // https://github.com/twbs/bootstrap/issues/23307
+    // TODO: we can remove this workaround once https://bugs.webkit.org/show_bug.cgi?id=198959 is resolved
     // Multiply line-height by 1em if it has no unit
     height: if(unit($input-line-height) == "", $input-line-height * 1em, $input-line-height);
+
+    // Android Chrome type="date" is taller than the other inputs
+    // because of "margin: 1px 24px 1px 4px" inside the shadow DOM
+    // Tested under Android 11 / Chrome 89, Android 12 / Chrome 100, Android 13 / Chrome 109
+    margin: 0;
+  }
+
+  // Prevent excessive date input height in Webkit
+  // https://github.com/twbs/bootstrap/issues/34433
+  &::-webkit-datetime-edit {
+    display: block;
+    padding: 0;
   }
 
   // Placeholder
@@ -77,8 +96,8 @@
     padding: $input-padding-y $input-padding-x;
     margin: (-$input-padding-y) (-$input-padding-x);
     margin-inline-end: $input-padding-x;
-    color: var(--#{$prefix}form-file-button-color, $form-file-button-color);
-    @include gradient-bg(var(--#{$prefix}form-file-button-bg, $form-file-button-bg));
+    color: $form-file-button-color;
+    @include gradient-bg($form-file-button-bg);
     pointer-events: none;
     border-color: inherit;
     border-style: solid;
@@ -89,7 +108,7 @@
   }
 
   &:hover:not(:disabled):not([readonly])::file-selector-button {
-    background-color: var(--#{$prefix}form-file-button-hover-bg, $form-file-button-hover-bg);
+    background-color: $form-file-button-hover-bg;
   }
 }
 
@@ -104,7 +123,7 @@
   padding: $input-padding-y 0;
   margin-bottom: 0; // match inputs if this class comes on inputs with default margins
   line-height: $input-line-height;
-  color: var(--#{$prefix}input-plaintext-color, $input-plaintext-color);
+  color: $input-plaintext-color;
   background-color: transparent;
   border: solid transparent;
   border-width: $input-border-width 0;
@@ -186,6 +205,7 @@ textarea {
   }
 
   &::-webkit-color-swatch {
+    border: 0 !important; // stylelint-disable-line declaration-no-important
     @include border-radius($input-border-radius);
   }
 

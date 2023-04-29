@@ -28,7 +28,7 @@
     width: $form-range-thumb-width;
     height: $form-range-thumb-height;
     margin-top: ($form-range-track-height - $form-range-thumb-height) * .5; // Webkit specific
-    @include gradient-bg(var(--#{$prefix}form-range-thumb-bg, $form-range-thumb-bg));
+    @include gradient-bg($form-range-thumb-bg);
     border: $form-range-thumb-border;
     @include border-radius($form-range-thumb-border-radius);
     @include box-shadow($form-range-thumb-box-shadow);
@@ -36,7 +36,7 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg(var(--#{$prefix}form-range-thumb-active-bg, $form-range-thumb-active-bg));
+      @include gradient-bg($form-range-thumb-active-bg);
     }
   }
 
@@ -45,7 +45,7 @@
     height: $form-range-track-height;
     color: transparent; // Why?
     cursor: $form-range-track-cursor;
-    background-color: var(--#{$prefix}form-range-track-bg, $form-range-track-bg);
+    background-color: $form-range-track-bg;
     border-color: transparent;
     @include border-radius($form-range-track-border-radius);
     @include box-shadow($form-range-track-box-shadow);
@@ -54,7 +54,7 @@
   &::-moz-range-thumb {
     width: $form-range-thumb-width;
     height: $form-range-thumb-height;
-    @include gradient-bg(var(--#{$prefix}form-range-thumb-bg, $form-range-thumb-bg));
+    @include gradient-bg($form-range-thumb-bg);
     border: $form-range-thumb-border;
     @include border-radius($form-range-thumb-border-radius);
     @include box-shadow($form-range-thumb-box-shadow);
@@ -62,7 +62,7 @@
     appearance: none;
 
     &:active {
-      @include gradient-bg(var(--#{$prefix}form-range-thumb-active-bg, $form-range-thumb-active-bg));
+      @include gradient-bg($form-range-thumb-active-bg);
     }
   }
 
@@ -71,7 +71,7 @@
     height: $form-range-track-height;
     color: transparent;
     cursor: $form-range-track-cursor;
-    background-color: var(--#{$prefix}form-range-track-bg, $form-range-track-bg);
+    background-color: $form-range-track-bg;
     border-color: transparent; // Firefox specific?
     @include border-radius($form-range-track-border-radius);
     @include box-shadow($form-range-track-box-shadow);
@@ -81,11 +81,11 @@
     pointer-events: none;
 
     &::-webkit-slider-thumb {
-      background-color: var(--#{$prefix}form-range-thumb-disabled-bg, $form-range-thumb-disabled-bg);
+      background-color: $form-range-thumb-disabled-bg;
     }
 
     &::-moz-range-thumb {
-      background-color: var(--#{$prefix}form-range-thumb-disabled-bg, $form-range-thumb-disabled-bg);
+      background-color: $form-range-thumb-disabled-bg;
     }
   }
 }
