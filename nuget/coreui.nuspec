@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>coreui</id>
+    <!-- pulled from package.json -->
+    <version>5</version>
+    <title>CoreUI CSS</title>
+    <authors>creativeLabs Lukasz Holeczek</authors>
+    <owners>coreui</owners>
+    <description>The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintained by the CoreUI Team</description>
+    <releaseNotes>https://coreui.io</releaseNotes>
+    <summary>CoreUI framework in CSS. Includes JavaScript</summary>
+    <language>en-us</language>
+    <projectUrl>https://coreui.io</projectUrl>
+    <icon>coreui.png</icon>
+    <license type="file">LICENSE.txt</license>
+    <copyright>Copyright 2013-2023</copyright>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <tags>css mobile-first responsive front-end framework web</tags>
+    <contentFiles>
+      <files include="**/*" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="LICENSE.txt" target="" />
+    <file src="nuget\coreui.png" target="" />
+
+    <file src="dist\css\*.*" target="content\Content" />
+    <file src="dist\js\coreui*.js" target="content\Scripts" />
+    <file src="dist\js\coreui*.js.map" target="content\Scripts" />
+
+    <file src="dist\css\*.*" target="contentFiles\any\any\wwwroot\css" />
+    <file src="dist\js\coreui*.js" target="contentFiles\any\any\wwwroot\js" />
+    <file src="dist\js\coreui*.js.map" target="contentFiles\any\any\wwwroot\js" />
+  </files>
+</package>
