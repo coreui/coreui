@@ -1,6 +1,12 @@
 //
-// Bootstrap docs content theming
+// CoreUI docs content theming
 //
+
+.docs-intro {
+  > h2 {
+    --cui-heading-color: var(--cui-emphasis-color);
+  }
+}
 
 .docs-content {
   > h2,

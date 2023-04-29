@@ -38,5 +38,5 @@ Change the default `.btn-close` to be white with the `.btn-close-white` class. T
 
 {{< scss-docs name="close-variables" file="scss/_variables.scss" >}}
 
-### CSS Variables
+### CSS variables
 {{< css-vars-docs file="scss/_close.scss" >}}

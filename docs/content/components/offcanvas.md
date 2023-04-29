@@ -339,7 +339,7 @@ myOffcanvas.addEventListener('hidden.coreui.offcanvas', event => {
 
 ## Customization
 
-### CSS Variables
+### CSS variables
 
 Offcanvas uses local CSS variables on `.offcanvas` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

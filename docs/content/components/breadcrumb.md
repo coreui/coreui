@@ -103,7 +103,7 @@ For more information, see the [ARIA Authoring Practices Guide breadcrumb pattern
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Breadcrumbs use local CSS variables on `.breadcrumb` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

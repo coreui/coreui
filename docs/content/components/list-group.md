@@ -475,7 +475,7 @@ tabElms.forEach(tabElm => {
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 List groups use local CSS variables on `.list-group` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
@@ -485,39 +485,9 @@ List groups use local CSS variables on `.list-group` for enhanced real-time cust
 
 {{< scss-docs name="list-group-variables" file="scss/_variables.scss" >}}
 
-### SASS variants
-
-CoreUI allows defining variant colors in two ways.
-
-#### Manual
-
-You can define each color manually and keep full control of the component appearance.
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": (
-    "background": $your-bg-color,
-    "background-hover": $your-bg-hover-color,
-    "color": $your-color
-  )
-  ...
-);
-{{< /highlight >}}
-
-#### Color function
-
-The color set can be generated automatically thanks to our `list-group-color-map` function.
-
-{{< scss-docs name="list-group-color-functions" file="scss/_functions.scss" >}}
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": alert-color-map($primary),
-  ...
-);
-{{< /highlight >}}
-
 ### SASS mixins
+
+{{< deprecated-in "4.3.0" >}}
 
 Used in combination with `$theme-colors` to generate the [contextual variant classes](#contextual-classes) for `.list-group-item`s.
 

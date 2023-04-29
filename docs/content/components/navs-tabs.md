@@ -643,7 +643,7 @@ tabEl.addEventListener('shown.coreui.tab', event => {
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Navs use local CSS variables on `.nav`, `.nav-tabs`, and `.nav-pills` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

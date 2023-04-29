@@ -93,7 +93,7 @@ Apply the `.rounded-pill` modifier class to make badges rounded.
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Badges use local CSS variables on `.badge` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

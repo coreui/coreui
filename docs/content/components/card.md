@@ -747,7 +747,7 @@ Just like with card groups, card footers will automatically line up.
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Cards use local CSS variables on `.card` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

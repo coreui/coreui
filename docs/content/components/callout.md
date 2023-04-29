@@ -27,7 +27,7 @@ Callout component is prepared for any length of text, as well as an optional ele
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Callouts use local CSS variables on `.callout` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

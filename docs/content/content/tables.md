@@ -822,17 +822,16 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 
 ## Customization
 
-### SASS
-
-#### Variables
+### SASS variables
 
 {{< scss-docs name="table-variables" file="scss/_variables.scss" >}}
 
-#### Loop
+
+### SASS loop
 
 {{< scss-docs name="table-loop" file="scss/_variables.scss" >}}
 
-#### Customizing
+### Customizing
 
 - The factor variables (`$table-striped-bg-factor`, `$table-active-bg-factor` & `$table-hover-bg-factor`) are used to determine the contrast in table variants.
 - Apart from the light & dark table variants, theme colors are lightened by the `$table-bg-scale` variable.

@@ -54,7 +54,7 @@ You can combine button with our [CoreUI Icons](https://icons.coreui.io/).
 {{< example >}}
 {{< buttons.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<button type="button" class="btn btn-{{ .name }}"><span class="cil-contrast btn-icon mr-2"></span> {{ .name | title }}</button>
+<button type="button" class="btn btn-{{ .name }}"><span class="cil-contrast me-2"></span> {{ .name | title }}</button>
 {{- end -}}
 {{< /buttons.inline >}}
 
