@@ -5,8 +5,7 @@
  * Remember to use the same vendor files as the CDN ones,
  * otherwise the hashes won't match!
  *
- * Copyright 2017-2022 The Bootstrap Authors
- * Copyright 2017-2022 Twitter, Inc.
+ * Copyright 2017-2023 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
@@ -47,8 +46,8 @@ const files = [
   }
 ]
 
-for (const file of files) {
-  fs.readFile(file.file, 'utf8', (error, data) => {
+for (const { file, configPropertyName } of files) {
+  fs.readFile(file, 'utf8', (error, data) => {
     if (error) {
       throw error
     }
@@ -57,8 +56,8 @@ for (const file of files) {
     const hash = crypto.createHash(algo).update(data, 'utf8').digest('base64')
     const integrity = `${algo}-${hash}`
 
-    console.log(`${file.configPropertyName}: ${integrity}`)
+    console.log(`${configPropertyName}: ${integrity}`)
 
-    sh.sed('-i', new RegExp(`^(\\s+${file.configPropertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
+    sh.sed('-i', new RegExp(`^(\\s+${configPropertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
   })
 }
