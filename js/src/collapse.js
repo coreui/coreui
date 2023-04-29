@@ -1,21 +1,21 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): collapse.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI collapse.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's collapse.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
+import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
+import SelectorEngine from './dom/selector-engine.js'
 import {
   defineJQueryPlugin,
   getElement,
   reflow
 } from './util/index.js'
-import EventHandler from './dom/event-handler.js'
-import SelectorEngine from './dom/selector-engine.js'
-import BaseComponent from './base-component.js'
 
 /**
  * Constants

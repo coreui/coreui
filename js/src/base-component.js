@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): alert.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI base-component.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's base-component.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -9,9 +9,9 @@
  */
 
 import Data from './dom/data.js'
-import { executeAfterTransition, getElement } from './util/index.js'
 import EventHandler from './dom/event-handler.js'
 import Config from './util/config.js'
+import { executeAfterTransition, getElement } from './util/index.js'
 
 /**
  * Constants

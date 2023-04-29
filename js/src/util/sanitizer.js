@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): tab.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI tab.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/sanitizer.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -18,8 +18,6 @@ const uriAttributes = new Set([
   'src',
   'xlink:href'
 ])
-
-const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i
 
 /**
  * A pattern that recognizes a commonly useful subset of URLs that are safe.
@@ -50,6 +48,9 @@ const allowedAttribute = (attribute, allowedAttributeList) => {
   return allowedAttributeList.filter(attributeRegex => attributeRegex instanceof RegExp)
     .some(regex => regex.test(attributeName))
 }
+
+// js-docs-start allow-list
+const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i
 
 export const DefaultAllowlist = {
   // Global attributes allowed on any supplied element below.
@@ -84,6 +85,7 @@ export const DefaultAllowlist = {
   u: [],
   ul: []
 }
+// js-docs-end allow-list
 
 export function sanitizeHtml(unsafeHtml, allowList, sanitizeFunction) {
   if (!unsafeHtml.length) {

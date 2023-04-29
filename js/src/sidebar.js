@@ -1,16 +1,16 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): sidebar.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI sidebar.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index.js'
-import ScrollBarHelper from './util/scrollbar.js'
-import EventHandler from './dom/event-handler.js'
 import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
 import Manipulator from './dom/manipulator.js'
+import { defineJQueryPlugin } from './util/index.js'
 import Backdrop from './util/backdrop.js'
+import ScrollBarHelper from './util/scrollbar.js'
 
 /**
  * ------------------------------------------------------------------------

@@ -1,16 +1,16 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): navigation.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI navigation.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin } from './util/index.js'
+import BaseComponent from './base-component.js'
 import Data from './dom/data.js'
 import EventHandler from './dom/event-handler.js'
 import Manipulator from './dom/manipulator.js'
 import SelectorEngine from './dom/selector-engine.js'
-import BaseComponent from './base-component.js'
+import { defineJQueryPlugin } from './util/index.js'
 
 /**
  * ------------------------------------------------------------------------
