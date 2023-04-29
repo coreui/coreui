@@ -85,3 +85,7 @@ params:
     js_bundle_hash:  "sha384-J90s3AWCoKGcK4pNZC9vcTdx9Qpy6AySGN9dsRnCSX/UtQlYwEvZ5W09yowP0ICe"
     popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
     popper_hash:      "sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+
+  anchors:
+    min: 2
+    max: 5
