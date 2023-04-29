@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI alert.js
+ * CoreUI button.js
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's button.js

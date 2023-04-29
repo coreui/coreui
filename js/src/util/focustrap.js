@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI tab.js
+ * CoreUI util/focustrap.js
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/focustrap.js

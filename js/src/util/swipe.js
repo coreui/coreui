@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI tab.js
+ * CoreUI util/swipe.js
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/swipe.js
