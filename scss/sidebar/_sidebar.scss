@@ -317,3 +317,13 @@
     @include overlay-backdrop(var(--#{$prefix}backdrop-zindex), var(--#{$prefix}backdrop-bg), var(--#{$prefix}backdrop-opacity));
   }
 }
+
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .sidebar {
+      --#{$prefix}sidebar-bg: #{$sidebar-bg-dark};
+      --#{$prefix}sidebar-border-width: #{$sidebar-border-width-dark};
+      --#{$prefix}sidebar-border-color: #{$sidebar-border-color-dark};
+    }
+  }
+}
