@@ -94,7 +94,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.21.5",
-    "@babel/core": "^7.21.5",
+    "@babel/core": "^7.21.8",
     "@babel/preset-env": "^7.21.5",
     "@popperjs/core": "^2.11.7",
     "@rollup/plugin-babel": "^6.0.3",
@@ -111,7 +111,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-unicorn": "^46.0.0",
-    "find-unused-sass-variables": "^4.1.0",
+    "find-unused-sass-variables": "^5.0.0",
     "globby": "^11.1.0",
     "hammer-simulator": "0.0.1",
     "hugo-bin": "^0.102.0",
@@ -134,16 +134,16 @@
     "postcss-cli": "^10.1.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "postcss-drop-empty-css-vars": "^0.0.0",
-    "rollup": "^3.21.1",
+    "rollup": "^3.21.5",
     "rollup-plugin-istanbul": "^4.0.0",
     "rtlcss": "^4.1.0",
     "sass": "^1.62.1",
     "sass-true": "^7.0.0",
     "shelljs": "^0.8.5",
-    "stylelint": "^15.6.0",
-    "stylelint-config-twbs-bootstrap": "^9.0.1",
+    "stylelint": "^15.6.1",
+    "stylelint-config-twbs-bootstrap": "^10.0.0",
     "terser": "5.17.1",
-    "vnu-jar": "22.9.29"
+    "vnu-jar": "23.4.11"
   },
   "files": [
     "dist/{css,js}/*.{css,js,map}",
