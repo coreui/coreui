@@ -42,13 +42,13 @@
       }
     },
     {
-      "files": "site/**/*.scss",
+      "files": "docs/**/*.scss",
       "rules": {
         "scss/dollar-variable-default": null
       }
     },
     {
-      "files": "site/**/examples/**/*.css",
+      "files": "docs/**/examples/**/*.css",
       "rules": {
         "comment-empty-line-before": null,
         "property-no-vendor-prefix": null,
