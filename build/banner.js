@@ -8,7 +8,7 @@ function getBanner(pluginFilename) {
   return `/*!
   * CoreUI${pluginFilename ? ` ${pluginFilename}` : ''} v${pkg.version} (${pkg.homepage})
   * Copyright ${year} ${pkg.author}
-  * Licensed under MIT (${pkg.homepage})
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */`
 }
 
