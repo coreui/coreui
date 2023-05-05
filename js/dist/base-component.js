@@ -1,29 +1,30 @@
 /*!
-  * CoreUI base-component.js v4.2.6 (https://coreui.io)
+  * CoreUI base-component.js v4.3.0-alpha.0 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
-  * Licensed under MIT (https://coreui.io)
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./util/index.js'), require('./dom/event-handler.js'), require('./util/config.js')) :
-  typeof define === 'function' && define.amd ? define(['./dom/data', './util/index', './dom/event-handler', './util/config'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.BaseComponent = factory(global.Data, global.Index, global.EventHandler, global.Config));
-})(this, (function (Data, index_js, EventHandler, Config) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./dom/data.js'), require('./dom/event-handler.js'), require('./util/config.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./dom/data', './dom/event-handler', './util/config', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.BaseComponent = factory(global.Data, global.EventHandler, global.Config, global.Index));
+})(this, (function (Data, EventHandler, Config, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.6): alert.js
-   * Licensed under MIT (https://coreui.io/license)
+   * CoreUI base-component.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    *
    * This component is a modified version of the Bootstrap's base-component.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
 
+
   /**
    * Constants
    */
 
-  const VERSION = '4.2.6';
+  const VERSION = '4.3.0-alpha.0';
 
   /**
    * Class definition

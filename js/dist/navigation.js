@@ -1,20 +1,21 @@
 /*!
-  * CoreUI navigation.js v4.2.6 (https://coreui.io)
+  * CoreUI navigation.js v4.3.0-alpha.0 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
-  * Licensed under MIT (https://coreui.io)
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./util/index.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./base-component.js')) :
-  typeof define === 'function' && define.amd ? define(['./util/index', './dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './base-component'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.Index, global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.BaseComponent));
-})(this, (function (index_js, Data, EventHandler, Manipulator, SelectorEngine, BaseComponent) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.BaseComponent, global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Index));
+})(this, (function (BaseComponent, Data, EventHandler, Manipulator, SelectorEngine, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.6): navigation.js
-   * Licensed under MIT (https://coreui.io/license)
+   * CoreUI navigation.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * ------------------------------------------------------------------------

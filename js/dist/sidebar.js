@@ -1,20 +1,21 @@
 /*!
-  * CoreUI sidebar.js v4.2.6 (https://coreui.io)
+  * CoreUI sidebar.js v4.3.0-alpha.0 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
-  * Licensed under MIT (https://coreui.io)
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./util/index.js'), require('./util/scrollbar.js'), require('./dom/event-handler.js'), require('./base-component.js'), require('./dom/manipulator.js'), require('./util/backdrop.js')) :
-  typeof define === 'function' && define.amd ? define(['./util/index', './util/scrollbar', './dom/event-handler', './base-component', './dom/manipulator', './util/backdrop'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Sidebar = factory(global.Index, global.Scrollbar, global.EventHandler, global.BaseComponent, global.Manipulator, global.Backdrop));
-})(this, (function (index_js, ScrollBarHelper, EventHandler, BaseComponent, Manipulator, Backdrop) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./util/index.js'), require('./util/backdrop.js'), require('./util/scrollbar.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/manipulator', './util/index', './util/backdrop', './util/scrollbar'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Sidebar = factory(global.BaseComponent, global.EventHandler, global.Manipulator, global.Index, global.Backdrop, global.Scrollbar));
+})(this, (function (BaseComponent, EventHandler, Manipulator, index_js, Backdrop, ScrollBarHelper) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.6): sidebar.js
-   * Licensed under MIT (https://coreui.io/license)
+   * CoreUI sidebar.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * ------------------------------------------------------------------------

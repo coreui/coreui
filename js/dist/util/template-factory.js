@@ -1,23 +1,24 @@
 /*!
-  * CoreUI template-factory.js v4.2.6 (https://coreui.io)
+  * CoreUI template-factory.js v4.3.0-alpha.0 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
-  * Licensed under MIT (https://coreui.io)
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./sanitizer.js'), require('./index.js'), require('../dom/selector-engine.js'), require('./config.js')) :
-  typeof define === 'function' && define.amd ? define(['./sanitizer', './index', '../dom/selector-engine', './config'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.TemplateFactory = factory(global.Sanitizer, global.Index, global.SelectorEngine, global.Config));
-})(this, (function (sanitizer_js, index_js, SelectorEngine, Config) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('../dom/selector-engine.js'), require('./config.js'), require('./sanitizer.js'), require('./index.js')) :
+  typeof define === 'function' && define.amd ? define(['../dom/selector-engine', './config', './sanitizer', './index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.TemplateFactory = factory(global.SelectorEngine, global.Config, global.Sanitizer, global.Index));
+})(this, (function (SelectorEngine, Config, sanitizer_js, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.6): tab.js
-   * Licensed under MIT (https://coreui.io/license)
+   * CoreUI util/template-factory.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    *
    * This is a modified version of the Bootstrap's util/template-factory.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants

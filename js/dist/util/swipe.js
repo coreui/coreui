@@ -1,23 +1,24 @@
 /*!
-  * CoreUI swipe.js v4.2.6 (https://coreui.io)
+  * CoreUI swipe.js v4.3.0-alpha.0 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
-  * Licensed under MIT (https://coreui.io)
+  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./config.js'), require('../dom/event-handler.js'), require('./index.js')) :
-  typeof define === 'function' && define.amd ? define(['./config', '../dom/event-handler', './index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Swipe = factory(global.Config, global.EventHandler, global.Index));
-})(this, (function (Config, EventHandler, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('../dom/event-handler.js'), require('./config.js'), require('./index.js')) :
+  typeof define === 'function' && define.amd ? define(['../dom/event-handler', './config', './index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Swipe = factory(global.EventHandler, global.Config, global.Index));
+})(this, (function (EventHandler, Config, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
-   * CoreUI (v4.2.6): tab.js
-   * Licensed under MIT (https://coreui.io/license)
+   * CoreUI util/swipe.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    *
    * This is a modified version of the Bootstrap's util/swipe.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
+
 
   /**
    * Constants

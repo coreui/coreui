@@ -1,12 +1,11 @@
 @charset "UTF-8";
 /*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
+ * CoreUI Reboot v4.3.0-alpha.0 (https://coreui.io)
+ * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
-:root {
+:root,
+[data-coreui-theme=light] {
   --cui-blue: #0d6efd;
   --cui-indigo: #6610f2;
   --cui-purple: #6f42c1;
@@ -17,39 +16,61 @@
   --cui-green: #198754;
   --cui-teal: #20c997;
   --cui-cyan: #0dcaf0;
-  --cui-black: #000015;
+  --cui-black: #080a0c;
   --cui-white: #fff;
-  --cui-gray: #8a93a2;
-  --cui-gray-dark: #636f83;
-  --cui-gray-100: #ebedef;
-  --cui-gray-200: #d8dbe0;
-  --cui-gray-300: #c4c9d0;
-  --cui-gray-400: #b1b7c1;
-  --cui-gray-500: #9da5b1;
-  --cui-gray-600: #8a93a2;
-  --cui-gray-700: #768192;
-  --cui-gray-800: #636f83;
-  --cui-gray-900: #4f5d73;
+  --cui-gray: #6d7d9c;
+  --cui-gray-dark: #323a49;
+  --cui-gray-100: #f3f4f7;
+  --cui-gray-200: #e7eaee;
+  --cui-gray-300: #dbdfe6;
+  --cui-gray-400: #cfd4de;
+  --cui-gray-500: #aab3c5;
+  --cui-gray-600: #6d7d9c;
+  --cui-gray-700: #4a566d;
+  --cui-gray-800: #323a49;
+  --cui-gray-900: #212631;
   --cui-primary: #321fdb;
   --cui-secondary: #9da5b1;
   --cui-success: #2eb85c;
   --cui-info: #39f;
   --cui-warning: #f9b115;
   --cui-danger: #e55353;
-  --cui-light: #ebedef;
-  --cui-dark: #4f5d73;
+  --cui-light: #f3f4f7;
+  --cui-dark: #212631;
   --cui-primary-rgb: 50, 31, 219;
   --cui-secondary-rgb: 157, 165, 177;
   --cui-success-rgb: 46, 184, 92;
   --cui-info-rgb: 51, 153, 255;
   --cui-warning-rgb: 249, 177, 21;
   --cui-danger-rgb: 229, 83, 83;
-  --cui-light-rgb: 235, 237, 239;
-  --cui-dark-rgb: 79, 93, 115;
+  --cui-light-rgb: 243, 244, 247;
+  --cui-dark-rgb: 33, 38, 49;
+  --cui-primary-text-emphasis: #1f1498;
+  --cui-secondary-text-emphasis: #212233;
+  --cui-success-text-emphasis: #0f5722;
+  --cui-info-text-emphasis: #184c77;
+  --cui-warning-text-emphasis: #764705;
+  --cui-danger-text-emphasis: #671414;
+  --cui-light-text-emphasis: #4a566d;
+  --cui-dark-text-emphasis: #323a49;
+  --cui-primary-bg-subtle: #ccc7f6;
+  --cui-secondary-bg-subtle: #ced2d8;
+  --cui-success-bg-subtle: #cbedd6;
+  --cui-info-bg-subtle: #c0e6ff;
+  --cui-warning-bg-subtle: #feecc5;
+  --cui-danger-bg-subtle: #f9d4d4;
+  --cui-light-bg-subtle: #f9fafb;
+  --cui-dark-bg-subtle: #cfd4de;
+  --cui-primary-border-subtle: #988fed;
+  --cui-secondary-border-subtle: #9da5b1;
+  --cui-success-border-subtle: #96dbad;
+  --cui-info-border-subtle: #80c6ff;
+  --cui-warning-border-subtle: #fcd88a;
+  --cui-danger-border-subtle: #f2a9a9;
+  --cui-light-border-subtle: #e7eaee;
+  --cui-dark-border-subtle: #aab3c5;
   --cui-white-rgb: 255, 255, 255;
-  --cui-black-rgb: 0, 0, 21;
-  --cui-body-color-rgb: 44, 56, 74;
-  --cui-body-bg-rgb: 255, 255, 255;
+  --cui-black-rgb: 8, 10, 12;
   --cui-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --cui-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --cui-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
@@ -57,30 +78,138 @@
   --cui-body-font-size: 1rem;
   --cui-body-font-weight: 400;
   --cui-body-line-height: 1.5;
-  --cui-body-color: rgba(44, 56, 74, 0.95);
+  --cui-body-color: rgba(37, 43, 54, 0.95);
+  --cui-body-color-rgb: 37, 43, 54;
   --cui-body-bg: #fff;
+  --cui-body-bg-rgb: 255, 255, 255;
+  --cui-emphasis-color: #080a0c;
+  --cui-emphasis-color-rgb: 8, 10, 12;
+  --cui-secondary-color: rgba(37, 43, 54, 0.681);
+  --cui-secondary-color-rgb: 37, 43, 54;
+  --cui-secondary-bg: #e7eaee;
+  --cui-secondary-bg-rgb: 231, 234, 238;
+  --cui-tertiary-color: rgba(37, 43, 54, 0.38);
+  --cui-tertiary-color-rgb: 37, 43, 54;
+  --cui-tertiary-bg: #f3f4f7;
+  --cui-tertiary-bg-rgb: 243, 244, 247;
+  --cui-high-emphasis: rgba(37, 43, 54, 0.95);
+  --cui-medium-emphasis: rgba(37, 43, 54, 0.681);
+  --cui-disabled: rgba(37, 43, 54, 0.38);
+  --cui-high-emphasis-inverse: rgba(255, 255, 255, 0.87);
+  --cui-medium-emphasis-inverse: rgba(255, 255, 255, 0.6);
+  --cui-disabled-inverse: rgba(255, 255, 255, 0.38);
+  --cui-heading-color: inherit;
+  --cui-link-color: #321fdb;
+  --cui-link-color-rgb: 50, 31, 219;
+  --cui-link-decoration: underline;
+  --cui-link-hover-color: #2819af;
+  --cui-link-hover-color-rgb: 40, 25, 175;
+  --cui-code-color: #d63384;
+  --cui-highlight-bg: #fff3cd;
   --cui-border-width: 1px;
   --cui-border-style: solid;
-  --cui-border-color: #d8dbe0;
-  --cui-border-color-translucent: rgba(0, 0, 21, 0.175);
+  --cui-border-color: #dbdfe6;
+  --cui-border-color-translucent: rgba(8, 10, 12, 0.175);
   --cui-border-radius: 0.375rem;
   --cui-border-radius-sm: 0.25rem;
   --cui-border-radius-lg: 0.5rem;
   --cui-border-radius-xl: 1rem;
-  --cui-border-radius-2xl: 2rem;
+  --cui-border-radius-xxl: 2rem;
+  --cui-border-radius-2xl: var(--cui-border-radius-xxl);
   --cui-border-radius-pill: 50rem;
-  --cui-heading-color: unset;
-  --cui-link-color: #321fdb;
-  --cui-link-hover-color: #2819af;
-  --cui-code-color: #d63384;
-  --cui-highlight-bg: #fff3cd;
-  --cui-breakpoint-xs: 0;
-  --cui-breakpoint-sm: 576px;
-  --cui-breakpoint-md: 768px;
-  --cui-breakpoint-lg: 992px;
-  --cui-breakpoint-xl: 1200px;
-  --cui-breakpoint-xxl: 1400px;
-  --cui-mobile-breakpoint: md;
+  --cui-box-shadow: 0 0.5rem 1rem rgba(8, 10, 12, 0.15);
+  --cui-box-shadow-sm: 0 0.125rem 0.25rem rgba(8, 10, 12, 0.075);
+  --cui-box-shadow-lg: 0 1rem 3rem rgba(8, 10, 12, 0.175);
+  --cui-box-shadow-inset: inset 0 1px 2px rgba(8, 10, 12, 0.075);
+  --cui-focus-ring-width: 0.25rem;
+  --cui-focus-ring-opacity: 0.25;
+  --cui-focus-ring-color: rgba(50, 31, 219, 0.25);
+  --cui-form-valid-color: #2eb85c;
+  --cui-form-valid-border-color: #2eb85c;
+  --cui-form-invalid-color: #e55353;
+  --cui-form-invalid-border-color: #e55353;
+}
+
+[data-coreui-theme=dark] {
+  color-scheme: dark;
+  --cui-body-color: #aab3c5;
+  --cui-body-color-rgb: 170, 179, 197;
+  --cui-body-bg: #212631;
+  --cui-body-bg-rgb: 33, 38, 49;
+  --cui-emphasis-color: #fff;
+  --cui-emphasis-color-rgb: 255, 255, 255;
+  --cui-secondary-color: rgba(170, 179, 197, 0.75);
+  --cui-secondary-color-rgb: 170, 179, 197;
+  --cui-secondary-bg: #323a49;
+  --cui-secondary-bg-rgb: 50, 58, 73;
+  --cui-tertiary-color: rgba(170, 179, 197, 0.5);
+  --cui-tertiary-color-rgb: 170, 179, 197;
+  --cui-tertiary-bg: #252a37;
+  --cui-tertiary-bg-rgb: 37, 42, 55;
+  --cui-high-emphasis: #aab3c5;
+  --cui-medium-emphasis: rgba(170, 179, 197, 0.75);
+  --cui-disabled: rgba(170, 179, 197, 0.5);
+  --cui-primary: #6b60ce;
+  --cui-secondary: #a6a7a8;
+  --cui-success: #3aad60;
+  --cui-info: #3d99f5;
+  --cui-warning: #edad21;
+  --cui-danger: #db5d5d;
+  --cui-light: #f4f5f6;
+  --cui-dark: #25282d;
+  --cui-gray-100: #f3f4f7;
+  --cui-gray-200: #e7eaee;
+  --cui-gray-300: #dbdfe6;
+  --cui-gray-400: #cfd4de;
+  --cui-gray-500: #aab3c5;
+  --cui-gray-600: #6d7d9c;
+  --cui-gray-700: #4a566d;
+  --cui-gray-800: #323a49;
+  --cui-gray-900: #212631;
+  --cui-primary-rgb: 107, 96, 206;
+  --cui-secondary-rgb: 166, 167, 168;
+  --cui-success-rgb: 58, 173, 96;
+  --cui-info-rgb: 61, 153, 245;
+  --cui-warning-rgb: 237, 173, 33;
+  --cui-danger-rgb: 219, 93, 93;
+  --cui-light-rgb: 244, 245, 246;
+  --cui-dark-rgb: 37, 40, 45;
+  --cui-primary-text-emphasis: #1f1498;
+  --cui-secondary-text-emphasis: #212233;
+  --cui-success-text-emphasis: #0f5722;
+  --cui-info-text-emphasis: #184c77;
+  --cui-warning-text-emphasis: #764705;
+  --cui-danger-text-emphasis: #671414;
+  --cui-light-text-emphasis: #f3f4f7;
+  --cui-dark-text-emphasis: #dbdfe6;
+  --cui-primary-bg-subtle: #ccc7f6;
+  --cui-secondary-bg-subtle: #ced2d8;
+  --cui-success-bg-subtle: #cbedd6;
+  --cui-info-bg-subtle: #c0e6ff;
+  --cui-warning-bg-subtle: #feecc5;
+  --cui-danger-bg-subtle: #f9d4d4;
+  --cui-light-bg-subtle: #323a49;
+  --cui-dark-bg-subtle: #1d222b;
+  --cui-primary-border-subtle: #988fed;
+  --cui-secondary-border-subtle: #9da5b1;
+  --cui-success-border-subtle: #96dbad;
+  --cui-info-border-subtle: #80c6ff;
+  --cui-warning-border-subtle: #fcd88a;
+  --cui-danger-border-subtle: #f2a9a9;
+  --cui-light-border-subtle: #4a566d;
+  --cui-dark-border-subtle: #323a49;
+  --cui-heading-color: inherit;
+  --cui-link-color: #8479e9;
+  --cui-link-hover-color: #9d94ed;
+  --cui-link-color-rgb: 132, 121, 233;
+  --cui-link-hover-color-rgb: 157, 148, 237;
+  --cui-code-color: #e685b5;
+  --cui-border-color: #323a49;
+  --cui-border-color-translucent: rgba(255, 255, 255, 0.1);
+  --cui-form-valid-color: #75b798;
+  --cui-form-valid-border-color: #75b798;
+  --cui-form-invalid-color: #ea868f;
+  --cui-form-invalid-border-color: #ea868f;
 }
 
 *,
@@ -105,14 +234,14 @@ body {
   text-align: var(--cui-body-text-align);
   background-color: var(--cui-body-bg);
   -webkit-text-size-adjust: 100%;
-  -webkit-tap-highlight-color: rgba(0, 0, 21, 0);
+  -webkit-tap-highlight-color: rgba(8, 10, 12, 0);
 }
 
 hr {
   margin: 1rem 0;
   color: inherit;
   border: 0;
-  border-top: 1px solid;
+  border-top: var(--cui-border-width) solid;
   opacity: 0.25;
 }
 
@@ -245,11 +374,11 @@ sup {
 }
 
 a {
-  color: var(--cui-link-color);
+  color: rgba(var(--cui-link-color-rgb), var(--cui-link-opacity, 1));
   text-decoration: underline;
 }
 a:hover {
-  color: var(--cui-link-hover-color);
+  --cui-link-color-rgb: var(--cui-link-hover-color-rgb);
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -271,7 +400,7 @@ pre {
   margin-bottom: 1rem;
   overflow: auto;
   font-size: 0.875em;
-  color: var(--cui-pre-color, unset);
+  color: var(--cui-pre-color, );
 }
 pre code {
   font-size: inherit;
@@ -317,12 +446,11 @@ table {
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  color: var(--cui-table-caption-color, rgba(44, 56, 74, 0.38));
+  color: var(--cui-table-caption-color, var(--cui-secondary-color));
   text-align: left;
 }
 
 th {
-  font-weight: 600;
   text-align: inherit;
   text-align: -webkit-match-parent;
 }
