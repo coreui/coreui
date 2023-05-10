@@ -1642,11 +1642,11 @@ $callout-padding-y:                 $spacer !default;
 $callout-padding-x:                 $spacer !default;
 $callout-margin-y:                  $spacer !default;
 $callout-margin-x:                  0 !default;
-$callout-border-radius:             $border-radius !default;
-$callout-border-width:              $border-width !default;
-$callout-border-color:              $border-color !default;
-$callout-border-left-width:         (4 * $callout-border-width) !default;
-
+$callout-border-radius:             var(--#{$prefix}border-radius) !default;
+$callout-border-width:              var(--#{$prefix}border-width) !default;
+$callout-border-color:              var(--#{$prefix}border-color) !default;
+$callout-border-left-width:         calc($callout-border-width * 4) !default; // stylelint-disable-line function-disallowed-list
+ 
 $callout-variants: (
   "primary":    $primary,
   "secondary":  $secondary,
