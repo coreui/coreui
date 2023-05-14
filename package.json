@@ -133,7 +133,6 @@
     "postcss": "^8.4.23",
     "postcss-cli": "^10.1.0",
     "postcss-combine-duplicated-selectors": "^10.0.3",
-    "postcss-drop-empty-css-vars": "^0.0.0",
     "rollup": "^3.21.5",
     "rollup-plugin-istanbul": "^4.0.0",
     "rtlcss": "^4.1.0",
