@@ -2,12 +2,16 @@
 // Docs examples
 //
 
-.docs-example-snippet {
+.docs-code-snippet {
+  margin: 0 ($cd-gutter-x * -.5) 1rem;
   border: solid var(--cui-border-color);
   border-width: 1px 0;
 
   @include media-breakpoint-up(md) {
+    margin-right: 0;
+    margin-left: 0;
     border-width: 1px;
+    @include border-radius(var(--cui-border-radius));
   }
 }
 
@@ -16,7 +20,7 @@
 
   position: relative;
   padding: var(--cd-example-padding);
-  margin: 0 ($cd-gutter-x * -.5);
+  margin: 0 ($cd-gutter-x * -.5) 1rem;
   border: solid var(--cui-border-color);
   border-width: 1px 0;
   @include clearfix();
@@ -27,13 +31,7 @@
     margin-right: 0;
     margin-left: 0;
     border-width: 1px;
-    @include border-top-radius(var(--cui-border-radius));
-  }
-
-  + .docs-code-snippet {
-    @include border-top-radius(0);
-    border: solid var(--cui-border-color);
-    border-width: 0 1px 1px;
+    @include border-radius(var(--cui-border-radius));
   }
 
   + p {
@@ -350,12 +348,17 @@
 .highlight {
   position: relative;
   padding: .75rem ($cd-gutter-x * .5);
-  margin-bottom: 1rem;
   background-color: var(--cd-pre-bg);
 
   @include media-breakpoint-up(md) {
     padding: .75rem 1.25rem;
-    @include border-radius(var(--cui-border-radius));
+    @include border-radius(calc(var(--cui-border-radius) - 1px));
+  }
+
+  @include media-breakpoint-up(lg) {
+    pre {
+      margin-right: 1.875rem;
+    }
   }
 
   pre {
@@ -376,35 +379,22 @@
   }
 }
 
-.docs-code-snippet {
-  margin: 0 ($cd-gutter-x * -.5) $spacer;
-
-  .highlight {
-    margin-bottom: 0;
-  }
-
-  .docs-example ~ .highlight {
-    @include border-top-radius(0);
-  }
-
-  .docs-example {
-    margin: 0;
-    border: 0;
-  }
-
-  @include media-breakpoint-up(md) {
-    margin-right: 0;
-    margin-left: 0;
-    @include border-radius($border-radius);
-  }
-}
-
 .highlight-toolbar {
   background-color: var(--cd-pre-bg);
+
+  + .highlight {
+    @include border-top-radius(0);
+  }
 }
 
-.docs-scss-docs {
+.docs-file-ref {
   .highlight-toolbar {
-    @include border-top-radius(calc(var(--cui-border-radius) + 1px));
+    @include media-breakpoint-up(md) {
+      @include border-top-radius(calc(var(--cui-border-radius) - 1px));
+    }
   }
+}
+
+.docs-content .docs-code-snippet {
+  margin-bottom: 1rem;
 }
