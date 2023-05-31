@@ -83,8 +83,9 @@ params:
     js_hash:         "sha384-SNBINhaW16aFRorhuZgq6f2m9//dBqdXtCIYH828JLS9m/DkGi9K3xoQzGkZeWxb"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.3.0-alpha.0/dist/js/coreui.bundle.min.js"
     js_bundle_hash:  "sha384-4rXehlv2uFB3REIcn+690wKP8X6f8/p7Y+fr+C/N1ZTZ7FuSBdjRKGeSQQgBy7zO"
-    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
-    popper_hash:      "sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    popper_hash:      "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    popper_esm:       "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js"
 
   anchors:
     min: 2
