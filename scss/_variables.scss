@@ -754,7 +754,7 @@ $table-cell-padding-x-sm:     .25rem !default;
 $table-cell-vertical-align:   top !default;
 
 $table-color:                 var(--#{$prefix}body-color) !default;
-$table-bg:                    transparent !default;
+$table-bg:                    var(--#{$prefix}body-bg) !default;
 $table-accent-bg:             transparent !default;
 
 $table-th-font-weight:        null !default;
@@ -1462,7 +1462,7 @@ $tooltip-margin:                    null !default; // TODO: remove this in v6
 $tooltip-arrow-width:               .8rem !default;
 $tooltip-arrow-height:              .4rem !default;
 // fusv-disable
-$tooltip-arrow-color:               null !default; // Deprecated in Bootstrap 5.2.0 for CSS variables
+$tooltip-arrow-color:               null !default; // Deprecated in 4.2.0 for CSS variables
 // fusv-enable
 // scss-docs-end tooltip-variables
 
@@ -1504,13 +1504,13 @@ $popover-arrow-height:              .5rem !default;
 // scss-docs-end popover-variables
 
 // fusv-disable
-// Deprecated in Bootstrap 5.2.0 for CSS variables
+// Deprecated in 4.2.0 for CSS variables
 $popover-arrow-color:               $popover-bg !default;
 $popover-arrow-outer-color:         var(--#{$prefix}border-color-translucent) !default;
 // fusv-enable
 
 // fusv-disable
-// Deprecated in Bootstrap 5.2.0 for CSS variables
+// Deprecated in 4.2.0 for CSS variables
 $popover-arrow-color:               $popover-bg !default;
 $popover-arrow-outer-color:         var(--#{$prefix}border-color-translucent) !default;
 // fusv-enable
@@ -1646,7 +1646,7 @@ $callout-border-radius:             var(--#{$prefix}border-radius) !default;
 $callout-border-width:              var(--#{$prefix}border-width) !default;
 $callout-border-color:              var(--#{$prefix}border-color) !default;
 $callout-border-left-width:         calc($callout-border-width * 4) !default; // stylelint-disable-line function-disallowed-list
- 
+
 $callout-variants: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -1709,7 +1709,7 @@ $list-group-action-active-bg:       var(--#{$prefix}secondary-bg) !default;
 // scss-docs-end list-group-variables
 
 
-// Header //TODO: check
+// Header // TODO: check
 // scss-docs-start header-variables
 $header-min-height:             4rem !default;
 $header-padding-y:              $spacer * .5 !default;
