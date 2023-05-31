@@ -468,7 +468,7 @@ We've also introduced a new `.progress-stacked` class to more logically wrap [mu
 #### Navs and tabs
 
 - Added new `null` variables for `font-size`, `font-weight`, `color`, and `:hover` `color` to the `.nav-link` class.
-
+git 
 #### Navbars
 
 - <span class="badge bg-danger">Breaking</span> Navbars now require a container within (to drastically simplify spacing requirements and CSS required).
