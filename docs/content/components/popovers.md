@@ -42,8 +42,13 @@ One way to initialize all popovers on a page would be to select them by their `d
 const popoverTriggerList = document.querySelectorAll('[data-coreui-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new coreui.Popover(popoverTriggerEl))
 ```
-
 ### Live demo
+
+We use JavaScript similar to the snippet above to render the following live popover. Titles are set via `data-coreui-title` and body content is set via `data-coreui-content`.
+
+{{< callout warning >}}
+{{< partial "callouts/warning-data-bs-title-vs-title.md" >}}
+{{< /callout >}}
 
 {{< example >}}
 <button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>

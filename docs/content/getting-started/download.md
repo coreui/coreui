@@ -71,22 +71,6 @@ Install CoreUI in your Node.js powered apps with [the yarn package](https://yarn
 ```sh
 yarn add @coreui/coreui
 ```
-<!--
-### RubyGems
-
-Install CoreUI for Bootstrap in your Ruby apps using [Bundler](https://bundler.io/) (**recommended**) and [RubyGems](https://rubygems.org/) by adding the following line to your [`Gemfile`](https://bundler.io/gemfile.html):
-
-```ruby
-gem 'bootstrap', '~> {{< param current_ruby_version >}}'
-```
-
-Alternatively, if you're not using Bundler, you can install the gem by running this command:
-
-```sh
-gem install bootstrap -v {{< param current_ruby_version >}}
-```
-
-[See the gem's README](https://github.com/twbs/bootstrap-rubygem/blob/master/README.md) for further details. -->
 
 ### Composer
 
@@ -95,15 +79,3 @@ You can also install and manage CoreUI's Sass and JavaScript using [Composer](ht
 ```sh
 composer require coreui/coreui:{{< param current_version >}}
 ```
-
-<!-- ### NuGet
-
-If you develop in .NET, you can also install and manage CoreUI for Bootstrap's [CSS](https://www.nuget.org/packages/bootstrap/) or [Sass](https://www.nuget.org/packages/coreui.sass/) and JavaScript using [NuGet](https://www.nuget.org/):
-
-```powershell
-Install-Package bootstrap
-```
-
-```powershell
-Install-Package coreui.sass
-``` -->

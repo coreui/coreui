@@ -76,8 +76,7 @@ With dependencies installed and our project folder ready for us to start coding,
    export default {
      root: path.resolve(__dirname, 'src'),
      server: {
-       port: 8080,
-       hot: true
+       port: 8080
      }
    }
    ```
