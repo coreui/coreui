@@ -1,11 +1,11 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v4.3.0-alpha.0 (https://coreui.io)
+ * CoreUI  v4.3.0-beta.0 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 /*!
- * CoreUI Utilities v4.3.0-alpha.0 (https://coreui.io)
+ * CoreUI Utilities v4.3.0-beta.0 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -209,8 +209,8 @@
   --cui-link-color-rgb: 132, 121, 233;
   --cui-link-hover-color-rgb: 157, 148, 237;
   --cui-code-color: #e685b5;
-  --cui-border-color: #323a49;
-  --cui-border-color-translucent: rgba(255, 255, 255, 0.1);
+  --cui-border-color: #4a566d;
+  --cui-border-color-translucent: rgba(255, 255, 255, 0.15);
   --cui-form-valid-color: #75b798;
   --cui-form-valid-border-color: #75b798;
   --cui-form-invalid-color: #ea868f;
