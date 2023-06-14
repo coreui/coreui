@@ -112,7 +112,7 @@ Learn more by reading the new [color modes documentation]({{< docsref "/customiz
 
 ### Progress bars
 
-The markup for [progress bars]({{< docsref "/components/progress" >}}) has been updated in v5.3.0. Due to the placement of `role` and various `aria-` attributes on the inner `.progress-bar` element, **some screen readers were not announcing zero value progress bars**. Now, `role="progressbar"` and the relevant `aria-*` attributes are on the outer `.progress` element, leaving the `.progress-bar` purely for the visual presentation of the bar and optional label.
+The markup for [progress bars]({{< docsref "/components/progress" >}}) has been updated in v4.3.0. Due to the placement of `role` and various `aria-` attributes on the inner `.progress-bar` element, **some screen readers were not announcing zero value progress bars**. Now, `role="progressbar"` and the relevant `aria-*` attributes are on the outer `.progress` element, leaving the `.progress-bar` purely for the visual presentation of the bar and optional label.
 
 While we recommend adopting the new markup for improved compatibility with all screen readers, note that the legacy progress bar structure will continue to work as before.
 
@@ -174,7 +174,7 @@ We've also introduced a new `.progress-stacked` class to more logically wrap [mu
 
 - <span class="badge text-warning-emphasis bg-warning-subtle">Deprecated</span> `.text-muted` will be replaced by `.text-body-secondary` in v6.
 
-  With the addition of the expanded theme colors and variables, the `.text-muted` variables and utility have been deprecated with v5.3.0. Its default value has also been reassigned to the new `--cui-secondary-color` CSS variable to better support color modes. It will be removed in v6.0.0.
+  With the addition of the expanded theme colors and variables, the `.text-muted` variables and utility have been deprecated with v4.3.0. Its default value has also been reassigned to the new `--cui-secondary-color` CSS variable to better support color modes. It will be removed in v6.0.0.
 
 - Adds new `.overflow-x`, `.overflow-y`, and several `.object-fit-*` utilities. _The object-fit property is used to specify how an `<img>` or `<video>` should be resized to fit its container, giving us a responsive alternative to using `background-image` for a resizable fill/fit image._
 
