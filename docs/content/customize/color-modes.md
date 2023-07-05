@@ -1,10 +1,10 @@
 ---
 layout: docs
 title: Color modes
-description: CoreUI now supports color modes, or themes, as of v4.3.0. Explore our default light color mode and the new dark mode, or create your own using our styles as your template.
+description: CoreUI now supports color modes, or themes, as of v5.0.0. Explore our default light color mode and the new dark mode, or create your own using our styles as your template.
 group: customize
 toc: true
-added: "5.3"
+added: "5.0"
 ---
 
 {{< callout >}}
@@ -13,7 +13,7 @@ added: "5.3"
 
 ## Dark mode
 
-**CoreUI for Bootstrap now supports color modes, starting with dark mode!** With v4.3.0 you can implement your own color mode toggler (see below for an example from CoreUI for Bootstrap's docs) and apply the different color modes as you see fit. We support a light mode (default) and now dark mode. Color modes can be toggled globally on the `<html>` element, or on specific components and elements, thanks to the `data-coreui-theme` attribute.
+**CoreUI for Bootstrap now supports color modes, starting with dark mode!** With v5.0.0 you can implement your own color mode toggler (see below for an example from CoreUI for Bootstrap's docs) and apply the different color modes as you see fit. We support a light mode (default) and now dark mode. Color modes can be toggled globally on the `<html>` element, or on specific components and elements, thanks to the `data-coreui-theme` attribute.
 
 Alternatively, you can also switch to a media query implementation thanks to our color mode mixin—see [the usage section for details](#building-with-sass). Heads up though—this eliminates your ability to change themes on a per-component basis as shown below.
 

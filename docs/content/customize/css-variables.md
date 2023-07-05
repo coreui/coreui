@@ -72,7 +72,7 @@ a {
 
 ## Focus variables
 
-{{< added-in "4.3.0" >}}
+{{< added-in "5.0.0" >}}
 
 Bootstrap provides custom `:focus` styles using a combination of Sass and CSS variables that can be optionally added to specific components and elements. We do not yet globally override all `:focus` styles.
 

@@ -4,7 +4,7 @@ title: Z-index
 description: Use our low-level `z-index` utilities to quickly change the stack level of an element or component.
 group: utilities
 toc: true
-added: "5.3"
+added: "5.0"
 ---
 
 ## Example
