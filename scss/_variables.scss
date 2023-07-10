@@ -568,7 +568,7 @@ $border-radius-xxl:           2rem !default;
 $border-radius-pill:          50rem !default;
 // scss-docs-end border-radius-variables
 // fusv-disable
-$border-radius-2xl:           $border-radius-xxl !default; // Deprecated in v4.3.0
+$border-radius-2xl:           $border-radius-xxl !default; // Deprecated in v5.0.0
 // fusv-enable
 
 // scss-docs-start box-shadow-variables
@@ -1689,8 +1689,8 @@ $list-group-border-radius:          var(--#{$prefix}border-radius) !default;
 $list-group-item-padding-y:         $spacer * .5 !default;
 $list-group-item-padding-x:         $spacer !default;
 // fusv-disable
-$list-group-item-bg-scale:          -80% !default; // Deprecated in v4.3.0
-$list-group-item-color-scale:       40% !default; // Deprecated in v4.3.0
+$list-group-item-bg-scale:          -80% !default; // Deprecated in v5.0.0
+$list-group-item-color-scale:       40% !default; // Deprecated in v5.0.0
 // fusv-enable
 
 $list-group-hover-bg:               var(--#{$prefix}tertiary-bg) !default;
