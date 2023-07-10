@@ -579,7 +579,7 @@ $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 // scss-docs-end box-shadow-variables
 
 $component-active-color:      $high-emphasis-inverse !default;
-$component-active-bg:         $primary !default;
+$component-active-bg:         var(--#{$prefix}primary) !default;
 
 // scss-docs-start focus-ring-variables
 $focus-ring-width:      .25rem !default;
@@ -953,7 +953,7 @@ $input-border-radius-sm:                var(--#{$prefix}border-radius-sm) !defau
 $input-border-radius-lg:                var(--#{$prefix}border-radius-lg) !default;
 
 $input-focus-bg:                        $input-bg !default;
-$input-focus-border-color:              tint-color($component-active-bg, 50%) !default;
+$input-focus-border-color:              tint-color($primary, 50%) !default;
 $input-focus-color:                     $input-color !default;
 $input-focus-width:                     $input-btn-focus-width !default;
 $input-focus-box-shadow:                $input-btn-focus-box-shadow !default;
@@ -1110,7 +1110,7 @@ $form-range-thumb-border-radius:           1rem !default;
 $form-range-thumb-box-shadow:              0 .1rem .25rem rgba($black, .1) !default;
 $form-range-thumb-focus-box-shadow:        0 0 0 1px $body-bg, $input-focus-box-shadow !default;
 $form-range-thumb-focus-box-shadow-width:  $input-focus-width !default; // For focus box shadow issue in Edge
-$form-range-thumb-active-bg:               tint-color($component-active-bg, 70%) !default;
+$form-range-thumb-active-bg:               tint-color($primary, 70%) !default;
 $form-range-thumb-disabled-bg:             var(--#{$prefix}secondary-color) !default;
 $form-range-thumb-transition:              background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out !default;
 // scss-docs-end form-range-variables
