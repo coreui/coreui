@@ -235,15 +235,29 @@ Visually, these toggle buttons are identical to the [checkbox toggle buttons]({{
 Add `data-coreui-toggle="button"` to toggle a button's `active` state. If you're pre-toggling a button, you must manually add the `.active` class **and** `aria-pressed="true"` to the `<button>`.
 
 {{< example >}}
-<button type="button" class="btn btn-primary" data-coreui-toggle="button" autocomplete="off">Toggle button</button>
-<button type="button" class="btn btn-primary active" data-coreui-toggle="button" autocomplete="off" aria-pressed="true">Active toggle button</button>
-<button type="button" class="btn btn-primary" disabled data-coreui-toggle="button" autocomplete="off">Disabled toggle button</button>
+<p class="d-inline-flex gap-1">
+  <button type="button" class="btn" data-coreui-toggle="button">Toggle button</button>
+  <button type="button" class="btn active" data-coreui-toggle="button" aria-pressed="true">Active toggle button</button>
+  <button type="button" class="btn" disabled data-coreui-toggle="button">Disabled toggle button</button>
+</p>
+<p class="d-inline-flex gap-1">
+  <button type="button" class="btn btn-primary" data-coreui-toggle="button">Toggle button</button>
+  <button type="button" class="btn btn-primary active" data-coreui-toggle="button" aria-pressed="true">Active toggle button</button>
+  <button type="button" class="btn btn-primary" disabled data-coreui-toggle="button">Disabled toggle button</button>
+</p>
 {{< /example >}}
 
 {{< example >}}
-<a href="#" class="btn btn-primary" role="button" data-coreui-toggle="button">Toggle link</a>
-<a href="#" class="btn btn-primary active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
-<a href="#" class="btn btn-primary disabled" tabindex="-1" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+<p class="d-inline-flex gap-1">
+  <a href="#" class="btn" role="button" data-coreui-toggle="button">Toggle link</a>
+  <a href="#" class="btn active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
+  <a class="btn disabled" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+</p>
+<p class="d-inline-flex gap-1">
+  <a href="#" class="btn btn-primary" role="button" data-coreui-toggle="button">Toggle link</a>
+  <a href="#" class="btn btn-primary active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
+  <a class="btn btn-primary disabled" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+</p>
 {{< /example >}}
 
 ### Methods

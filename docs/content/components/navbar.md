@@ -64,7 +64,7 @@ Here's an example of all the sub-components included in a responsive light-theme
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -158,7 +158,7 @@ Please note that you should also add the `aria-current` attribute on the active 
           <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
     </div>
@@ -180,7 +180,7 @@ And because we use classes for our navs, you can avoid the list-based approach e
         <a class="nav-link active" aria-current="page" href="#">Home</a>
         <a class="nav-link" href="#">Features</a>
         <a class="nav-link" href="#">Pricing</a>
-        <a class="nav-link disabled">Disabled</a>
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
       </div>
     </div>
   </div>
@@ -322,13 +322,17 @@ Mix and match with other components and utilities as needed.
 ## Color schemes
 
 {{< callout warning >}}
-**New in v4.2.6:** CSS variables are applied to `.navbar`, defaulting to the "light" appearance, and can be overridden with `.navbar-dark`.
+**New dark navbars in v5.0.0 —** We've deprecated `.navbar-dark` in favor of the new `data-coreui-theme="dark"`. Add `data-coreui-theme="dark"` to the `.navbar` to enable a component-specific color mode. [Learn more about our color modes.]({{< docsref "/customize/color-modes" >}})
+
+---
+
+**New in v5.0.0  —** Navbar theming is now powered by CSS variables and `.navbar-light` has been deprecated. CSS variables are applied to `.navbar`, defaulting to the "light" appearance, and can be overridden with `.navbar-dark`.
 {{< /callout >}}
 
-Navbar themes are easier than ever thanks to CoreUI for Bootstrap's combination of Sass and CSS variables. The default is our "light navbar" for use with light background colors, but you can also apply `.navbar-dark` for dark background colors. Then, customize with `.bg-*` utilities.
+Navbar themes are easier than ever thanks to CoreUI for Bootstrap's combination of Sass and CSS variables. The default is our "light navbar" for use with light background colors, but you can also apply `data-coreui-theme="dark"` for dark background colors. Then, customize with `.bg-*` utilities.
 
 <div class="docs-example">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-coreui-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -357,7 +361,7 @@ Navbar themes are easier than ever thanks to CoreUI for Bootstrap's combination 
     </div>
   </nav>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <nav class="navbar navbar-expand-lg bg-primary" data-coreui-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -417,11 +421,11 @@ Navbar themes are easier than ever thanks to CoreUI for Bootstrap's combination 
 </div>
 
 ```html
-<nav class="navbar navbar-dark bg-dark">
+<nav class="navbar bg-dark border-bottom border-body" data-coreui-theme="dark">
   <!-- Navbar content -->
 </nav>
 
-<nav class="navbar navbar-dark bg-primary">
+<nav class="navbar bg-primary" data-coreui-theme="dark">
   <!-- Navbar content -->
 </nav>
 
@@ -535,7 +539,7 @@ Here's an example navbar using `.navbar-nav-scroll` with `style="scroll-height: 
           </ul>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Link</a>
+          <a class="nav-link disabled" aria-disabled="true">Link</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -575,7 +579,7 @@ With no `.navbar-brand` shown at the smallest breakpoint:
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -605,7 +609,7 @@ With a brand name shown on the left and toggler on the right:
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -635,7 +639,7 @@ With a toggler on the left and brand name on the right:
           <a class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
         </li>
       </ul>
       <form class="d-flex" role="search">
@@ -793,7 +797,11 @@ Some additional CSS variables are also present on `.navbar-nav`:
 
 ### SASS variables
 
+Variables for all navbars:
+
 {{< scss-docs name="navbar-variables" file="scss/_variables.scss" >}}
+
+Variables for the [dark navbar](#color-schemes):
 
 {{< scss-docs name="navbar-dark-variables" file="scss/_variables.scss" >}}
 

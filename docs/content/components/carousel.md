@@ -241,10 +241,14 @@ Carousels support swiping left/right on touchscreen devices to move between slid
 
 ## Dark variant
 
+{{< deprecated-in "5.0.0" >}}
+
 Add `.carousel-dark` to the `.carousel` for darker controls, indicators, and captions. Controls have been inverted from their default white fill with the `filter` CSS property. Captions and controls have additional Sass variables that customize the `color` and `background-color`.
 
+{{< callout-deprecated-dark-variants "carousel" >}}
+
 {{< example >}}
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-coreui-ride="carousel">
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
   <div class="carousel-indicators">
     <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="1" aria-label="Slide 2"></button>
@@ -252,21 +256,21 @@ Add `.carousel-dark` to the `.carousel` for darker controls, indicators, and cap
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active" data-coreui-interval="10000">
-      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#aaa" background="#f5f5f5" text="First slide" >}}
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#aaa" background="#f5f5f5" text="First slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item" data-coreui-interval="2000">
-      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#bbb" background="#eee" text="Second slide" >}}
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#bbb" background="#eee" text="Second slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      {{< placeholder width="800" height="400" class="docs-placeholder-img-lg d-block w-100" color="#999" background="#e5e5e5" text="Third slide" >}}
+      {{< placeholder width="800" height="400" class="bd-placeholder-img-lg d-block w-100" color="#999" background="#e5e5e5" text="Third slide" >}}
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>

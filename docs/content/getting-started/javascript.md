@@ -105,9 +105,7 @@ All infinitive events provide [`preventDefault()`](https://developer.mozilla.org
 const myModal = document.getElementById('myModal')
 
 myModal.addEventListener('show.coreui.modal', event => {
-  if (!data) {
-    return event.preventDefault() // stops modal from being shown
-  }
+  return event.preventDefault() // stops modal from being shown
 })
 ```
 

@@ -159,7 +159,7 @@ You should only add tooltips to HTML elements that are traditionally keyboard-fo
 <a href="#" data-coreui-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
 
 <!-- Generated markup by the plugin -->
-<div class="tooltip bs-tooltip-top" role="tooltip">
+<div class="tooltip bs-tooltip-auto" role="tooltip">
   <div class="tooltip-arrow"></div>
   <div class="tooltip-inner">
     Some tooltip text!

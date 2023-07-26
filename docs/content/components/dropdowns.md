@@ -354,7 +354,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 
 ## Dark dropdowns
 
+{{< deprecated-in "5.0.0" >}}
+
 Opt into darker dropdowns to match a dark navbar or custom style by adding `.dropdown-menu-dark` onto an existing `.dropdown-menu`. No changes are required to the dropdown items.
+
+{{< callout-deprecated-dark-variants "dropdown-menu" >}}
 
 {{< example >}}
 <div class="dropdown">
@@ -383,9 +387,9 @@ And putting it to use in a navbar:
     <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+          <button class="btn btn-dark dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
             Dropdown
-          </a>
+          </button>
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -663,7 +667,7 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 {{< example >}}
 <ul class="dropdown-menu">
   <li><a class="dropdown-item" href="#">Regular link</a></li>
-  <li><a class="dropdown-item disabled">Disabled link</a></li>
+  <li><a class="dropdown-item disabled" aria-disabled="true">Disabled link</a></li>
   <li><a class="dropdown-item" href="#">Another link</a></li>
 </ul>
 {{< /example >}}
