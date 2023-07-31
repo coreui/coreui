@@ -29,11 +29,11 @@
 @import "../../../scss/variables";
 @import "../../../scss/mixins";
 
-$gray-100: #f0f4f7; // stylelint-disable-line scss/dollar-variable-default
+$gray-100: #f0f4f7;
 
 // fusv-disable
-$enable-grid-classes: false; // stylelint-disable-line scss/dollar-variable-default
-$enable-cssgrid: true; // stylelint-disable-line scss/dollar-variable-default
+$enable-grid-classes: false;
+$enable-cssgrid: true;
 // fusv-enable
 @import "../../../scss/grid";
 
