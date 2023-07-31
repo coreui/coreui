@@ -1,5 +1,5 @@
-import Manipulator from '../../../src/dom/manipulator'
-import { clearFixture, getFixture } from '../../helpers/fixture'
+import Manipulator from '../../../src/dom/manipulator.js'
+import { clearFixture, getFixture } from '../../helpers/fixture.js'
 
 describe('Manipulator', () => {
   let fixtureEl
@@ -61,7 +61,7 @@ describe('Manipulator', () => {
     })
 
     it('should get only bs-prefixed data attributes without bs namespace', () => {
-      fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-another="value" data-target-bs="#element" data-in-bs-out="in-between"></div>'
+      fixtureEl.innerHTML = '<div data-coreui-toggle="tabs" data-coreui-target="#element" data-another="value" data-target-bs="#element" data-in-coreui-out="in-between"></div>'
 
       const div = fixtureEl.querySelector('div')
 

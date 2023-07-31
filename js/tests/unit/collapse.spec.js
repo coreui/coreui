@@ -1,6 +1,6 @@
-import Collapse from '../../src/collapse'
-import EventHandler from '../../src/dom/event-handler'
-import { clearFixture, getFixture, jQueryMock } from '../helpers/fixture'
+import Collapse from '../../src/collapse.js'
+import EventHandler from '../../src/dom/event-handler.js'
+import { clearFixture, getFixture, jQueryMock } from '../helpers/fixture.js'
 
 describe('Collapse', () => {
   let fixtureEl
@@ -277,25 +277,25 @@ describe('Collapse', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = [
           '<div id="parentGroup" class="accordion">',
-          '  <div id="parentHeader" class="accordion-header">',
+          '  <div class="accordion-header">',
           '    <button data-coreui-target="#parentContent" data-coreui-toggle="collapse" class="accordion-toggle">Parent</button>',
           '  </div>',
-          '  <div id="parentContent" class="accordion-collapse collapse" aria-labelledby="parentHeader" data-coreui-parent="#parentGroup">',
+          '  <div id="parentContent" class="accordion-collapse collapse" data-coreui-parent="#parentGroup">',
           '    <div class="accordion-body">',
           '      <div id="childGroup" class="accordion">',
           '        <div class="accordion-item">',
-          '          <div id="childHeader1" class="accordion-header">',
+          '          <div class="accordion-header">',
           '            <button data-coreui-target="#childContent1" data-coreui-toggle="collapse" class="accordion-toggle">Child 1</button>',
           '          </div>',
-          '          <div id="childContent1" class="accordion-collapse collapse" aria-labelledby="childHeader1" data-coreui-parent="#childGroup">',
+          '          <div id="childContent1" class="accordion-collapse collapse" data-coreui-parent="#childGroup">',
           '            <div>content</div>',
           '          </div>',
           '        </div>',
           '        <div class="accordion-item">',
-          '          <div id="childHeader2" class="accordion-header">',
+          '          <div class="accordion-header">',
           '            <button data-coreui-target="#childContent2" data-coreui-toggle="collapse" class="accordion-toggle">Child 2</button>',
           '          </div>',
-          '          <div id="childContent2" class="accordion-collapse collapse" aria-labelledby="childHeader2" data-coreui-parent="#childGroup">',
+          '          <div id="childContent2" class="accordion-collapse collapse" data-coreui-parent="#childGroup">',
           '            <div>content</div>',
           '          </div>',
           '        </div>',
@@ -338,12 +338,12 @@ describe('Collapse', () => {
         fixtureEl.innerHTML = [
           '<div class="accordion" id="accordionExample">',
           '  <div class="accordion-item">',
-          '    <h2 class="accordion-header" id="headingOne">',
+          '    <h2 class="accordion-header">',
           '      <button class="accordion-button" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">',
           '        Accordion Item #1',
           '      </button>',
           '    </h2>',
-          '    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-coreui-parent="#accordionExample">',
+          '    <div id="collapseOne" class="accordion-collapse collapse show" data-coreui-parent="#accordionExample">',
           '      <div class="accordion-body">',
           '        <nav>',
           '          <div class="nav nav-tabs" id="nav-tab" role="tablist">',
@@ -640,11 +640,11 @@ describe('Collapse', () => {
           '<div id="accordion">',
           '  <div class="item">',
           '    <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-          '    <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-coreui-parent="#accordion"></div>',
+          '    <div id="collapseOne" class="collapse" role="tabpanel" data-coreui-parent="#accordion"></div>',
           '  </div>',
           '  <div class="item">',
           '    <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-          '    <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-coreui-parent="#accordion"></div>',
+          '    <div id="collapseTwo" class="collapse show" role="tabpanel" data-coreui-parent="#accordion"></div>',
           '  </div>',
           '</div>'
         ].join('')
@@ -699,13 +699,13 @@ describe('Collapse', () => {
           '    <div class="col-lg-6">',
           '      <div class="item">',
           '        <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-          '        <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-coreui-parent="#accordion"></div>',
+          '        <div id="collapseOne" class="collapse" role="tabpanel" data-coreui-parent="#accordion"></div>',
           '      </div>',
           '    </div>',
           '    <div class="col-lg-6">',
           '      <div class="item">',
           '        <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-          '        <div id="collapseTwo" class="collapse show" role="tabpanel" aria-labelledby="headingTwo" data-coreui-parent="#accordion"></div>',
+          '        <div id="collapseTwo" class="collapse show" role="tabpanel" data-coreui-parent="#accordion"></div>',
           '      </div>',
           '    </div>',
           '  </div>',
@@ -829,18 +829,18 @@ describe('Collapse', () => {
           '<div id="accordion">',
           '  <div class="item">',
           '    <a id="linkTrigger" data-coreui-toggle="collapse" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></a>',
-          '    <div id="collapseOne" data-coreui-parent="#accordion" class="collapse" role="tabpanel" aria-labelledby="headingThree">',
+          '      <div id="collapseOne" data-coreui-parent="#accordion" class="collapse" role="tabpanel">',
           '      <div id="nestedAccordion">',
           '        <div class="item">',
           '          <a id="nestedLinkTrigger" data-coreui-toggle="collapse" href="#nestedCollapseOne" aria-expanded="false" aria-controls="nestedCollapseOne"></a>',
-          '          <div id="nestedCollapseOne" data-coreui-parent="#nestedAccordion" class="collapse" role="tabpanel" aria-labelledby="headingThree"></div>',
+          '          <div id="nestedCollapseOne" data-coreui-parent="#nestedAccordion" class="collapse" role="tabpanel"></div>',
           '        </div>',
           '      </div>',
           '    </div>',
           '  </div>',
           '  <div class="item">',
           '    <a id="linkTriggerTwo" data-coreui-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"></a>',
-          '    <div id="collapseTwo" data-coreui-parent="#accordion" class="collapse show" role="tabpanel" aria-labelledby="headingTwo"></div>',
+          '    <div id="collapseTwo" data-coreui-parent="#accordion" class="collapse show" role="tabpanel"></div>',
           '  </div>',
           '</div>'
         ].join('')
