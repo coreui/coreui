@@ -121,7 +121,7 @@
   }
 
   > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
-    @include ltr-rtl("margin-left", -$input-border-width);
+    @include ltr-rtl("margin-left", calc(#{$input-border-width} * -1));
     @include border-start-radius(0);
   }
 

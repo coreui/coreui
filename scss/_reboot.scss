@@ -531,8 +531,8 @@ legend {
 //    https://github.com/twbs/bootstrap/issues/11586.
 
 [type="search"] {
-  outline-offset: -2px; // 1
   -webkit-appearance: textfield; // 2
+  outline-offset: -2px; // 1
 }
 
 // 1. A few input types should stay LTR

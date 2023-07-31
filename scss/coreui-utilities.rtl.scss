@@ -1,10 +1,5 @@
-/*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
-*/
+@import "mixins/banner";
+@include bsBanner(Utilities);
 
 $enable-ltr: false !default;
 $enable-rtl: true !default;
