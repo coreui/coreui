@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): dom/selector-engine.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI dom/event-handler.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's dom/event-handler.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -131,7 +131,7 @@ function findHandler(events, callable, delegationSelector = null) {
 
 function normalizeParameters(originalTypeEvent, handler, delegationFunction) {
   const isDelegated = typeof handler === 'string'
-  // todo: tooltip passes `false` instead of selector, so we need to check
+  // TODO: tooltip passes `false` instead of selector, so we need to check
   const callable = isDelegated ? delegationFunction : (handler || delegationFunction)
   let typeEvent = getTypeEvent(originalTypeEvent)
 
@@ -282,8 +282,7 @@ const EventHandler = {
       defaultPrevented = jQueryEvent.isDefaultPrevented()
     }
 
-    let evt = new Event(event, { bubbles, cancelable: true })
-    evt = hydrateObj(evt, args)
+    const evt = hydrateObj(new Event(event, { bubbles, cancelable: true }), args)
 
     if (defaultPrevented) {
       evt.preventDefault()

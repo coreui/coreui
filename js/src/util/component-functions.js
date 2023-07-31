@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): tab.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI util/component-functions.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/component-functions.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -9,8 +9,8 @@
  */
 
 import EventHandler from '../dom/event-handler.js'
-import { isDisabled } from './index.js'
 import SelectorEngine from '../dom/selector-engine.js'
+import { isDisabled } from './index.js'
 
 const enableDismissTrigger = (component, method = 'hide') => {
   const clickEvent = `click.dismiss${component.EVENT_KEY}`

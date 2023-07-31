@@ -1,15 +1,15 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): tab.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI util/swipe.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/swipe.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import Config from './config.js'
 import EventHandler from '../dom/event-handler.js'
+import Config from './config.js'
 import { execute } from './index.js'
 
 /**

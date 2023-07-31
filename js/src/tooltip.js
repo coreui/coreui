@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): tooltip.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI tooltip.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's tooltip.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -9,11 +9,11 @@
  */
 
 import * as Popper from '@popperjs/core'
-import { defineJQueryPlugin, execute, findShadowRoot, getElement, getUID, isRTL, noop } from './util/index.js'
-import { DefaultAllowlist } from './util/sanitizer.js'
+import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
 import Manipulator from './dom/manipulator.js'
-import BaseComponent from './base-component.js'
+import { defineJQueryPlugin, execute, findShadowRoot, getElement, getUID, isRTL, noop } from './util/index.js'
+import { DefaultAllowlist } from './util/sanitizer.js'
 import TemplateFactory from './util/template-factory.js'
 
 /**
@@ -65,7 +65,7 @@ const Default = {
   delay: 0,
   fallbackPlacements: ['top', 'right', 'bottom', 'left'],
   html: false,
-  offset: [0, 0],
+  offset: [0, 6],
   placement: 'top',
   popperConfig: null,
   sanitize: true,
@@ -200,7 +200,7 @@ class Tooltip extends BaseComponent {
       return
     }
 
-    // todo v6 remove this OR make it optional
+    // TODO: v6 remove this or make it optional
     this._disposePopper()
 
     const tip = this._getTipElement()
@@ -305,13 +305,13 @@ class Tooltip extends BaseComponent {
   _createTipElement(content) {
     const tip = this._getTemplateFactory(content).toHtml()
 
-    // todo: remove this check on v6
+    // TODO: remove this check in v6
     if (!tip) {
       return null
     }
 
     tip.classList.remove(CLASS_NAME_FADE, CLASS_NAME_SHOW)
-    // todo: on v6 the following can be achieved with CSS only
+    // TODO: v6 the following can be achieved with CSS only
     tip.classList.add(`bs-${this.constructor.NAME}-auto`)
 
     const tipId = getUID(this.constructor.NAME).toString()

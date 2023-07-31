@@ -1,7 +1,7 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): tab.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI util/backdrop.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This is a modified version of the Bootstrap's util/backdrop.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
@@ -9,8 +9,8 @@
  */
 
 import EventHandler from '../dom/event-handler.js'
-import { execute, executeAfterTransition, getElement, reflow } from './index.js'
 import Config from './config.js'
+import { execute, executeAfterTransition, getElement, reflow } from './index.js'
 
 /**
  * Constants

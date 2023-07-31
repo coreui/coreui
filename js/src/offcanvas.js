@@ -1,25 +1,25 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): dropdown.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI offcanvas.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's offcanvas.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * --------------------------------------------------------------------------
  */
 
+import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
+import SelectorEngine from './dom/selector-engine.js'
+import Backdrop from './util/backdrop.js'
+import { enableDismissTrigger } from './util/component-functions.js'
+import FocusTrap from './util/focustrap.js'
 import {
   defineJQueryPlugin,
   isDisabled,
   isVisible
 } from './util/index.js'
 import ScrollBarHelper from './util/scrollbar.js'
-import EventHandler from './dom/event-handler.js'
-import BaseComponent from './base-component.js'
-import SelectorEngine from './dom/selector-engine.js'
-import Backdrop from './util/backdrop.js'
-import FocusTrap from './util/focustrap.js'
-import { enableDismissTrigger } from './util/component-functions.js'
 
 /**
  * Constants
@@ -201,12 +201,12 @@ class Offcanvas extends BaseComponent {
         return
       }
 
-      if (!this._config.keyboard) {
-        EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED)
+      if (this._config.keyboard) {
+        this.hide()
         return
       }
 
-      this.hide()
+      EventHandler.trigger(this._element, EVENT_HIDE_PREVENTED)
     })
   }
 

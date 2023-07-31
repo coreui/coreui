@@ -1,17 +1,17 @@
 /**
  * --------------------------------------------------------------------------
- * CoreUI (v4.2.6): toast.js
- * Licensed under MIT (https://coreui.io/license)
+ * CoreUI toast.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  *
  * This component is a modified version of the Bootstrap's toast.js
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  * --------------------------------------------------------------------------
  */
 
-import { defineJQueryPlugin, reflow } from './util/index.js'
-import EventHandler from './dom/event-handler.js'
 import BaseComponent from './base-component.js'
+import EventHandler from './dom/event-handler.js'
 import { enableDismissTrigger } from './util/component-functions.js'
+import { defineJQueryPlugin, reflow } from './util/index.js'
 
 /**
  * Constants
