@@ -112,7 +112,7 @@
     "eslint-plugin-markdown": "^3.0.0",
     "eslint-plugin-unicorn": "^48.0.1",
     "find-unused-sass-variables": "^5.0.0",
-    "globby": "^13.2.2",
+    "globby": "^11.1.0",
     "hammer-simulator": "0.0.1",
     "hugo-bin": "^0.111.4",
     "ip": "^2.0.0",
