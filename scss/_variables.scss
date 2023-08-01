@@ -2011,6 +2011,6 @@ $kbd-padding-x:                     .375rem !default;
 $kbd-font-size:                     $code-font-size !default;
 $kbd-color:                         var(--#{$prefix}body-bg) !default;
 $kbd-bg:                            var(--#{$prefix}body-color) !default;
-$nested-kbd-font-weight:            null !default; // Deprecated in v5.2.0, removing in v6
+$nested-kbd-font-weight:            null !default; // Deprecated in v4.2.6, removing in v6
 
 $pre-color:                         null !default;
