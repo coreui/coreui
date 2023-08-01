@@ -1,5 +1,5 @@
 @import "mixins/banner";
-@include bsBanner("");
+@include bsBanner(Grid);
 
 $enable-ltr: false !default;
 $enable-rtl: true !default;

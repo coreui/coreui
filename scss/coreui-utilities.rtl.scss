@@ -1,5 +1,5 @@
 @import "mixins/banner";
-@include bsBanner("");
+@include bsBanner(Utilities);
 
 $enable-ltr: false !default;
 $enable-rtl: true !default;
