@@ -35,7 +35,7 @@
   @if $enable-caret {
     &::after {
       display: inline-block;
-      margin-left: $spacing;
+      @include ltr-rtl("margin-left", $spacing);
       vertical-align: $vertical-align;
       content: "";
       @if $direction == down {
@@ -54,7 +54,7 @@
 
       &::before {
         display: inline-block;
-        margin-right: $spacing;
+        @include ltr-rtl("margin-right", $spacing);
         vertical-align: $vertical-align;
         content: "";
         @include caret-start($width);
@@ -62,7 +62,7 @@
     }
 
     &:empty::after {
-      margin-left: 0;
+      @include ltr-rtl("margin-left", 0);
     }
   }
 }

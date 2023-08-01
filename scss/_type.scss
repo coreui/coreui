@@ -69,7 +69,7 @@
   display: inline-block;
 
   &:not(:last-child) {
-    margin-right: $list-inline-padding;
+    @include ltr-rtl("margin-right", $list-inline-padding);
   }
 }
 

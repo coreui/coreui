@@ -93,8 +93,8 @@
       --cui-position: start;
 
       &[data-coreui-popper] {
-        right: auto;
-        left: 0;
+        @include ltr-rtl("right", auto);
+        @include ltr-rtl("left", 0);
       }
     }
 
@@ -102,8 +102,8 @@
       --cui-position: end;
 
       &[data-coreui-popper] {
-        right: 0;
-        left: auto;
+        @include ltr-rtl("right", 0);
+        @include ltr-rtl("left", auto);
       }
     }
   }
