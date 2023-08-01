@@ -1325,7 +1325,7 @@ $dropdown-header-color:             $gray-600 !default;
 $dropdown-header-padding-x:         $dropdown-item-padding-x !default;
 $dropdown-header-padding-y:         $dropdown-padding-y !default;
 // fusv-disable
-$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x !default; // Deprecated in v5.2.0
+$dropdown-header-padding:           $dropdown-header-padding-y $dropdown-header-padding-x !default; // Deprecated in v4.2.6
 // fusv-enable
 // scss-docs-end dropdown-variables
 
@@ -1511,12 +1511,6 @@ $popover-body-padding-x:            $spacer !default;
 $popover-arrow-width:               1rem !default;
 $popover-arrow-height:              .5rem !default;
 // scss-docs-end popover-variables
-
-// fusv-disable
-// Deprecated in 4.2.0 for CSS variables
-$popover-arrow-color:               $popover-bg !default;
-$popover-arrow-outer-color:         var(--#{$prefix}border-color-translucent) !default;
-// fusv-enable
 
 // fusv-disable
 // Deprecated in 4.2.0 for CSS variables
