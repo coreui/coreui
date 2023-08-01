@@ -16,6 +16,11 @@
     - title: RFS
     - title: RTL
 
+- title: Integration guides
+  icon: input-power
+  pages:
+    - title: Laravel
+
 - title: Customize
   icon: color-palette
   pages:
