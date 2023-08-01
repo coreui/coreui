@@ -23,7 +23,7 @@ Bootstrap alert is prepared for any length of text, as well as an optional close
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ### Live example
@@ -37,28 +37,7 @@ Click the button below to show an alert (hidden with inline styles to start), th
 
 We use the following JavaScript to trigger our live alert demo:
 
-```js
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-
-const alert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-cui-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    alert('Nice, you triggered this alert message!', 'success')
-  })
-}
-```
+{{< js-docs name="live-alert" file="docs/assets/js/snippets.js" >}}
 
 ### Link color
 
@@ -104,7 +83,7 @@ Similarly, you can use [flexbox utilities]({{< docsref "/utilities/flex" >}}) an
 Need more than one icon for your alerts? Consider using more Bootstrap Icons and making a local SVG sprite like so to easily reference the same icons repeatedly.
 
 {{< example >}}
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" class="d-none">
   <symbol id="check-circle-fill" viewBox="0 0 16 16">
     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
   </symbol>
@@ -235,7 +214,7 @@ myAlert.addEventListener('closed.coreui.alert', event => {
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Alerts use local CSS variables on `.alert` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
@@ -245,42 +224,9 @@ Alerts use local CSS variables on `.alert` for enhanced real-time customization.
 
 {{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
 
-### SASS variants
-
-CoreUI allows defining variant colors in two ways.
-
-Check out [our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) for how to customize these loops and extend CoreUI's base-modifier approach to your own code.
-
-#### Manual
-
-You can define each color manually and keep full control of the component appearance.
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": (
-    "background": $your-bg-color,
-    "border": $your-border-color,
-    "color": $your-color,
-    "link-color": $your-link-color
-  )
-  ...
-);
-{{< /highlight >}}
-
-#### Color function
-
-The color set can be generated automatically thanks to our `alert-color-map` function.
-
-{{< scss-docs name="alert-color-functions" file="scss/_functions.scss" >}}
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": alert-color-map($primary),
-  ...
-);
-{{< /highlight >}}
-
 ### SASS mixin
+
+{{< deprecated-in "4.3.0" >}}
 
 Used in combination with `$alert-variants` to create contextual modifier classes for our alerts.
 
@@ -289,7 +235,5 @@ Used in combination with `$alert-variants` to create contextual modifier classes
 ### SASS loop
 
 Loop that generates the modifier classes with the `alert-variant()` mixin.
-
-{{< scss-docs name="alert-variants" file="scss/_variables.scss" >}}
 
 {{< scss-docs name="alert-modifiers" file="scss/_alert.scss" >}}

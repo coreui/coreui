@@ -75,7 +75,7 @@ Here are some representative examples of these classes:
 Additionally, CoreUI for Bootstrap also includes an `.mx-auto` class for horizontally centering fixed-width block level content—that is, content that has `display: block` and a `width` set—by setting the horizontal margins to `auto`.
 
 <div class="docs-example">
-  <div class="mx-auto" style="width: 200px; background-color: rgba(86,61,124,.15);">
+  <div class="mx-auto p-2" style="width: 200px; background-color: rgba(var(--cd-violet-rgb),.15); border: rgba(var(--cd-violet-rgb),.3) solid 1px;">
     Centered element
   </div>
 </div>
@@ -100,17 +100,44 @@ The syntax is nearly the same as the default, positive margin utilities, but wit
 
 ## Gap
 
-When using `display: grid`, you can make use of `gap` utilities on the parent grid container. This can save on having to add margin utilities to individual grid items (children of a `display: grid` container). Gap utilities are responsive by default, and are generated via our utilities API, based on the `$spacers` Sass map.
+When using `display: grid` or `display: flex`, you can make use of `gap` utilities on the parent element. This can save on having to add margin utilities to individual children of a grid or flex container. Gap utilities are responsive by default, and are generated via our utilities API, based on the `$spacers` Sass map.
 
-{{< example html >}}
-<div class="d-grid gap-3">
-  <div class="p-2 bg-light border">Grid item 1</div>
-  <div class="p-2 bg-light border">Grid item 2</div>
-  <div class="p-2 bg-light border">Grid item 3</div>
+{{< example class="docs-example-cssgrid" >}}
+<div class="grid gap-3">
+  <div class="p-2 g-col-6">Grid item 1</div>
+  <div class="p-2 g-col-6">Grid item 2</div>
+  <div class="p-2 g-col-6">Grid item 3</div>
+  <div class="p-2 g-col-6">Grid item 4</div>
 </div>
 {{< /example >}}
 
 Support includes responsive options for all of CoreUI's grid breakpoints, as well as six sizes from the `$spacers` map (`0`–`5`). There is no `.gap-auto` utility class as it's effectively the same as `.gap-0`.
+
+### row-gap
+
+`row-gap` sets the vertical space between children items in the specified container.
+
+{{< example class="docs-example-cssgrid" >}}
+<div class="grid gap-0 row-gap-3">
+  <div class="p-2 g-col-6">Grid item 1</div>
+  <div class="p-2 g-col-6">Grid item 2</div>
+  <div class="p-2 g-col-6">Grid item 3</div>
+  <div class="p-2 g-col-6">Grid item 4</div>
+</div>
+{{< /example >}}
+
+### column-gap
+
+`column-gap` sets the horizontal space between children items in the specified container.
+
+{{< example class="docs-example-cssgrid" >}}
+<div class="grid gap-0 column-gap-3">
+  <div class="p-2 g-col-6">Grid item 1</div>
+  <div class="p-2 g-col-6">Grid item 2</div>
+  <div class="p-2 g-col-6">Grid item 3</div>
+  <div class="p-2 g-col-6">Grid item 4</div>
+</div>
+{{< /example >}}
 
 ## Sass
 

@@ -149,21 +149,21 @@ Alternatively, of implementing button sizing classes to each button in a group, 
 
 {{< example >}}
 <div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
-  <button type="button" class="btn btn-outline-dark">Left</button>
-  <button type="button" class="btn btn-outline-dark">Middle</button>
-  <button type="button" class="btn btn-outline-dark">Right</button>
+  <button type="button" class="btn btn-outline-primary">Left</button>
+  <button type="button" class="btn btn-outline-primary">Middle</button>
+  <button type="button" class="btn btn-outline-primary">Right</button>
 </div>
 <br>
 <div class="btn-group" role="group" aria-label="Default button group">
-  <button type="button" class="btn btn-outline-dark">Left</button>
-  <button type="button" class="btn btn-outline-dark">Middle</button>
-  <button type="button" class="btn btn-outline-dark">Right</button>
+  <button type="button" class="btn btn-outline-primary">Left</button>
+  <button type="button" class="btn btn-outline-primary">Middle</button>
+  <button type="button" class="btn btn-outline-primary">Right</button>
 </div>
 <br>
 <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
-  <button type="button" class="btn btn-outline-dark">Left</button>
-  <button type="button" class="btn btn-outline-dark">Middle</button>
-  <button type="button" class="btn btn-outline-dark">Right</button>
+  <button type="button" class="btn btn-outline-primary">Left</button>
+  <button type="button" class="btn btn-outline-primary">Middle</button>
+  <button type="button" class="btn btn-outline-primary">Right</button>
 </div>
 {{< /example >}}
 
@@ -195,12 +195,10 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
 {{< example >}}
 <div class="docs-example">
   <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-    <button type="button" class="btn btn-dark">Button</button>
-    <button type="button" class="btn btn-dark">Button</button>
-    <button type="button" class="btn btn-dark">Button</button>
-    <button type="button" class="btn btn-dark">Button</button>
-    <button type="button" class="btn btn-dark">Button</button>
-    <button type="button" class="btn btn-dark">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
+    <button type="button" class="btn btn-primary">Button</button>
   </div>
 </div>
 {{< /example >}}
@@ -219,9 +217,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
         <li><a class="dropdown-item" href="#">Dropdown link</a></li>
       </ul>
     </div>
-    <button type="button" class="btn btn-primary">Button</button>
-    <button type="button" class="btn btn-primary">Button</button>
-    <div class="btn-group" role="group">
+    <div class="btn-group dropstart" role="group">
       <button id="btnGroupVerticalDrop2" type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
         Dropdown
       </button>
@@ -230,7 +226,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
         <li><a class="dropdown-item" href="#">Dropdown link</a></li>
       </ul>
     </div>
-    <div class="btn-group" role="group">
+    <div class="btn-group dropend" role="group">
       <button id="btnGroupVerticalDrop3" type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
         Dropdown
       </button>
@@ -239,7 +235,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
         <li><a class="dropdown-item" href="#">Dropdown link</a></li>
       </ul>
     </div>
-    <div class="btn-group" role="group">
+    <div class="btn-group dropup" role="group">
       <button id="btnGroupVerticalDrop4" type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
         Dropdown
       </button>

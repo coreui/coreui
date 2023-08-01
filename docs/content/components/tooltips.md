@@ -22,16 +22,18 @@ Things to know when using the tooltip plugin:
 - Tooltips can be triggered thanks to an element inside a shadow DOM.
 
 {{< callout info >}}
-{{< partial "callout-info-sanitizer.md" >}}
+{{< partial "callouts/info-sanitizer.md" >}}
 {{< /callout >}}
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 Got all that? Great, let's see how they work with some examples.
 
-## Example: Enable tooltips everywhere
+## Examples
+
+### Enable tooltips
 
 One way to initialize all tooltips on a page would be to select them by their `data-coreui-toggle` attribute:
 
@@ -40,7 +42,7 @@ const tooltipTriggerList = document.querySelectorAll('[data-coreui-toggle="toolt
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new coreui.Tooltip(tooltipTriggerEl))
 ```
 
-## Examples
+### Tooltips on links
 
 Hover over the links below to see tooltips:
 
@@ -48,6 +50,30 @@ Hover over the links below to see tooltips:
   <p class="muted">Placeholder text to demonstrate some <a href="#" data-coreui-toggle="tooltip" title="Default tooltip">inline links</a> with tooltips. This is now just filler, no killer. Content placed here just to mimic the presence of <a href="#" data-coreui-toggle="tooltip" title="Another tooltip">real text</a>. And all that just to give you an idea of how tooltips would look when used in real-world situations. So hopefully you've now seen how <a href="#" data-coreui-toggle="tooltip" title="Another one here too">these tooltips on links</a> can work in practice, once you use them on <a href="#" data-coreui-toggle="tooltip" title="The last tip!">your own</a> site or project.
   </p>
 </div>
+
+{{< callout warning >}}
+{{< partial "callouts/warning-data-bs-title-vs-title.md" >}}
+{{< /callout >}}
+
+### Custom tooltips
+
+{{< added-in "4.2.0" >}}
+
+You can customize the appearance of tooltips using [CSS variables](#variables). We set a custom class with `data-coreui-custom-class="custom-tooltip"` to scope our custom appearance and use it to override a local CSS variable.
+
+{{< scss-docs name="custom-tooltip" file="docs/assets/scss/_component-examples.scss" >}}
+
+
+{{< example class="tooltip-demo" stackblitz_add_js="true" >}}
+<button type="button" class="btn btn-secondary"
+        data-coreui-toggle="tooltip" data-coreui-placement="top"
+        data-coreui-custom-class="custom-tooltip"
+        data-coreui-title="This top tooltip is themed via CSS variables.">
+  Custom tooltip
+</button>
+{{< /example >}}
+
+### Directions
 
 Hover over the buttons below to see the four tooltips directions: top, right, bottom, and left. Directions are mirrored when using CoreUI in RTL.
 
@@ -133,7 +159,7 @@ You should only add tooltips to HTML elements that are traditionally keyboard-fo
 <a href="#" data-coreui-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
 
 <!-- Generated markup by the plugin -->
-<div class="tooltip bs-tooltip-top" role="tooltip">
+<div class="tooltip bs-tooltip-auto" role="tooltip">
   <div class="tooltip-arrow"></div>
   <div class="tooltip-inner">
     Some tooltip text!
@@ -207,7 +233,7 @@ const tooltip = new coreui.Tooltip(element, {
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 {{< bs-table "table" >}}

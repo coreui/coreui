@@ -22,12 +22,12 @@ Callout component is prepared for any length of text, as well as an optional ele
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Callouts use local CSS variables on `.callout` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

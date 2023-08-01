@@ -23,11 +23,11 @@ Things to know when using the popover plugin:
 - Popovers can be triggered thanks to an element inside a shadow DOM.
 
 {{< callout info >}}
-{{< partial "callout-info-sanitizer.md" >}}
+{{< partial "callouts/info-sanitizer.md" >}}
 {{< /callout >}}
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 Keep reading to see how popovers work with some examples.
@@ -42,8 +42,13 @@ One way to initialize all popovers on a page would be to select them by their `d
 const popoverTriggerList = document.querySelectorAll('[data-coreui-toggle="popover"]')
 const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new coreui.Popover(popoverTriggerEl))
 ```
-
 ### Live demo
+
+We use JavaScript similar to the snippet above to render the following live popover. Titles are set via `data-coreui-title` and body content is set via `data-coreui-content`.
+
+{{< callout warning >}}
+{{< partial "callouts/warning-data-bs-title-vs-title.md" >}}
+{{< /callout >}}
 
 {{< example >}}
 <button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
@@ -80,7 +85,7 @@ const popover = new coreui.Popover(document.querySelector('.example-popover'), {
 
 ### Custom popovers
 
-<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.6</small>
+{{< added-in "4.2.6" >}}
 
 You can customize the appearance of popovers using [CSS variables](#variables). We set a custom class with `data-coreui-custom-class="custom-popover"` to scope our custom appearance and use it to override some of the local CSS variables.
 {{< scss-docs name="custom-popovers" file="docs/assets/scss/_component-examples.scss" >}}
@@ -197,7 +202,7 @@ const popover = new coreui.Popover(element, {
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 {{< bs-table "table" >}}

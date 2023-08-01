@@ -28,8 +28,6 @@ Aligning the figure's caption is easy with our [text utilities]({{< docsref "/ut
 
 ## Customization
 
-### SASS
-
-#### Variables
+### SASS variables
 
 {{< scss-docs name="figure-variables" file="scss/_variables.scss" >}}

@@ -43,3 +43,11 @@ They can also be used in [stacks]({{< docsref "/helpers/stacks" >}}):
   <div class="bg-light border">Third item</div>
 </div>
 {{< /example >}}
+
+## Customizing
+
+### SASS variables
+
+Customize the vertical rule Sass variable to change its width.
+
+{{< scss-docs name="vr-variables" file="scss/_variables.scss" >}}

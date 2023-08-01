@@ -12,7 +12,22 @@ bootstrap: true
 other_frameworks: button
 ---
 
-## Examples
+## Base class
+
+CoreUI has a base `.btn` class that sets up basic styles such as padding and content alignment. By default, `.btn` controls have a transparent border and background color, and lack any explicit focus and hover styles.
+
+{{< example >}}
+<button type="button" class="btn">Base class</button>
+{{< /example >}}
+
+The `.btn` class is intended to be used in conjunction with our button variants, or to serve as a basis for your own custom styles.
+
+{{< callout warning >}}
+If you are using the `.btn` class on its own, remember to at least define some explicit `:focus` and/or `:focus-visible` styles.
+{{< /callout >}}
+
+## Variants
+
 
 CoreUI includes a bunch of predefined Bootstrap buttons, each serving its own semantic purpose. CoreUI also offers some unique buttons styles.
 
@@ -29,7 +44,7 @@ Buttons show what action will happen when the user clicks or touches it. Bootstr
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ### With icons
@@ -39,7 +54,7 @@ You can combine button with our [CoreUI Icons](https://icons.coreui.io/).
 {{< example >}}
 {{< buttons.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
-<button type="button" class="btn btn-{{ .name }}"><span class="cil-contrast btn-icon mr-2"></span> {{ .name | title }}</button>
+<button type="button" class="btn btn-{{ .name }}"><span class="cil-contrast"></span> {{ .name | title }}</button>
 {{- end -}}
 {{< /buttons.inline >}}
 
@@ -105,6 +120,16 @@ Larger or smaller buttons? Add `.btn-lg` or `.btn-sm` for additional sizes.
 <button type="button" class="btn btn-primary btn-sm">Small button</button>
 <button type="button" class="btn btn-secondary btn-sm">Small button</button>
 {{< /example >}}
+
+You can even roll your own custom sizing with CSS variables:
+
+{{< example >}}
+<button type="button" class="btn btn-primary"
+        style="--cui-btn-padding-y: .25rem; --cui-btn-padding-x: .5rem; --cui-btn-font-size: .75rem;">
+  Custom button
+</button>
+{{< /example >}}
+
 
 ## Shapes
 
@@ -210,15 +235,29 @@ Visually, these toggle buttons are identical to the [checkbox toggle buttons]({{
 Add `data-coreui-toggle="button"` to toggle a button's `active` state. If you're pre-toggling a button, you must manually add the `.active` class **and** `aria-pressed="true"` to the `<button>`.
 
 {{< example >}}
-<button type="button" class="btn btn-primary" data-coreui-toggle="button" autocomplete="off">Toggle button</button>
-<button type="button" class="btn btn-primary active" data-coreui-toggle="button" autocomplete="off" aria-pressed="true">Active toggle button</button>
-<button type="button" class="btn btn-primary" disabled data-coreui-toggle="button" autocomplete="off">Disabled toggle button</button>
+<p class="d-inline-flex gap-1">
+  <button type="button" class="btn" data-coreui-toggle="button">Toggle button</button>
+  <button type="button" class="btn active" data-coreui-toggle="button" aria-pressed="true">Active toggle button</button>
+  <button type="button" class="btn" disabled data-coreui-toggle="button">Disabled toggle button</button>
+</p>
+<p class="d-inline-flex gap-1">
+  <button type="button" class="btn btn-primary" data-coreui-toggle="button">Toggle button</button>
+  <button type="button" class="btn btn-primary active" data-coreui-toggle="button" aria-pressed="true">Active toggle button</button>
+  <button type="button" class="btn btn-primary" disabled data-coreui-toggle="button">Disabled toggle button</button>
+</p>
 {{< /example >}}
 
 {{< example >}}
-<a href="#" class="btn btn-primary" role="button" data-coreui-toggle="button">Toggle link</a>
-<a href="#" class="btn btn-primary active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
-<a href="#" class="btn btn-primary disabled" tabindex="-1" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+<p class="d-inline-flex gap-1">
+  <a href="#" class="btn" role="button" data-coreui-toggle="button">Toggle link</a>
+  <a href="#" class="btn active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
+  <a class="btn disabled" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+</p>
+<p class="d-inline-flex gap-1">
+  <a href="#" class="btn btn-primary" role="button" data-coreui-toggle="button">Toggle link</a>
+  <a href="#" class="btn btn-primary active" role="button" data-coreui-toggle="button" aria-pressed="true">Active toggle link</a>
+  <a class="btn btn-primary disabled" aria-disabled="true" role="button" data-coreui-toggle="button">Disabled toggle link</a>
+</p>
 {{< /example >}}
 
 ### Methods
@@ -257,6 +296,13 @@ Buttons use local CSS variables on `.btn` for enhanced real-time customization. 
 
 Each `.btn-*` modifier class updates the appropriate CSS variables to minimize additional CSS rules with our `button-variant()`, `button-outline-variant()`, and `button-size()` mixins.
 
+Here's an example of building a custom `.btn-*` modifier class like we do for the buttons unique to our docs by reassigning Bootstrap's CSS variables with a mixture of our own CSS and Sass variables.
+
+<div class="docs-example">
+  <button type="button" class="btn btn-cd-primary">Custom button</button>
+</div>
+
+{{< scss-docs name="btn-css-vars-example" file="docs/assets/scss/_buttons.scss" >}}
 
 ### SASS variables
 

@@ -26,6 +26,7 @@ Where *value* is one of:
 - `inline-block`
 - `block`
 - `grid`
+- `inline-grid`
 - `table`
 - `table-cell`
 - `table-row`
@@ -64,8 +65,8 @@ To show an element only on a given interval of screen sizes you can combine one 
 | Hidden only on sm | `.d-sm-none .d-md-block` |
 | Hidden only on md | `.d-md-none .d-lg-block` |
 | Hidden only on lg | `.d-lg-none .d-xl-block` |
-| Hidden only on xl | `.d-xl-none` |
-| Hidden only on xxl | `.d-xxl-none .d-xxl-block` |
+| Hidden only on xl | `.d-xl-none .d-xxl-block` |
+| Hidden only on xxl | `.d-xxl-none` |
 | Visible on all | `.d-block` |
 | Visible only on xs | `.d-block .d-sm-none` |
 | Visible only on sm | `.d-none .d-sm-block .d-md-none` |
@@ -89,6 +90,7 @@ Change the `display` value of elements when printing with our print display util
 - `.d-print-inline-block`
 - `.d-print-block`
 - `.d-print-grid`
+- `.d-print-inline-grid`
 - `.d-print-table`
 - `.d-print-table-row`
 - `.d-print-table-cell`

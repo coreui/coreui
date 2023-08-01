@@ -269,9 +269,7 @@ In CoreUI 4 for Bootstrap, we've enabled responsive font sizes by default, allow
 
 ## Customization
 
-### SASS
-
-#### Variables
+### SASS variables
 
 Headings have some dedicated variables for sizing and spacing.
 
@@ -281,6 +279,6 @@ Miscellaneous typography elements covered here and in [Reboot]({{< docsref "/con
 
 {{< scss-docs name="type-variables" file="scss/_variables.scss" >}}
 
-#### Mixins
+### SASS Mixins
 
 There are no dedicated mixins for typography, but Bootstrap does use [Responsive Font Sizing (RFS)]({{< docsref "/getting-started/rfs" >}}).

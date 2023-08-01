@@ -164,7 +164,7 @@ Importing CoreUI into Webpack requires the loaders we installed in the first sec
                loader: 'postcss-loader',
                options: {
                  postcssOptions: {
-                   plugins: () => [
+                   plugins: [
                      require('autoprefixer')
                    ]
                  }

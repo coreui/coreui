@@ -28,6 +28,20 @@ Here are the variables we include (note that the `:root` is required) that can b
 {{< /root.inline >}}
 ```
 
+## Focus variables
+
+{{< added-in "4.3.0" >}}
+
+Bootstrap provides custom `:focus` styles using a combination of Sass and CSS variables that can be optionally added to specific components and elements. We do not yet globally override all `:focus` styles.
+
+In our Sass, we set default values that can be customized before compiling.
+
+{{< scss-docs name="focus-ring-variables" file="scss/_variables.scss" >}}
+
+Those variables are then reassigned to `:root` level CSS variables that can be customized in real-time, including with options for `x` and `y` offsets (which default to their fallback value of `0`).
+
+{{< scss-docs name="root-focus-variables" file="scss/_root.scss" >}}
+
 ## Component variables
 
 CoreUI is increasingly making use of custom properties as local variables for various components. This way we reduce our compiled CSS, ensure styles aren't inherited in places like nested tables, and allow some basic restyling and extending of Bootstrap components after Sass compilation.

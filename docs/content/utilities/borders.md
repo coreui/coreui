@@ -155,6 +155,14 @@ Add classes to an element to easily round its corners.
 {{< placeholder width="150" height="75" class="rounded-pill" title="Rounded pill image" >}}
 {{< /example >}}
 
+{{< example class="docs-example-rounded-utils" >}}
+{{< placeholder width="75" height="75" class="rounded-bottom-1" title="Example small rounded image" >}}
+{{< placeholder width="75" height="75" class="rounded-start-2" title="Example default left rounded image" >}}
+{{< placeholder width="75" height="75" class="rounded-end-circle" title="Example right completely round image" >}}
+{{< placeholder width="75" height="75" class="rounded-start-pill" title="Example left rounded pill image" >}}
+{{< placeholder width="75" height="75" class="rounded-5 rounded-top-0" title="Example extra large bottom rounded image" >}}
+{{< /example >}}
+
 ### Sizes
 
 Use the scaling classes for larger or smaller rounded corners. Sizes range from `0` to `5`, and can be configured by modifying the utilities API.
@@ -168,9 +176,9 @@ Use the scaling classes for larger or smaller rounded corners. Sizes range from 
 {{< placeholder width="75" height="75" class="rounded-5" title="Example extra large rounded image" >}}
 {{< /example >}}
 
-## CSS
+## Customizing
 
-### Variables
+### CSS variables
 
 {{< scss-docs name="root-border-var" file="scss/_root.scss" >}}
 

@@ -32,7 +32,7 @@ myModal.addEventListener('shown.coreui.modal', () => {
 ```
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 Keep reading for demos and usage guidelines.
@@ -43,7 +43,7 @@ Keep reading for demos and usage guidelines.
 
 Below is a _static_ modal example (meaning its `position` and `display` have been overridden). Included are the modal header, modal body (required for `padding`), and modal footer (optional). We ask that you include modal headers with dismiss actions whenever possible, or provide another explicit dismiss action.
 
-<div class="docs-example bg-light">
+<div class="docs-example bg-body-tertiary">
   <div class="modal position-static d-block" tabindex="-1">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -330,7 +330,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
       </div>
       <div class="modal-body">
         <h5>Popover in a modal</h5>
-        <p>This <a href="#" role="button" class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute." data-coreui-container="#exampleModalPopovers">button</a> triggers a popover on click.</p>
+        <p>This <button class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute." data-coreui-container="#exampleModalPopovers">button</button> triggers a popover on click.</p>
         <hr>
         <h5>Tooltips in a modal</h5>
         <p><a href="#" data-coreui-toggle="tooltip" title="Tooltip" data-coreui-container="#exampleModalPopovers">This link</a> and <a href="#" data-coreui-toggle="tooltip" title="Tooltip" data-coreui-container="#exampleModalPopovers">that link</a> have tooltips on hover.</p>
@@ -352,7 +352,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
 ```html
 <div class="modal-body">
   <h5>Popover in a modal</h5>
-  <p>This <a href="#" role="button" class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute.">button</a> triggers a popover on click.</p>
+  <p>This <button class="btn btn-secondary" data-coreui-toggle="popover" title="Popover title" data-coreui-content="Popover body content is set in this attribute.">button</button> triggers a popover on click.</p>
   <hr>
   <h5>Tooltips in a modal</h5>
   <p><a href="#" data-coreui-toggle="tooltip" title="Tooltip">This link</a> and <a href="#" data-coreui-toggle="tooltip" title="Tooltip">that link</a> have tooltips on hover.</p>
@@ -482,24 +482,8 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
 </div>
 {{< /example >}}
 
-```js
-const exampleModal = document.getElementById('exampleModal')
-exampleModal.addEventListener('show.coreui.modal', event => {
-  // Button that triggered the modal
-  const button = event.relatedTarget
-  // Extract info from data-coreui-* attributes
-  const recipient = button.getAttribute('data-coreui-whatever')
-  // If necessary, you could initiate an AJAX request here
-  // and then do the updating in a callback.
-  //
-  // Update the modal's content.
-  const modalTitle = exampleModal.querySelector('.modal-title')
-  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+{{< js-docs name="varying-modal-content" file="docs/assets/js/snippets.js" >}}
 
-  modalTitle.textContent = `New message to ${recipient}`
-  modalBodyInput.value = recipient
-})
-```
 
 ### Toggle between modals
 
@@ -538,7 +522,7 @@ Toggle between multiple modals with some clever placement of the `data-coreui-ta
     </div>
   </div>
 </div>
-<a class="btn btn-primary" data-coreui-toggle="modal" href="#exampleModalToggle" role="button">Open first modal</a>
+<button class="btn btn-primary" data-coreui-target="#exampleModalToggle" data-coreui-toggle="modal">Open first modal</button>
 {{< /example >}}
 
 ### Change animation
@@ -577,7 +561,7 @@ Modals have three optional sizes, available via modifier classes to be placed on
 | Size | Class | Modal max-width
 | --- | --- | --- |
 | Small | `.modal-sm` | `300px` |
-| Default | <span class="text-muted">None</span> | `500px` |
+| Default | <span class="text-body-secondary">None</span> | `500px` |
 | Large | `.modal-lg` | `800px` |
 | Extra large | `.modal-xl` | `1140px` |
 {{< /bs-table >}}
@@ -644,7 +628,7 @@ Another override is the option to pop up a modal that covers the user viewport, 
 
 {{< bs-table >}}
 | Class | Availability |
-| --- | --- | --- |
+| --- | --- |
 | `.modal-fullscreen` | Always |
 | `.modal-fullscreen-sm-down` | `576px` |
 | `.modal-fullscreen-md-down` | `768px` |
@@ -820,7 +804,7 @@ const myModalAlternative = new coreui.Modal('#myModal', options)
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 #### Passing options

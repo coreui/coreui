@@ -67,7 +67,7 @@ Be sure to **not use the standard `.btn` classes here**.
   <a href="#" class="list-group-item list-group-item-action">A second link item</a>
   <a href="#" class="list-group-item list-group-item-action">A third link item</a>
   <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
-  <a class="list-group-item list-group-item-action disabled">A disabled link item</a>
+  <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
 </div>
 {{< /example >}}
 
@@ -188,7 +188,7 @@ Contextual classes also work with `.list-group-item-action`. Note the addition o
 {{< /example >}}
 
 {{< callout info >}}
-{{< partial "callout-warning-color-assistive-technologies.md" >}}
+{{< partial "callouts/warning-color-assistive-technologies.md" >}}
 {{< /callout >}}
 
 ## With badges
@@ -423,7 +423,7 @@ To make tabs panel fade in, add `.fade` to each `.tab-pane`. The first tab pane 
 #### constructor
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 Activates your content as a tab element.
@@ -464,7 +464,7 @@ If no tab was already active, the `hide.coreui.tab` and `hidden.coreui.tab` even
 {{< /bs-table >}}
 
 ```js
-const tabElms = document.querySelectorAll('a[data-cui-toggle="list"]')
+const tabElms = document.querySelectorAll('a[data-coreui-toggle="list"]')
 tabElms.forEach(tabElm => {
   tabElm.addEventListener('shown.coreui.tab', event => {
     event.target // newly activated tab
@@ -475,7 +475,7 @@ tabElms.forEach(tabElm => {
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 List groups use local CSS variables on `.list-group` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
@@ -485,39 +485,9 @@ List groups use local CSS variables on `.list-group` for enhanced real-time cust
 
 {{< scss-docs name="list-group-variables" file="scss/_variables.scss" >}}
 
-### SASS variants
-
-CoreUI allows defining variant colors in two ways.
-
-#### Manual
-
-You can define each color manually and keep full control of the component appearance.
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": (
-    "background": $your-bg-color,
-    "background-hover": $your-bg-hover-color,
-    "color": $your-color
-  )
-  ...
-);
-{{< /highlight >}}
-
-#### Color function
-
-The color set can be generated automatically thanks to our `list-group-color-map` function.
-
-{{< scss-docs name="list-group-color-functions" file="scss/_functions.scss" >}}
-
-{{< highlight scss >}}
-$alert-variants: (
-  "primary": alert-color-map($primary),
-  ...
-);
-{{< /highlight >}}
-
 ### SASS mixins
+
+{{< deprecated-in "4.3.0" >}}
 
 Used in combination with `$theme-colors` to generate the [contextual variant classes](#contextual-classes) for `.list-group-item`s.
 

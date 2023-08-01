@@ -32,7 +32,7 @@ To convey the active state to assistive technologies, use the `aria-current` att
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -44,7 +44,7 @@ Classes are used throughout, so your markup can be super flexible. Use `<ul>`s l
   <a class="nav-link active" aria-current="page" href="#">Active</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled">Disabled</a>
+  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 </nav>
 {{< /example >}}
 
@@ -54,7 +54,7 @@ Change the style of `.nav`s component with modifiers and utilities. Mix and matc
 
 ### Horizontal alignment
 
-Change the horizontal alignment of your nav with [flexbox utilities]({{< docsref "/layout/grid#horizontal-alignment" >}}). By default, navs are left-aligned, but you can easily change them to center or right aligned.
+Change the horizontal alignment of your nav with [flexbox utilities]({{< docsref "/utilities/flex#horizontal-alignment" >}}). By default, navs are left-aligned, but you can easily change them to center or right aligned.
 
 Centered with `.justify-content-center`:
 
@@ -70,7 +70,7 @@ Centered with `.justify-content-center`:
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -89,7 +89,7 @@ Right-aligned with `.justify-content-end`:
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -110,7 +110,7 @@ Stack your navigation by changing the flex item direction with the `.flex-column
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -122,7 +122,7 @@ As always, vertical navigation is possible without `<ul>`s, too.
   <a class="nav-link active" aria-current="page" href="#">Active</a>
   <a class="nav-link" href="#">Link</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled">Disabled</a>
+  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 </nav>
 {{< /example >}}
 
@@ -142,7 +142,7 @@ Takes the basic nav from above and adds the `.nav-tabs` class to generate a tabb
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -163,7 +163,7 @@ Take that same HTML, but use `.nav-pills` instead:
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -184,7 +184,7 @@ Force your `.nav`'s contents to extend the full available width one of two modif
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -196,7 +196,7 @@ When using a `<nav>`-based navigation, you can safely omit `.nav-item` as only `
   <a class="nav-link active" aria-current="page" href="#">Active</a>
   <a class="nav-link" href="#">Much longer nav link</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled">Disabled</a>
+  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 </nav>
 {{< /example >}}
 
@@ -214,7 +214,7 @@ For equal-width elements, use `.nav-justified`. All horizontal space will be occ
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -226,7 +226,7 @@ Similar to the `.nav-fill` example using a `<nav>`-based navigation.
   <a class="nav-link active" aria-current="page" href="#">Active</a>
   <a class="nav-link" href="#">Much longer nav link</a>
   <a class="nav-link" href="#">Link</a>
-  <a class="nav-link disabled">Disabled</a>
+  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
 </nav>
 
 {{< /example >}}
@@ -239,7 +239,7 @@ If you need responsive nav variations, consider using a series of [flexbox utili
   <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
   <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
-  <a class="flex-sm-fill text-sm-center nav-link disabled">Disabled</a>
+  <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>
 </nav>
 {{< /example >}}
 
@@ -274,7 +274,7 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -300,7 +300,7 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
     <a class="nav-link" href="#">Link</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link disabled">Disabled</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
   </li>
 </ul>
 {{< /example >}}
@@ -417,7 +417,7 @@ The tabs plugin also works with pills.
       <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-disabled-tab" data-cui-toggle="pill" data-cui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+      <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
@@ -448,7 +448,7 @@ The tabs plugin also works with pills.
     <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-disabled-tab" data-cui-toggle="pill" data-cui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+    <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -570,7 +570,7 @@ triggerTabList.forEach(triggerEl => {
 You can activate individual tabs in several ways:
 
 ```js
-const triggerEl = document.querySelector('#myTab button[data-cui-target="#profile"]')
+const triggerEl = document.querySelector('#myTab button[data-coreui-target="#profile"]')
 coreui.Tab.getInstance(triggerEl).show() // Select tab by name
 
 const triggerFirstTabEl = document.querySelector('#myTab li:first-child button')
@@ -593,7 +593,7 @@ To make tabs fade in, add `.fade` to each `.tab-pane`. The first tab pane must a
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 #### constructor
@@ -634,7 +634,7 @@ If no tab was already active, then the `hide.coreui.tab` and `hidden.coreui.tab`
 {{< /bs-table >}}
 
 ```js
-const tabEl = document.querySelector('button[data-cui-toggle="tab"]')
+const tabEl = document.querySelector('button[data-coreui-toggle="tab"]')
 tabEl.addEventListener('shown.coreui.tab', event => {
   event.target // newly activated tab
   event.relatedTarget // previous active tab
@@ -643,7 +643,7 @@ tabEl.addEventListener('shown.coreui.tab', event => {
 
 ## Customizing
 
-### CSS Variables
+### CSS variables
 
 Navs use local CSS variables on `.nav`, `.nav-tabs`, and `.nav-pills` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 

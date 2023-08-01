@@ -19,7 +19,7 @@ Offcanvas is a sidebar component that can be toggled via JavaScript to appear fr
 **Heads up!** Given how CSS handles animations, you cannot use `margin` or `translate` on an `.offcanvas` element. Instead, use the class as an independent wrapping element.
 
 {{< callout info >}}
-{{< partial "callout-info-prefersreducedmotion.md" >}}
+{{< partial "callouts/info-prefersreducedmotion.md" >}}
 {{< /callout >}}
 
 ## Examples
@@ -140,7 +140,7 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
 
 ## Dark offcanvas
 
-<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.6</small>
+{{< added-in "4.2.6" >}}
 
 Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
 
@@ -158,7 +158,7 @@ Change the appearance of offcanvases with utilities to better match them to diff
 
 ## Responsive
 
-<small class="d-inline-flex px-2 py-1 fw-semibold text-success bg-success bg-opacity-10 rounded-2">Added in v4.2.6</small>
+{{< added-in "4.2.6" >}}
 
 Responsive offcanvas classes hide content outside the viewport from a specified breakpoint and down. Above that breakpoint, the contents within will behave as usual. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but shows the content above the `lg` breakpoint.
 
@@ -295,7 +295,7 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new coreui.Of
 ### Methods
 
 {{< callout danger >}}
-{{< partial "callout-danger-async-methods.md" >}}
+{{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
 Activates your content as an offcanvas element. Accepts an optional options `object`.
@@ -339,7 +339,7 @@ myOffcanvas.addEventListener('hidden.coreui.offcanvas', event => {
 
 ## Customization
 
-### CSS Variables
+### CSS variables
 
 Offcanvas uses local CSS variables on `.offcanvas` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
