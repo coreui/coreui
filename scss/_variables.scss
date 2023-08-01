@@ -1303,28 +1303,29 @@ $navbar-toggler-font-size:          $font-size-lg !default;
 $navbar-toggler-border-radius:      $btn-border-radius !default;
 $navbar-toggler-focus-width:        $btn-focus-width !default;
 $navbar-toggler-transition:         box-shadow .15s ease-in-out !default;
+
+$navbar-light-color:                rgba(var(--#{$prefix}emphasis-color-rgb), .65) !default;
+$navbar-light-hover-color:          rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
+$navbar-light-active-color:         rgba(var(--#{$prefix}emphasis-color-rgb), 1) !default;
+$navbar-light-disabled-color:       rgba(var(--#{$prefix}emphasis-color-rgb), .3) !default;
+$navbar-light-icon-color:           rgba($body-color, .75) !default;
+$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-light-toggler-border-color: rgba(var(--#{$prefix}emphasis-color-rgb), .15) !default;
+$navbar-light-brand-color:          $navbar-light-active-color !default;
+$navbar-light-brand-hover-color:    $navbar-light-active-color !default;
 // scss-docs-end navbar-variables
 
-// scss-docs-start navbar-theme-variables
-$navbar-dark-color:                 $medium-emphasis-inverse !default;
-$navbar-dark-hover-color:           $high-emphasis-inverse !default;
-$navbar-dark-active-color:          $high-emphasis-inverse !default;
-$navbar-dark-disabled-color:        $disabled-inverse !default;
-$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
-$navbar-dark-toggler-border-color:  rgba($white, .1) !default;
-
-$navbar-light-color:                $medium-emphasis !default;
-$navbar-light-hover-color:          $high-emphasis !default;
-$navbar-light-active-color:         $high-emphasis !default;
-$navbar-light-disabled-color:       $disabled !default;
-$navbar-light-toggler-icon-bg:      url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-light-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
-$navbar-light-toggler-border-color: rgba($black, .1) !default;
-
-$navbar-light-brand-color:                $navbar-light-active-color !default;
-$navbar-light-brand-hover-color:          $navbar-light-active-color !default;
-$navbar-dark-brand-color:                 $navbar-dark-active-color !default;
-$navbar-dark-brand-hover-color:           $navbar-dark-active-color !default;
-// scss-docs-end navbar-theme-variables
+// scss-docs-start navbar-dark-variables
+$navbar-dark-color:                 rgba($white, .55) !default;
+$navbar-dark-hover-color:           rgba($white, .75) !default;
+$navbar-dark-active-color:          $white !default;
+$navbar-dark-disabled-color:        rgba($white, .25) !default;
+$navbar-dark-icon-color:            $navbar-dark-color !default;
+$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-icon-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
+$navbar-dark-toggler-border-color:  rgba($white, .1) !default;$navbar-dark-toggler-border-color:  rgba($white, .1) !default;
+$navbar-dark-brand-color:           $navbar-dark-active-color !default;
+$navbar-dark-brand-hover-color:     $navbar-dark-active-color !default;
+// scss-docs-end navbar-dark-variables
 
 
 // Dropdowns
@@ -1461,11 +1462,11 @@ $card-group-margin:                 $grid-gutter-width * .5 !default;
 // scss-docs-start accordion-variables
 $accordion-padding-y:                     1rem !default;
 $accordion-padding-x:                     1.25rem !default;
-$accordion-color:                         $body-color !default; // Sass variable because of $accordion-button-icon
-$accordion-bg:                            $body-bg !default;
-$accordion-border-width:                  $border-width !default;
+$accordion-color:                         var(--#{$prefix}body-color) !default;
+$accordion-bg:                            var(--#{$prefix}body-bg) !default;
+$accordion-border-width:                  var(--#{$prefix}border-width) !default;
 $accordion-border-color:                  var(--#{$prefix}border-color) !default;
-$accordion-border-radius:                 $border-radius !default;
+$accordion-border-radius:                 var(--#{$prefix}border-radius) !default;
 $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
@@ -1473,7 +1474,7 @@ $accordion-body-padding-x:                $accordion-padding-x !default;
 
 $accordion-button-padding-y:              $accordion-padding-y !default;
 $accordion-button-padding-x:              $accordion-padding-x !default;
-$accordion-button-color:                  $accordion-color !default;
+$accordion-button-color:                  var(--#{$prefix}body-color) !default;
 $accordion-button-bg:                     var(--#{$prefix}accordion-bg) !default;
 $accordion-transition:                    $btn-transition, border-radius .15s ease !default;
 $accordion-button-active-bg:              tint-color($component-active-bg, 90%) !default;
@@ -1549,7 +1550,7 @@ $popover-arrow-height:              .5rem !default;
 // scss-docs-end popover-variables
 
 // fusv-disable
-// Deprecated in Bootstrap 5.2.0 for CSS variables
+// Deprecated in 4.2.0 for CSS variables
 $popover-arrow-color:               $popover-bg !default;
 $popover-arrow-outer-color:         var(--#{$prefix}border-color-translucent) !default;
 // fusv-enable
@@ -1788,8 +1789,10 @@ $header-toggler-bg:             transparent !default;
 $header-toggler-border-radius:  $btn-border-radius !default;
 $header-toggler-hover-color:    rgba(var(--#{$prefix}emphasis-color-rgb), 1) !default;
 
-$header-toggler-icon-bg:        url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
-$header-toggler-hover-icon-bg:  url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='currentColor' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
+$header-toggler-icon-color:        currentColor !default; // stylelint-disable-line value-keyword-case
+$header-toggler-icon-bg:           url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-toggler-icon-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
+$header-toggler-hover-icon-color:  currentColor !default; // stylelint-disable-line value-keyword-case
+$header-toggler-hover-icon-bg:     url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$header-toggler-hover-icon-color}' stroke-width='2.25' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !default;
 
 $header-nav-link-padding-x:     .5rem !default;
 $header-nav-link-padding-y:     .5rem !default;
@@ -1990,7 +1993,7 @@ $sidebar-toggler-indicator-hover-icon:     url("data:image/svg+xml;charset=utf8,
 $footer-min-height:    3rem !default;
 $footer-padding-y:     $spacer * .5 !default;
 $footer-padding-x:     $spacer !default;
-$footer-bg:            $gray-100 !default;
+$footer-bg:            var(--#{$prefix}tertiary-bg) !default;
 $footer-color:         var(--#{$prefix}body-color) !default;
 $footer-border-width:  var(--#{$prefix}border-width) !default;
 $footer-border-color:  var(--#{$prefix}border-color) !default;
