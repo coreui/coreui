@@ -487,7 +487,7 @@ List groups use local CSS variables on `.list-group` for enhanced real-time cust
 
 ### SASS mixins
 
-{{< deprecated-in "5.0.0" >}}
+{{< deprecated-in "4.3.0" >}}
 
 Used in combination with `$theme-colors` to generate the [contextual variant classes](#contextual-classes) for `.list-group-item`s.
 

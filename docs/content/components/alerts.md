@@ -226,7 +226,7 @@ Alerts use local CSS variables on `.alert` for enhanced real-time customization.
 
 ### SASS mixin
 
-{{< deprecated-in "5.0.0" >}}
+{{< deprecated-in "4.3.0" >}}
 
 Used in combination with `$alert-variants` to create contextual modifier classes for our alerts.
 

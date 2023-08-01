@@ -237,9 +237,9 @@ $theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, $c
 // etc
 ```
 
-## CSS
+## Customizing
 
-### Variables
+### CSS variables
 
 Dozens of root level CSS variables are repeated as overrides for dark mode. These are scoped to the color mode selector, which defaults to `data-coreui-theme` but [can be configured](#building-with-sass) to use a `prefers-color-scheme` media query. Use these variables as a guideline for generating your own new color modes.
 

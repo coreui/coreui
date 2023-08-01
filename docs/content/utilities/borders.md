@@ -178,9 +178,9 @@ Use the scaling classes for larger or smaller rounded corners. Sizes range from 
 {{< placeholder width="75" height="75" class="rounded-5" title="Example extra large rounded image" >}}
 {{< /example >}}
 
-## CSS
+## Customizing
 
-### Variables
+### CSS variables
 
 {{< scss-docs name="root-border-var" file="scss/_root.scss" >}}
 
