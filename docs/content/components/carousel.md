@@ -381,7 +381,7 @@ myCarousel.addEventListener('slide.coreui.carousel', event => {
 ```
 ## Customizing
 
-### SASS Variables
+### SASS variables
 
 Variables for all carousels:
 

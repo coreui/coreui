@@ -141,6 +141,6 @@ Animate placeholders with `.placeholder-glow` or `.placeholder-wave` to better c
 
 ## Customization
 
-### SASS Variables
+### SASS variables
 
 {{< scss-docs name="placeholders" file="scss/_variables.scss" >}}

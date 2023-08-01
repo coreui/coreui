@@ -464,7 +464,7 @@ If no tab was already active, the `hide.coreui.tab` and `hidden.coreui.tab` even
 {{< /bs-table >}}
 
 ```js
-const tabElms = document.querySelectorAll('a[data-cui-toggle="list"]')
+const tabElms = document.querySelectorAll('a[data-coreui-toggle="list"]')
 tabElms.forEach(tabElm => {
   tabElm.addEventListener('shown.coreui.tab', event => {
     event.target // newly activated tab

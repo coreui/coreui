@@ -438,7 +438,7 @@ The tabs plugin also works with pills.
       <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-disabled-tab" data-cui-toggle="pill" data-cui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+      <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
     </li>
   </ul>
   <div class="tab-content" id="pills-tabContent">
@@ -469,7 +469,7 @@ The tabs plugin also works with pills.
     <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>
   </li>
   <li class="nav-item" role="presentation">
-    <button class="nav-link" id="pills-disabled-tab" data-cui-toggle="pill" data-cui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
+    <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
@@ -591,7 +591,7 @@ triggerTabList.forEach(triggerEl => {
 You can activate individual tabs in several ways:
 
 ```js
-const triggerEl = document.querySelector('#myTab button[data-cui-target="#profile"]')
+const triggerEl = document.querySelector('#myTab button[data-coreui-target="#profile"]')
 coreui.Tab.getInstance(triggerEl).show() // Select tab by name
 
 const triggerFirstTabEl = document.querySelector('#myTab li:first-child button')
@@ -655,7 +655,7 @@ If no tab was already active, then the `hide.coreui.tab` and `hidden.coreui.tab`
 {{< /bs-table >}}
 
 ```js
-const tabEl = document.querySelector('button[data-cui-toggle="tab"]')
+const tabEl = document.querySelector('button[data-coreui-toggle="tab"]')
 tabEl.addEventListener('shown.coreui.tab', event => {
   event.target // newly activated tab
   event.relatedTarget // previous active tab

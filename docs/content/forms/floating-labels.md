@@ -147,8 +147,6 @@ When working with the CoreUI for Bootstrap grid system, be sure to place form el
 
 ## Customizing
 
-### SASS
-
-#### Variables
+### SASS variables
 
 {{< scss-docs name="form-floating-variables" file="scss/_variables.scss" >}}
