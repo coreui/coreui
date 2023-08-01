@@ -9,6 +9,8 @@ security:
     getenv:
       - ^HUGO_
       - NETLIFY
+  gotemplates:
+    allowActionJSTmpl: true
 
 markup:
   goldmark:
@@ -83,5 +85,6 @@ params:
     js_hash:         "sha384-dtAjcJI0LEY1lF2SIzuX/l9MN2fXLJSwuRlPIs7FQdIdKtkM/5xZKDLeT4lTG+Ks"
     js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@4.2.6/dist/js/coreui.bundle.min.js"
     js_bundle_hash:  "sha384-zB2pfzmBfPbMyNTA/VC1TBdnztOVi4B2ROvMzS5l+tz3msltCVlYt7uBXd66F1nG"
-    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     popper_hash:      "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    popper_esm:       "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js"

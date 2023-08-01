@@ -7,7 +7,7 @@
     * lang: language used to display the code - default: "html"
     * show_markup: if the markup should be output in the HTML - default: `true`
     * show_preview: if the preview should be output in the HTML - default: `true`
-    * stackblitz_add_js: if extra JS snippet shoud le added to StackBlitz - default: `false`
+    * stackblitz_add_js: if extra JS snippet should be added to StackBlitz - default: `false`
 */ -}}
 
 {{- $id := .Get "id" -}}
@@ -17,16 +17,32 @@
 {{- $show_markup := .Get "show_markup" | default true -}}
 {{- $show_preview := .Get "show_preview" | default true -}}
 {{- $input := .Inner -}}
+{{- $content := .Inner -}}
 
 <div class="docs-example-snippet docs-code-snippet">
   {{- if eq $show_preview true -}}
-  <div{{ with $id }} id="{{ . }}"{{ end }} class="docs-example{{ with $class }} {{ . }}{{ end }}">
+  <div{{ with $id }} id="{{ . }}"{{ end }} class="docs-example m-0 border-0{{ with $class }} {{ . }}{{ end }}">
     {{- $input -}}
   </div>
   {{- end -}}
 
   {{- if eq $show_markup true -}}
-    {{- $content := replaceRE `<svg class="docs-placeholder-img(?:-lg)?(?: *?docs-placeholder-img-lg)? ?(.*?)".*?<\/svg>\n` `<img src="..." class="$1" alt="...">` $input -}}
+    {{- if eq $show_preview true -}}
+      <div class="d-flex align-items-center highlight-toolbar ps-3 pe-2 py-1 border-0 border-top border-bottom">
+        <small class="font-monospace text-body-secondary text-uppercase">{{- $lang -}}</small>
+        <div class="d-flex ms-auto">
+          <button type="button" class="btn-clipboard mt-0 me-0" title="Copy to clipboard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16">
+              <polygon fill="var(--ci-primary-color, currentColor)" points="408 432 376 432 376 464 112 464 112 136 144 136 144 104 80 104 80 496 408 496 408 432" class="ci-primary"/>
+              <path fill="var(--ci-primary-color, currentColor)" d="M176,16V400H496V153.373L358.627,16ZM464,368H208V48H312V200H464Zm0-200H344V48h1.372L464,166.627Z" class="ci-primary"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    {{- end -}}
+
+    {{- $content = replaceRE `<svg class="docs-placeholder-img(?:-lg)?(?: *?docs-placeholder-img-lg)? ?(.*?)".*?<\/svg>` `<img src="..." class="$1" alt="...">` $content -}}
+    {{- $content = replaceRE `<img class="docs-placeholder-img(?:-lg)?(?: *?docs-placeholder-img-lg)? ?(.*?)".*?>` `<img src="..." class="$1" alt="...">` $content -}}
     {{- $content = replaceRE ` (class=" *?")` "" $content -}}
     {{- highlight (trim $content "\n") $lang "" -}}
   {{- end -}}

@@ -1,14 +1,17 @@
 .docs-sidebar {
-  --cui-sidebar-bg: #f0f4f7;
+  --cui-sidebar-bg: var(--cui-tertiary-bg);
   --cui-sidebar-brand-bg: transparent;
-  --cui-sidebar-brand-color: #{$body-color};
-  --cui-sidebar-nav-link-color: #{$body-color};
-  --cui-sidebar-nav-link-active-color: #{$primary};
-  --cui-sidebar-nav-link-hover-color: #{$primary};
+  --cui-sidebar-brand-color: var(--cui-body-color);
+  --cui-sidebar-nav-link-color: var(--cui-body-color);
+  --cui-sidebar-nav-link-active-bg: transparent;
+  --cui-sidebar-nav-link-active-color: var(--cui-primary);
+  --cui-sidebar-nav-link-hover-bg: transparent;
+  --cui-sidebar-nav-link-hover-color: var(--cui-primary);
   --cui-sidebar-nav-group-bg: transparent;
-  --cui-sidebar-nav-group-toggle-show-color: #{$primary};
+  --cui-sidebar-nav-group-toggle-show-color: var(--cui-primary);
 
   .nav-group-items {
-    --cui-sidebar-nav-link-color: #{$primary-50};
+    --cui-sidebar-nav-link-color: var(--cui-body-color);
   }
 }
+

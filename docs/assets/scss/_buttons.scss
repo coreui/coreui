@@ -1,0 +1,19 @@
+// Buttons
+//
+// Custom buttons for the docs.
+
+// scss-docs-start btn-css-vars-example
+.btn-cd-primary {
+  --cui-btn-font-weight: 600;
+  --cui-btn-color: var(--cui-white);
+  --cui-btn-bg: var(--cd-violet-bg);
+  --cui-btn-border-color: var(--cd-violet-bg);
+  --cui-btn-hover-color: var(--cui-white);
+  --cui-btn-hover-bg: #{shade-color($cd-violet, 10%)};
+  --cui-btn-hover-border-color: #{shade-color($cd-violet, 10%)};
+  --cui-btn-focus-shadow-rgb: var(--cd-violet-rgb);
+  --cui-btn-active-color: var(--cui-btn-hover-color);
+  --cui-btn-active-bg: #{shade-color($cd-violet, 20%)};
+  --cui-btn-active-border-color: #{shade-color($cd-violet, 20%)};
+}
+// scss-docs-end btn-css-vars-example

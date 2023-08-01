@@ -1,14 +1,21 @@
 //
-// Bootstrap docs content theming
+// CoreUI docs content theming
 //
 
+.docs-intro {
+  > h2 {
+    --cui-heading-color: var(--cui-emphasis-color);
+  }
+}
+
 .docs-content {
-  // Offset content from fixed navbar when jumping to headings
-  > :target {
-    padding-top: 5rem;
-    margin-top: -5rem;
+  > h2,
+  > h3,
+  > h4 {
+    --cui-heading-color: var(--cui-emphasis-color);
   }
 
+  // Offset content from fixed navbar when jumping to headings
   > h2:not(:first-child) {
     margin-top: 3rem;
   }
@@ -32,6 +39,9 @@
   // Override Bootstrap defaults
   > .table,
   > .table-responsive .table {
+    --cui-table-border-color: var(--cui-border-color);
+
+    max-width: 100%;
     margin-bottom: 1.5rem;
     @include font-size(.875rem);
 
@@ -60,6 +70,14 @@
       }
     }
 
+    th {
+      color: var(--cui-emphasis-color);
+    }
+
+    strong {
+      color: var(--cui-emphasis-color);
+    }
+
     // Prevent breaking of code
     // stylelint-disable-next-line selector-max-compound-selectors
     th,
@@ -80,7 +98,18 @@
   min-width: 280px;
 }
 
+.table-swatches {
+  th {
+    color: var(--cui-emphasis-color);
+  }
+
+  td code {
+    white-space: nowrap;
+  }
+}
+
 .docs-title {
+  --cui-heading-color: var(--cui-emphasis-color);
   @include font-size(3rem);
 }
 
@@ -92,31 +121,23 @@
 .bi {
   width: 1em;
   height: 1em;
+  vertical-align: -.125em;
   fill: currentcolor;
-}
-
-.icon-link {
-  display: flex;
-  align-items: center;
-  text-decoration-color: rgba($primary, .5);
-  text-underline-offset: .5rem;
-  backface-visibility: hidden;
-
-  .bi {
-    width: 1.5em;
-    height: 1.5em;
-    transition: .2s ease-in-out transform; // stylelint-disable-line property-disallowed-list
-  }
-
-  &:hover {
-    .bi {
-      transform: translate3d(5px, 0, 0);
-    }
-  }
 }
 
 .border-lg-start {
   @include media-breakpoint-up(lg) {
-    border-left: $border-width solid $border-color;
+    border-left: var(--cui-border-width) solid var(--cui-border-color);
   }
 }
+
+// stylelint-disable selector-no-qualifying-type
+.docs-summary-link {
+  color: var(--cui-link-color);
+
+  &:hover,
+  details[open] > & {
+    color: var(--cui-link-hover-color);
+  }
+}
+// stylelint-enable selector-no-qualifying-type
