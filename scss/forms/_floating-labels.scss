@@ -56,7 +56,7 @@
   > .form-control-plaintext,
   > .form-select {
     ~ label {
-      opacity: $form-floating-label-opacity;
+      color: rgba(var(--#{$prefix}body-color-rgb), #{$form-floating-label-opacity});
       transform: $form-floating-label-transform;
 
       &::after {
@@ -73,7 +73,7 @@
   // Duplicated because `:-webkit-autofill` invalidates other selectors when grouped
   > .form-control:-webkit-autofill {
     ~ label {
-      opacity: $form-floating-label-opacity;
+      color: rgba(var(--#{$prefix}body-color-rgb), #{$form-floating-label-opacity});
       transform: $form-floating-label-transform;
     }
   }

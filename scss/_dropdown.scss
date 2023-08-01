@@ -145,7 +145,6 @@
 .dropstart {
   .dropdown-menu[data-coreui-popper] {
     top: 0;
-
     @include ltr-rtl("right", 100%);
     @include ltr-rtl("left", auto);
     margin-top: 0;
