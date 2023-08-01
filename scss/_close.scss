@@ -50,6 +50,7 @@
   filter: var(--#{$prefix}btn-close-white-filter);
 }
 
+.btn-close[data-coreui-theme="dark"],
 .btn-close-white {
   @include btn-close-white();
 }
