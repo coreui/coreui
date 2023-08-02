@@ -20,4 +20,5 @@ $cd-callout-variants: info, warning, danger !default;
   --cd-callout-link: #{to-rgb($blue-600)};
   --cd-callout-code-color: #{$pink-600};
   --cd-pre-bg: var(--cui-tertiary-bg);
+  --cui-tertiary-bg: #f0f4f7;
 }
