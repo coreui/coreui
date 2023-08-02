@@ -28,6 +28,7 @@ Here are the variables we include (note that the `:root` is required) that can b
 {{< /root.inline >}}
 ```
 
+
 ## Component variables
 
 CoreUI is increasingly making use of custom properties as local variables for various components. This way we reduce our compiled CSS, ensure styles aren't inherited in places like nested tables, and allow some basic restyling and extending of Bootstrap components after Sass compilation.
