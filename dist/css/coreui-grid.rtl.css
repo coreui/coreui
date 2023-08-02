@@ -1,95 +1,14 @@
 @charset "UTF-8";
 /*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
-*/
+ * CoreUI Grid v4.3.0 (https://coreui.io)
+ * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+ */
 /*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
-*/
-:root {
-  --cui-blue: #0d6efd;
-  --cui-indigo: #6610f2;
-  --cui-purple: #6f42c1;
-  --cui-pink: #d63384;
-  --cui-red: #dc3545;
-  --cui-orange: #fd7e14;
-  --cui-yellow: #ffc107;
-  --cui-green: #198754;
-  --cui-teal: #20c997;
-  --cui-cyan: #0dcaf0;
-  --cui-black: #000015;
-  --cui-white: #fff;
-  --cui-gray: #8a93a2;
-  --cui-gray-dark: #636f83;
-  --cui-gray-100: #ebedef;
-  --cui-gray-200: #d8dbe0;
-  --cui-gray-300: #c4c9d0;
-  --cui-gray-400: #b1b7c1;
-  --cui-gray-500: #9da5b1;
-  --cui-gray-600: #8a93a2;
-  --cui-gray-700: #768192;
-  --cui-gray-800: #636f83;
-  --cui-gray-900: #4f5d73;
-  --cui-primary: #321fdb;
-  --cui-secondary: #9da5b1;
-  --cui-success: #2eb85c;
-  --cui-info: #39f;
-  --cui-warning: #f9b115;
-  --cui-danger: #e55353;
-  --cui-light: #ebedef;
-  --cui-dark: #4f5d73;
-  --cui-primary-rgb: 50, 31, 219;
-  --cui-secondary-rgb: 157, 165, 177;
-  --cui-success-rgb: 46, 184, 92;
-  --cui-info-rgb: 51, 153, 255;
-  --cui-warning-rgb: 249, 177, 21;
-  --cui-danger-rgb: 229, 83, 83;
-  --cui-light-rgb: 235, 237, 239;
-  --cui-dark-rgb: 79, 93, 115;
-  --cui-white-rgb: 255, 255, 255;
-  --cui-black-rgb: 0, 0, 21;
-  --cui-body-color-rgb: 44, 56, 74;
-  --cui-body-bg-rgb: 255, 255, 255;
-  --cui-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --cui-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --cui-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-  --cui-body-font-family: var(--cui-font-sans-serif);
-  --cui-body-font-size: 1rem;
-  --cui-body-font-weight: 400;
-  --cui-body-line-height: 1.5;
-  --cui-body-color: rgba(44, 56, 74, 0.95);
-  --cui-body-bg: #fff;
-  --cui-border-width: 1px;
-  --cui-border-style: solid;
-  --cui-border-color: #d8dbe0;
-  --cui-border-color-translucent: rgba(0, 0, 21, 0.175);
-  --cui-border-radius: 0.375rem;
-  --cui-border-radius-sm: 0.25rem;
-  --cui-border-radius-lg: 0.5rem;
-  --cui-border-radius-xl: 1rem;
-  --cui-border-radius-2xl: 2rem;
-  --cui-border-radius-pill: 50rem;
-  --cui-heading-color: unset;
-  --cui-link-color: #321fdb;
-  --cui-link-hover-color: #2819af;
-  --cui-code-color: #d63384;
-  --cui-highlight-bg: #fff3cd;
-  --cui-breakpoint-xs: 0;
-  --cui-breakpoint-sm: 576px;
-  --cui-breakpoint-md: 768px;
-  --cui-breakpoint-lg: 992px;
-  --cui-breakpoint-xl: 1200px;
-  --cui-breakpoint-xxl: 1400px;
-  --cui-mobile-breakpoint: md;
-}
-
+ * CoreUI Grid v4.3.0 (https://coreui.io)
+ * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+ */
 .container,
 .container-fluid,
 .container-xxl,
@@ -131,6 +50,16 @@
     max-width: 1320px;
   }
 }
+:root {
+  --cui-breakpoint-xs: 0;
+  --cui-breakpoint-sm: 576px;
+  --cui-breakpoint-md: 768px;
+  --cui-breakpoint-lg: 992px;
+  --cui-breakpoint-xl: 1200px;
+  --cui-breakpoint-xxl: 1400px;
+  --cui-mobile-breakpoint: md;
+}
+
 .row {
   --cui-gutter-x: 1.5rem;
   --cui-gutter-y: 0;
@@ -1219,6 +1148,10 @@
   display: grid !important;
 }
 
+.d-inline-grid {
+  display: inline-grid !important;
+}
+
 .d-table {
   display: table !important;
 }
@@ -1818,6 +1751,9 @@
   .d-sm-grid {
     display: grid !important;
   }
+  .d-sm-inline-grid {
+    display: inline-grid !important;
+  }
   .d-sm-table {
     display: table !important;
   }
@@ -2277,6 +2213,9 @@
   }
   .d-md-grid {
     display: grid !important;
+  }
+  .d-md-inline-grid {
+    display: inline-grid !important;
   }
   .d-md-table {
     display: table !important;
@@ -2738,6 +2677,9 @@
   .d-lg-grid {
     display: grid !important;
   }
+  .d-lg-inline-grid {
+    display: inline-grid !important;
+  }
   .d-lg-table {
     display: table !important;
   }
@@ -3197,6 +3139,9 @@
   }
   .d-xl-grid {
     display: grid !important;
+  }
+  .d-xl-inline-grid {
+    display: inline-grid !important;
   }
   .d-xl-table {
     display: table !important;
@@ -3658,6 +3603,9 @@
   .d-xxl-grid {
     display: grid !important;
   }
+  .d-xxl-inline-grid {
+    display: inline-grid !important;
+  }
   .d-xxl-table {
     display: table !important;
   }
@@ -4117,6 +4065,9 @@
   }
   .d-print-grid {
     display: grid !important;
+  }
+  .d-print-inline-grid {
+    display: inline-grid !important;
   }
   .d-print-table {
     display: table !important;

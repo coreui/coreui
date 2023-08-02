@@ -434,7 +434,7 @@ $enable-rtl:                  false !default;
 
 // Prefix for :root CSS variables
 
-$variable-prefix:             cui- !default; // Deprecated in v4.2.6 for the shorter `$prefix`
+$variable-prefix:             cui- !default; // Deprecated in v4.3.0 for the shorter `$prefix`
 $prefix:                      $variable-prefix !default;
 
 // Set mobile breakpoint
@@ -737,7 +737,7 @@ $text-medium-emphasis:          $medium-emphasis !default;
 $text-disabled:                 $disabled !default;
 
 // fusv-disable
-$text-muted:                  var(--#{$prefix}secondary-color) !default; // Deprecated in 5.3.0
+$text-muted:                  var(--#{$prefix}secondary-color) !default; // Deprecated in 4.3.0
 // fusv-enable
 
 $text-high-emphasis-inverse:    $high-emphasis-inverse !default;

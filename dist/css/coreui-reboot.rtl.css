@@ -1,17 +1,13 @@
 @charset "UTF-8";
 /*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
-*/
+ * CoreUI Reboot v4.3.0 (https://coreui.io)
+ * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+ */
 /*!
- * CoreUI - HTML, CSS, and JavaScript UI Components Library
- * @version v4.2.6
- * @link https://coreui.io/
- * Copyright (c) 2022 creativeLabs Łukasz Holeczek
- * License MIT  (https://coreui.io/license/)
+ * CoreUI Reboot v4.3.0 (https://coreui.io)
+ * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 :root {
   --cui-blue: #0d6efd;
@@ -65,7 +61,33 @@
   --cui-body-font-weight: 400;
   --cui-body-line-height: 1.5;
   --cui-body-color: rgba(44, 56, 74, 0.95);
+  --cui-body-color-rgb: 44, 56, 74;
   --cui-body-bg: #fff;
+  --cui-body-bg-rgb: 255, 255, 255;
+  --cui-emphasis-color: #000015;
+  --cui-emphasis-color-rgb: 0, 0, 21;
+  --cui-secondary-color: rgba(44, 56, 74, 0.681);
+  --cui-secondary-color-rgb: 44, 56, 74;
+  --cui-secondary-bg: #d8dbe0;
+  --cui-secondary-bg-rgb: 216, 219, 224;
+  --cui-tertiary-color: rgba(44, 56, 74, 0.38);
+  --cui-tertiary-color-rgb: 44, 56, 74;
+  --cui-tertiary-bg: #ebedef;
+  --cui-tertiary-bg-rgb: 235, 237, 239;
+  --cui-high-emphasis: rgba(44, 56, 74, 0.95);
+  --cui-medium-emphasis: rgba(44, 56, 74, 0.681);
+  --cui-disabled: rgba(44, 56, 74, 0.38);
+  --cui-high-emphasis-inverse: rgba(255, 255, 255, 0.87);
+  --cui-medium-emphasis-inverse: rgba(255, 255, 255, 0.6);
+  --cui-disabled-inverse: rgba(255, 255, 255, 0.38);
+  --cui-heading-color: inherit;
+  --cui-link-color: #321fdb;
+  --cui-link-color-rgb: 50, 31, 219;
+  --cui-link-decoration: underline;
+  --cui-link-hover-color: #2819af;
+  --cui-link-hover-color-rgb: 40, 25, 175;
+  --cui-code-color: #d63384;
+  --cui-highlight-bg: #fff3cd;
   --cui-border-width: 1px;
   --cui-border-style: solid;
   --cui-border-color: #d8dbe0;
@@ -74,20 +96,20 @@
   --cui-border-radius-sm: 0.25rem;
   --cui-border-radius-lg: 0.5rem;
   --cui-border-radius-xl: 1rem;
-  --cui-border-radius-2xl: 2rem;
+  --cui-border-radius-xxl: 2rem;
+  --cui-border-radius-2xl: var(--cui-border-radius-xxl);
   --cui-border-radius-pill: 50rem;
-  --cui-heading-color: unset;
-  --cui-link-color: #321fdb;
-  --cui-link-hover-color: #2819af;
-  --cui-code-color: #d63384;
-  --cui-highlight-bg: #fff3cd;
-  --cui-breakpoint-xs: 0;
-  --cui-breakpoint-sm: 576px;
-  --cui-breakpoint-md: 768px;
-  --cui-breakpoint-lg: 992px;
-  --cui-breakpoint-xl: 1200px;
-  --cui-breakpoint-xxl: 1400px;
-  --cui-mobile-breakpoint: md;
+  --cui-box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15);
+  --cui-box-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 21, 0.075);
+  --cui-box-shadow-lg: 0 1rem 3rem rgba(0, 0, 21, 0.175);
+  --cui-box-shadow-inset: inset 0 1px 2px rgba(0, 0, 21, 0.075);
+  --cui-focus-ring-width: 0.25rem;
+  --cui-focus-ring-opacity: 0.25;
+  --cui-focus-ring-color: rgba(50, 31, 219, 0.25);
+  --cui-form-valid-color: #2eb85c;
+  --cui-form-valid-border-color: #2eb85c;
+  --cui-form-invalid-color: #e55353;
+  --cui-form-invalid-border-color: #e55353;
 }
 
 *,
@@ -119,7 +141,7 @@ hr {
   margin: 1rem 0;
   color: inherit;
   border: 0;
-  border-top: 1px solid;
+  border-top: var(--cui-border-width) solid;
   opacity: 0.25;
 }
 
@@ -250,11 +272,11 @@ sup {
 }
 
 a {
-  color: var(--cui-link-color);
+  color: rgba(var(--cui-link-color-rgb), var(--cui-link-opacity, 1));
   text-decoration: underline;
 }
 a:hover {
-  color: var(--cui-link-hover-color);
+  --cui-link-color-rgb: var(--cui-link-hover-color-rgb);
 }
 
 a:not([href]):not([class]), a:not([href]):not([class]):hover {
@@ -276,7 +298,7 @@ pre {
   margin-bottom: 1rem;
   overflow: auto;
   font-size: 0.875em;
-  color: var(--cui-pre-color, unset);
+  color: var(--cui-pre-color, );
 }
 pre code {
   font-size: inherit;
@@ -322,12 +344,11 @@ table {
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  color: var(--cui-table-caption-color, rgba(44, 56, 74, 0.38));
+  color: var(--cui-table-caption-color, var(--cui-secondary-color));
   text-align: left;
 }
 
 th {
-  font-weight: 600;
   text-align: inherit;
   text-align: -webkit-match-parent;
 }
@@ -447,8 +468,8 @@ legend + * {
 }
 
 [type=search] {
-  outline-offset: -2px;
   -webkit-appearance: textfield;
+  outline-offset: -2px;
 }
 
 *[dir=rtl] [type=tel],

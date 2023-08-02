@@ -140,7 +140,7 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
 
 ## Dark offcanvas
 
-{{< added-in "4.2.6" >}}
+{{< added-in "4.3.0" >}}
 
 Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
 
@@ -158,7 +158,7 @@ Change the appearance of offcanvases with utilities to better match them to diff
 
 ## Responsive
 
-{{< added-in "4.2.6" >}}
+{{< added-in "4.3.0" >}}
 
 Responsive offcanvas classes hide content outside the viewport from a specified breakpoint and down. Above that breakpoint, the contents within will behave as usual. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but shows the content above the `lg` breakpoint.
 
