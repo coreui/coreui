@@ -125,7 +125,7 @@
     "rollup": "^3.27.0",
     "rollup-plugin-istanbul": "^4.0.0",
     "rtlcss": "^4.1.0",
-    "sass": "^1.64.1",
+    "sass": "^1.66.1",
     "shelljs": "^0.8.5",
     "stylelint": "^15.10.2",
     "stylelint-config-twbs-bootstrap": "^11.0.1",
