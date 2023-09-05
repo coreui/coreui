@@ -36,7 +36,7 @@ $grays-dark: (
 // fusv-enable
 
 // scss-docs-start theme-color-dark-variables
-$primary-dark:       tint-color(desaturate($primary, 20%), 20%) !default;
+$primary-dark:       desaturate($primary, 10%) !default;
 $secondary-dark:     desaturate($secondary, 10%) !default;
 $success-dark:       desaturate($success, 10%) !default;
 $info-dark:          desaturate($info, 10%) !default;
@@ -97,12 +97,12 @@ $body-bg-dark:                      $gray-900-dark !default;
 $body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
 $body-secondary-bg-dark:            $gray-800-dark !default;
 $body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
-$body-tertiary-bg-dark:             mix($gray-800-dark, #181924, 50%) !default;
+$body-tertiary-bg-dark:             mix($gray-800-dark, #212631, 50%) !default;
 $body-emphasis-color-dark:          $white !default;
-$border-color-dark:                 $gray-700-dark !default;
-$border-color-translucent-dark:     rgba($white, .15) !default;
+$border-color-dark:                 $gray-800-dark !default;
+$border-color-translucent-dark:     rgba($white, .1) !default;
 $headings-color-dark:               inherit !default;
-$link-color-dark:                   tint-color($primary, 40%) !default;
+$link-color-dark:                   $primary-dark !default;
 $link-hover-color-dark:             shift-color($link-color-dark, -$link-shade-percentage) !default;
 $code-color-dark:                   tint-color($code-color, 40%) !default;
 
@@ -157,13 +157,4 @@ $button-outline-ghost-variants-dark: (
   "warning":    btn-outline-color-map($warning-dark),
   "info":       btn-outline-color-map($info-dark)
 ) !default;
-
-
-//
-// Sidebar
-//
-
-$sidebar-bg-dark:            $body-bg-dark !default;
-$sidebar-border-width-dark:  var(--#{$prefix}border-width) !default;
-$sidebar-border-color-dark:  var(--#{$prefix}border-color) !default;
 // scss-docs-end sass-dark-mode-vars
