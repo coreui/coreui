@@ -10,7 +10,6 @@
   --#{$prefix}sidebar-nav-title-margin-top: #{$sidebar-nav-title-margin-top};
   --#{$prefix}sidebar-nav-title-color: #{$sidebar-nav-title-color};
 
-  --#{$prefix}sidebar-nav-link-gap: #{$sidebar-nav-link-gap};
   --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-nav-link-padding-x};
   --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-nav-link-padding-y};
   --#{$prefix}sidebar-nav-link-color: #{$sidebar-nav-link-color};
@@ -25,6 +24,7 @@
   --#{$prefix}sidebar-nav-link-hover-color: #{$sidebar-nav-link-hover-color};
   --#{$prefix}sidebar-nav-link-hover-bg: #{$sidebar-nav-link-hover-bg};
 
+  --#{$prefix}sidebar-nav-link-icon-margin: #{$sidebar-nav-link-icon-margin};
   --#{$prefix}sidebar-nav-link-icon-color: #{$sidebar-nav-link-icon-color};
   --#{$prefix}sidebar-nav-link-icon-width: #{$sidebar-nav-link-icon-width};
   --#{$prefix}sidebar-nav-link-icon-height: #{$sidebar-nav-link-icon-height};
@@ -87,7 +87,6 @@
   .nav-link {
     display: flex;
     flex: 1;
-    gap: var(--#{$prefix}sidebar-nav-link-gap);
     align-items: center;
     padding: var(--#{$prefix}sidebar-nav-link-padding-y) var(--#{$prefix}sidebar-nav-link-padding-x);
     color: var(--#{$prefix}sidebar-nav-link-color);
@@ -175,6 +174,7 @@
     align-items: center;
     justify-content: center;
     height: var(--#{$prefix}sidebar-nav-link-icon-height);
+    @include ltr-rtl("margin-right", var(--#{$prefix}sidebar-nav-link-icon-margin));
     font-size: var(--#{$prefix}sidebar-nav-link-icon-font-size);
     color: var(--#{$prefix}sidebar-nav-link-icon-color);
     text-align: center;
@@ -250,11 +250,11 @@
     list-style: none;
 
     .nav-link {
-      @include ltr-rtl("padding-left", calc(var(--#{$prefix}sidebar-nav-link-padding-x) + var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-gap)));
+      @include ltr-rtl("padding-left", calc(var(--#{$prefix}sidebar-nav-link-padding-x) + var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)));
     }
 
     .nav-icon {
-      @include ltr-rtl("margin-left", calc((var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-gap)) * -1));
+      @include ltr-rtl("margin-left", calc((var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)) * -1));
     }
   }
 

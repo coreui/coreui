@@ -331,7 +331,7 @@ $theme-colors: (
 // scss-docs-end theme-colors-map
 
 // scss-docs-start theme-text-variables
-$primary-text-emphasis:    #1f1498 !default;
+$primary-text-emphasis:    #3634a3 !default;
 $secondary-text-emphasis:  #212233 !default;
 $success-text-emphasis:    #0f5722 !default;
 $info-text-emphasis:       #184c77 !default;
@@ -342,7 +342,7 @@ $dark-text-emphasis:       $gray-800 !default;
 // scss-docs-end theme-text-variables
 
 // scss-docs-start theme-bg-subtle-variables
-$primary-bg-subtle:    #ccc7f6 !default;
+$primary-bg-subtle:    #cfc7f3 !default;
 $secondary-bg-subtle:  #ced2d8 !default;
 $success-bg-subtle:    #cbedd6 !default;
 $info-bg-subtle:       #c0e6ff !default;
@@ -353,7 +353,7 @@ $dark-bg-subtle:       $gray-400 !default;
 // scss-docs-end theme-bg-subtle-variables
 
 // scss-docs-start theme-border-subtle-variables
-$primary-border-subtle:    #988fed !default;
+$primary-border-subtle:    #9d92e6 !default;
 $secondary-border-subtle:  #9da5b1 !default;
 $success-border-subtle:    #96dbad !default;
 $info-border-subtle:       #80c6ff !default;
@@ -1855,7 +1855,6 @@ $sidebar-nav-title-margin-top:                1rem !default;
 $sidebar-nav-title-color:                     var(--#{$prefix}tertiary-color) !default;
 $sidebar-nav-title-transition:                height .15s, margin .15s !default;
 
-$sidebar-nav-link-gap:                        .5rem !default;
 $sidebar-nav-link-padding-y:                  .75rem !default;
 $sidebar-nav-link-padding-x:                  1rem !default;
 $sidebar-nav-link-color:                      var(--#{$prefix}body-color) !default;
@@ -1868,6 +1867,7 @@ $sidebar-nav-link-transition:                 background .15s ease, color .15s e
 $sidebar-narrow-nav-link-padding-y:           .75rem !default;
 $sidebar-narrow-nav-link-padding-x:           .5rem !default;
 
+$sidebar-nav-link-icon-margin:                .75rem !default;
 $sidebar-nav-link-icon-color:                 var(--#{$prefix}tertiary-color) !default;
 $sidebar-nav-link-icon-width:                 1.25rem !default;
 $sidebar-nav-link-icon-height:                1.25rem !default;
@@ -1885,7 +1885,7 @@ $sidebar-nav-link-hover-icon-color:           var(--#{$prefix}body-color) !defau
 $sidebar-nav-link-hover-icon-bullet-bg:       transparent !default;
 $sidebar-nav-link-hover-icon-bullet-border-color:   var(--#{$prefix}body-color) !default;
 
-$sidebar-nav-link-active-color:               var(--#{$prefix}primary) !default;
+$sidebar-nav-link-active-color:               var(--#{$prefix}emphasis-color) !default;
 $sidebar-nav-link-active-bg:                  var(--#{$prefix}tertiary-bg) !default;
 $sidebar-nav-link-active-icon-color:          var(--#{$prefix}primary) !default;
 $sidebar-nav-link-active-icon-bullet-bg:      transparent !default;
