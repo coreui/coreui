@@ -13,5 +13,20 @@
   .nav-group-items {
     --cui-sidebar-nav-link-color: var(--cui-body-color);
   }
+
+  .sidebar-nav {
+    --cui-sidebar-nav-link-icon-margin: 1rem;
+  }
+
+  .sidebar-nav .compact .nav-link {
+    --cui-sidebar-nav-link-padding-y: .375rem;
+  }
 }
 
+@if $enable-dark-mode {
+  @include color-mode(dark) {
+    .docs-sidebar {
+      --cui-sidebar-bg: var(--cui-body-bg);
+    }
+  }
+}
