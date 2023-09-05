@@ -10,6 +10,7 @@
   --#{$prefix}header-hover-color: #{$header-hover-color};
   --#{$prefix}header-disabled-color: #{$header-disabled-color};
   --#{$prefix}header-active-color: #{$header-active-color};
+  --#{$prefix}header-transition: #{$header-transition};
   --#{$prefix}header-brand-padding-y: #{$header-brand-padding-y};
   --#{$prefix}header-brand-color: #{$header-brand-color};
   --#{$prefix}header-brand-hover-color: #{$header-brand-hover-color};
@@ -25,7 +26,6 @@
   --#{$prefix}header-nav-link-padding-y: #{$header-nav-link-padding-y};
   --#{$prefix}header-divider-border-color: #{$header-divider-border-color};
   --#{$prefix}header-divider-border: #{$header-divider-border-width} solid var(--#{$prefix}header-divider-border-color);
-  --#{$prefix}subheader-min-height: #{$subheader-min-height};
   // scss-docs-end header-css-vars
 
   position: relative;
@@ -33,10 +33,11 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  min-height: var(--#{$prefix}header-min-height);
+  // min-height: var(--#{$prefix}header-min-height);
   padding: var(--#{$prefix}header-padding-y) var(--#{$prefix}header-padding-x);
   background: var(--#{$prefix}header-bg);
   border-bottom: var(--#{$prefix}header-border);
+  @include transition(var(--#{$prefix}header-transition));
 
   // Because flex properties aren't inherited, we need to redeclare these first
   // few properties so that content nested within behave properly.
@@ -57,16 +58,6 @@
     > .container#{breakpoint-infix($breakpoint, $container-max-widths)} {
       @extend %container-flex-properties;
     }
-  }
-
-  .container:first-child,
-  .container-fluid:first-child {
-    min-height: calc(var(--#{$prefix}header-min-height) - (2 * var(--#{$prefix}header-padding-y))); // stylelint-disable-line function-disallowed-list
-  }
-
-  .container:nth-child(n+2),
-  .container-fluid:nth-child(n+2) {
-    min-height: calc(var(--#{$prefix}subheader-min-height) - (2 * var(--#{$prefix}header-padding-y))); // stylelint-disable-line function-disallowed-list
   }
 
   &.header-sticky {
