@@ -1,4 +1,13 @@
 %sidebar-narrow {
+  // scss-docs-start sidebar-narrow-css-vars
+  --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
+  // scss-docs-end sidebar-narrow-css-vars
+
+  .sidebar-nav {
+    --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-narrow-nav-link-padding-x};
+    --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-narrow-nav-link-padding-y};
+  }
+
   @include media-breakpoint-up($mobile-breakpoint) {
     z-index: $zindex-fixed + 1;
     flex: 0 0 var(--#{$prefix}sidebar-narrow-width);
@@ -19,14 +28,22 @@
       display: block;
     }
 
+    .sidebar-header {
+      justify-content: center;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .nav-icon {
+      flex: 0 0 calc(var(--#{$prefix}sidebar-narrow-width) - (var(--#{$prefix}sidebar-nav-padding-x) * 2) - (var(--#{$prefix}sidebar-nav-link-padding-x) * 2)); // stylelint-disable-line function-disallowed-list
+    }
+
     .d-narrow-none,
     .nav-label,
     .nav-title,
     .nav-group-items,
     .nav-group.show .nav-group-items,
-    .sidebar-footer,
-    .sidebar-form,
-    .sidebar-header {
+    .sidebar-form {
       height: 0 !important; // stylelint-disable-line declaration-no-important
       padding: 0;
       margin: 0;
@@ -35,12 +52,7 @@
     }
 
     .sidebar-toggler {
-      position: fixed;
-      bottom: 0;
-
-      &::before {
-        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
-      }
+      @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
     }
 
     &.sidebar-end .sidebar-toggler::before {
@@ -56,6 +68,10 @@
   }
   &.sidebar-end ~ * {
     --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
+  }
+
+  .nav-link {
+    overflow: hidden;
   }
 }
 
@@ -75,15 +91,19 @@
   }
 
   &:hover {
+    box-shadow: $box-shadow;
+
     .sidebar-toggler {
-      &::before {
-        @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
-      }
+      @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
     }
 
-    &.sidebar-end .sidebar-toggler::before {
+    &.sidebar-end .sidebar-toggler {
       transform: rotate(0deg);
     }
+  }
+
+  .nav-link {
+    overflow: hidden;
   }
 }
 

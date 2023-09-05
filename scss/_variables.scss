@@ -699,7 +699,7 @@ $small-font-size:               .875em !default;
 $sub-sup-font-size:             .75em !default;
 
 // fusv-disable
-$text-muted:                  var(--#{$prefix}secondary-color) !default; // Deprecated in 5.3.0
+$text-muted:                  var(--#{$prefix}secondary-color) !default; // Deprecated in 5.0.0
 // fusv-enable
 
 $initialism-font-size:        $small-font-size !default;
@@ -1722,6 +1722,7 @@ $header-border-width:           var(--#{$prefix}border-width) !default;
 $header-hover-color:            rgba(var(--#{$prefix}emphasis-color-rgb), .8) !default;
 $header-active-color:           rgba(var(--#{$prefix}emphasis-color-rgb), 1) !default;
 $header-disabled-color:         rgba(var(--#{$prefix}emphasis-color-rgb), .3) !default;
+$header-transition:             box-shadow .15s ease-in-out !default;
 
 // Compute the header-brand padding-y so the header-brand will have the same height as header-text and nav-link
 $nav-link-height:               $font-size-base * $line-height-base + $nav-link-padding-y * 2 !default;
@@ -1768,6 +1769,7 @@ $subheader-color:                  var(--#{$prefix}secondary-color) !default;
 $subheader-hover-color:            var(--#{$prefix}body-color) !default;
 $subheader-active-color:           var(--#{$prefix}body-color) !default;
 $subheader-disabled-color:         $disabled !default;
+
 // scss-docs-end subheader-default-themes
 
 
@@ -1852,92 +1854,99 @@ $sidebar-widths: (
   lg: 20rem,
   xl: 24rem
 ) !default;
-$sidebar-padding-y:                        0 !default;
-$sidebar-padding-x:                        0 !default;
-$sidebar-color:                            $high-emphasis-inverse !default;
-$sidebar-bg:                               $gray-800 !default;
-$sidebar-border-width:                     0 !default;
-$sidebar-border-color:                     transparent !default;
-$sidebar-transition:                       margin-left .15s, margin-right .15s, box-shadow .075s, transform .15s, width .15s, z-index 0s ease .15s !default;
-
-$sidebar-brand-height:                     4rem !default;
-$sidebar-brand-color:                      $high-emphasis-inverse !default;
-$sidebar-brand-bg:                         rgba($black, .2) !default;
-
-$sidebar-header-height:                    4rem !default;
-$sidebar-header-padding-y:                 .75rem !default;
-$sidebar-header-padding-x:                 1rem !default;
-$sidebar-header-bg:                        rgba($black, .2) !default;
-$sidebar-header-height-transition:         height .15s, padding .15s !default;
-
 $sidebar-narrow-width:                     4rem !default;
-
+$sidebar-padding-y:                        $spacer !default;
+$sidebar-padding-x:                        $spacer !default;
+$sidebar-color:                            var(--#{$prefix}body-color) !default;
+$sidebar-bg:                               var(--#{$prefix}body-bg) !default;
+$sidebar-transition:                       margin-left .15s, margin-right .15s, box-shadow .075s, transform .15s, width .15s, z-index 0s ease .15s !default;
+$sidebar-brand-color:                      var(--#{$prefix}body-color) !default;
+$sidebar-brand-bg:                         rgba($black, .2) !default;
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
-
-$sidebar-nav-title-padding-y:              .75rem !default;
-$sidebar-nav-title-padding-x:              1rem !default;
-$sidebar-nav-title-margin-top:             1rem !default;
-$sidebar-nav-title-color:                  $medium-emphasis-inverse !default;
-$sidebar-nav-title-transition:             height .15s, margin .15s !default;
-
-$sidebar-nav-link-padding-y:               .8445rem !default;
-$sidebar-nav-link-padding-x:               1rem !default;
-$sidebar-nav-link-color:                   $medium-emphasis-inverse !default;
-$sidebar-nav-link-bg:                      transparent !default;
-$sidebar-nav-link-border-width:            0 !default;
-$sidebar-nav-link-border-color:            transparent !default;
-$sidebar-nav-link-border-radius:           0 !default;
-$sidebar-nav-link-transition:              background .15s ease, color .15s ease !default;
-$sidebar-nav-link-icon-color:              $medium-emphasis-inverse !default;
-
-$sidebar-nav-link-hover-color:             $high-emphasis-inverse !default;
-$sidebar-nav-link-hover-bg:                rgba($white, .05) !default;
-$sidebar-nav-link-hover-icon-color:        $high-emphasis-inverse !default;
-
-$sidebar-nav-link-active-color:            $high-emphasis-inverse !default;
-$sidebar-nav-link-active-bg:               rgba($white, .05) !default;
-$sidebar-nav-link-active-icon-color:       $high-emphasis-inverse !default;
-
-$sidebar-nav-link-disabled-color:          $disabled-inverse !default;
-$sidebar-nav-link-disabled-icon-color:     $sidebar-nav-link-icon-color !default;
-
-$sidebar-nav-icon-width:                   4rem !default;
-$sidebar-nav-icon-height:                  1.25rem !default;
-$sidebar-nav-icon-font-size:               $sidebar-nav-icon-height !default;
-
-$sidebar-nav-group-bg:                     rgba(0, 0, 0, .2) !default;
-$sidebar-nav-group-transition:             background .15s ease-in-out !default;
-$sidebar-nav-group-toggle-show-color:      $sidebar-nav-link-color !default;
-
-$sidebar-nav-group-items-padding-y:        0 !default;
-$sidebar-nav-group-items-padding-x:        0 !default;
-$sidebar-nav-group-items-transition:       height .15s ease !default;
-
-$sidebar-nav-group-indicator-color:        $medium-emphasis-inverse !default;
-$sidebar-nav-group-indicator-icon:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$sidebar-nav-group-indicator-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
-$sidebar-nav-group-indicator-hover-color:  $sidebar-nav-link-hover-color !default;
-$sidebar-nav-group-indicator-hover-icon:   url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$sidebar-nav-group-indicator-hover-color}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
-$sidebar-nav-group-indicator-transition:   transform .15s !default;
-
-$sidebar-footer-height:                    auto !default;
-$sidebar-footer-padding-y:                 .75rem !default;
-$sidebar-footer-padding-x:                 1rem !default;
-$sidebar-footer-bg:                        rgba($black, .2) !default;
-$sidebar-footer-height-transition:         height .15s, padding .15s !default;
-
-$sidebar-toggler-height:                   3rem !default;
-$sidebar-toggler-bg:                       rgba($black, .2) !default;
-$sidebar-toggler-transition:               transform .15s !default;
-
-$sidebar-toggler-indicator-width:          4rem !default;
-$sidebar-toggler-indicator-height:         3rem !default;
-$sidebar-toggler-indicator-color:          $disabled-inverse !default;
-$sidebar-toggler-indicator-icon:           url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-toggler-indicator-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E") !default;
-$sidebar-toggler-hover-bg:                 rgba(0, 0, 0, .3) !default;
-$sidebar-toggler-indicator-hover-color:    $sidebar-nav-link-hover-color !default;
-$sidebar-toggler-indicator-hover-icon:     url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='#{$sidebar-toggler-indicator-hover-color}' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E") !default;
 // scss-docs-end sidebar-variables
+
+// scss-docs-start sidebar-nav-variables
+$sidebar-nav-padding-y:                       $sidebar-padding-y * .5 !default;
+$sidebar-nav-padding-x:                       $sidebar-padding-x * .5 !default;
+
+$sidebar-nav-title-padding-y:                 .75rem !default;
+$sidebar-nav-title-padding-x:                 1rem !default;
+$sidebar-nav-title-margin-top:                1rem !default;
+$sidebar-nav-title-color:                     var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-title-transition:                height .15s, margin .15s !default;
+
+$sidebar-nav-link-gap:                        .5rem !default;
+$sidebar-nav-link-padding-y:                  .75rem !default;
+$sidebar-nav-link-padding-x:                  1rem !default;
+$sidebar-nav-link-color:                      var(--#{$prefix}body-color) !default;
+$sidebar-nav-link-bg:                         transparent !default;
+$sidebar-nav-link-border-width:               0 !default;
+$sidebar-nav-link-border-color:               transparent !default;
+$sidebar-nav-link-border-radius:              var(--#{$prefix}border-radius) !default;
+$sidebar-nav-link-transition:                 background .15s ease, color .15s ease, gap .15s ease !default;
+
+$sidebar-narrow-nav-link-padding-y:           .75rem !default;
+$sidebar-narrow-nav-link-padding-x:           .5rem !default;
+
+$sidebar-nav-link-icon-color:                 var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-icon-width:                 1.25rem !default;
+$sidebar-nav-link-icon-height:                1.25rem !default;
+$sidebar-nav-link-icon-font-size:             $sidebar-nav-link-icon-height !default;
+
+$sidebar-nav-link-icon-bullet-size:           .3125rem !default;
+$sidebar-nav-link-icon-bullet-bg:             transparent !default;
+$sidebar-nav-link-icon-bullet-border-width:   1px !default;
+$sidebar-nav-link-icon-bullet-border-color:   var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-icon-bullet-border-radius:  50rem !default;
+
+$sidebar-nav-link-hover-color:                var(--#{$prefix}emphasis-color) !default;
+$sidebar-nav-link-hover-bg:                   var(--#{$prefix}tertiary-bg) !default;
+$sidebar-nav-link-hover-icon-color:           var(--#{$prefix}body-color) !default;
+$sidebar-nav-link-hover-icon-bullet-bg:       transparent !default;
+$sidebar-nav-link-hover-icon-bullet-border-color:   var(--#{$prefix}body-color) !default;
+
+$sidebar-nav-link-active-color:               var(--#{$prefix}primary) !default;
+$sidebar-nav-link-active-bg:                  var(--#{$prefix}tertiary-bg) !default;
+$sidebar-nav-link-active-icon-color:          var(--#{$prefix}primary) !default;
+$sidebar-nav-link-active-icon-bullet-bg:      transparent !default;
+$sidebar-nav-link-active-icon-bullet-border-color:   var(--#{$prefix}primary) !default;
+
+$sidebar-nav-link-disabled-color:             var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-disabled-icon-color:        var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-disabled-icon-bullet-bg:    transparent !default;
+$sidebar-nav-link-disabled-icon-bullet-border-color:  var(--#{$prefix}tertiary-color) !default;
+
+$sidebar-nav-group-bg:                        transparent !default;
+$sidebar-nav-group-border-width:              0 !default;
+$sidebar-nav-group-border-color:              transparent !default;
+$sidebar-nav-group-border-radius:             var(--#{$prefix}border-radius) !default;
+$sidebar-nav-group-transition:                background .15s ease-in-out !default;
+$sidebar-nav-group-toggle-show-color:         $sidebar-nav-link-color !default;
+
+$sidebar-nav-group-items-padding-y:           0 !default;
+$sidebar-nav-group-items-padding-x:           0 !default;
+$sidebar-nav-group-items-transition:          height .15s ease !default;
+
+$sidebar-nav-group-indicator-color:           var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-group-indicator-icon:            url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !default;
+$sidebar-nav-group-indicator-hover-color:     $sidebar-nav-link-hover-color !default;
+$sidebar-nav-group-indicator-hover-icon:      $sidebar-nav-group-indicator-icon !default;
+$sidebar-nav-group-indicator-transition:      transform .15s !default;
+// scss-docs-end sidebar-nav-variables
+
+// scss-docs-start sidebar-toggler
+$sidebar-toggler-width:             .5rem !default;
+$sidebar-toggler-height:            .5rem !default;
+$sidebar-toggler-padding-x:         .25rem !default;
+$sidebar-toggler-padding-y:         .25rem !default;
+$sidebar-toggler-color:             var(--#{$prefix}tertiary-color) !default;
+$sidebar-toggler-bg:                url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cg xmlns='http://www.w3.org/2000/svg' transform='matrix(-1 0 0 -1 512 512)'%3E%3Cpath fill='%23000' d='M472,16H40A24.028,24.028,0,0,0,16,40V200H48V48H464V464H48V304H16V472a24.028,24.028,0,0,0,24,24H472a24.028,24.028,0,0,0,24-24V40A24.028,24.028,0,0,0,472,16Z'/%3E%3Cpolygon fill='%23000' points='209.377 363.306 232.004 385.933 366.627 251.31 232.004 116.687 209.377 139.313 305.374 235.311 16 235.311 16 267.311 305.372 267.311 209.377 363.306'/%3E%3C/g%3E%3C/svg%3E") !default;
+$sidebar-toggler-focus-shadow:      $focus-ring-box-shadow !default;
+$sidebar-toggler-hover-color:       var(--#{$prefix}secondary-color) !default;
+$sidebar-toggler-focus-color:       var(--#{$prefix}secondary-color) !default;
+$sidebar-toggler-transition:         transform .15s !default;
+// scss-docs-end sidebar-toggler
 
 // Footer
 // scss-docs-start footer-variables

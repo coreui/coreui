@@ -1,3 +1,5 @@
+// stylelint-disable function-disallowed-list
+
 .sidebar {
   // scss-docs-start sidebar-css-vars
   --#{$prefix}sidebar-width: #{$sidebar-width};
@@ -5,56 +7,8 @@
   --#{$prefix}sidebar-padding-x: #{$sidebar-padding-x};
   --#{$prefix}sidebar-padding-y: #{$sidebar-padding-y};
   --#{$prefix}sidebar-color: #{$sidebar-color};
-  --#{$prefix}sidebar-border-width: #{$sidebar-border-width};
-  --#{$prefix}sidebar-border-color: #{$sidebar-border-color};
   --#{$prefix}sidebar-brand-color: #{$sidebar-brand-color};
-  --#{$prefix}sidebar-brand-height: #{$sidebar-brand-height};
   --#{$prefix}sidebar-brand-bg: #{$sidebar-brand-bg};
-  --#{$prefix}sidebar-header-height: #{$sidebar-header-height};
-  --#{$prefix}sidebar-header-bg: #{$sidebar-header-bg};
-  --#{$prefix}sidebar-header-padding-x: #{$sidebar-header-padding-x};
-  --#{$prefix}sidebar-header-padding-y: #{$sidebar-header-padding-y};
-  --#{$prefix}sidebar-footer-bg: #{$sidebar-footer-bg};
-  --#{$prefix}sidebar-footer-height: #{$sidebar-footer-height};
-  --#{$prefix}sidebar-footer-padding-x: #{$sidebar-footer-padding-x};
-  --#{$prefix}sidebar-footer-padding-y: #{$sidebar-footer-padding-y};
-  --#{$prefix}sidebar-toggler-bg: #{$sidebar-toggler-bg};
-  --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
-  --#{$prefix}sidebar-toggler-indicator: #{escape-svg($sidebar-toggler-indicator-icon)};
-  --#{$prefix}sidebar-toggler-indicator-width: #{$sidebar-toggler-indicator-width};
-  --#{$prefix}sidebar-toggler-indicator-height: #{$sidebar-toggler-indicator-height};
-  --#{$prefix}sidebar-toggler-hover-bg: #{$sidebar-toggler-hover-bg};
-  --#{$prefix}sidebar-toggler-indicator-hover: #{escape-svg($sidebar-toggler-indicator-hover-icon)};
-  --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
-  --#{$prefix}sidebar-nav-title-padding-x: #{$sidebar-nav-title-padding-x};
-  --#{$prefix}sidebar-nav-title-padding-y: #{$sidebar-nav-title-padding-y};
-  --#{$prefix}sidebar-nav-title-margin-top: #{$sidebar-nav-title-margin-top};
-  --#{$prefix}sidebar-nav-title-color: #{$sidebar-nav-title-color};
-  --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-nav-link-padding-x};
-  --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-nav-link-padding-y};
-  --#{$prefix}sidebar-nav-link-color: #{$sidebar-nav-link-color};
-  --#{$prefix}sidebar-nav-link-bg: #{$sidebar-nav-link-bg};
-  --#{$prefix}sidebar-nav-link-border-color: #{$sidebar-nav-link-border-color};
-  --#{$prefix}sidebar-nav-link-border: #{$sidebar-nav-link-border-width} solid var(--#{$prefix}sidebar-nav-link-border-color);
-  --#{$prefix}sidebar-nav-link-border-radius: #{$sidebar-nav-link-border-radius};
-  --#{$prefix}sidebar-nav-link-active-color: #{$sidebar-nav-link-active-color};
-  --#{$prefix}sidebar-nav-link-active-bg: #{$sidebar-nav-link-active-bg};
-  --#{$prefix}sidebar-nav-link-active-icon-color: #{$sidebar-nav-link-active-icon-color};
-  --#{$prefix}sidebar-nav-link-disabled-color: #{$sidebar-nav-link-disabled-color};
-  --#{$prefix}sidebar-nav-link-disabled-icon-color: #{$sidebar-nav-link-disabled-icon-color};
-  --#{$prefix}sidebar-nav-link-hover-color: #{$sidebar-nav-link-hover-color};
-  --#{$prefix}sidebar-nav-link-hover-bg: #{$sidebar-nav-link-hover-bg};
-  --#{$prefix}sidebar-nav-link-hover-icon-color: #{$sidebar-nav-link-hover-icon-color};
-  --#{$prefix}sidebar-nav-icon-width: #{$sidebar-nav-icon-width};
-  --#{$prefix}sidebar-nav-icon-height: #{$sidebar-nav-icon-height};
-  --#{$prefix}sidebar-nav-icon-font-size: #{$sidebar-nav-icon-font-size};
-  --#{$prefix}sidebar-nav-link-icon-color: #{$sidebar-nav-link-icon-color};
-  --#{$prefix}sidebar-nav-group-bg: #{$sidebar-nav-group-bg};
-  --#{$prefix}sidebar-nav-group-items-padding-y: #{$sidebar-nav-group-items-padding-y};
-  --#{$prefix}sidebar-nav-group-items-padding-x: #{$sidebar-nav-group-items-padding-x};
-  --#{$prefix}sidebar-nav-group-indicator: #{escape-svg($sidebar-nav-group-indicator-icon)};
-  --#{$prefix}sidebar-nav-group-indicator-hover: #{escape-svg($sidebar-nav-group-indicator-hover-icon)};
-  --#{$prefix}sidebar-nav-group-toggle-show-color: #{$sidebar-nav-group-toggle-show-color};
   // scss-docs-end sidebar-css-vars
 
   position: relative;
@@ -65,10 +19,8 @@
   // put the nav on the left
   order: -1;
   width: var(--#{$prefix}sidebar-width);
-  padding: var(--#{$prefix}sidebar-padding-y) var(--#{$prefix}sidebar-padding-x);
   color: var(--#{$prefix}sidebar-color);
   background: var(--#{$prefix}sidebar-bg);
-  @include ltr-rtl("border-right", var(--#{$prefix}sidebar-border-width) solid var(--#{$prefix}sidebar-border-color));
   box-shadow: none;
   @include transition($sidebar-transition);
 
@@ -85,10 +37,6 @@
     ~ * {
       --#{$prefix}sidebar-occupy-end: #{$sidebar-width};
     }
-  }
-
-  &[class*="bg-"]  {
-    border-color: rgba($black, .1);
   }
 
   @each $width, $value in $sidebar-widths {
@@ -203,32 +151,9 @@
   }
 }
 
-.sidebar-close {
-  position: absolute;
-  top: 0;
-  @include ltr-rtl("right", 0);
-  width: var(--#{$prefix}sidebar-width);
-  height: var(--#{$prefix}sidebar-header-height);
-  color: var(--#{$prefix}sidebar-color);
-  background: transparent;
-  border: 0;
-
-  &:hover {
-    text-decoration: none;
-  }
-
-  &:focus {
-    outline: 0;
-  }
-}
-
 .sidebar-brand {
-  display: flex;
-  flex: 0 0 var(--#{$prefix}sidebar-brand-height);
-  align-items: center;
-  justify-content: center;
   color: var(--#{$prefix}sidebar-brand-color);
-  background: var(--#{$prefix}sidebar-brand-bg);
+  white-space: nowrap;
 
   .sidebar-brand-narrow {
     display: none;
@@ -236,73 +161,86 @@
 }
 
 .sidebar-header {
-  flex: 0 0 var(--#{$prefix}sidebar-header-height);
-  padding: var(--#{$prefix}sidebar-header-padding-y) var(--#{$prefix}sidebar-header-padding-x);
-  text-align: center;
-  background: var(--#{$prefix}sidebar-header-bg);
-  @include transition($sidebar-header-height-transition);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--#{$prefix}sidebar-padding-y) var(--#{$prefix}sidebar-padding-x);
 
-  .nav-link {
-    display: flex;
-    align-items: center;
-    min-height: var(--#{$prefix}sidebar-header-height);
+  .btn-close {
+    padding: calc(var(--#{$prefix}sidebar-padding-y) * .5) calc(var(--#{$prefix}sidebar-padding-x) * .5);
+    margin-top: calc(-.5 * var(--#{$prefix}sidebar-padding-y));
+    @include ltr-rtl("margin-right", calc(-.5 * var(--#{$prefix}sidebar-padding-x)));
+    margin-bottom: calc(-.5 * var(--#{$prefix}sidebar-padding-y));
   }
+}
+
+.sidebar-body {
+  padding: var(--#{$prefix}sidebar-padding-y) var(--#{$prefix}sidebar-padding-x);
 }
 
 .sidebar-footer {
-  flex: 0 0 var(--#{$prefix}sidebar-footer-height);
-  padding: var(--#{$prefix}sidebar-footer-padding-y) var(--#{$prefix}sidebar-footer-padding-x);
-  background: var(--#{$prefix}sidebar-footer-bg);
-  @include transition($sidebar-footer-height-transition);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--#{$prefix}sidebar-padding-y) var(--#{$prefix}sidebar-padding-x);
 }
 
 .sidebar-toggler {
-  display: flex;
-  flex: 0 0 var(--#{$prefix}sidebar-toggler-height);
-  justify-content: flex-end;
-  width: inherit;
-  padding: 0;
-  cursor: pointer;
-  background-color: var(--#{$prefix}sidebar-toggler-bg);
-  border: 0;
+  // scss-docs-start sidebar-toggler-css-vars
+  --#{$prefix}sidebar-toggler-width: #{$sidebar-toggler-width};
+  --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
+  --#{$prefix}sidebar-toggler-color: #{$sidebar-toggler-color};
+  --#{$prefix}sidebar-toggler-bg: #{ escape-svg($sidebar-toggler-bg) };
+  --#{$prefix}sidebar-toggler-hover-color: #{$sidebar-toggler-hover-color};
+  --#{$prefix}sidebar-toggler-focus-shadow: #{$sidebar-toggler-focus-shadow};
+  --#{$prefix}sidebar-toggler-focus-color: #{$sidebar-toggler-focus-color};
+  --#{$prefix}sidebar-toggler-transition: #{$sidebar-toggler-transition};
+  // scss-docs-end sidebar-toggler-css-vars
 
-  @include media-breakpoint-down($mobile-breakpoint) {
-    display: none;
-  }
+  position: relative;
+  box-sizing: content-box;
+  width: var(--#{$prefix}sidebar-toggler-width);
+  height: var(--#{$prefix}sidebar-toggler-height);
+  padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
+  background-color: transparent;
+  border: 0;
+  @include border-radius();
+  @include transition(var(--#{$prefix}sidebar-toggler-transition));
 
   &::before {
-    display: block;
-    width: var(--#{$prefix}sidebar-toggler-indicator-width);
-    height: var(--#{$prefix}sidebar-toggler-indicator-height);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     content: "";
-    background-image: var(--#{$prefix}sidebar-toggler-indicator);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: calc(var(--#{$prefix}sidebar-toggler-indicator-height) * .25); // stylelint-disable-line function-disallowed-list
-    @include transition($sidebar-toggler-transition);
-    @include rtl() {
-      transform: rotate(-180deg);
+    background-color: var(--#{$prefix}sidebar-toggler-color);
+    mask: var(--#{$prefix}sidebar-toggler-bg) no-repeat center;
+  }
+
+  // Override <a>'s hover style
+  &:hover {
+    text-decoration: none;
+    &::before {
+      background-color: var(--#{$prefix}sidebar-toggler-hover-color);
     }
   }
 
   &:focus {
+    position: relative;
     outline: 0;
-  }
+    box-shadow: var(--#{$prefix}sidebar-toggler-focus-shadow);
 
-  &:hover {
-    background-color: var(--#{$prefix}sidebar-toggler-hover-bg);
     &::before {
-      background-image: var(--#{$prefix}sidebar-toggler-indicator-hover);
+      background-color: var(--#{$prefix}sidebar-toggler-focus-color);
     }
   }
 
-  .sidebar-end & {
-    justify-content: flex-start;
-    &::before {
-      transform: rotate(-180deg);
-    }
+  @include media-breakpoint-down($mobile-breakpoint) {
+    display: none;
   }
 }
+
 
 // Backdrop background
 
@@ -318,12 +256,21 @@
   }
 }
 
-@if $enable-dark-mode {
-  @include color-mode(dark) {
-    .sidebar {
-      --#{$prefix}sidebar-bg: #{$sidebar-bg-dark};
-      --#{$prefix}sidebar-border-width: #{$sidebar-border-width-dark};
-      --#{$prefix}sidebar-border-color: #{$sidebar-border-color-dark};
-    }
+.sidebar-dark {
+  --#{$prefix}body-color: #{$body-color-dark};
+  --#{$prefix}body-bg: #{$body-bg-dark};
+
+  --#{$prefix}emphasis-color: #{$body-emphasis-color-dark};
+
+  --#{$prefix}secondary-color: #{$body-secondary-color-dark};
+  --#{$prefix}secondary-bg: #{$body-secondary-bg-dark};
+
+  --#{$prefix}tertiary-color: #{$body-tertiary-color-dark};
+  --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
+
+  --#{$prefix}border-color: #{$border-color-dark};
+
+  .sidebar-toggler {
+    filter: var(--#{$prefix}sidebar-toggler-white-filter);
   }
 }
