@@ -132,13 +132,21 @@ mySidebar.addEventListener('closed.coreui.sidebar', function () {
 
 ### CSS variables
 
-Sidebars use local CSS variables on `.sidebar` and `.sidebar-backdrop` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+Sidebars use local CSS variables on `.sidebar`, `.sidebar-backdrop`, `.sidebar-narrow`, and `.sidebar-nav` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
 {{< scss-docs name="sidebar-css-vars" file="scss/sidebar/_sidebar.scss" >}}
+
+{{< scss-docs name="sidebar-narrow-css-vars" file="scss/sidebar/_sidebar-narrow.scss" >}}
+
+{{< scss-docs name="sidebar-nav-css-vars" file="scss/sidebar/_sidebar-nav.scss" >}}
+
+{{< scss-docs name="sidebar-toggler-css-vars" file="scss/sidebar/_sidebar.scss" >}}
 
 {{< scss-docs name="sidebar-backdrop-css-vars" file="scss/sidebar/_sidebar.scss" >}}
 
 ### SASS variables
 
 {{< scss-docs name="sidebar-variables" file="scss/_variables.scss" >}}
+
+{{< scss-docs name="sidebar-toggler" file="scss/_variables.scss" >}}
 
