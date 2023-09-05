@@ -1751,27 +1751,6 @@ $header-divider-border-width:   var(--#{$prefix}border-width) !default;
 $header-divider-border-color:   var(--#{$prefix}border-color) !default;
 // scss-docs-end header-variables
 
-// Subheader
-// scss-docs-start subheader-variables
-$subheader-min-height:           3rem !default;
-$subheader-padding-y:            $spacer * .5 !default;
-$subheader-padding-x:            $spacer !default;
-$subheader-border-color:         var(--#{$prefix}border-color) !default;
-$subheader-border-width:         1px !default;
-
-$subheader-nav-link-padding-x:  .5rem !default;
-// scss-docs-end subheader-variables
-
-// Default theme //TODO: check
-// scss-docs-start subheader-default-themes
-$subheader-bg:                     $white !default;
-$subheader-color:                  var(--#{$prefix}secondary-color) !default;
-$subheader-hover-color:            var(--#{$prefix}body-color) !default;
-$subheader-active-color:           var(--#{$prefix}body-color) !default;
-$subheader-disabled-color:         $disabled !default;
-
-// scss-docs-end subheader-default-themes
-
 
 // Image thumbnails
 

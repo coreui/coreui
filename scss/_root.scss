@@ -77,13 +77,13 @@
   --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg)};
   // scss-docs-end root-body-variables
 
-  --#{$prefix}high-emphasis: #{$body-color};
-  --#{$prefix}medium-emphasis: #{$body-secondary-color};
-  --#{$prefix}disabled: #{$body-tertiary-color};
+  // --#{$prefix}high-emphasis: #{$body-color};
+  // --#{$prefix}medium-emphasis: #{$body-secondary-color};
+  // --#{$prefix}disabled: #{$body-tertiary-color};
 
-  --#{$prefix}high-emphasis-inverse: #{$high-emphasis-inverse};
-  --#{$prefix}medium-emphasis-inverse: #{$medium-emphasis-inverse};
-  --#{$prefix}disabled-inverse: #{$disabled-inverse};
+  // --#{$prefix}high-emphasis-inverse: #{$high-emphasis-inverse};
+  // --#{$prefix}medium-emphasis-inverse: #{$medium-emphasis-inverse};
+  // --#{$prefix}disabled-inverse: #{$disabled-inverse};
 
   --#{$prefix}heading-color: #{$headings-color};
 
@@ -159,9 +159,9 @@
     --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
     --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg-dark)};
 
-    --#{$prefix}high-emphasis: #{$body-color-dark};
-    --#{$prefix}medium-emphasis: #{$body-secondary-color-dark};
-    --#{$prefix}disabled: #{$body-tertiary-color-dark};
+    // --#{$prefix}high-emphasis: #{$body-color-dark};
+    // --#{$prefix}medium-emphasis: #{$body-secondary-color-dark};
+    // --#{$prefix}disabled: #{$body-tertiary-color-dark};
 
     @each $color, $value in $theme-colors-dark {
       --#{$prefix}#{$color}: #{$value};
