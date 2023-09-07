@@ -108,14 +108,14 @@
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
       ~ * {
-        --#{$prefix}sidebar-occupy-start: 0;
+        --#{$prefix}sidebar-occupy-start: 0 !important;  // stylelint-disable-line
       }
     }
 
     &.sidebar-end {
       @include ltr-rtl("right", 0);
       ~ * {
-        --#{$prefix}sidebar-occupy-end: 0;
+        --#{$prefix}sidebar-occupy-end: 0 !important;  // stylelint-disable-line
       }
     }
   }
