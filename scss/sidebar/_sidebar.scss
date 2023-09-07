@@ -105,6 +105,10 @@
     bottom: 0;
     z-index: $zindex-fixed + 2;
 
+    &:not(.hide) {
+      box-shadow: $box-shadow;
+    }
+
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
       ~ * {
