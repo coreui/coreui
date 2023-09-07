@@ -75,15 +75,25 @@
   --#{$prefix}tertiary-color-rgb: #{to-rgb($body-tertiary-color)};
   --#{$prefix}tertiary-bg: #{$body-tertiary-bg};
   --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg)};
+
+  --#{$prefix}body-color-dark: #{$body-color-dark};
+  --#{$prefix}body-color-rgb-dark: #{to-rgb($body-color-dark)};
+  --#{$prefix}body-bg-dark: #{$body-bg-dark};
+  --#{$prefix}body-bg-rgb-dark: #{to-rgb($body-bg-dark)};
+
+  --#{$prefix}emphasis-color-dark: #{$body-emphasis-color-dark};
+  --#{$prefix}emphasis-color-rgb-dark: #{to-rgb($body-emphasis-color-dark)};
+
+  --#{$prefix}secondary-color-dark: #{$body-secondary-color-dark};
+  --#{$prefix}secondary-color-rgb-dark: #{to-rgb($body-secondary-color-dark)};
+  --#{$prefix}secondary-bg-dark: #{$body-secondary-bg-dark};
+  --#{$prefix}secondary-bg-rgb-dark: #{to-rgb($body-secondary-bg-dark)};
+
+  --#{$prefix}tertiary-color-dark: #{$body-tertiary-color-dark};
+  --#{$prefix}tertiary-color-rgb-dark: #{to-rgb($body-tertiary-color-dark)};
+  --#{$prefix}tertiary-bg-dark: #{$body-tertiary-bg-dark};
+  --#{$prefix}tertiary-bg-rgb-dark: #{to-rgb($body-tertiary-bg-dark)};
   // scss-docs-end root-body-variables
-
-  // --#{$prefix}high-emphasis: #{$body-color};
-  // --#{$prefix}medium-emphasis: #{$body-secondary-color};
-  // --#{$prefix}disabled: #{$body-tertiary-color};
-
-  // --#{$prefix}high-emphasis-inverse: #{$high-emphasis-inverse};
-  // --#{$prefix}medium-emphasis-inverse: #{$medium-emphasis-inverse};
-  // --#{$prefix}disabled-inverse: #{$disabled-inverse};
 
   --#{$prefix}heading-color: #{$headings-color};
 
@@ -158,10 +168,6 @@
     --#{$prefix}tertiary-color-rgb: #{to-rgb($body-tertiary-color-dark)};
     --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
     --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg-dark)};
-
-    // --#{$prefix}high-emphasis: #{$body-color-dark};
-    // --#{$prefix}medium-emphasis: #{$body-secondary-color-dark};
-    // --#{$prefix}disabled: #{$body-tertiary-color-dark};
 
     @each $color, $value in $theme-colors-dark {
       --#{$prefix}#{$color}: #{$value};

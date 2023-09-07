@@ -36,14 +36,6 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 
-$high-emphasis:            rgba(shift-color($gray-base, +26%), .95) !default;
-$medium-emphasis:          rgba(shift-color($gray-base, +26%), .681) !default;
-$disabled:                 rgba(shift-color($gray-base, +26%), .38) !default;
-
-$high-emphasis-inverse:    rgba($white, .87) !default;
-$medium-emphasis-inverse:  rgba($white, .6) !default;
-$disabled-inverse:         rgba($white, .38) !default;
-
 // scss-docs-start color-variables
 $blue:    #0d6efd !default;
 $indigo:  #6610f2 !default;
@@ -81,8 +73,8 @@ $colors: (
 $min-contrast-ratio:   4.5 !default;
 
 // Customize the light and dark text colors for use in our color contrast function.
-$color-contrast-dark:      $high-emphasis-inverse !default;
-$color-contrast-light:     $high-emphasis !default;
+$color-contrast-dark:      $black !default;
+$color-contrast-light:     $white !default;
 
 // fusv-disable
 $blue-100: tint-color($blue, 80%) !default;
@@ -450,13 +442,13 @@ $position-values: (
 // Settings for the `<body>` element.
 
 $body-text-align:           null !default;
-$body-color:                $high-emphasis !default;
+$body-color:                rgba(shift-color($gray-base, +26%), .95) !default;
 $body-bg:                   $white !default;
 
-$body-secondary-color:      $medium-emphasis !default;
+$body-secondary-color:      rgba(shift-color($gray-base, +26%), .681) !default;
 $body-secondary-bg:         $gray-200 !default;
 
-$body-tertiary-color:       $disabled !default;
+$body-tertiary-color:       rgba(shift-color($gray-base, +26%), .38) !default;
 $body-tertiary-bg:          $gray-100 !default;
 
 $body-emphasis-color:       $black !default;
@@ -578,7 +570,7 @@ $box-shadow-lg:               0 1rem 3rem rgba($black, .175) !default;
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075) !default;
 // scss-docs-end box-shadow-variables
 
-$component-active-color:      $high-emphasis-inverse !default;
+$component-active-color:      rgba($white, .87) !default;
 $component-active-bg:         var(--#{$prefix}primary) !default;
 
 // scss-docs-start focus-ring-variables
