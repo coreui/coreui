@@ -92,11 +92,11 @@ $light-border-subtle-dark:          $gray-700-dark !default;
 $dark-border-subtle-dark:           $gray-800-dark !default;
 // scss-docs-end theme-border-subtle-dark-variables
 
-$body-color-dark:                   $gray-300-dark !default;
+$body-color-dark:                   rgba($white, .87) !default;
 $body-bg-dark:                      $gray-900-dark !default;
-$body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
+$body-secondary-color-dark:         rgba($white, .6) !default;
 $body-secondary-bg-dark:            $gray-800-dark !default;
-$body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
+$body-tertiary-color-dark:          rgba($white, .38) !default;
 $body-tertiary-bg-dark:             mix($gray-800-dark, #212631, 50%) !default;
 $body-emphasis-color-dark:          $white !default;
 $border-color-dark:                 $gray-800-dark !default;
