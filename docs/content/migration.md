@@ -7,7 +7,7 @@ aliases: "/migration/"
 toc: true
 ---
 
-## v5.0.0-alpha.1
+## v5.0.0-alpha.2
 
 ### CSS variables
 
