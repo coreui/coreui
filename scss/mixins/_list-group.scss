@@ -6,7 +6,7 @@
 @mixin list-group-item-variant($state, $variant) {
   $background: map-get($variant, "bg");
   $background-hover: map-get($variant, "bg-hover");
-  $color: contrast-ratio-correction(map-get($variant, "color"), map-get($variant, "bg"), abs($alert-color-scale), $state);
+  $color: contrast-ratio-correction(map-get($variant, "color"), map-get($variant, "bg"), $alert-color-scale, $state);
 
   --#{$prefix}list-group-color: #{$color};
   --#{$prefix}list-group-bg: #{$background};
