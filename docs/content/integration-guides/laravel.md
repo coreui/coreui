@@ -137,40 +137,41 @@ With dependencies installed and our project folder ready for us to start coding,
 
    ```scss
    // Import all of CoreUI's CSS
-   @import "@coreui/coreui/scss/coreui";
+   @import "@coreui/coreui/scss/coreui"
    ```
 
    **For PRO users**
 
    ```scss
    // Import all of CoreUI PRO's CSS
-   @import "@coreui/coreui-pro/scss/coreui";
+   @import "@coreui/coreui-pro/scss/coreui"
    ```
 
    *You can also import our stylesheets individually if you want. [Read our Sass import docs]({{< docsref "/customize/sass#importing" >}}) for details.*
 
 2. **Next we import CoreUI’s JavaScript**. Add the following to resources/js/bootstrap.js to import all of CoreUI’s JS. Popper will be imported automatically through CoreUI.
-
+   <!-- eslint-skip -->
    ```js
    // Import all of CoreUI's JS
-   import * as coreui from '@coreui/coreui';
+   import * as coreui from '@coreui/coreui'
 
-   window.coreui = coreui;
+   window.coreui = coreui
    ```
 
    **For PRO users**
-
+   <!-- eslint-skip -->
    ```js
    // Import all of CoreUI's JS
-   import * as coreui from '@coreui/coreui-pro';
+   import * as coreui from '@coreui/coreui-pro'
 
-   window.coreui = coreui;
+   window.coreui = coreui
    ```
 
    You can also import JavaScript plugins individually as needed to keep bundle sizes down:
 
+   <!-- eslint-skip -->
    ```js
-   import { Tooltip, Toast, Popover } from '@coreui/coreui';
+   import { Tooltip, Toast, Popover } from '@coreui/coreui'
    ```
 
    *[Read our JavaScript docs]({{< docsref "/getting-started/javascript" >}}) for more information on how to use CoreUI's plugins.*

@@ -88,6 +88,7 @@
   }
 
   --#{$prefix}code-color: #{$code-color};
+  --#{$prefix}highlight-color: #{$mark-color};
   --#{$prefix}highlight-bg: #{$mark-bg};
 
   // scss-docs-start root-border-var
