@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintained by the CoreUI Team",
-  "version": "4.3.0",
+  "version": "4.3.1",
   "config": {
     "version_short": "4.3"
   },
@@ -60,7 +60,8 @@
     "release": "npm-run-all dist release-sri docs-build release-zip*",
     "release-sri": "node build/generate-sri.mjs",
     "release-version": "node build/change-version.mjs",
-    "release-zip": "cross-env-shell \"rm -rf coreui-$npm_package_version-dist coreui-$npm_package_version-dist.zip && cp -r dist/ coreui-$npm_package_version-dist && zip -qr9 coreui-$npm_package_version-dist.zip coreui-$npm_package_version-dist && rm -rf coreui-$npm_package_version-dist\"",    "dist": "npm-run-all --aggregate-output --parallel css js",
+    "release-zip": "cross-env-shell \"rm -rf coreui-$npm_package_version-dist coreui-$npm_package_version-dist.zip && cp -r dist/ coreui-$npm_package_version-dist && zip -qr9 coreui-$npm_package_version-dist.zip coreui-$npm_package_version-dist && rm -rf coreui-$npm_package_version-dist\"",
+    "dist": "npm-run-all --aggregate-output --parallel css js",
     "test": "npm-run-all lint dist js-test docs-build docs-lint",
     "watch": "npm-run-all --parallel watch-*",
     "watch-css-main": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile css-prefix\"",

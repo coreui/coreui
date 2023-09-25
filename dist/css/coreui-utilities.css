@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Utilities v4.3.0 (https://coreui.io)
+ * CoreUI Utilities v4.3.1 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -82,6 +82,7 @@
   --cui-link-hover-color: #2819af;
   --cui-link-hover-color-rgb: 40, 25, 175;
   --cui-code-color: #d63384;
+  --cui-highlight-color: rgba(44, 56, 74, 0.95);
   --cui-highlight-bg: #fff3cd;
   --cui-border-width: 1px;
   --cui-border-style: solid;
@@ -647,15 +648,15 @@
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15) !important;
+  box-shadow: var(--cui-box-shadow) !important;
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 21, 0.075) !important;
+  box-shadow: var(--cui-box-shadow-sm) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 21, 0.175) !important;
+  box-shadow: var(--cui-box-shadow-lg) !important;
 }
 
 .shadow-none {

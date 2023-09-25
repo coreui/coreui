@@ -1,11 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v4.3.0 (https://coreui.io)
- * Copyright (c) 2023 creativeLabs Łukasz Holeczek
- * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
- */
-/*!
- * CoreUI  v4.3.0 (https://coreui.io)
+ * CoreUI  v4.3.1 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -87,6 +82,7 @@
   --cui-link-hover-color: #2819af;
   --cui-link-hover-color-rgb: 40, 25, 175;
   --cui-code-color: #d63384;
+  --cui-highlight-color: rgba(44, 56, 74, 0.95);
   --cui-highlight-bg: #fff3cd;
   --cui-border-width: 1px;
   --cui-border-style: solid;
@@ -252,6 +248,7 @@ small, .small {
 
 mark, .mark {
   padding: 0.1875em;
+  color: var(--cui-highlight-color);
   background-color: var(--cui-highlight-bg);
 }
 
@@ -742,7 +739,7 @@ progress {
 
 .row-cols-3 > * {
   flex: 0 0 auto;
-  width: 33.3333333333%;
+  width: 33.33333333%;
 }
 
 .row-cols-4 > * {
@@ -757,7 +754,7 @@ progress {
 
 .row-cols-6 > * {
   flex: 0 0 auto;
-  width: 16.6666666667%;
+  width: 16.66666667%;
 }
 
 .col-auto {
@@ -947,7 +944,7 @@ progress {
   }
   .row-cols-sm-3 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 33.33333333%;
   }
   .row-cols-sm-4 > * {
     flex: 0 0 auto;
@@ -959,7 +956,7 @@ progress {
   }
   .row-cols-sm-6 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 16.66666667%;
   }
   .col-sm-auto {
     flex: 0 0 auto;
@@ -1116,7 +1113,7 @@ progress {
   }
   .row-cols-md-3 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 33.33333333%;
   }
   .row-cols-md-4 > * {
     flex: 0 0 auto;
@@ -1128,7 +1125,7 @@ progress {
   }
   .row-cols-md-6 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 16.66666667%;
   }
   .col-md-auto {
     flex: 0 0 auto;
@@ -1285,7 +1282,7 @@ progress {
   }
   .row-cols-lg-3 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 33.33333333%;
   }
   .row-cols-lg-4 > * {
     flex: 0 0 auto;
@@ -1297,7 +1294,7 @@ progress {
   }
   .row-cols-lg-6 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 16.66666667%;
   }
   .col-lg-auto {
     flex: 0 0 auto;
@@ -1454,7 +1451,7 @@ progress {
   }
   .row-cols-xl-3 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 33.33333333%;
   }
   .row-cols-xl-4 > * {
     flex: 0 0 auto;
@@ -1466,7 +1463,7 @@ progress {
   }
   .row-cols-xl-6 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 16.66666667%;
   }
   .col-xl-auto {
     flex: 0 0 auto;
@@ -1623,7 +1620,7 @@ progress {
   }
   .row-cols-xxl-3 > * {
     flex: 0 0 auto;
-    width: 33.3333333333%;
+    width: 33.33333333%;
   }
   .row-cols-xxl-4 > * {
     flex: 0 0 auto;
@@ -1635,7 +1632,7 @@ progress {
   }
   .row-cols-xxl-6 > * {
     flex: 0 0 auto;
-    width: 16.6666666667%;
+    width: 16.66666667%;
   }
   .col-xxl-auto {
     flex: 0 0 auto;
@@ -1779,16 +1776,16 @@ progress {
   --cui-table-bg-type: initial;
   --cui-table-color-state: initial;
   --cui-table-bg-state: initial;
-  --cui-table-color: var(--cui-body-color);
+  --cui-table-color: var(--cui-emphasis-color);
   --cui-table-bg: var(--cui-body-bg);
   --cui-table-border-color: var(--cui-border-color);
   --cui-table-accent-bg: transparent;
-  --cui-table-striped-color: var(--cui-body-color);
-  --cui-table-striped-bg: rgba(0, 0, 21, 0.05);
-  --cui-table-active-color: var(--cui-body-color);
-  --cui-table-active-bg: rgba(0, 0, 21, 0.1);
-  --cui-table-hover-color: var(--cui-body-color);
-  --cui-table-hover-bg: rgba(0, 0, 21, 0.075);
+  --cui-table-striped-color: var(--cui-emphasis-color);
+  --cui-table-striped-bg: rgba(var(--cui-emphasis-color-rgb), 0.05);
+  --cui-table-active-color: var(--cui-emphasis-color);
+  --cui-table-active-bg: rgba(var(--cui-emphasis-color-rgb), 0.1);
+  --cui-table-hover-color: var(--cui-emphasis-color);
+  --cui-table-hover-bg: rgba(var(--cui-emphasis-color-rgb), 0.075);
   width: 100%;
   margin-bottom: 1rem;
   vertical-align: top;
@@ -1857,7 +1854,7 @@ progress {
 .table-primary {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #d6d2f8;
-  --cui-table-border-color: rgba(198, 196, 232, 0.995);
+  --cui-table-border-color: rgba(183, 182, 216, 0.99);
   --cui-table-striped-bg: rgba(206, 203, 240, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(198, 196, 232, 0.995);
@@ -1871,7 +1868,7 @@ progress {
 .table-secondary {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #ebedef;
-  --cui-table-border-color: rgba(218, 220, 224, 0.995);
+  --cui-table-border-color: rgba(200, 204, 209, 0.99);
   --cui-table-striped-bg: rgba(226, 229, 232, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(218, 220, 224, 0.995);
@@ -1885,7 +1882,7 @@ progress {
 .table-success {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #d5f1de;
-  --cui-table-border-color: rgba(198, 224, 208, 0.995);
+  --cui-table-border-color: rgba(182, 207, 195, 0.99);
   --cui-table-striped-bg: rgba(205, 233, 215, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(198, 224, 208, 0.995);
@@ -1899,7 +1896,7 @@ progress {
 .table-info {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #d6ebff;
-  --cui-table-border-color: rgba(198, 219, 238, 0.995);
+  --cui-table-border-color: rgba(183, 202, 222, 0.99);
   --cui-table-striped-bg: rgba(206, 227, 247, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(198, 219, 238, 0.995);
@@ -1913,7 +1910,7 @@ progress {
 .table-warning {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #feefd0;
-  --cui-table-border-color: rgba(235, 222, 196, 0.995);
+  --cui-table-border-color: rgba(215, 205, 183, 0.99);
   --cui-table-striped-bg: rgba(244, 231, 202, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(235, 222, 196, 0.995);
@@ -1927,7 +1924,7 @@ progress {
 .table-danger {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #fadddd;
-  --cui-table-border-color: rgba(231, 206, 208, 0.995);
+  --cui-table-border-color: rgba(212, 191, 194, 0.99);
   --cui-table-striped-bg: rgba(241, 214, 214, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(231, 206, 208, 0.995);
@@ -1941,7 +1938,7 @@ progress {
 .table-light {
   --cui-table-color: rgba(44, 56, 74, 0.95);
   --cui-table-bg: #ebedef;
-  --cui-table-border-color: rgba(218, 220, 224, 0.995);
+  --cui-table-border-color: rgba(200, 204, 209, 0.99);
   --cui-table-striped-bg: rgba(226, 229, 232, 0.9975);
   --cui-table-striped-color: rgba(44, 56, 74, 0.95);
   --cui-table-active-bg: rgba(218, 220, 224, 0.995);
@@ -1955,7 +1952,7 @@ progress {
 .table-dark {
   --cui-table-color: rgba(255, 255, 255, 0.87);
   --cui-table-bg: #4f5d73;
-  --cui-table-border-color: rgba(93, 106, 126, 0.987);
+  --cui-table-border-color: rgba(107, 119, 138, 0.974);
   --cui-table-striped-bg: rgba(86, 99, 120, 0.9935);
   --cui-table-striped-color: rgba(255, 255, 255, 0.87);
   --cui-table-active-bg: rgba(93, 106, 126, 0.987);
@@ -2265,6 +2262,7 @@ textarea.form-control-lg {
 
 .form-check-input {
   --cui-form-check-bg: var(--cui-body-bg);
+  flex-shrink: 0;
   width: 1em;
   height: 1em;
   margin-top: 0.25em;
@@ -2438,7 +2436,7 @@ textarea.form-control-lg {
   height: 0.5rem;
   color: transparent;
   cursor: pointer;
-  background-color: var(--cui-form-range-track-bg, var(--cui-tertiary-bg));
+  background-color: var(--cui-form-range-track-bg, var(--cui-secondary-bg));
   border-color: transparent;
   border-radius: 1rem;
 }
@@ -2464,7 +2462,7 @@ textarea.form-control-lg {
   height: 0.5rem;
   color: transparent;
   cursor: pointer;
-  background-color: var(--cui-form-range-track-bg, var(--cui-tertiary-bg));
+  background-color: var(--cui-form-range-track-bg, var(--cui-secondary-bg));
   border-color: transparent;
   border-radius: 1rem;
 }
@@ -3390,7 +3388,7 @@ textarea.form-control-lg {
   --cui-dropdown-inner-border-radius: calc(var(--cui-border-radius) - var(--cui-border-width));
   --cui-dropdown-divider-bg: var(--cui-border-color-translucent);
   --cui-dropdown-divider-margin-y: 0.5rem;
-  --cui-dropdown-box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15);
+  --cui-dropdown-box-shadow: var(--cui-box-shadow);
   --cui-dropdown-link-color: var(--cui-body-color);
   --cui-dropdown-link-hover-color: var(--cui-body-color);
   --cui-dropdown-link-hover-bg: var(--cui-tertiary-bg);
@@ -5422,7 +5420,7 @@ textarea.form-control-lg {
   --cui-modal-border-color: var(--cui-border-color-translucent);
   --cui-modal-border-width: var(--cui-border-width);
   --cui-modal-border-radius: var(--cui-border-radius-lg);
-  --cui-modal-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 21, 0.075);
+  --cui-modal-box-shadow: var(--cui-box-shadow-sm);
   --cui-modal-inner-border-radius: calc(var(--cui-border-radius-lg) - (var(--cui-border-width)));
   --cui-modal-header-padding-x: 1rem;
   --cui-modal-header-padding-y: 1rem;
@@ -5563,7 +5561,7 @@ textarea.form-control-lg {
 @media (min-width: 576px) {
   .modal {
     --cui-modal-margin: 1.75rem;
-    --cui-modal-box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15);
+    --cui-modal-box-shadow: var(--cui-box-shadow);
   }
   .modal-dialog {
     max-width: var(--cui-modal-width);
@@ -5815,7 +5813,7 @@ textarea.form-control-lg {
   --cui-popover-border-color: var(--cui-border-color-translucent);
   --cui-popover-border-radius: var(--cui-border-radius-lg);
   --cui-popover-inner-border-radius: calc(var(--cui-border-radius-lg) - var(--cui-border-width));
-  --cui-popover-box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15);
+  --cui-popover-box-shadow: var(--cui-box-shadow);
   --cui-popover-header-padding-x: 1rem;
   --cui-popover-header-padding-y: 0.5rem;
   --cui-popover-header-font-size: 1rem;
@@ -6242,7 +6240,7 @@ textarea.form-control-lg {
   --cui-offcanvas-bg: var(--cui-body-bg);
   --cui-offcanvas-border-width: var(--cui-border-width);
   --cui-offcanvas-border-color: var(--cui-border-color-translucent);
-  --cui-offcanvas-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 21, 0.075);
+  --cui-offcanvas-box-shadow: var(--cui-box-shadow-sm);
   --cui-offcanvas-transition: transform 0.3s ease-in-out;
   --cui-offcanvas-title-line-height: 1.5;
 }
@@ -8381,15 +8379,15 @@ textarea.form-control-lg {
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 21, 0.15) !important;
+  box-shadow: var(--cui-box-shadow) !important;
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 21, 0.075) !important;
+  box-shadow: var(--cui-box-shadow-sm) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 21, 0.175) !important;
+  box-shadow: var(--cui-box-shadow-lg) !important;
 }
 
 .shadow-none {
