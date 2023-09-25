@@ -1,7 +1,7 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintained by the CoreUI Team",
-  "version": "4.3.1",
+  "version": "4.3.2",
   "config": {
     "version_short": "4.3"
   },
@@ -34,7 +34,7 @@
     "js-compile-standalone": "rollup --environment BUNDLE:false --config build/rollup.config.mjs --sourcemap",
     "js-compile-standalone-esm": "rollup --environment ESM:true,BUNDLE:false --config build/rollup.config.mjs --sourcemap",
     "js-compile-bundle": "rollup --environment BUNDLE:true --config build/rollup.config.mjs --sourcemap",
-    "js-compile-plugins": "node build/build-plugins.js",
+    "js-compile-plugins": "node build/build-plugins.mjs",
     "js-lint": "eslint --cache --cache-location .cache/.eslintcache --report-unused-disable-directives --ext .html,.js,.mjs,.md .",
     "js-minify": "npm-run-all --aggregate-output --parallel js-minify-*",
     "js-minify-standalone": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=dist/js/coreui.js.map,includeSources,url=coreui.min.js.map\" --output dist/js/coreui.min.js dist/js/coreui.js",

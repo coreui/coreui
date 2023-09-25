@@ -56,4 +56,4 @@ if (!ESM) {
   rollupConfig.output.name = 'coreui'
 }
 
-module.exports = rollupConfig
+export default rollupConfig
