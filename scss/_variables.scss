@@ -36,6 +36,16 @@ $grays: (
 // scss-docs-end gray-colors-map
 // fusv-enable
 
+// fusv-disable
+$high-emphasis:            rgba(shift-color($gray-base, +26%), .95) !default; // Deprecated in 5.0.0
+$medium-emphasis:          rgba(shift-color($gray-base, +26%), .681) !default; // Deprecated in 5.0.0
+$disabled:                 rgba(shift-color($gray-base, +26%), .38) !default; // Deprecated in 5.0.0
+
+$high-emphasis-inverse:    rgba($white, .87) !default; // Deprecated in 5.0.0
+$medium-emphasis-inverse:  rgba($white, .6) !default; // Deprecated in 5.0.0
+$disabled-inverse:         rgba($white, .38) !default; // Deprecated in 5.0.0
+// fusv-enable
+
 // scss-docs-start color-variables
 $blue:    #0d6efd !default;
 $indigo:  #6610f2 !default;

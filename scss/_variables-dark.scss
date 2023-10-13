@@ -35,6 +35,12 @@ $grays-dark: (
 // scss-docs-end gray-colors-dark-map
 // fusv-enable
 
+// fusv-disable
+$high-emphasis-dark:    rgba($white, .87) !default; // Deprecated in v5.0.0
+$medium-emphasis-dark:  rgba($white, .6) !default; // Deprecated in v5.0.0
+$disabled-dark:         rgba($white, .38) !default; // Deprecated in v5.0.0
+// fusv-enable
+
 // scss-docs-start theme-color-dark-variables
 $primary-dark:       desaturate($primary, 10%) !default;
 $secondary-dark:     desaturate($secondary, 10%) !default;
