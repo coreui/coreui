@@ -8,15 +8,15 @@
 
 // scss-docs-start sass-dark-mode-vars
 // scss-docs-start gray-color-dark-variables
-$gray-100-dark: #f3f4f7 !default;
-$gray-200-dark: #e7eaee !default;
-$gray-300-dark: #dbdfe6 !default;
-$gray-400-dark: #cfd4de !default;
-$gray-500-dark: #aab3c5 !default;
-$gray-600-dark: #6d7d9c !default;
-$gray-700-dark: #4a566d !default;
-$gray-800-dark: #323a49 !default;
-$gray-900-dark: #212631 !default;
+$gray-100-dark: $gray-100 !default;
+$gray-200-dark: $gray-200 !default;
+$gray-300-dark: $gray-300 !default;
+$gray-400-dark: $gray-400 !default;
+$gray-500-dark: $gray-500 !default;
+$gray-600-dark: $gray-600 !default;
+$gray-700-dark: $gray-700 !default;
+$gray-800-dark: $gray-800 !default;
+$gray-900-dark: $gray-900 !default;
 // scss-docs-end gray-color-dark-variables
 
 // fusv-disable
@@ -48,8 +48,8 @@ $success-dark:       desaturate($success, 10%) !default;
 $info-dark:          desaturate($info, 10%) !default;
 $warning-dark:       desaturate($warning, 10%) !default;
 $danger-dark:        desaturate($danger, 10%) !default;
-$light-dark:         desaturate($light, 10%) !default;
-$dark-dark:          desaturate($dark, 10%) !default;
+$light-dark:         $light !default;
+$dark-dark:          $dark !default;
 // scss-docs-end theme-color-dark-variables
 
 // scss-docs-start theme-colors-dark-map
@@ -66,12 +66,12 @@ $theme-colors-dark: (
 // scss-docs-end theme-colors-dark-map
 
 // scss-docs-start theme-text-dark-variables
-$primary-text-emphasis-dark:        $primary-text-emphasis !default;
-$secondary-text-emphasis-dark:      $secondary-text-emphasis !default;
-$success-text-emphasis-dark:        $success-text-emphasis !default;
-$info-text-emphasis-dark:           $info-text-emphasis !default;
-$warning-text-emphasis-dark:        $warning-text-emphasis !default;
-$danger-text-emphasis-dark:         $danger-text-emphasis !default;
+$primary-text-emphasis-dark:        desaturate($primary-text-emphasis, 10%) !default;
+$secondary-text-emphasis-dark:      desaturate($secondary-text-emphasis, 10%) !default;
+$success-text-emphasis-dark:        desaturate($success-text-emphasis, 10%) !default;
+$info-text-emphasis-dark:           desaturate($info-text-emphasis, 10%) !default;
+$warning-text-emphasis-dark:        desaturate($warning-text-emphasis, 10%) !default;
+$danger-text-emphasis-dark:         desaturate($danger-text-emphasis, 10%) !default;
 $light-text-emphasis-dark:          $gray-100-dark !default;
 $dark-text-emphasis-dark:           $gray-300-dark !default;
 // scss-docs-end theme-text-dark-variables
