@@ -1245,6 +1245,15 @@ $nav-pills-link-active-bg:          $component-active-bg !default;
 $nav-underline-gap:                 1rem !default;
 $nav-underline-border-width:        .125rem !default;
 $nav-underline-link-active-color:   var(--#{$prefix}emphasis-color) !default;
+
+$nav-underline-border-gap:                  .5rem !default;
+$nav-underline-border-border-color:         var(--#{$prefix}border-color) !default;
+$nav-underline-border-border-width:         .125rem !default;
+$nav-underline-border-link-padding-y:       .5rem !default;
+$nav-underline-border-link-padding-x:       .5rem !default;
+$nav-underline-border-link-color:           var(--#{$prefix}secondary-color) !default;
+$nav-underline-border-link-active-color:    var(--#{$prefix}primary) !default;
+$nav-underline-border-link-disabled-color:  var(--#{$prefix}tertiary-color) !default;
 // scss-docs-end nav-variables
 
 

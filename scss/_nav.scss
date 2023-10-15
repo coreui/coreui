@@ -155,6 +155,48 @@
 
 
 //
+// Underline border
+//
+
+.nav-underline-border {
+  // scss-docs-start nav-underline-css-vars
+  --#{$prefix}nav-underline-border-gap: #{$nav-underline-border-gap};
+  --#{$prefix}nav-underline-border-border-color: #{$nav-underline-border-border-color};
+  --#{$prefix}nav-underline-border-border-width: #{$nav-underline-border-border-width};
+  --#{$prefix}nav-underline-border-link-padding-x: #{$nav-underline-border-link-padding-x};
+  --#{$prefix}nav-underline-border-link-padding-y: #{$nav-underline-border-link-padding-y};
+  --#{$prefix}nav-underline-border-link-color: #{$nav-underline-border-link-color};
+  --#{$prefix}nav-underline-border-link-active-color: #{$nav-underline-border-link-active-color};
+  --#{$prefix}nav-underline-border-link-disabled-color: #{$nav-underline-border-link-disabled-color};
+  // scss-docs-end nav-underline-css-vars
+
+  --#{$prefix}nav-link-color: var(--#{$prefix}nav-underline-border-link-color);
+  --#{$prefix}nav-link-disabled-color: var(--#{$prefix}nav-underline-border-link-disabled-color);
+
+  gap: var(--#{$prefix}nav-underline-border-gap);
+  border-bottom: var(--#{$prefix}nav-underline-border-border-width) solid var(--#{$prefix}nav-underline-border-border-color);
+
+  .nav-link {
+    padding: var(--#{$prefix}nav-underline-border-link-padding-y) var(--#{$prefix}nav-underline-border-link-padding-x);
+    margin-bottom: calc(-1 * var(--#{$prefix}nav-underline-border-border-width)); // stylelint-disable-line function-disallowed-list
+    border-bottom: var(--#{$prefix}nav-underline-border-border-width) solid transparent;
+
+    &:hover,
+    &:focus {
+      border-bottom-color: currentcolor;
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    font-weight: $font-weight-bold;
+    color: var(--#{$prefix}nav-underline-border-link-active-color);
+    border-bottom-color: currentcolor;
+  }
+}
+
+
+//
 // Justified variants
 //
 
