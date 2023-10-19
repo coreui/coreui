@@ -1,5 +1,5 @@
 /*!
-  * CoreUI carousel.js v5.0.0-alpha.2 (https://coreui.io)
+  * CoreUI carousel.js v5.0.0-alpha.3 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */

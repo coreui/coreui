@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.0.0-alpha.2 (https://coreui.io)
+  * CoreUI v5.0.0-alpha.3 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -666,7 +666,7 @@
    * Constants
    */
 
-  const VERSION = '5.0.0-alpha.2';
+  const VERSION = '5.0.0-alpha.3';
 
   /**
    * Class definition
@@ -750,9 +750,9 @@
       if (hrefAttribute.includes('#') && !hrefAttribute.startsWith('#')) {
         hrefAttribute = `#${hrefAttribute.split('#')[1]}`;
       }
-      selector = hrefAttribute && hrefAttribute !== '#' ? hrefAttribute.trim() : null;
+      selector = hrefAttribute && hrefAttribute !== '#' ? parseSelector(hrefAttribute.trim()) : null;
     }
-    return parseSelector(selector);
+    return selector;
   };
   const SelectorEngine = {
     find(selector, element = document.documentElement) {
@@ -6477,7 +6477,7 @@
   const CLASS_DROPDOWN = 'dropdown';
   const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
   const SELECTOR_DROPDOWN_MENU = '.dropdown-menu';
-  const NOT_SELECTOR_DROPDOWN_TOGGLE = ':not(.dropdown-toggle)';
+  const NOT_SELECTOR_DROPDOWN_TOGGLE = `:not(${SELECTOR_DROPDOWN_TOGGLE})`;
   const SELECTOR_TAB_PANEL = '.list-group, .nav, [role="tablist"]';
   const SELECTOR_OUTER = '.nav-item, .list-group-item';
   const SELECTOR_INNER = `.nav-link${NOT_SELECTOR_DROPDOWN_TOGGLE}, .list-group-item${NOT_SELECTOR_DROPDOWN_TOGGLE}, [role="tab"]${NOT_SELECTOR_DROPDOWN_TOGGLE}`;

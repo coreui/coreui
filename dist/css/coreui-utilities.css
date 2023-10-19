@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Utilities v5.0.0-alpha.2 (https://coreui.io)
+ * CoreUI Utilities v5.0.0-alpha.3 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -106,6 +106,12 @@
   --cui-tertiary-color-rgb-dark: 255, 255, 255;
   --cui-tertiary-bg-dark: #2a303d;
   --cui-tertiary-bg-rgb-dark: 42, 48, 61;
+  --cui-high-emphasis: rgba(37, 43, 54, 0.95);
+  --cui-medium-emphasis: rgba(37, 43, 54, 0.681);
+  --cui-disabled: rgba(37, 43, 54, 0.38);
+  --cui-high-emphasis-inverse: rgba(255, 255, 255, 0.87);
+  --cui-medium-emphasis-inverse: rgba(255, 255, 255, 0.6);
+  --cui-disabled-inverse: rgba(255, 255, 255, 0.38);
   --cui-heading-color: inherit;
   --cui-link-color: #5856d6;
   --cui-link-color-rgb: 88, 86, 214;
@@ -113,6 +119,7 @@
   --cui-link-hover-color: #4645ab;
   --cui-link-hover-color-rgb: 70, 69, 171;
   --cui-code-color: #d63384;
+  --cui-highlight-color: rgba(37, 43, 54, 0.95);
   --cui-highlight-bg: #fff3cd;
   --cui-border-width: 1px;
   --cui-border-style: solid;
@@ -154,14 +161,17 @@
   --cui-tertiary-color-rgb: 255, 255, 255;
   --cui-tertiary-bg: #2a303d;
   --cui-tertiary-bg-rgb: 42, 48, 61;
+  --cui-high-emphasis: rgba(255, 255, 255, 0.87);
+  --cui-medium-emphasis: rgba(255, 255, 255, 0.6);
+  --cui-disabled: rgba(255, 255, 255, 0.38);
   --cui-primary: #6261cc;
   --cui-secondary: #a6a7a8;
   --cui-success: #3aad60;
   --cui-info: #3d99f5;
   --cui-warning: #edad21;
   --cui-danger: #db5d5d;
-  --cui-light: #f4f5f6;
-  --cui-dark: #25282d;
+  --cui-light: #f3f4f7;
+  --cui-dark: #212631;
   --cui-gray-100: #f3f4f7;
   --cui-gray-200: #e7eaee;
   --cui-gray-300: #dbdfe6;
@@ -177,14 +187,14 @@
   --cui-info-rgb: 61, 153, 245;
   --cui-warning-rgb: 237, 173, 33;
   --cui-danger-rgb: 219, 93, 93;
-  --cui-light-rgb: 244, 245, 246;
-  --cui-dark-rgb: 37, 40, 45;
-  --cui-primary-text-emphasis: #3634a3;
-  --cui-secondary-text-emphasis: #212233;
-  --cui-success-text-emphasis: #0f5722;
-  --cui-info-text-emphasis: #184c77;
-  --cui-warning-text-emphasis: #764705;
-  --cui-danger-text-emphasis: #671414;
+  --cui-light-rgb: 243, 244, 247;
+  --cui-dark-rgb: 33, 38, 49;
+  --cui-primary-text-emphasis: #403f98;
+  --cui-secondary-text-emphasis: #25262f;
+  --cui-success-text-emphasis: #145224;
+  --cui-info-text-emphasis: #1f4b70;
+  --cui-warning-text-emphasis: #70460b;
+  --cui-danger-text-emphasis: #611a1a;
   --cui-light-text-emphasis: #f3f4f7;
   --cui-dark-text-emphasis: #dbdfe6;
   --cui-primary-bg-subtle: #cfc7f3;
@@ -209,6 +219,8 @@
   --cui-link-color-rgb: 98, 97, 204;
   --cui-link-hover-color-rgb: 129, 129, 214;
   --cui-code-color: #e685b5;
+  --cui-highlight-color: rgba(255, 255, 255, 0.87);
+  --cui-highlight-bg: #664d03;
   --cui-border-color: #323a49;
   --cui-border-color-translucent: rgba(255, 255, 255, 0.1);
   --cui-form-valid-color: #75b798;
@@ -289,11 +301,11 @@
 }
 [data-coreui-theme=dark] .text-bg-light {
   color: #080a0c !important;
-  background-color: RGBA(244, 245, 246, var(--cui-bg-opacity, 1)) !important;
+  background-color: RGBA(243, 244, 247, var(--cui-bg-opacity, 1)) !important;
 }
 [data-coreui-theme=dark] .text-bg-dark {
   color: #fff !important;
-  background-color: RGBA(37, 40, 45, var(--cui-bg-opacity, 1)) !important;
+  background-color: RGBA(33, 38, 49, var(--cui-bg-opacity, 1)) !important;
 }
 
 .link-primary {
@@ -790,15 +802,15 @@
 }
 
 .shadow {
-  box-shadow: 0 0.5rem 1rem rgba(8, 10, 12, 0.15) !important;
+  box-shadow: var(--cui-box-shadow) !important;
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(8, 10, 12, 0.075) !important;
+  box-shadow: var(--cui-box-shadow-sm) !important;
 }
 
 .shadow-lg {
-  box-shadow: 0 1rem 3rem rgba(8, 10, 12, 0.175) !important;
+  box-shadow: var(--cui-box-shadow-lg) !important;
 }
 
 .shadow-none {
