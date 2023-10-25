@@ -361,7 +361,7 @@ describe('SelectorEngine', () => {
 
     it('should get elements if several ids are given', () => {
       fixtureEl.innerHTML = [
-        '<div id="test" data-cui-target="#target1,#target2"></div>',
+        '<div id="test" data-coreui-target="#target1,#target2"></div>',
         '<div class="target" id="target1"></div>',
         '<div class="target" id="target2"></div>'
       ].join('')
