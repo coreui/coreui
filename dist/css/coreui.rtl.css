@@ -8179,14 +8179,14 @@ textarea.form-control-lg {
 }
 .sidebar-nav.compact .nav-link,
 .sidebar-nav .compact .nav-link {
-  --cui-sidebar-nav-link-padding-y: 0.5625rem;
+  --cui-sidebar-nav-link-padding-y: 0.75rem;
 }
 
 .sidebar-narrow-unfoldable:not(:hover), .sidebar-narrow {
   --cui-sidebar-narrow-width: 4rem;
 }
 .sidebar-narrow-unfoldable:not(:hover) .sidebar-nav, .sidebar-narrow .sidebar-nav {
-  --cui-sidebar-nav-link-padding-x: 0.5rem;
+  --cui-sidebar-nav-link-padding-x: 0.5625rem;
   --cui-sidebar-nav-link-padding-y: 0.75rem;
 }
 @media (min-width: 768px) {

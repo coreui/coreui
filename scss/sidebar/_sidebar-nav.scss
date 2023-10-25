@@ -261,7 +261,7 @@
   &.compact,
   .compact {
     .nav-link {
-      --#{$prefix}sidebar-nav-link-padding-y: #{calc($sidebar-nav-link-padding-y * .75)};
+      --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-compact-nav-link-padding-y};
     }
   }
 }
