@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.0.0-alpha.3 (https://coreui.io)
+ * CoreUI  v5.0.0-beta.0 (https://coreui.io)
  * Copyright (c) 2023 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -7586,7 +7586,7 @@ textarea.form-control-lg {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  z-index: 1029;
+  z-index: 1020;
 }
 
 .header-divider {
@@ -7746,6 +7746,7 @@ textarea.form-control-lg {
 }
 
 .sidebar {
+  --cui-sidebar-zindex: 1035;
   --cui-sidebar-width: 16rem;
   --cui-sidebar-bg: var(--cui-body-bg);
   --cui-sidebar-padding-x: 1rem;
@@ -7753,7 +7754,6 @@ textarea.form-control-lg {
   --cui-sidebar-color: var(--cui-body-color);
   --cui-sidebar-brand-color: var(--cui-body-color);
   --cui-sidebar-brand-bg: rgba(8, 10, 12, 0.2);
-  --cui-sidebar-overlaid-zindex: 1045;
   position: relative;
   display: flex;
   flex: 0 0 var(--cui-sidebar-width);
@@ -7769,6 +7769,9 @@ textarea.form-control-lg {
   .sidebar {
     transition: none;
   }
+}
+.sidebar.sidebar-fixed, .sidebar.sidebar-narrow, .sidebar.sidebar-narrow-unfoldable {
+  z-index: var(--cui-sidebar-zindex);
 }
 .sidebar:not(.sidebar-end) {
   margin-left: 0;
@@ -7855,7 +7858,6 @@ textarea.form-control-lg {
   position: fixed;
   top: 0;
   bottom: 0;
-  z-index: var(--cui-sidebar-overlaid-zindex);
 }
 .sidebar.sidebar-overlaid:not(.hide) {
   box-shadow: 0 0.5rem 1rem rgba(8, 10, 12, 0.15);
@@ -7878,7 +7880,7 @@ textarea.form-control-lg {
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: var(--cui-sidebar-overlaid-zindex);
+    z-index: var(--cui-sidebar-zindex);
   }
   .sidebar:not(.sidebar-end) {
     left: 0;
@@ -7988,7 +7990,7 @@ textarea.form-control-lg {
 }
 
 .sidebar-backdrop {
-  --cui-backdrop-zindex: 1040;
+  --cui-backdrop-zindex: 1034;
   --cui-backdrop-bg: #080a0c;
   --cui-backdrop-opacity: 0.5;
 }
@@ -8287,14 +8289,12 @@ textarea.form-control-lg {
 }
 @media (min-width: 768px) {
   .sidebar-narrow-unfoldable:not(:hover), .sidebar-narrow {
-    z-index: 1031;
     flex: 0 0 var(--cui-sidebar-narrow-width);
     width: var(--cui-sidebar-narrow-width);
     padding-bottom: var(--cui-sidebar-toggler-height);
     overflow: visible;
   }
   .sidebar-fixed.sidebar-narrow-unfoldable:not(:hover), .sidebar-fixed.sidebar-narrow {
-    z-index: 1031;
     width: var(--cui-sidebar-narrow-width);
   }
   .sidebar-narrow-unfoldable:not(:hover) .sidebar-brand-full, .sidebar-narrow .sidebar-brand-full {
@@ -8346,7 +8346,6 @@ textarea.form-control-lg {
 
 .sidebar-narrow-unfoldable {
   position: fixed;
-  z-index: 1031;
 }
 .sidebar-narrow-unfoldable:not(.sidebar-end) ~ * {
   --cui-sidebar-occupy-start: 4rem;
