@@ -2,6 +2,7 @@
 
 .sidebar {
   // scss-docs-start sidebar-css-vars
+  --#{$prefix}sidebar-zindex: #{$zindex-sidebar};
   --#{$prefix}sidebar-width: #{$sidebar-width};
   --#{$prefix}sidebar-bg: #{$sidebar-bg};
   --#{$prefix}sidebar-padding-x: #{$sidebar-padding-x};
@@ -9,7 +10,6 @@
   --#{$prefix}sidebar-color: #{$sidebar-color};
   --#{$prefix}sidebar-brand-color: #{$sidebar-brand-color};
   --#{$prefix}sidebar-brand-bg: #{$sidebar-brand-bg};
-  --#{$prefix}sidebar-overlaid-zindex: #{$zindex-sidebar-overlaid};
   // scss-docs-end sidebar-css-vars
 
   position: relative;
@@ -24,6 +24,12 @@
   background: var(--#{$prefix}sidebar-bg);
   box-shadow: none;
   @include transition($sidebar-transition);
+
+  &.sidebar-fixed,
+  &.sidebar-narrow,
+  &.sidebar-narrow-unfoldable {
+    z-index: var(--#{$prefix}sidebar-zindex);
+  }
 
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
@@ -103,7 +109,6 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: var(--#{$prefix}sidebar-overlaid-zindex);
 
     &:not(.hide) {
       box-shadow: $box-shadow;
@@ -130,7 +135,7 @@
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: var(--#{$prefix}sidebar-overlaid-zindex);
+    z-index: var(--#{$prefix}sidebar-zindex);
 
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);

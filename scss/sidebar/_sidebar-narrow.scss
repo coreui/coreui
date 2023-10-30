@@ -9,14 +9,12 @@
   }
 
   @include media-breakpoint-up($mobile-breakpoint) {
-    z-index: $zindex-fixed + 1;
     flex: 0 0 var(--#{$prefix}sidebar-narrow-width);
     width: var(--#{$prefix}sidebar-narrow-width);
     padding-bottom: var(--#{$prefix}sidebar-toggler-height);
     overflow: visible;
 
     &.sidebar-fixed {
-      z-index: $zindex-fixed + 1;
       width: var(--#{$prefix}sidebar-narrow-width);
     }
 
@@ -77,7 +75,6 @@
 
 .sidebar-narrow-unfoldable {
   position: fixed;
-  z-index: $zindex-fixed + 1;
 
   &:not(.sidebar-end) ~ * {
     --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
