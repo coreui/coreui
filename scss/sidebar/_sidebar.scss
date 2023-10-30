@@ -27,7 +27,8 @@
 
   &.sidebar-fixed,
   &.sidebar-narrow,
-  &.sidebar-narrow-unfoldable {
+  &.sidebar-narrow-unfoldable,
+  &.sidebar-overlaid {
     z-index: var(--#{$prefix}sidebar-zindex);
   }
 
