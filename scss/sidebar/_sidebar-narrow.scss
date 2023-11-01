@@ -43,8 +43,8 @@
     .nav-group.show .nav-group-items,
     .sidebar-form {
       height: 0 !important; // stylelint-disable-line declaration-no-important
-      padding: 0;
-      margin: 0;
+      padding: 0 !important; // stylelint-disable-line declaration-no-important
+      margin: 0 !important; // stylelint-disable-line declaration-no-important
       visibility: hidden;
       opacity: 0;
     }
