@@ -1878,10 +1878,10 @@ $sidebar-nav-link-border-color:               transparent !default;
 $sidebar-nav-link-border-radius:              var(--#{$prefix}border-radius) !default;
 $sidebar-nav-link-transition:                 background .15s ease, color .15s ease, gap .15s ease !default;
 
-$sidebar-compact-nav-link-padding-y:          .75rem !default;
+$sidebar-compact-nav-link-padding-y:          .5625rem !default;
 
 $sidebar-narrow-nav-link-padding-y:           .75rem !default;
-$sidebar-narrow-nav-link-padding-x:           .5625rem !default;
+$sidebar-narrow-nav-link-padding-x:           .5rem !default;
 
 $sidebar-nav-link-icon-margin:                .75rem !default;
 $sidebar-nav-link-icon-color:                 var(--#{$prefix}tertiary-color) !default;
