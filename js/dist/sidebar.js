@@ -84,6 +84,9 @@
       if (this._element.classList.contains(CLASS_NAME_HIDE)) {
         this._element.classList.remove(CLASS_NAME_HIDE);
       }
+      if (this._overlaid) {
+        this._element.classList.add(CLASS_NAME_SHOW);
+      }
       if (this._isMobile()) {
         this._element.classList.add(CLASS_NAME_SHOW);
         this._backdrop.show();
@@ -108,7 +111,8 @@
       if (this._isMobile()) {
         this._backdrop.hide();
         new ScrollBarHelper().reset();
-      } else {
+      }
+      if (!this._isMobile() && !this._overlaid) {
         this._element.classList.add(CLASS_NAME_HIDE);
       }
       const complete = () => {

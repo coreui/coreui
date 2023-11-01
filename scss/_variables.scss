@@ -1857,6 +1857,7 @@ $sidebar-brand-color:                      var(--#{$prefix}body-color) !default;
 $sidebar-brand-bg:                         rgba($black, .2) !default;
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
+$sidebar-overlaid-box-shadow:              var(--#{$prefix}box-shadow) !default;
 // scss-docs-end sidebar-variables
 
 // scss-docs-start sidebar-nav-variables

@@ -107,16 +107,17 @@
   }
 
   &.sidebar-overlaid {
+    // scss-docs-start sidebar-css-vars
+    --#{$prefix}sidebar-overlaid-box-shadow: #{$sidebar-overlaid-box-shadow};
+    // scss-docs-end sidebar-css-vars
+
     position: fixed;
     top: 0;
     bottom: 0;
 
-    &:not(.hide) {
-      box-shadow: $box-shadow;
-    }
-
-    &:not(.sidebar-end) {
+    &:not(.sidebar-end){
       @include ltr-rtl("left", 0);
+      @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
       ~ * {
         --#{$prefix}sidebar-occupy-start: 0 !important;  // stylelint-disable-line
       }
@@ -124,8 +125,21 @@
 
     &.sidebar-end {
       @include ltr-rtl("right", 0);
+      @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
       ~ * {
         --#{$prefix}sidebar-occupy-end: 0 !important;  // stylelint-disable-line
+      }
+    }
+
+    &.show {
+      box-shadow: var(--#{$prefix}sidebar-overlaid-box-shadow);
+
+      &:not(.sidebar-end) {
+        @include ltr-rtl("margin-left", 0);
+      }
+  
+      &.sidebar-end {
+        @include ltr-rtl("margin-right", 0);
       }
     }
   }
@@ -133,6 +147,7 @@
   @include media-breakpoint-down($mobile-breakpoint) {
     // Some of our components use this property to detect if the sidebar has mobile behavior.
     --#{$prefix}is-mobile: true;
+
     position: fixed;
     top: 0;
     bottom: 0;

@@ -7770,7 +7770,7 @@ textarea.form-control-lg {
     transition: none;
   }
 }
-.sidebar.sidebar-fixed, .sidebar.sidebar-narrow, .sidebar.sidebar-narrow-unfoldable {
+.sidebar.sidebar-fixed, .sidebar.sidebar-narrow, .sidebar.sidebar-narrow-unfoldable, .sidebar.sidebar-overlaid {
   z-index: var(--cui-sidebar-zindex);
 }
 .sidebar:not(.sidebar-end) {
@@ -7855,24 +7855,33 @@ textarea.form-control-lg {
   }
 }
 .sidebar.sidebar-overlaid {
+  --cui-sidebar-overlaid-box-shadow: var(--cui-box-shadow);
   position: fixed;
   top: 0;
   bottom: 0;
 }
-.sidebar.sidebar-overlaid:not(.hide) {
-  box-shadow: 0 0.5rem 1rem rgba(8, 10, 12, 0.15);
-}
 .sidebar.sidebar-overlaid:not(.sidebar-end) {
   left: 0;
+  margin-left: calc(-1 * var(--cui-sidebar-width));
 }
 .sidebar.sidebar-overlaid:not(.sidebar-end) ~ * {
   --cui-sidebar-occupy-start: 0 !important;
 }
 .sidebar.sidebar-overlaid.sidebar-end {
   right: 0;
+  margin-right: calc(-1 * var(--cui-sidebar-width));
 }
 .sidebar.sidebar-overlaid.sidebar-end ~ * {
   --cui-sidebar-occupy-end: 0 !important;
+}
+.sidebar.sidebar-overlaid.show {
+  box-shadow: var(--cui-sidebar-overlaid-box-shadow);
+}
+.sidebar.sidebar-overlaid.show:not(.sidebar-end) {
+  margin-left: 0;
+}
+.sidebar.sidebar-overlaid.show.sidebar-end {
+  margin-right: 0;
 }
 @media (max-width: 767.98px) {
   .sidebar {
@@ -8277,14 +8286,14 @@ textarea.form-control-lg {
 }
 .sidebar-nav.compact .nav-link,
 .sidebar-nav .compact .nav-link {
-  --cui-sidebar-nav-link-padding-y: 0.75rem;
+  --cui-sidebar-nav-link-padding-y: 0.5625rem;
 }
 
 .sidebar-narrow-unfoldable:not(:hover), .sidebar-narrow {
   --cui-sidebar-narrow-width: 4rem;
 }
 .sidebar-narrow-unfoldable:not(:hover) .sidebar-nav, .sidebar-narrow .sidebar-nav {
-  --cui-sidebar-nav-link-padding-x: 0.5625rem;
+  --cui-sidebar-nav-link-padding-x: 0.5rem;
   --cui-sidebar-nav-link-padding-y: 0.75rem;
 }
 @media (min-width: 768px) {
@@ -8321,8 +8330,8 @@ textarea.form-control-lg {
   .sidebar-narrow-unfoldable:not(:hover) .sidebar-form,
   .sidebar-narrow .sidebar-form {
     height: 0 !important;
-    padding: 0;
-    margin: 0;
+    padding: 0 !important;
+    margin: 0 !important;
     visibility: hidden;
     opacity: 0;
   }
