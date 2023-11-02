@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.0.0-beta.0 (https://coreui.io)
+  * CoreUI v5.0.0-beta.1 (https://coreui.io)
   * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -666,7 +666,7 @@
    * Constants
    */
 
-  const VERSION = '5.0.0-beta.0';
+  const VERSION = '5.0.0-beta.1';
 
   /**
    * Class definition
