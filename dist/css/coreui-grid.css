@@ -52,7 +52,7 @@
   --cui-breakpoint-lg: 992px;
   --cui-breakpoint-xl: 1200px;
   --cui-breakpoint-xxl: 1400px;
-  --cui-mobile-breakpoint: md;
+  --cui-mobile-breakpoint: lg;
 }
 
 .row {
