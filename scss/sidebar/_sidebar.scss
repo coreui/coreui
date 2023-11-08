@@ -14,7 +14,6 @@
 
   position: relative;
   display: flex;
-  // $sidebar-width is the width of the columns
   flex: 0 0 var(--#{$prefix}sidebar-width);
   flex-direction: column;
   // put the nav on the left
@@ -107,9 +106,9 @@
   }
 
   &.sidebar-overlaid {
-    // scss-docs-start sidebar-css-vars
+    // scss-docs-start sidebar-overlaid-css-vars
     --#{$prefix}sidebar-overlaid-box-shadow: #{$sidebar-overlaid-box-shadow};
-    // scss-docs-end sidebar-css-vars
+    // scss-docs-end sidebar-overlaid-css-vars
 
     position: fixed;
     top: 0;
@@ -137,7 +136,7 @@
       &:not(.sidebar-end) {
         @include ltr-rtl("margin-left", 0);
       }
-  
+
       &.sidebar-end {
         @include ltr-rtl("margin-right", 0);
       }
