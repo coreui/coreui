@@ -107,6 +107,16 @@
   .pagination {
     margin-bottom: 0;
   }
+
+  // Sidebar
+  .sidebar-narrow,
+  .sidebar-narrow-unfoldable {
+    position: static;
+  }
+
+  .sidebar-narrow-unfoldable {
+    min-height: 550px;
+  }
 }
 
 //

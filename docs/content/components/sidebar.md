@@ -30,11 +30,17 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
 - `.sidebar-footer` for optional footer.
 - `.sidebar-toggler` for use with our minimizer plugin.
 
-## Example
+## Examples
 
-{{< example >}}
-{{< sidebar.inline >}}
-<div class="sidebar sidebar-show">
+### Sidebar component
+
+Below is an sidebar example that is shown by default on desktop devices.
+
+{{< example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden">}}
+<div class="sidebar border-end">
+  <div class="sidebar-header border-bottom">
+    <div class="sidebar-brand">CoreUI</div>
+  </div>
   <ul class="sidebar-nav">
     <li class="nav-title">Nav Title</li>
     <li class="nav-item">
@@ -45,41 +51,191 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
     <li class="nav-item">
       <a class="nav-link" href="#">
         <i class="nav-icon cil-speedometer"></i> With badge
-        <span class="badge bg-primary">NEW</span>
+        <span class="badge bg-primary ms-auto">NEW</span>
       </a>
     </li>
-    <li class="nav-item nav-group">
+    <li class="nav-item nav-group show">
       <a class="nav-link nav-group-toggle" href="#">
         <i class="nav-icon cil-puzzle"></i> Nav dropdown
       </a>
       <ul class="nav-group-items">
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="nav-icon cil-puzzle"></i> Nav dropdown item
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="nav-icon cil-puzzle"></i> Nav dropdown item
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
           </a>
         </li>
       </ul>
     </li>
-    <li class="nav-item mt-auto">
-      <a class="nav-link nav-link-success" href="https://coreui.io">
+    <li class="nav-item mt-5">
+      <a class="nav-link" href="https://coreui.io">
         <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link nav-link-danger" href="https://coreui.io/pro/">
+      <a class="nav-link" href="https://coreui.io/pro/">
         <i class="nav-icon cil-layers"></i> Try CoreUI
         <strong>PRO</strong>
       </a>
     </li>
   </ul>
-  <button class="sidebar-toggler" type="button"></button>
+  <div class="sidebar-footer border-top d-flex">
+    <button class="sidebar-toggler" type="button"></button>
+  </div>
 </div>
-{{< /sidebar.inline >}}
 {{< /example >}}
+
+### Narrow sidebar
+
+Add the `.sidebar-narrow` class to make the sidebar narrow.
+
+{{< example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden">}}
+<div class="sidebar sidebar-narrow border-end">
+  <div class="sidebar-header border-bottom">
+    <div class="sidebar-brand">CUI</div>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i>
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://coreui.io">
+        <i class="nav-icon cil-cloud-download"></i>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://coreui.io/pro/">
+        <i class="nav-icon cil-layers"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+{{< /example >}}
+
+### Unfoldable sidebar
+
+Add the `.sidebar-narrow-unfoldable` class to make the sidebar narrow with unfoldable on hover.
+
+{{< example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden">}}
+<div class="sidebar sidebar-narrow-unfoldable border-end">
+  <div class="sidebar-header border-bottom">
+    <div class="sidebar-brand">CUI</div>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-title">Nav Title</li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i> Nav item
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i> With badge
+        <span class="badge bg-primary ms-auto">NEW</span>
+      </a>
+    </li>
+    <li class="nav-item nav-group show">
+      <a class="nav-link nav-group-toggle" href="#">
+        <i class="nav-icon cil-puzzle"></i> Nav dropdown
+      </a>
+      <ul class="nav-group-items">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item mt-auto">
+      <a class="nav-link" href="https://coreui.io">
+        <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://coreui.io/pro/">
+        <i class="nav-icon cil-layers"></i> Try CoreUI
+        <strong>PRO</strong>
+      </a>
+    </li>
+  </ul>
+</div>
+{{< /example >}}
+
+## Dark sidebar
+
+Change the appearance of sidebars with the `.sidebar-dark` class.
+
+{{< example class="p-0 rounded-bottom-0 overflow-hidden">}}
+<div class="sidebar sidebar-dark border-end">
+  <div class="sidebar-header border-bottom">
+    <div class="sidebar-brand">CoreUI</div>
+  </div>
+  <ul class="sidebar-nav">
+    <li class="nav-title">Nav Title</li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i> Nav item
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">
+        <i class="nav-icon cil-speedometer"></i> With badge
+        <span class="badge bg-primary ms-auto">NEW</span>
+      </a>
+    </li>
+    <li class="nav-item nav-group show">
+      <a class="nav-link nav-group-toggle" href="#">
+        <i class="nav-icon cil-puzzle"></i> Nav dropdown
+      </a>
+      <ul class="nav-group-items">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="nav-icon"><span class="nav-icon-bullet"></span></span> Nav dropdown item
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-item mt-5">
+      <a class="nav-link" href="https://coreui.io">
+        <i class="nav-icon cil-cloud-download"></i> Download CoreUI</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="https://coreui.io/pro/">
+        <i class="nav-icon cil-layers"></i> Try CoreUI
+        <strong>PRO</strong>
+      </a>
+    </li>
+  </ul>
+  <div class="sidebar-footer border-top d-flex">
+    <button class="sidebar-toggler" type="button"></button>
+  </div>
+</div>
+{{< /example >}}
+
+## Placement
+
+By default placement for sidebar components is on the left of the viewport, but you can add one of the modifier classes below.
+
+- `.sidebar-start` places sidebar on the left of the viewport (shown above)
+- `.sidebar-end` places sidebar on the right of the viewport
 
 ## JavaScript behavior
 
@@ -135,6 +291,8 @@ mySidebar.addEventListener('closed.coreui.sidebar', function () {
 Sidebars use local CSS variables on `.sidebar`, `.sidebar-backdrop`, `.sidebar-narrow`, and `.sidebar-nav` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
 {{< scss-docs name="sidebar-css-vars" file="scss/sidebar/_sidebar.scss" >}}
+
+{{< scss-docs name="sidebar-overlaid-css-vars" file="scss/sidebar/_sidebar.scss" >}}
 
 {{< scss-docs name="sidebar-narrow-css-vars" file="scss/sidebar/_sidebar-narrow.scss" >}}
 
