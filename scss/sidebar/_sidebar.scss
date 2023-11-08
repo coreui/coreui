@@ -214,7 +214,7 @@
   --#{$prefix}sidebar-toggler-width: #{$sidebar-toggler-width};
   --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
   --#{$prefix}sidebar-toggler-color: #{$sidebar-toggler-color};
-  --#{$prefix}sidebar-toggler-bg: #{ escape-svg($sidebar-toggler-bg) };
+  --#{$prefix}sidebar-toggler-bg: #{escape-svg($sidebar-toggler-bg)};
   --#{$prefix}sidebar-toggler-hover-color: #{$sidebar-toggler-hover-color};
   --#{$prefix}sidebar-toggler-focus-shadow: #{$sidebar-toggler-focus-shadow};
   --#{$prefix}sidebar-toggler-focus-color: #{$sidebar-toggler-focus-color};
