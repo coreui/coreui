@@ -1896,21 +1896,21 @@ $sidebar-nav-link-icon-bullet-border-width:   1px !default;
 $sidebar-nav-link-icon-bullet-border-color:   var(--#{$prefix}tertiary-color) !default;
 $sidebar-nav-link-icon-bullet-border-radius:  50rem !default;
 
-$sidebar-nav-link-hover-color:                var(--#{$prefix}emphasis-color) !default;
-$sidebar-nav-link-hover-bg:                   var(--#{$prefix}tertiary-bg) !default;
-$sidebar-nav-link-hover-icon-color:           var(--#{$prefix}body-color) !default;
-$sidebar-nav-link-hover-icon-bullet-bg:       transparent !default;
-$sidebar-nav-link-hover-icon-bullet-border-color:   var(--#{$prefix}body-color) !default;
+$sidebar-nav-link-hover-color:                        var(--#{$prefix}emphasis-color) !default;
+$sidebar-nav-link-hover-bg:                           var(--#{$prefix}tertiary-bg) !default;
+$sidebar-nav-link-hover-icon-color:                   var(--#{$prefix}body-color) !default;
+$sidebar-nav-link-hover-icon-bullet-bg:               transparent !default;
+$sidebar-nav-link-hover-icon-bullet-border-color:     var(--#{$prefix}body-color) !default;
 
-$sidebar-nav-link-active-color:               var(--#{$prefix}emphasis-color) !default;
-$sidebar-nav-link-active-bg:                  var(--#{$prefix}tertiary-bg) !default;
-$sidebar-nav-link-active-icon-color:          var(--#{$prefix}primary) !default;
-$sidebar-nav-link-active-icon-bullet-bg:      transparent !default;
-$sidebar-nav-link-active-icon-bullet-border-color:   var(--#{$prefix}primary) !default;
+$sidebar-nav-link-active-color:                       var(--#{$prefix}emphasis-color) !default;
+$sidebar-nav-link-active-bg:                          var(--#{$prefix}tertiary-bg) !default;
+$sidebar-nav-link-active-icon-color:                  var(--#{$prefix}emphasis-color) !default;
+$sidebar-nav-link-active-icon-bullet-bg:              transparent !default;
+$sidebar-nav-link-active-icon-bullet-border-color:    var(--#{$prefix}emphasis-color) !default;
 
-$sidebar-nav-link-disabled-color:             var(--#{$prefix}tertiary-color) !default;
-$sidebar-nav-link-disabled-icon-color:        var(--#{$prefix}tertiary-color) !default;
-$sidebar-nav-link-disabled-icon-bullet-bg:    transparent !default;
+$sidebar-nav-link-disabled-color:                     var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-disabled-icon-color:                var(--#{$prefix}tertiary-color) !default;
+$sidebar-nav-link-disabled-icon-bullet-bg:            transparent !default;
 $sidebar-nav-link-disabled-icon-bullet-border-color:  var(--#{$prefix}tertiary-color) !default;
 
 $sidebar-nav-group-bg:                        transparent !default;

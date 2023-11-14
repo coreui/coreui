@@ -7966,7 +7966,7 @@ textarea.form-control-lg {
   --cui-sidebar-nav-link-icon-width: 1.25rem;
   --cui-sidebar-nav-link-icon-height: 1.25rem;
   --cui-sidebar-nav-link-icon-font-size: 1.25rem;
-  --cui-sidebar-nav-link-active-icon-color: var(--cui-primary);
+  --cui-sidebar-nav-link-active-icon-color: var(--cui-emphasis-color);
   --cui-sidebar-nav-link-disabled-icon-color: var(--cui-tertiary-color);
   --cui-sidebar-nav-link-hover-icon-color: var(--cui-body-color);
   --cui-sidebar-nav-link-icon-bullet-size: 0.3125rem;
@@ -7975,7 +7975,7 @@ textarea.form-control-lg {
   --cui-sidebar-nav-link-icon-bullet-border-radius: 50rem;
   --cui-sidebar-nav-link-icon-bullet-border-color: var(--cui-tertiary-color);
   --cui-sidebar-nav-link-active-icon-bullet-bg: transparent;
-  --cui-sidebar-nav-link-active-icon-bullet-border-color: var(--cui-primary);
+  --cui-sidebar-nav-link-active-icon-bullet-border-color: var(--cui-emphasis-color);
   --cui-sidebar-nav-link-disabled-icon-bullet-bg: transparent;
   --cui-sidebar-nav-link-disabled-icon-bullet-border-color: var(--cui-tertiary-color);
   --cui-sidebar-nav-link-hover-icon-bullet-bg: transparent;
