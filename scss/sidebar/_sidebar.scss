@@ -229,7 +229,6 @@
   background-color: transparent;
   border: 0;
   @include border-radius();
-  @include transition(var(--#{$prefix}sidebar-toggler-transition));
 
   &::before {
     position: absolute;
@@ -240,6 +239,10 @@
     content: "";
     background-color: var(--#{$prefix}sidebar-toggler-color);
     mask: var(--#{$prefix}sidebar-toggler-bg) no-repeat center;
+    @include transition(var(--#{$prefix}sidebar-toggler-transition));
+    @include rtl() {
+      transform: rotate(-180deg);
+    }
   }
 
   // Override <a>'s hover style

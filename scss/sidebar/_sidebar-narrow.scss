@@ -3,11 +3,6 @@
   --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
   // scss-docs-end sidebar-narrow-css-vars
 
-  .sidebar-nav {
-    --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-narrow-nav-link-padding-x};
-    --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-narrow-nav-link-padding-y};
-  }
-
   @include media-breakpoint-up($mobile-breakpoint) {
     flex: 0 0 var(--#{$prefix}sidebar-narrow-width);
     width: var(--#{$prefix}sidebar-narrow-width);
@@ -32,6 +27,11 @@
       padding-left: 0;
     }
 
+    .sidebar-nav {
+      --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-narrow-nav-link-padding-x};
+      --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-narrow-nav-link-padding-y};
+    }
+
     .nav-icon {
       flex: 0 0 calc(var(--#{$prefix}sidebar-narrow-width) - (var(--#{$prefix}sidebar-nav-padding-x) * 2) - (var(--#{$prefix}sidebar-nav-link-padding-x) * 2)); // stylelint-disable-line function-disallowed-list
     }
@@ -49,7 +49,7 @@
       opacity: 0;
     }
 
-    .sidebar-toggler {
+    .sidebar-toggler::before {
       @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
     }
 
@@ -90,11 +90,11 @@
   &:hover {
     box-shadow: $box-shadow;
 
-    .sidebar-toggler {
+    .sidebar-toggler::before {
       @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
     }
 
-    &.sidebar-end .sidebar-toggler {
+    &.sidebar-end .sidebar-toggler::before {
       transform: rotate(0deg);
     }
   }
