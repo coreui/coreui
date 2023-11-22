@@ -857,35 +857,35 @@
 }
 
 .start-0 {
-  left: 0 !important;
-}
-
-.start-50 {
-  left: 50% !important;
-}
-
-.start-100 {
-  left: 100% !important;
-}
-
-.end-0 {
   right: 0 !important;
 }
 
-.end-50 {
+.start-50 {
   right: 50% !important;
 }
 
-.end-100 {
+.start-100 {
   right: 100% !important;
 }
 
+.end-0 {
+  left: 0 !important;
+}
+
+.end-50 {
+  left: 50% !important;
+}
+
+.end-100 {
+  left: 100% !important;
+}
+
 .translate-middle {
-  transform: translate(-50%, -50%) !important;
+  transform: translate(50%, -50%) !important;
 }
 
 .translate-middle-x {
-  transform: translateX(-50%) !important;
+  transform: translateX(50%) !important;
 }
 
 .translate-middle-y {

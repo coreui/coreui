@@ -109,21 +109,24 @@ $utilities: map-merge(
     "start": (
       property: left,
       class: start,
-      values: $position-values
+      values: $position-values,
+      rtl: true
     ),
     "end": (
       property: right,
       class: end,
-      values: $position-values
+      values: $position-values,
+      rtl: true
     ),
     "translate-middle": (
       property: transform,
       class: translate-middle,
       values: (
-        null: translate(-50%, -50%),
-        x: translateX(-50%),
+        null: ("ltr": translate(-50%, -50%), "rtl": translate(50%, -50%)),
+        x: ("ltr": translateX(-50%), "rtl": translateX(50%)),
         y: translateY(-50%),
-      )
+      ),
+      rtl: true
     ),
     // scss-docs-end utils-position
     // scss-docs-start utils-borders
