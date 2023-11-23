@@ -7960,12 +7960,6 @@ textarea.form-control-lg {
   background-color: transparent;
   border: 0;
   border-radius: 0.375rem;
-  transition: var(--cui-sidebar-toggler-transition);
-}
-@media (prefers-reduced-motion: reduce) {
-  .sidebar-toggler {
-    transition: none;
-  }
 }
 .sidebar-toggler::before {
   position: absolute;
@@ -7977,6 +7971,12 @@ textarea.form-control-lg {
   background-color: var(--cui-sidebar-toggler-color);
   -webkit-mask: var(--cui-sidebar-toggler-bg) no-repeat center;
   mask: var(--cui-sidebar-toggler-bg) no-repeat center;
+  transition: var(--cui-sidebar-toggler-transition);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-toggler::before {
+    transition: none;
+  }
 }
 .sidebar-toggler:hover {
   text-decoration: none;
@@ -8292,10 +8292,6 @@ textarea.form-control-lg {
 .sidebar-narrow-unfoldable:not(:hover), .sidebar-narrow {
   --cui-sidebar-narrow-width: 4rem;
 }
-.sidebar-narrow-unfoldable:not(:hover) .sidebar-nav, .sidebar-narrow .sidebar-nav {
-  --cui-sidebar-nav-link-padding-x: 0.5rem;
-  --cui-sidebar-nav-link-padding-y: 0.75rem;
-}
 @media (min-width: 992px) {
   .sidebar-narrow-unfoldable:not(:hover), .sidebar-narrow {
     flex: 0 0 var(--cui-sidebar-narrow-width);
@@ -8317,6 +8313,10 @@ textarea.form-control-lg {
     padding-right: 0;
     padding-left: 0;
   }
+  .sidebar-narrow-unfoldable:not(:hover) .sidebar-nav, .sidebar-narrow .sidebar-nav {
+    --cui-sidebar-nav-link-padding-x: 0.5rem;
+    --cui-sidebar-nav-link-padding-y: 0.75rem;
+  }
   .sidebar-narrow-unfoldable:not(:hover) .nav-icon, .sidebar-narrow .nav-icon {
     flex: 0 0 calc(var(--cui-sidebar-narrow-width) - var(--cui-sidebar-nav-padding-x) * 2 - var(--cui-sidebar-nav-link-padding-x) * 2);
   }
@@ -8335,7 +8335,7 @@ textarea.form-control-lg {
     visibility: hidden;
     opacity: 0;
   }
-  .sidebar-narrow-unfoldable:not(:hover) .sidebar-toggler, .sidebar-narrow .sidebar-toggler {
+  .sidebar-narrow-unfoldable:not(:hover) .sidebar-toggler::before, .sidebar-narrow .sidebar-toggler::before {
     transform: rotate(-180deg);
   }
   .sidebar-end.sidebar-narrow-unfoldable:not(:hover) .sidebar-toggler::before, .sidebar-end.sidebar-narrow .sidebar-toggler::before {
@@ -8365,10 +8365,10 @@ textarea.form-control-lg {
 .sidebar-narrow-unfoldable:hover {
   box-shadow: 0 0.5rem 1rem rgba(8, 10, 12, 0.15);
 }
-.sidebar-narrow-unfoldable:hover .sidebar-toggler {
+.sidebar-narrow-unfoldable:hover .sidebar-toggler::before {
   transform: rotate(-180deg);
 }
-.sidebar-narrow-unfoldable:hover.sidebar-end .sidebar-toggler {
+.sidebar-narrow-unfoldable:hover.sidebar-end .sidebar-toggler::before {
   transform: rotate(0deg);
 }
 .sidebar-narrow-unfoldable .nav-link {

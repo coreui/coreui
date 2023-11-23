@@ -350,7 +350,7 @@ caption {
   padding-top: $table-cell-padding-y;
   padding-bottom: $table-cell-padding-y;
   color: var(--#{$prefix}table-caption-color, $table-caption-color);
-  text-align: left;
+  @include ltr-rtl("text-align", left);
 }
 
 // 1. Removes font-weight bold by inheriting

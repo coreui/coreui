@@ -463,7 +463,7 @@ caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: var(--cui-table-caption-color, var(--cui-secondary-color));
-  text-align: left;
+  text-align: right;
 }
 
 th {
