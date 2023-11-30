@@ -60,7 +60,7 @@
     flex-shrink: 0;
     width: var(--#{$prefix}accordion-btn-icon-width);
     height: var(--#{$prefix}accordion-btn-icon-width);
-    margin-left: auto;
+    @include ltr-rtl("margin-left", auto);
     content: "";
     background-image: var(--#{$prefix}accordion-btn-icon);
     background-repeat: no-repeat;
