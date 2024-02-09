@@ -123,6 +123,8 @@ With an SVG:
 
 ## Usage
 
+{{< bootstrap-compatibility >}}
+
 The tooltip plugin generates content and markup on demand, and by default places tooltips after their trigger element.
 
 Trigger the tooltip via JavaScript:

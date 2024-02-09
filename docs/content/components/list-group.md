@@ -303,6 +303,8 @@ And if you want `<label>`s as the `.list-group-item` for large hit areas, you ca
 
 ## JavaScript behavior
 
+{{< bootstrap-compatibility >}}
+
 Use the tab JavaScript plugin—include it individually or through the compiled `coreui.js` file—to extend our list group to create tabbable panes of local content.
 
 <div class="docs-example" role="tabpanel">

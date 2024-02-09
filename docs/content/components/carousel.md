@@ -294,6 +294,8 @@ The transition duration of `.carousel-item` can be changed with the `$carousel-t
 
 ## Usage
 
+{{< bootstrap-compatibility >}}
+
 ### Via data attributes
 
 Utilize data attributes to control the position of the carousel. `data-coreui-slide` allows the keywords `prev` or `next`, which changes the slide position corresponding to its current position. Alternatively, use `data-coreui-slide-to` to pass a raw slide index to the carousel `data-coreui-slide-to="2"`, which moves the slide position to a particular index beginning with `0`.

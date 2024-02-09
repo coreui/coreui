@@ -79,6 +79,8 @@ Curious which components explicitly require our JavaScript and Popper? Click the
 
 CoreUI enhances Bootstrap projects by adding advanced components and features, offering a smooth upgrade with minimal adjustments. It retains Bootstrap's familiar structure while introducing new possibilities for UI development.
 
+{{< bootstrap-compatibility >}}
+
 #### CSS
 
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.

@@ -227,6 +227,8 @@ Scrollspy also works with `.list-group`s. Scroll the area next to the list group
 
 ## Usage
 
+{{< bootstrap-compatibility >}}
+
 ### Via data attributes
 
 To easily add scrollspy behavior to your topbar navigation, add `data-coreui-spy="scroll"` to the element you want to spy on (most typically this would be the `<body>`). Then add the `data-coreui-target` attribute with the ID or class of the parent element of any Bootstrap `.nav` component.

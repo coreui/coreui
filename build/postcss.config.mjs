@@ -11,7 +11,8 @@ export default context => {
       autoprefixer: {
         cascade: false
       },
-      'postcss-combine-duplicated-selectors': {}
+      'postcss-combine-duplicated-selectors': {},
+      rtlcss: context.env === 'RTL'
     }
   }
 }

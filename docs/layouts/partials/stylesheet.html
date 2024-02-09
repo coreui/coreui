@@ -10,7 +10,7 @@
 {{- end -}}
 
 {{- else -}}
-<link href="/dist/css/themes/bootstrap/bootstrap{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css" rel="stylesheet">
+<link href="/dist/css/coreui{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css" rel="stylesheet">
 {{- end }}
 
 {{- if (ne .Page.Layout "examples") }}

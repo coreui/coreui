@@ -145,6 +145,8 @@ When an alert is dismissed, the element is completely removed from the page stru
 
 ## JavaScript behavior
 
+{{< bootstrap-compatibility >}}
+
 ### Initialize
 
 Initialize elements as alerts

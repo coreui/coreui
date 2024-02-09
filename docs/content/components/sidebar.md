@@ -239,6 +239,8 @@ By default placement for sidebar components is on the left of the viewport, but 
 
 ## JavaScript behavior
 
+{{< bootstrap-compatibility >}}
+
 ### Methods
 
 You can create a sidebar instance with the sidebar constructor, for example:

@@ -250,6 +250,8 @@ Since the offcanvas panel is conceptually a modal dialog, be sure to add `aria-l
 
 ## Usage
 
+{{< bootstrap-compatibility >}}
+
 The offcanvas plugin utilizes a few classes and attributes to handle the heavy lifting:
 
 - `.offcanvas` hides the content

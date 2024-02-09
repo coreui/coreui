@@ -997,6 +997,8 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 ## Usage
 
+{{< bootstrap-compatibility >}}
+
 Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show` class on the parent `.dropdown-menu`. The `data-coreui-toggle="dropdown"` attribute is relied on for closing dropdown menus at an application level, so it's a good idea to always use it.
 
 {{< callout info >}}

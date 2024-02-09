@@ -315,7 +315,10 @@ When using `autohide: false`, you must add a close button to allow users to dism
 {{< /example >}}
 
 While technically it's possible to add focusable/actionable controls (such as additional buttons or links) in your toast, you should avoid doing this for autohiding toasts. Even if you give the toast a long [`delay` timeout](#options), keyboard and assistive technology users may find it difficult to reach the toast in time to take action (since toasts don't receive focus when they are displayed). If you absolutely must have further controls, we recommend using a toast with `autohide: false`.
+
 ## Usage
+
+{{< bootstrap-compatibility >}}
 
 Initialize toasts via JavaScript:
 
