@@ -77,17 +77,25 @@ params:
 
   cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-    css:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/coreui.min.css"
-    css_hash:        "sha384-6YUohc5ifdoNCo0LbNiTPUr/PgSpk8g4xTkq3gTstOpNuzSI4CPX8jNul1r9kpFV"
-    css_rtl:         "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/coreui.rtl.min.css"
-    css_rtl_hash:    "sha384-V5MCsVNDmsKrl3g/to3PDejgBIT7vBD2sPuosG9Eqpg1bJSLNtDjgfsl0paov51v"
-    js:              "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/coreui.min.js"
-    js_hash:         "sha384-yIN7KBAWSPbR8QfA9iqq4ODblVsFM4Ib4nLpoZZi+0HxLjJUmO4WlnbH/xTHHPCA"
-    js_bundle:       "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/coreui.bundle.min.js"
-    js_bundle_hash:  "sha384-lm/gmE8U/6Q0duWGAHKfdf8Q0rLLWtCudgbt9aLBgnb5B+iateMBMTOBGSafJbEe"
-    popper:           "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    popper_hash:      "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    popper_esm:       "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js"
+    css:               "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/coreui.min.css"
+    css_hash:          "sha384-6YUohc5ifdoNCo0LbNiTPUr/PgSpk8g4xTkq3gTstOpNuzSI4CPX8jNul1r9kpFV"
+    css_rtl:           "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/coreui.rtl.min.css"
+    css_rtl_hash:      "sha384-zVBhLQxIHngBI7Kg1aBXmMkYI76lFkTPjokwNzQSaM00LiM4V+0cxiZDUHDGw5XK"
+    css_bs:            "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/themes/bootstrap/bootstrap.min.css"
+    css_bs_hash:       "sha384-V3TuLN8H5X43hYx6PWmabSdi9zr/CU7dKp7nKooJrtKEvW5Ti3TaiVZXAEWLt9jL"
+    css_bs_rtl:        "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/css/themes/bootstrap/bootstrap.rtl.min.css"
+    css_bs_rtl_hash:   "sha384-tSC0G8nhv5Nplcn4ja97Oo948TmL1dTxmYU5/O9PSK6nYNY0NoF8G4qiWzsZafq8"
+    js:                "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/coreui.min.js"
+    js_hash:           "sha384-YWUPm1e5j5w+wmURZmLUWOMDRZPnXFe0Au6rYTEckwBldednKmzKbXkDSRVxeYai"
+    js_bundle:         "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/coreui.bundle.min.js"
+    js_bundle_hash:    "sha384-/tHjBxlzVOcREhaYewbkKuG3Zh2Doa/UnZL3cAyG2nm++ImxONuOuw6dZCVanynO"
+    js_bs:             "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/bootstrap.min.js"
+    js_bs_hash:        "sha384-Aspk+xAY/OXrXnW6KqK66JSNlAn0k4F6WRKYx0j6yULdbXu99mu/erVsYVkQbD6R"
+    js_bs_bundle:      "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.0.0-rc.1/dist/js/bootstrap.bundle.min.js"
+    js_bs_bundle_hash: "sha384-MJflYpZLG2kcBZKA3jC/ULNEOcikn7PoXCl9ffq2MHgJhq+UxtT0q9vSV1kEThwr"
+    popper:            "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    popper_hash:       "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    popper_esm:        "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js"
 
   anchors:
     min: 2

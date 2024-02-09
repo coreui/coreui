@@ -9,9 +9,10 @@ import banner from './banner.mjs'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 const BUNDLE = process.env.BUNDLE === 'true'
+const BOOTSTRAP = process.env.BOOTSTRAP === 'true'
 const ESM = process.env.ESM === 'true'
 
-let destinationFile = `coreui${ESM ? '.esm' : ''}`
+let destinationFile = BOOTSTRAP ? `bootstrap${ESM ? '.esm' : ''}` : `coreui${ESM ? '.esm' : ''}`
 const external = ['@popperjs/core']
 const plugins = [
   babel({
@@ -33,7 +34,10 @@ if (BUNDLE) {
   plugins.push(
     replace({
       'process.env.NODE_ENV': '"production"',
-      preventAssignment: true
+      preventAssignment: true,
+      ...BOOTSTRAP && {
+        'coreui.': 'bs.'
+      }
     }),
     nodeResolve()
   )
@@ -53,7 +57,7 @@ const rollupConfig = {
 }
 
 if (!ESM) {
-  rollupConfig.output.name = 'coreui'
+  rollupConfig.output.name = BOOTSTRAP ? 'bootstrap' : 'coreui'
 }
 
 export default rollupConfig

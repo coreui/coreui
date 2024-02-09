@@ -34,12 +34,28 @@ const files = [
     configPropertyName: 'css_rtl_hash'
   },
   {
+    file: 'dist/css/themes/bootstrap/bootstrap.min.css',
+    configPropertyName: 'css_bs_hash'
+  },
+  {
+    file: 'dist/css/themes/bootstrap/bootstrap.rtl.min.css',
+    configPropertyName: 'css_bs_rtl_hash'
+  },
+  {
     file: 'dist/js/coreui.min.js',
     configPropertyName: 'js_hash'
   },
   {
     file: 'dist/js/coreui.bundle.min.js',
     configPropertyName: 'js_bundle_hash'
+  },
+  {
+    file: 'dist/js/bootstrap.min.js',
+    configPropertyName: 'js_bs_hash'
+  },
+  {
+    file: 'dist/js/bootstrap.bundle.min.js',
+    configPropertyName: 'js_bs_bundle_hash'
   },
   {
     file: 'node_modules/@popperjs/core/dist/umd/popper.min.js',
