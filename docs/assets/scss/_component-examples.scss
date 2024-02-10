@@ -2,6 +2,16 @@
 // Docs examples
 //
 
+.tab-content .tab-pane .docs-code-snippet {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+  .highlight {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+
 .docs-code-snippet {
   margin: 0 ($cd-gutter-x * -.5) 1rem;
   border: solid var(--cui-border-color);

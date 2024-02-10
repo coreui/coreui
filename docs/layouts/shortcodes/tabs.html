@@ -1,0 +1,16 @@
+{{ with .Inner }}{{/* don't do anything, just call it */}}{{ end }}
+{{ $groupId := default "default" (.Get "groupId") }}
+<ul class="nav nav-underline-border border-1" role="tablist">
+  {{ range $idx, $tab := .Scratch.Get "tabs" }}
+  <li class="nav-item mb-0" role="presentation">
+    <button class="nav-link {{ cond (eq $idx 0) "active" ""}}" data-coreui-toggle="tab" data-coreui-target="#{{ $groupId }}-{{ .name | urlize}}" type="button" role="tab">{{ .name }}</button>
+  </li>
+  {{ end }}
+</ul>
+<div class="tab-content">
+  {{ range $idx, $tab := .Scratch.Get "tabs" }}
+  <div class="tab-pane fade {{ cond (eq $idx 0) "show active" ""}}" id="{{ $groupId }}-{{ .name | urlize}}" role="tabpanel" aria-labelledby="{{ .name }}-tab" tabindex="0">
+    {{ .content }}
+  </div>
+  {{ end }}
+</div>
