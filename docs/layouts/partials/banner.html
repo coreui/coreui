@@ -1,0 +1,23 @@
+{{ if .Page.Params.pro_component }}
+<div class="bg-danger bg-opacity-10 border-start border-start-5 border-start-danger p-4 pb-3 mb-5">
+  <h3 class="mb-4">CoreUI PRO Component</h3>
+  <p>
+    To use this component you must have a CoreUI PRO license. Buy the <a href="https://coreui.io/pricing/?framework=bootstrap&docs=coreui-banner-pro">CoreUI PRO</a> and get access to all PRO components, features, templates, and dedicated support.
+  </p>
+</div>
+{{ else }}
+<div class="bg-info bg-opacity-10 border-start border-start-5 border-start-info p-4 pb-3 mb-5">
+  <h3 class="mb-4">Support CoreUI Development</h3>
+  <p>
+    CoreUI is an MIT-licensed open source project and is completely free to use. However, the amount of effort needed to maintain and develop new features for the project is not sustainable without proper financial backing.
+  </p>
+  <p>
+    You can support our Open Source software development in the following ways:
+  </p>
+  <ul>
+    <li>Buy the <a href="https://coreui.io/pricing/?framework=bootstrap&docs=coreui-banner-free">CoreUI PRO</a> and get access to all PRO components, features, templates, and dedicated support.</li>
+    <li><a href="https://opencollective.com/coreui" target="_blank">Became a sponsor</a>, and get your logo on BACKERS.md/README.md files or each site of this documentation</li>
+    <li>Give us a star ⭐️ on <a href="https://github.com/coreui/coreui" target="_blank">Github</a>.</li>
+  </ul>
+</div>
+{{ end }}

@@ -7,7 +7,11 @@
 <meta name="docsearch:language" content="en">
 <meta name="docsearch:version" content="{{ .Site.Params.docs_version }}">
 
-<title>{{ if .IsHome }}{{ .Site.Title | markdownify }} · {{ .Site.Params.description | markdownify }}{{ else }}{{ .Title | markdownify }} · {{ .Site.Title | markdownify }}{{ end }}</title>
+{{ if .Page.Params.bootstrap }}
+<title>Bootstrap {{ .Title | markdownify | title }} - extended examples and tutorials</title>
+{{ else }}
+<title>{{ .Title | markdownify  }} · {{ .Site.Title | markdownify }}</title>
+{{ end }}
 
 <link rel="canonical" href="{{ .Permalink }}">
 
