@@ -4,6 +4,7 @@ title: Utilities for layout
 description: For faster mobile-friendly and responsive development, CoreUI for Bootstrap includes dozens of utility classes for showing, hiding, aligning, and spacing content.
 group: layout
 toc: true
+bootstrap: true
 ---
 
 ## Changing `display`

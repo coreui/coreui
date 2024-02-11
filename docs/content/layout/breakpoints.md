@@ -5,6 +5,7 @@ description: Breakpoints are the triggers in CoreUI for Bootstrap for how your l
 group: layout
 aliases: "/4.1/layout/"
 toc: true
+bootstrap: true
 ---
 
 ## Core concepts

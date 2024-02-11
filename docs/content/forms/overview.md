@@ -4,6 +4,7 @@ title: Forms
 description: Examples and usage guidelines for form control styles, layout options, and custom components for creating a wide variety of forms.
 group: forms
 toc: true
+bootstrap: true
 aliases: "/4.1/forms/"
 sections:
   - title: Form control

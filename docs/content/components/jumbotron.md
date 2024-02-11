@@ -1,9 +1,10 @@
 ---
 layout: docs
-title: Bootstrap jumbotron
+title: Jumbotron
 description: Bootstrap jumbotron component indicates a big grey box for showcasing hero unit style content.
 group: components
 toc: true
+bootstrap: true
 ---
 
 ## Basic example

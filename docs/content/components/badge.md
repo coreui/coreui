@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap badges
+title: Badges
 description: Bootstrap badge is small count and labeling components.
 group: components
 aliases:

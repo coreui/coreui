@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/callout/"
 toc: true
+bootstrap: true
 other_frameworks: callout
 ---
 

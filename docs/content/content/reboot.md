@@ -5,6 +5,7 @@ description: Reboot, a collection of element-specific CSS changes in a single fi
 group: content
 aliases: "/4.1/content/"
 toc: true
+bootstrap: true
 ---
 
 ## Approach

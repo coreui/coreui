@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap carousel
+title: Carousel
 description: Bootstrap carousel is a slideshow component for cycling through elements—images or slides of text—like a carousel.
 group: components
 aliases:

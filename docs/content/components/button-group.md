@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap button group
+title: Button group
 description: Bootstrap button group allows to group a series of buttons and power them with JavaScript.
 aliases:
   - "/components/button-group/"

@@ -4,6 +4,7 @@ title: Vertical rule
 description: Use the custom vertical rule helper to create vertical dividers like the `<hr>` element.
 group: helpers
 toc: true
+bootstrap: true
 added: "5.1"
 ---
 

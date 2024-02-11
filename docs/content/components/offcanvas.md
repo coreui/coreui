@@ -1,9 +1,10 @@
 ---
 layout: docs
-title: Bootstrap offcanvas
+title: Offcanvas
 description: Build hidden sidebars into your project for navigation, shopping carts, and more with a few classes and our JavaScript plugin.
 group: components
 toc: true
+bootstrap: true
 other_frameworks: offcanvas
 ---
 

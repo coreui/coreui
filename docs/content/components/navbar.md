@@ -1,9 +1,10 @@
 ---
 layout: docs
-title: Bootstrap navbar
+title: Navbar
 description: Documentation and examples for CoreUI for Bootstrap's powerful, responsive navigation header, the navbar. Includes support for branding, navigation, and more, including support for our collapse plugin.
 group: components
 toc: true
+bootstrap: true
 other_frameworks: navbar
 ---
 

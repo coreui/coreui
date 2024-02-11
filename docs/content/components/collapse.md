@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap collapse
+title: Collapse
 description: Bootstrap collapse component toggles the visibility of content across your project with a few classes and some scripts. Useful for a large amount of content.
 group: components
 aliases:

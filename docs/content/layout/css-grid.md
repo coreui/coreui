@@ -4,6 +4,7 @@ title: CSS Grid
 description: Learn how to enable, use, and customize our alternate layout system built on CSS Grid with examples and code snippets.
 group: layout
 toc: true
+bootstrap: true
 added: "5.1"
 ---
 

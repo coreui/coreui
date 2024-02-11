@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap modal
+title: Modal
 description: Bootstrap Modals offer a lightweight, multi-purpose JavaScript popup to add dialogs to yours. Learn how to customize Bootstrap Modals easily. Multiple examples and tutorial.
 group: components
 aliases:

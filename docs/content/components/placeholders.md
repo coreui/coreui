@@ -1,10 +1,11 @@
 ---
 layout: docs
-title: Bootstrap placeholders
+title: Placeholders
 description: Use loading placeholders for your components or pages to indicate something may still be loading.
 group: components
 toc: true
 added: "5.1"
+bootstrap: true
 other_frameworks: placeholder
 ---
 

@@ -4,6 +4,7 @@ title: Colored links
 description: Colored links with hover states
 group: helpers
 toc: false
+bootstrap: true
 ---
 
 You can use the `.link-*` classes to colorize links. Unlike the [`.text-*` classes]({{< docsref "/utilities/colors" >}}), these classes have a `:hover` and `:focus` state.

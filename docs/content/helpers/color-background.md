@@ -4,6 +4,7 @@ title: Color & background
 description: Set a background color with contrasting foreground color.
 group: helpers
 toc: true
+bootstrap: true
 added: "5.2"
 ---
 

@@ -4,6 +4,7 @@ title: Validation
 description: Provide valuable, actionable feedback to your users with HTML5 form validation, via browser default behaviors or custom styles and JavaScript.
 group: forms
 toc: true
+bootstrap: true
 extra_js:
   - src: "/assets/js/validate-forms.js"
     async: true

@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/avatar/"
 toc: true
+bootstrap: true
 other_frameworks: avatar
 ---
 

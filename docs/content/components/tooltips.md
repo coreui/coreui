@@ -1,9 +1,10 @@
 ---
 layout: docs
-title: Bootstrap tooltips
+title: Tooltips
 description: Documentation and examples for adding custom Bootstrap tooltips with CSS and JavaScript using CSS3 for animations and data-coreui-attributes for local title storage.
 group: components
 toc: true
+bootstrap: true
 other_frameworks: tooltip
 ---
 

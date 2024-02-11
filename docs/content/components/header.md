@@ -6,6 +6,7 @@ group: components
 aliases:
   - "/components/header/"
 toc: true
+bootstrap: true
 other_frameworks: header
 ---
 

@@ -4,6 +4,7 @@ title: Icon link
 description: Quickly create stylized hyperlinks with Bootstrap Icons or other icons.
 group: helpers
 toc: true
+bootstrap: true
 added: 5.3
 ---
 

@@ -4,6 +4,7 @@ title: Background
 description: Convey meaning through `background-color` and add decoration with gradients.
 group: utilities
 toc: true
+bootstrap: true
 ---
 
 ## Background color

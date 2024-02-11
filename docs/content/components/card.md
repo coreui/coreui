@@ -1,6 +1,6 @@
 ---
 layout: docs
-title: Bootstrap card
+title: Card
 description: Bootstrap card component provides a flexible and extensible container for displaying content. Bootstrap card is delivered with a bunch of variants and options.
 group: components
 aliases:

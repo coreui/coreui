@@ -3,6 +3,7 @@ layout: docs
 title: Overflow
 description: Use these shorthand utilities for quickly configuring how content overflows an element.
 group: utilities
+bootstrap: true
 ---
 
 Adjust the `overflow` property on the fly with four default values and classes. These classes are not responsive by default.
