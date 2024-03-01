@@ -6,7 +6,7 @@
 
 /*!
  * JavaScript for CoreUI's docs (https://coreui.io/)
- * Copyright 2023 creativeLabs Lukasz Holeczek
+ * Copyright 2024 creativeLabs Lukasz Holeczek
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
