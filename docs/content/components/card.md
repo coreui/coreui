@@ -69,7 +69,7 @@ Subtitles are managed by adding a `.card-subtitle` to a `<h*>` tag. If the `.car
 
 ### Images
 
-`.card-img-top` places a picture to the top of the card. With `.card-text`, text can be added to the card. Text within `.card-text` can additionally be styled with the regular HTML tags.
+`.card-img-top` and `.card-img-bottom` respectively set the top and bottom corners rounded to match the card's borders. Text within `.card-text` can additionally be styled with the regular HTML tags.
 
 {{< example >}}
 <div class="card" style="width: 18rem;">

@@ -96,6 +96,25 @@ npm install -g sass
 sass --watch ./scss/custom.scss ./css/custom.css
 ```
 
+## Including
+
+Once your CSS is compiled, you can include it in your HTML files. Inside your `index.html` you'll want to include your compiled CSS file. Be sure to update the path to your compiled CSS file if you've changed it.
+
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Custom CoreUI for Bootstrap</title>
+    <link href="/css/custom.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+  </body>
+</html>
+```
+
 ## Variable defaults
 
 Every Sass variable in CoreUI for Bootstrap includes the `!default` flag allowing you to override the variable's default value in your own Sass without modifying CoreUI for Bootstrap's source code. Copy and paste variables as needed, modify their values, and remove the `!default` flag. If a variable has already been assigned, then it won't be re-assigned by the default values in Bootstrap.
@@ -219,6 +238,11 @@ In practice, you'd call the function and pass in the color and weight parameters
 .custom-element-2 {
   color: shade-color($danger, 30%);
 }
+
+.custom-element-3 {
+  color: shift-color($success, 40%);
+  background-color: shift-color($success, -60%);
+}
 ```
 
 ### Color contrast
@@ -307,12 +331,12 @@ A shorthand mixin for the `prefers-color-scheme` media query is available with s
 
 ```scss
 .custom-element {
-  @include color-scheme(dark) {
-    // Insert dark mode styles here
+  @include color-scheme(light) {
+    // Insert light mode styles here
   }
 
-  @include color-scheme(custom-named-scheme) {
-    // Insert custom color scheme styles here
+  @include color-scheme(dark) {
+    // Insert dark mode styles here
   }
 }
 ```
