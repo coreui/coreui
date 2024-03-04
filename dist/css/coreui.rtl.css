@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.0.0-rc.1 (https://coreui.io)
- * Copyright (c) 2023 creativeLabs Łukasz Holeczek
+ * CoreUI  v5.0.0-rc-2 (https://coreui.io)
+ * Copyright (c) 2024 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 :root,
@@ -3029,6 +3029,9 @@ textarea.form-control-lg {
 .btn-check:checked + .btn:focus-visible, :not(.btn-check) + .btn:active:focus-visible, .btn:first-child:active:focus-visible, .btn.active:focus-visible, .btn.show:focus-visible {
   box-shadow: var(--cui-btn-focus-box-shadow);
 }
+.btn-check:checked:focus-visible + .btn {
+  box-shadow: var(--cui-btn-focus-box-shadow);
+}
 .btn:disabled, .btn.disabled, fieldset:disabled .btn {
   color: var(--cui-btn-disabled-color);
   pointer-events: none;
@@ -4938,12 +4941,11 @@ textarea.form-control-lg {
   --cui-accordion-btn-padding-y: 1rem;
   --cui-accordion-btn-color: var(--cui-body-color);
   --cui-accordion-btn-bg: var(--cui-accordion-bg);
-  --cui-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='rgba%2837, 43, 54, 0.95%29'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --cui-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='rgba%2837, 43, 54, 0.95%29' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
   --cui-accordion-btn-icon-width: 1.25rem;
   --cui-accordion-btn-icon-transform: rotate(-180deg);
   --cui-accordion-btn-icon-transition: transform 0.2s ease-in-out;
-  --cui-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233634a3'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
-  --cui-accordion-btn-focus-border-color: #acabeb;
+  --cui-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%233634a3' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5L8 11L14 5'/%3e%3c/svg%3e");
   --cui-accordion-btn-focus-box-shadow: 0 0 0 0.25rem rgba(88, 86, 214, 0.25);
   --cui-accordion-body-padding-x: 1.25rem;
   --cui-accordion-body-padding-y: 1rem;
@@ -4984,7 +4986,7 @@ textarea.form-control-lg {
   flex-shrink: 0;
   width: var(--cui-accordion-btn-icon-width);
   height: var(--cui-accordion-btn-icon-width);
-  margin-left: auto;
+  margin-right: auto;
   content: "";
   background-image: var(--cui-accordion-btn-icon);
   background-repeat: no-repeat;
@@ -5001,7 +5003,6 @@ textarea.form-control-lg {
 }
 .accordion-button:focus {
   z-index: 3;
-  border-color: var(--cui-accordion-btn-focus-border-color);
   outline: 0;
   box-shadow: var(--cui-accordion-btn-focus-box-shadow);
 }
@@ -5019,7 +5020,7 @@ textarea.form-control-lg {
   border-top-left-radius: var(--cui-accordion-border-radius);
   border-top-right-radius: var(--cui-accordion-border-radius);
 }
-.accordion-item:first-of-type .accordion-button {
+.accordion-item:first-of-type > .accordion-header .accordion-button {
   border-top-left-radius: var(--cui-accordion-inner-border-radius);
   border-top-right-radius: var(--cui-accordion-inner-border-radius);
 }
@@ -5030,11 +5031,11 @@ textarea.form-control-lg {
   border-bottom-right-radius: var(--cui-accordion-border-radius);
   border-bottom-left-radius: var(--cui-accordion-border-radius);
 }
-.accordion-item:last-of-type .accordion-button.collapsed {
+.accordion-item:last-of-type > .accordion-header .accordion-button.collapsed {
   border-bottom-right-radius: var(--cui-accordion-inner-border-radius);
   border-bottom-left-radius: var(--cui-accordion-inner-border-radius);
 }
-.accordion-item:last-of-type .accordion-collapse {
+.accordion-item:last-of-type > .accordion-collapse {
   border-bottom-right-radius: var(--cui-accordion-border-radius);
   border-bottom-left-radius: var(--cui-accordion-border-radius);
 }
@@ -5043,21 +5044,21 @@ textarea.form-control-lg {
   padding: var(--cui-accordion-body-padding-y) var(--cui-accordion-body-padding-x);
 }
 
-.accordion-flush .accordion-collapse {
-  border-width: 0;
-}
-.accordion-flush .accordion-item {
+.accordion-flush > .accordion-item {
   border-right: 0;
   border-left: 0;
   border-radius: 0;
 }
-.accordion-flush .accordion-item:first-child {
+.accordion-flush > .accordion-item:first-child {
   border-top: 0;
 }
-.accordion-flush .accordion-item:last-child {
+.accordion-flush > .accordion-item:last-child {
   border-bottom: 0;
 }
-.accordion-flush .accordion-item .accordion-button, .accordion-flush .accordion-item .accordion-button.collapsed {
+.accordion-flush > .accordion-item > .accordion-header .accordion-button, .accordion-flush > .accordion-item > .accordion-header .accordion-button.collapsed {
+  border-radius: 0;
+}
+.accordion-flush > .accordion-item > .accordion-collapse {
   border-radius: 0;
 }
 
@@ -5987,7 +5988,6 @@ textarea.form-control-lg {
   display: flex;
   flex-shrink: 0;
   align-items: center;
-  justify-content: space-between;
   padding: var(--cui-modal-header-padding);
   border-bottom: var(--cui-modal-header-border-width) solid var(--cui-modal-header-border-color);
   border-top-left-radius: var(--cui-modal-inner-border-radius);
@@ -7185,7 +7185,6 @@ textarea.form-control-lg {
 .offcanvas-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   padding: var(--cui-offcanvas-padding-y) var(--cui-offcanvas-padding-x);
 }
 .offcanvas-header .btn-close {

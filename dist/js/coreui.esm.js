@@ -1,6 +1,6 @@
 /*!
-  * CoreUI v5.0.0-rc.1 (https://coreui.io)
-  * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI v5.0.0-rc-2 (https://coreui.io)
+  * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 import * as Popper from '@popperjs/core';
@@ -212,7 +212,6 @@ const noop = () => {};
 const reflow = element => {
   element.offsetHeight; // eslint-disable-line no-unused-expressions
 };
-
 const getjQuery = () => {
   if (window.jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
     return window.jQuery;
@@ -662,7 +661,7 @@ class Config {
  * Constants
  */
 
-const VERSION = '5.0.0-rc.1';
+const VERSION = '5.0.0-rc-2';
 
 /**
  * Class definition
@@ -746,9 +745,9 @@ const getSelector = element => {
     if (hrefAttribute.includes('#') && !hrefAttribute.startsWith('#')) {
       hrefAttribute = `#${hrefAttribute.split('#')[1]}`;
     }
-    selector = hrefAttribute && hrefAttribute !== '#' ? parseSelector(hrefAttribute.trim()) : null;
+    selector = hrefAttribute && hrefAttribute !== '#' ? hrefAttribute.trim() : null;
   }
-  return selector;
+  return selector ? selector.split(',').map(sel => parseSelector(sel)).join(',') : null;
 };
 const SelectorEngine = {
   find(selector, element = document.documentElement) {
@@ -2118,7 +2117,6 @@ const Default$a = {
   // if false, we use the backdrop helper without adding any element to the dom
   rootElement: 'body' // give the choice to place backdrop under different elements
 };
-
 const DefaultType$a = {
   className: 'string',
   clickCallback: '(function|null)',
@@ -2246,7 +2244,6 @@ const Default$9 = {
   autofocus: true,
   trapElement: null // The element to trap focus inside of
 };
-
 const DefaultType$9 = {
   autofocus: 'boolean',
   trapElement: 'element'
@@ -2864,11 +2861,9 @@ class Navigation extends BaseComponent {
       if (element.nodeType === 3) {
         continue; // text node
       }
-
       if (element.nodeType === 8) {
         continue; // comment node
       }
-
       if (!filter || filter(element)) {
         siblings.push(element);
       }
@@ -3240,7 +3235,10 @@ const DefaultAllowlist = {
   br: [],
   col: [],
   code: [],
+  dd: [],
   div: [],
+  dl: [],
+  dt: [],
   em: [],
   hr: [],
   h1: [],

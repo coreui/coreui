@@ -1,6 +1,6 @@
 /*!
-  * CoreUI selector-engine.js v5.0.0-rc.1 (https://coreui.io)
-  * Copyright 2023 The CoreUI Team (https://github.com/orgs/coreui/people)
+  * CoreUI selector-engine.js v5.0.0-rc-2 (https://coreui.io)
+  * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
@@ -36,9 +36,9 @@
       if (hrefAttribute.includes('#') && !hrefAttribute.startsWith('#')) {
         hrefAttribute = `#${hrefAttribute.split('#')[1]}`;
       }
-      selector = hrefAttribute && hrefAttribute !== '#' ? index_js.parseSelector(hrefAttribute.trim()) : null;
+      selector = hrefAttribute && hrefAttribute !== '#' ? hrefAttribute.trim() : null;
     }
-    return selector;
+    return selector ? selector.split(',').map(sel => index_js.parseSelector(sel)).join(',') : null;
   };
   const SelectorEngine = {
     find(selector, element = document.documentElement) {
