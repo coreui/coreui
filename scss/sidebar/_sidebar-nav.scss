@@ -139,8 +139,8 @@
         }
 
         &.nav-dropdown-toggle::after {
-          mask-image: var(--#{$prefix}sidebar-nav-group-indicator-hover-icon);
           background-color: var(--#{$prefix}sidebar-nav-group-indicator-hover-color);
+          mask-image: var(--#{$prefix}sidebar-nav-group-indicator-hover-icon);
         }
       }
     }
@@ -161,8 +161,8 @@
         }
 
         &.nav-group-toggle::after {
-          mask-image: var(--#{$prefix}sidebar-nav-group-indicator-hover-icon);
           background-color: var(--#{$prefix}sidebar-nav-group-indicator-hover-color);
+          mask-image: var(--#{$prefix}sidebar-nav-group-indicator-hover-icon);
         }
       }
     }
@@ -239,8 +239,8 @@
       height: 12px;
       @include ltr-rtl("margin-left", auto);
       content: "";
-      mask-image: var(--#{$prefix}sidebar-nav-group-indicator-icon);
       background-color: var(--#{$prefix}sidebar-nav-group-indicator-color);
+      mask-image: var(--#{$prefix}sidebar-nav-group-indicator-icon);
       @include transition($sidebar-nav-group-indicator-transition);
     }
   }
