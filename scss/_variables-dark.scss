@@ -43,7 +43,7 @@ $disabled-dark:         rgba($white, .38) !default; // Deprecated in v5.0.0
 
 // scss-docs-start theme-color-dark-variables
 $primary-dark:       desaturate($primary, 10%) !default;
-$secondary-dark:     desaturate($secondary, 10%) !default;
+$secondary-dark:     $secondary !default;
 $success-dark:       desaturate($success, 10%) !default;
 $info-dark:          desaturate($info, 10%) !default;
 $warning-dark:       desaturate($warning, 10%) !default;
@@ -67,7 +67,7 @@ $theme-colors-dark: (
 
 // scss-docs-start theme-text-dark-variables
 $primary-text-emphasis-dark:        desaturate($primary-text-emphasis, 10%) !default;
-$secondary-text-emphasis-dark:      desaturate($secondary-text-emphasis, 10%) !default;
+$secondary-text-emphasis-dark:      $secondary-text-emphasis !default;
 $success-text-emphasis-dark:        desaturate($success-text-emphasis, 10%) !default;
 $info-text-emphasis-dark:           desaturate($info-text-emphasis, 10%) !default;
 $warning-text-emphasis-dark:        desaturate($warning-text-emphasis, 10%) !default;
