@@ -12858,9 +12858,9 @@ textarea.form-control-lg {
   border-color: var(--cui-sidebar-link-disabled-icon-bullet-border-color);
 }
 .sidebar-nav .nav-link.disabled:hover.nav-dropdown-toggle::after {
+  background-color: var(--cui-sidebar-nav-group-indicator-hover-color);
   -webkit-mask-image: var(--cui-sidebar-nav-group-indicator-hover-icon);
   mask-image: var(--cui-sidebar-nav-group-indicator-hover-icon);
-  background-color: var(--cui-sidebar-nav-group-indicator-hover-color);
 }
 @media (hover: hover), (-ms-high-contrast: none) {
   .sidebar-nav .nav-link:hover {
@@ -12876,9 +12876,9 @@ textarea.form-control-lg {
     border-color: var(--cui-sidebar-link-hover-icon-bullet-border-color);
   }
   .sidebar-nav .nav-link:hover.nav-group-toggle::after {
+    background-color: var(--cui-sidebar-nav-group-indicator-hover-color);
     -webkit-mask-image: var(--cui-sidebar-nav-group-indicator-hover-icon);
     mask-image: var(--cui-sidebar-nav-group-indicator-hover-icon);
-    background-color: var(--cui-sidebar-nav-group-indicator-hover-color);
   }
 }
 .sidebar-nav .nav-icon {
@@ -12956,9 +12956,9 @@ textarea.form-control-lg {
   height: 12px;
   margin-left: auto;
   content: "";
+  background-color: var(--cui-sidebar-nav-group-indicator-color);
   -webkit-mask-image: var(--cui-sidebar-nav-group-indicator-icon);
   mask-image: var(--cui-sidebar-nav-group-indicator-icon);
-  background-color: var(--cui-sidebar-nav-group-indicator-color);
   transition: transform 0.15s;
 }
 @media (prefers-reduced-motion: reduce) {
