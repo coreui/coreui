@@ -199,6 +199,15 @@
     },
     {
       "files": [
+        "docs/assets/js/**"
+      ],
+      "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020
+      }
+    },
+    {
+      "files": [
         "**/*.md"
       ],
       "plugins": [
@@ -210,7 +219,7 @@
       "files": [
         "**/*.md/*.js"
       ],
-      "extends": "plugin:markdown/recommended",
+      "extends": "plugin:markdown/recommended-legacy",
       "parserOptions": {
         "sourceType": "module"
       },
