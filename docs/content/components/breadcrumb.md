@@ -4,7 +4,6 @@ title: Breadcrumb
 description: Bootstrap breadcrumb navigation component which indicates the current location within a navigational hierarchy that automatically adds separators.
 group: components
 aliases:
-  - "/components/breadcrumb/"
   - "/components/bootstrap/breadcrumb/"
 toc: true
 bootstrap: true

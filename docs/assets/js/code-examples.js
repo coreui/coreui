@@ -12,8 +12,6 @@
 /* global ClipboardJS: false, coreui: false */
 
 (() => {
-  'use strict'
-
   // Insert copy to clipboard button before .highlight
   const btnTitle = 'Copy to clipboard'
   const btnEdit = 'Edit on StackBlitz'

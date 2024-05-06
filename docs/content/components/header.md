@@ -3,8 +3,6 @@ layout: docs
 title: Header
 description: Documentation and examples for CoreUI's powerful, responsive header. Includes support for branding, navigation, and more.
 group: components
-aliases:
-  - "/components/header/"
 toc: true
 bootstrap: true
 other_frameworks: header

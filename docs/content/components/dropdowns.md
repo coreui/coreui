@@ -4,7 +4,6 @@ title: Dropdowns
 description: Bootstrap dropdown component allows you to toggle contextual overlays for displaying lists, links, and more html elements.
 group: components
 aliases:
-  - "/components/dropdowns/"
   - "/components/bootstrap/dropdowns/"
 toc: true
 bootstrap: true

@@ -3,8 +3,6 @@ layout: docs
 title: Sidebar
 description: Bootstrap Sidebar is a powerful and customizable responsive navigation component for any type of vertical navigation. Bootstrap Sidebar come with built-in support for branding, navigation, and more.
 group: components
-aliases:
-  - "/components/sidebar/"
 toc: true
 bootstrap: true
 other_frameworks: sidebar

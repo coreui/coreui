@@ -4,10 +4,10 @@
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.BaseComponent, global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Index));
-})(this, (function (BaseComponent, Data, EventHandler, Manipulator, SelectorEngine, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/data', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.BaseComponent, global.Data, global.EventHandler, global.SelectorEngine, global.Index));
+})(this, (function (BaseComponent, Data, EventHandler, SelectorEngine, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -78,14 +78,6 @@
 
     // Private
 
-    _getConfig(config) {
-      config = {
-        ...Default,
-        ...Manipulator.getDataAttributes(this._element),
-        ...(typeof config === 'object' ? config : {})
-      };
-      return config;
-    }
     _setActiveLink() {
       for (const element of Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK))) {
         if (element.classList.contains(CLASS_NAME_NAV_GROUP_TOGGLE)) {

@@ -4,7 +4,6 @@ title: Carousel
 description: Bootstrap carousel is a slideshow component for cycling through elements—images or slides of text—like a carousel.
 group: components
 aliases:
-  - "/components/carousel/"
   - "/components/bootstrap/carousel/"
 toc: true
 bootstrap: true

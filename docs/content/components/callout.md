@@ -3,8 +3,6 @@ layout: docs
 title: Callout
 description: Callouts provide presentation of content in a visually distinct manner. Includes a heading, icon and typically text-based content.
 group: components
-aliases:
-  - "/components/callout/"
 toc: true
 bootstrap: true
 other_frameworks: callout

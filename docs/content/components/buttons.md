@@ -5,7 +5,6 @@ description: Bootstrap button component for actions in tables, forms, cards, and
 group: components
 aliases:
   - "/components/button/"
-  - "/components/buttons/"
   - "/components/bootstrap/button/"
 toc: true
 bootstrap: true

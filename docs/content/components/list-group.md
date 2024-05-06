@@ -4,7 +4,6 @@ title: List group
 description: Bootstrap List Groups allows displaying are a series of content. Learn how to use Bootstrap list group to build complex list structure on your website.
 group: components
 aliases:
-  - "/components/list-group/"
   - "/components/bootstrap/list-group/"
 toc: true
 bootstrap: true

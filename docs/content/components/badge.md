@@ -4,7 +4,6 @@ title: Badges
 description: Bootstrap badge is small count and labeling components.
 group: components
 aliases:
-  - "/components/badge/"
   - "/components/bootstrap/badge/"
 toc: true
 bootstrap: true

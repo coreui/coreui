@@ -3,7 +3,6 @@ layout: docs
 title: Button group
 description: Bootstrap button group allows to group a series of buttons and power them with JavaScript.
 aliases:
-  - "/components/button-group/"
   - "/components/bootstrap/button-group/"
 toc: true
 bootstrap: true

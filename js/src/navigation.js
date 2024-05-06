@@ -8,7 +8,6 @@
 import BaseComponent from './base-component.js'
 import Data from './dom/data.js'
 import EventHandler from './dom/event-handler.js'
-import Manipulator from './dom/manipulator.js'
 import SelectorEngine from './dom/selector-engine.js'
 import { defineJQueryPlugin } from './util/index.js'
 
@@ -82,16 +81,6 @@ class Navigation extends BaseComponent {
   }
 
   // Private
-
-  _getConfig(config) {
-    config = {
-      ...Default,
-      ...Manipulator.getDataAttributes(this._element),
-      ...(typeof config === 'object' ? config : {})
-    }
-
-    return config
-  }
 
   _setActiveLink() {
     for (const element of Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK))) {

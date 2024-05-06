@@ -3,8 +3,6 @@
 // ++++++++++++++++++++++++++++++++++++++++++
 
 (() => {
-  'use strict'
-
   const searchElement = document.getElementById('docsearch')
 
   if (!window.docsearch || !searchElement) {

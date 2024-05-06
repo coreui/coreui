@@ -201,16 +201,6 @@ class Sidebar extends BaseComponent {
 
   // Private
 
-  _getConfig(config) {
-    config = {
-      ...Default,
-      ...Manipulator.getDataAttributes(this._element),
-      ...(typeof config === 'object' ? config : {})
-    }
-
-    return config
-  }
-
   _initializeBackDrop() {
     return new Backdrop({
       className: CLASS_NAME_BACKDROP,

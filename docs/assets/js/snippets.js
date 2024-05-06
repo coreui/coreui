@@ -14,8 +14,6 @@
 /* global coreui: false */
 
 (() => {
-  'use strict'
-
   // --------
   // Tooltips
   // --------
