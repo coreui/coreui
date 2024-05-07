@@ -72,7 +72,7 @@ Curious which components explicitly require our JavaScript and Popper? Click the
 
 ## Bootstrap Replacement
 
-{{< added-in "5.0.0-rc.2" >}}
+{{< added-in "5.0.0" >}}
 
 
 If you're currently using Bootstrap in your project or want to maintain full compatibility with Bootstrap, check out how you can add CoreUI for Bootstrap to your project. CoreUI enhances Bootstrap projects by adding advanced components and features, offering a smooth upgrade with minimal adjustments. It retains Bootstrap's familiar structure while introducing new possibilities for UI development.
