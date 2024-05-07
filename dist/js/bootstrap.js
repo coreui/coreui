@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.0.0 (https://coreui.io)
+  * CoreUI v5.0.1 (https://coreui.io)
   * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -684,7 +684,7 @@
    * Constants
    */
 
-  const VERSION = '5.0.0';
+  const VERSION = '5.0.1';
 
   /**
    * Class definition
@@ -2819,14 +2819,6 @@
 
     // Private
 
-    _getConfig(config) {
-      config = {
-        ...Default$7,
-        ...Manipulator.getDataAttributes(this._element),
-        ...(typeof config === 'object' ? config : {})
-      };
-      return config;
-    }
     _setActiveLink() {
       for (const element of Array.from(this._element.querySelectorAll(SELECTOR_NAV_LINK))) {
         if (element.classList.contains(CLASS_NAME_NAV_GROUP_TOGGLE)) {
@@ -4502,14 +4494,6 @@
 
     // Private
 
-    _getConfig(config) {
-      config = {
-        ...Default$1,
-        ...Manipulator.getDataAttributes(this._element),
-        ...(typeof config === 'object' ? config : {})
-      };
-      return config;
-    }
     _initializeBackDrop() {
       return new Backdrop({
         className: CLASS_NAME_BACKDROP,

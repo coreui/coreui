@@ -1,5 +1,5 @@
 /*!
-  * CoreUI modal.js v5.0.0 (https://coreui.io)
+  * CoreUI modal.js v5.0.1 (https://coreui.io)
   * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
