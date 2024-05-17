@@ -213,8 +213,9 @@
   // scss-docs-start sidebar-toggler-css-vars
   --#{$prefix}sidebar-toggler-width: #{$sidebar-toggler-width};
   --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
+  --#{$prefix}sidebar-toggler-bg: #{$sidebar-toggler-bg};
   --#{$prefix}sidebar-toggler-color: #{$sidebar-toggler-color};
-  --#{$prefix}sidebar-toggler-bg: #{escape-svg($sidebar-toggler-bg)};
+  --#{$prefix}sidebar-toggler-icon: #{escape-svg($sidebar-toggler-icon)};
   --#{$prefix}sidebar-toggler-hover-color: #{$sidebar-toggler-hover-color};
   --#{$prefix}sidebar-toggler-focus-shadow: #{$sidebar-toggler-focus-shadow};
   --#{$prefix}sidebar-toggler-focus-color: #{$sidebar-toggler-focus-color};
@@ -226,7 +227,7 @@
   width: var(--#{$prefix}sidebar-toggler-width);
   height: var(--#{$prefix}sidebar-toggler-height);
   padding: $sidebar-toggler-padding-y $sidebar-toggler-padding-x;
-  background-color: transparent;
+  background-color: var(--#{$prefix}sidebar-toggler-bg);
   border: 0;
   @include border-radius();
 
@@ -238,7 +239,7 @@
     height: 100%;
     content: "";
     background-color: var(--#{$prefix}sidebar-toggler-color);
-    mask: var(--#{$prefix}sidebar-toggler-bg) no-repeat center;
+    mask: var(--#{$prefix}sidebar-toggler-icon) no-repeat center;
     @include transition(var(--#{$prefix}sidebar-toggler-transition));
     @include rtl() {
       transform: rotate(-180deg);

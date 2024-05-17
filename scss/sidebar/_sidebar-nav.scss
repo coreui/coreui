@@ -51,9 +51,9 @@
   --#{$prefix}sidebar-nav-group-border-color: #{$sidebar-nav-group-border-color};
   --#{$prefix}sidebar-nav-group-items-padding-y: #{$sidebar-nav-group-items-padding-y};
   --#{$prefix}sidebar-nav-group-items-padding-x: #{$sidebar-nav-group-items-padding-x};
-  --#{$prefix}sidebar-nav-group-indicator-color: #{escape-svg($sidebar-nav-group-indicator-color)};
+  --#{$prefix}sidebar-nav-group-indicator-color: #{$sidebar-nav-group-indicator-color};
   --#{$prefix}sidebar-nav-group-indicator-icon: #{escape-svg($sidebar-nav-group-indicator-icon)};
-  --#{$prefix}sidebar-nav-group-indicator-hover-color: #{escape-svg($sidebar-nav-group-indicator-hover-color)};
+  --#{$prefix}sidebar-nav-group-indicator-hover-color: #{$sidebar-nav-group-indicator-hover-color};
   --#{$prefix}sidebar-nav-group-indicator-hover-icon: #{escape-svg($sidebar-nav-group-indicator-hover-icon)};
   --#{$prefix}sidebar-nav-group-toggle-show-color: #{$sidebar-nav-group-toggle-show-color};
   // scss-docs-end sidebar-nav-css-vars
