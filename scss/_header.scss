@@ -1,6 +1,5 @@
 .header {
   // scss-docs-start header-css-vars
-  --#{$prefix}header-min-height: #{$header-min-height};
   --#{$prefix}header-padding-x: #{$header-padding-x};
   --#{$prefix}header-padding-y: #{$header-padding-y};
   --#{$prefix}header-bg: #{$header-bg};
@@ -33,7 +32,6 @@
   flex-wrap: wrap; // allow us to do the line break for collapsing content
   align-items: center;
   justify-content: space-between; // space out brand from logo
-  // min-height: var(--#{$prefix}header-min-height);
   padding: var(--#{$prefix}header-padding-y) var(--#{$prefix}header-padding-x);
   background: var(--#{$prefix}header-bg);
   border-bottom: var(--#{$prefix}header-border);

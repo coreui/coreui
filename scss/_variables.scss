@@ -1725,9 +1725,8 @@ $list-group-action-active-bg:       var(--#{$prefix}secondary-bg) !default;
 // scss-docs-end list-group-variables
 
 
-// Header // TODO: check
+// Header
 // scss-docs-start header-variables
-$header-min-height:             4rem !default;
 $header-padding-y:              $spacer * .5 !default;
 $header-padding-x:              $spacer * .5 !default;
 $header-brand-font-size:        $font-size-lg !default;
