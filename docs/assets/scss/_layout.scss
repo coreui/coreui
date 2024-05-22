@@ -3,6 +3,10 @@
   @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
   will-change: auto;
   @include transition(padding .15s);
+
+  > .container-lg {
+    --cui-gutter-x: 3rem;
+  }
 }
 
 .docs-layout {

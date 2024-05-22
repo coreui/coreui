@@ -382,7 +382,6 @@
   pre {
     padding: .25rem 0 .875rem;
     margin-top: .8125rem;
-    margin-right: 1.875rem;
     margin-bottom: 0;
     overflow: overlay;
     white-space: pre;
@@ -395,6 +394,10 @@
     color: var(--cui-body-color); // Effectively the base text color
     word-wrap: normal;
   }
+}
+
+.docs-example-snippet .highlight pre {
+  margin-right: 0;
 }
 
 .highlight-toolbar {
