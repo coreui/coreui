@@ -4,7 +4,9 @@ title: Customize
 description: Learn how to theme, customize, and extend CoreUI for Bootstrap with Sass, a boatload of global options, an expansive color system, and more.
 group: customize
 toc: false
-aliases: "/4.1/customize/"
+aliases: 
+  - "/customize/"
+  - "/4.1/customize/"
 sections:
   - title: Sass
     description: Utilize our source Sass files to take advantage of variables, maps, mixins, and functions.

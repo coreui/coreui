@@ -5,7 +5,9 @@ description: Examples and usage guidelines for form control styles, layout optio
 group: forms
 toc: true
 bootstrap: true
-aliases: "/4.1/forms/"
+aliases:
+  - "/forms/"
+  - "/4.1/forms/"
 sections:
   - title: Form control
     description: Style textual inputs and textareas with support for multiple states.
