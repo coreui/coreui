@@ -690,7 +690,7 @@ tabEl.addEventListener('shown.coreui.tab', event => {
 
 ### CSS variables
 
-Navs use local CSS variables on `.nav`, `.nav-tabs`, and `.nav-pills` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+Navs use local CSS variables on `.nav`, `.nav-tabs`, `.nav-pills`, `.nav-underline` and `.nav-underline-border` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
 On the `.nav` base class:
 
@@ -703,6 +703,18 @@ On the `.nav-tabs` modifier class:
 On the `.nav-pills` modifier class:
 
 {{< scss-docs name="nav-pills-css-vars" file="scss/_nav.scss" >}}
+
+{{< added-in "5.0.0" >}}
+
+On the `.nav-underline` modifier class:
+
+{{< scss-docs name="nav-underline-css-vars" file="scss/_nav.scss" >}}
+
+{{< added-in "5.0.0" >}}
+
+On the `.nav-underline-border` modifier class:
+
+{{< scss-docs name="nav-underline-border-css-vars" file="scss/_nav.scss" >}}
 
 ### SASS variables
 
