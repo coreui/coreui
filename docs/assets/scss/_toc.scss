@@ -52,21 +52,22 @@
   }
 
   @include media-breakpoint-down(md) {
-    border: 1px solid $border-color;
-    @include border-radius(.4rem);
+    color: var(--cui-body-color);
+    border: 1px solid var(--cui-border-color);
+    @include border-radius(var(--cui-border-radius));
 
     &:hover,
     &:focus,
     &:active,
     &[aria-expanded="true"] {
-      color: var(--cd-violet);
-      background-color: $white;
-      border-color: var(--cd-violet);
+      color: var(--cui-primary);
+      background-color: var(--cui-body-bg);
+      border-color: var(--cui-primary);
     }
 
     &:focus,
     &[aria-expanded="true"] {
-      box-shadow: 0 0 0 3px rgba(var(--cd-violet-rgb), .25);
+      box-shadow: 0 0 0 3px rgba(var(--cui-primary-rgb), .25);
     }
   }
 }
@@ -74,10 +75,10 @@
 .docs-toc-collapse {
   @include media-breakpoint-down(md) {
     nav {
-      padding: 1.25rem;
-      background-color: var(--cui-gray-100);
-      border: 1px solid $border-color;
-      @include border-radius(.25rem);
+      padding: 1.25rem 1.25rem 1.25rem 1rem;
+      background-color: var(--cui-tertiary-bg);
+      border: 1px solid var(--cui-border-color);
+      @include border-radius(var(--cui-border-radius));
     }
   }
 
