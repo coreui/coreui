@@ -159,7 +159,7 @@
 //
 
 .nav-underline-border {
-  // scss-docs-start nav-underline-css-vars
+  // scss-docs-start nav-underline-border-css-vars
   --#{$prefix}nav-underline-border-gap: #{$nav-underline-border-gap};
   --#{$prefix}nav-underline-border-border-color: #{$nav-underline-border-border-color};
   --#{$prefix}nav-underline-border-border-width: #{$nav-underline-border-border-width};
@@ -168,7 +168,7 @@
   --#{$prefix}nav-underline-border-link-color: #{$nav-underline-border-link-color};
   --#{$prefix}nav-underline-border-link-active-color: #{$nav-underline-border-link-active-color};
   --#{$prefix}nav-underline-border-link-disabled-color: #{$nav-underline-border-link-disabled-color};
-  // scss-docs-end nav-underline-css-vars
+  // scss-docs-end nav-underline-border-css-vars
 
   --#{$prefix}nav-link-color: var(--#{$prefix}nav-underline-border-link-color);
   --#{$prefix}nav-link-disabled-color: var(--#{$prefix}nav-underline-border-link-disabled-color);
