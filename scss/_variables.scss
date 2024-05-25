@@ -1897,7 +1897,7 @@ $sidebar-nav-link-icon-bullet-border-width:   1px !default;
 $sidebar-nav-link-icon-bullet-border-color:   var(--#{$prefix}tertiary-color) !default;
 $sidebar-nav-link-icon-bullet-border-radius:  50rem !default;
 
-$sidebar-nav-link-hover-color:                        rgba(255, 255, 255, 1) !default;
+$sidebar-nav-link-hover-color:                        var(--#{$prefix}emphasis-color) !default;
 $sidebar-nav-link-hover-bg:                           var(--#{$prefix}tertiary-bg) !default;
 $sidebar-nav-link-hover-icon-color:                   var(--#{$prefix}body-color) !default;
 $sidebar-nav-link-hover-icon-bullet-bg:               transparent !default;
