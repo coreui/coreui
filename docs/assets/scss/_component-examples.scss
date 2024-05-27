@@ -2,11 +2,24 @@
 // Docs examples
 //
 
-.tab-content .tab-pane .docs-code-snippet {
-  @include border-top-radius(0);
+.docs-code-tabs {
+  padding: 0 ($cd-gutter-x * .5);
+  margin: 0 ($cd-gutter-x * -.5);
 
-  .highlight {
+  @include media-breakpoint-up(md) {
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.docs-code-tab-content {
+  .tab-pane .docs-code-snippet {
+    border-top: 0;
     @include border-top-radius(0);
+
+    .highlight {
+      @include border-top-radius(0);
+    }
   }
 }
 
