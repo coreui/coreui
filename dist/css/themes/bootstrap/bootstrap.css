@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI for Bootstrap  v5.0.1 (https://coreui.io/bootstrap/)
+ * CoreUI for Bootstrap  v5.0.2 (https://coreui.io/bootstrap/)
  * Copyright (c) 2024 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -12242,7 +12242,6 @@ textarea.form-control-lg {
 }
 
 .header {
-  --cui-header-min-height: 4rem;
   --cui-header-padding-x: 0.5rem;
   --cui-header-padding-y: 0.5rem;
   --cui-header-bg: var(--cui-body-bg);
@@ -12665,8 +12664,9 @@ textarea.form-control-lg {
 .sidebar-toggler {
   --cui-sidebar-toggler-width: 0.5rem;
   --cui-sidebar-toggler-height: 0.5rem;
+  --cui-sidebar-toggler-bg: transparent;
   --cui-sidebar-toggler-color: var(--cui-tertiary-color);
-  --cui-sidebar-toggler-bg: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cg xmlns='http://www.w3.org/2000/svg' transform='matrix%28-1 0 0 -1 512 512%29'%3E%3Cpath fill='%23000' d='M472,16H40A24.028,24.028,0,0,0,16,40V200H48V48H464V464H48V304H16V472a24.028,24.028,0,0,0,24,24H472a24.028,24.028,0,0,0,24-24V40A24.028,24.028,0,0,0,472,16Z'/%3E%3Cpolygon fill='%23000' points='209.377 363.306 232.004 385.933 366.627 251.31 232.004 116.687 209.377 139.313 305.374 235.311 16 235.311 16 267.311 305.372 267.311 209.377 363.306'/%3E%3C/g%3E%3C/svg%3E");
+  --cui-sidebar-toggler-icon: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cg xmlns='http://www.w3.org/2000/svg' transform='matrix%28-1 0 0 -1 512 512%29'%3E%3Cpath fill='%23000' d='M472,16H40A24.028,24.028,0,0,0,16,40V200H48V48H464V464H48V304H16V472a24.028,24.028,0,0,0,24,24H472a24.028,24.028,0,0,0,24-24V40A24.028,24.028,0,0,0,472,16Z'/%3E%3Cpolygon fill='%23000' points='209.377 363.306 232.004 385.933 366.627 251.31 232.004 116.687 209.377 139.313 305.374 235.311 16 235.311 16 267.311 305.372 267.311 209.377 363.306'/%3E%3C/g%3E%3C/svg%3E");
   --cui-sidebar-toggler-hover-color: var(--cui-secondary-color);
   --cui-sidebar-toggler-focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
   --cui-sidebar-toggler-focus-color: var(--cui-secondary-color);
@@ -12676,7 +12676,7 @@ textarea.form-control-lg {
   width: var(--cui-sidebar-toggler-width);
   height: var(--cui-sidebar-toggler-height);
   padding: 0.25rem 0.25rem;
-  background-color: transparent;
+  background-color: var(--cui-sidebar-toggler-bg);
   border: 0;
   border-radius: 0.375rem;
 }
@@ -12688,8 +12688,8 @@ textarea.form-control-lg {
   height: 100%;
   content: "";
   background-color: var(--cui-sidebar-toggler-color);
-  -webkit-mask: var(--cui-sidebar-toggler-bg) no-repeat center;
-  mask: var(--cui-sidebar-toggler-bg) no-repeat center;
+  -webkit-mask: var(--cui-sidebar-toggler-icon) no-repeat center;
+  mask: var(--cui-sidebar-toggler-icon) no-repeat center;
   transition: var(--cui-sidebar-toggler-transition);
 }
 @media (prefers-reduced-motion: reduce) {
