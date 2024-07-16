@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Avatar
-description: Avatar component can be used to display circular user profile pictures. Avatar can be used to portray people or objects. It supports images, icons, or letters.
+description: The Avatar component is used to display circular user profile pictures. Avatars can portray people or objects and support images, icons, or letters.
 group: components
 toc: true
 bootstrap: true
@@ -9,6 +9,8 @@ other_frameworks: avatar
 ---
 
 ## Image avatars
+
+Showcase avatars using images. These avatars are typically circular and can display user profile pictures.
 
 {{< example >}}
 <div class="avatar">
@@ -24,6 +26,8 @@ other_frameworks: avatar
 
 ## Letter avatars
 
+Use letters inside avatars to represent users or objects when images are not available. This can be useful for displaying initials.
+
 {{< example >}}
 <div class="avatar bg-primary text-white">CUI</div>
 <div class="avatar bg-secondary">CUI</div>
@@ -31,6 +35,8 @@ other_frameworks: avatar
 {{< /example >}}
 
 ## Icons avatars
+
+Incorporate icons within avatars, allowing for a visual representation using scalable vector graphics (SVG).
 
 {{< example >}}
 <div class="avatar bg-info text-white">
@@ -52,7 +58,7 @@ other_frameworks: avatar
 
 ## Rounded avatars
 
-Use the `.rounded` class to make avatars squared with rounded corners.
+Create avatars with rounded corners by adding the `.rounded` class. This gives a softer, less angular appearance.
 
 {{< example >}}
 <div class="avatar rounded bg-primary text-white">CUI</div>
@@ -62,7 +68,7 @@ Use the `.rounded` class to make avatars squared with rounded corners.
 
 ## Square avatars
 
-Use the `.rounded-0` class to make avatars squared.
+Make avatars square by using the `.rounded-0` class, removing any rounded edges for a sharper look.
 
 {{< example >}}
 <div class="avatar rounded-0 bg-primary text-white">CUI</div>
@@ -72,15 +78,18 @@ Use the `.rounded-0` class to make avatars squared.
 
 ## Sizes
 
-Fancy larger or smaller avatar? Add .avatar-lg or .avatar-sm for additional sizes.
-
+Adjust the size of avatars using the `.avatar-sm`, `.avatar-md`, `.avatar-lg`, and `.avatar-xl` classes for larger or smaller versions.
 {{< example >}}
+<div class="avatar avatar-xl bg-secondary">CUI</div>
 <div class="avatar avatar-lg bg-secondary">CUI</div>
+<div class="avatar avatar-md bg-secondary">CUI</div>
 <div class="avatar bg-secondary">CUI</div>
 <div class="avatar avatar-sm bg-secondary">CUI</div>
 {{< /example >}}
 
 ## Stacked avatars
+
+Display multiple avatars in a stack to represent a group of users or items, with additional count if there are more avatars than can be displayed.
 
 {{< example >}}
 <div class="avatars-stack">
@@ -101,6 +110,8 @@ Fancy larger or smaller avatar? Add .avatar-lg or .avatar-sm for additional size
 
 ## Avatars with status
 
+Add a status indicator to avatars using the .avatar-status class to show online or offline status.
+
 {{< example >}}
 <div class="avatar">
   <img class="avatar-img" src="/assets/img/avatars/1.jpg" alt="user@email.com">
@@ -114,6 +125,12 @@ Fancy larger or smaller avatar? Add .avatar-lg or .avatar-sm for additional size
 
 
 ## Customizing
+
+### CSS variables
+
+Avatars use local CSS variables on `.avatar` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+{{< scss-docs name="avatar-css-vars" file="scss/_avatar.scss" >}}
 
 ### SASS variables
 

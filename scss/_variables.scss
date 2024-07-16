@@ -1620,17 +1620,56 @@ $modal-scale-transform:             scale(1.02) !default;
 
 // Avatars
 // scss-docs-start avatar-variables
-$avatar-width:  2rem !default;
+$avatar-width:                 2rem !default;
+$avatar-height:                2rem !default;
+$avatar-font-size:             .8rem !default;
+$avatar-border-radius:         50em !default;
+$avatar-status-width:          .5rem !default;
+$avatar-status-height:         .5rem !default;
+$avatar-status-border-radius:  50em !default;
+$avatar-transition:            margin .15s !default;
 
+$avatar-sizes: (
+  sm: (
+    width: 1.5rem,
+    height: 1.5rem,
+    font-size: .6rem,
+    status-width: .4rem,
+    status-height: .4rem
+  ),
+  md: (
+    width: 2.5rem,
+    height: 2.5rem,
+    font-size: 1rem,
+    status-width: .7rem,
+    status-height: .7rem
+  ),
+  lg: (
+    width: 3rem,
+    height: 3rem,
+    font-size: 1.2rem,
+    status-width: .8rem,
+    status-height: .8rem
+  ),
+  xl: (
+    width: 4rem,
+    height: 4rem,
+    font-size: 1.6rem,
+    status-width: 1rem,
+    status-height: 1rem
+  ),
+) !default;
+// scss-docs-end avatar-variables
+
+// fusv-disable
+// Deprecated in 5.0.3 for CSS variables
 $avatar-widths: (
   sm: 1.5rem,
   md: 2.5rem,
   lg: 3rem,
   xl: 4rem
 ) !default;
-
-$avatar-transition: margin .15s !default;
-// scss-docs-end avatar-variables
+// fusv-enable
 
 // Alerts
 //

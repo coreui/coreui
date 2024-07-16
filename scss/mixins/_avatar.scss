@@ -1,10 +1,9 @@
-@mixin avatar($width) {
-  width: $width;
-  height: $width;
-  font-size: $width * .4;
+@include deprecate("`avatar()`", "v5.0.3", "v6.0.0");
 
-  .avatar-status {
-    width: divide($width, 3.75);
-    height: divide($width, 3.75);
-  }
+@mixin avatar($width) {
+  --#{$prefix}avatar-width: #{$width};
+  --#{$prefix}avatar-height: #{$width};
+  --#{$prefix}avatar-font-size: #{$width * .4};
+  --#{$prefix}avatar-status-width: #{divide($width, 3.75)};
+  --#{$prefix}avatar-status-height: #{divide($width, 3.75)};
 }
