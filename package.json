@@ -107,7 +107,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-replace": "^5.0.7",
     "autoprefixer": "^10.4.19",
     "bootstrap": "^5.3.3",
     "bundlewatch": "^0.3.3",
