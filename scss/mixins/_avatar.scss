@@ -1,4 +1,4 @@
-@include deprecate("`avatar()`", "v5.0.3", "v6.0.0");
+@include deprecate("`avatar()`", "v5.1.0", "v6.0.0");
 
 @mixin avatar($width) {
   --#{$prefix}avatar-width: #{$width};

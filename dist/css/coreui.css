@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.0.2 (https://coreui.io)
+ * CoreUI  v5.1.0 (https://coreui.io)
  * Copyright (c) 2024 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -561,8 +561,8 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 0.5rem;
-  font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
+  font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
   legend {
@@ -644,9 +644,9 @@ progress {
 }
 
 .display-1 {
-  font-size: calc(1.625rem + 4.5vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.625rem + 4.5vw);
 }
 @media (min-width: 1200px) {
   .display-1 {
@@ -655,9 +655,9 @@ progress {
 }
 
 .display-2 {
-  font-size: calc(1.575rem + 3.9vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.575rem + 3.9vw);
 }
 @media (min-width: 1200px) {
   .display-2 {
@@ -666,9 +666,9 @@ progress {
 }
 
 .display-3 {
-  font-size: calc(1.525rem + 3.3vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.525rem + 3.3vw);
 }
 @media (min-width: 1200px) {
   .display-3 {
@@ -677,9 +677,9 @@ progress {
 }
 
 .display-4 {
-  font-size: calc(1.475rem + 2.7vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.475rem + 2.7vw);
 }
 @media (min-width: 1200px) {
   .display-4 {
@@ -688,9 +688,9 @@ progress {
 }
 
 .display-5 {
-  font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.425rem + 2.1vw);
 }
 @media (min-width: 1200px) {
   .display-5 {
@@ -699,9 +699,9 @@ progress {
 }
 
 .display-6 {
-  font-size: calc(1.375rem + 1.5vw);
   font-weight: 300;
   line-height: 1.2;
+  font-size: calc(1.375rem + 1.5vw);
 }
 @media (min-width: 1200px) {
   .display-6 {
@@ -6004,8 +6004,8 @@ textarea.form-control-lg {
   pointer-events: none;
 }
 .modal.fade .modal-dialog {
-  transition: transform 0.3s ease-out;
   transform: translate(0, -50px);
+  transition: transform 0.3s ease-out;
 }
 @media (prefers-reduced-motion: reduce) {
   .modal.fade .modal-dialog {
@@ -7340,31 +7340,34 @@ textarea.form-control-lg {
   }
 }
 .avatar {
+  --cui-avatar-width: 2rem;
+  --cui-avatar-height: 2rem;
+  --cui-avatar-font-size: 0.8rem;
+  --cui-avatar-border-radius: 50em;
+  --cui-avatar-status-width: 0.5rem;
+  --cui-avatar-status-height: 0.5rem;
+  --cui-avatar-status-border-radius: 50em;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: var(--cui-avatar-width);
+  height: var(--cui-avatar-height);
+  font-size: var(--cui-avatar-font-size);
   vertical-align: middle;
-  border-radius: 50em;
+  border-radius: var(--cui-avatar-border-radius);
   transition: margin 0.15s;
-  width: 2rem;
-  height: 2rem;
-  font-size: 0.8rem;
 }
 @media (prefers-reduced-motion: reduce) {
   .avatar {
     transition: none;
   }
 }
-.avatar .avatar-status {
-  width: 0.5333333333rem;
-  height: 0.5333333333rem;
-}
 
 .avatar-img {
   width: 100%;
   height: auto;
-  border-radius: 50em;
+  border-radius: var(--cui-avatar-border-radius);
 }
 
 .avatar-status {
@@ -7372,70 +7375,52 @@ textarea.form-control-lg {
   right: 0;
   bottom: 0;
   display: block;
+  width: var(--cui-avatar-status-width);
+  height: var(--cui-avatar-status-height);
   border: 1px solid #fff;
-  border-radius: 50em;
+  border-radius: var(--cui-avatar-status-border-radius);
 }
 
 .avatar-sm {
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 0.6rem;
-}
-.avatar-sm .avatar-status {
-  width: 0.4rem;
-  height: 0.4rem;
+  --cui-avatar-width: 1.5rem;
+  --cui-avatar-height: 1.5rem;
+  --cui-avatar-font-size: 0.6rem;
+  --cui-avatar-status-width: 0.4rem;
+  --cui-avatar-status-height: 0.4rem;
 }
 
 .avatar-md {
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 1rem;
-}
-.avatar-md .avatar-status {
-  width: 0.6666666667rem;
-  height: 0.6666666667rem;
+  --cui-avatar-width: 2.5rem;
+  --cui-avatar-height: 2.5rem;
+  --cui-avatar-font-size: 1rem;
+  --cui-avatar-status-width: 0.7rem;
+  --cui-avatar-status-height: 0.7rem;
 }
 
 .avatar-lg {
-  width: 3rem;
-  height: 3rem;
-  font-size: 1.2rem;
-}
-.avatar-lg .avatar-status {
-  width: 0.8rem;
-  height: 0.8rem;
+  --cui-avatar-width: 3rem;
+  --cui-avatar-height: 3rem;
+  --cui-avatar-font-size: 1.2rem;
+  --cui-avatar-status-width: 0.8rem;
+  --cui-avatar-status-height: 0.8rem;
 }
 
 .avatar-xl {
-  width: 4rem;
-  height: 4rem;
-  font-size: 1.6rem;
-}
-.avatar-xl .avatar-status {
-  width: 1.0666666667rem;
-  height: 1.0666666667rem;
+  --cui-avatar-width: 4rem;
+  --cui-avatar-height: 4rem;
+  --cui-avatar-font-size: 1.6rem;
+  --cui-avatar-status-width: 1rem;
+  --cui-avatar-status-height: 1rem;
 }
 
 .avatars-stack {
   display: flex;
 }
 .avatars-stack .avatar {
-  margin-right: -0.8rem;
+  margin-right: calc(-0.4 * var(--cui-avatar-width));
 }
 .avatars-stack .avatar:hover {
   margin-right: 0;
-}
-.avatars-stack .avatar-sm {
-  margin-right: -0.6rem;
-}
-.avatars-stack .avatar-md {
-  margin-right: -1rem;
-}
-.avatars-stack .avatar-lg {
-  margin-right: -1.2rem;
-}
-.avatars-stack .avatar-xl {
-  margin-right: -1.6rem;
 }
 
 .callout {

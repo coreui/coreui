@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Reboot v5.0.2 (https://coreui.io)
+ * CoreUI Reboot v5.1.0 (https://coreui.io)
  * Copyright (c) 2024 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -561,8 +561,8 @@ legend {
   width: 100%;
   padding: 0;
   margin-bottom: 0.5rem;
-  font-size: calc(1.275rem + 0.3vw);
   line-height: inherit;
+  font-size: calc(1.275rem + 0.3vw);
 }
 @media (min-width: 1200px) {
   legend {
