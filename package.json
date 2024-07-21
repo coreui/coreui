@@ -153,7 +153,7 @@
     "vnu-jar": "23.4.11"
   },
   "files": [
-    "dist/{css,js}/*.{css,js,map}",
+    "dist/{css,js}/**/*.{css,js,map}",
     "js/{src,dist}/**/*.{js,map}",
     "js/index.{esm,umd}.js",
     "scss/**/*.scss",
