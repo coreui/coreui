@@ -62,10 +62,10 @@
 .sidebar-narrow {
   @extend %sidebar-narrow;
   &:not(.sidebar-end) ~ * {
-    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
   }
   &.sidebar-end ~ * {
-    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
+    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
   }
 
   .nav-link {
@@ -77,10 +77,10 @@
   position: fixed;
 
   &:not(.sidebar-end) ~ * {
-    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
   }
   &.sidebar-end ~ * {
-    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
+    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
   }
 
   &:not(:hover) {
