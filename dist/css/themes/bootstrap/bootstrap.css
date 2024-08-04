@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI for Bootstrap  v5.1.0 (https://coreui.io/bootstrap/)
+ * CoreUI for Bootstrap  v5.1.1 (https://coreui.io/bootstrap/)
  * Copyright (c) 2024 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -13048,10 +13048,10 @@ textarea.form-control-lg {
 }
 
 .sidebar-narrow:not(.sidebar-end) ~ * {
-  --cui-sidebar-occupy-start: 4rem;
+  --cui-sidebar-occupy-start: 4rem !important;
 }
 .sidebar-narrow.sidebar-end ~ * {
-  --cui-sidebar-occupy-end: 4rem;
+  --cui-sidebar-occupy-end: 4rem !important;
 }
 .sidebar-narrow .nav-link {
   overflow: hidden;
@@ -13061,10 +13061,10 @@ textarea.form-control-lg {
   position: fixed;
 }
 .sidebar-narrow-unfoldable:not(.sidebar-end) ~ * {
-  --cui-sidebar-occupy-start: 4rem;
+  --cui-sidebar-occupy-start: 4rem !important;
 }
 .sidebar-narrow-unfoldable.sidebar-end ~ * {
-  --cui-sidebar-occupy-end: 4rem;
+  --cui-sidebar-occupy-end: 4rem !important;
 }
 .sidebar-narrow-unfoldable:hover {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI offcanvas.js v5.1.0 (https://coreui.io)
+  * CoreUI offcanvas.js v5.1.1 (https://coreui.io)
   * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
