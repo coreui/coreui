@@ -61,7 +61,7 @@
     "docs-compile": "npm run docs-build",
     "docs-vnu": "node build/vnu-jar.mjs",
     "docs-lint": "npm run docs-vnu",
-    "docs-serve": "hugo server --port 9001 --disableFastRender --printUnusedTemplates",
+    "docs-serve": "hugo server --port 9001 --disableFastRender --noHTTPCache --renderToMemory --printPathWarnings --printUnusedTemplates",
     "docs-serve-only": "npx sirv-cli _gh_pages --port 9001",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
     "update-deps": "ncu -u -x jasmine,karma-browserstack-launcher,karma-rollup-preprocessor,terser && echo Manually update docs/assets/js/vendor",
