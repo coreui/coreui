@@ -56,6 +56,7 @@ Curious which components explicitly require our JavaScript and Popper? Click the
 <details>
 <summary class="text-primary mb-3">Show components requiring JavaScript</summary>
 {{< markdown >}}
+- Accordions for extending our Collapse plugin
 - Alerts for dismissing
 - Buttons for toggling states and checkbox/radio functionality
 - Carousel for all slide behaviors, controls, and indicators
