@@ -1,4 +1,4 @@
-{{ if eq hugo.Environment "production" -}}
+{{ if hugo.IsProduction -}}
   <script src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }}></script>
 {{ else -}}
   <script src="/dist/js/coreui.bundle.js"></script>
@@ -13,7 +13,7 @@
 {{- $targetDocsJSPath := printf "/assets/js/docs.js" -}}
 {{- $docsJs := append $js $vendor | resources.Concat $targetDocsJSPath -}}
 
-{{- if eq hugo.Environment "production" -}}
+{{- if hugo.IsProduction -}}
   {{- $docsJs = $docsJs | resources.Minify -}}
 {{- end }}
 

@@ -2,7 +2,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 {{- end }}
 
-{{ if eq hugo.Environment "production" -}}
+{{ if hugo.IsProduction -}}
 {{ if eq .Page.Params.direction "rtl" -}}
 <link href="/dist/css/coreui.rtl.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_rtl_hash | safeHTMLAttr }}>
 {{- else -}}
@@ -18,7 +18,7 @@
 {{- $sassOptions := dict "targetPath" $targetDocsCssPath "outputStyle" "expanded" "precision" 6 -}}
 {{- $postcssOptions := dict "use" "autoprefixer" "noMap" true -}}
 
-{{ if eq hugo.Environment "production" -}}
+{{ if hugo.IsProduction -}}
   {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
 {{- end -}}
 
