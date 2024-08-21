@@ -1,5 +1,5 @@
 {{ if eq hugo.Environment "production" -}}
-  <script src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }} crossorigin="anonymous"></script>
+  <script src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }}></script>
 {{ else -}}
   <script src="/dist/js/coreui.bundle.js"></script>
 {{- end }}

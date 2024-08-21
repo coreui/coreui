@@ -4,9 +4,9 @@
 
 {{ if eq hugo.Environment "production" -}}
 {{ if eq .Page.Params.direction "rtl" -}}
-<link href="/dist/css/coreui.rtl.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_rtl_hash | safeHTMLAttr }} crossorigin="anonymous">
+<link href="/dist/css/coreui.rtl.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_rtl_hash | safeHTMLAttr }}>
 {{- else -}}
-<link href="/dist/css/coreui.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_hash | safeHTMLAttr }} crossorigin="anonymous">
+<link href="/dist/css/coreui.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_hash | safeHTMLAttr }}>
 {{- end -}}
 
 {{- else -}}
