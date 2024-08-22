@@ -1,20 +1,25 @@
 {{ if hugo.IsProduction -}}
-  <script src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }}></script>
+  <script defer src="/dist/js/coreui.bundle.min.js" {{ printf "integrity=%q" .Site.Params.cdn.js_bundle_hash | safeHTMLAttr }}></script>
 {{ else -}}
-  <script src="/dist/js/coreui.bundle.js"></script>
+  <script defer src="/dist/js/coreui.bundle.js"></script>
 {{- end }}
 
-{{ if eq .Page.Layout "docs" -}}
-<script src="https://cdn.jsdelivr.net/npm/@docsearch/js@3"></script>
-{{- end }}
-
-{{- $vendor := resources.Match "js/vendor/*.js" -}}
-{{- $js := resources.Match "js/*.js" -}}
-{{- $targetDocsJSPath := printf "/assets/js/docs.js" -}}
-{{- $docsJs := append $js $vendor | resources.Concat $targetDocsJSPath -}}
+{{- $esbuildOptions := dict "target" "es2019" -}}
 
 {{- if hugo.IsProduction -}}
-  {{- $docsJs = $docsJs | resources.Minify -}}
+  {{- $esbuildOptions = merge $esbuildOptions (dict "minify" "true") -}}
 {{- end }}
 
-<script src="{{ $docsJs.Permalink | relURL }}"></script>
+{{- $codeExamplesJs := resources.Get "js/code-examples.js" | js.Build $esbuildOptions -}}
+{{- $snippetsJs := resources.Get "js/snippets.js" | js.Build $esbuildOptions -}}
+{{- $docsJs := slice $codeExamplesJs $snippetsJs | resources.Concat "/assets/js/docs.js" }}
+<script defer src="{{ $docsJs.Permalink }}"></script>
+
+{{- $esbuildParams := dict
+  "apiKey" .Site.Params.algolia.apiKey
+  "appId" .Site.Params.algolia.appId
+  "indexName" .Site.Params.algolia.indexName
+-}}
+{{- $esbuildOptions = merge $esbuildOptions (dict "params" $esbuildParams) -}}
+{{- $searchJs := resources.Get "js/search.js" | js.Build $esbuildOptions | resources.Copy "/assets/js/search.js" }}
+<script defer src="{{ $searchJs.Permalink }}"></script>

@@ -22,6 +22,9 @@ markup:
     startLevel:         2
     endLevel:           6
 
+build:
+  noJSConfigInAssets:   true
+
 buildDrafts:            true
 buildFuture:            true
 
@@ -45,6 +48,8 @@ module:
       target:           layouts
     - source:           docs/static
       target:           static
+    - source:           node_modules/@docsearch/css
+      target:           assets/scss/@docsearch/css
     - source:           docs/static/assets/img/favicons/apple-touch-icon.png
       target:           static/apple-touch-icon.png
     - source:           docs/static/assets/img/favicons/favicon.ico
@@ -67,6 +72,11 @@ params:
   community:            "https://github.com/coreui/coreui/discussions"
   blog:                 "https://coreui.io/blog/"
   icons:                "https://coreui.io/icons/"
+
+  algolia:
+    appId:              "5OOVC1SDJS"
+    apiKey:             "ab4149e82cfd175c0afe647a937a8d21"
+    indexName:          "coreui"
 
   download:
     source:             "https://github.com/coreui/coreui/archive/v5.1.1.zip"

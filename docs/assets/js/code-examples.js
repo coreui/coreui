@@ -9,7 +9,8 @@
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
 
-/* global ClipboardJS: false, coreui: false */
+/* global coreui: false */
+import ClipboardJS from 'clipboard'
 
 (() => {
   // Insert copy to clipboard button before .highlight
@@ -88,3 +89,4 @@
     }, { once: true })
   })
 })()
+
