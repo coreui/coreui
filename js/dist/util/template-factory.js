@@ -1,5 +1,5 @@
 /*!
-  * CoreUI template-factory.js v5.1.1 (https://coreui.io)
+  * CoreUI template-factory.js v5.1.2 (https://coreui.io)
   * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -136,7 +136,7 @@
       return this._config.sanitize ? sanitizer_js.sanitizeHtml(arg, this._config.allowList, this._config.sanitizeFn) : arg;
     }
     _resolvePossibleFunction(arg) {
-      return index_js.execute(arg, [this]);
+      return index_js.execute(arg, [undefined, this]);
     }
     _putElementInTemplate(element, templateElement) {
       if (this._config.html) {
