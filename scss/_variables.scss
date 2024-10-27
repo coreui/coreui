@@ -1898,6 +1898,7 @@ $sidebar-brand-bg:                         rgba($black, .2) !default;
 $sidebar-backdrop-bg:                      $black !default;
 $sidebar-backdrop-opacity:                 .5 !default;
 $sidebar-overlaid-box-shadow:              var(--#{$prefix}box-shadow) !default;
+$sidebar-narrow-unfoldable-box-shadow:     var(--#{$prefix}box-shadow) !default;
 // scss-docs-end sidebar-variables
 
 // scss-docs-start sidebar-nav-variables
@@ -1982,7 +1983,7 @@ $sidebar-toggler-icon:              url("data:image/svg+xml,%0A%3Csvg xmlns='htt
 $sidebar-toggler-focus-shadow:      $focus-ring-box-shadow !default;
 $sidebar-toggler-hover-color:       var(--#{$prefix}secondary-color) !default;
 $sidebar-toggler-focus-color:       var(--#{$prefix}secondary-color) !default;
-$sidebar-toggler-transition:         transform .15s !default;
+$sidebar-toggler-transition:        transform .15s !default;
 // scss-docs-end sidebar-toggler
 
 // Footer

@@ -1,5 +1,4 @@
 // stylelint-disable function-disallowed-list
-
 .sidebar {
   // scss-docs-start sidebar-css-vars
   --#{$prefix}sidebar-zindex: #{$zindex-sidebar};
@@ -24,121 +23,32 @@
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  &.sidebar-fixed,
-  &.sidebar-narrow,
-  &.sidebar-narrow-unfoldable,
-  &.sidebar-overlaid {
-    z-index: var(--#{$prefix}sidebar-zindex);
-  }
-
   &:not(.sidebar-end){
     @include ltr-rtl("margin-left", 0);
-    ~ * {
-      --#{$prefix}sidebar-occupy-start: #{$sidebar-width};
-    }
   }
 
   &.sidebar-end {
     order: 99;
     @include ltr-rtl("margin-right", 0);
-    ~ * {
-      --#{$prefix}sidebar-occupy-end: #{$sidebar-width};
-    }
-  }
-
-  @each $width, $value in $sidebar-widths {
-    &.sidebar-#{$width} {
-      --#{$prefix}sidebar-width: #{$value};
-      @include media-breakpoint-up($mobile-breakpoint) {
-        &:not(.sidebar-end):not(.hide) {
-          ~ * {
-            --#{$prefix}sidebar-occupy-start: #{$value};
-          }
-        }
-        &.sidebar-end:not(.hide) {
-          ~ * {
-            --#{$prefix}sidebar-occupy-end: #{$value};
-          }
-        }
-      }
-    }
   }
 
   @include media-breakpoint-up($mobile-breakpoint) {
+    &:not(.hide):not(.sidebar-narrow):not(.sidebar-narrow-unfoldable):not(.sidebar-overlaid) {
+      &:not(.sidebar-end) ~ * {
+        --#{$prefix}sidebar-occupy-start: #{$sidebar-width};
+      }
+      &.sidebar-end ~ * {
+        --#{$prefix}sidebar-occupy-end: #{$sidebar-width};
+      }
+    }
+
     &.hide {
-      &:not(.sidebar-end){
+      &:not(.sidebar-end) {
         @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
-        ~ * {
-          --#{$prefix}sidebar-occupy-start: 0;
-        }
       }
       &.sidebar-end {
         @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
-        ~ * {
-          --#{$prefix}sidebar-occupy-end: 0;
-        }
-      }
-    }
-  }
 
-  &.sidebar-fixed {
-    @include media-breakpoint-up($mobile-breakpoint) {
-      position: fixed;
-      top: 0;
-      bottom: 0;
-
-      &:not(.sidebar-end) {
-        @include ltr-rtl("left", 0);
-      }
-
-      &.sidebar-end {
-        @include ltr-rtl("right", 0);
-      }
-    }
-  }
-
-  &.sidebar-sticky {
-    @include media-breakpoint-up($mobile-breakpoint) {
-      position: sticky;
-      top: 0;
-      height: 100vh;
-    }
-  }
-
-  &.sidebar-overlaid {
-    // scss-docs-start sidebar-overlaid-css-vars
-    --#{$prefix}sidebar-overlaid-box-shadow: #{$sidebar-overlaid-box-shadow};
-    // scss-docs-end sidebar-overlaid-css-vars
-
-    position: fixed;
-    top: 0;
-    bottom: 0;
-
-    &:not(.sidebar-end){
-      @include ltr-rtl("left", 0);
-      @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
-      ~ * {
-        --#{$prefix}sidebar-occupy-start: 0 !important;  // stylelint-disable-line
-      }
-    }
-
-    &.sidebar-end {
-      @include ltr-rtl("right", 0);
-      @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
-      ~ * {
-        --#{$prefix}sidebar-occupy-end: 0 !important;  // stylelint-disable-line
-      }
-    }
-
-    &.show {
-      box-shadow: var(--#{$prefix}sidebar-overlaid-box-shadow);
-
-      &:not(.sidebar-end) {
-        @include ltr-rtl("margin-left", 0);
-      }
-
-      &.sidebar-end {
-        @include ltr-rtl("margin-right", 0);
       }
     }
   }
@@ -154,22 +64,77 @@
 
     &:not(.sidebar-end) {
       @include ltr-rtl("left", 0);
-      ~ * {
-        --#{$prefix}sidebar-occupy-start: 0 !important; // stylelint-disable-line
-      }
 
       &:not(.show) {
         @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
       }
     }
+
     &.sidebar-end {
       @include ltr-rtl("right", 0);
-      ~ * {
-        --#{$prefix}sidebar-occupy-end: 0 !important; // stylelint-disable-line
-      }
 
       &:not(.show) {
         @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
+      }
+    }
+  }
+}
+
+.sidebar-fixed {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: var(--#{$prefix}sidebar-zindex);
+
+  &:not(.sidebar-end) {
+    @include ltr-rtl("left", 0);
+  }
+
+  &.sidebar-end {
+    @include ltr-rtl("right", 0);
+  }
+}
+
+.sidebar-overlaid {
+  // scss-docs-start sidebar-overlaid-css-vars
+  --#{$prefix}sidebar-overlaid-box-shadow: #{$sidebar-overlaid-box-shadow};
+  // scss-docs-end sidebar-overlaid-css-vars
+
+  @extend .sidebar-fixed;
+
+  &:not(.sidebar-end){
+    @include ltr-rtl("margin-left", calc(-1 * var(--#{$prefix}sidebar-width)));
+  }
+
+  &.sidebar-end {
+    @include ltr-rtl("margin-right", calc(-1 * var(--#{$prefix}sidebar-width)));
+  }
+
+  &.show {
+    box-shadow: var(--#{$prefix}sidebar-overlaid-box-shadow);
+
+    &:not(.sidebar-end) {
+      @include ltr-rtl("margin-left", 0);
+    }
+
+    &.sidebar-end {
+      @include ltr-rtl("margin-right", 0);
+    }
+  }
+}
+
+@each $width, $value in $sidebar-widths {
+  .sidebar-#{$width} {
+    --#{$prefix}sidebar-width: #{$value};
+
+    @include media-breakpoint-up($mobile-breakpoint) {
+      &:not(.hide):not(.sidebar-narrow):not(.sidebar-narrow-unfoldable):not(.sidebar-overlaid) {
+        &:not(.sidebar-end) ~ * {
+          --#{$prefix}sidebar-occupy-start: #{$value};
+        }
+        &.sidebar-end ~ * {
+          --#{$prefix}sidebar-occupy-end: #{$value};
+        }
       }
     }
   }

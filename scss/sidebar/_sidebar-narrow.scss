@@ -1,4 +1,4 @@
-%sidebar-narrow {
+.sidebar-narrow {
   // scss-docs-start sidebar-narrow-css-vars
   --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
   // scss-docs-end sidebar-narrow-css-vars
@@ -8,10 +8,6 @@
     width: var(--#{$prefix}sidebar-narrow-width);
     padding-bottom: var(--#{$prefix}sidebar-toggler-height);
     overflow: visible;
-
-    &.sidebar-fixed {
-      width: var(--#{$prefix}sidebar-narrow-width);
-    }
 
     .sidebar-brand-full {
       display: none;
@@ -30,6 +26,10 @@
     .sidebar-nav {
       --#{$prefix}sidebar-nav-link-padding-x: #{$sidebar-narrow-nav-link-padding-x};
       --#{$prefix}sidebar-nav-link-padding-y: #{$sidebar-narrow-nav-link-padding-y};
+    }
+
+    .nav-link {
+      overflow: hidden;
     }
 
     .nav-icon {
@@ -59,35 +59,19 @@
   }
 }
 
-.sidebar-narrow {
-  @extend %sidebar-narrow;
-  &:not(.sidebar-end) ~ * {
-    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
-  }
-  &.sidebar-end ~ * {
-    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
-  }
-
-  .nav-link {
-    overflow: hidden;
-  }
-}
-
 .sidebar-narrow-unfoldable {
-  position: fixed;
+  // scss-docs-start sidebar-narrow-unfoldable-css-vars
+  --#{$prefix}sidebar-narrow-unfoldable-box-shadow: #{$sidebar-narrow-unfoldable-box-shadow};
+  // scss-docs-end sidebar-narrow-unfoldable-css-vars
 
-  &:not(.sidebar-end) ~ * {
-    --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
-  }
-  &.sidebar-end ~ * {
-    --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width} !important; // stylelint-disable-line declaration-no-important
-  }
+  @extend .sidebar-fixed;
 
   &:not(:hover) {
-    @extend %sidebar-narrow;
+    @extend .sidebar-narrow;
   }
 
   &:hover {
+    box-shadow: var(--#{$prefix}sidebar-narrow-unfoldable-box-shadow);
     box-shadow: $box-shadow;
 
     .sidebar-toggler::before {
@@ -98,26 +82,16 @@
       transform: rotate(0deg);
     }
   }
-
-  .nav-link {
-    overflow: hidden;
-  }
 }
 
-// Responsive behavior
-@each $breakpoint in map-keys($grid-breakpoints) {
-  @include media-breakpoint-down($breakpoint) {
-    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
-    .sidebar:not(.show).sidebar-self-hiding#{$infix} {
-      &.sidebar-narrow,
-      &.sidebar-narrow-unfoldable {
-        &:not(.sidebar-end) {
-          @include ltr-rtl("margin-left", calc(var(--#{$prefix}sidebar-narrow-width) * -1));
-        }
-        &.sidebar-end {
-          @include ltr-rtl("margin-right", calc(var(--#{$prefix}sidebar-narrow-width) * -1));
-        }
-      }
+.sidebar-narrow,
+.sidebar-narrow-unfoldable {
+  @include media-breakpoint-up($mobile-breakpoint) {
+    &:not(.sidebar-end):not(.hide) ~ * {
+      --#{$prefix}sidebar-occupy-start: #{$sidebar-narrow-width};
+    }
+    &.sidebar-end:not(.hide) ~ * {
+      --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
     }
   }
 }

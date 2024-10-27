@@ -297,6 +297,8 @@ Sidebars use local CSS variables on `.sidebar`, `.sidebar-backdrop`, `.sidebar-n
 
 {{< scss-docs name="sidebar-narrow-css-vars" file="scss/sidebar/_sidebar-narrow.scss" >}}
 
+{{< scss-docs name="sidebar-narrow-unfoldable-css-vars" file="scss/sidebar/_sidebar-narrow.scss" >}}
+
 {{< scss-docs name="sidebar-nav-css-vars" file="scss/sidebar/_sidebar-nav.scss" >}}
 
 {{< scss-docs name="sidebar-toggler-css-vars" file="scss/sidebar/_sidebar.scss" >}}
