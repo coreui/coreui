@@ -20,6 +20,15 @@ const plugins = [
     exclude: 'node_modules/**',
     // Include the helpers in the bundle, at most one copy of each
     babelHelpers: 'bundled'
+  }),
+  BOOTSTRAP && replace({
+    preventAssignment: true,
+    delimiters: ['', ''],
+    '/coreui': '/coreui', // prevents changes in URLs
+    coreui: 'bs',
+    '-coreui': '-bs',
+    'coreui=': 'bs=', // [data-coreui="navigation"] => [data-bs="navigation"] (workaround for `preventAssignment` being true),
+    '--cui-': '--bs-'
   })
 ]
 const globals = {
@@ -34,10 +43,7 @@ if (BUNDLE) {
   plugins.push(
     replace({
       'process.env.NODE_ENV': '"production"',
-      preventAssignment: true,
-      ...BOOTSTRAP && {
-        'coreui.': 'bs.'
-      }
+      preventAssignment: true
     }),
     nodeResolve()
   )
