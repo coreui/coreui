@@ -4,6 +4,7 @@
   // scss-docs-start sidebar-nav-css-vars
   --#{$prefix}sidebar-nav-padding-x: #{$sidebar-nav-padding-x};
   --#{$prefix}sidebar-nav-padding-y: #{$sidebar-nav-padding-y};
+  --#{$prefix}sidebar-nav-gap: #{$sidebar-nav-gap};
 
   --#{$prefix}sidebar-nav-title-padding-x: #{$sidebar-nav-title-padding-x};
   --#{$prefix}sidebar-nav-title-padding-y: #{$sidebar-nav-title-padding-y};
@@ -71,7 +72,7 @@
   .nav-item + .nav-item,
   .nav-item + .nav-group,
   .nav-group + .nav-item {
-    margin-top: 1px;
+    margin-top: var(--#{$prefix}sidebar-nav-gap);
   }
 
   .nav-title {
@@ -225,7 +226,7 @@
       }
 
       + .show {
-        margin-top: 1px;
+        margin-top: var(--#{$prefix}sidebar-nav-gap);
       }
     }
   }

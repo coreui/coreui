@@ -1904,6 +1904,7 @@ $sidebar-narrow-unfoldable-box-shadow:     var(--#{$prefix}box-shadow) !default;
 // scss-docs-start sidebar-nav-variables
 $sidebar-nav-padding-y:                       $sidebar-padding-y * .5 !default;
 $sidebar-nav-padding-x:                       $sidebar-padding-x * .5 !default;
+$sidebar-nav-gap:                             1px !default;
 
 $sidebar-nav-title-padding-y:                 .75rem !default;
 $sidebar-nav-title-padding-x:                 1rem !default;
