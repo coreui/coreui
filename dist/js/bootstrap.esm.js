@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.1.2 (https://coreui.io)
+  * CoreUI v5.2.0 (https://coreui.io)
   * Copyright 2024 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -213,7 +213,7 @@ const reflow = element => {
   element.offsetHeight; // eslint-disable-line no-unused-expressions
 };
 const getjQuery = () => {
-  if (window.jQuery && !document.body.hasAttribute('data-coreui-no-jquery')) {
+  if (window.jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
     return window.jQuery;
   }
   return null;
@@ -440,7 +440,7 @@ function removeNamespacedHandlers(element, events, typeEvent, namespace) {
   }
 }
 function getTypeEvent(event) {
-  // allow to get the native events from namespaced events ('click.coreui.button' --> 'click')
+  // allow to get the native events from namespaced events ('click.bs.button' --> 'click')
   event = event.replace(stripNameRegex, '');
   return customEvents[event] || event;
 }
@@ -567,26 +567,26 @@ function normalizeDataKey(key) {
 }
 const Manipulator = {
   setDataAttribute(element, key, value) {
-    element.setAttribute(`data-coreui-${normalizeDataKey(key)}`, value);
+    element.setAttribute(`data-bs-${normalizeDataKey(key)}`, value);
   },
   removeDataAttribute(element, key) {
-    element.removeAttribute(`data-coreui-${normalizeDataKey(key)}`);
+    element.removeAttribute(`data-bs-${normalizeDataKey(key)}`);
   },
   getDataAttributes(element) {
     if (!element) {
       return {};
     }
     const attributes = {};
-    const coreuiKeys = Object.keys(element.dataset).filter(key => key.startsWith('coreui') && !key.startsWith('coreuiConfig'));
-    for (const key of coreuiKeys) {
-      let pureKey = key.replace(/^coreui/, '');
+    Object.keys(element.dataset).filter(key => key.startsWith('bs') && !key.startsWith('bsConfig'));
+    for (const key of bsKeys) {
+      let pureKey = key.replace(/^bs/, '');
       pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1);
       attributes[pureKey] = normalizeData(element.dataset[key]);
     }
     return attributes;
   },
   getDataAttribute(element, key) {
-    return normalizeData(element.getAttribute(`data-coreui-${normalizeDataKey(key)}`));
+    return normalizeData(element.getAttribute(`data-bs-${normalizeDataKey(key)}`));
   }
 };
 
@@ -661,7 +661,7 @@ class Config {
  * Constants
  */
 
-const VERSION = '5.1.2';
+const VERSION = '5.2.0';
 
 /**
  * Class definition
@@ -708,7 +708,7 @@ class BaseComponent extends Config {
     return VERSION;
   }
   static get DATA_KEY() {
-    return `coreui.${this.NAME}`;
+    return `bs.${this.NAME}`;
   }
   static get EVENT_KEY() {
     return `.${this.DATA_KEY}`;
@@ -729,7 +729,7 @@ class BaseComponent extends Config {
  */
 
 const getSelector = element => {
-  let selector = element.getAttribute('data-coreui-target');
+  let selector = element.getAttribute('data-bs-target');
   if (!selector || selector === '#') {
     let hrefAttribute = element.getAttribute('href');
 
@@ -823,7 +823,7 @@ const SelectorEngine = {
 const enableDismissTrigger = (component, method = 'hide') => {
   const clickEvent = `click.dismiss${component.EVENT_KEY}`;
   const name = component.NAME;
-  EventHandler.on(document, clickEvent, `[data-coreui-dismiss="${name}"]`, function (event) {
+  EventHandler.on(document, clickEvent, `[data-bs-dismiss="${name}"]`, function (event) {
     if (['A', 'AREA'].includes(this.tagName)) {
       event.preventDefault();
     }
@@ -854,7 +854,7 @@ const enableDismissTrigger = (component, method = 'hide') => {
  */
 
 const NAME$h = 'alert';
-const DATA_KEY$c = 'coreui.alert';
+const DATA_KEY$c = 'bs.alert';
 const EVENT_KEY$d = `.${DATA_KEY$c}`;
 const EVENT_CLOSE = `close${EVENT_KEY$d}`;
 const EVENT_CLOSED = `closed${EVENT_KEY$d}`;
@@ -932,11 +932,11 @@ defineJQueryPlugin(Alert);
  */
 
 const NAME$g = 'button';
-const DATA_KEY$b = 'coreui.button';
+const DATA_KEY$b = 'bs.button';
 const EVENT_KEY$c = `.${DATA_KEY$b}`;
 const DATA_API_KEY$8 = '.data-api';
 const CLASS_NAME_ACTIVE$4 = 'active';
-const SELECTOR_DATA_TOGGLE$6 = '[data-coreui-toggle="button"]';
+const SELECTOR_DATA_TOGGLE$6 = '[data-bs-toggle="button"]';
 const EVENT_CLICK_DATA_API$8 = `click${EVENT_KEY$c}${DATA_API_KEY$8}`;
 
 /**
@@ -999,7 +999,7 @@ defineJQueryPlugin(Button);
  */
 
 const NAME$f = 'swipe';
-const EVENT_KEY$b = '.coreui.swipe';
+const EVENT_KEY$b = '.bs.swipe';
 const EVENT_TOUCHSTART = `touchstart${EVENT_KEY$b}`;
 const EVENT_TOUCHMOVE = `touchmove${EVENT_KEY$b}`;
 const EVENT_TOUCHEND = `touchend${EVENT_KEY$b}`;
@@ -1122,7 +1122,7 @@ class Swipe extends Config {
  */
 
 const NAME$e = 'carousel';
-const DATA_KEY$a = 'coreui.carousel';
+const DATA_KEY$a = 'bs.carousel';
 const EVENT_KEY$a = `.${DATA_KEY$a}`;
 const DATA_API_KEY$7 = '.data-api';
 const ARROW_LEFT_KEY$1 = 'ArrowLeft';
@@ -1153,8 +1153,8 @@ const SELECTOR_ITEM = '.carousel-item';
 const SELECTOR_ACTIVE_ITEM = SELECTOR_ACTIVE + SELECTOR_ITEM;
 const SELECTOR_ITEM_IMG = '.carousel-item img';
 const SELECTOR_INDICATORS = '.carousel-indicators';
-const SELECTOR_DATA_SLIDE = '[data-coreui-slide], [data-coreui-slide-to]';
-const SELECTOR_DATA_RIDE = '[data-coreui-ride="carousel"]';
+const SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
+const SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
 const KEY_TO_DIRECTION = {
   [ARROW_LEFT_KEY$1]: DIRECTION_RIGHT,
   [ARROW_RIGHT_KEY$1]: DIRECTION_LEFT
@@ -1333,7 +1333,7 @@ class Carousel extends BaseComponent {
     const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
     activeIndicator.classList.remove(CLASS_NAME_ACTIVE$3);
     activeIndicator.removeAttribute('aria-current');
-    const newActiveIndicator = SelectorEngine.findOne(`[data-coreui-slide-to="${index}"]`, this._indicatorsElement);
+    const newActiveIndicator = SelectorEngine.findOne(`[data-bs-slide-to="${index}"]`, this._indicatorsElement);
     if (newActiveIndicator) {
       newActiveIndicator.classList.add(CLASS_NAME_ACTIVE$3);
       newActiveIndicator.setAttribute('aria-current', 'true');
@@ -1344,7 +1344,7 @@ class Carousel extends BaseComponent {
     if (!element) {
       return;
     }
-    const elementInterval = Number.parseInt(element.getAttribute('data-coreui-interval'), 10);
+    const elementInterval = Number.parseInt(element.getAttribute('data-bs-interval'), 10);
     this._config.interval = elementInterval || this._config.defaultInterval;
   }
   _slide(order, element = null) {
@@ -1455,7 +1455,7 @@ EventHandler.on(document, EVENT_CLICK_DATA_API$7, SELECTOR_DATA_SLIDE, function 
   }
   event.preventDefault();
   const carousel = Carousel.getOrCreateInstance(target);
-  const slideIndex = this.getAttribute('data-coreui-slide-to');
+  const slideIndex = this.getAttribute('data-bs-slide-to');
   if (slideIndex) {
     carousel.to(slideIndex);
     carousel._maybeEnableCycle();
@@ -1498,7 +1498,7 @@ defineJQueryPlugin(Carousel);
  */
 
 const NAME$d = 'collapse';
-const DATA_KEY$9 = 'coreui.collapse';
+const DATA_KEY$9 = 'bs.collapse';
 const EVENT_KEY$9 = `.${DATA_KEY$9}`;
 const DATA_API_KEY$6 = '.data-api';
 const EVENT_SHOW$7 = `show${EVENT_KEY$9}`;
@@ -1515,7 +1515,7 @@ const CLASS_NAME_HORIZONTAL = 'collapse-horizontal';
 const WIDTH = 'width';
 const HEIGHT = 'height';
 const SELECTOR_ACTIVES = '.collapse.show, .collapse.collapsing';
-const SELECTOR_DATA_TOGGLE$5 = '[data-coreui-toggle="collapse"]';
+const SELECTOR_DATA_TOGGLE$5 = '[data-bs-toggle="collapse"]';
 const Default$c = {
   parent: null,
   toggle: true
@@ -1735,7 +1735,7 @@ defineJQueryPlugin(Collapse);
  */
 
 const NAME$c = 'dropdown';
-const DATA_KEY$8 = 'coreui.dropdown';
+const DATA_KEY$8 = 'bs.dropdown';
 const EVENT_KEY$8 = `.${DATA_KEY$8}`;
 const DATA_API_KEY$5 = '.data-api';
 const ESCAPE_KEY$2 = 'Escape';
@@ -1757,7 +1757,7 @@ const CLASS_NAME_DROPEND = 'dropend';
 const CLASS_NAME_DROPSTART = 'dropstart';
 const CLASS_NAME_DROPUP_CENTER = 'dropup-center';
 const CLASS_NAME_DROPDOWN_CENTER = 'dropdown-center';
-const SELECTOR_DATA_TOGGLE$4 = '[data-coreui-toggle="dropdown"]:not(.disabled):not(:disabled)';
+const SELECTOR_DATA_TOGGLE$4 = '[data-bs-toggle="dropdown"]:not(.disabled):not(:disabled)';
 const SELECTOR_DATA_TOGGLE_SHOWN = `${SELECTOR_DATA_TOGGLE$4}.${CLASS_NAME_SHOW$8}`;
 const SELECTOR_MENU = '.dropdown-menu';
 const SELECTOR_NAVBAR = '.navbar';
@@ -1932,7 +1932,7 @@ class Dropdown extends BaseComponent {
     }
 
     // We need to trim the value because custom properties can also include spaces
-    const isEnd = getComputedStyle(this._menu).getPropertyValue('--cui-position').trim() === 'end';
+    const isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
     if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
       return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
     }
@@ -2108,7 +2108,7 @@ defineJQueryPlugin(Dropdown);
 const NAME$b = 'backdrop';
 const CLASS_NAME_FADE$4 = 'fade';
 const CLASS_NAME_SHOW$7 = 'show';
-const EVENT_MOUSEDOWN = `mousedown.coreui.${NAME$b}`;
+const EVENT_MOUSEDOWN = `mousedown.bs.${NAME$b}`;
 const Default$a = {
   className: 'modal-backdrop',
   clickCallback: null,
@@ -2233,7 +2233,7 @@ class Backdrop extends Config {
  */
 
 const NAME$a = 'focustrap';
-const DATA_KEY$7 = 'coreui.focustrap';
+const DATA_KEY$7 = 'bs.focustrap';
 const EVENT_KEY$7 = `.${DATA_KEY$7}`;
 const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$7}`;
 const EVENT_KEYDOWN_TAB = `keydown.tab${EVENT_KEY$7}`;
@@ -2435,7 +2435,7 @@ class ScrollBarHelper {
  */
 
 const NAME$9 = 'modal';
-const DATA_KEY$6 = 'coreui.modal';
+const DATA_KEY$6 = 'bs.modal';
 const EVENT_KEY$6 = `.${DATA_KEY$6}`;
 const DATA_API_KEY$4 = '.data-api';
 const ESCAPE_KEY$1 = 'Escape';
@@ -2456,7 +2456,7 @@ const CLASS_NAME_STATIC = 'modal-static';
 const OPEN_SELECTOR$1 = '.modal.show';
 const SELECTOR_DIALOG = '.modal-dialog';
 const SELECTOR_MODAL_BODY = '.modal-body';
-const SELECTOR_DATA_TOGGLE$3 = '[data-coreui-toggle="modal"]';
+const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="modal"]';
 const Default$8 = {
   backdrop: true,
   focus: true,
@@ -2742,7 +2742,7 @@ defineJQueryPlugin(Modal);
  */
 
 const NAME$8 = 'navigation';
-const DATA_KEY$5 = 'coreui.navigation';
+const DATA_KEY$5 = 'bs.navigation';
 const EVENT_KEY$5 = `.${DATA_KEY$5}`;
 const DATA_API_KEY$3 = '.data-api';
 const Default$7 = {
@@ -2763,7 +2763,7 @@ const SELECTOR_NAV_GROUP = '.nav-group';
 const SELECTOR_NAV_GROUP_ITEMS = '.nav-group-items';
 const SELECTOR_NAV_GROUP_TOGGLE = '.nav-group-toggle';
 const SELECTOR_NAV_LINK = '.nav-link';
-const SELECTOR_DATA_NAVIGATION = '[data-coreui="navigation"]';
+const SELECTOR_DATA_NAVIGATION = '[data-bs="navigation"]';
 
 /**
  * ------------------------------------------------------------------------
@@ -2988,7 +2988,7 @@ defineJQueryPlugin(Navigation);
  */
 
 const NAME$7 = 'offcanvas';
-const DATA_KEY$4 = 'coreui.offcanvas';
+const DATA_KEY$4 = 'bs.offcanvas';
 const EVENT_KEY$4 = `.${DATA_KEY$4}`;
 const DATA_API_KEY$2 = '.data-api';
 const EVENT_LOAD_DATA_API$3 = `load${EVENT_KEY$4}${DATA_API_KEY$2}`;
@@ -3006,7 +3006,7 @@ const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$4}`;
 const EVENT_RESIZE$1 = `resize${EVENT_KEY$4}`;
 const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$4}${DATA_API_KEY$2}`;
 const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$4}`;
-const SELECTOR_DATA_TOGGLE$2 = '[data-coreui-toggle="offcanvas"]';
+const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="offcanvas"]';
 const Default$6 = {
   backdrop: true,
   keyboard: true,
@@ -3466,7 +3466,7 @@ const CLASS_NAME_MODAL = 'modal';
 const CLASS_NAME_SHOW$3 = 'show';
 const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
 const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
-const EVENT_MODAL_HIDE = 'hide.coreui.modal';
+const EVENT_MODAL_HIDE = 'hide.bs.modal';
 const TRIGGER_HOVER = 'hover';
 const TRIGGER_FOCUS = 'focus';
 const TRIGGER_CLICK = 'click';
@@ -3590,8 +3590,8 @@ class Tooltip extends BaseComponent {
   dispose() {
     clearTimeout(this._timeout);
     EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
-    if (this._element.getAttribute('data-coreui-original-title')) {
-      this._element.setAttribute('title', this._element.getAttribute('data-coreui-original-title'));
+    if (this._element.getAttribute('data-bs-original-title')) {
+      this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'));
     }
     this._disposePopper();
     super.dispose();
@@ -3737,7 +3737,7 @@ class Tooltip extends BaseComponent {
     };
   }
   _getTitle() {
-    return this._resolvePossibleFunction(this._config.title) || this._element.getAttribute('data-coreui-original-title');
+    return this._resolvePossibleFunction(this._config.title) || this._element.getAttribute('data-bs-original-title');
   }
 
   // Private
@@ -3847,7 +3847,7 @@ class Tooltip extends BaseComponent {
     if (!this._element.getAttribute('aria-label') && !this._element.textContent.trim()) {
       this._element.setAttribute('aria-label', title);
     }
-    this._element.setAttribute('data-coreui-original-title', title); // DO NOT USE IT. Is only for backwards compatibility
+    this._element.setAttribute('data-bs-original-title', title); // DO NOT USE IT. Is only for backwards compatibility
     this._element.removeAttribute('title');
   }
   _enter() {
@@ -4059,7 +4059,7 @@ defineJQueryPlugin(Popover);
  */
 
 const NAME$3 = 'scrollspy';
-const DATA_KEY$3 = 'coreui.scrollspy';
+const DATA_KEY$3 = 'bs.scrollspy';
 const EVENT_KEY$3 = `.${DATA_KEY$3}`;
 const DATA_API_KEY$1 = '.data-api';
 const EVENT_ACTIVATE = `activate${EVENT_KEY$3}`;
@@ -4067,7 +4067,7 @@ const EVENT_CLICK = `click${EVENT_KEY$3}`;
 const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$3}${DATA_API_KEY$1}`;
 const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
 const CLASS_NAME_ACTIVE$1 = 'active';
-const SELECTOR_DATA_SPY = '[data-coreui-spy="scroll"]';
+const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
 const SELECTOR_TARGET_LINKS = '[href]';
 const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
 const SELECTOR_NAV_LINKS = '.nav-link';
@@ -4321,7 +4321,7 @@ defineJQueryPlugin(ScrollSpy);
  */
 
 const NAME$2 = 'sidebar';
-const DATA_KEY$2 = 'coreui.sidebar';
+const DATA_KEY$2 = 'bs.sidebar';
 const EVENT_KEY$2 = `.${DATA_KEY$2}`;
 const DATA_API_KEY = '.data-api';
 const Default$1 = {};
@@ -4339,8 +4339,8 @@ const EVENT_SHOW$2 = `show${EVENT_KEY$2}`;
 const EVENT_SHOWN$2 = `shown${EVENT_KEY$2}`;
 const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$2}${DATA_API_KEY}`;
 const EVENT_LOAD_DATA_API$1 = `load${EVENT_KEY$2}${DATA_API_KEY}`;
-const SELECTOR_DATA_CLOSE = '[data-coreui-close="sidebar"]';
-const SELECTOR_DATA_TOGGLE$1 = '[data-coreui-toggle]';
+const SELECTOR_DATA_CLOSE = '[data-bs-close="sidebar"]';
+const SELECTOR_DATA_TOGGLE$1 = '[data-bs-toggle]';
 const SELECTOR_SIDEBAR = '.sidebar';
 
 /**
@@ -4481,7 +4481,7 @@ class Sidebar extends BaseComponent {
     });
   }
   _isMobile() {
-    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--cui-is-mobile'));
+    return Boolean(window.getComputedStyle(this._element, null).getPropertyValue('--bs-is-mobile'));
   }
   _isNarrow() {
     return this._element.classList.contains(CLASS_NAME_SIDEBAR_NARROW);
@@ -4599,7 +4599,7 @@ defineJQueryPlugin(Sidebar);
  */
 
 const NAME$1 = 'tab';
-const DATA_KEY$1 = 'coreui.tab';
+const DATA_KEY$1 = 'bs.tab';
 const EVENT_KEY$1 = `.${DATA_KEY$1}`;
 const EVENT_HIDE$1 = `hide${EVENT_KEY$1}`;
 const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
@@ -4624,9 +4624,9 @@ const NOT_SELECTOR_DROPDOWN_TOGGLE = `:not(${SELECTOR_DROPDOWN_TOGGLE})`;
 const SELECTOR_TAB_PANEL = '.list-group, .nav, [role="tablist"]';
 const SELECTOR_OUTER = '.nav-item, .list-group-item';
 const SELECTOR_INNER = `.nav-link${NOT_SELECTOR_DROPDOWN_TOGGLE}, .list-group-item${NOT_SELECTOR_DROPDOWN_TOGGLE}, [role="tab"]${NOT_SELECTOR_DROPDOWN_TOGGLE}`;
-const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="tab"], [data-coreui-toggle="pill"], [data-coreui-toggle="list"]'; // TODO: could only be `tab` in v6
+const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]'; // TODO: could only be `tab` in v6
 const SELECTOR_INNER_ELEM = `${SELECTOR_INNER}, ${SELECTOR_DATA_TOGGLE}`;
-const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-coreui-toggle="tab"], .${CLASS_NAME_ACTIVE}[data-coreui-toggle="pill"], .${CLASS_NAME_ACTIVE}[data-coreui-toggle="list"]`;
+const SELECTOR_DATA_TOGGLE_ACTIVE = `.${CLASS_NAME_ACTIVE}[data-bs-toggle="tab"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="pill"], .${CLASS_NAME_ACTIVE}[data-bs-toggle="list"]`;
 
 /**
  * Class definition
@@ -4872,7 +4872,7 @@ defineJQueryPlugin(Tab);
  */
 
 const NAME = 'toast';
-const DATA_KEY = 'coreui.toast';
+const DATA_KEY = 'bs.toast';
 const EVENT_KEY = `.${DATA_KEY}`;
 const EVENT_MOUSEOVER = `mouseover${EVENT_KEY}`;
 const EVENT_MOUSEOUT = `mouseout${EVENT_KEY}`;
