@@ -103,7 +103,7 @@
     "@babel/cli": "^7.25.9",
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
-    "@docsearch/js": "^3.6.2",
+    "@docsearch/js": "^3.6.3",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.1",
