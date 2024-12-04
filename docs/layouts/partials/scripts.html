@@ -10,10 +10,8 @@
   {{- $esbuildOptions = merge $esbuildOptions (dict "minify" "true") -}}
 {{- end }}
 
-{{- $codeExamplesJs := resources.Get "js/code-examples.js" | js.Build $esbuildOptions -}}
-{{- $snippetsJs := resources.Get "js/snippets.js" | js.Build $esbuildOptions -}}
-{{- $docsJs := slice $codeExamplesJs $snippetsJs | resources.Concat "/assets/js/docs.js" }}
-<script defer src="{{ $docsJs.Permalink }}"></script>
+{{- $applicationJs := resources.Get "js/application.js" | js.Build $esbuildOptions | resources.Copy "/assets/js/application.js" }}
+<script defer src="{{ $applicationJs.Permalink }}"></script>
 
 {{- $esbuildParams := dict
   "apiKey" .Site.Params.algolia.apiKey
@@ -23,3 +21,15 @@
 {{- $esbuildOptions = merge $esbuildOptions (dict "params" $esbuildParams) -}}
 {{- $searchJs := resources.Get "js/search.js" | js.Build $esbuildOptions | resources.Copy "/assets/js/search.js" }}
 <script defer src="{{ $searchJs.Permalink }}"></script>
+
+{{- /* Disable minify options for snippets.js so that the file's readable on StackBlitz */ -}}
+{{- $snippetsFile := resources.Get "js/snippets.js" | js.Build (merge $esbuildOptions (dict "minify" "false")) -}}
+{{- $esbuildParams := dict
+  "cssCdn" .Site.Params.cdn.css
+  "jsBundleCdn" .Site.Params.cdn.js_bundle
+  "docsVersion" .Site.Params.docs_version
+  "jsSnippetFile" $snippetsFile.Content
+-}}
+{{- $esbuildOptions = merge $esbuildOptions (dict "params" $esbuildParams) -}}
+{{- $stackblitzJs := resources.Get "js/stackblitz.js" | js.Build $esbuildOptions | resources.Copy "/assets/js/stackblitz.js" }}
+<script defer src="{{ $stackblitzJs.Permalink }}"></script>

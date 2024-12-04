@@ -89,7 +89,7 @@ Click the button below to show a toast (positioned with our utilities in the low
 
 We use the following JavaScript to trigger our live toast demo:
 
-{{< js-docs name="live-toast" file="docs/assets/js/snippets.js" >}}
+{{< js-docs name="live-toast" file="docs/assets/js/partials/snippets.js" >}}
 
 
 ### Translucent

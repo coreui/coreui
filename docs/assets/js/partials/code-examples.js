@@ -12,7 +12,7 @@
 /* global coreui: false */
 import ClipboardJS from 'clipboard'
 
-(() => {
+export default () => {
   // Insert copy to clipboard button before .highlight
   const btnTitle = 'Copy to clipboard'
   const btnEdit = 'Edit on StackBlitz'
@@ -88,5 +88,5 @@ import ClipboardJS from 'clipboard'
       tooltipBtn.setContent({ '.tooltip-inner': btnTitle })
     }, { once: true })
   })
-})()
+}
 
