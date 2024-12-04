@@ -94,7 +94,7 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 - [Bootstrap Sidebar](https://coreui.io/bootstrap/docs/components/sidebar/)
 - [Bootstrap Spinner](https://coreui.io/bootstrap/docs/components/spinner/)
 - [Bootstrap Switch](https://coreui.io/bootstrap/docs/forms/switch/)
-- [Bootstrap Table](https://coreui.io/bootstrap/docs/components/table/)
+- [Bootstrap Table](https://coreui.io/bootstrap/docs/content/tables/)
 - [Bootstrap Textarea](https://coreui.io/bootstrap/docs/forms/textarea/)
 - [Bootstrap Time Picker](https://coreui.io/bootstrap/docs/forms/time-picker/) **PRO**
 - [Bootstrap Toast](https://coreui.io/bootstrap/docs/components/toast/)
