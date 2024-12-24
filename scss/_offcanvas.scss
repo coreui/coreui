@@ -127,8 +127,8 @@
 
   .btn-close {
     padding: calc(var(--#{$prefix}offcanvas-padding-y) * .5) calc(var(--#{$prefix}offcanvas-padding-x) * .5);
+    margin-inline: auto calc(-.5 * var(--#{$prefix}offcanvas-padding-x));
     margin-top: calc(-.5 * var(--#{$prefix}offcanvas-padding-y));
-    @include ltr-rtl("margin-right", calc(-.5 * var(--#{$prefix}offcanvas-padding-x)));
     margin-bottom: calc(-.5 * var(--#{$prefix}offcanvas-padding-y));
   }
 }
