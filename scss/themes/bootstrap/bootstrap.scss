@@ -1,13 +1,46 @@
 @import "mixins/banner";
 @include bsBanner("");
 
-@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "../../functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
 @import "../../variables";
+@import "../../maps";
+@import "../../mixins";
+@import "../../utilities";
 
-/* rtl:begin:ignore */
-@import "../../mixins/avatar";
-@import "../../mixins/icon";
-@import "../../mixins/ltr-rtl";
+// Layout & components
+@import "../../root";
+@import "../../reboot";
+@import "../../type";
+@import "../../images";
+@import "../../containers";
+@import "../../grid";
+@import "../../tables";
+@import "../../forms";
+@import "../../buttons";
+@import "../../transitions";
+@import "../../dropdown";
+@import "../../button-group";
+@import "../../nav";
+@import "../../navbar";
+@import "../../card";
+@import "../../accordion";
+@import "../../breadcrumb";
+@import "../../pagination";
+@import "../../badge";
+@import "../../alert";
+@import "../../progress";
+@import "../../list-group";
+@import "../../close";
+@import "../../toasts";
+@import "../../modal";
+@import "../../tooltip";
+@import "../../popover";
+@import "../../carousel";
+@import "../../spinners";
+@import "../../offcanvas";
+@import "../../placeholders";
 
 @import "../../avatar";
 @import "../../callout";
@@ -16,4 +49,9 @@
 @import "../../icon";
 @import "../../sidebar";
 
-/* rtl:end:ignore */
+// Helpers
+@import "../../helpers";
+
+// Utilities
+@import "../../utilities/api";
+// scss-docs-end import-stack

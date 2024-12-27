@@ -452,13 +452,13 @@ $position-values: (
 // Settings for the `<body>` element.
 
 $body-text-align:           null !default;
-$body-color:                rgba(shift-color($gray-base, +26%), .95) !default;
+$body-color:                rgba(shift-color($gray-base, 26%), .95) !default;
 $body-bg:                   $white !default;
 
-$body-secondary-color:      rgba(shift-color($gray-base, +26%), .681) !default;
+$body-secondary-color:      rgba(shift-color($gray-base, 26%), .681) !default;
 $body-secondary-bg:         $gray-200 !default;
 
-$body-tertiary-color:       rgba(shift-color($gray-base, +26%), .38) !default;
+$body-tertiary-color:       rgba(shift-color($gray-base, 26%), .38) !default;
 $body-tertiary-bg:          $gray-100 !default;
 
 $body-emphasis-color:       $black !default;

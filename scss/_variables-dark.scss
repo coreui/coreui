@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // Dark color mode variables
 //
 // Custom variables for the `[data-coreui-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
@@ -42,12 +44,12 @@ $disabled-dark:         rgba($white, .38) !default; // Deprecated in v5.0.0
 // fusv-enable
 
 // scss-docs-start theme-color-dark-variables
-$primary-dark:       desaturate($primary, 10%) !default;
+$primary-dark:       color.scale($primary, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $secondary-dark:     $secondary !default;
-$success-dark:       desaturate($success, 10%) !default;
-$info-dark:          desaturate($info, 10%) !default;
-$warning-dark:       desaturate($warning, 10%) !default;
-$danger-dark:        desaturate($danger, 10%) !default;
+$success-dark:       color.scale($success, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$info-dark:          color.scale($info, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$warning-dark:       color.scale($warning, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$danger-dark:        color.scale($danger, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $light-dark:         $light !default;
 $dark-dark:          $dark !default;
 // scss-docs-end theme-color-dark-variables
@@ -66,12 +68,12 @@ $theme-colors-dark: (
 // scss-docs-end theme-colors-dark-map
 
 // scss-docs-start theme-text-dark-variables
-$primary-text-emphasis-dark:        desaturate($primary-text-emphasis, 10%) !default;
+$primary-text-emphasis-dark:        color.scale($primary-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $secondary-text-emphasis-dark:      $secondary-text-emphasis !default;
-$success-text-emphasis-dark:        desaturate($success-text-emphasis, 10%) !default;
-$info-text-emphasis-dark:           desaturate($info-text-emphasis, 10%) !default;
-$warning-text-emphasis-dark:        desaturate($warning-text-emphasis, 10%) !default;
-$danger-text-emphasis-dark:         desaturate($danger-text-emphasis, 10%) !default;
+$success-text-emphasis-dark:        color.scale($success-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$info-text-emphasis-dark:           color.scale($info-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$warning-text-emphasis-dark:        color.scale($warning-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$danger-text-emphasis-dark:         color.scale($danger-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $light-text-emphasis-dark:          $gray-100-dark !default;
 $dark-text-emphasis-dark:           $gray-300-dark !default;
 // scss-docs-end theme-text-dark-variables
