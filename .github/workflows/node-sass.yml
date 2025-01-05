@@ -29,6 +29,9 @@ jobs:
         with:
           node-version: "${{ env.NODE }}"
 
+      - name: Install npm dependencies
+        run: npm ci
+
       - name: Build CSS with node-sass
         run: |
           npx --package node-sass@latest node-sass --version

@@ -3,7 +3,7 @@ name: Docs
 on:
   push:
     branches:
-      - v5
+      - main
   pull_request:
   workflow_dispatch:
 
@@ -44,7 +44,7 @@ jobs:
       - name: Run linkinator
         uses: JustinBeckwith/linkinator-action@v1
         with:
-          paths: _gh-pages
+          paths: _gh_pages
           recurse: true
           verbosity: error
           skip: "^(?!http://localhost)"

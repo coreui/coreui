@@ -109,7 +109,7 @@ describe('Popover', () => {
           }
         })
 
-        popoverEl.addEventListener('shown.bs.popover', () => {
+        popoverEl.addEventListener('shown.coreui.popover', () => {
           const popoverDisplayed = document.querySelector('.popover')
 
           expect(popoverDisplayed).not.toBeNull()
@@ -136,7 +136,7 @@ describe('Popover', () => {
           }
         })
 
-        popoverEl.addEventListener('shown.bs.popover', () => {
+        popoverEl.addEventListener('shown.coreui.popover', () => {
           const popoverDisplayed = document.querySelector('.popover')
 
           expect(popoverDisplayed).not.toBeNull()
