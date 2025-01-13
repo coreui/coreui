@@ -1,5 +1,7 @@
 // stylelint-disable scss/dimension-no-non-numeric-values
 @use "sass:math";
+@use "sass:meta";
+@use "sass:string";
 
 // SCSS RFS mixin
 //
@@ -31,7 +33,7 @@ $rfs-two-dimensional: false !default;
 // Factor of decrease
 $rfs-factor: 10 !default;
 
-@if type-of($rfs-factor) != number or $rfs-factor <= 1 {
+@if meta.type-of($rfs-factor) != number or $rfs-factor <= 1 {
   @error "`#{$rfs-factor}` is not a valid  $rfs-factor, it must be greater than 1.";
 }
 
@@ -191,7 +193,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
 // Helper function to get the formatted non-responsive value
 @function rfs-value($values) {
   // Convert to list
-  $values: if(type-of($values) != list, ($values,), $values);
+  $values: if(meta.type-of($values) != list, ($values,), $values);
 
   $val: "";
 
@@ -202,7 +204,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
     }
     @else {
       // Cache $value unit
-      $unit: if(type-of($value) == "number", math.unit($value), false);
+      $unit: if(meta.type-of($value) == "number", math.unit($value), false);
 
       @if $unit == px {
         // Convert to rem if needed
@@ -219,13 +221,13 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
   }
 
   // Remove first space
-  @return unquote(str-slice($val, 2));
+  @return string.unquote(str-slice($val, 2));
 }
 
 // Helper function to get the responsive value calculated by RFS
 @function rfs-fluid-value($values) {
   // Convert to list
-  $values: if(type-of($values) != list, ($values,), $values);
+  $values: if(meta.type-of($values) != list, ($values,), $values);
 
   $val: "";
 
@@ -235,7 +237,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
       $val: $val + " 0";
     } @else {
       // Cache $value unit
-      $unit: if(type-of($value) == "number", math.unit($value), false);
+      $unit: if(meta.type-of($value) == "number", math.unit($value), false);
 
       // If $value isn't a number (like inherit) or $value has a unit (not px or rem, like 1.5em) or $ is 0, just print the value
       @if not $unit or $unit != px and $unit != rem {
@@ -275,7 +277,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
   }
 
   // Remove first space
-  @return unquote(str-slice($val, 2));
+  @return string.unquote(str-slice($val, 2));
 }
 
 // RFS mixin
