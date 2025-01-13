@@ -1,4 +1,5 @@
 // stylelint-disable property-disallowed-list
+@use "sass:meta";
 @use "../variables" as *;
 @use "ltr-rtl" as *;
 
@@ -8,7 +9,7 @@
 @function valid-radius($radius) {
   $return: ();
   @each $value in $radius {
-    @if type-of($value) == number {
+    @if meta.type-of($value) == number {
       $return: append($return, max($value, 0));
     } @else {
       $return: append($return, $value);

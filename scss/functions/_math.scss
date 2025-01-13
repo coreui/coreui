@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:meta";
 
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {
@@ -10,7 +11,7 @@
     @return $value1;
   }
 
-  @if type-of($value1) == number and type-of($value2) == number and math.compatible($value1, $value2) {
+  @if meta.type-of($value1) == number and meta.type-of($value2) == number and math.compatible($value1, $value2) {
     @return $value1 + $value2;
   }
 
@@ -30,11 +31,11 @@
     @return $value1;
   }
 
-  @if type-of($value1) == number and type-of($value2) == number and math.compatible($value1, $value2) {
+  @if meta.type-of($value1) == number and meta.type-of($value2) == number and math.compatible($value1, $value2) {
     @return $value1 - $value2;
   }
 
-  @if type-of($value2) != number {
+  @if meta.type-of($value2) != number {
     $value2: unquote("(") + $value2 + unquote(")");
   }
 
