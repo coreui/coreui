@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 @use "../variables" as *;
 @use "color" as *;
 
@@ -13,7 +14,7 @@
       $_args: append($_args, if($arg == "$prefix", $prefix, if($arg == "$key", $key, if($arg == "$value", $value, $arg))));
     }
 
-    $_map: map.merge($_map, ($key: call(get-function($func), $_args...)));
+    $_map: map.merge($_map, ($key: meta.call(meta.get-function($func), $_args...)));
   }
   @return $_map;
 }
