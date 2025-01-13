@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:map";
 @use "sass:meta";
 @use "../variables" as *;
@@ -11,7 +12,7 @@
     // allow to pass the $key and $value of the map as an function argument
     $_args: ();
     @each $arg in $args {
-      $_args: append($_args, if($arg == "$prefix", $prefix, if($arg == "$key", $key, if($arg == "$value", $value, $arg))));
+      $_args: list.append($_args, if($arg == "$prefix", $prefix, if($arg == "$key", $key, if($arg == "$value", $value, $arg))));
     }
 
     $_map: map.merge($_map, ($key: meta.call(meta.get-function($func), $_args...)));

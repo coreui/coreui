@@ -25,7 +25,7 @@
 
     // Multiple properties are possible, for example with vertical or horizontal margins or paddings
     @if meta.type-of($properties) == "string" {
-      $properties: append((), $properties);
+      $properties: list.append((), $properties);
     }
 
     // Use custom class if present
