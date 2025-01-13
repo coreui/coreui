@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:string";
 @use "functions/assert" as *;
 @use "functions/color" as *;
 @use "functions/math" as *;
@@ -1842,7 +1843,7 @@ $breadcrumb-margin-bottom:          1rem !default;
 $breadcrumb-bg:                     null !default;
 $breadcrumb-divider-color:          var(--#{$prefix}secondary-color) !default;
 $breadcrumb-active-color:           var(--#{$prefix}secondary-color) !default;
-$breadcrumb-divider:                quote("/") !default;
+$breadcrumb-divider:                string.quote("/") !default;
 $breadcrumb-divider-flipped:        $breadcrumb-divider !default;
 $breadcrumb-border-radius:          null !default;
 // scss-docs-end breadcrumb-variables

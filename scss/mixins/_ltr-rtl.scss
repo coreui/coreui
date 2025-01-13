@@ -20,10 +20,10 @@
 
 @function reflect($element) {
   $string: #{$element};
-  @if str-index($string, "left") {
+  @if string.index($string, "left") {
     @return str-replace($string, "left", "right");
   }
-  @if str-index($string, "right") {
+  @if string.index($string, "right") {
     @return str-replace($string, "right", "left");
   }
 

@@ -222,7 +222,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
   }
 
   // Remove first space
-  @return string.unquote(str-slice($val, 2));
+  @return string.unquote(string.slice($val, 2));
 }
 
 // Helper function to get the responsive value calculated by RFS
@@ -278,7 +278,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
   }
 
   // Remove first space
-  @return string.unquote(str-slice($val, 2));
+  @return string.unquote(string.slice($val, 2));
 }
 
 // RFS mixin

@@ -1,6 +1,7 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
+@use "sass:string";
 @use "../variables" as *;
 @use "../vendor/rfs" as *;
 @use "ltr-rtl" as *;
@@ -38,7 +39,7 @@
     // State params to generate pseudo-classes
     $state: if(map.has-key($utility, state), map.get($utility, state), ());
 
-    $infix: if($property-class == "" and str-slice($infix, 1, 1) == "-", str-slice($infix, 2), $infix);
+    $infix: if($property-class == "" and string.slice($infix, 1, 1) == "-", string.slice($infix, 2), $infix);
 
     // Don't prefix if value key is null (e.g. with shadow class)
     $property-class-modifier: if($key, if($property-class == "" and $infix == "", "", "-") + $key, "");
