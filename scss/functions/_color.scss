@@ -1,3 +1,5 @@
+@use "sass:color";
+
 // scss-docs-start color-functions
 // Tint a color: mix a color with white
 @function tint-color($color, $weight) {
@@ -16,7 +18,7 @@
 // scss-docs-end color-functions
 
 @function to-rgb($value) {
-  @return red($value), green($value), blue($value);
+  @return color.channel($value, "red", $space: rgb), color.channel($value, "green", $space: rgb), color.channel($value, "blue", $space: rgb);
 }
 
 @function rgba-css-var($prefix, $identifier, $target) {
