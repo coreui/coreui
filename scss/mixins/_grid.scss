@@ -1,4 +1,5 @@
 @use "sass:map";
+@use "sass:meta";
 @use "../variables" as *;
 @use "../maps" as *;
 @use "../functions/math" as *;
@@ -22,7 +23,7 @@
 
 @mixin make-col-ready($include-column-box-sizing: false) {
   // Add box sizing if only the grid is loaded
-  box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+  box-sizing: if(meta.variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
   // Prevent columns from becoming too narrow when at smaller grid tiers by
   // always setting `width: 100%;`. This works because we set the width
   // later on to override this initial width.
