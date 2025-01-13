@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 @use "sass:math";
 @use "../variables" as *;
 @use "math" as *;
@@ -45,10 +46,10 @@
 
   @each $name, $value in $rgb {
     $value: if(divide($value, 255) < .04045, divide(divide($value, 255), 12.92), math.pow(divide((divide(math.round($value) + 1, 255) + .055), 1.055), 2.4));
-    $rgb: map-merge($rgb, ($name: $value));
+    $rgb: map.merge($rgb, ($name: $value));
   }
 
-  @return (map-get($rgb, "r") * .2126) + (map-get($rgb, "g") * .7152) + (map-get($rgb, "b") * .0722);
+  @return (map.get($rgb, "r") * .2126) + (map.get($rgb, "g") * .7152) + (map.get($rgb, "b") * .0722);
 }
 
 // Return opaque color

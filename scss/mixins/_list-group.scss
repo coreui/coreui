@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../mixins/deprecate" as *;
 @include deprecate("`list-group-item-variant()`", "v4.3.0", "v6.0.0");
 
@@ -5,9 +6,9 @@
 
 // scss-docs-start list-group-mixin
 @mixin list-group-item-variant($state, $variant) {
-  $background: map-get($variant, "bg");
-  $background-hover: map-get($variant, "bg-hover");
-  $color: contrast-ratio-correction(map-get($variant, "color"), map-get($variant, "bg"), $alert-color-scale, $state);
+  $background: map.get($variant, "bg");
+  $background-hover: map.get($variant, "bg-hover");
+  $color: contrast-ratio-correction(map.get($variant, "color"), map.get($variant, "bg"), $alert-color-scale, $state);
 
   --#{$prefix}list-group-color: #{$color};
   --#{$prefix}list-group-bg: #{$background};

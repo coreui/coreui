@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../variables" as *;
 @use "../variables-dark" as *;
 @use "../functions/escape-svg" as *;
@@ -169,8 +170,8 @@
 }
 
 @each $size, $map in $form-switch-widths {
-  $width: map-get($map, "width");
-  $height: map-get($map, "height");
+  $width: map.get($map, "width");
+  $height: map.get($map, "height");
 
   .form-switch-#{$size} {
     min-height: $height;
