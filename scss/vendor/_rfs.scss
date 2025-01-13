@@ -1,4 +1,5 @@
 // stylelint-disable scss/dimension-no-non-numeric-values
+@use "sass:math";
 
 // SCSS RFS mixin
 //
@@ -50,7 +51,7 @@ $rfs-safari-iframe-resize-bug-fix: false !default;
 $enable-rfs: true !default;
 
 // Cache $rfs-base-value unit
-$rfs-base-value-unit: unit($rfs-base-value);
+$rfs-base-value-unit: math.unit($rfs-base-value);
 
 @function divide($dividend, $divisor, $precision: 10) {
   $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
@@ -80,8 +81,8 @@ $rfs-base-value-unit: unit($rfs-base-value);
     }
   }
   $result: $result * $factor * $sign;
-  $dividend-unit: unit($dividend);
-  $divisor-unit: unit($divisor);
+  $dividend-unit: math.unit($dividend);
+  $divisor-unit: math.unit($divisor);
   $unit-map: (
     "px": 1px,
     "rem": 1rem,
@@ -103,7 +104,7 @@ $rfs-base-value-unit: unit($rfs-base-value);
 }
 
 // Cache $rfs-breakpoint unit to prevent multiple calls
-$rfs-breakpoint-unit-cache: unit($rfs-breakpoint);
+$rfs-breakpoint-unit-cache: math.unit($rfs-breakpoint);
 
 // Remove unit from $rfs-breakpoint for calculations
 @if $rfs-breakpoint-unit-cache == px {
@@ -201,7 +202,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
     }
     @else {
       // Cache $value unit
-      $unit: if(type-of($value) == "number", unit($value), false);
+      $unit: if(type-of($value) == "number", math.unit($value), false);
 
       @if $unit == px {
         // Convert to rem if needed
@@ -234,7 +235,7 @@ $rfs-mq-property-height: if($rfs-mode == max-media-query, max-height, min-height
       $val: $val + " 0";
     } @else {
       // Cache $value unit
-      $unit: if(type-of($value) == "number", unit($value), false);
+      $unit: if(type-of($value) == "number", math.unit($value), false);
 
       // If $value isn't a number (like inherit) or $value has a unit (not px or rem, like 1.5em) or $ is 0, just print the value
       @if not $unit or $unit != px and $unit != rem {

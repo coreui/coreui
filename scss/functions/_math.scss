@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Return valid calc
 @function add($value1, $value2, $return-calc: true) {
   @if $value1 == null {
@@ -67,8 +69,8 @@
     }
   }
   $result: $result * $factor * $sign;
-  $dividend-unit: unit($dividend);
-  $divisor-unit: unit($divisor);
+  $dividend-unit: math.unit($dividend);
+  $divisor-unit: math.unit($divisor);
   $unit-map: (
     "px": 1px,
     "rem": 1rem,
