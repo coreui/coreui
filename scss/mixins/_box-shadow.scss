@@ -9,7 +9,7 @@
       @if $value != null {
         $result: list.append($result, $value, "comma");
       }
-      @if $value == none and length($shadow) > 1 {
+      @if $value == none and list.length($shadow) > 1 {
         @warn "The keyword 'none' must be used as a single argument.";
       }
     }
