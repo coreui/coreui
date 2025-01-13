@@ -1,3 +1,4 @@
+@use "sass:string";
 @use "../variables" as *;
 @use "../functions/str-replace" as *;
 
@@ -26,7 +27,7 @@
     @return str-replace($string, "right", "left");
   }
 
-  @return unquote($string);
+  @return string.unquote($string);
 }
 
 @mixin ltr-rtl($property, $value, $property-rtl: null, $value-rtl: null, $important: null) {
