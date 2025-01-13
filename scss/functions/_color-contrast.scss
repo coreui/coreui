@@ -55,5 +55,5 @@
 // Return opaque color
 // opaque(#fff, rgba(0, 0, 0, .5)) => #808080
 @function opaque($background, $foreground) {
-  @return color.mix(rgba($foreground, 1), $background, opacity($foreground) * 100%);
+  @return color.mix(rgba($foreground, 1), $background, color.opacity($foreground) * 100%);
 }
