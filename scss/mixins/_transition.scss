@@ -1,4 +1,5 @@
 // stylelint-disable property-disallowed-list
+@use "sass:list";
 @use "../variables" as *;
 
 @mixin transition($transition...) {
@@ -15,11 +16,11 @@
   }
 
   @if $enable-transitions {
-    @if nth($transition, 1) != null {
+    @if list.nth($transition, 1) != null {
       transition: $transition;
     }
 
-    @if $enable-reduced-motion and nth($transition, 1) != null and nth($transition, 1) != none {
+    @if $enable-reduced-motion and list.nth($transition, 1) != null and list.nth($transition, 1) != none {
       @media (prefers-reduced-motion: reduce) {
         transition: none;
       }

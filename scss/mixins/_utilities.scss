@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:meta";
 @use "../variables" as *;
 @use "../vendor/rfs" as *;
@@ -14,7 +15,7 @@
   $values: map-get($utility, values);
 
   // If the values are a list or string, convert it into a map
-  @if meta.type-of($values) == "string" or meta.type-of(nth($values, 1)) != "list" {
+  @if meta.type-of($values) == "string" or meta.type-of(list.nth($values, 1)) != "list" {
     $values: zip($values, $values);
   }
 
@@ -27,7 +28,7 @@
     }
 
     // Use custom class if present
-    $property-class: if(map-has-key($utility, class), map-get($utility, class), nth($properties, 1));
+    $property-class: if(map-has-key($utility, class), map-get($utility, class), list.nth($properties, 1));
     $property-class: if($property-class == null, "", $property-class);
 
     // Use custom CSS variable name if present, otherwise default to `class`

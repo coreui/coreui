@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "sass:math";
 
 // Ascending
@@ -23,7 +24,7 @@
 @mixin assert-starts-at-zero($map, $map-name: "$grid-breakpoints") {
   @if length($map) > 0 {
     $values: map-values($map);
-    $first-value: nth($values, 1);
+    $first-value: list.nth($values, 1);
     @if $first-value != 0 {
       @warn "First breakpoint in #{$map-name} must start at 0, but starts at #{$first-value}.";
     }

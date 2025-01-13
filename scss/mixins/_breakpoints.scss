@@ -1,3 +1,4 @@
+@use "sass:list";
 @use "../variables" as *;
 
 // Breakpoint viewport sizes and media queries.
@@ -21,7 +22,7 @@
   @if not $n {
     @error "breakpoint `#{$name}` not found in `#{$breakpoints}`";
   }
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+  @return if($n < length($breakpoint-names), list.nth($breakpoint-names, $n + 1), null);
 }
 
 // Minimum breakpoint width. Null for the smallest (first) breakpoint.
