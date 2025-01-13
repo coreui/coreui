@@ -891,30 +891,6 @@ $btn-active-bg-shade-amount:      20% !default;
 $btn-active-bg-tint-amount:       20% !default;
 $btn-active-border-shade-amount:  25% !default;
 $btn-active-border-tint-amount:   10% !default;
-
-// scss-docs-start button-variants
-$button-variants: (
-  "primary": btn-color-map($primary, $primary),
-  "secondary": btn-color-map($secondary, $secondary),
-  "success": btn-color-map($success, $success),
-  "danger": btn-color-map($danger, $danger),
-  "warning": btn-color-map($warning, $warning),
-  "info": btn-color-map($info, $info),
-  "light": btn-color-map($light, $light),
-  "dark": btn-color-map($dark, $dark)
-) !default;
-
-$button-outline-ghost-variants: (
-  "primary": btn-outline-color-map($primary),
-  "secondary": btn-outline-color-map($secondary),
-  "success": btn-outline-color-map($success),
-  "danger": btn-outline-color-map($danger),
-  "warning": btn-outline-color-map($warning),
-  "info": btn-outline-color-map($info),
-  "light": btn-outline-color-map($light),
-  "dark": btn-outline-color-map($dark)
-) !default;
-// scss-docs-end button-variants
 // scss-docs-end btn-variables
 
 

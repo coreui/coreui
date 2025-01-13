@@ -146,27 +146,3 @@ $accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
 
 $accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
 $accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
-
-
-//
-// Buttons
-//
-
-$button-variants-dark: (
-  "primary":    btn-color-map($primary-dark, $primary-dark),
-  "secondary":  btn-color-map($secondary-dark, $secondary-dark),
-  "success":    btn-color-map($success-dark, $success-dark),
-  "danger":     btn-color-map($danger-dark, $danger-dark),
-  "warning":    btn-color-map($warning-dark, $warning-dark),
-  "info":       btn-color-map($info-dark, $info-dark)
-) !default;
-
-$button-outline-ghost-variants-dark: (
-  "primary":    btn-outline-color-map($primary-dark),
-  "secondary":  btn-outline-color-map($secondary-dark),
-  "success":    btn-outline-color-map($success-dark),
-  "danger":     btn-outline-color-map($danger-dark),
-  "warning":    btn-outline-color-map($warning-dark),
-  "info":       btn-outline-color-map($info-dark)
-) !default;
-// scss-docs-end sass-dark-mode-vars
