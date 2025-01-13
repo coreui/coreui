@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/ltr-rtl" as *;
+
 .callout {
   // scss-docs-start callout-css-vars
   --#{$prefix}callout-padding-x: #{$callout-padding-x};

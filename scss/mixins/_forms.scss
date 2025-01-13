@@ -1,3 +1,10 @@
+@use "../variables" as *;
+@use "../functions/escape-svg" as *;
+@use "../functions/math" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../vendor/rfs" as *;
+
 // This mixin uses an `if()` technique to be compatible with Dart Sass
 // See https://github.com/sass/sass/issues/1873#issuecomment-152293725 for more details
 

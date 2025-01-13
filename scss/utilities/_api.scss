@@ -1,3 +1,9 @@
+@use "../variables" as *;
+@use "../utilities" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/utilities" as *;
+@use "../vendor/rfs" as *;
+
 // Loop over each breakpoint
 @each $breakpoint in map-keys($grid-breakpoints) {
 

@@ -1,3 +1,7 @@
+@use "variables" as *;
+@use "maps" as *;
+@use "functions/maps" as *;
+
 // Utilities
 
 $utilities: () !default;
@@ -90,7 +94,7 @@ $utilities: map-merge(
       css-var: true,
       css-variable-name: focus-ring-color,
       class: focus-ring,
-      values: map-loop($theme-colors-rgb, rgba-css-var, "$key", "focus-ring")
+      values: map-loop($theme-colors-rgb, rgba-css-var, "$prefix", "$key", "focus-ring")
     ),
     // scss-docs-end utils-focus-ring
     // scss-docs-start utils-position

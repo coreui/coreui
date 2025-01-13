@@ -1,4 +1,13 @@
 // stylelint-disable function-disallowed-list
+@use "../variables" as *;
+@use "../variables-dark" as *;
+@use "../functions/escape-svg" as *;
+@use "../mixins/backdrop" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/breakpoints" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../mixins/transition" as *;
+
 .sidebar {
   // scss-docs-start sidebar-css-vars
   --#{$prefix}sidebar-zindex: #{$zindex-sidebar};

@@ -1,3 +1,12 @@
+@use "../variables" as *;
+@use "../vendor/rfs" as *;
+@use "ltr-rtl" as *;
+
+// Generate selectors for theme variants
+@function theme-prefix($theme, $selector) {
+  @return #{"[data-coreui-theme="$theme + "] ." + $theme + "\\:" + $selector + ", [data-coreui-theme="$theme + "] ." + $theme + "\\:" + $selector + ":not([class*='#{$theme}:'])"};
+}
+
 // Utility generator
 // Used to generate utilities & print utilities
 @mixin generate-utility($utility, $infix: "", $is-rfs-media-query: false) {

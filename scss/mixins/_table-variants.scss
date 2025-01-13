@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../functions/color-contrast" as *;
+
 // scss-docs-start table-variant
 @mixin table-variant($state, $background) {
   .table-#{$state} {

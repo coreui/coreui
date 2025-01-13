@@ -1,3 +1,6 @@
+@use "variables" as *;
+@use "functions/color" as *;
+
 // Dark color mode variables
 //
 // Custom variables for the `[data-coreui-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.

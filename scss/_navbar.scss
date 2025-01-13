@@ -1,3 +1,15 @@
+@use "variables" as *;
+@use "functions/escape-svg" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "mixins/color-mode" as *;
+@use "mixins/deprecate" as *;
+@use "mixins/gradients" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
+@use "vendor/rfs" as *;
+
 // Navbar
 //
 // Provide a static navbar from which we expand to create full-width, fixed, and

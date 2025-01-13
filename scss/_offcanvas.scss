@@ -1,4 +1,10 @@
 // stylelint-disable function-disallowed-list
+@use "variables" as *;
+@use "mixins/backdrop" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
 
 %offcanvas-css-vars {
   // scss-docs-start offcanvas-css-vars

@@ -1,3 +1,10 @@
+@use "variables" as *;
+@use "variables-dark" as *;
+@use "maps" as *;
+@use "functions/color" as *;
+@use "mixins/color-mode" as *;
+@use "vendor/rfs" as *;
+
 :root,
 [data-coreui-theme="light"] {
   // Note: Custom variable values only support SassScript inside `#{}`.

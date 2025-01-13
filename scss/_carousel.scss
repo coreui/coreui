@@ -1,3 +1,9 @@
+@use "variables" as *;
+@use "functions/escape-svg" as *;
+@use "mixins/clearfix" as *;
+@use "mixins/color-mode" as *;
+@use "mixins/transition" as *;
+
 // Notes on the classes:
 //
 // 1. .carousel.pointer-event should ideally be pan-y (to allow for users to scroll vertically)

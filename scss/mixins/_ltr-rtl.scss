@@ -1,3 +1,6 @@
+@use "../variables" as *;
+@use "../functions/str-replace" as *;
+
 @mixin ltr {
   @if $enable-ltr {
     html:not([dir="rtl"]) & {

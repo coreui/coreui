@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 .focus-ring:focus {
   outline: 0;
   // By default, there is no `--cui-focus-ring-x`, `--cui-focus-ring-y`, or `--cui-focus-ring-blur`, but we provide CSS variables with fallbacks to initial `0` values

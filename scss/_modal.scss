@@ -1,4 +1,11 @@
 // stylelint-disable function-disallowed-list
+@use "variables" as *;
+@use "mixins/backdrop" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
 
 // .modal-open      - body class for killing the scroll
 // .modal           - container to scroll within
