@@ -117,7 +117,7 @@
     "clipboard": "^2.0.11",
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
-    "eslint-config-xo": "^0.45.0",
+    "eslint-config-xo": "^0.46.0",
     "eslint-plugin-html": "^8.1.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-markdown": "^5.1.0",
