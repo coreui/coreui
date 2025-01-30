@@ -1,3 +1,12 @@
+@use "functions/escape-svg" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/color-mode" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+@use "variables-dark" as *;
+
 //
 // Base styles
 //

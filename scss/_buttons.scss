@@ -1,3 +1,14 @@
+@use "functions/color" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/buttons" as *;
+@use "mixins/color-mode" as *;
+@use "mixins/gradients" as *;
+@use "mixins/transition" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+@use "variables-dark" as *;
+
 //
 // Base styles
 //
@@ -134,21 +145,41 @@
 }
 
 // scss-docs-start btn-variant-loops
-@each $state, $variant in $button-variants {
-  .btn-#{$state} {
-    @include button-variant($variant);
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @if $color == "light" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: shade-color($value, $btn-hover-bg-shade-amount),
+        $hover-border: shade-color($value, $btn-hover-border-shade-amount),
+        $active-background: shade-color($value, $btn-active-bg-shade-amount),
+        $active-border: shade-color($value, $btn-active-border-shade-amount)
+      );
+    } @else if $color == "dark" {
+      @include button-variant(
+        $value,
+        $value,
+        $hover-background: tint-color($value, $btn-hover-bg-tint-amount),
+        $hover-border: tint-color($value, $btn-hover-border-tint-amount),
+        $active-background: tint-color($value, $btn-active-bg-tint-amount),
+        $active-border: tint-color($value, $btn-active-border-tint-amount)
+      );
+    } @else {
+      @include button-variant($value, $value);
+    }
   }
 }
 
-@each $state, $variant in $button-outline-ghost-variants {
-  .btn-outline-#{$state} {
-    @include button-outline-variant($variant);
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant($value);
   }
 }
 
-@each $state, $variant in $button-outline-ghost-variants {
-  .btn-ghost-#{$state} {
-    @include button-ghost-variant($variant);
+@each $color, $value in $theme-colors {
+  .btn-ghost-#{$color} {
+    @include button-ghost-variant($value);
   }
 }
 // scss-docs-end btn-variant-loops
@@ -204,21 +235,21 @@
 
 @if $enable-dark-mode {
   @include color-mode(dark) {
-    @each $state, $variant in $button-variants-dark {
-      .btn-#{$state} {
-        @include button-variant($variant);
+    @each $color, $value in $theme-colors-dark {
+      .btn-#{$color} {
+        @include button-variant($value, $value);
       }
     }
 
-    @each $state, $variant in $button-outline-ghost-variants-dark {
-      .btn-outline-#{$state} {
-        @include button-outline-variant($variant);
+    @each $color, $value in $theme-colors-dark {
+      .btn-outline-#{$color} {
+        @include button-outline-variant($value);
       }
     }
 
-    @each $state, $variant in $button-outline-ghost-variants-dark {
-      .btn-ghost-#{$state} {
-        @include button-ghost-variant($variant);
+    @each $color, $value in $theme-colors-dark {
+      .btn-outline-#{$color} {
+        @include button-ghost-variant($value);
       }
     }
   }

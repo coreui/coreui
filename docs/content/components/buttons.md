@@ -307,48 +307,6 @@ Here's an example of building a custom `.btn-*` modifier class like we do for th
 
 {{< scss-docs name="btn-variables" file="scss/_variables.scss" >}}
 
-### SASS variants
-
-CoreUI allows defining variant colors in two ways.
-
-#### Manual
-
-You can define each color manually and keep full control of the component appearance.
-
-{{< highlight scss >}}
-$button-variants: (
-  "primary": (
-    "background": $your-bg-color,
-    "border": $your-border-color,
-    "color": $your-color,
-    "hover-background": $your-bg-hover-color,
-    "hover-border": $your-hover-border-color,
-    "hover-color": $your-hover-color,
-    "active-background": $your-bg-active-color,
-    "active-border": $your-active-border-color,
-    "active-color": $your-active-color,
-    "disabled-background": $your-bg-disabled-color,,
-    "disabled-border": $your-disabled-border-color,
-    "disabled-color": $your-disabled-color,
-    "shadow": $your-shadow
-  )
-  ...
-);
-{{< /highlight >}}
-
-#### Color function
-
-The color set can be generated automatically thanks to our `button-color-map` function.
-
-{{< scss-docs name="button-color-functions" file="scss/_functions.scss" >}}
-
-{{< highlight scss >}}
-$button-variants: (
-  "primary": btn-color-map($primary),
-  ...
-);
-{{< /highlight >}} -->
-
 ### SASS mixins
 
 CoreUI's button component is built with a base-modifier class approach. This means the bulk of the styling is contained to a base class `.btn` while style variations are confined to modifier classes (e.g., `.btn-danger`). These modifier classes are built from the `$button-variants` map to make customizing the number and name of our modifier classes.
@@ -366,7 +324,5 @@ There are three mixins for buttons: button and button outline variant mixins, pl
 ### SASS loops
 
 Button variants (for regular and outline buttons) use their respective mixins with our `$theme-colors` map to generate the modifier classes in `scss/_buttons.scss`.
-
-{{< scss-docs name="button-variants" file="scss/_variables.scss" >}}
 
 {{< scss-docs name="btn-variant-loops" file="scss/_buttons.scss" >}}

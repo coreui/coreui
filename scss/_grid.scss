@@ -1,3 +1,8 @@
+@use "mixins/grid" as *;
+@use "variables" as *;
+
+$include-column-box-sizing: false !default;
+
 // Row
 //
 // Rows contain your columns.
@@ -15,7 +20,7 @@
     @include make-row();
 
     > * {
-      @include make-col-ready();
+      @include make-col-ready($include-column-box-sizing);
     }
   }
 }

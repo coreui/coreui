@@ -1,3 +1,6 @@
+@use "ltr-rtl" as *;
+@use "../variables" as *;
+
 // scss-docs-start caret-mixins
 @mixin caret-down($width: $caret-width) {
   border-top: $width solid;

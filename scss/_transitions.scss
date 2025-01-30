@@ -1,3 +1,6 @@
+@use "mixins/transition" as *;
+@use "variables" as *;
+
 .fade {
   @include transition($transition-fade);
 

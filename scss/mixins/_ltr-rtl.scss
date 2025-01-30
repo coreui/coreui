@@ -1,3 +1,7 @@
+@use "sass:string";
+@use "../functions/str-replace" as *;
+@use "../variables" as *;
+
 @mixin ltr {
   @if $enable-ltr {
     html:not([dir="rtl"]) & {
@@ -16,14 +20,14 @@
 
 @function reflect($element) {
   $string: #{$element};
-  @if str-index($string, "left") {
+  @if string.index($string, "left") {
     @return str-replace($string, "left", "right");
   }
-  @if str-index($string, "right") {
+  @if string.index($string, "right") {
     @return str-replace($string, "right", "left");
   }
 
-  @return unquote($string);
+  @return string.unquote($string);
 }
 
 @mixin ltr-rtl($property, $value, $property-rtl: null, $value-rtl: null, $important: null) {

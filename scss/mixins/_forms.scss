@@ -1,3 +1,10 @@
+@use "../functions/escape-svg" as *;
+@use "../functions/math" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../vendor/rfs" as *;
+@use "../variables" as *;
+
 // This mixin uses an `if()` technique to be compatible with Dart Sass
 // See https://github.com/sass/sass/issues/1873#issuecomment-152293725 for more details
 
@@ -19,7 +26,7 @@
   $state,
   $color,
   $icon,
-  $tooltip-color: color-contrast($color),
+  $tooltip-color: color-contrast($color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
   $tooltip-bg-color: rgba($color, $form-feedback-tooltip-opacity),
   $focus-box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($color, $input-btn-focus-color-opacity),
   $border-color: $color

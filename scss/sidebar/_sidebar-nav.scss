@@ -1,4 +1,9 @@
 // Sidebar navigation
+@use "../functions/escape-svg" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../mixins/transition" as *;
+@use "../variables" as *;
 
 .sidebar-nav {
   // scss-docs-start sidebar-nav-css-vars

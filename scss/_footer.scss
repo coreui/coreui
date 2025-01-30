@@ -1,3 +1,5 @@
+@use "variables" as *;
+
 .footer {
   // scss-docs-start footer-css-vars
   --#{$prefix}footer-min-height: #{$footer-min-height};

@@ -1,36 +1,34 @@
-@import "../../functions";
-@import "../../variables";
-@import "../../variables-dark";
-@import "../../maps";
-@import "../../mixins";
+@use "sass:map";
 
-$utilities: ();
+@use "../../variables" with (
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 333px,
+    md: 666px
+  )
+);
+
+@use "../../utilities" as *;
+
+$utilities: (
+  margin: (
+    property: margin,
+    values: auto
+  ),
+  padding: (
+    property: padding,
+    responsive: true,
+    values: 1rem
+  ),
+  font-size: (
+    property: font-size,
+    values: (large: 1.25rem),
+    print: true
+  )
+);
 
 @include describe("utilities/api") {
   @include it("generates utilities for each breakpoints") {
-    $utilities: (
-      margin: (
-        property: margin,
-        values: auto
-      ),
-      padding: (
-        property: padding,
-        responsive: true,
-        values: 1rem
-      ),
-      font-size: (
-        property: font-size,
-        values: (large: 1.25rem),
-        print: true
-      )
-    ) !global;
-
-    $grid-breakpoints: (
-      xs: 0,
-      sm: 333px,
-      md: 666px
-    ) !global;
-
     @include assert() {
       @include output() {
         @import "../../utilities/api";

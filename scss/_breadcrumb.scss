@@ -1,3 +1,9 @@
+@use "functions/escape-svg" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/ltr-rtl" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+
 .breadcrumb {
   // scss-docs-start breadcrumb-css-vars
   --#{$prefix}breadcrumb-padding-x: #{$breadcrumb-padding-x};

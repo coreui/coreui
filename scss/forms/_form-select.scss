@@ -1,3 +1,13 @@
+@use "../functions/escape-svg" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/box-shadow" as *;
+@use "../mixins/color-mode" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../mixins/transition" as *;
+@use "../vendor/rfs" as *;
+@use "../variables" as *;
+@use "../variables-dark" as *;
+
 // Select
 //
 // Replaces the browser default select with a custom one, mostly pulled from
@@ -26,7 +36,7 @@
   @include transition($form-select-transition);
 
   &:focus {
-    border-color: var($form-select-focus-border-color);
+    border-color: $form-select-focus-border-color;
     outline: 0;
     @if $enable-shadows {
       @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);

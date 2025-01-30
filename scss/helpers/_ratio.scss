@@ -1,3 +1,6 @@
+@use "../mixins/ltr-rtl" as *;
+@use "../variables" as *;
+
 // Credit: Nicolas Gallagher and SUIT CSS.
 
 .ratio {

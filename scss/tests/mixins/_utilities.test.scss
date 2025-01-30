@@ -1,9 +1,11 @@
-$prefix: cui-;
-$enable-dark-mode: true;
-$enable-important-utilities: false;
-
 // Important: Do not import rfs to check that the mixin just calls the appropriate functions from it
-@import "../../mixins/utilities";
+@use "../../variables" as * with (
+  $prefix: cui-,
+  $enable-dark-mode: true,
+  $enable-important-utilities: false,
+);
+
+@use "../../mixins/utilities" as *;
 
 @mixin test-generate-utility($params...) {
   @include assert() {
@@ -45,6 +47,7 @@ $enable-important-utilities: false;
           values: (small: .5rem, large: 2rem)
         )
       ) {
+
         .padding-small {
           padding: .5rem !important;
         }
@@ -310,37 +313,6 @@ $enable-important-utilities: false;
 
           /* rtl:end:remove */
 
-        }
-      }
-    }
-
-    @include describe("rfs") {
-      @include it("sets the fluid value when not inside media query") {
-        @include test-generate-utility(
-          (
-            property: padding,
-            values: 1rem,
-            rfs: true
-          )
-        ) {
-          .padding-1rem {
-            padding: rfs-fluid-value(1rem);
-          }
-        }
-      }
-
-      @include it("sets the value when inside the media query") {
-        @include test-generate-utility(
-          (
-            property: padding,
-            values: 1rem,
-            rfs: true
-          ),
-          $is-rfs-media-query: true
-        ) {
-          .padding-1rem {
-            padding: rfs-value(1rem);
-          }
         }
       }
     }

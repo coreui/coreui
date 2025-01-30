@@ -1,3 +1,12 @@
+@use "sass:map";
+@use "../functions/escape-svg" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/color-mode" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../mixins/transition" as *;
+@use "../variables" as *;
+@use "../variables-dark" as *;
+
 //
 // Check/radio
 //
@@ -161,8 +170,8 @@
 }
 
 @each $size, $map in $form-switch-widths {
-  $width: map-get($map, "width");
-  $height: map-get($map, "height");
+  $width: map.get($map, "width");
+  $height: map.get($map, "height");
 
   .form-switch-#{$size} {
     min-height: $height;

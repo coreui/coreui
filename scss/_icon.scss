@@ -1,3 +1,6 @@
+@use "mixins/icon" as *;
+@use "variables" as *;
+
 .icon {
   display: inline-block;
   color: inherit;

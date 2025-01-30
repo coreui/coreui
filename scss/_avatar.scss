@@ -1,3 +1,9 @@
+@use "sass:map";
+@use "mixins/border-radius" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
+@use "variables" as *;
+
 .avatar {
   // scss-docs-start avatar-css-vars
   --#{$prefix}avatar-width: #{$avatar-width};
@@ -40,11 +46,11 @@
 
 @each $size, $map in $avatar-sizes {
   .avatar-#{$size} {
-    --#{$prefix}avatar-width: #{map-get($map, "width")};
-    --#{$prefix}avatar-height: #{map-get($map, "height")};
-    --#{$prefix}avatar-font-size: #{map-get($map, "font-size")};
-    --#{$prefix}avatar-status-width: #{map-get($map, "status-width")};
-    --#{$prefix}avatar-status-height: #{map-get($map, "status-height")};
+    --#{$prefix}avatar-width: #{map.get($map, "width")};
+    --#{$prefix}avatar-height: #{map.get($map, "height")};
+    --#{$prefix}avatar-font-size: #{map.get($map, "font-size")};
+    --#{$prefix}avatar-status-width: #{map.get($map, "status-width")};
+    --#{$prefix}avatar-status-height: #{map.get($map, "status-height")};
   }
 }
 

@@ -1,6 +1,6 @@
 // package metadata file for Meteor.js
 
-/* eslint-env meteor */
+/* global Package */
 
 Package.describe({
   name: 'coreui:coreui', // https://atmospherejs.com/coreui/coreui

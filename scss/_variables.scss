@@ -1,3 +1,10 @@
+@use "sass:color";
+@use "sass:string";
+@use "functions/assert" as *;
+@use "functions/color" as *;
+@use "functions/color-contrast" as *;
+@use "functions/math" as *;
+
 // Variables
 //
 // Variables should follow the `$component-state-property-size` formula for
@@ -85,6 +92,7 @@ $min-contrast-ratio:   4.5 !default;
 // Customize the light and dark text colors for use in our color contrast function.
 $color-contrast-dark:      $black !default;
 $color-contrast-light:     $white !default;
+
 
 // fusv-disable
 $blue-100: tint-color($blue, 80%) !default;
@@ -350,7 +358,7 @@ $success-bg-subtle:    #cbedd6 !default;
 $info-bg-subtle:       #c0e6ff !default;
 $warning-bg-subtle:    #feecc5 !default;
 $danger-bg-subtle:     #f9d4d4 !default;
-$light-bg-subtle:      mix($gray-100, $white) !default;
+$light-bg-subtle:      color.mix($gray-100, $white) !default;
 $dark-bg-subtle:       $gray-400 !default;
 // scss-docs-end theme-bg-subtle-variables
 
@@ -404,6 +412,10 @@ $color-mode-type:             data !default; // `data` or `media-query`
 
 $variable-prefix:             cui- !default; // Deprecated in v4.2.6 for the shorter `$prefix`
 $prefix:                      $variable-prefix !default;
+
+// Prefix for data attributes
+
+$data-infix:                  -coreui- !default;
 
 // Set mobile breakpoint
 
@@ -508,8 +520,8 @@ $grid-breakpoints: (
 ) !default;
 // scss-docs-end grid-breakpoints
 
-@include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
-@include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
+@include assert-ascending($grid-breakpoints, "$grid-breakpoints");
+@include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 
 // Grid containers
@@ -526,7 +538,7 @@ $container-max-widths: (
 ) !default;
 // scss-docs-end container-max-widths
 
-@include _assert-ascending($container-max-widths, "$container-max-widths");
+@include assert-ascending($container-max-widths, "$container-max-widths");
 
 
 // Grid columns
@@ -868,7 +880,7 @@ $btn-active-box-shadow:       inset 0 3px 5px rgba($black, .125) !default;
 $btn-link-color:              var(--#{$prefix}link-color) !default;
 $btn-link-hover-color:        var(--#{$prefix}link-hover-color) !default;
 $btn-link-disabled-color:     $gray-600 !default;
-$btn-link-focus-shadow-rgb:   to-rgb(mix(color-contrast($link-color), $link-color, 15%)) !default;
+$btn-link-focus-shadow-rgb:   to-rgb(color.mix(color-contrast($link-color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio), $link-color, 15%)) !default;
 
 // Allows for customizing button radius independently from global border radius
 $btn-border-radius:           var(--#{$prefix}border-radius) !default;
@@ -885,30 +897,6 @@ $btn-active-bg-shade-amount:      20% !default;
 $btn-active-bg-tint-amount:       20% !default;
 $btn-active-border-shade-amount:  25% !default;
 $btn-active-border-tint-amount:   10% !default;
-
-// scss-docs-start button-variants
-$button-variants: (
-  "primary": btn-color-map($primary, $primary),
-  "secondary": btn-color-map($secondary, $secondary),
-  "success": btn-color-map($success, $success),
-  "danger": btn-color-map($danger, $danger),
-  "warning": btn-color-map($warning, $warning),
-  "info": btn-color-map($info, $info),
-  "light": btn-color-map($light, $light),
-  "dark": btn-color-map($dark, $dark)
-) !default;
-
-$button-outline-ghost-variants: (
-  "primary": btn-outline-color-map($primary),
-  "secondary": btn-outline-color-map($secondary),
-  "success": btn-outline-color-map($success),
-  "danger": btn-outline-color-map($danger),
-  "warning": btn-outline-color-map($warning),
-  "info": btn-outline-color-map($info),
-  "light": btn-outline-color-map($light),
-  "dark": btn-outline-color-map($dark)
-) !default;
-// scss-docs-end button-variants
 // scss-docs-end btn-variables
 
 
@@ -1837,7 +1825,7 @@ $breadcrumb-margin-bottom:          1rem !default;
 $breadcrumb-bg:                     null !default;
 $breadcrumb-divider-color:          var(--#{$prefix}secondary-color) !default;
 $breadcrumb-active-color:           var(--#{$prefix}secondary-color) !default;
-$breadcrumb-divider:                quote("/") !default;
+$breadcrumb-divider:                string.quote("/") !default;
 $breadcrumb-divider-flipped:        $breadcrumb-divider !default;
 $breadcrumb-border-radius:          null !default;
 // scss-docs-end breadcrumb-variables
@@ -2062,5 +2050,3 @@ $kbd-bg:                            var(--#{$prefix}body-color) !default;
 $nested-kbd-font-weight:            null !default; // Deprecated in v4.2.6, removing in v6
 
 $pre-color:                         null !default;
-
-@import "variables-dark"; // TODO: can be removed safely in v6, only here to avoid breaking changes in v5

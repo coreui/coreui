@@ -1,22 +1,28 @@
-$enable-ltr: false !default;
-$enable-rtl: true !default;
+@use "bootstrap" with (
+  $enable-ltr: false,
+  $enable-rtl: true
+);
 
-@import "mixins/banner";
-@include bsBanner("");
 
-@import "../../../node_modules/bootstrap/scss/bootstrap";
-@import "../../variables";
+// $enable-ltr: false !default;
+// $enable-rtl: true !default;
 
-/* rtl:begin:ignore */
-@import "../../mixins/avatar";
-@import "../../mixins/icon";
-@import "../../mixins/ltr-rtl";
+// @import "mixins/banner";
+// @include bsBanner("");
 
-@import "../../avatar";
-@import "../../callout";
-@import "../../footer";
-@import "../../header";
-@import "../../icon";
-@import "../../sidebar";
+// @import "../../../node_modules/bootstrap/scss/bootstrap";
+// @import "../../variables";
 
-/* rtl:end:ignore */
+// /* rtl:begin:ignore */
+// @import "../../mixins/avatar";
+// @import "../../mixins/icon";
+// @import "../../mixins/ltr-rtl";
+
+// @import "../../avatar";
+// @import "../../callout";
+// @import "../../footer";
+// @import "../../header";
+// @import "../../icon";
+// @import "../../sidebar";
+
+// /* rtl:end:ignore */

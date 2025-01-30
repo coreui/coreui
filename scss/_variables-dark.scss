@@ -1,6 +1,10 @@
+@use "sass:color";
+@use "functions/color" as *;
+@use "variables" as *;
+
 // Dark color mode variables
 //
-// Custom variables for the `[data-coreui-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+// Custom variables for the `[data#{$data-infix}theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
 
 //
 // Global colors
@@ -42,12 +46,12 @@ $disabled-dark:         rgba($white, .38) !default; // Deprecated in v5.0.0
 // fusv-enable
 
 // scss-docs-start theme-color-dark-variables
-$primary-dark:       desaturate($primary, 10%) !default;
+$primary-dark:       color.scale($primary, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $secondary-dark:     $secondary !default;
-$success-dark:       desaturate($success, 10%) !default;
-$info-dark:          desaturate($info, 10%) !default;
-$warning-dark:       desaturate($warning, 10%) !default;
-$danger-dark:        desaturate($danger, 10%) !default;
+$success-dark:       color.scale($success, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$info-dark:          color.scale($info, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$warning-dark:       color.scale($warning, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$danger-dark:        color.scale($danger, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $light-dark:         $light !default;
 $dark-dark:          $dark !default;
 // scss-docs-end theme-color-dark-variables
@@ -66,12 +70,12 @@ $theme-colors-dark: (
 // scss-docs-end theme-colors-dark-map
 
 // scss-docs-start theme-text-dark-variables
-$primary-text-emphasis-dark:        desaturate($primary-text-emphasis, 10%) !default;
+$primary-text-emphasis-dark:        color.scale($primary-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $secondary-text-emphasis-dark:      $secondary-text-emphasis !default;
-$success-text-emphasis-dark:        desaturate($success-text-emphasis, 10%) !default;
-$info-text-emphasis-dark:           desaturate($info-text-emphasis, 10%) !default;
-$warning-text-emphasis-dark:        desaturate($warning-text-emphasis, 10%) !default;
-$danger-text-emphasis-dark:         desaturate($danger-text-emphasis, 10%) !default;
+$success-text-emphasis-dark:        color.scale($success-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$info-text-emphasis-dark:           color.scale($info-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$warning-text-emphasis-dark:        color.scale($warning-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
+$danger-text-emphasis-dark:         color.scale($danger-text-emphasis, $saturation: -10%) !default; // stylelint-disable-line scss/at-function-named-arguments
 $light-text-emphasis-dark:          $gray-100-dark !default;
 $dark-text-emphasis-dark:           $gray-300-dark !default;
 // scss-docs-end theme-text-dark-variables
@@ -84,7 +88,7 @@ $info-bg-subtle-dark:               $info-bg-subtle !default;
 $warning-bg-subtle-dark:            $warning-bg-subtle !default;
 $danger-bg-subtle-dark:             $danger-bg-subtle !default;
 $light-bg-subtle-dark:              $gray-800-dark !default;
-$dark-bg-subtle-dark:               mix($gray-800-dark, $black) !default;
+$dark-bg-subtle-dark:               color.mix($gray-800-dark, $black) !default;
 // scss-docs-end theme-bg-subtle-dark-variables
 
 // scss-docs-start theme-border-subtle-dark-variables
@@ -103,7 +107,7 @@ $body-bg-dark:                      $gray-900-dark !default;
 $body-secondary-color-dark:         rgba($white, .6) !default;
 $body-secondary-bg-dark:            $gray-800-dark !default;
 $body-tertiary-color-dark:          rgba($white, .38) !default;
-$body-tertiary-bg-dark:             mix($gray-800-dark, #212631, 50%) !default;
+$body-tertiary-bg-dark:             color.mix($gray-800-dark, #212631, 50%) !default;
 $body-emphasis-color-dark:          $white !default;
 $border-color-dark:                 $gray-800-dark !default;
 $border-color-translucent-dark:     rgba($white, .1) !default;
@@ -142,27 +146,4 @@ $accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
 
 $accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
 $accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
-
-
-//
-// Buttons
-//
-
-$button-variants-dark: (
-  "primary":    btn-color-map($primary-dark, $primary-dark),
-  "secondary":  btn-color-map($secondary-dark, $secondary-dark),
-  "success":    btn-color-map($success-dark, $success-dark),
-  "danger":     btn-color-map($danger-dark, $danger-dark),
-  "warning":    btn-color-map($warning-dark, $warning-dark),
-  "info":       btn-color-map($info-dark, $info-dark)
-) !default;
-
-$button-outline-ghost-variants-dark: (
-  "primary":    btn-outline-color-map($primary-dark),
-  "secondary":  btn-outline-color-map($secondary-dark),
-  "success":    btn-outline-color-map($success-dark),
-  "danger":     btn-outline-color-map($danger-dark),
-  "warning":    btn-outline-color-map($warning-dark),
-  "info":       btn-outline-color-map($info-dark)
-) !default;
 // scss-docs-end sass-dark-mode-vars
