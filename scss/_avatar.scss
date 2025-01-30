@@ -1,8 +1,8 @@
 @use "sass:map";
-@use "variables" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/ltr-rtl" as *;
 @use "mixins/transition" as *;
+@use "variables" as *;
 
 .avatar {
   // scss-docs-start avatar-css-vars

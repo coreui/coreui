@@ -1,5 +1,3 @@
-@use "variables" as *;
-@use "variables-dark" as *;
 @use "functions/color" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/box-shadow" as *;
@@ -8,6 +6,8 @@
 @use "mixins/gradients" as *;
 @use "mixins/transition" as *;
 @use "vendor/rfs" as *;
+@use "variables" as *;
+@use "variables-dark" as *;
 
 //
 // Base styles
@@ -201,7 +201,7 @@
   --#{$prefix}btn-disabled-color: #{$btn-link-disabled-color};
   --#{$prefix}btn-disabled-border-color: transparent;
   --#{$prefix}btn-box-shadow: none;
-  // --#{$prefix}btn-focus-shadow-rgb: #{$btn-link-focus-shadow-rgb};
+  --#{$prefix}btn-focus-shadow-rgb: #{$btn-link-focus-shadow-rgb};
 
   text-decoration: $link-decoration;
   @if $enable-gradients {

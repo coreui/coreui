@@ -226,7 +226,7 @@ Next to the [Sass maps]({{< docsref "/customize/color#color-sass-maps" >}}) we h
 
 You can lighten or darken colors with CoreUI for Bootstrap's `tint-color()` and `shade-color()` functions. These functions will mix colors with black or white, unlike Sass' native `lighten()` and `darken()` functions which will change the lightness by a fixed amount, which often doesn't lead to the desired effect.
 
-{{< scss-docs name="color-functions" file="scss/_functions.scss" >}}
+{{< scss-docs name="color-functions" file="scss/functions/_color.scss" >}}
 
 In practice, you'd call the function and pass in the color and weight parameters.
 

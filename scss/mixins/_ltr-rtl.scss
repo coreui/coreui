@@ -1,6 +1,6 @@
 @use "sass:string";
-@use "../variables" as *;
 @use "../functions/str-replace" as *;
+@use "../variables" as *;
 
 @mixin ltr {
   @if $enable-ltr {

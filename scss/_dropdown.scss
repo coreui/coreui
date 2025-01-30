@@ -1,5 +1,4 @@
 @use "sass:map";
-@use "variables" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/box-shadow" as *;
 @use "mixins/breakpoints" as *;
@@ -7,6 +6,7 @@
 @use "mixins/gradients" as *;
 @use "mixins/ltr-rtl" as *;
 @use "vendor/rfs" as *;
+@use "variables" as *;
 
 // The dropdown wrapper (`<div>`)
 .dropup,
@@ -72,7 +72,7 @@
   @include border-radius(var(--#{$prefix}dropdown-border-radius));
   @include box-shadow(var(--#{$prefix}dropdown-box-shadow));
 
-  &[data-coreui-popper] {
+  &[data#{$data-infix}popper] {
     top: 100%;
     @include ltr-rtl("left", 0);
     margin-top: var(--#{$prefix}dropdown-spacer);
@@ -100,18 +100,18 @@
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .dropdown-menu#{$infix}-start {
-      --cui-position: start;
+      --#{$prefix}position: start;
 
-      &[data-coreui-popper] {
+      &[data#{$data-infix}popper] {
         @include ltr-rtl("right", auto);
         @include ltr-rtl("left", 0);
       }
     }
 
     .dropdown-menu#{$infix}-end {
-      --cui-position: end;
+      --#{$prefix}position: end;
 
-      &[data-coreui-popper] {
+      &[data#{$data-infix}popper] {
         @include ltr-rtl("right", 0);
         @include ltr-rtl("left", auto);
       }
@@ -123,7 +123,7 @@
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 // Just add .dropup after the standard .dropdown class and you're set.
 .dropup {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
     top: auto;
     bottom: 100%;
     margin-top: 0;
@@ -136,7 +136,7 @@
 }
 
 .dropend {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
     top: 0;
     @include ltr-rtl("right", auto);
     @include ltr-rtl("left", 100%);
@@ -153,7 +153,7 @@
 }
 
 .dropstart {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
     top: 0;
     @include ltr-rtl("right", 100%);
     @include ltr-rtl("left", auto);

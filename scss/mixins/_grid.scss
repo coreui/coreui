@@ -1,11 +1,11 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:meta";
-@use "../variables" as *;
-@use "../maps" as *;
-@use "../functions/math" as *;
 @use "breakpoints" as *;
 @use "ltr-rtl" as *;
+@use "../functions/math" as *;
+@use "../maps" as *;
+@use "../variables" as *;
 
 // Grid system
 //

@@ -1,9 +1,9 @@
 @use "sass:map";
 @use "sass:string";
-@use "../variables" as *;
 @use "../mixins/border-radius" as *;
 @use "../mixins/ltr-rtl" as *;
 @use "../vendor/rfs" as *;
+@use "../variables" as *;
 
 //
 // Base styles

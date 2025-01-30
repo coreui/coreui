@@ -1,5 +1,4 @@
 @use "sass:map";
-@use "variables" as *;
 @use "functions/escape-svg" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/box-shadow" as *;
@@ -10,6 +9,7 @@
 @use "mixins/ltr-rtl" as *;
 @use "mixins/transition" as *;
 @use "vendor/rfs" as *;
+@use "variables" as *;
 
 // Navbar
 //
@@ -280,7 +280,7 @@
 }
 
 .navbar-dark,
-.navbar[data-coreui-theme="dark"] {
+.navbar[data#{$data-infix}theme="dark"] {
   // scss-docs-start navbar-dark-css-vars
   --#{$prefix}navbar-color: #{$navbar-dark-color};
   --#{$prefix}navbar-hover-color: #{$navbar-dark-hover-color};

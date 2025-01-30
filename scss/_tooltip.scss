@@ -1,8 +1,8 @@
-@use "variables" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/deprecate" as *;
 @use "mixins/reset-text" as *;
 @use "vendor/rfs" as *;
+@use "variables" as *;
 
 // Base class
 .tooltip {

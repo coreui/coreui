@@ -1,13 +1,13 @@
 @use "sass:color";
 @use "sass:map";
 @use "sass:math";
-@use "../variables" as *;
 @use "math" as *;
 
 // Color contrast
 // See https://github.com/twbs/bootstrap/pull/30168
 
-@function color-contrast($background, $color-contrast-dark: $color-contrast-dark, $color-contrast-light: $color-contrast-light, $min-contrast-ratio: $min-contrast-ratio) {
+
+@function color-contrast($background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio) {
   $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $black;
   $max-ratio: 0;
   $max-ratio-color: null;
@@ -27,7 +27,7 @@
   @return $max-ratio-color;
 }
 
-@function contrast-ratio($background, $foreground: $color-contrast-light) {
+@function contrast-ratio($background, $foreground) {
   $l1: luminance($background);
   $l2: luminance(opaque($background, $foreground));
 

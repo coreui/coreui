@@ -1,10 +1,10 @@
 @use "sass:color";
-@use "variables" as *;
 @use "functions/color" as *;
+@use "variables" as *;
 
 // Dark color mode variables
 //
-// Custom variables for the `[data-coreui-theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
+// Custom variables for the `[data#{$data-infix}theme="dark"]` theme. Use this as a starting point for your own custom color modes by creating a new theme-specific file like `_variables-dark.scss` and adding the variables you need.
 
 //
 // Global colors
@@ -146,3 +146,4 @@ $accordion-icon-active-color-dark:  $primary-text-emphasis-dark !default;
 
 $accordion-button-icon-dark:         url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
 $accordion-button-active-icon-dark:  url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{$accordion-icon-active-color-dark}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708'/></svg>") !default;
+// scss-docs-end sass-dark-mode-vars

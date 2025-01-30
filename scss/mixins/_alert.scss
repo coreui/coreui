@@ -1,5 +1,6 @@
 @use "../variables" as *;
 @use "../mixins/deprecate" as *;
+
 @include deprecate("`alert-variant()`", "v4.3.0", "v6.0.0");
 
 // scss-docs-start alert-variant-mixin

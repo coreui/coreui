@@ -15,7 +15,7 @@
       }
     }
   } @else {
-    [data-coreui-theme="#{$mode}"] {
+    [data#{$data-infix}theme="#{$mode}"] {
       @content;
     }
   }

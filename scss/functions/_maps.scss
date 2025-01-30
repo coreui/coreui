@@ -1,8 +1,8 @@
 @use "sass:list";
 @use "sass:map";
 @use "sass:meta";
-@use "../variables" as *;
 @use "color" as *;
+@use "../variables" as *;
 
 // stylelint-disable scss/dollar-variable-pattern
 @function map-loop($map, $func, $args...) {

@@ -5,5 +5,5 @@
 @forward "variables";
 @forward "variables-dark";
 
-@use "root";
-@use "reboot";
+@forward "root";
+@forward "reboot";

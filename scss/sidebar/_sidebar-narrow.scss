@@ -1,6 +1,6 @@
-@use "../variables" as *;
 @use "../mixins/breakpoints" as *;
 @use "../mixins/ltr-rtl" as *;
+@use "../variables" as *;
 @use "sidebar" as *;
 
 .sidebar-narrow {
