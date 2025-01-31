@@ -1,5 +1,6 @@
 @use "sass:meta";
 @use "functions/color" as *;
+@use "functions/to-rgb" as *;
 @use "mixins/color-mode" as *;
 @use "vendor/rfs" as *;
 @use "maps" as *;

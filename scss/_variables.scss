@@ -1,9 +1,11 @@
 @use "sass:color";
 @use "sass:string";
-@use "functions/assert" as *;
+@use "functions/assert-ascending" as *;
+@use "functions/assert-starts-at-zero" as *;
 @use "functions/color" as *;
-@use "functions/color-contrast" as *;
+@use "functions/color-contrast-variables" as *;
 @use "functions/math" as *;
+@use "functions/to-rgb" as *;
 
 // Variables
 //

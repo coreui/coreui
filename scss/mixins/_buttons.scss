@@ -1,6 +1,7 @@
 @use "sass:color";
 @use "../functions/color" as *;
 @use "../functions/color-contrast" as *;
+@use "../functions/to-rgb" as *;
 @use "../vendor/rfs" as *;
 @use "../variables" as *;
 
@@ -13,16 +14,16 @@
 @mixin button-variant(
   $background,
   $border,
-  $color: color-contrast($background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $color: color-contrast($background),
   $hover-background: if($color == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount)),
   $hover-border: if($color == $color-contrast-light, shade-color($border, $btn-hover-border-shade-amount), tint-color($border, $btn-hover-border-tint-amount)),
-  $hover-color: color-contrast($hover-background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $hover-color: color-contrast($hover-background),
   $active-background: if($color == $color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount)),
   $active-border: if($color == $color-contrast-light, shade-color($border, $btn-active-border-shade-amount), tint-color($border, $btn-active-border-tint-amount)),
-  $active-color: color-contrast($active-background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $active-color: color-contrast($active-background),
   $disabled-background: $background,
   $disabled-border: $border,
-  $disabled-color: color-contrast($disabled-background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)
+  $disabled-color: color-contrast($disabled-background)
 ) {
   --#{$prefix}btn-color: #{$color};
   --#{$prefix}btn-bg: #{$background};
@@ -44,10 +45,10 @@
 // scss-docs-start btn-outline-variant-mixin
 @mixin button-outline-variant(
   $color,
-  $color-hover: color-contrast($color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $color-hover: color-contrast($color),
   $active-background: $color,
   $active-border: $color,
-  $active-color: color-contrast($active-background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)
+  $active-color: color-contrast($active-background)
 ) {
   --#{$prefix}btn-color: #{$color};
   --#{$prefix}btn-border-color: #{$color};
@@ -69,13 +70,13 @@
 // scss-docs-start btn-ghost-variant-mixin
 @mixin button-ghost-variant(
   $color,
-  $color-hover: color-contrast($color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $color-hover: color-contrast($color),
   $hover-background: $color,
   $hover-border: $color,
-  $hover-color: color-contrast($color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio),
+  $hover-color: color-contrast($color),
   $active-background: $color,
   $active-border: $color,
-  $active-color: color-contrast($color, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)
+  $active-color: color-contrast($color)
 ) {
   --#{$prefix}btn-color: #{$color};
   --#{$prefix}btn-border-color: transparent;

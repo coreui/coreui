@@ -1,10 +1,9 @@
 @use "contrast-ratio" as *;
-@use "../variables" as *;
 
 // Color contrast
 // See https://github.com/twbs/bootstrap/pull/30168
 
-@function color-contrast($background, $color-contrast-dark: $color-contrast-dark, $color-contrast-light: $color-contrast-light, $min-contrast-ratio: $min-contrast-ratio) {
+@function color-contrast($background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio) {
   $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $black;
   $max-ratio: 0;
   $max-ratio-color: null;

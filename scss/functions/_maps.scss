@@ -2,6 +2,8 @@
 @use "sass:map";
 @use "sass:meta";
 @use "color" as *;
+@use "rgba-css-var" as *;
+@use "to-rgb" as *;
 @use "../variables" as *;
 
 // stylelint-disable scss/dollar-variable-pattern

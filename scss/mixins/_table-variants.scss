@@ -1,12 +1,13 @@
 @use "sass:color";
 @use "sass:math";
 @use "../functions/color-contrast" as *;
+@use "../functions/contrast-ratio" as *;
 @use "../variables" as *;
 
 // scss-docs-start table-variant
 @mixin table-variant($state, $background) {
   .table-#{$state} {
-    $color: color-contrast(opaque($body-bg, $background), $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio);
+    $color: color-contrast(opaque($body-bg, $background));
     $hover-bg: color.mix($color, $background, math.percentage($table-hover-bg-factor));
     $striped-bg: color.mix($color, $background, math.percentage($table-striped-bg-factor));
     $active-bg: color.mix($color, $background, math.percentage($table-active-bg-factor));
@@ -16,11 +17,11 @@
     --#{$prefix}table-bg: #{$background};
     --#{$prefix}table-border-color: #{$table-border-color};
     --#{$prefix}table-striped-bg: #{$striped-bg};
-    --#{$prefix}table-striped-color: #{color-contrast($striped-bg, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)};
+    --#{$prefix}table-striped-color: #{color-contrast($striped-bg)};
     --#{$prefix}table-active-bg: #{$active-bg};
-    --#{$prefix}table-active-color: #{color-contrast($active-bg, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)};
+    --#{$prefix}table-active-color: #{color-contrast($active-bg)};
     --#{$prefix}table-hover-bg: #{$hover-bg};
-    --#{$prefix}table-hover-color: #{color-contrast($hover-bg, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio)};
+    --#{$prefix}table-hover-color: #{color-contrast($hover-bg)};
 
     color: var(--#{$prefix}table-color);
     border-color: var(--#{$prefix}table-border-color);

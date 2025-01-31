@@ -1,5 +1,6 @@
 @use "../functions/color" as *;
 @use "../functions/color-contrast" as *;
+@use "../functions/to-rgb" as *;
 @use "../variables" as *;
 
 @each $color, $value in $theme-colors {
@@ -10,7 +11,7 @@
     @if $link-shade-percentage != 0 {
       &:hover,
       &:focus {
-        $hover-color: if(color-contrast($value, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio) == $color-contrast-light, shade-color($value, $link-shade-percentage), tint-color($value, $link-shade-percentage));
+        $hover-color: if(color-contrast($value) == $color-contrast-light, shade-color($value, $link-shade-percentage), tint-color($value, $link-shade-percentage));
         color: rgba(#{to-rgb($hover-color)}, var(--#{$prefix}link-opacity, 1)) if($enable-important-utilities, !important, null);
         text-decoration-color: rgba(to-rgb($hover-color), var(--#{$prefix}link-underline-opacity, 1)) if($enable-important-utilities, !important, null);
       }
