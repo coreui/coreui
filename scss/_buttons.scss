@@ -248,7 +248,7 @@
     }
 
     @each $color, $value in $theme-colors-dark {
-      .btn-outline-#{$color} {
+      .btn-ghost-#{$color} {
         @include button-ghost-variant($value);
       }
     }
