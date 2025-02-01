@@ -10,8 +10,6 @@ toc: true
 
 We recommend getting familiar with CoreUI for Bootstrap first by reading through our [Getting Started Introduction page]({{< docsref "/getting-started/introduction" >}}). Once you've run through it, continue reading here for how to enable RTL.
 
-You may also want to read up on [the RTLCSS project](https://rtlcss.com/), as it powers our approach to RTL.
-
 ## Required HTML
 
 There are two strict requirements for enabling RTL in Bootstrap-powered pages.
