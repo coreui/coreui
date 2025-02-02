@@ -2,7 +2,6 @@
 @use "../functions/escape-svg" as *;
 @use "../mixins/border-radius" as *;
 @use "../mixins/color-mode" as *;
-@use "../mixins/ltr-rtl" as *;
 @use "../mixins/transition" as *;
 @use "../variables" as *;
 @use "../variables-dark" as *;
@@ -14,24 +13,22 @@
 .form-check {
   display: block;
   min-height: $form-check-min-height;
-  @include ltr-rtl("padding-left", $form-check-padding-start);
+  padding-inline-start: $form-check-padding-start;
   margin-bottom: $form-check-margin-bottom;
 
   .form-check-input {
-    @include ltr-rtl("float", left);
-    @include ltr-rtl("margin-left", $form-check-padding-start * -1);
+    float: inline-start;
+    margin-inline-start: $form-check-padding-start * -1;
   }
 }
 
 .form-check-reverse {
-  @include ltr-rtl("padding-right", $form-check-padding-start);
-  @include ltr-rtl("padding-left", 0);
-  @include ltr-rtl("text-align", right);
+  padding-inline: 0 $form-check-padding-start;
+  text-align: end;
 
   .form-check-input {
-    @include ltr-rtl("float", right);
-    @include ltr-rtl("margin-right", $form-check-padding-start * -1);
-    @include ltr-rtl("margin-left", 0);
+    float: inline-end;
+    margin-inline: 0 $form-check-padding-start * -1;
   }
 }
 
@@ -131,13 +128,13 @@
 //
 
 .form-switch {
-  @include ltr-rtl("padding-left", $form-switch-padding-start);
+  padding-inline-start: $form-switch-padding-start;
 
   .form-check-input {
     --#{$prefix}form-switch-bg: #{escape-svg($form-switch-bg-image)};
 
     width: $form-switch-width;
-    @include ltr-rtl("margin-left", $form-switch-padding-start * -1);
+    margin-inline-start: $form-switch-padding-start * -1;
     background-image: var(--#{$prefix}form-switch-bg);
     background-position: left center;
     @include border-radius($form-switch-border-radius, 0);
@@ -159,12 +156,10 @@
   }
 
   &.form-check-reverse {
-    @include ltr-rtl("padding-right", $form-check-padding-start);
-    @include ltr-rtl("padding-left", 0);
+    padding-inline: 0 $form-switch-padding-start;
 
     .form-check-input {
-      @include ltr-rtl("margin-right", $form-check-padding-start * -1);
-      @include ltr-rtl("margin-left", 0);
+      margin-inline: 0 $form-switch-padding-start * -1;
     }
   }
 }
@@ -175,12 +170,12 @@
 
   .form-switch-#{$size} {
     min-height: $height;
-    @include ltr-rtl("padding-left", $width + .5em);
+    padding-inline-start: $width + .5em;
 
     .form-check-input {
       width: $width;
       height: $height;
-      @include ltr-rtl("margin-left", ($width + .5em) * -1);
+      margin-inline-start: ($width + .5em) * -1;
     }
 
     .form-check-label {
@@ -192,7 +187,7 @@
 
 .form-check-inline {
   display: inline-block;
-  @include ltr-rtl("margin-right", $form-check-inline-margin-end);
+  margin-inline-end: $form-check-inline-margin-end;
 }
 
 .btn-check {

@@ -4,7 +4,6 @@
 @use "mixins/border-radius" as *;
 @use "mixins/box-shadow" as *;
 @use "mixins/breakpoints" as *;
-@use "mixins/ltr-rtl" as *;
 @use "mixins/transition" as *;
 @use "variables" as *;
 
@@ -41,8 +40,8 @@
   // scss-docs-end modal-css-vars
 
   position: fixed;
+  inset-inline-start: 0;
   top: 0;
-  @include ltr-rtl("left", 0);
   z-index: var(--#{$prefix}modal-zindex);
   display: none;
   width: 100%;
@@ -140,7 +139,9 @@
 
   .btn-close {
     padding: calc(var(--#{$prefix}modal-header-padding-y) * .5) calc(var(--#{$prefix}modal-header-padding-x) * .5);
-    @include ltr-rtl-value-only("margin", calc(-.5 * var(--#{$prefix}modal-header-padding-y)) calc(-.5 * var(--#{$prefix}modal-header-padding-x)) calc(-.5 * var(--#{$prefix}modal-header-padding-y)) auto, calc(-.5 * var(--#{$prefix}modal-header-padding-y)) auto calc(-.5 * var(--#{$prefix}modal-header-padding-y)) calc(-.5 * var(--#{$prefix}modal-header-padding-x)));
+    margin-inline: auto calc(-.5 * var(--#{$prefix}modal-header-padding-x));
+    margin-top: calc(-.5 * var(--#{$prefix}modal-header-padding-y));
+    margin-bottom: calc(-.5 * var(--#{$prefix}modal-header-padding-y));
   }
 }
 

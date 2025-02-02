@@ -30,11 +30,11 @@
 .breadcrumb-item {
   // The separator between breadcrumbs (by default, a forward-slash: "/")
   + .breadcrumb-item {
-    @include ltr-rtl("padding-left",  var(--#{$prefix}breadcrumb-item-padding-x));
+    padding-inline-start: var(--#{$prefix}breadcrumb-item-padding-x);
 
     &::before {
-      @include ltr-rtl("float", left); // Suppress inline spacings and underlining of the separator
-      @include ltr-rtl("padding-right", var(--#{$prefix}breadcrumb-item-padding-x));
+      float: inline-start; // Suppress inline spacings and underlining of the separator
+      padding-inline-end: var(--#{$prefix}breadcrumb-item-padding-x);
       color: var(--#{$prefix}breadcrumb-divider-color);
       @include ltr-rtl(
         "content",

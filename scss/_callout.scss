@@ -1,5 +1,4 @@
 @use "mixins/border-radius" as *;
-@use "mixins/ltr-rtl" as *;
 @use "variables" as *;
 
 .callout {
@@ -17,8 +16,8 @@
   padding: var(--#{$prefix}callout-padding-y) var(--#{$prefix}callout-padding-x);
   margin: var(--#{$prefix}callout-margin-y) var(--#{$prefix}callout-margin-x);
   border: var(--#{$prefix}callout-border-width) solid var(--#{$prefix}callout-border-color);
-  @include ltr-rtl("border-left-width", var(--#{$prefix}callout-border-left-width));
-  @include ltr-rtl("border-left-color", var(--#{$prefix}callout-border-left-color));
+  border-inline-start-color: var(--#{$prefix}callout-border-left-color);
+  border-inline-start-width: var(--#{$prefix}callout-border-left-width);
   @include border-radius(var(--#{$prefix}callout-border-radius));
 }
 

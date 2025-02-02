@@ -1,6 +1,5 @@
 @use "mixins/border-radius" as *;
 @use "mixins/gradients" as *;
-@use "mixins/ltr-rtl" as *;
 @use "mixins/transition" as *;
 @use "vendor/rfs" as *;
 @use "variables" as *;
@@ -23,7 +22,7 @@
 
   display: flex;
   flex-wrap: wrap;
-  @include ltr-rtl("padding-left", 0);
+  padding-inline-start: 0;
   margin-bottom: 0;
   list-style: none;
 }

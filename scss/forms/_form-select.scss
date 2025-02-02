@@ -18,7 +18,10 @@
 
   display: block;
   width: 100%;
-  @include ltr-rtl-value-only("padding", $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x, $form-select-padding-y $form-select-padding-x $form-select-padding-y $form-select-indicator-padding);
+  padding-inline-start: $form-select-padding-x;
+  padding-inline-end: $form-select-indicator-padding;
+  padding-top: $form-select-padding-y;
+  padding-bottom: $form-select-padding-y;
   font-family: $form-select-font-family;
   @include font-size($form-select-font-size);
   font-weight: $form-select-font-weight;
@@ -48,7 +51,7 @@
 
   &[multiple],
   &[size]:not([size="1"]) {
-    @include ltr-rtl("padding-right", $form-select-padding-x);
+    padding-inline-end: $form-select-padding-x;
     background-image: none;
   }
 
@@ -66,17 +69,17 @@
 }
 
 .form-select-sm {
+  padding-inline-start: $form-select-padding-x-sm;
   padding-top: $form-select-padding-y-sm;
   padding-bottom: $form-select-padding-y-sm;
-  @include ltr-rtl("padding-left", $form-select-padding-x-sm);
   @include font-size($form-select-font-size-sm);
   @include border-radius($form-select-border-radius-sm);
 }
 
 .form-select-lg {
+  padding-inline-start: $form-select-padding-x-lg;
   padding-top: $form-select-padding-y-lg;
   padding-bottom: $form-select-padding-y-lg;
-  @include ltr-rtl("padding-left", $form-select-padding-x-lg);
   @include font-size($form-select-font-size-lg);
   @include border-radius($form-select-border-radius-lg);
 }

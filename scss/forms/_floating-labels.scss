@@ -1,5 +1,4 @@
 @use "../mixins/border-radius" as *;
-@use "../mixins/ltr-rtl" as *;
 @use "../mixins/transition" as *;
 @use "../variables" as *;
 
@@ -16,8 +15,8 @@
 
   > label {
     position: absolute;
+    inset-inline-start: 0;
     top: 0;
-    @include ltr-rtl("left", 0);
     z-index: 2;
     max-width: 100%;
     height: 100%; // allow textareas

@@ -1,5 +1,4 @@
 @use "mixins/border-radius" as *;
-@use "mixins/ltr-rtl" as *;
 @use "vendor/rfs" as *;
 @use "variables" as *;
 
@@ -161,10 +160,10 @@ address {
 
 // Lists
 
-// ol,
-// ul {
-//   @include ltr-rtl("padding-left", 2rem); // TODO: find solution
-// }
+ol,
+ul {
+  padding-inline-start: 2rem;
+}
 
 ol,
 ul,
@@ -187,8 +186,8 @@ dt {
 // 1. Undo browser default
 
 dd {
+  margin-inline-start: 0; // 1
   margin-bottom: .5rem;
-  @include ltr-rtl("margin-left", 0); // 1
 }
 
 
@@ -355,7 +354,7 @@ caption {
   padding-top: $table-cell-padding-y;
   padding-bottom: $table-cell-padding-y;
   color: var(--#{$prefix}table-caption-color, $table-caption-color);
-  @include ltr-rtl("text-align", left);
+  text-align: start;
 }
 
 // 1. Removes font-weight bold by inheriting
@@ -499,7 +498,7 @@ fieldset {
 //    See https://github.com/twbs/bootstrap/issues/29712
 
 legend {
-  @include ltr-rtl("float", left); // 1
+  float: inline-start; // 1
   width: 100%;
   padding: 0;
   margin-bottom: $legend-margin-bottom;

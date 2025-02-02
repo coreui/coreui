@@ -1,7 +1,6 @@
 @use "sass:map";
 @use "sass:string";
 @use "../mixins/border-radius" as *;
-@use "../mixins/ltr-rtl" as *;
 @use "../vendor/rfs" as *;
 @use "../variables" as *;
 
@@ -92,7 +91,7 @@
 
 .input-group-lg > .form-select,
 .input-group-sm > .form-select {
-  @include ltr-rtl("padding-right", $form-select-padding-x + $form-select-indicator-padding);
+  padding-inline-end: $form-select-padding-x + $form-select-indicator-padding;
 }
 
 
@@ -128,7 +127,7 @@
   }
 
   > :not(:first-child):not(.dropdown-menu)#{$validation-messages} {
-    @include ltr-rtl("margin-left", calc(#{$input-border-width} * -1));
+    margin-inline-start: calc(#{$input-border-width} * -1); // stylelint-disable-line function-disallowed-list
     @include border-start-radius(0);
   }
 
