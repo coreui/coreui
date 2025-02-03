@@ -146,6 +146,8 @@
 
 .docs-example-row [class^="col"],
 .docs-example-cols [class^="col"] > *,
+.docs-example-row [class^="c-col"],
+.docs-example-cols [class^="c-col"] > *,
 .docs-example-cssgrid [class*="grid"] > * {
   padding-top: .75rem;
   padding-bottom: .75rem;

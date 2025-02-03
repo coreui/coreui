@@ -406,6 +406,7 @@ $enable-deprecation-messages: true !default;
 $enable-important-utilities:  true !default;
 $enable-ltr:                  true !default;
 $enable-rtl:                  false !default;
+$enable-container-queries:    false !default;
 
 $enable-dark-mode:            true !default;
 $color-mode-type:             data !default; // `data` or `media-query`
@@ -525,6 +526,19 @@ $grid-breakpoints: (
 @include assert-ascending($grid-breakpoints, "$grid-breakpoints");
 @include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
+// scss-docs-start cq-grid-breakpoints
+$c-grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+) !default;
+
+@include assert-ascending($c-grid-breakpoints, "$c-grid-breakpoints");
+@include assert-starts-at-zero($c-grid-breakpoints, "$c-grid-breakpoints");
+// scss-docs-end cq-grid-breakpoints
 
 // Grid containers
 //

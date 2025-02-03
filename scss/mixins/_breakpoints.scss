@@ -129,3 +129,76 @@
     }
   }
 }
+
+//
+// Container query mixins
+//
+
+// Container query for applying styles when the container’s inline size is at least the breakpoint’s minimum width.
+@mixin container-breakpoint-up($name, $breakpoints: $c-grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @container (min-width: #{$min}) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Container query for applying styles when the container’s inline size is at most the breakpoint’s maximum width.
+@mixin container-breakpoint-down($name, $breakpoints: $c-grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @container (max-width: #{$max}) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Container query for applying styles between two breakpoints.
+@mixin container-breakpoint-between($lower, $upper, $breakpoints: $c-grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @container (min-width: #{$min}) and (max-width: #{$max}) {
+      @content;
+    }
+  } @else if $max == null {
+    // When the upper breakpoint is the last one.
+    @include container-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    // When the lower breakpoint is the smallest.
+    @include container-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Container query for applying styles only within a single breakpoint range.
+@mixin container-breakpoint-only($name, $breakpoints: $c-grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $next: breakpoint-next($name, $breakpoints);
+  $max: breakpoint-max($next, $breakpoints);
+
+  @if $min != null and $max != null {
+    @container (min-width: #{$min}) and (max-width: #{$max}) {
+      @content;
+    }
+  } @else if $max == null {
+    // Last breakpoint – no maximum query.
+    @include container-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    // First breakpoint – no minimum query.
+    @include container-breakpoint-down($next, $breakpoints) {
+      @content;
+    }
+  }
+}
