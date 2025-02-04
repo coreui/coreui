@@ -111,7 +111,7 @@ class Navigation extends BaseComponent {
         })
       }
 
-      if (!this._config.activeLinksExact && element.href.startsWith(currentUrl)) {
+      if (!this._config.activeLinksExact && currentUrl.startsWith(element.href)) {
         element.classList.add(CLASS_NAME_ACTIVE)
         // eslint-disable-next-line unicorn/no-array-for-each
         Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
