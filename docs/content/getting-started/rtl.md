@@ -105,9 +105,22 @@ $font-family-sans-serif:
 
 Need both LTR and RTL on the same page? All you have to do is set following variables:
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: true,
+  $enable-rtl: true
+);
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 $enable-ltr: true;
 $enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
 ```
 
 
@@ -117,9 +130,22 @@ After running Sass, each selector in your CSS files will be prepended by `html:n
 
 By default LTR is enable and RTL is disable, but you can easily change it and use only RTL.
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: false,
+  $enable-rtl: true
+);
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 $enable-ltr: false;
 $enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
 ```
 
 ## Additional resources

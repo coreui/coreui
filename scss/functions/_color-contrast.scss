@@ -4,6 +4,7 @@
 // Color contrast
 // See https://github.com/twbs/bootstrap/pull/30168
 
+// scss-docs-start color-contrast-function
 @function color-contrast($background, $color-contrast-dark: $color-contrast-dark, $color-contrast-light: $color-contrast-light, $min-contrast-ratio: $min-contrast-ratio) {
   $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $black;
   $max-ratio: 0;
@@ -23,3 +24,4 @@
 
   @return $max-ratio-color;
 }
+// scss-docs-end color-contrast-function

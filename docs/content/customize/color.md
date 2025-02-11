@@ -477,6 +477,38 @@ Bootstrap doesn't include `color` and `background-color` utilities for every col
 
 Here's an example that generates text color utilities (e.g., `.text-purple-500`) using the above steps.
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "sass:map";
+@use "@coreui/coreui/scss/functions/maps" as *;
+@use "@coreui/coreui/scss/variables" as *;
+@use "@coreui/coreui/scss/utilities" as *;
+
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+@use "@coreui/coreui/scss/utilities/api";
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 @import "@coreui/coreui/scss/functions";
 @import "@coreui/coreui/scss/variables";

@@ -112,8 +112,16 @@ Importing CoreUI into Parcel requires two imports, one into our `styles.scss` an
 
 1. **Import CoreUI's CSS.** Add the following to `src/scss/styles.scss` to import all of CoreUI's source Sass.
 
+   {{< callout-dart-sass-modules >}}
+   
    ```scss
    // Import all of CoreUI's CSS
+   @use "~@coreui/coreui/scss/coreui";
+   ```
+
+   {{< callout-dart-sass-deprecations >}}
+  
+   ```scss
    @import "~@coreui/coreui/scss/coreui";
    ```
 
