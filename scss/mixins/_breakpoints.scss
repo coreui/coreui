@@ -135,7 +135,7 @@
 //
 
 // Container query for applying styles when the container’s inline size is at least the breakpoint’s minimum width.
-@mixin container-breakpoint-up($name, $breakpoints: $c-grid-breakpoints) {
+@mixin container-breakpoint-up($name, $breakpoints: $cq-grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {
     @container (min-width: #{$min}) {
@@ -147,7 +147,7 @@
 }
 
 // Container query for applying styles when the container’s inline size is at most the breakpoint’s maximum width.
-@mixin container-breakpoint-down($name, $breakpoints: $c-grid-breakpoints) {
+@mixin container-breakpoint-down($name, $breakpoints: $cq-grid-breakpoints) {
   $max: breakpoint-max($name, $breakpoints);
   @if $max {
     @container (max-width: #{$max}) {
@@ -159,7 +159,7 @@
 }
 
 // Container query for applying styles between two breakpoints.
-@mixin container-breakpoint-between($lower, $upper, $breakpoints: $c-grid-breakpoints) {
+@mixin container-breakpoint-between($lower, $upper, $breakpoints: $cq-grid-breakpoints) {
   $min: breakpoint-min($lower, $breakpoints);
   $max: breakpoint-max($upper, $breakpoints);
 
@@ -181,7 +181,7 @@
 }
 
 // Container query for applying styles only within a single breakpoint range.
-@mixin container-breakpoint-only($name, $breakpoints: $c-grid-breakpoints) {
+@mixin container-breakpoint-only($name, $breakpoints: $cq-grid-breakpoints) {
   $min: breakpoint-min($name, $breakpoints);
   $next: breakpoint-next($name, $breakpoints);
   $max: breakpoint-max($next, $breakpoints);

@@ -527,7 +527,7 @@ $grid-breakpoints: (
 @include assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
 // scss-docs-start cq-grid-breakpoints
-$c-grid-breakpoints: (
+$cq-grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
@@ -536,8 +536,8 @@ $c-grid-breakpoints: (
   xxl: 1400px
 ) !default;
 
-@include assert-ascending($c-grid-breakpoints, "$c-grid-breakpoints");
-@include assert-starts-at-zero($c-grid-breakpoints, "$c-grid-breakpoints");
+@include assert-ascending($cq-grid-breakpoints, "$cq-grid-breakpoints");
+@include assert-starts-at-zero($cq-grid-breakpoints, "$cq-grid-breakpoints");
 // scss-docs-end cq-grid-breakpoints
 
 // Grid containers

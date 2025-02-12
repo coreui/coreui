@@ -46,7 +46,11 @@ $include-column-box-sizing: false !default;
 }
 
 @if $enable-container-queries {
-  .c-row {
+  .cq-container {
+    container-type: inline-size;
+  }
+
+  .cq-row {
     container-type: inline-size;
     @include make-row();
 

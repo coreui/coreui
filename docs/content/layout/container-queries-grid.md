@@ -21,21 +21,21 @@ CoreUI’s container query grid system uses a series of containers, rows, and co
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       Column
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       Column
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       Column
     </div>
   </div>
 </div>
 {{< /example >}}
 
-In the above example a container (which must declare `container-type: inline-size`) holds a row (`.c-row`) of equal-width columns (`.c-col`). Because the breakpoints are now determined by the container’s size, you can design components that respond to their own layout context, rather than to the viewport.
+In the above example a container (which must declare `container-type: inline-size`) holds a row (`.cq-row`) of equal-width columns (`.cq-col`). Because the breakpoints are now determined by the container’s size, you can design components that respond to their own layout context, rather than to the viewport.
 
 ## How it works
 
@@ -44,20 +44,20 @@ Breaking it down, here’s how our container query grid system comes together:
 - **Container query CSS Grid is opt-in.**  
   Enable the container query CSS Grid by setting `$enable-container-queries: true`. Then, recompile your Sass.
 
-- **Replace instances of `.row` with `.c-row`.**  
-  The `.c-row` class sets `container-type: inline-size` and allows to use `@container` queries inside.
+- **Replace instances of `.row` with `.cq-row`.**  
+  The `.cq-row` class sets `container-type: inline-size` and allows to use `@container` queries inside.
 
 - **Responsive breakpoints are still supported.**  
   Our grid supports six default breakpoints. Instead of media queries targeting the viewport, we use container queries so that styles adjust when a container reaches a specified minimum width. This means a grid component can be responsive regardless of its location on the page.
 
 - **Rows are wrappers for columns.**  
-  Our grid rows (now named `.c-row`) wrap a set of columns. Each column has horizontal padding (the gutter) to space elements apart, and the row uses negative margins to ensure proper alignment.
+  Our grid rows (now named `.cq-row`) wrap a set of columns. Each column has horizontal padding (the gutter) to space elements apart, and the row uses negative margins to ensure proper alignment.
 
 - **Columns are incredibly flexible.**  
-  With 12 columns available per row, you can create different combinations using the classes (e.g. `.c-col-4` spans four columns). Column widths are percentage-based, ensuring the layout scales as the container grows.
+  With 12 columns available per row, you can create different combinations using the classes (e.g. `.cq-col-4` spans four columns). Column widths are percentage-based, ensuring the layout scales as the container grows.
 
 - **Gutters are responsive and customizable.**  
-  Gutter classes (such as `.c-gx-*`, `.c-gy-*`, and `.c-g-*`) work across all breakpoints, so you can adjust spacing as needed.
+  Gutter classes (such as `.cq-gx-*`, `.cq-gy-*`, and `.cq-g-*`) work across all breakpoints, so you can adjust spacing as needed.
 
 - **Sass variables, maps, and mixins power the grid.**  
   You can customize the grid by modifying Sass variables and mixins. The same variables that once generated media query–based classes are now used with container query mixins like `container-breakpoint-up()` to create responsive components.
@@ -73,7 +73,7 @@ The container query grid system adapts to six responsive tiers by default:
 - Extra large (xl)
 - Extra extra large (xxl)
 
-Each breakpoint is defined by a minimum container width (instead of a viewport width), and each breakpoint has its own class prefix. For example, while your default columns use `.c-col-`, the small breakpoint uses `.c-col-sm-`, medium uses `.c-col-md-`, and so on.
+Each breakpoint is defined by a minimum container width (instead of a viewport width), and each breakpoint has its own class prefix. For example, while your default columns use `.cq-col-`, the small breakpoint uses `.cq-col-sm-`, medium uses `.cq-col-md-`, and so on.
 
 <div class="table-responsive">
   <table class="table mb-4">
@@ -118,12 +118,12 @@ Each breakpoint is defined by a minimum container width (instead of a viewport w
       </tr>
       <tr>
         <th class="text-nowrap" scope="row">Class prefix</th>
-        <td><code>.c-col-</code></td>
-        <td><code>.c-col-sm-</code></td>
-        <td><code>.c-col-md-</code></td>
-        <td><code>.c-col-lg-</code></td>
-        <td><code>.c-col-xl-</code></td>
-        <td><code>.c-col-xxl-</code></td>
+        <td><code>.cq-col-</code></td>
+        <td><code>.cq-col-sm-</code></td>
+        <td><code>.cq-col-md-</code></td>
+        <td><code>.cq-col-lg-</code></td>
+        <td><code>.cq-col-xl-</code></td>
+        <td><code>.cq-col-xxl-</code></td>
       </tr>
       <tr>
         <th class="text-nowrap" scope="row"># of columns</th>
@@ -159,22 +159,22 @@ For example, here are two grid layouts that apply to every container size, from 
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       1 of 2
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       2 of 2
     </div>
   </div>
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       1 of 3
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       2 of 3
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       3 of 3
     </div>
   </div>
@@ -187,25 +187,25 @@ Auto-layout in a flexbox grid means you can set the width of one column and have
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       1 of 3
     </div>
-    <div class="c-col-6">
+    <div class="cq-col-6">
       2 of 3 (wider)
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       3 of 3
     </div>
   </div>
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       1 of 3
     </div>
-    <div class="c-col-5">
+    <div class="cq-col-5">
       2 of 3 (wider)
     </div>
-    <div class="c-col">
+    <div class="cq-col">
       3 of 3
     </div>
   </div>
@@ -214,29 +214,29 @@ Auto-layout in a flexbox grid means you can set the width of one column and have
 
 ### Variable width content
 
-Use the `.c-col-{breakpoint}-auto` classes to size columns based on the natural width of their content.
+Use the `.cq-col-{breakpoint}-auto` classes to size columns based on the natural width of their content.
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row justify-content-md-center">
-    <div class="c-col c-col-lg-2">
+  <div class="cq-row justify-content-md-center">
+    <div class="cq-col cq-col-lg-2">
       1 of 3
     </div>
-    <div class="c-col-md-auto">
+    <div class="cq-col-md-auto">
       Variable width content
     </div>
-    <div class="c-col c-col-lg-2">
+    <div class="cq-col cq-col-lg-2">
       3 of 3
     </div>
   </div>
-  <div class="c-row">
-    <div class="c-col">
+  <div class="cq-row">
+    <div class="cq-col">
       1 of 3
     </div>
-    <div class="c-col-md-auto">
+    <div class="cq-col-md-auto">
       Variable width content
     </div>
-    <div class="c-col c-col-lg-2">
+    <div class="cq-col cq-col-lg-2">
       3 of 3
     </div>
   </div>
@@ -249,37 +249,37 @@ Our container query grid includes six tiers of predefined classes for building c
 
 ### All breakpoints
 
-For grids that are identical across all container sizes, use the `.c-col` and `.c-col-*` classes. Specify a numbered class when you need a particular sized column; otherwise, stick with `.c-col`.
+For grids that are identical across all container sizes, use the `.cq-col` and `.cq-col-*` classes. Specify a numbered class when you need a particular sized column; otherwise, stick with `.cq-col`.
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col">col</div>
-    <div class="c-col">col</div>
-    <div class="c-col">col</div>
-    <div class="c-col">col</div>
+  <div class="cq-row">
+    <div class="cq-col">col</div>
+    <div class="cq-col">col</div>
+    <div class="cq-col">col</div>
+    <div class="cq-col">col</div>
   </div>
-  <div class="c-row">
-    <div class="c-col-8">c-col-8</div>
-    <div class="c-col-4">c-col-4</div>
+  <div class="cq-row">
+    <div class="cq-col-8">cq-col-8</div>
+    <div class="cq-col-4">cq-col-4</div>
   </div>
 </div>
 {{< /example >}}
 
 ### Stacked to horizontal
 
-Using a single set of `.c-col-sm-*` classes, you can create a grid that starts stacked (for smaller container sizes) and becomes horizontal when the container’s width reaches the small breakpoint.
+Using a single set of `.cq-col-sm-*` classes, you can create a grid that starts stacked (for smaller container sizes) and becomes horizontal when the container’s width reaches the small breakpoint.
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col-sm-8">c-col-sm-8</div>
-    <div class="c-col-sm-4">c-col-sm-4</div>
+  <div class="cq-row">
+    <div class="cq-col-sm-8">cq-col-sm-8</div>
+    <div class="cq-col-sm-4">cq-col-sm-4</div>
   </div>
-  <div class="c-row">
-    <div class="c-col-sm">c-col-sm</div>
-    <div class="c-col-sm">c-col-sm</div>
-    <div class="c-col-sm">c-col-sm</div>
+  <div class="cq-row">
+    <div class="cq-col-sm">cq-col-sm</div>
+    <div class="cq-col-sm">cq-col-sm</div>
+    <div class="cq-col-sm">cq-col-sm</div>
   </div>
 </div>
 {{< /example >}}
@@ -291,39 +291,39 @@ Combine classes from different breakpoints to achieve a layout that adjusts at v
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
   <!-- Stack columns on narrow containers: one full-width, one half-width -->
-  <div class="c-row">
-    <div class="c-col-md-8">.c-col-md-8</div>
-    <div class="c-col-6 c-col-md-4">.c-col-6 .c-col-md-4</div>
+  <div class="cq-row">
+    <div class="cq-col-md-8">.cq-col-md-8</div>
+    <div class="cq-col-6 cq-col-md-4">.cq-col-6 .cq-col-md-4</div>
   </div>
 
   <!-- Columns start at 50% width on narrow containers and become 33.3% wide on wider containers -->
-  <div class="c-row">
-    <div class="c-col-6 c-col-md-4">.c-col-6 .c-col-md-4</div>
-    <div class="c-col-6 c-col-md-4">.c-col-6 .c-col-md-4</div>
-    <div class="c-col-6 c-col-md-4">.c-col-6 .c-col-md-4</div>
+  <div class="cq-row">
+    <div class="cq-col-6 cq-col-md-4">.cq-col-6 .cq-col-md-4</div>
+    <div class="cq-col-6 cq-col-md-4">.cq-col-6 .cq-col-md-4</div>
+    <div class="cq-col-6 cq-col-md-4">.cq-col-6 .cq-col-md-4</div>
   </div>
 
   <!-- Columns are always 50% wide, regardless of container size -->
-  <div class="c-row">
-    <div class="c-col-6">.c-col-6</div>
-    <div class="c-col-6">.c-col-6</div>
+  <div class="cq-row">
+    <div class="cq-col-6">.cq-col-6</div>
+    <div class="cq-col-6">.cq-col-6</div>
   </div>
 </div>
 {{< /example >}}
 
 ### Row columns
 
-Just as with our original grid, you can use responsive `.row-cols-*`–style classes on the row (here, `.c-row-cols-*`) to quickly set the number of columns per row. This lets you define a quick grid layout without having to set individual column widths.
+Just as with our original grid, you can use responsive `.row-cols-*`–style classes on the row (here, `.cq-row-cols-*`) to quickly set the number of columns per row. This lets you define a quick grid layout without having to set individual column widths.
 
 For example:
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row c-row-cols-3">
-    <div class="c-col">Column</div>
-    <div class="c-col">Column</div>
-    <div class="c-col">Column</div>
-    <div class="c-col">Column</div>
+  <div class="cq-row cq-row-cols-3">
+    <div class="cq-col">Column</div>
+    <div class="cq-col">Column</div>
+    <div class="cq-col">Column</div>
+    <div class="cq-col">Column</div>
   </div>
 </div>
 {{< /example >}}
@@ -344,21 +344,21 @@ You can also use the accompanying Sass mixin, `row-cols()`, with container query
 
 ## Nesting
 
-To nest content, simply add a new `.c-row` and set of `.c-col-*` columns inside an existing column. When nesting, the inner row inherits the gutter spacing from the outer grid, and the nested columns should add up to 12 (or fewer).
+To nest content, simply add a new `.cq-row` and set of `.cq-col-*` columns inside an existing column. When nesting, the inner row inherits the gutter spacing from the outer grid, and the nested columns should add up to 12 (or fewer).
 
 {{< example class="docs-example-row" >}}
 <div class="container text-center">
-  <div class="c-row">
-    <div class="c-col-sm-3">
-      Level 1: .c-col-sm-3
+  <div class="cq-row">
+    <div class="cq-col-sm-3">
+      Level 1: .cq-col-sm-3
     </div>
-    <div class="c-col-sm-9">
-      <div class="c-row">
-        <div class="c-col-8 c-col-sm-6">
-          Level 2: .c-col-8 .c-col-sm-6
+    <div class="cq-col-sm-9">
+      <div class="cq-row">
+        <div class="cq-col-8 cq-col-sm-6">
+          Level 2: .cq-col-8 .cq-col-sm-6
         </div>
-        <div class="c-col-4 c-col-sm-6">
-          Level 2: .c-col-4 .c-col-sm-6
+        <div class="cq-col-4 cq-col-sm-6">
+          Level 2: .cq-col-4 .cq-col-sm-6
         </div>
       </div>
     </div>
@@ -380,90 +380,3 @@ $grid-gutter-width: 1.5rem;
 ```
 
 {{< scss-docs name="cq-grid-breakpoints" file="scss/_variables.scss" >}}
-
-### Mixins
-
-The Sass mixins allow you to generate grid styles without using the predefined classes. For instance:
-
-```scss
-// Create a flex container for grid columns
-@include make-row();
-
-// Prepare an element to be used as a grid column (excluding width)
-@include make-col-ready();
-
-// Generate a grid column. Without size values it creates an equal-width column (like using .c-col)
-@include make-col();
-@include make-col($size, $columns: $grid-columns);
-
-// Generate an offset for a column
-@include make-col-offset($size, $columns: $grid-columns);
-```
-
-### Example usage
-
-Below is an example of using Sass mixins to create a two-column layout that adjusts based on the container’s width:
-
-```scss
-.example-container {
-  @include make-container();
-  // Override the default width from make-container() if needed
-  width: 800px;
-}
-
-.example-row {
-  @include make-row();
-}
-
-.example-content-main {
-  @include make-col-ready();
-
-  @include container-breakpoint-up(sm) {
-    @include make-col(6);
-  }
-  @include container-breakpoint-up(lg) {
-    @include make-col(8);
-  }
-}
-
-.example-content-secondary {
-  @include make-col-ready();
-
-  @include container-breakpoint-up(sm) {
-    @include make-col(6);
-  }
-  @include container-breakpoint-up(lg) {
-    @include make-col(4);
-  }
-}
-```
-
-{{< example >}}
-<div class="example-container">
-  <div class="example-row">
-    <div class="example-content-main">Main content</div>
-    <div class="example-content-secondary">Secondary content</div>
-  </div>
-</div>
-{{< /example >}}
-
-## Customizing the grid
-
-You can fully customize the container query grid by adjusting Sass variables and maps. Change the number of columns, gutter widths, and container query breakpoints to generate your own set of grid classes for column widths, offsets, and ordering. Remember that, with container queries, the responsive behavior is based on the container’s size—giving you the flexibility to build components that adapt to their layout context.
-
-For example, to use only four grid tiers, you might adjust your Sass as follows:
-
-```scss
-$grid-breakpoints: (
-  xs: 0,
-  sm: 480px,
-  md: 768px,
-  lg: 1024px
-);
-```
-
-After making changes to your Sass variables or maps, recompile to generate a new set of predefined grid classes and custom container query–based mixins that reflect your design needs.
-
----
-
-This container query version of the grid system provides the same powerful, flexible layout options as the media query version—but now components can respond to the size of their container rather than the global viewport. Enjoy building adaptive, modular layouts that work perfectly within any design!
