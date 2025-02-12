@@ -1,0 +1,19 @@
+@use "../../../scss/functions/to-rgb" as *;
+@use "../../../scss/variables" as *;
+@use "variables" as *;
+
+:root {
+  --cd-purple: #{$cd-purple};
+  --cd-violet: #{$cd-violet};
+  --cd-accent: #{$cd-accent};
+  --cd-violet-rgb: #{to-rgb($cd-violet)};
+  --cd-accent-rgb: #{to-rgb($cd-accent)};
+  --cd-pink-rgb: #{to-rgb($pink-500)};
+  --cd-teal-rgb: #{to-rgb($teal-500)};
+  --cd-violet-bg: var(--cd-violet);
+  --cd-toc-color: var(--cd-violet);
+  --cd-sidebar-link-bg: rgba(var(--cd-violet-rgb), .1);
+  --cd-callout-link: #{to-rgb($blue-600)};
+  --cd-callout-code-color: #{$pink-600};
+  --cd-pre-bg: var(--cui-tertiary-bg);
+}

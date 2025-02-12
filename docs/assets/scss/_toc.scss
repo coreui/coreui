@@ -1,5 +1,10 @@
 // stylelint-disable selector-max-type
 
+@use "../../../scss/functions/math" as *;
+@use "../../../scss/mixins/border-radius" as *;
+@use "../../../scss/mixins/breakpoints" as *;
+@use "../../../scss/vendor/rfs" as *;
+
 .docs-toc {
   @include media-breakpoint-up(lg) {
     position: sticky;

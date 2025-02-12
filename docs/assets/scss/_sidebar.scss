@@ -1,3 +1,5 @@
+@use "../../../scss/mixins/color-mode" as *;
+
 .docs-sidebar {
   --cui-sidebar-bg: var(--cui-tertiary-bg);
   --cui-sidebar-brand-bg: transparent;
@@ -23,10 +25,8 @@
   }
 }
 
-@if $enable-dark-mode {
-  @include color-mode(dark) {
-    .docs-sidebar {
-      --cui-sidebar-bg: var(--cui-body-bg);
-    }
+@include color-mode(dark) {
+  .docs-sidebar {
+    --cui-sidebar-bg: var(--cui-body-bg);
   }
 }

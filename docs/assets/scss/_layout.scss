@@ -1,6 +1,10 @@
+@use "../../../scss/mixins/breakpoints" as *;
+@use "../../../scss/mixins/transition" as *;
+@use "../../../scss/variables" as *;
+
 .wrapper {
   width: 100%;
-  @include ltr-rtl("padding-left", var(--cui-sidebar-occupy-start, 0));
+  padding-inline-start: var(--cui-sidebar-occupy-start, 0);
   will-change: auto;
   @include transition(padding .15s);
 
