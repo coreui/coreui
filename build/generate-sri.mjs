@@ -23,8 +23,6 @@ sh.config.fatal = true
 const configFile = path.join(__dirname, '../hugo.yml')
 const isCanaryVersion = pkg.version.includes('canary')
 
-console.log(isCanaryVersion)
-
 // Array of objects which holds the files to generate SRI hashes for.
 // `file` is the path from the root folder
 // `configPropertyName` is the hugo.yml variable's name of the file
