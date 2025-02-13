@@ -3,8 +3,10 @@ name: CSS
 on:
   push:
     branches:
-      - v5
+      - main
   pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 env:
