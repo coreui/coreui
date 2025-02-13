@@ -1,5 +1,5 @@
 /*!
-  * CoreUI navigation.js v5.2.0 (https://coreui.io)
+  * CoreUI navigation.js v5.3.0 (https://coreui.io)
   * Copyright 2025 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -101,7 +101,7 @@
             element.setAttribute('aria-expanded', true);
           });
         }
-        if (!this._config.activeLinksExact && element.href.startsWith(currentUrl)) {
+        if (!this._config.activeLinksExact && currentUrl.startsWith(element.href)) {
           element.classList.add(CLASS_NAME_ACTIVE);
           // eslint-disable-next-line unicorn/no-array-for-each
           Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {

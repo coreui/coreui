@@ -2,7 +2,7 @@
 
 /*!
  * Script to update version number references in the project.
- * Copyright 2017-2024 The Bootstrap Authors
+ * Copyright 2017-2025 The Bootstrap Authors
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
@@ -19,8 +19,7 @@ const FILES = [
   'hugo.yml',
   'js/src/base-component.js',
   'package.js',
-  'scss/mixins/_banner.scss',
-  'scss/themes/bootstrap/mixins/_banner.scss'
+  'scss/_banner.scss'
 ]
 
 // Blame TC39... https://github.com/benjamingr/RegExp.escape/issues/37

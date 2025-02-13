@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.2.0 (https://coreui.io)
+  * CoreUI v5.3.0 (https://coreui.io)
   * Copyright 2025 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -665,7 +665,7 @@
    * Constants
    */
 
-  const VERSION = '5.2.0';
+  const VERSION = '5.3.0';
 
   /**
    * Class definition
@@ -2705,7 +2705,6 @@
     var popperOffsets = computeOffsets({
       reference: referenceClientRect,
       element: popperRect,
-      strategy: 'absolute',
       placement: placement
     });
     var popperClientRect = rectToClientRect(Object.assign({}, popperRect, popperOffsets));
@@ -3033,7 +3032,6 @@
     state.modifiersData[name] = computeOffsets({
       reference: state.rects.reference,
       element: state.rects.popper,
-      strategy: 'absolute',
       placement: state.placement
     });
   } // eslint-disable-next-line import/no-unused-modules
@@ -4662,7 +4660,7 @@
             element.setAttribute('aria-expanded', true);
           });
         }
-        if (!this._config.activeLinksExact && element.href.startsWith(currentUrl)) {
+        if (!this._config.activeLinksExact && currentUrl.startsWith(element.href)) {
           element.classList.add(CLASS_NAME_ACTIVE$2);
           // eslint-disable-next-line unicorn/no-array-for-each
           Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
@@ -5107,7 +5105,6 @@
    *
    * Shout-out to Angular https://github.com/angular/angular/blob/15.2.8/packages/core/src/sanitization/url_sanitizer.ts#L38
    */
-  // eslint-disable-next-line unicorn/better-regex
   const SAFE_URL_PATTERN = /^(?!javascript:)(?:[a-z0-9+.-]+:|[^&:/?#]*(?:[/?#]|$))/i;
   const allowedAttribute = (attribute, allowedAttributeList) => {
     const attributeName = attribute.nodeName.toLowerCase();

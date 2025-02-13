@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
- * CoreUI Reboot v5.2.0 (https://coreui.io)
- * Copyright (c) 2024 creativeLabs Łukasz Holeczek
+ * CoreUI Reboot v5.3.0 (https://coreui.io)
+ * Copyright (c) 2025 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 :root,
@@ -79,17 +79,17 @@
   --cui-body-font-weight: 400;
   --cui-body-line-height: 1.5;
   --cui-body-color: rgba(37, 42.92, 54.02, 0.95);
-  --cui-body-color-rgb: 37, 43, 54;
+  --cui-body-color-rgb: 37, 42.92, 54.02;
   --cui-body-bg: #fff;
   --cui-body-bg-rgb: 255, 255, 255;
   --cui-emphasis-color: #080a0c;
   --cui-emphasis-color-rgb: 8, 10, 12;
   --cui-secondary-color: rgba(37, 42.92, 54.02, 0.681);
-  --cui-secondary-color-rgb: 37, 43, 54;
+  --cui-secondary-color-rgb: 37, 42.92, 54.02;
   --cui-secondary-bg: #e7eaee;
   --cui-secondary-bg-rgb: 231, 234, 238;
   --cui-tertiary-color: rgba(37, 42.92, 54.02, 0.38);
-  --cui-tertiary-color-rgb: 37, 43, 54;
+  --cui-tertiary-color-rgb: 37, 42.92, 54.02;
   --cui-tertiary-bg: #f3f4f7;
   --cui-tertiary-bg-rgb: 243, 244, 247;
   --cui-body-color-dark: rgba(255, 255, 255, 0.87);
@@ -105,7 +105,7 @@
   --cui-tertiary-color-dark: rgba(255, 255, 255, 0.38);
   --cui-tertiary-color-rgb-dark: 255, 255, 255;
   --cui-tertiary-bg-dark: rgb(41.5, 48, 61);
-  --cui-tertiary-bg-rgb-dark: 42, 48, 61;
+  --cui-tertiary-bg-rgb-dark: 41.5, 48, 61;
   --cui-high-emphasis: rgba(37, 42.92, 54.02, 0.95);
   --cui-medium-emphasis: rgba(37, 42.92, 54.02, 0.681);
   --cui-disabled: rgba(37, 42.92, 54.02, 0.38);
@@ -117,7 +117,7 @@
   --cui-link-color-rgb: 88, 86, 214;
   --cui-link-decoration: underline;
   --cui-link-hover-color: rgb(70.4, 68.8, 171.2);
-  --cui-link-hover-color-rgb: 70, 69, 171;
+  --cui-link-hover-color-rgb: 70.4, 68.8, 171.2;
   --cui-code-color: #d63384;
   --cui-highlight-color: rgba(37, 42.92, 54.02, 0.95);
   --cui-highlight-bg: rgb(255, 242.6, 205.4);
@@ -160,16 +160,16 @@
   --cui-tertiary-color: rgba(255, 255, 255, 0.38);
   --cui-tertiary-color-rgb: 255, 255, 255;
   --cui-tertiary-bg: rgb(41.5, 48, 61);
-  --cui-tertiary-bg-rgb: 42, 48, 61;
+  --cui-tertiary-bg-rgb: 41.5, 48, 61;
   --cui-high-emphasis: rgba(255, 255, 255, 0.87);
   --cui-medium-emphasis: rgba(255, 255, 255, 0.6);
   --cui-disabled: rgba(255, 255, 255, 0.38);
-  --cui-primary: rgb(98.171875, 96.5, 203.5);
+  --cui-primary: rgb(94.2, 92.4, 207.6);
   --cui-secondary: #6b7785;
-  --cui-success: rgb(36.25, 148.75, 66.3072519084);
+  --cui-success: rgb(33.55, 151.45, 65.05);
   --cui-info: rgb(61.2, 153, 244.8);
-  --cui-warning: rgb(237, 172.5789473684, 33);
-  --cui-danger: rgb(219.1, 92.9, 92.9);
+  --cui-warning: rgb(237.6, 172.8, 32.4);
+  --cui-danger: rgb(221.7, 90.3, 90.3);
   --cui-light: #f3f4f7;
   --cui-dark: #212631;
   --cui-gray-100: #f3f4f7;
@@ -181,20 +181,20 @@
   --cui-gray-700: #4a566d;
   --cui-gray-800: #323a49;
   --cui-gray-900: #212631;
-  --cui-primary-rgb: 98, 97, 204;
+  --cui-primary-rgb: 94.2, 92.4, 207.6;
   --cui-secondary-rgb: 107, 119, 133;
-  --cui-success-rgb: 36, 149, 66;
-  --cui-info-rgb: 61, 153, 245;
-  --cui-warning-rgb: 237, 173, 33;
-  --cui-danger-rgb: 219, 93, 93;
+  --cui-success-rgb: 33.55, 151.45, 65.05;
+  --cui-info-rgb: 61.2, 153, 244.8;
+  --cui-warning-rgb: 237.6, 172.8, 32.4;
+  --cui-danger-rgb: 221.7, 90.3, 90.3;
   --cui-light-rgb: 243, 244, 247;
   --cui-dark-rgb: 33, 38, 49;
-  --cui-primary-text-emphasis: rgb(64.3626126126, 62.75, 152.25);
+  --cui-primary-text-emphasis: rgb(59.35, 57.55, 157.45);
   --cui-secondary-text-emphasis: #212233;
-  --cui-success-text-emphasis: rgb(20.1, 81.9, 36.4083333333);
-  --cui-info-text-emphasis: rgb(31.15, 75.3226315789, 111.85);
-  --cui-warning-text-emphasis: rgb(111.85, 69.9659292035, 11.15);
-  --cui-danger-text-emphasis: rgb(96.85, 26.15, 26.15);
+  --cui-success-text-emphasis: rgb(18.6, 83.4, 35.7);
+  --cui-info-text-emphasis: rgb(28.75, 75.55, 114.25);
+  --cui-warning-text-emphasis: rgb(112.35, 70.05, 10.65);
+  --cui-danger-text-emphasis: rgb(98.85, 24.15, 24.15);
   --cui-light-text-emphasis: #f3f4f7;
   --cui-dark-text-emphasis: #dbdfe6;
   --cui-primary-bg-subtle: #cfc7f3;
@@ -214,10 +214,10 @@
   --cui-light-border-subtle: #4a566d;
   --cui-dark-border-subtle: #323a49;
   --cui-heading-color: inherit;
-  --cui-link-color: rgb(98.171875, 96.5, 203.5);
-  --cui-link-hover-color: rgb(129.5375, 128.2, 213.8);
-  --cui-link-color-rgb: 98, 97, 204;
-  --cui-link-hover-color-rgb: 130, 128, 214;
+  --cui-link-color: rgb(94.2, 92.4, 207.6);
+  --cui-link-hover-color: rgb(126.36, 124.92, 217.08);
+  --cui-link-color-rgb: 94.2, 92.4, 207.6;
+  --cui-link-hover-color-rgb: 126.36, 124.92, 217.08;
   --cui-code-color: rgb(230.4, 132.6, 181.2);
   --cui-highlight-color: rgba(255, 255, 255, 0.87);
   --cui-highlight-bg: rgb(102, 77.2, 2.8);
@@ -332,6 +332,11 @@ address {
 }
 
 ol,
+ul {
+  padding-inline-start: 2rem;
+}
+
+ol,
 ul,
 dl {
   margin-top: 0;
@@ -350,8 +355,8 @@ dt {
 }
 
 dd {
+  margin-inline-start: 0;
   margin-bottom: 0.5rem;
-  margin-right: 0;
 }
 
 blockquote {
@@ -463,7 +468,7 @@ caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   color: var(--cui-table-caption-color, var(--cui-secondary-color));
-  text-align: right;
+  text-align: start;
 }
 
 th {
@@ -555,7 +560,7 @@ fieldset {
 }
 
 legend {
-  float: right;
+  float: inline-start;
   width: 100%;
   padding: 0;
   margin-bottom: 0.5rem;
