@@ -1,3 +1,9 @@
+@use "mixins/border-radius" as *;
+@use "mixins/deprecate" as *;
+@use "mixins/reset-text" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+
 // Base class
 .tooltip {
   // scss-docs-start tooltip-css-vars

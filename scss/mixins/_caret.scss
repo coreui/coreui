@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 // scss-docs-start caret-mixins
 @mixin caret-down($width: $caret-width) {
   border-top: $width solid;
@@ -35,7 +37,7 @@
   @if $enable-caret {
     &::after {
       display: inline-block;
-      @include ltr-rtl("margin-left", $spacing);
+      margin-inline-start: $spacing;
       vertical-align: $vertical-align;
       content: "";
       @if $direction == down {
@@ -54,7 +56,7 @@
 
       &::before {
         display: inline-block;
-        @include ltr-rtl("margin-right", $spacing);
+        margin-inline-end: $spacing;
         vertical-align: $vertical-align;
         content: "";
         @include caret-start($width);
@@ -62,7 +64,7 @@
     }
 
     &:empty::after {
-      @include ltr-rtl("margin-left", 0);
+      margin-inline-start: 0;
     }
   }
 }

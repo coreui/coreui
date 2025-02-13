@@ -9,7 +9,7 @@
 <link href="/dist/css/coreui{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css" rel="stylesheet">
 {{- end }}
 
-{{- $sassOptions := dict "outputStyle" "expanded" "precision" 6 -}}
+{{- $sassOptions := dict "transpiler" "dartsass" "outputStyle" "expanded" "precision" 6 -}}
 {{- $postcssOptions := dict "use" "autoprefixer" "noMap" true -}}
 
 {{- $targetDocsCssPath := "/assets/css/docs.css" -}}

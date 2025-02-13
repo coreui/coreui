@@ -1,3 +1,11 @@
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "breakpoints" as *;
+@use "../functions/math" as *;
+@use "../maps" as *;
+@use "../variables" as *;
+
 // Grid system
 //
 // Generate semantic grid columns with these mixins.
@@ -13,9 +21,9 @@
   margin-left: calc(-.5 * var(--#{$prefix}gutter-x)); // stylelint-disable-line function-disallowed-list
 }
 
-@mixin make-col-ready() {
+@mixin make-col-ready($include-column-box-sizing: false) {
   // Add box sizing if only the grid is loaded
-  box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
+  box-sizing: if(meta.variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
   // Prevent columns from becoming too narrow when at smaller grid tiers by
   // always setting `width: 100%;`. This works because we set the width
   // later on to override this initial width.
@@ -30,7 +38,7 @@
 @mixin make-col($size: false, $columns: $grid-columns) {
   @if $size {
     flex: 0 0 auto;
-    width: percentage(divide($size, $columns));
+    width: math.percentage(divide($size, $columns));
 
   } @else {
     flex: 1 1 0;
@@ -45,7 +53,7 @@
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
   $num: divide($size, $columns);
-  @include ltr-rtl("margin-left", if($num == 0, 0, percentage($num)));
+  margin-inline-start: if($num == 0, 0, math.percentage($num));
 }
 
 // Row columns
@@ -56,7 +64,7 @@
 @mixin row-cols($count) {
   > * {
     flex: 0 0 auto;
-    width: percentage(divide(1, $count));
+    width: math.percentage(divide(1, $count));
   }
 }
 
@@ -66,7 +74,7 @@
 // any value of `$grid-columns`.
 
 @mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint in map-keys($breakpoints) {
+  @each $breakpoint in map.keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
@@ -127,7 +135,7 @@
 }
 
 @mixin make-cssgrid($columns: $grid-columns, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint in map-keys($breakpoints) {
+  @each $breakpoint in map.keys($breakpoints) {
     $infix: breakpoint-infix($breakpoint, $breakpoints);
 
     @include media-breakpoint-up($breakpoint, $breakpoints) {
@@ -144,6 +152,67 @@
           .g-start#{$infix}-#{$i} {
             grid-column-start: $i;
           }
+        }
+      }
+    }
+  }
+}
+
+@mixin make-c-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+  @each $breakpoint in map.keys($breakpoints) {
+    $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+    @include container-breakpoint-up($breakpoint, $breakpoints) {
+      // Provide basic `.cq-col-{bp}` classes for equal-width flexbox columns
+      .cq-col#{$infix} {
+        flex: 1 0 0;
+      }
+
+      .cq-row-cols#{$infix}-auto > * {
+        @include make-col-auto();
+      }
+
+      @if $grid-row-columns > 0 {
+        @for $i from 1 through $grid-row-columns {
+          .cq-row-cols#{$infix}-#{$i} {
+            @include row-cols($i);
+          }
+        }
+      }
+
+      .cq-col#{$infix}-auto {
+        @include make-col-auto();
+      }
+
+      @if $columns > 0 {
+        @for $i from 1 through $columns {
+          .cq-col#{$infix}-#{$i} {
+            @include make-col($i, $columns);
+          }
+        }
+
+        // `$columns - 1` because offsetting by the width of an entire row isn't possible
+        @for $i from 0 through ($columns - 1) {
+          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
+            .cq-offset#{$infix}-#{$i} {
+              @include make-col-offset($i, $columns);
+            }
+          }
+        }
+      }
+
+      // Gutters
+      //
+      // Make use of `.cq-g-*`, `.cq-gx-*` or `.cq-gy-*` utilities to change spacing between the columns.
+      @each $key, $value in $gutters {
+        .cq-g#{$infix}-#{$key},
+        .cq-gx#{$infix}-#{$key} {
+          --#{$prefix}gutter-x: #{$value};
+        }
+
+        .cq-g#{$infix}-#{$key},
+        .cq-gy#{$infix}-#{$key} {
+          --#{$prefix}gutter-y: #{$value};
         }
       }
     }

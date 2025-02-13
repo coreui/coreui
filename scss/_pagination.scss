@@ -1,3 +1,11 @@
+@use "mixins/border-radius" as *;
+@use "mixins/gradients" as *;
+@use "mixins/lists" as *;
+@use "mixins/pagination" as *;
+@use "mixins/transition" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+
 .pagination {
   // scss-docs-start pagination-css-vars
   --#{$prefix}pagination-padding-x: #{$pagination-padding-x};
@@ -72,7 +80,7 @@
 
 .page-item {
   &:not(:first-child) .page-link {
-    @include ltr-rtl("margin-left", $pagination-margin-start);
+    margin-inline-start: $pagination-margin-start;
   }
 
   @if $pagination-margin-start == calc(#{$pagination-border-width} * -1) {

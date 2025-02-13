@@ -1,4 +1,11 @@
 // stylelint-disable function-disallowed-list
+@use "sass:map";
+@use "mixins/backdrop" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "mixins/ltr-rtl" as *;
+@use "mixins/transition" as *;
+@use "variables" as *;
 
 %offcanvas-css-vars {
   // scss-docs-start offcanvas-css-vars
@@ -17,7 +24,7 @@
   // scss-docs-end offcanvas-css-vars
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   $next: breakpoint-next($breakpoint, $grid-breakpoints);
   $infix: breakpoint-infix($next, $grid-breakpoints);
 
@@ -26,7 +33,7 @@
   }
 }
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   $next: breakpoint-next($breakpoint, $grid-breakpoints);
   $infix: breakpoint-infix($next, $grid-breakpoints);
 
@@ -47,18 +54,18 @@
       @include transition(var(--#{$prefix}offcanvas-transition));
 
       &.offcanvas-start {
+        inset-inline-start: 0;
         top: 0;
-        @include ltr-rtl("left", 0);
         width: var(--#{$prefix}offcanvas-width);
-        @include ltr-rtl("border-right", var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color));
+        border-inline-end: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
         @include ltr-rtl-value-only("transform", translateX(-100%), translateX(100%));
       }
 
       &.offcanvas-end {
+        inset-inline-end: 0;
         top: 0;
-        @include ltr-rtl("right", 0);
         width: var(--#{$prefix}offcanvas-width);
-        @include ltr-rtl("border-left", var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color));
+        border-inline-start: var(--#{$prefix}offcanvas-border-width) solid var(--#{$prefix}offcanvas-border-color);
         transform: translateX(100%);
       }
 

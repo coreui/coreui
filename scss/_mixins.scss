@@ -3,46 +3,46 @@
 // Used in conjunction with global variables to enable certain theme features.
 
 // LTR & RTL
-@import "mixins/ltr-rtl";
+@forward "mixins/ltr-rtl";
 
 // Vendor
-@import "vendor/rfs";
+@forward "vendor/rfs";
 
 // Deprecate
-@import "mixins/deprecate";
+@forward "mixins/deprecate";
 
 // Helpers
-@import "mixins/breakpoints";
-@import "mixins/color-mode";
-@import "mixins/color-scheme";
-@import "mixins/image";
-@import "mixins/resize";
-@import "mixins/visually-hidden";
-@import "mixins/reset-text";
-@import "mixins/text-truncate";
+@forward "mixins/breakpoints";
+@forward "mixins/color-mode";
+@forward "mixins/color-scheme";
+@forward "mixins/image";
+@forward "mixins/resize";
+@forward "mixins/visually-hidden";
+@forward "mixins/reset-text";
+@forward "mixins/text-truncate";
 
 // Utilities
-@import "mixins/utilities";
+@forward "mixins/utilities";
 
 // Components
-@import "mixins/alert";
-@import "mixins/avatar";
-@import "mixins/backdrop";
-@import "mixins/buttons";
-@import "mixins/caret";
-@import "mixins/pagination";
-@import "mixins/lists";
-@import "mixins/forms";
-@import "mixins/table-variants";
-@import "mixins/icon";
+@forward "mixins/alert";
+@forward "mixins/avatar";
+@forward "mixins/backdrop";
+@forward "mixins/buttons";
+@forward "mixins/caret";
+@forward "mixins/pagination";
+@forward "mixins/lists";
+@forward "mixins/forms";
+@forward "mixins/table-variants";
+@forward "mixins/icon";
 
 // Skins
-@import "mixins/border-radius";
-@import "mixins/box-shadow";
-@import "mixins/gradients";
-@import "mixins/transition";
+@forward "mixins/border-radius";
+@forward "mixins/box-shadow";
+@forward "mixins/gradients";
+@forward "mixins/transition";
 
 // Layout
-@import "mixins/clearfix";
-@import "mixins/container";
-@import "mixins/grid";
+@forward "mixins/clearfix";
+@forward "mixins/container";
+@forward "mixins/grid";

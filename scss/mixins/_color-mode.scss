@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 // scss-docs-start color-mode-mixin
 @mixin color-mode($mode: light, $root: false) {
   @if $color-mode-type == "media-query" {
@@ -13,7 +15,7 @@
       }
     }
   } @else {
-    [data-coreui-theme="#{$mode}"] {
+    [data#{$data-infix}theme="#{$mode}"] {
       @content;
     }
   }

@@ -1,8 +1,6 @@
 /*!
- * CoreUI Docs (https://coreui.io/docs/)
- * Copyright 2022 creativeLabs Łukasz Holeczek
- * Copyright 2011-2022 The Bootstrap Authors
- * Copyright 2011-2022 Twitter, Inc.
+ * CoreUI Docs (https://coreui.io/bootstrap/docs/)
+ * Copyright 2025 creativeLabs Łukasz Holeczek
  * Licensed under the Creative Commons Attribution 3.0 Unported License.
  * For details, see https://creativecommons.org/licenses/by/3.0/.
  */
@@ -11,48 +9,41 @@
 //
 // Background information on nomenclature and architecture decisions here.
 //
-// - Bootstrap functions, variables, and mixins are included for easy reuse.
-//   Doing so gives us access to the same core utilities provided by Bootstrap.
-//   For example, consistent media queries through those mixins.
-//
-// - Bootstrap's **docs variables** are prefixed with `$cd-`.
+// - CoreUI's **docs variables** are prefixed with `$cd-`.
 //   These custom colors avoid collision with the components Bootstrap provides.
 //
 // - Classes are prefixed with `.docs-`.
 //   These classes indicate custom-built or modified components for the design
-//   and layout of the Bootstrap docs. They are not included in our builds.
+//   and layout of the CoreUI docs. They are not included in our builds.
 //
 // Happy Bootstrapping!
 
-// Load Bootstrap variables and mixins
-@import "../../../scss/functions";
-@import "../../../scss/variables";
-@import "../../../scss/mixins";
+@use "../../../scss/variables" with (
+  $enable-cssgrid: true,
+  $enable-container-queries: true,
+  $enable-grid-classes: false
+);
 
-// fusv-disable
-$enable-grid-classes: false;
-$enable-cssgrid: true;
-// fusv-enable
-@import "../../../scss/grid";
+@use "../../../scss/grid";
 
 // Load docs components
-@import "variables";
-@import "ads";
-@import "content";
-@import "skippy";
-@import "header";
-@import "sidebar";
-@import "layout";
-@import "toc";
-@import "footer";
-@import "component-examples";
-@import "buttons";
-@import "callouts";
-@import "colors";
-@import "clipboard-js";
-@import "placeholder-img";
-@import "scrolling";
+@forward "root";
+@forward "ads";
+@forward "content";
+@forward "skippy";
+@forward "header";
+@forward "sidebar";
+@forward "layout";
+@forward "toc";
+@forward "footer";
+@forward "component-examples";
+@forward "buttons";
+@forward "callouts";
+@forward "colors";
+@forward "clipboard-js";
+@forward "placeholder-img";
+@forward "scrolling";
 
 // Load docs dependencies
-@import "syntax";
-@import "anchor";
+@forward "syntax";
+@forward "anchor";

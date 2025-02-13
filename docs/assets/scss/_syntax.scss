@@ -1,3 +1,6 @@
+@use "../../../scss/mixins/color-mode" as *;
+@use "../../../scss/variables" as *;
+
 :root,
 [data-coreui-theme="light"] {
   // --base00: #fff;

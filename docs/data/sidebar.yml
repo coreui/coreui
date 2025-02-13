@@ -44,6 +44,7 @@
     - title: Utilities
     - title: Z-index
     - title: CSS Grid
+    - title: Container queries Grid
 
 - title: Content
   icon: list-rich

@@ -1,4 +1,8 @@
 // Sidebar navigation
+@use "../functions/escape-svg" as *;
+@use "../mixins/border-radius" as *;
+@use "../mixins/transition" as *;
+@use "../variables" as *;
 
 .sidebar-nav {
   // scss-docs-start sidebar-nav-css-vars
@@ -175,7 +179,7 @@
     align-items: center;
     justify-content: center;
     height: var(--#{$prefix}sidebar-nav-link-icon-height);
-    @include ltr-rtl("margin-right", var(--#{$prefix}sidebar-nav-link-icon-margin));
+    margin-inline-end: var(--#{$prefix}sidebar-nav-link-icon-margin);
     font-size: var(--#{$prefix}sidebar-nav-link-icon-font-size);
     color: var(--#{$prefix}sidebar-nav-link-icon-color);
     text-align: center;
@@ -238,7 +242,7 @@
       display: block;
       flex: 0 12px;
       height: 12px;
-      @include ltr-rtl("margin-left", auto);
+      margin-inline-start: auto;
       content: "";
       background-color: var(--#{$prefix}sidebar-nav-group-indicator-color);
       mask-image: var(--#{$prefix}sidebar-nav-group-indicator-icon);
@@ -251,11 +255,11 @@
     list-style: none;
 
     .nav-link {
-      @include ltr-rtl("padding-left", calc(var(--#{$prefix}sidebar-nav-link-padding-x) + var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)));
+      padding-inline-start: calc(var(--#{$prefix}sidebar-nav-link-padding-x) + var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)); // stylelint-disable-line function-disallowed-list
     }
 
     .nav-icon {
-      @include ltr-rtl("margin-left", calc((var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)) * -1));
+      margin-inline-start: calc((var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)) * -1); // stylelint-disable-line function-disallowed-list
     }
   }
 

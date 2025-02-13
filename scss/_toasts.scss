@@ -1,3 +1,7 @@
+@use "mixins/border-radius" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+
 .toast {
   // scss-docs-start toast-css-vars
   --#{$prefix}toast-zindex: #{$zindex-toast};
@@ -62,8 +66,7 @@
   @include border-top-radius(calc(var(--#{$prefix}toast-border-radius) - var(--#{$prefix}toast-border-width)));
 
   .btn-close {
-    @include ltr-rtl("margin-right", calc(-.5 * var(--#{$prefix}toast-padding-x)));
-    @include ltr-rtl("margin-left", var(--#{$prefix}toast-padding-x));
+    margin-inline: var(--#{$prefix}toast-padding-x) calc(-.5 * var(--#{$prefix}toast-padding-x)); // stylelint-disable-line function-disallowed-list
   }
 }
 

@@ -1,3 +1,7 @@
+@use "sass:map";
+@use "mixins/border-radius" as *;
+@use "variables" as *;
+
 //
 // Base styles
 //
@@ -42,13 +46,13 @@
 // Expand the right padding and account for the close button's positioning.
 
 .alert-dismissible {
-  @include ltr-rtl("padding-right", $alert-dismissible-padding-r);
+  padding-inline-end: $alert-dismissible-padding-r;
 
   // Adjust close link position
   .btn-close {
     position: absolute;
+    inset-inline-end: 0;
     top: 0;
-    @include ltr-rtl("right", 0);
     z-index: $stretched-link-z-index + 1;
     padding: $alert-padding-y * 1.25 $alert-padding-x;
   }
@@ -57,7 +61,7 @@
 
 // scss-docs-start alert-modifiers
 // Generate contextual modifier classes for colorizing the alert.
-@each $state in map-keys($theme-colors) {
+@each $state in map.keys($theme-colors) {
   .alert-#{$state} {
     --#{$prefix}alert-color: var(--#{$prefix}#{$state}-text-emphasis);
     --#{$prefix}alert-bg: var(--#{$prefix}#{$state}-bg-subtle);

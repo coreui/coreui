@@ -1,3 +1,12 @@
+@use "../../../scss/mixins/border-radius" as *;
+@use "../../../scss/mixins/breakpoints" as *;
+@use "../../../scss/mixins/clearfix" as *;
+@use "../../../scss/mixins/container" as *;
+@use "../../../scss/mixins/grid" as *;
+@use "../../../scss/vendor/rfs" as *;
+@use "../../../scss/variables" as *;
+@use "variables" as *;
+
 //
 // Docs examples
 //
@@ -146,6 +155,8 @@
 
 .docs-example-row [class^="col"],
 .docs-example-cols [class^="col"] > *,
+.docs-example-row [class^="cq-col"],
+.docs-example-cols [class^="cq-col"] > *,
 .docs-example-cssgrid [class*="grid"] > * {
   padding-top: .75rem;
   padding-bottom: .75rem;

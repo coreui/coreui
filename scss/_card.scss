@@ -1,3 +1,8 @@
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "variables" as *;
+
 //
 // Base styles
 //
@@ -95,7 +100,7 @@
   }
 
   + .card-link {
-    @include ltr-rtl("margin-left", var(--#{$prefix}card-spacer-x));
+    margin-inline-start: var(--#{$prefix}card-spacer-x);
   }
 }
 
@@ -197,8 +202,8 @@
       margin-bottom: 0;
 
       + .card {
-        @include ltr-rtl("margin-left", 0);
-        @include ltr-rtl("border-left", 0);
+        margin-inline-start: 0;
+        border-inline-start: 0;
       }
 
       // Handle rounded corners

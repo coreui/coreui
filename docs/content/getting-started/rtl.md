@@ -10,8 +10,6 @@ toc: true
 
 We recommend getting familiar with CoreUI for Bootstrap first by reading through our [Getting Started Introduction page]({{< docsref "/getting-started/introduction" >}}). Once you've run through it, continue reading here for how to enable RTL.
 
-You may also want to read up on [the RTLCSS project](https://rtlcss.com/), as it powers our approach to RTL.
-
 ## Required HTML
 
 There are two strict requirements for enabling RTL in Bootstrap-powered pages.
@@ -107,9 +105,22 @@ $font-family-sans-serif:
 
 Need both LTR and RTL on the same page? All you have to do is set following variables:
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: true,
+  $enable-rtl: true
+);
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 $enable-ltr: true;
 $enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
 ```
 
 
@@ -119,9 +130,22 @@ After running Sass, each selector in your CSS files will be prepended by `html:n
 
 By default LTR is enable and RTL is disable, but you can easily change it and use only RTL.
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: false,
+  $enable-rtl: true
+);
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 $enable-ltr: false;
 $enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
 ```
 
 ## Additional resources

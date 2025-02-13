@@ -1,3 +1,8 @@
+@use "sass:map";
+@use "mixins/border-radius" as *;
+@use "mixins/transition" as *;
+@use "variables" as *;
+
 .avatar {
   // scss-docs-start avatar-css-vars
   --#{$prefix}avatar-width: #{$avatar-width};
@@ -29,7 +34,7 @@
 
 .avatar-status {
   position: absolute;
-  @include ltr-rtl("right", 0);
+  inset-inline-end: 0;
   bottom: 0;
   display: block;
   width: var(--#{$prefix}avatar-status-width);
@@ -40,11 +45,11 @@
 
 @each $size, $map in $avatar-sizes {
   .avatar-#{$size} {
-    --#{$prefix}avatar-width: #{map-get($map, "width")};
-    --#{$prefix}avatar-height: #{map-get($map, "height")};
-    --#{$prefix}avatar-font-size: #{map-get($map, "font-size")};
-    --#{$prefix}avatar-status-width: #{map-get($map, "status-width")};
-    --#{$prefix}avatar-status-height: #{map-get($map, "status-height")};
+    --#{$prefix}avatar-width: #{map.get($map, "width")};
+    --#{$prefix}avatar-height: #{map.get($map, "height")};
+    --#{$prefix}avatar-font-size: #{map.get($map, "font-size")};
+    --#{$prefix}avatar-status-width: #{map.get($map, "status-width")};
+    --#{$prefix}avatar-status-height: #{map.get($map, "status-height")};
   }
 }
 
@@ -52,10 +57,10 @@
   display: flex;
 
   .avatar {
-    @include ltr-rtl("margin-right", calc(-.4 * var(--#{$prefix}avatar-width)));
+    margin-inline-end: calc(-.4 * var(--#{$prefix}avatar-width)); // stylelint-disable-line function-disallowed-list
 
     &:hover {
-      @include ltr-rtl("margin-right", 0);
+      margin-inline-end: 0;
     }
   }
 }

@@ -14,12 +14,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import sh from 'shelljs'
+import pkg from '../package.json' with { type: 'json' }
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 sh.config.fatal = true
 
 const configFile = path.join(__dirname, '../hugo.yml')
+const isCanaryVersion = pkg.version.includes('canary')
 
 // Array of objects which holds the files to generate SRI hashes for.
 // `file` is the path from the root folder
@@ -69,12 +71,13 @@ for (const { file, configPropertyName } of files) {
       throw error
     }
 
+    const propertyName = isCanaryVersion ? `canary_${configPropertyName}` : configPropertyName
     const algorithm = 'sha384'
     const hash = crypto.createHash(algorithm).update(data, 'utf8').digest('base64')
     const integrity = `${algorithm}-${hash}`
 
-    console.log(`${configPropertyName}: ${integrity}`)
+    console.log(`${propertyName}: ${integrity}`)
 
-    sh.sed('-i', new RegExp(`^(\\s+${configPropertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
+    sh.sed('-i', new RegExp(`^(\\s+${propertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
   })
 }

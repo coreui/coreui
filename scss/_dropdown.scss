@@ -1,3 +1,12 @@
+@use "sass:map";
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/breakpoints" as *;
+@use "mixins/caret" as *;
+@use "mixins/gradients" as *;
+@use "vendor/rfs" as *;
+@use "variables" as *;
+
 // The dropdown wrapper (`<div>`)
 .dropup,
 .dropend,
@@ -54,7 +63,7 @@
   margin: 0; // Override default margin of ul
   @include font-size(var(--#{$prefix}dropdown-font-size));
   color: var(--#{$prefix}dropdown-color);
-  @include ltr-rtl("text-align", left); // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  text-align: start; // Ensures proper alignment if parent has it changed (e.g., modal footer)
   list-style: none;
   background-color: var(--#{$prefix}dropdown-bg);
   background-clip: padding-box;
@@ -62,9 +71,9 @@
   @include border-radius(var(--#{$prefix}dropdown-border-radius));
   @include box-shadow(var(--#{$prefix}dropdown-box-shadow));
 
-  &[data-coreui-popper] {
+  &[data#{$data-infix}popper] {
+    inset-inline-start: 0;
     top: 100%;
-    @include ltr-rtl("left", 0);
     margin-top: var(--#{$prefix}dropdown-spacer);
   }
 
@@ -85,25 +94,25 @@
 // We deliberately hardcode the `cui-` prefix because we check
 // this custom property in JS to determine Popper's positioning
 
-@each $breakpoint in map-keys($grid-breakpoints) {
+@each $breakpoint in map.keys($grid-breakpoints) {
   @include media-breakpoint-up($breakpoint) {
     $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 
     .dropdown-menu#{$infix}-start {
-      --cui-position: start;
+      --#{$prefix}position: start;
 
-      &[data-coreui-popper] {
-        @include ltr-rtl("right", auto);
-        @include ltr-rtl("left", 0);
+      &[data#{$data-infix}popper] {
+        inset-inline-start: 0;
+        inset-inline-end: auto;
       }
     }
 
     .dropdown-menu#{$infix}-end {
-      --cui-position: end;
+      --#{$prefix}position: end;
 
-      &[data-coreui-popper] {
-        @include ltr-rtl("right", 0);
-        @include ltr-rtl("left", auto);
+      &[data#{$data-infix}popper] {
+        inset-inline-start: auto;
+        inset-inline-end: 0;
       }
     }
   }
@@ -113,7 +122,7 @@
 // Allow for dropdowns to go bottom up (aka, dropup-menu)
 // Just add .dropup after the standard .dropdown class and you're set.
 .dropup {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
     top: auto;
     bottom: 100%;
     margin-top: 0;
@@ -126,12 +135,12 @@
 }
 
 .dropend {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
+    inset-inline-start: 100%;
+    inset-inline-end: auto;
     top: 0;
-    @include ltr-rtl("right", auto);
-    @include ltr-rtl("left", 100%);
+    margin-inline-start: var(--#{$prefix}dropdown-spacer);
     margin-top: 0;
-    @include ltr-rtl("margin-left", var(--#{$prefix}dropdown-spacer));
   }
 
   .dropdown-toggle {
@@ -143,12 +152,12 @@
 }
 
 .dropstart {
-  .dropdown-menu[data-coreui-popper] {
+  .dropdown-menu[data#{$data-infix}popper] {
+    inset-inline-start: auto;
+    inset-inline-end: 100%;
     top: 0;
-    @include ltr-rtl("right", 100%);
-    @include ltr-rtl("left", auto);
+    margin-inline-end: var(--#{$prefix}dropdown-spacer);
     margin-top: 0;
-    @include ltr-rtl("margin-right", var(--#{$prefix}dropdown-spacer));
   }
 
   .dropdown-toggle {

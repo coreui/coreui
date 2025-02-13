@@ -1,3 +1,8 @@
+@use "../mixins/breakpoints" as *;
+@use "../mixins/ltr-rtl" as *;
+@use "../variables" as *;
+@use "sidebar" as *;
+
 .sidebar-narrow {
   // scss-docs-start sidebar-narrow-css-vars
   --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};

@@ -1,3 +1,5 @@
+@use "../variables" as *;
+
 // Shared between modals and offcanvases
 @mixin overlay-backdrop($zindex, $backdrop-bg, $backdrop-opacity) {
   position: fixed;

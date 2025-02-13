@@ -1,3 +1,9 @@
+@use "functions/escape-svg" as *;
+@use "mixins/clearfix" as *;
+@use "mixins/color-mode" as *;
+@use "mixins/transition" as *;
+@use "variables" as *;
+
 // Notes on the classes:
 //
 // 1. .carousel.pointer-event should ideally be pan-y (to allow for users to scroll vertically)
@@ -150,7 +156,7 @@
 // Optional indicator pips/controls
 //
 // Add a container (such as a list) with the following class and add an item (ideally a focusable control,
-// like a button) with data-coreui-target for each slide your carousel holds.
+// like a button) with data#{$data-infix}target for each slide your carousel holds.
 
 .carousel-indicators {
   position: absolute;
@@ -166,7 +172,7 @@
   margin-bottom: 1rem;
   margin-left: $carousel-control-width;
 
-  [data-coreui-target] {
+  [data#{$data-infix}target] {
     box-sizing: content-box;
     flex: 0 1 auto;
     width: $carousel-indicator-width;
@@ -215,7 +221,7 @@
     filter: $carousel-dark-control-icon-filter;
   }
 
-  .carousel-indicators [data-coreui-target] {
+  .carousel-indicators [data#{$data-infix}target] {
     background-color: $carousel-dark-indicator-active-bg;
   }
 

@@ -1,3 +1,8 @@
+@use "mixins/grid" as *;
+@use "variables" as *;
+
+$include-column-box-sizing: false !default;
+
 // Row
 //
 // Rows contain your columns.
@@ -15,7 +20,7 @@
     @include make-row();
 
     > * {
-      @include make-col-ready();
+      @include make-col-ready($include-column-box-sizing);
     }
   }
 }
@@ -38,4 +43,21 @@
 
 @if $enable-grid-classes {
   @include make-grid-columns();
+}
+
+@if $enable-container-queries {
+  .cq-container {
+    container-type: inline-size;
+  }
+
+  .cq-row {
+    container-type: inline-size;
+    @include make-row();
+
+    > * {
+      @include make-col-ready($include-column-box-sizing);
+    }
+  }
+
+  @include make-c-grid-columns();
 }

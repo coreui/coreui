@@ -75,7 +75,6 @@ Curious which components explicitly require our JavaScript and Popper? Click the
 
 {{< added-in "5.0.0" >}}
 
-
 If you're currently using Bootstrap in your project or want to maintain full compatibility with Bootstrap, check out how you can add CoreUI for Bootstrap to your project. CoreUI enhances Bootstrap projects by adding advanced components and features, offering a smooth upgrade with minimal adjustments. It retains Bootstrap's familiar structure while introducing new possibilities for UI development.
 
 {{< bootstrap-compatibility >}}
@@ -85,7 +84,7 @@ If you're currently using Bootstrap in your project or want to maintain full com
 Copy-paste the stylesheet `<link>` into your `<head>` before all other stylesheets to load our CSS.
 
 ```html
-<link href="{{< param "cdn.css_bs" >}}" rel="stylesheet" integrity="{{< param "cdn.css_bs_hash" >}}" crossorigin="anonymous">
+<link href="{{< param "cdn_themes.css_bs" >}}" rel="stylesheet" integrity="{{< param "cdn_themes.css_bs_hash" >}}" crossorigin="anonymous">
 ```
 
 ### JS
@@ -97,7 +96,7 @@ Many of our components require the use of JavaScript to function. Specifically, 
 Include every CoreUI for Bootstrap JavaScript plugin and dependency with one of our two bundles. Both `bootstrap.bundle.js` and `bootstrap.bundle.min.js` include [Popper](https://popper.js.org/) for our tooltips and popovers.
 
 ```html
-<script src="{{< param "cdn.js_bs_bundle" >}}" integrity="{{< param "cdn.js_bs_bundle_hash" >}}" crossorigin="anonymous"></script>
+<script src="{{< param "cdn_themes.js_bs_bundle" >}}" integrity="{{< param "cdn_themes.js_bs_bundle_hash" >}}" crossorigin="anonymous"></script>
 ```
 
 ##### Separate
@@ -106,7 +105,7 @@ If you decide to go with the separate scripts solution, Popper must come first (
 
 ```html
 <script src="{{< param "cdn.popper" >}}" integrity="{{< param "cdn.popper_hash" >}}" crossorigin="anonymous"></script>
-<script src="{{< param "cdn.js_bs" >}}" integrity="{{< param "cdn.js_bs_hash" >}}" crossorigin="anonymous"></script>
+<script src="{{< param "cdn_themes.js_bs" >}}" integrity="{{< param "cdn_themes.js_bs_hash" >}}" crossorigin="anonymous"></script>
 ```
 
 ## Starter template

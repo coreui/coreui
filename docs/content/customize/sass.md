@@ -37,6 +37,41 @@ your-project/
 
 In your `custom.scss`, you'll import CoreUI's source Sass files. You have two options: include all of CoreUI, or pick the parts you need. We encourage the latter, though be aware there are some requirements and dependencies across our components. You also will need to include some JavaScript for our plugins.
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+// Custom.scss
+// Option A: Include all of CoreUI
+
+@use "@coreui/coreui/scss/coreui";
+
+// Then add additional custom code here
+```
+
+```scss
+// Custom.scss
+// Option B: Include parts of CoreUI
+
+// 1. Include 
+@use "@coreui/coreui/scss/root";
+
+// 2. Optionally include any other parts as needed
+@use "@coreui/coreui/scss/utilities";
+@use "@coreui/coreui/scss/reboot";
+@use "@coreui/coreui/scss/type";
+@use "@coreui/coreui/scss/images";
+@use "@coreui/coreui/scss/containers";
+@use "@coreui/coreui/scss/grid";
+@use "@coreui/coreui/scss/helpers";
+
+// 3. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
+@use "@coreui/coreui/scss/utilities/api";
+
+// 4. Add additional custom code here
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 // Custom.scss
 // Option A: Include all of CoreUI
@@ -125,6 +160,17 @@ Variable overrides must come after our functions are imported, but before the re
 
 Here's an example that changes the `background-color` and `color` for the `<body>` when importing and compiling CoreUI for Bootstrap via npm:
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $body-bg: #000,
+  $body-color: #111
+)
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 // Required
 @import "../node_modules/@coreui/coreui/scss/functions";
@@ -175,6 +221,23 @@ $theme-colors: (
 
 Add new colors to `$theme-colors`, or any other map, by creating a new Sass map with your custom values and merging it with the original map. In this case, we'll create a new `$custom-colors` map and merge it with `$theme-colors`.
 
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "sass:map";
+@use "@coreui/coreui/scss/variables" as *;
+
+$custom-colors: (
+  "custom-color": #900
+);
+
+$theme-colors: map.merge($theme-colors, $custom-colors);
+
+@use "@coreui/coreui/scss/coreui";
+```
+
+{{< callout-dart-sass-deprecations >}}
+
 ```scss
 // Create your own map
 $custom-colors: (
@@ -188,6 +251,21 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 ### Remove from map
 
 To remove colors from `$theme-colors`, or any other map, use `map-remove`. Be aware you must insert it between our requirements and options:
+
+{{< callout-dart-sass-modules >}}
+
+```scss
+@use "sass:map";
+@use "@coreui/coreui/scss/variables" as *;
+@use "@coreui/coreui/scss/maps" as *;
+
+$theme-colors: map-remove($theme-colors, "info", "light", "dark");
+$theme-colors-border-subtle: map.remove($theme-colors-border-subtle, "info", "light", "dark");
+
+@use "@coreui/coreui/scss/coreui";
+```
+
+{{< callout-dart-sass-deprecations >}}
 
 ```scss
 // Required
@@ -226,11 +304,13 @@ Next to the [Sass maps]({{< docsref "/customize/color#color-sass-maps" >}}) we h
 
 You can lighten or darken colors with CoreUI for Bootstrap's `tint-color()` and `shade-color()` functions. These functions will mix colors with black or white, unlike Sass' native `lighten()` and `darken()` functions which will change the lightness by a fixed amount, which often doesn't lead to the desired effect.
 
-{{< scss-docs name="color-functions" file="scss/_functions.scss" >}}
+{{< scss-docs name="color-functions" file="scss/functions/_color.scss" >}}
 
 In practice, you'd call the function and pass in the color and weight parameters.
 
 ```scss
+@use "@coreui/coreui/scss/functions/color" as *;
+
 .custom-element {
   color: tint-color($primary, 10%);
 }
@@ -251,9 +331,14 @@ In order to meet the [Web Content Accessibility Guidelines (WCAG)](https://www.w
 
 An additional function we include in CoreUI for Bootstrap is the color contrast function, `color-contrast`. It utilizes the [WCAG 2.0 algorithm](https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests) for calculating contrast thresholds based on [relative luminance](https://www.w3.org/WAI/GL/wiki/Relative_luminance) in a `sRGB` colorspace to automatically return a light (`#fff`), dark (`#212529`) or black (`#000`) contrast color based on the specified base color. This function is especially useful for mixins or loops where you're generating multiple classes.
 
+{{< scss-docs name="color-contrast-function" file="scss/functions/_color-contrast.scss" >}}
+
 For example, to generate color swatches from our `$theme-colors` map:
 
+
 ```scss
+@use "@coreui/coreui/scss/functions/color-contrast" as *;
+
 @each $color, $value in $theme-colors {
   .swatch-#{$color} {
     color: color-contrast($value);
@@ -264,6 +349,8 @@ For example, to generate color swatches from our `$theme-colors` map:
 It can also be used for one-off contrast needs:
 
 ```scss
+@use "@coreui/coreui/scss/functions/color-contrast" as *;
+
 .custom-element {
   color: color-contrast(#000); // returns `color: #fff`
 }
@@ -272,6 +359,8 @@ It can also be used for one-off contrast needs:
 You can also specify a base color with our color map functions:
 
 ```scss
+@use "@coreui/coreui/scss/functions/color-contrast" as *;
+
 .custom-element {
   color: color-contrast($dark); // returns `color: #fff`
 }
@@ -288,6 +377,8 @@ We use the `add` and `subtract` functions to wrap the CSS `calc` function. The p
 Example where the calc is valid:
 
 ```scss
+@use "@coreui/coreui/scss/functions/math" as *;
+
 $border-radius: .25rem;
 $border-width: 1px;
 
@@ -305,6 +396,8 @@ $border-width: 1px;
 Example where the calc is invalid:
 
 ```scss
+@use "@coreui/coreui/scss/functions/math" as *;
+
 $border-radius: .25rem;
 $border-width: 0;
 
@@ -330,6 +423,8 @@ A shorthand mixin for the `prefers-color-scheme` media query is available with s
 {{< scss-docs name="mixin-color-scheme" file="scss/mixins/_color-scheme.scss" >}}
 
 ```scss
+@use "@coreui/coreui/scss/mixins/color-scheme" as *;
+
 .custom-element {
   @include color-scheme(light) {
     // Insert light mode styles here

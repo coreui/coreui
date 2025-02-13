@@ -1,4 +1,7 @@
 // stylelint-disable declaration-no-important, selector-max-id
+@use "../../../scss/mixins/border-radius" as *;
+@use "../../../scss/mixins/breakpoints" as *;
+@use "../../../scss/vendor/rfs" as *;
 
 //
 // Carbon ads

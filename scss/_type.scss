@@ -1,3 +1,8 @@
+@use "mixins/lists" as *;
+@use "vendor/rfs" as *;
+@use "reboot" as *;
+@use "variables" as *;
+
 //
 // Headings
 //
@@ -69,7 +74,7 @@
   display: inline-block;
 
   &:not(:last-child) {
-    @include ltr-rtl("margin-right", $list-inline-padding);
+    margin-inline-end: $list-inline-padding;
   }
 }
 
