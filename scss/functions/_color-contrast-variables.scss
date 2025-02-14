@@ -1,9 +1,8 @@
 @use "contrast-ratio" as *;
 
-// Color contrast
-// See https://github.com/twbs/bootstrap/pull/30168
+// We use this function only in variables.scss because recursive imports are not allowed in Sass anymore.
 
-@function color-contrast($background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio) {
+@function color-contrast-variables($background, $color-contrast-dark, $color-contrast-light, $white, $black, $min-contrast-ratio) {
   $foregrounds: $color-contrast-light, $color-contrast-dark, $white, $black;
   $max-ratio: 0;
   $max-ratio-color: null;
