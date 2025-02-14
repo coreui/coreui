@@ -320,10 +320,8 @@ p {
 }
 
 abbr[title] {
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
-  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
@@ -335,7 +333,6 @@ address {
 
 ol,
 ul {
-  -webkit-padding-start: 2rem;
   padding-inline-start: 2rem;
 }
 
@@ -358,7 +355,6 @@ dt {
 }
 
 dd {
-  -webkit-margin-start: 0;
   margin-inline-start: 0;
   margin-bottom: 0.5rem;
 }
@@ -612,11 +608,6 @@ legend + * {
 
 ::-webkit-color-swatch-wrapper {
   padding: 0;
-}
-
-::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
 }
 
 ::file-selector-button {
