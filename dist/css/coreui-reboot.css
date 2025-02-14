@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Reboot v5.3.0 (https://coreui.io)
+ * CoreUI Reboot v5.3.1 (https://coreui.io)
  * Copyright (c) 2025 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -320,8 +320,10 @@ p {
 }
 
 abbr[title] {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
   cursor: help;
+  -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
 }
 
@@ -333,6 +335,7 @@ address {
 
 ol,
 ul {
+  -webkit-padding-start: 2rem;
   padding-inline-start: 2rem;
 }
 
@@ -355,6 +358,7 @@ dt {
 }
 
 dd {
+  -webkit-margin-start: 0;
   margin-inline-start: 0;
   margin-bottom: 0.5rem;
 }
@@ -608,6 +612,11 @@ legend + * {
 
 ::-webkit-color-swatch-wrapper {
   padding: 0;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
 }
 
 ::file-selector-button {
