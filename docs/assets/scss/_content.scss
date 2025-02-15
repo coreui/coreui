@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "../../../scss/functions/to-rgb" as *;
 @use "../../../scss/mixins/breakpoints" as *;
 @use "../../../scss/vendor/rfs" as *;
@@ -118,8 +119,8 @@
 }
 
 .docs-lead {
-  @include font-size(1.5rem);
   font-weight: 300;
+  @include font-size(1.5rem);
 }
 
 .bi {
@@ -155,16 +156,16 @@
   --cui-tertiary-bg: #{$blue-600};
 
   .dropdown-menu {
-    --cui-dropdown-bg: #{mix($blue-500, $blue-600)};
+    --cui-dropdown-bg: #{color.mix($blue-500, $blue-600)};
     --cui-dropdown-link-active-bg: #{$blue-700};
   }
 
   .btn-secondary {
-    --cui-btn-bg: #{mix($gray-600, $blue-400, .5)};
+    --cui-btn-bg: #{color.mix($gray-600, $blue-400, 50%)};
     --cui-btn-border-color: #{rgba($white, .25)};
-    --cui-btn-hover-bg: #{darken(mix($gray-600, $blue-400, .5), 5%)};
+    --cui-btn-hover-bg: #{color.scale(color.mix($gray-600, $blue-400, 50%), $lightness: -8%)}; // stylelint-disable-line scss/at-function-named-arguments
     --cui-btn-hover-border-color: #{rgba($white, .25)};
-    --cui-btn-active-bg: #{darken(mix($gray-600, $blue-400, .5), 10%)};
+    --cui-btn-active-bg: #{color.scale(color.mix($gray-600, $blue-400, 50%), $lightness: -16%)}; // stylelint-disable-line scss/at-function-named-arguments
     --cui-btn-active-border-color: #{rgba($white, .5)};
     --cui-btn-focus-border-color: #{rgba($white, .5)};
     --cui-btn-focus-box-shadow: 0 0 0 .25rem rgba(255, 255, 255, .2);
