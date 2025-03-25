@@ -1,5 +1,6 @@
 @use "mixins/border-radius" as *;
 @use "mixins/box-shadow" as *;
+@use "buttons" as *;
 @use "variables" as *;
 
 // Make the div behave like a button
