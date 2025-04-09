@@ -75,7 +75,7 @@
 .header-divider {
   flex-basis: calc(100% + (2 * var(--#{$prefix}header-padding-x))); // stylelint-disable-line function-disallowed-list
   height: 0;
-  margin: var(--#{$prefix}header-padding-y) calc(var(--#{$prefix}header-padding-x) * -1); // stylelint-disable-line function-disallowed-list
+  margin: var(--#{$prefix}header-padding-y) calc(-1 * var(--#{$prefix}header-padding-x)); // stylelint-disable-line function-disallowed-list
   border-top: var(--#{$prefix}header-divider-border);
 }
 

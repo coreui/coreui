@@ -259,7 +259,7 @@
     }
 
     .nav-icon {
-      margin-inline-start: calc((var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin)) * -1); // stylelint-disable-line function-disallowed-list
+      margin-inline-start: calc(-1 * (var(--#{$prefix}sidebar-nav-link-icon-width) + var(--#{$prefix}sidebar-nav-link-icon-margin))); // stylelint-disable-line function-disallowed-list
     }
   }
 
