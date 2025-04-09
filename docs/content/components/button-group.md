@@ -21,7 +21,7 @@ Wrap a series of buttons with `.btn` in `.btn-group`. Add on optional JavaScript
 </div>
 {{< /example >}}
 
-{{< callout warning >}}
+{{< callout info >}}
 ##### Ensure the correct `role` and provide a label
 
 For assistive technologies (ex. screen readers) to communicate that a series of buttons are grouped, a proper `role` attribute has to be provided. For button groups, this should be `role="group"`, while toolbars should have a `role="toolbar"`.
