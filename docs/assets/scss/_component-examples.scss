@@ -123,13 +123,13 @@
   .fixed-top,
   .sticky-top {
     position: static;
-    margin: calc(var(--cd-example-padding) * -1) calc(var(--cd-example-padding) * -1) var(--cd-example-padding); // stylelint-disable-line function-disallowed-list
+    margin: calc(-1 * var(--cd-example-padding)) calc(-1 * var(--cd-example-padding)) var(--cd-example-padding); // stylelint-disable-line function-disallowed-list
   }
 
   .fixed-bottom,
   .sticky-bottom {
     position: static;
-    margin: var(--cd-example-padding) calc(var(--cd-example-padding) * -1) calc(var(--cd-example-padding) * -1); // stylelint-disable-line function-disallowed-list
+    margin: var(--cd-example-padding) calc(-1 * var(--cd-example-padding)) calc(-1 * var(--cd-example-padding)); // stylelint-disable-line function-disallowed-list
 
   }
 

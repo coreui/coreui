@@ -149,7 +149,7 @@ Similar to our default grid system, our CSS Grid allows for easy nesting of `.gr
 In practice this allows for more complex and custom layouts when compared to our default grid system.
 
 {{< example class="docs-example-cssgrid" >}}
-<div class="grid text-center" style="--cui-columns: 3;">
+<div class="grid text-center overflow-x-auto" style="--cui-columns: 3;">
   <div>
     First auto-column
     <div class="grid">

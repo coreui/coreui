@@ -224,6 +224,27 @@ There are also responsive `.order-first` and `.order-last` classes that change t
 </div>
 {{< /example >}}
 
+If you need more `.order-*` classes, you can add new ones by modifying our `$utilities` Sass map. [Read our Sass maps and loops docs]({{< docsref "/customize/sass#maps-and-loops" >}}) or [our Modify utilities docs]({{< docsref "/utilities/api#modify-utilities" >}}) for details.
+
+```scss
+$utilities: map-merge(
+  $utilities,
+  (
+    "order": map-merge(
+      map-get($utilities, "order"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "order"), "values"),
+          (
+            6: 6, // Add a new `.order-{breakpoint}-6` utility
+            last: 7 // Change the `.order-{breakpoint}-last` utility to use the next number
+          )
+        ),
+      ),
+    ),
+  )
+);
+
 ### Offsetting columns
 
 You can offset grid columns in two ways: our responsive `.offset-` grid classes and our [margin utilities]({{< docsref "/utilities/spacing" >}}). Grid classes are sized to match columns while margins are more useful for quick layouts where the width of the offset is variable.
