@@ -1,6 +1,7 @@
 @use "functions/escape-svg" as *;
 @use "mixins/clearfix" as *;
 @use "mixins/color-mode" as *;
+@use "mixins/ltr-rtl" as *;
 @use "mixins/transition" as *;
 @use "variables" as *;
 
@@ -138,19 +139,11 @@
   background-size: 100% 100%;
 }
 
-/* rtl:options: {
-  "autoRename": true,
-  "stringMap":[ {
-    "name"    : "prev-next",
-    "search"  : "prev",
-    "replace" : "next"
-  } ]
-} */
 .carousel-control-prev-icon {
-  background-image: escape-svg($carousel-control-prev-icon-bg);
+  @include ltr-rtl-value-only("background-image", escape-svg($carousel-control-prev-icon-bg), escape-svg($carousel-control-next-icon-bg));
 }
 .carousel-control-next-icon {
-  background-image: escape-svg($carousel-control-next-icon-bg);
+  @include ltr-rtl-value-only("background-image", escape-svg($carousel-control-next-icon-bg), escape-svg($carousel-control-prev-icon-bg));
 }
 
 // Optional indicator pips/controls
