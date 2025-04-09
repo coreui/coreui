@@ -61,7 +61,7 @@
 }
 
 :root,
-[data-coreui-theme="light"] {
+[data#{$data-infix}theme="light"] {
   --#{$prefix}btn-close-filter: #{$btn-close-filter};
 }
 

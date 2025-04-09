@@ -221,7 +221,7 @@
 }
 
 :root,
-[data-coreui-theme="light"] {
+[data#{$data-infix}theme="light"] {
   --#{$prefix}carousel-indicator-active-bg: #{$carousel-indicator-active-bg};
   --#{$prefix}carousel-caption-color: #{$carousel-caption-color};
   --#{$prefix}carousel-control-icon-filter: #{$carousel-control-icon-filter};
