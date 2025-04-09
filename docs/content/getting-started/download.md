@@ -72,6 +72,14 @@ Install CoreUI in your Node.js powered apps with [the yarn package](https://yarn
 yarn add @coreui/coreui
 ```
 
+### Bun
+ 
+Install CoreUI in your Bun or Node.js powered apps with [the Bun CLI](https://bun.sh/):
+ 
+```sh
+bun add @coreui/coreui
+```
+
 ### Composer
 
 You can also install and manage CoreUI's Sass and JavaScript using [Composer](https://getcomposer.org/):
