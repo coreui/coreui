@@ -53,6 +53,7 @@
   }
 
   > .form-select {
+    padding-inline-start: $form-floating-padding-x;
     padding-top: $form-floating-input-padding-t;
     padding-bottom: $form-floating-input-padding-b;
   }
