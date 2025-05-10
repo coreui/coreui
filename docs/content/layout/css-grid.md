@@ -16,7 +16,7 @@ CoreUI for Bootstrap's default grid system represents the culmination of over a 
 
 ## How it works
 
-With CoreUI 4, we've added the option to enable a separate grid system that's built on CSS Grid, but with a CoreUI twist. You still get classes you can apply on a whim to build responsive layouts, but with a different approach under the hood.
+With CoreUI, we've added the option to enable a separate grid system that's built on CSS Grid, but with a CoreUI twist. You still get classes you can apply on a whim to build responsive layouts, but with a different approach under the hood.
 
 - **CSS Grid is opt-in.** Disable the default grid system by setting `$enable-grid-classes: false` and enable the CSS Grid by setting `$enable-cssgrid: true`. Then, recompile your Sass.
 

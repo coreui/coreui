@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Buttons
-description: Bootstrap button component for actions in tables, forms, cards, and more. CoreUI 4 for Bootstrap provides various styles, states, and size. Ready to use and easy to customize.
+description: Bootstrap button component for actions in tables, forms, cards, and more. CoreUI for Bootstrap provides various styles, states, and size. Ready to use and easy to customize.
 group: components
 aliases:
   - "/components/button/"
