@@ -915,6 +915,29 @@ $btn-active-border-shade-amount:  25% !default;
 $btn-active-border-tint-amount:   10% !default;
 // scss-docs-end btn-variables
 
+// scss-docs-start btn-outline-variables
+$btn-outline-color: var(--#{$prefix}secondary-color) !default;
+$btn-outline-border-color: var(--#{$prefix}border-color) !default;
+$btn-outline-active-color: var(--#{$prefix}body-color) !default;
+$btn-outline-active-bg: var(--#{$prefix}tertiary-bg) !default;
+$btn-outline-active-border-color: var(--#{$prefix}border-color) !default;
+$btn-outline-disabled-color: var(--#{$prefix}secondary-color) !default;
+$btn-outline-disabled-border-color: var(--#{$prefix}border-color) !default;
+$btn-outline-hover-color: var(--#{$prefix}body-color) !default;
+$btn-outline-hover-bg: var(--#{$prefix}tertiary-bg) !default;
+$btn-outline-hover-border-color: var(--#{$prefix}border-color) !default;
+$btn-outline-focus-shadow-rgb: var(--#{$prefix}tertiary-bg-rgb) !default;
+// scss-docs-end btn-outline-variables
+
+// scss-docs-start btn-ghost-variables
+$btn-ghost-color: var(--#{$prefix}secondary-color) !default;
+$btn-ghost-active-color: var(--#{$prefix}body-color) !default;
+$btn-ghost-active-bg: var(--#{$prefix}tertiary-bg) !default;
+$btn-ghost-disabled-color: var(--#{$prefix}secondary-color) !default;
+$btn-ghost-hover-color: var(--#{$prefix}body-color) !default;
+$btn-ghost-hover-bg: var(--#{$prefix}tertiary-bg) !default;
+$btn-ghost-focus-shadow-rgb: var(--#{$prefix}tertiary-bg-rgb) !default;
+// scss-docs-end btn-ghost-variables
 
 // Forms
 

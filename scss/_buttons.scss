@@ -138,6 +138,38 @@
 // Alternate buttons
 //
 
+.btn-ghost {
+  // scss-docs-start btn-ghost-css-vars
+  --#{$prefix}btn-color: #{$btn-ghost-color};
+  --#{$prefix}btn-border-color: #{transparent};
+  --#{$prefix}btn-active-color: #{$btn-ghost-active-color};
+  --#{$prefix}btn-active-bg: #{$btn-ghost-active-bg};
+  --#{$prefix}btn-active-border-color: #{$btn-ghost-active-bg};
+  --#{$prefix}btn-disabled-color: #{$btn-ghost-disabled-color};
+  --#{$prefix}btn-disabled-border-color: #{transparent};
+  --#{$prefix}btn-hover-color: #{$btn-ghost-hover-color};
+  --#{$prefix}btn-hover-bg: #{$btn-ghost-hover-bg};
+  --#{$prefix}btn-hover-border-color: #{$btn-ghost-hover-bg};
+  --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(#{$btn-outline-focus-shadow-rgb}, .5);
+  // scss-docs-end btn-ghost-css-vars
+}
+
+.btn-outline {
+  // scss-docs-start btn-outline-css-vars
+  --#{$prefix}btn-color: #{$btn-outline-color};
+  --#{$prefix}btn-border-color: #{$btn-outline-border-color};
+  --#{$prefix}btn-active-color: #{$btn-outline-active-color};
+  --#{$prefix}btn-active-bg: #{$btn-outline-active-bg};
+  --#{$prefix}btn-active-border-color: #{$btn-outline-active-border-color};
+  --#{$prefix}btn-disabled-color: #{$btn-outline-disabled-color};
+  --#{$prefix}btn-disabled-border-color: #{$btn-outline-disabled-border-color};
+  --#{$prefix}btn-hover-color: #{$btn-outline-hover-color};
+  --#{$prefix}btn-hover-bg: #{$btn-outline-hover-bg};
+  --#{$prefix}btn-hover-border-color: #{$btn-outline-hover-border-color};
+  --#{$prefix}btn-focus-box-shadow: 0 0 0 #{$btn-focus-width} rgba(#{$btn-ghost-focus-shadow-rgb}, .5);
+  // scss-docs-end btn-outline-css-vars
+}
+
 .btn-transparent {
   --#{$prefix}btn-active-border-color: transparent;
   --#{$prefix}btn-disabled-border-color: transparent;

@@ -27,7 +27,6 @@ If you are using the `.btn` class on its own, remember to at least define some e
 
 ## Variants
 
-
 CoreUI includes a bunch of predefined Bootstrap buttons, each serving its own semantic purpose. CoreUI also offers some unique buttons styles.
 
 Buttons show what action will happen when the user clicks or touches it. Bootstrap buttons are used to initialize operations, both in the background or foreground of an experience.
@@ -80,6 +79,20 @@ If you're using `.btn` classes on `<a>` elements that are used to trigger functi
 
 ## Outline buttons
 
+### Base outline style: `.btn-outline`
+
+The `.btn-outline` class provides a neutral outline button style without any color modifiers. It’s useful as a foundation for minimal buttons without background color or strong visual emphasis.
+
+{{< example >}}
+<button type="button" class="btn btn-outline">Base outline button</button>
+<button type="button" class="btn btn-outline active">Active state</button>
+<button type="button" class="btn btn-outline" disabled>Disabled state</button>
+{{< /example >}}
+
+These buttons use a transparent background, subtle border, and inherit text color from the parent context. They’re best suited for minimalist UI elements like modals, toolbars, or secondary actions.
+
+### Themed outline variants: `.btn-outline-*`
+
 If you need a button, but without the strong background colors. Replace the default modifier classes with the `.btn-outline-*` ones to remove all background colors on any element with `.btn` class.
 
 {{< example >}}
@@ -90,20 +103,37 @@ If you need a button, but without the strong background colors. Replace the defa
 {{< /buttons.inline >}}
 {{< /example >}}
 
+These outline variant buttons retain transparent backgrounds by default, but display a subtle background tint on hover or focus to indicate interactivity. They're ideal for secondary actions when you want to visually differentiate from solid `.btn-*` buttons.
+
 {{< callout info >}}
 Some of the button styles use a relatively light foreground color, and should only be used on a dark background in order to have sufficient contrast.
 {{< /callout >}}
 
 ## Ghost buttons
 
-Use `.btn-ghost-*` class for ghost buttons.
+### Base ghost style: `.btn-ghost`
+
+Use the `.btn-ghost` class to create ultra-minimalist buttons with no borders and a fully transparent background. These buttons rely solely on text color for visibility and apply a subtle background highlight on hover or active states.
+
+They’re perfect for interfaces where you want buttons to be present but visually unobtrusive—such as action buttons in modals, cards, or toolbars.
 
 {{< example >}}
-{{< buttons.inline >}}
-{{- range (index $.Site.Data "theme-colors") }}
-<button type="button" class="btn btn-ghost-{{ .name }}">{{ .name | title }}</button>
-{{- end -}}
-{{< /buttons.inline >}}
+<button type="button" class="btn btn-ghost">Base ghost button</button>
+<button type="button" class="btn btn-ghost active">Active state</button>
+<button type="button" class="btn btn-ghost" disabled>Disabled state</button>
+{{< /example >}}
+
+### Themed ghost variants: `.btn-ghost-*`
+
+To apply theme colors to ghost buttons, use `.btn-ghost-*` classes. These variants color only the text by default. On hover or focus, they add a faint background tint corresponding to the theme color.
+
+{{< example >}}
+<button type="button" class="btn btn-ghost-primary">Primary</button>
+<button type="button" class="btn btn-ghost-secondary">Secondary</button>
+<button type="button" class="btn btn-ghost-success">Success</button>
+<button type="button" class="btn btn-ghost-danger">Danger</button>
+<button type="button" class="btn btn-ghost-warning">Warning</button>
+<button type="button" class="btn btn-ghost-info">Info</button>
 {{< /example >}}
 
 ## Sizes
