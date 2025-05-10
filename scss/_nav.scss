@@ -203,6 +203,55 @@
 
 
 //
+// Enclosed
+//
+
+.nav-enclosed {
+  --#{$prefix}nav-enclosed-padding: #{$nav-enclosed-padding};
+  --#{$prefix}nav-enclosed-bg: #{$nav-enclosed-bg};
+  --#{$prefix}nav-enclosed-border-radius: #{$nav-enclosed-border-radius};
+  --#{$prefix}nav-enclosed-link-color: #{$nav-enclosed-link-color};
+  --#{$prefix}nav-enclosed-link-active-color: #{$nav-enclosed-link-active-color};
+  --#{$prefix}nav-enclosed-link-active-bg: #{$nav-enclosed-link-active-bg};
+  --#{$prefix}nav-enclosed-link-active-border-color: #{$nav-enclosed-link-active-border-color};
+  --#{$prefix}nav-enclosed-link-hover-box-shadow: #{$nav-enclosed-link-hover-box-shadow};
+  --#{$prefix}nav-enclosed-link-disabled-color: #{$nav-enclosed-link-disabled-color};
+
+  display: inline-flex;
+  padding: var(--#{$prefix}nav-enclosed-padding);
+  background-color: var(--#{$prefix}nav-enclosed-bg);
+  @include border-radius(var(--#{$prefix}nav-enclosed-border-radius));
+
+  .nav-link {
+    color: var(--#{$prefix}nav-enclosed-link-color);
+    border: 1px solid transparent;
+    @include border-radius(calc(var(--#{$prefix}nav-enclosed-border-radius) - var(--#{$prefix}nav-enclosed-padding)));
+
+    &.disabled {
+      color: var(--#{$prefix}nav-enclosed-link-disabled-color);
+    }
+  }
+
+  .nav-link.active,
+  .show > .nav-link {
+    color: var(--#{$prefix}nav-enclosed-link-active-color);
+    background-color: var(--#{$prefix}nav-enclosed-link-active-bg);
+    border: 1px solid var(--#{$prefix}nav-enclosed-link-active-border-color);
+
+    &:not(:focus-visible) {
+      box-shadow: var(--#{$prefix}nav-enclosed-link-hover-box-shadow);
+    }
+  }
+}
+
+// Enclosed pills
+
+.nav-enclosed-pills {
+  --#{$prefix}nav-enclosed-border-radius: #{$border-radius-pill};
+}
+
+
+//
 // Justified variants
 //
 

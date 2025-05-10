@@ -1281,6 +1281,16 @@ $nav-underline-border-link-padding-x:       .5rem !default;
 $nav-underline-border-link-color:           var(--#{$prefix}secondary-color) !default;
 $nav-underline-border-link-active-color:    var(--#{$prefix}primary) !default;
 $nav-underline-border-link-disabled-color:  var(--#{$prefix}tertiary-color) !default;
+
+$nav-enclosed-padding:                   .25rem !default;
+$nav-enclosed-bg:                        var(--#{$prefix}tertiary-bg) !default;
+$nav-enclosed-border-radius:             $border-radius-lg !default;
+$nav-enclosed-link-color:                var(--#{$prefix}body-color) !default;
+$nav-enclosed-link-active-color:         var(--#{$prefix}body-color) !default;
+$nav-enclosed-link-active-bg:            var(--#{$prefix}body-bg) !default;
+$nav-enclosed-link-active-border-color:  var(--#{$prefix}border-color) !default;
+$nav-enclosed-link-hover-box-shadow:     var(--#{$prefix}box-shadow-sm) !default;
+$nav-enclosed-link-disabled-color:       var(--#{$prefix}secondary-color) !default;
 // scss-docs-end nav-variables
 
 
