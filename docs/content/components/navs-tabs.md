@@ -211,6 +211,49 @@ Take that same HTML, but use `.nav-underline-border` instead:
 </ul>
 {{< /example >}}
 
+### Enclosed
+
+Use the `.nav-enclosed` class to give your navigation items a subtle border and rounded styling.
+
+{{< example >}}
+<ul class="nav nav-enclosed">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+{{< /example >}}
+
+### Enclosed pills
+
+Combine `.nav-enclosed` with `.nav-enclosed-pills` to achieve a pill-style appearance for each nav item, using pill-shaped borders and smoother outlines.
+
+
+{{< example >}}
+<ul class="nav nav-enclosed nav-enclosed-pills">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">Link</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </li>
+</ul>
+{{< /example >}}
+
 ### Fill and justify
 
 Force your `.nav`'s contents to extend the full available width one of two modifier classes. To proportionately fill all available space with your `.nav-item`s, use `.nav-fill`. Notice that all horizontal space is occupied, but not every nav item has the same width.

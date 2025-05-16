@@ -1282,10 +1282,13 @@ $nav-underline-border-link-color:           var(--#{$prefix}secondary-color) !de
 $nav-underline-border-link-active-color:    var(--#{$prefix}primary) !default;
 $nav-underline-border-link-disabled-color:  var(--#{$prefix}tertiary-color) !default;
 
-$nav-enclosed-padding:                   .25rem !default;
+$nav-enclosed-padding:                   .125rem !default;
 $nav-enclosed-bg:                        var(--#{$prefix}tertiary-bg) !default;
 $nav-enclosed-border-radius:             $border-radius-lg !default;
+$nav-enclosed-link-padding-y:            .375rem !default;
+$nav-enclosed-link-padding-x:            .875rem !default;
 $nav-enclosed-link-color:                var(--#{$prefix}body-color) !default;
+$nav-enclosed-link-border-width:         1px !default;
 $nav-enclosed-link-active-color:         var(--#{$prefix}body-color) !default;
 $nav-enclosed-link-active-bg:            var(--#{$prefix}body-bg) !default;
 $nav-enclosed-link-active-border-color:  var(--#{$prefix}border-color) !default;
