@@ -9,11 +9,12 @@ import globals from 'globals'
 export default [
   eslintPluginImport.flatConfigs.errors,
   eslintPluginImport.flatConfigs.warnings,
-  eslintPluginUnicorn.configs['flat/recommended'],
+  eslintPluginUnicorn.configs.recommended,
   ...xo,
   ...xoBrowser,
   {
     ignores: [
+      '**/*.json',
       '**/*.min.js',
       '**/dist/',
       '**/vendor/',
@@ -27,6 +28,7 @@ export default [
   {
     rules: {
       '@stylistic/comma-dangle': 'off',
+      '@stylistic/curly-newline': 'off',
       '@stylistic/function-paren-newline': 'off',
       '@stylistic/indent': 'off',
       '@stylistic/indent-binary-ops': 'off',
@@ -119,6 +121,12 @@ export default [
       sourceType: 'module'
     }
   },
+  // {
+  //   files: ["**/*.json"],
+  //   rules: {
+  //     "unicorn/expiring-todo-comments": "off"
+  //   }
+  // },
   {
     files: ['build/**'],
     languageOptions: {
