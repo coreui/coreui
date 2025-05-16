@@ -22,6 +22,7 @@ const plugins = [
     babelHelpers: 'bundled'
   }),
   BOOTSTRAP && replace({
+    preventAssignment: false,
     delimiters: ['', ''],
     '/coreui': '/coreui', // prevents changes in URLs
     coreui: 'bs',
