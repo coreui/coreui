@@ -231,7 +231,8 @@
     border: var(--#{$prefix}nav-enclosed-link-border-width) solid transparent;
     @include border-radius(calc(var(--#{$prefix}nav-enclosed-border-radius) - var(--#{$prefix}nav-enclosed-padding)));
 
-    &.disabled {
+    &.disabled,
+    &:disabled {
       color: var(--#{$prefix}nav-enclosed-link-disabled-color);
     }
   }
