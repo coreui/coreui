@@ -1,5 +1,5 @@
 /*!
-  * CoreUI base-component.js v5.3.2 (https://coreui.io)
+  * CoreUI base-component.js v5.4.0 (https://coreui.io)
   * Copyright 2025 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -24,7 +24,7 @@
    * Constants
    */
 
-  const VERSION = '5.3.2';
+  const VERSION = '5.4.0';
 
   /**
    * Class definition
@@ -50,6 +50,8 @@
         this[propertyName] = null;
       }
     }
+
+    // Private
     _queueCallback(callback, element, isAnimated = true) {
       index_js.executeAfterTransition(callback, element, isAnimated);
     }

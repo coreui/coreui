@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v5.3.2 (https://coreui.io)
+  * CoreUI sidebar.js v5.4.0 (https://coreui.io)
   * Copyright 2025 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
