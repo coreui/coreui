@@ -13,6 +13,7 @@
       <h1 class="docs-title" id="content">{{ .Title | markdownify }}</h1>
       {{ end }}
       <p class="docs-lead">{{ .Page.Params.Description | markdownify }}</p>
+      <p>🤖 Looking for the LLM-optimized version? <a href="./llm.md">View llm.md</a></p>
       {{ partial "ads" . }}
       {{ if .Page.Params.other_frameworks }}
       <h2>Other frameworks</h2>

@@ -3,6 +3,18 @@ title:                  "CoreUI"
 baseURL:                "https://coreui.io/docs/"
 canonifyURLs:           true
 
+outputs:
+  page:
+    - html
+    - markdown
+
+outputFormats:
+  markdown:
+    baseName:          "llm"
+    mediaType:         "text/markdown"
+    isPlainText:       false
+    notAlternative:    false
+
 security:
   enableInlineShortcodes: true
   funcs:

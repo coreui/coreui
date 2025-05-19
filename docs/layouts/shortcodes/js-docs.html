@@ -32,6 +32,36 @@
     {{- $match = replace $match $to_remove "" -}}
   {{- end -}}
 
+  {{- $format := (index (complement .Page.AlternativeOutputFormats .Page.OutputFormats) 0).Name -}}
+
+  {{- if eq $format "markdown" -}}
+
+  ```js
+  {{- $unindent := 0 -}}
+    {{- $found := false -}}
+    {{- $first_line:= index (split $match "\n") 0 -}}
+    {{- range $char := split $first_line "" -}}
+      {{- if and (eq $char " ") (not $found) -}}
+        {{- $unindent = add $unindent 1 -}}
+      {{- else -}}
+        {{- $found = true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $output := "" -}}
+    {{- if (gt $unindent 0) -}}
+      {{- $prefix := (strings.Repeat $unindent " ") -}}
+      {{- range $line := split $match "\n" -}}
+        {{- $line = strings.TrimPrefix $prefix $line -}}
+        {{ $output = printf "%s%s\n" $output $line }}
+      {{- end -}}
+      {{- $output = chomp $output -}}
+    {{- else -}}
+      {{- $output = $match -}}
+    {{- end -}}
+    {{ "\n" }}{{ $output }}{{ "\n" }}```
+
+  {{- else -}}
+
   <div class="docs-example-snippet docs-code-snippet docs-file-ref">
     <div class="d-flex align-items-center highlight-toolbar ps-3 pe-2 py-1 border-bottom">
       <div class="font-monospace link-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover small">
@@ -69,4 +99,5 @@
     {{- end -}}
     {{- highlight $output "js" "" -}}
   </div>
+  {{- end -}}
 {{- end -}}

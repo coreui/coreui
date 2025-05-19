@@ -55,9 +55,10 @@
     "js-test-cloud": "cross-env BROWSERSTACK=true npm run js-test-karma",
     "js-test-jquery": "cross-env JQUERY=true npm run js-test-karma",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint lockfile-lint",
-    "docs": "npm-run-all docs-build docs-lint",
+    "docs": "npm-run-all docs-build docs-llm docs-lint",
     "docs-build": "hugo --cleanDestinationDir --printUnusedTemplates",
     "docs-compile": "npm run docs-build",
+    "docs-llm": "node build/llm.mjs",
     "docs-vnu": "node build/vnu-jar.mjs",
     "docs-lint": "npm run docs-vnu",
     "docs-serve": "hugo server --port 9001 --disableFastRender --noHTTPCache --renderToMemory --printPathWarnings --printUnusedTemplates",
@@ -125,6 +126,7 @@
     "globals": "^16.1.0",
     "globby": "^14.1.0",
     "hammer-simulator": "0.0.1",
+    "html-entities": "^2.6.0",
     "hugo-bin": "^0.144.3",
     "ip": "^2.0.1",
     "jasmine": "^5.7.1",
@@ -178,5 +180,9 @@
     "peerDependencies": {
       "@popperjs/core": "^2.11.8"
     }
+  },
+  "dependencies": {
+    "html-entities": "^2.6.0",
+    "html-to-md": "^0.8.8"
   }
 }

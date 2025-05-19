@@ -19,6 +19,16 @@
 {{- $input := .Inner -}}
 {{- $content := .Inner -}}
 
+{{- $format := (index (complement .Page.AlternativeOutputFormats .Page.OutputFormats) 0).Name -}}
+
+{{- if eq $format "markdown" -}}
+
+```{{ $lang }}
+{{- $input -}}
+```
+
+{{- else -}}
+
 <div class="docs-example-snippet docs-code-snippet">
   {{- if eq $show_preview true -}}
   <div{{ with $id }} id="{{ . }}"{{ end }} class="docs-example m-0 border-0{{ with $class }} {{ . }}{{ end }}">
@@ -52,3 +62,4 @@
     {{- highlight (trim $content "\n") $lang "" -}}
   {{- end -}}
 </div>
+{{- end -}}

@@ -4,6 +4,12 @@
 
 {{- $css_class := .Get 0 | default "info" -}}
 
+{{- $format := (index (complement .Page.AlternativeOutputFormats .Page.OutputFormats) 0).Name -}}
+
+{{- if eq $format "markdown" -}}
+{{ .Inner }}
+{{- else -}}
 <div class="docs-callout docs-callout-{{ $css_class }}">
 {{ .Inner | markdownify }}
 </div>
+{{- end -}}
