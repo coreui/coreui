@@ -12,7 +12,7 @@ outputFormats:
   markdown:
     baseName:          "llm"
     mediaType:         "text/markdown"
-    isPlainText:       false
+    isPlainText:       true
     notAlternative:    false
 
 security:
