@@ -123,7 +123,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-unicorn": "^59.0.1",
     "find-unused-sass-variables": "^6.1.0",
-    "globals": "^16.1.0",
+    "globals": "^16.2.0",
     "globby": "^14.1.0",
     "hammer-simulator": "0.0.1",
     "html-entities": "^2.6.0",
