@@ -7,9 +7,9 @@
 <h3 align="center">CoreUI</h3>
 
 <p align="center">
-  Open Source UI Components Library built on top of Bootstrap 5.
+  An advanced UI library based on Bootstrap 5 – CoreUI extends Bootstrap with modular architecture, PRO components, and ready-to-use admin templates for React, Angular, Vue, and more.
   <br>
-  <a href="https://coreui.io/docs/"><strong>Explore CoreUI docs »</strong></a>
+  <a href="https://coreui.io/bootstrap/docs/"><strong>Explore CoreUI docs »</strong></a>
   <br>
   <br>
   <a href="https://github.com/coreui/coreui/issues/new?template=bug_report.md">Report bug</a>
@@ -84,15 +84,18 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 - [Bootstrap Navbar](https://coreui.io/bootstrap/docs/components/navbar/)
 - [Bootstrap Offcanvas](https://coreui.io/bootstrap/docs/components/offcanvas/)
 - [Bootstrap Pagination](https://coreui.io/bootstrap/docs/components/pagination/)
+- [Bootstrap Password Input](https://coreui.io/bootstrap/docs/forms/password-input/) **PRO**
 - [Bootstrap Placeholder](https://coreui.io/bootstrap/docs/components/placeholder/)
 - [Bootstrap Popover](https://coreui.io/bootstrap/docs/components/popover/)
 - [Bootstrap Progress](https://coreui.io/bootstrap/docs/components/progress/)
 - [Bootstrap Radio](https://coreui.io/bootstrap/docs/forms/radio/)
 - [Bootstrap Range](https://coreui.io/bootstrap/docs/forms/range/)
+- [Bootstrap Range Slider](https://coreui.io/bootstrap/docs/forms/range-slider/) **PRO**
 - [Bootstrap Rating](https://coreui.io/bootstrap/docs/forms/rating/) **PRO**
 - [Bootstrap Select](https://coreui.io/bootstrap/docs/forms/select/)
 - [Bootstrap Sidebar](https://coreui.io/bootstrap/docs/components/sidebar/)
 - [Bootstrap Spinner](https://coreui.io/bootstrap/docs/components/spinner/)
+- [Bootstrap Stepper](https://coreui.io/bootstrap/docs/forms/stepper/) **PRO**
 - [Bootstrap Switch](https://coreui.io/bootstrap/docs/forms/switch/)
 - [Bootstrap Table](https://coreui.io/bootstrap/docs/content/tables/)
 - [Bootstrap Textarea](https://coreui.io/bootstrap/docs/forms/textarea/)
