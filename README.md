@@ -7,7 +7,7 @@
 <h3 align="center">CoreUI</h3>
 
 <p align="center">
-  An advanced UI library based on Bootstrap 5 – CoreUI extends Bootstrap with modular architecture, PRO components, and ready-to-use admin templates for React, Angular, Vue, and more.
+  An advanced UI library based on Bootstrap 5 – CoreUI extends Bootstrap with PRO components, and ready-to-use admin templates for React, Angular, Vue, and more.
   <br>
   <a href="https://coreui.io/bootstrap/docs/"><strong>Explore CoreUI docs »</strong></a>
   <br>
