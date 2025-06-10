@@ -148,7 +148,7 @@
     "postcss-combine-duplicated-selectors": "^10.0.3",
     "rollup": "^4.40.2",
     "rollup-plugin-istanbul": "^5.0.0",
-    "sass-embedded": "^1.89.0",
+    "sass-embedded": "^1.89.2",
     "sass-true": "^8.1.0",
     "shelljs": "^0.10.0",
     "stylelint": "^16.19.1",
