@@ -1,1 +1,1 @@
-Feel free to use either `title` or `data-coreui-title` in your HTML. When `title` is used, Popper will replace it automatically with `data-coreui-title` when the element is rendered.
+You can choose to use either `title` or `data-coreui-title` in your HTML. If you opt for `title,` Popper will automatically change it to `data-coreui-title` upon rendering the element.

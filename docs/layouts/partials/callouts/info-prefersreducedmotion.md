@@ -1,1 +1,1 @@
-The animation effect of this component is dependent on the `prefers-reduced-motion` media query. See the [reduced motion section of our accessibility documentation](/getting-started/accessibility/#reduced-motion).
+This component's animation effect relies on the `prefers-reduced-motion` media query. For more information, refer to the [reduced motion section of our accessibility documentation](/getting-started/accessibility/#reduced-motion).

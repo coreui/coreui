@@ -1,5 +1,5 @@
 #### Asynchronous methods and transitions
 
-All API methods are **asynchronous** and start a **transition**. They return to the caller as soon as the transition is started but **before it ends**. In addition, a method call on a **transitioning component will be ignored**.
+All our API methods are **asynchronous** and initiate a **transition**. They return to the caller as soon as the transition begins but **before it concludes**. Furthermore, a method call on a **transitioning component will be ignored**.
 
-[See our JavaScript documentation for more information](/getting-started/javascript/#asynchronous-functions-and-transitions).
+[Refer to our JavaScript documentation for further details](/getting-started/javascript/#asynchronous-functions-and-transitions).

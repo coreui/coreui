@@ -1,1 +1,1 @@
-By default, this component uses the built-in content sanitizer, which strips out any HTML elements that are not explicitly allowed. See the [sanitizer section in our JavaScript documentation](/getting-started/javascript/#sanitizer) for more details.
+By default, this component utilizes the built-in content sanitizer, which removes any HTML elements that are not explicitly allowed. Refer to the [sanitizer section in our JavaScript documentation](/getting-started/javascript/#sanitizer) for more details.
