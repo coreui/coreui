@@ -9,6 +9,10 @@ aliases:
 toc: true
 bootstrap: true
 other_frameworks: accordion
+# schema:
+#   description: Documentation and usage examples for Bootstrap Accordion component built with CoreUI.
+#   headline: Bootstrap Accordion Component – Usage & Examples
+#   keywords: Accordion, Bootstrap, Component, CoreUI
 ---
 
 ## How it works
@@ -163,4 +167,9 @@ Accordions use local CSS variables on .accordion for enhanced real-time customiz
 {{< scss-docs name="accordion-css-vars" file="scss/_accordion.scss" >}}
 
 ### SASS variables
+
 {{< scss-docs name="accordion-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Accordion" >}}
+{{< /markdown >}}

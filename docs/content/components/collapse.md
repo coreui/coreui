@@ -202,3 +202,7 @@ myCollapsible.addEventListener('hidden.coreui.collapse', event => {
 Collapse transition classes can be found in `scss/_transitions.scss` as these are shared across multiple components (collapse and accordion).
 
 {{< scss-docs name="collapse-classes" file="scss/_transitions.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Collapse" >}}
+{{< /markdown >}}

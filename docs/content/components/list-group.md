@@ -500,3 +500,6 @@ Loop that generates the modifier classes with the `list-group-item-variant()` mi
 
 {{< scss-docs name="list-group-modifiers" file="scss/_list-group.scss" >}}
 
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="List Group" >}}
+{{< /markdown >}}

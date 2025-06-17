@@ -211,3 +211,7 @@ Used for creating the CSS animations for our spinners. Included in `scss/_spinne
 [margin]:  {{< docsref "/utilities/spacing" >}}
 [sizing]:  {{< docsref "/utilities/sizing" >}}
 [text]:    {{< docsref "/utilities/text" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Spinner" >}}
+{{< /markdown >}}

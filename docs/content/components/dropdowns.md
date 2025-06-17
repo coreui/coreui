@@ -1129,3 +1129,7 @@ Variables for the CSS-based carets that indicate a dropdown's interactivity:
 Mixins are used to generate the CSS-based carets and can be found in `scss/mixins/_caret.scss`.
 
 {{< scss-docs name="caret-mixins" file="scss/mixins/_caret.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Dropdown" >}}
+{{< /markdown >}}

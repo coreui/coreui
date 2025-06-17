@@ -315,3 +315,7 @@ Input groups include support for custom selects and custom file inputs. Browser 
 
 ### SASS variables
 {{< scss-docs name="input-group-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Input Group" >}}
+{{< /markdown >}}

@@ -756,3 +756,6 @@ Cards use local CSS variables on `.card` for enhanced real-time customization. V
 
 {{< scss-docs name="card-variables" file="scss/_variables.scss" >}}
 
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Card" >}}
+{{< /markdown >}}

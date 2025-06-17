@@ -258,3 +258,7 @@ Used alongside `$alert-variants` to create contextual modifier classes for our a
 Loop that creates the modifier classes with the `alert-variant()` mixin.
 
 {{< scss-docs name="alert-modifiers" file="scss/_alert.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Alert" >}}
+{{< /markdown >}}

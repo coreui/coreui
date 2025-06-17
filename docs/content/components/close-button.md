@@ -46,3 +46,7 @@ Add `data-coreui-theme="dark"` to the `.btn-close`, or to its parent element, to
 ### SASS variables
 
 {{< scss-docs name="close-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Close Button" >}}
+{{< /markdown >}}

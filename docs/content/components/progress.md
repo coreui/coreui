@@ -239,3 +239,6 @@ Used for creating the CSS animations for `.progress-bar-animated`. Included in `
 
 {{< scss-docs name="progress-keyframes" file="scss/_progress.scss" >}}
 
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Progress" >}}
+{{< /markdown >}}

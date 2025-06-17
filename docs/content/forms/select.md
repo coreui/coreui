@@ -81,3 +81,7 @@ Add the `disabled` boolean attribute on a select to give it a grayed out appeara
 ### SASS variables
 
 {{< scss-docs name="form-select-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Form Select" >}}
+{{< /markdown >}}

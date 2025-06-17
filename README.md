@@ -19,6 +19,20 @@
   <a href="https://coreui.io/blog/">Blog</a>
 </p>
 
+## CoreUI vs Bootstrap
+
+CoreUI is fully compatible with Bootstrap, but it’s more than just a theme or UI extension — it’s a professionally developed and maintained system that addresses many of the limitations developers face with Bootstrap alone.
+
+**Key differences between CoreUI and Bootstrap:**
+
+* ✅ **Framework-native versions** – CoreUI offers official libraries for [React.js](https://coreui.io/react/), [Vue.js](https://coreui.io/vue/), and [Angular](https://coreui.io/angular/), while Bootstrap depends on third-party community plugins for framework integration.
+* 👨‍💻 **Full-time maintained project** – CoreUI is not a community-only initiative. It’s developed by a dedicated, full-time team focused on long-term evolution and support.
+* 📦 **More built-in components** – CoreUI includes many components not present in Bootstrap by default, such as range sliders, multi-selects, and step-based form wizards.
+* 🛠️ **Sass Modules support today** – CoreUI already supports Sass Modules out of the box, a feature that Bootstrap plans to introduce in version 6.
+* 🌍 **Modern RTL/LTR support** – CoreUI uses CSS logical properties to provide seamless RTL and LTR layout support for multilingual and internationalized apps.
+* 🔒 **Long-Term Support (LTS)** – While Bootstrap 3 & 4 LTS is now a paid service via [HeroDevs](https://www.herodevs.com/support/nes-bootstrap?utm_source=Bootstrap_site&utm_medium=Banner&utm_campaign=v3and4_eol), CoreUI continues to offer long-term support without additional cost.
+
+Whether you're starting a new project or migrating from Bootstrap, CoreUI gives you a powerful upgrade path with more features, framework bindings, and peace of mind for long-term maintainability.
 
 ## Table of contents
 

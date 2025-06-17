@@ -762,3 +762,7 @@ On the `.nav-underline-border` modifier class:
 ### SASS variables
 
 {{< scss-docs name="nav-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Nav" >}}
+{{< /markdown >}}

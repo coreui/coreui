@@ -355,3 +355,7 @@ Offcanvas uses local CSS variables on `.offcanvas` for enhanced real-time custom
 ### SASS variables
 
 {{< scss-docs name="offcanvas-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Offcanvas" >}}
+{{< /markdown >}}

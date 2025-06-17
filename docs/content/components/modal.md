@@ -870,3 +870,7 @@ Modals use local CSS variables on `.modal` and `.modal-backdrop` for enhanced re
 [Responsive fullscreen modals](#fullscreen-modal) are generated via the `$breakpoints` map and a loop in `scss/_modal.scss`.
 
 {{< scss-docs name="modal-fullscreen-loop" file="scss/_modal.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Modal" >}}
+{{< /markdown >}}

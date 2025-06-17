@@ -268,3 +268,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
   <label class="btn btn-outline-danger" for="vbtn-radio3">Radio 3</label>
 </div>
 {{< /example >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Button Group" >}}
+{{< /markdown >}}

@@ -391,3 +391,7 @@ Variables for all carousels:
 Variables for the [dark carousel](#dark-variant):
 
 {{< scss-docs name="carousel-dark-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Carousel" >}}
+{{< /markdown >}}

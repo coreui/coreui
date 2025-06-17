@@ -299,3 +299,7 @@ Bootstrap tooltips utilize local CSS variables on `.tooltip` for improved real-t
 ### SASS variables
 
 {{< scss-docs name="tooltip-variables" file="scss/_variables.scss" >}}
+
+{{< markdown >}}
+{{< coreui-vs-bootstrap component="Tooltip" >}}
+{{< /markdown >}}
