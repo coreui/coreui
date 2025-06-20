@@ -1,14 +1,14 @@
 ---
 layout: docs
 title: Toasts
-description: Push notifications to your visitors with a toast, a lightweight and easily customizable alert message.
+description: Send push notifications to your visitors with a toast, a lightweight and easily customizable alert message.
 group: components
 toc: true
 bootstrap: true
 other_frameworks: toast
 ---
 
-Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems. They're built with flexbox, so they're easy to align and position.
+Bootstrap toasts are lightweight notifications that mimic the push notifications popularized by mobile and desktop operating systems. They utilize flexbox, making them simple to align and position.
 
 ## Overview
 
@@ -27,13 +27,13 @@ Things to know when using the toast plugin:
 
 To encourage extensible and predictable toasts, we recommend a header and body. Toast headers use `display: flex`, allowing easy alignment of content thanks to our margin and flexbox utilities.
 
-Toasts are as flexible as you need and have very little required markup. At a minimum, we require a single element to contain your "toasted" content and strongly encourage a dismiss button.
+Bootstrap toasts are as flexible as you need and require very little markup. At a minimum, you should have a single element containing your “toasted” content, and it's strongly recommended to include a dismiss button.
 
 {{< example class=" bg-body-tertiary" >}}
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-    <strong class="me-auto">Bootstrap</strong>
+    <strong class="me-auto">CoreUI for Bootstrap</strong>
     <small>11 mins ago</small>
     <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
   </div>
@@ -44,18 +44,18 @@ Toasts are as flexible as you need and have very little required markup. At a mi
 {{< /example >}}
 
 {{< callout warning >}}
-Previously, our scripts dynamically added the `.hide` class to completely hide a toast (with `display:none`, rather than just with `opacity:0`). This is now not necessary anymore. However, for backwards compatibility, our script will continue to toggle the class (even though there is no practical need for it) until the next major version.
+Previously, our scripts dynamically added the `.hide` class to fully hide a toast (using `display:none` instead of just `opacity:0`). This is no longer necessary. However, for backwards compatibility, our script will still toggle the class (even though there is no practical reason to do so) until the next major version.
 {{< /callout >}}
 
 ### Live example
 
-Click the button below to show a toast (positioned with our utilities in the lower right corner) that has been hidden by default.
+Click the button below to display a toast (positioned with our utilities in the lower right corner) that is hidden by default.
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-      <strong class="me-auto">Bootstrap</strong>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
       <small>11 mins ago</small>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -76,7 +76,7 @@ Click the button below to show a toast (positioned with our utilities in the low
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">Bootstrap</strong>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
       <small>11 mins ago</small>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -100,7 +100,7 @@ Toasts are slightly translucent to blend in with what's below them.
 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
   <div class="toast-header">
     {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-    <strong class="me-auto">Bootstrap</strong>
+    <strong class="me-auto">CoreUI for Bootstrap</strong>
     <small class="text-muted">11 mins ago</small>
     <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
   </div>
@@ -112,14 +112,14 @@ Toasts are slightly translucent to blend in with what's below them.
 
 ### Stacking
 
-You can stack toasts by wrapping them in a toast container, which will vertically add some spacing.
+Wrap toasts in a toast container to stack them, which adds vertical spacing.
 
 {{< example class=" bg-body-tertiary" >}}
 <div class="toast-container position-static">
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-      <strong class="me-auto">Bootstrap</strong>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
       <small class="text-muted">just now</small>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -131,7 +131,7 @@ You can stack toasts by wrapping them in a toast container, which will verticall
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-      <strong class="me-auto">Bootstrap</strong>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
       <small class="text-muted">2 seconds ago</small>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -144,7 +144,7 @@ You can stack toasts by wrapping them in a toast container, which will verticall
 
 ### Custom content
 
-Customize your toasts by removing sub-components, tweaking them with [utilities]({{< docsref "/utilities/api" >}}), or by adding your own markup. Here we've created a simpler toast by removing the default `.toast-header`, adding a custom hide icon from [Bootstrap Icons]({{< param icons >}}), and using some [flexbox utilities]({{< docsref "/utilities/flex" >}}) to adjust the layout.
+Customize your toasts by removing sub-components, adjusting them with [utilities]({{< docsref "/utilities/api" >}}), or adding your own markup. In this example, we've made a simpler toast by removing the default `.toast-header`, incorporating a custom hide icon from [CoreUI Icons]({{< param icons >}}), and using [flexbox utilities]({{< docsref "/utilities/flex" >}}) to modify the layout.
 
 {{< example class=" bg-body-tertiary" >}}
 <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
@@ -173,7 +173,9 @@ Alternatively, you can also add additional controls and components to toasts.
 
 ### Color schemes
 
-Building on the above example, you can create different toast color schemes with our [color]({{< docsref "/utilities/colors" >}}) and [background]({{< docsref "/utilities/background" >}}) utilities. Here we've added `.text-bg-primary` to the `.toast`, and then added `.btn-close-white` to our close button. For a crisp edge, we remove the default border with `.border-0`.
+Building on the previous example, you can design various toast color schemes using our color and background utilities. In this case, we've added .text-bg-primary to the .toast and included .btn-close-white for the close button. To achieve a clean edge, we remove the default border with .border-0.
+
+Building on the previous example, you can design various toast color schemes using our [color]({{< docsref "/utilities/colors" >}}) and [background]({{< docsref "/utilities/background" >}}) utilities. We added `.text-bg-primary` to the `.toast`, and applied `.btn-close-white` to the close button. To achieve a clean edge, we remove the default border with `.border-0`.
 
 {{< example class=" bg-body-tertiary" >}}
 <div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
@@ -188,7 +190,7 @@ Building on the above example, you can create different toast color schemes with
 
 ## Placement
 
-Place toasts with custom CSS as you need them. The top right is often used for notifications, as is the top middle. If you're only ever going to show one toast at a time, put the positioning styles right on the `.toast`.
+Place toasts with custom CSS where needed. The top right and top middle are common positions for notifications. If you're only ever going to display one toast at a time, apply the positioning styles directly to the `.toast`.
 
 {{< example stackblitz_add_js="true" >}}
 <form>
@@ -213,7 +215,7 @@ Place toasts with custom CSS as you need them. The top right is often used for n
     <div class="toast">
       <div class="toast-header">
         {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-        <strong class="me-auto">Bootstrap</strong>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
         <small>11 mins ago</small>
       </div>
       <div class="toast-body">
@@ -224,7 +226,7 @@ Place toasts with custom CSS as you need them. The top right is often used for n
 </div>
 {{< /example >}}
 
-For systems that generate more notifications, consider using a wrapping element so they can easily stack.
+For systems that generate more notifications, consider using a wrapping element to allow them to stack easily.
 
 {{< example class="bg-dark docs-example-toasts p-0" >}}
 <div aria-live="polite" aria-atomic="true" class="position-relative">
@@ -238,7 +240,7 @@ For systems that generate more notifications, consider using a wrapping element 
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-        <strong class="me-auto">Bootstrap</strong>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
         <small class="text-muted">just now</small>
         <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
       </div>
@@ -250,7 +252,7 @@ For systems that generate more notifications, consider using a wrapping element 
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-        <strong class="me-auto">Bootstrap</strong>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
         <small class="text-muted">2 seconds ago</small>
         <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
       </div>
@@ -272,7 +274,7 @@ You can also get fancy with flexbox utilities to align toasts horizontally and/o
   <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-      <strong class="me-auto">Bootstrap</strong>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
       <small>11 mins ago</small>
       <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
     </div>
@@ -285,13 +287,13 @@ You can also get fancy with flexbox utilities to align toasts horizontally and/o
 
 ## Accessibility
 
-Toasts are intended to be small interruptions to your visitors or users, so to help those with screen readers and similar assistive technologies, you should wrap your toasts in an [`aria-live` region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). Changes to live regions (such as injecting/updating a toast component) are automatically announced by screen readers without needing to move the user's focus or otherwise interrupt the user. Additionally, include `aria-atomic="true"` to ensure that the entire toast is always announced as a single (atomic) unit, rather than just announcing what was changed (which could lead to problems if you only update part of the toast's content, or if displaying the same toast content at a later point in time). If the information needed is important for the process, e.g. for a list of errors in a form, then use the [alert component]({{< docsref "/components/alerts" >}}) instead of toast.
+Toasts are meant to be brief interruptions for your visitors or users. To assist those using screen readers and similar assistive technologies, you should wrap your toasts in an [`aria-live` region](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions). Changes to live regions, such as injecting or updating a toast component, are automatically announced by screen readers without moving the user's focus or interrupting the user. Additionally, include `aria-atomic="true"` to ensure the entire toast is announced as a single, unfragmented unit, rather than just announcing what changed—this prevents issues if only part of the toast is updated or if the same toast appears again later. If the information is critical to the process, such as a list of form errors, use the [alert component]({{< docsref "/components/alerts" >}}) instead of a toast.
 
-Note that the live region needs to be present in the markup *before* the toast is generated or updated. If you dynamically generate both at the same time and inject them into the page, they will generally not be announced by assistive technologies.
+Note that the live region must exist in the markup *before* the toast is generated or updated. If you generate both dynamically and inject them simultaneously, assistive technologies generally will not announce them.
 
-You also need to adapt the `role` and `aria-live` level depending on the content. If it's an important message like an error, use `role="alert" aria-live="assertive"`, otherwise use `role="status" aria-live="polite"` attributes.
+You should also adjust the `role` and `aria-live` level based on the content. For important messages like errors, use `role="alert" aria-live="assertive"`; otherwise, use `role="status" aria-live="polite"`.
 
-As the content you're displaying changes, be sure to update the [`delay` timeout](#options) so that users have enough time to read the toast.
+As the content changes, remember to update the [`delay` timeout](#options) so users have enough time to read the toast.
 
 ```html
 <div class="toast" role="alert" aria-live="polite" aria-atomic="true" data-coreui-delay="10000">
@@ -299,13 +301,13 @@ As the content you're displaying changes, be sure to update the [`delay` timeout
 </div>
 ```
 
-When using `autohide: false`, you must add a close button to allow users to dismiss the toast.
+When using `autohide: false`, you need to add a close button to let users dismiss the toast.
 
 {{< example class=" bg-body-tertiary" >}}
 <div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">
   <div class="toast-header">
     {{< placeholder width="20" height="20" background="#007aff" class="rounded me-2" text="false" title="false" >}}
-    <strong class="me-auto">Bootstrap</strong>
+    <strong class="me-auto">CoreUI for Bootstrap</strong>
     <small>11 mins ago</small>
     <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
   </div>
@@ -315,13 +317,13 @@ When using `autohide: false`, you must add a close button to allow users to dism
 </div>
 {{< /example >}}
 
-While technically it's possible to add focusable/actionable controls (such as additional buttons or links) in your toast, you should avoid doing this for autohiding toasts. Even if you give the toast a long [`delay` timeout](#options), keyboard and assistive technology users may find it difficult to reach the toast in time to take action (since toasts don't receive focus when they are displayed). If you absolutely must have further controls, we recommend using a toast with `autohide: false`.
+While technically it's possible to add focusable or actionable controls, such as additional buttons or links, to your toast, you should avoid doing this with autohiding toasts. Even if you set a long [`delay` timeout](#options), keyboard and assistive technology users might find it hard to reach the toast in time to act because toasts don't receive focus when they appear. If you absolutely need to have additional controls, we recommend using a toast with `autohide: false`.
 
 ## Usage
 
 {{< bootstrap-compatibility >}}
 
-Initialize toasts via JavaScript:
+Initialize toasts using JavaScript:
 
 ```js
 const toastElList = document.querySelectorAll('.toast')
@@ -341,10 +343,11 @@ const toastList = [...toastElList].map(toastEl => new coreui.Toast(toastEl, opti
 {{< bs-table "table" >}}
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `animation` | boolean | `true` | Apply a CSS fade transition to the toast |
-| `autohide` | boolean | `true`  | Auto hide the toast |
-| `delay` | number | `5000` | Delay hiding the toast (ms) |
+| `animation` | boolean | `true` | Adds a CSS fade transition to the toast |
+| `autohide` | boolean | `true` | Hides the Bootstrap toast automatically |
+| `delay` | number | `5000` | Sets delay before hiding the toast (ms) |
 {{< /bs-table >}}
+
 
 ### Methods
 
@@ -355,12 +358,12 @@ const toastList = [...toastElList].map(toastEl => new coreui.Toast(toastEl, opti
 {{< bs-table "table" >}}
 | Method | Description |
 | --- | --- |
-| `dispose` | Hides an element's toast. Your toast will remain on the DOM but won't show anymore. |
-| `getInstance` | *Static* method which allows you to get the toast instance associated with a DOM element <br> For example: `const myToastEl = document.getElementById('myToastEl')` `const myToast = coreui.Toast.getInstance(myToastEl)` Returns a Bootstrap toast instance|
-| `getOrCreateInstance` | *Static* method which allows you to get the toast instance associated with a DOM element, or create a new one in case it wasn't initialized  <br>`const myToastEl = document.getElementById('myToastEl')`  `const myToast = coreui.Toast.getOrCreateInstance(myToastEl)` Returns a Bootstrap toast instance |
-| `hide` | Hides an element's toast. **Returns to the caller before the toast has actually been hidden** (i.e. before the `hidden.coreui.toast` event occurs). You have to manually call this method if you made `autohide` to `false`. |
-| `isShown` | Returns a boolean according to toast's visibility state. |
-| `show` | Reveals an element's toast. **Returns to the caller before the toast has actually been shown** (i.e. before the `shown.coreui.toast` event occurs). You have to manually call this method, instead your toast won't show. |
+| `dispose` | Hides an element's toast. Your Bootstrap toast will stay in the DOM but won't be visible anymore. |
+| `getInstance` | *Static* method that allows you to get the toast instance associated with a DOM element. For example: `const myToastEl = document.getElementById('myToastEl')` and `const myToast = coreui.Toast.getInstance(myToastEl)`. Returns a Bootstrap toast instance.
+| `getOrCreateInstance` | *Static* method that gets the toast instance associated with a DOM element or creates a new one if it wasn't initialized. For example: `const myToastEl = document.getElementById('myToastEl')` and `const myToast = coreui.Toast.getOrCreateInstance(myToastEl)`. Returns a Bootstrap toast instance.
+| `hide` | Hides an element's toast. **Returns to the caller before the toast is actually hidden** (i.e., before the `hidden.coreui.toast` event occurs). You need to manually call this method if you set `autohide` to `false`. |
+| `isShown` | Returns a boolean indicating the toast's visibility state. |
+| `show` | Reveals an element's toast. **Returns to the caller before the toast is actually shown** (i.e., before the `shown.coreui.toast` event occurs). You need to call this method manually; otherwise, your toast won't appear. |
 {{< /bs-table >}}
 
 ### Events
@@ -368,10 +371,10 @@ const toastList = [...toastElList].map(toastEl => new coreui.Toast(toastEl, opti
 {{< bs-table "table" >}}
 | Event | Description |
 | --- | --- |
-| `hide.coreui.toast` | This event is fired immediately when the `hide` instance method has been called. |
-| `hidden.coreui.toast` | This event is fired when the toast has finished being hidden from the user. |
-| `show.coreui.toast` | This event fires immediately when the `show` instance method is called. |
-| `shown.coreui.toast` | This event is fired when the toast has been made visible to the user. |
+| `hide.coreui.toast` | This event is triggered immediately when the `hide` instance method is called. |
+| `hidden.coreui.toast` | This event occurs when the toast has finished hiding from the user. |
+| `show.coreui.toast` | This event triggers immediately when the `show` instance method is called. |
+| `shown.coreui.toast` | This event occurs when the toast has become visible to the user. |
 {{< /bs-table >}}
 
 ```js
@@ -384,7 +387,7 @@ myToastEl.addEventListener('hidden.coreui.toast', () => {
 ## Customizing
 ### CSS variables
 
-Toasts use local CSS variables on `.toast` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+Toasts use local CSS variables on `.toast` for improved real-time customization. Values for these CSS variables are set through Sass, so Sass customization remains supported as well.
 
 {{< scss-docs name="toast-css-vars" file="scss/_toasts.scss" >}}
 
