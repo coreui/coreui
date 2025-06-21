@@ -45,6 +45,10 @@
     {{- $match = replace $match " !default" "" -}}
   {{- end -}}
 
+  {{- if in $name "css-vars" -}}
+    {{- $match = replace $match "--#{$prefix}" "--cui-" -}}
+  {{- end -}}
+
   {{- $format := (index (complement .Page.AlternativeOutputFormats .Page.OutputFormats) 0).Name -}}
 
   {{- if eq $format "markdown" -}}
