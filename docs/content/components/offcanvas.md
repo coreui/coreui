@@ -10,14 +10,14 @@ other_frameworks: offcanvas
 
 ## How it works
 
-Offcanvas is a sidebar component that can be toggled via JavaScript to appear from the left, right, top, or bottom edge of the viewport. Buttons or anchors are used as triggers that are attached to specific elements you toggle, and `data` attributes are used to invoke our JavaScript.
+The Bootstrap Offcanvas component serves as a sidebar element that can be activated through JavaScript, allowing it to slide in from the left, right, top, or bottom of the viewport. Triggers, like buttons or anchors, are linked to the elements you want to toggle, and data attributes facilitate their activation in JavaScript.
 
-- Offcanvas shares some of the same JavaScript code as modals. Conceptually, they are quite similar, but they are separate plugins.
-- Similarly, some [source Sass](#sass) variables for offcanvas's styles and dimensions are inherited from the modal's variables.
-- When shown, offcanvas includes a default backdrop that can be clicked to hide the offcanvas.
-- Similar to modals, only one offcanvas can be shown at a time.
+- Offcanvas shares some JavaScript code with modals. Conceptually, they are quite similar, but they remain separate plugins.
+- Likewise, some [source Sass](#sass) variables for offcanvas styles and dimensions are derived from the modal variables.
+- When displayed, offcanvas features a default backdrop that can be clicked to hide it.
+- As with modals, only one offcanvas can be displayed at a time.
 
-**Heads up!** Given how CSS handles animations, you cannot use `margin` or `translate` on an `.offcanvas` element. Instead, use the class as an independent wrapping element.
+**Attention!** Due to CSS animation handling, `margin` or `translate` cannot be applied to an `.offcanvas` element. Instead, utilize the class as a separate wrapping element.
 
 {{< callout info >}}
 {{< partial "callouts/info-prefersreducedmotion.md" >}}
@@ -27,7 +27,7 @@ Offcanvas is a sidebar component that can be toggled via JavaScript to appear fr
 
 ### Offcanvas components
 
-Below is an offcanvas example that is shown by default (via `.show` on `.offcanvas`). Offcanvas includes support for a header with a close button and an optional body class for some initial `padding`. We suggest that you include offcanvas headers with dismiss actions whenever possible, or provide an explicit dismiss action.
+Below is a default offcanvas example (via `.show` on `.offcanvas`). Offcanvas supports a header with a close button and an optional body class for initial `padding`. We recommend including offcanvas headers with dismiss actions whenever possible, or providing an explicit dismiss action.
 
 {{< example class="docs-example-offcanvas p-0 bg-light overflow-hidden" >}}
 <div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
@@ -36,19 +36,19 @@ Below is an offcanvas example that is shown by default (via `.show` on `.offcanv
     <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    Content for the offcanvas goes here. You can place just about any Bootstrap component or custom elements here.
+    The content for the Bootstrap offcanvas goes here. You can place nearly any Bootstrap component or custom element here.
   </div>
 </div>
 {{< /example >}}
 
 ### Live demo
 
-Use the buttons below to show and hide an offcanvas element via JavaScript that toggles the `.show` class on an element with the `.offcanvas` class.
+Utilize the buttons below to toggle the visibility of an offcanvas element using JavaScript, which adds or removes the `.show` class from an element with the `.offcanvas` class.
 
-- `.offcanvas` hides content (default)
-- `.offcanvas.show` shows content
+- `.offcanvas` hides content.
+- `.offcanvas.show` shows content.
 
-You can use a link with the `href` attribute, or a button with the `data-coreui-target` attribute. In both cases, the `data-coreui-toggle="offcanvas"` is required.
+You can employ a link with the `href` attribute or a button featuring the `data-coreui-target` attribute. In both instances, including `data-coreui-toggle="offcanvas"` is necessary.
 
 {{< example >}}
 <a class="btn btn-primary" data-coreui-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
@@ -65,7 +65,7 @@ You can use a link with the `href` attribute, or a button with the `data-coreui-
   </div>
   <div class="offcanvas-body">
     <div class="">
-      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+      Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images, lists, etc.
     </div>
     <div class="dropdown mt-3">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown">
@@ -83,7 +83,7 @@ You can use a link with the `href` attribute, or a button with the `data-coreui-
 
 ### Body scrolling
 
-Scrolling the `<body>` element is disabled when an offcanvas and its backdrop are visible. Use the `data-coreui-scroll` attribute to enable `<body>` scrolling.
+The `<body>` element's scrolling is disabled when the Bootstrap offcanvas and its backdrop are visible. Utilize the `data-coreui-scroll` attribute to allow scrolling on the `<body>`.
 
 {{< example >}}
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
@@ -94,7 +94,8 @@ Scrolling the `<body>` element is disabled when an offcanvas and its backdrop ar
     <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-    <p>Try scrolling the rest of the page to see this option in action.</p>
+    <p>Scroll further down the page to see this option in action.
+</p>
   </div>
 </div>
 {{< /example >}}
@@ -119,8 +120,7 @@ You can also enable `<body>` scrolling with a visible backdrop.
 
 ### Static backdrop
 
-When backdrop is set to static, the offcanvas will not close when clicking outside of it.
-
+When the backdrop is set to static, the Bootstrap offcanvas will remain open when clicking outside of it.
 {{< example >}}
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#staticBackdrop" aria-controls="staticBackdrop">
   Toggle static offcanvas
@@ -133,7 +133,7 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
   </div>
   <div class="offcanvas-body">
     <div>
-      I will not close if you click outside of me.
+      I won’t close if you click outside of me.
     </div>
   </div>
 </div>
@@ -143,10 +143,10 @@ When backdrop is set to static, the offcanvas will not close when clicking outsi
 
 {{< deprecated-in "5.0.0" >}} {{< added-in "4.2.6" >}}
 
-Change the appearance of offcanvases with utilities to better match them to different contexts like dark navbars. Here we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If you have dropdowns within, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
+Change the appearance of offcanvas elements using utilities to better match various contexts, such as dark navbars. Here, we add `.text-bg-dark` to the `.offcanvas` and `.btn-close-white` to `.btn-close` for proper styling with a dark offcanvas. If there are dropdowns inside, consider also adding `.dropdown-menu-dark` to `.dropdown-menu`.
 
 {{< callout warning >}}
-Heads up! Dark variants for components were deprecated in v5.3.0 with the introduction of color modes. Instead of manually adding classes mentioned above, set `data-coreui-theme="dark"` on the root element, a parent wrapper, or the component itself.
+Attention! Dark variants for components are no longer supported as of v5.3.0 due to the introduction of color modes. Instead of manually adding the classes mentioned earlier, simply set `data-coreui-theme="dark"` on the root element, a parent wrapper, or the component itself.
 {{< /callout >}}
 
 {{< example class="docs-example-offcanvas p-0 bg-body-secondary overflow-hidden" >}}
@@ -165,7 +165,7 @@ Heads up! Dark variants for components were deprecated in v5.3.0 with the introd
 
 {{< added-in "4.2.6" >}}
 
-Responsive offcanvas classes hide content outside the viewport from a specified breakpoint and down. Above that breakpoint, the contents within will behave as usual. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but shows the content above the `lg` breakpoint.
+Responsive offcanvas classes hide content that is outside the viewport from a specified breakpoint and lower. Above that breakpoint, the content will behave normally. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but displays the content above the `lg` breakpoint.
 
 {{< example >}}
 <button class="btn btn-primary d-lg-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button>
@@ -183,7 +183,7 @@ Responsive offcanvas classes hide content outside the viewport from a specified 
 </div>
 {{< /example >}}
 
-Responsive offcanvas classes are available across for each breakpoint.
+Responsive offcanvas classes are available for each breakpoint.
 
 - `.offcanvas`
 - `.offcanvas-sm`
@@ -194,14 +194,14 @@ Responsive offcanvas classes are available across for each breakpoint.
 
 ## Placement
 
-There's no default placement for offcanvas components, so you must add one of the modifier classes below.
+Offcanvas components do not have a default position; therefore, you need to apply one of the modifier classes listed below.
 
-- `.offcanvas-start` places offcanvas on the left of the viewport (shown above)
-- `.offcanvas-end` places offcanvas on the right of the viewport
-- `.offcanvas-top` places offcanvas on the top of the viewport
-- `.offcanvas-bottom` places offcanvas on the bottom of the viewport
+- `.offcanvas-start` places the offcanvas on the left side of the viewport (as shown above)
+- `.offcanvas-end` places the offcanvas on the right side of the viewport
+- `.offcanvas-top` places offcanvas at the top of the viewport
+- `.offcanvas-bottom` places offcanvas at the bottom of the viewport
 
-Try the top, right, and bottom examples out below.
+Feel free to experiment with the top, right, and bottom examples below.
 
 {{< example >}}
 <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
@@ -253,27 +253,27 @@ Since the offcanvas panel is conceptually a modal dialog, be sure to add `aria-l
 
 {{< bootstrap-compatibility >}}
 
-The offcanvas plugin utilizes a few classes and attributes to handle the heavy lifting:
+The offcanvas plugin leverages several classes and attributes to perform its functions:
 
 - `.offcanvas` hides the content
 - `.offcanvas.show` shows the content
 - `.offcanvas-start` hides the offcanvas on the left
 - `.offcanvas-end` hides the offcanvas on the right
-- `.offcanvas-top` hides the offcanvas on the top
-- `.offcanvas-bottom` hides the offcanvas on the bottom
+- `.offcanvas-top` hides the offcanvas at the top
+- `.offcanvas-bottom` hides the offcanvas at the bottom
 
-Add a dismiss button with the `data-coreui-dismiss="offcanvas"` attribute, which triggers the JavaScript functionality. Be sure to use the `<button>` element with it for proper behavior across all devices.
+Include a dismiss button using the `data-coreui-dismiss="offcanvas"` attribute to activate the JavaScript functionality. Ensure you use the `<button>` element for consistent behavior across all devices.
 
 ### Via data attributes
 
-Add `data-coreui-toggle="offcanvas"` and a `data-coreui-target` or `href` to the element to automatically assign control of one offcanvas element. The `data-coreui-target` attribute accepts a CSS selector to apply the offcanvas to. Be sure to add the class `offcanvas` to the offcanvas element. If you'd like it to default open, add the additional class `show`.
+Include `data-coreui-toggle="offcanvas"` along with a `data-coreui-target` or `href` in the element to automatically control a single offcanvas component. The `data-coreui-target` attribute allows you to specify a CSS selector for the associated offcanvas. Remember to apply the `offcanvas` class to the offcanvas element. To have it open by default, also add the `show` class.
 
 #### Dismiss
 
 {{% js-dismiss "offcanvas" %}}
 
 {{< callout warning >}}
-While both ways to dismiss an offcanvas are supported, keep in mind that dismissing from outside an offcanvas does not match the [ARIA Authoring Practices Guide dialog (modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/). Do this at your own risk.
+While both methods for dismissing an offcanvas are supported, remember that dismissing from the outside of an offcanvas does not align with the [ARIA Authoring Practices Guide dialog (modal) pattern](https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal/). Proceed with caution.
 {{< /callout >}}
 
 ### Via JavaScript
@@ -294,9 +294,9 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new coreui.Of
 {{< bs-table "table" >}}
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `backdrop` | boolean or the string `static` | `true` | Apply a backdrop on body while offcanvas is open. Alternatively, specify `static` for a backdrop which doesn't close the offcanvas when clicked. |
-| `keyboard` | boolean | `true` | Closes the offcanvas when escape key is pressed |
-| `scroll` | boolean | `false` | Allow body scrolling while offcanvas is open |
+| `backdrop` | boolean or the string `static` | `true` | Applies a backdrop to the body while the Bootstrap offcanvas is open. Alternatively, specify `static` for a backdrop that doesn't close the offcanvas component when clicked. |
+| `keyboard` | boolean | `true` | Closes the offcanvas when the escape key is pressed. |
+| `scroll` | boolean | `false` | Allows body scrolling while the offcanvas is open.
 {{< /bs-table >}}
 
 ### Methods
@@ -305,22 +305,22 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new coreui.Of
 {{< partial "callouts/danger-async-methods.md" >}}
 {{< /callout >}}
 
-Activates your content as an offcanvas element. Accepts an optional options `object`.
+Activates your content as an offcanvas element and accepts an optional options `object`.  
 
-You can create an offcanvas instance with the constructor, for example:
+You can create an offcanvas instance using the constructor; for example:
 
 ```js
-const bsOffcanvas = new coreui.Offcanvas('#myOffcanvas')
+const cuiOffcanvas = new coreui.Offcanvas('#myOffcanvas')
 ```
 
 {{< bs-table "table" >}}
 | Method | Description |
 | --- | --- |
-| `getInstance` | *Static* method which allows you to get the offcanvas instance associated with a DOM element |
-| `getOrCreateInstance` | *Static* method which allows you to get the offcanvas instance associated with a DOM element, or create a new one in case it wasn't initialized |
-| `hide` | Hides an offcanvas element. **Returns to the caller before the offcanvas element has actually been hidden** (i.e. before the `hidden.coreui.offcanvas` event occurs).|
-| `show` | Shows an offcanvas element. **Returns to the caller before the offcanvas element has actually been shown** (i.e. before the `shown.coreui.offcanvas` event occurs).|
-| `toggle` | Toggles an offcanvas element to shown or hidden. **Returns to the caller before the offcanvas element has actually been shown or hidden** (i.e. before the `shown.coreui.offcanvas` or `hidden.coreui.offcanvas` event occurs). |
+| `getInstance` | *Static* method that allows you to obtain the offcanvas instance associated with a DOM element |
+| `getOrCreateInstance` | *Static* method that enables you to retrieve the offcanvas instance linked to a DOM element, or create a new one if it hasn't been initialized |
+| `hide` | Hides an offcanvas element. **Returns to the caller before the offcanvas element is actually hidden** (i.e. before the `hidden.coreui.offcanvas` event occurs).|
+| `show` | Displays an offcanvas element. **Returns to the caller before the offcanvas element is actually shown** (i.e. before the `shown.coreui.offcanvas` event occurs).|
+| `toggle` | Switches an offcanvas element between shown and hidden. **Returns to the caller before the offcanvas element is actually shown or hidden** (i.e. before the `shown.coreui.offcanvas` or `hidden.coreui.offcanvas` event occurs).
 {{< /bs-table >}}
 
 ### Events
@@ -328,13 +328,13 @@ const bsOffcanvas = new coreui.Offcanvas('#myOffcanvas')
 CoreUI for Bootstrap's offcanvas class exposes a few events for hooking into offcanvas functionality.
 
 {{< bs-table "table" >}}
-| Event type | Description |
+| Event Type | Description |
 | --- | --- |
-| `hide.coreui.offcanvas` | This event is fired immediately when the `hide` method has been called. |
-| `hidden.coreui.offcanvas` | This event is fired when an offcanvas element has been hidden from the user (will wait for CSS transitions to complete). |
-| `hidePrevented.coreui.offcanvas` | This event is fired when the offcanvas is shown, its backdrop is `static` and a click outside of the offcanvas is performed. The event is also fired when the escape key is pressed and the `keyboard` option is set to `false`. |
-| `show.coreui.offcanvas` | This event fires immediately when the `show` instance method is called. |
-| `shown.coreui.offcanvas` | This event is fired when an offcanvas element has been made visible to the user (will wait for CSS transitions to complete). |
+| `hide.coreui.offcanvas` | This event is fired immediately after the `hide` method has been called. |
+| `hidden.coreui.offcanvas` | This event is fired when an offcanvas element is hidden from the user (it will wait for CSS transitions to complete). |
+| `hidePrevented.coreui.offcanvas` | This event is triggered when the offcanvas is shown, its backdrop is `static`, and a click outside of the offcanvas occurs. The event is also triggered when the escape key is pressed and the `keyboard` option is set to `false`. |
+| `show.coreui.offcanvas` | This event fires immediately when the `show` instance method is invoked. |
+| `shown.coreui.offcanvas` | This event is fired when an offcanvas element becomes visible to the user (it will wait for CSS transitions to complete).
 {{< /bs-table >}}
 
 ```js
@@ -348,7 +348,7 @@ myOffcanvas.addEventListener('hidden.coreui.offcanvas', event => {
 
 ### CSS variables
 
-Offcanvas uses local CSS variables on `.offcanvas` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+Offcanvas utilizes local CSS variables on `.offcanvas` for improved real-time customization. The values for the CSS variables are defined through Sass, ensuring that Sass customization remains supported as well.
 
 {{< scss-docs name="offcanvas-css-vars" file="scss/_offcanvas.scss" >}}
 
