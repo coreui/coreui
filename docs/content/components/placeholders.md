@@ -11,18 +11,17 @@ other_frameworks: placeholder
 
 ## About
 
-Placeholders can be used to enhance the experience of your application. They're built only with HTML and CSS, meaning you don't need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility. Their appearance, color, and sizing can be easily customized with our utility classes.
+Bootstrap placeholders can enhance your application's user experience. They're built exclusively with HTML and CSS, so you don't need any JavaScript to create them. However, you'll require some custom JavaScript to toggle their visibility. Their appearance, color, and size can be easily customized using our utility classes.
 
 ## Example
 
-In the example below, we take a typical card component and recreate it with placeholders applied to create a "loading card". Size and proportions are the same between the two.
-
+In the example below, we use the Bootstrap card component and modify it with placeholders to form a "loading card." The size and proportions remain consistent between the two.
 <div class="docs-example docs-example-placeholder-cards d-flex justify-content-around">
 <div class="card">
   {{< placeholder width="100%" height="180" class="card-img-top" text="false" background="#20c997" >}}
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Bootstrap card title</h5>
+    <p class="card-text">Some brief example text to expand on the card title and form most of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -50,8 +49,8 @@ In the example below, we take a typical card component and recreate it with plac
   <img src="..." class="card-img-top" alt="...">
 
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <h5 class="card-title">Bootstrap card title</h5>
+    <p class="card-text">Some brief example text to expand on the card title and form most of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
@@ -76,9 +75,10 @@ In the example below, we take a typical card component and recreate it with plac
 
 ## How it works
 
-Create placeholders with the `.placeholder` class and a grid column class (e.g., `.col-6`) to set the `width`. They can replace the text inside an element or be added as a modifier class to an existing component.
+Create placeholders using the `.placeholder` class along with a grid column class (e.g., `.col-6`) to define the `width`. These placeholders can either replace text inside an element or be added as a modifier class to an existing component.
 
-We apply additional styling to `.btn`s via `::before` to ensure the `height` is respected. You may extend this pattern for other situations as needed, or add a `&nbsp;` within the element to reflect the height when actual text is rendered in its place.
+To ensure the `height` is maintained, we style `.btn`s with `::before`. This pattern can be expanded for other cases or a `&nbsp;` can be added inside the element to match the height when actual text appears.
+
 
 {{< example >}}
 <p aria-hidden="true">
@@ -89,12 +89,12 @@ We apply additional styling to `.btn`s via `::before` to ensure the `height` is 
 {{< /example >}}
 
 {{< callout info >}}
-The use of `aria-hidden="true"` only indicates that the element should be hidden to screen readers. The *loading* behavior of the placeholder depends on how authors will actually use the placeholder styles, how they plan to update things, etc. Some JavaScript code may be needed to *swap* the state of the placeholder and inform AT users of the update.
+Using `aria-hidden="true"` simply tells screen readers to ignore the element. The actual *loading* behavior of the placeholder depends on how authors implement and style the placeholder, as well as how they update it. Some JavaScript may be necessary to *toggle* the placeholder's state and notify AT users of the change.
 {{< /callout >}}
 
 ### Width
 
-You can change the `width` through grid column classes, width utilities, or inline styles.
+You can adjust the `width` using grid column classes, width utilities, or inline styles.
 
 {{< example >}}
 <span class="placeholder col-6"></span>
@@ -104,7 +104,7 @@ You can change the `width` through grid column classes, width utilities, or inli
 
 ### Color
 
-By default, the `placeholder` uses `currentColor`. This can be overridden with a custom color or utility class.
+By default, the `placeholder` uses `currentColor`, but this can be replaced with a custom color or utility class.
 
 {{< example >}}
 <span class="placeholder col-12"></span>
@@ -117,7 +117,7 @@ By default, the `placeholder` uses `currentColor`. This can be overridden with a
 
 ### Sizing
 
-The size of `.placeholder`s are based on the typographic style of the parent element. Customize them with sizing modifiers: `.placeholder-lg`, `.placeholder-sm`, or `.placeholder-xs`.
+The size of `.placeholder`s depends on the typographic style of the parent element. Customize them with size modifiers: `.placeholder-lg`, `.placeholder-sm`, or `.placeholder-xs`.
 
 {{< example >}}
 <span class="placeholder col-12 placeholder-lg"></span>
@@ -128,7 +128,7 @@ The size of `.placeholder`s are based on the typographic style of the parent ele
 
 ### Animation
 
-Animate placeholders with `.placeholder-glow` or `.placeholder-wave` to better convey the perception of something being _actively_ loaded.
+Animate Bootstrap placeholders using `.placeholder-glow` or `.placeholder-wave` to visually suggest that content is _actively_ loading.
 
 {{< example >}}
 <p class="placeholder-glow">
