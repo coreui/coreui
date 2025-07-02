@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Bootstrap Theme v5.4.0 (https://coreui.io)
+ * CoreUI Bootstrap Theme v5.4.1 (https://coreui.io)
  * Copyright (c) 2025 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -4266,7 +4266,7 @@ textarea.form-control-lg {
   border: var(--bs-nav-enclosed-link-border-width) solid transparent;
   border-radius: calc(var(--bs-nav-enclosed-border-radius) - var(--bs-nav-enclosed-padding));
 }
-.nav-enclosed .nav-link.disabled {
+.nav-enclosed .nav-link.disabled, .nav-enclosed .nav-link:disabled {
   color: var(--bs-nav-enclosed-link-disabled-color);
 }
 .nav-enclosed .nav-link.active,
