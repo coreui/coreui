@@ -44,6 +44,26 @@ By default, range inputs "snap" to integer values. To change this, you can speci
 <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
 {{< /example >}}
 
+## Output value
+
+The value of the range input can be shown using the `output` element and a bit of JavaScript.
+
+{{< example >}}
+<label for="customRange4" class="form-label">Example range</label>
+<input type="range" class="form-range" min="0" max="100" value="50" id="customRange4">
+<output for="customRange4" id="rangeValue" aria-hidden="true"></output>
+<script>
+  // This is an example script, please modify as needed
+  const rangeInput = document.getElementById('customRange4');
+  const rangeOutput = document.getElementById('rangeValue');
+  // Set initial value
+  rangeOutput.textContent = rangeInput.value;
+  rangeInput.addEventListener('input', function() {
+    rangeOutput.textContent = this.value;
+  });
+</script>
+{{< /example >}}
+
 ## Customizing
 
 ### SASS variables
