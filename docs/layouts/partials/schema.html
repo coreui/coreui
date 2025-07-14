@@ -1,0 +1,130 @@
+{{- if ne .Page.Params.schema false -}}
+{{- $rawParts := split .RelPermalink "/" -}}
+{{- $urlParts := slice -}}
+{{- range $rawParts -}}
+  {{- if ne . "" -}}
+    {{- $urlParts = $urlParts | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $baseURL := .Site.BaseURL -}}
+{{- $breadcrumbs := slice -}}
+{{- $accumulated := slice -}}
+
+{{- range $i, $part := $urlParts -}}
+  {{- $accumulated = $accumulated | append $part -}}
+  {{- $breadcrumbs = $breadcrumbs | append (dict
+    "position" (add $i 4)
+    "name" (title $part)
+    "item" (print $baseURL "/" (delimit $accumulated "/"))
+  ) -}}
+{{- end -}}
+
+{{- $defaultHeadline := printf "Bootstrap %s component documentation" .Page.Params.title -}}
+{{- $defaultDescription := printf "Documentation and usage examples for Bootstrap %s component built with CoreUI" .Page.Params.title -}}
+
+{{ if in .RelPermalink "getting-started" }}
+  {{- $defaultHeadline = "CoreUI for Bootstrap customization and styling documentation" -}}
+  {{- $defaultDescription = "Complete guide to CoreUI customization and theming. Learn how to customize CoreUI Bootsrap components, styles, and themes to fit your project's needs." -}}
+{{- end -}}
+
+{{ if in .RelPermalink "customize" }}
+  {{- $defaultHeadline = "CoreUI for Bootstrap customization and styling documentation" -}}
+  {{- $defaultDescription = "Complete guide to CoreUI customization and theming. Learn how to customize CoreUI Bootsrap components, styles, and themes to fit your project's needs." -}}
+{{- end -}}
+
+{{ if in .RelPermalink "layout" }}
+  {{- $defaultHeadline = printf "Bootstrap %s documentation" .Page.Params.title -}}
+  {{- $defaultDescription = printf "Documentation and usage examples for Bootstrap %s built with CoreUI" .Page.Params.title -}}
+{{- end -}}
+
+{{ if in .RelPermalink "content" }}
+  {{- $defaultHeadline = printf "Bootstrap %s documentation" .Page.Params.title -}}
+  {{- $defaultDescription = printf "Documentation and usage examples for Bootstrap %s built with CoreUI" .Page.Params.title -}}
+{{- end -}}
+
+{{ if in .RelPermalink "helpers" }}
+  {{- $defaultHeadline = printf "Bootstrap %s helper classes documentation" .Page.Params.title -}}
+  {{- $defaultDescription = printf "Documentation and usage examples for Bootstrap %s helper classes built with CoreUI" .Page.Params.title -}}
+{{- end -}}
+
+{{ if in .RelPermalink "utilities" }}
+  {{- $defaultHeadline = printf "Bootstrap %s CSS utility classes documentation" .Page.Params.title -}}
+  {{- $defaultDescription = printf "Documentation and usage examples for Bootstrap %s CSS utility classes built with CoreUI" .Page.Params.title -}}
+{{- end -}}
+
+{{ if in .RelPermalink "migration" }}
+  {{- $defaultHeadline = .Page.Params.title -}}
+  {{- $defaultDescription = "Complete guide to CoreUI for Bootstrap migration. Track and review changes to the CoreUI for Bootstrap components to help you migrate to the latest version." -}}
+{{- end -}}
+
+{{ if in .RelPermalink "templates" }}
+  {{- $defaultHeadline = .Page.Params.title -}}
+  {{- $defaultDescription = "Complete guide to CoreUI Bootstrap Templates. Learn how to download, install, customize, and use CoreUI Bootstrap templates." -}}
+{{- end -}}
+
+{{- $headline := default $defaultHeadline .Page.Params.schema.headline -}}
+{{- $description := default $defaultDescription .Page.Params.schema.description -}}
+
+<script type="application/ld+json">
+[{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "CoreUI",
+      "item": "https://coreui.io"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "React",
+      "item": "https://coreui.io/bootstrap/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Documentation",
+      "item": "{{ $baseURL }}"
+    }{{ if gt (len $breadcrumbs) 0 }},{{ end }}
+    {{ range $i, $crumb := $breadcrumbs }}
+    {
+      "@type": "ListItem",
+      "position": {{ $crumb.position }},
+      "name": "{{ $crumb.name }}",
+      "item": "{{ $crumb.item }}/"
+    }{{ if ne (add $i 1) (len $breadcrumbs) }},{{ end }}
+    {{ end }}
+  ]
+},
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "{{ $headline | markdownify }}",
+  "description": "{{ $description | markdownify }}",
+  "author": {
+    "@type": "Organization",
+    "name": "CoreUI Team",
+    "sameAs": "https://github.com/coreui/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "CoreUI",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://coreui.io/images/brand/coreui-logo.svg"
+    }
+  },
+  "datePublished": "2023-07-05",
+  "dateModified": "{{ time.Now | time.Format "2006-01-02" }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  },
+  "version": {{ if .Page.Params.pro_component }}"5.15"{{ else }}"5.4.1"{{ end }},
+  "proficiencyLevel": "Beginner"
+}]
+</script>
+{{- end -}}

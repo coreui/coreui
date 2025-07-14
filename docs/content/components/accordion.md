@@ -9,10 +9,6 @@ aliases:
 toc: true
 bootstrap: true
 other_frameworks: accordion
-# schema:
-#   description: Documentation and usage examples for Bootstrap Accordion component built with CoreUI.
-#   headline: Bootstrap Accordion Component – Usage & Examples
-#   keywords: Accordion, Bootstrap, Component, CoreUI
 ---
 
 ## How it works

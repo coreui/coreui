@@ -25,6 +25,7 @@ sections:
     description: Create inline, horizontal, or complex grid-based layouts with your forms.
   - title: Validation
     description: Validate your forms with custom or native validation behaviors and styles.
+schema: false
 ---
 
 ## Overview

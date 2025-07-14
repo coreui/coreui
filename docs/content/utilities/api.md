@@ -9,6 +9,9 @@ aliases:
   - "/4.0/utilities/"
   - "/4.1/utilities/"
 toc: true
+schema:
+  headline: "CoreUI Utility API Documentation"
+  description: "Learn how to use CoreUI's Sass-based Utility API to generate and customize utility classes. This guide explains configuration, customization, and advanced options like responsive, print, and CSS variable utilities."
 ---
 
 CoreUI for Bootstrap utilities are generated with our utility API and can be used to modify or extend our default set of utility classes via Sass. Our utility API is based on a series of Sass maps and functions for generating families of classes with various options. If you're unfamiliar with Sass maps, read up on the [official Sass docs](https://sass-lang.com/documentation/values/maps/) to get started.

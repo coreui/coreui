@@ -4,6 +4,9 @@ title: CoreUI & Laravel
 description: The official guide for how to include and bundle CoreUI’s CSS and JavaScript in your Laravel project.
 group: integrations-guides
 toc: true
+schema:
+  headline: "CoreUI for Bootstrap Laravel Integration Guide"
+  description: "Learn how to seamlessly integrate CoreUI for Bootstrap with Laravel. This step-by-step guide covers installation, configuration, and tips to build powerful admin panels using Laravel and CoreUI."
 ---
 
 
