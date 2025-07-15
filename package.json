@@ -127,7 +127,7 @@
     "globby": "^14.1.0",
     "hammer-simulator": "0.0.1",
     "html-entities": "^2.6.0",
-    "hugo-bin": "^0.145.0",
+    "hugo-bin": "^0.145.1",
     "ip": "^2.0.1",
     "jasmine": "^5.8.0",
     "jquery": "^3.7.1",
