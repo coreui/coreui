@@ -69,6 +69,7 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 
 - [Bootstrap Accordion](https://coreui.io/bootstrap/docs/components/accordion/)
 - [Bootstrap Alert](https://coreui.io/bootstrap/docs/components/alert/)
+- [Bootstrap Autocomplete](https://coreui.io/bootstrap/docs/forms/autocomplete/) **PRO**
 - [Bootstrap Avatar](https://coreui.io/bootstrap/docs/components/avatar/)
 - [Bootstrap Badge](https://coreui.io/bootstrap/docs/components/badge/)
 - [Bootstrap Breadcrumb](https://coreui.io/bootstrap/docs/components/breadcrumb/)
