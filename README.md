@@ -233,7 +233,8 @@ Editor preferences are available in the [editor config](https://github.com/coreu
 Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
 - Read and subscribe to [The Official CoreUI Blog](https://coreui.io/blog).
-- Follow [@core_ui on Twitter](https://twitter.com/core_ui).
+- Follow [@core_ui on Twitter](https://x.com/core_ui).
+- Discuss, ask questions, and more on [the community Discord](https://discord.gg/pQRWe5XdGm).
 
 ## Versioning
 

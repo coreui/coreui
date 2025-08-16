@@ -209,6 +209,7 @@ For improved cross-browser rendering, we use [Reboot]({{< docsref "/content/rebo
 Stay up to date on the development of CoreUI and reach out to the community with these helpful resources.
 
 - Read and subscribe to [The Official CoreUI Blog]({{< param blog >}}).
-- Join [the official Community]({{< param community >}}).
+- Ask questions and explore [our GitHub Discussions]the official Community).
+- Discuss, ask questions, and more on [the community Discord](https://discord.gg/TsFcCgkG).
 
-You can also follow [@core_ui on Twitter](https://twitter.com/{{< param twitter >}}).
+You can also follow [@core_ui on X (Twitter)](https://x.com/{{< param twitter >}}).
