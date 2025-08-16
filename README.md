@@ -57,11 +57,11 @@ Whether you're starting a new project or migrating from Bootstrap, CoreUI gives 
 
 Several quick start options are available:
 
-- [Download the latest release](https://github.com/coreui/coreui/archive/v5.4.1.zip)
+- [Download the latest release](https://github.com/coreui/coreui/archive/v5.4.2.zip)
 - Clone the repo: `git clone https://github.com/coreui/coreui.git`
 - Install with [npm](https://www.npmjs.com/): `npm install @coreui/coreui`
 - Install with [yarn](https://yarnpkg.com/): `yarn add @coreui/coreui`
-- Install with [Composer](https://getcomposer.org/): `composer require coreui/coreui:5.4.1`
+- Install with [Composer](https://getcomposer.org/): `composer require coreui/coreui:5.4.2`
 
 Read the [Getting started page](https://coreui.io/docs/getting-started/introduction/) for information on the framework contents, templates and examples, and more.
 
@@ -217,10 +217,11 @@ CoreUI supports most popular frameworks.
 
 Fully featured, out-of-the-box, templates for your application based on CoreUI.
 
-- [Angular Admin Template](https://coreui.io/angular)
-- [Bootstrap Admin Template](https://coreui.io/)
-- [React Admin Template](https://coreui.io/react)
-- [Vue Admin Template](https://coreui.io/vue)
+- [Angular Admin Templates](https://coreui.io/themes-templates/admin-dashboard/angular/)
+- [Bootstrap Admin Templates](https://coreui.io/themes-templates/admin-dashboard/bootstrap/)
+- [Next.js Admin Templates](https://coreui.io/themes-templates/admin-dashboard/next-js/)
+- [React Admin Templates](https://coreui.io/themes-templates/admin-dashboard/react/)
+- [Vue Admin Templates](https://coreui.io/themes-templates/admin-dashboard/vue/)
 
 ## Contributing
 
