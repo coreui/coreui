@@ -34,14 +34,14 @@
     </div>
 
     {{ if (eq .Page.Params.toc true) }}
-      <div class="docs-toc mt-4 mb-5 my-md-0 ps-xl-5 mb-lg-5 text-body-secondary">
-        <button class="btn btn-link p-md-0 mb-2 mb-md-0 text-decoration-none docs-toc-toggle d-md-none" type="button" data-coreui-toggle="collapse" data-coreui-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
+      <div class="docs-toc mt-4 mb-5 my-lg-0 ps-xl-5 mb-lg-5 text-body-secondary">
+        <button class="btn btn-link p-lg-0 mb-2 mb-lg-0 text-decoration-none docs-toc-toggle d-lg-none" type="button" data-coreui-toggle="collapse" data-coreui-target="#tocContents" aria-expanded="false" aria-controls="tocContents">
           On this page
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon d-md-none ms-2" aria-hidden="true" viewBox="0 0 512 512">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon d-lg-none ms-2" aria-hidden="true" viewBox="0 0 512 512">
             <polygon fill="var(--ci-primary-color, currentColor)" points="256 382.627 60.687 187.313 83.313 164.687 256 337.372 428.687 164.687 451.313 187.313 256 382.627" class="ci-primary"/>
           </svg>
         </button>
-        <strong class="d-none d-md-block h6 mb-2 pb-2 border-bottom">On this page</strong>
+        <strong class="d-none d-lg-block h6 mb-2 pb-2 border-bottom">On this page</strong>
         <div class="collapse docs-toc-collapse" id="tocContents">
           {{ .TableOfContents }}
         </div>

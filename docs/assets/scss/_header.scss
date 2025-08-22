@@ -2,4 +2,8 @@
 
 .docs-header {
   --#{$prefix}header-bg: #{var(--cui-body-bg)};
+
+  .header-brand {
+    color: var(--cui-body-color);
+  }
 }

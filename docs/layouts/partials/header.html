@@ -3,20 +3,35 @@
     <button class="header-toggler d-lg-none" type="button" aria-controls="bdNavbar" aria-expanded="false" aria-label="Toggle navigation" onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()">
       {{ partial "icons/hamburger.svg" (dict "class" "bi" "width" "32" "height" "32") }}
     </button>
-    <div class="docs-search" id="docsearch"></div>
-
-    <ul class="header-nav ms-auto">
+    <div class="header-brand d-lg-none">
+      {{ partial "icons/coreui-signet.svg" (dict "height" "32") }}
+    </div>
+    <ul class="header-nav me-auto d-none d-xl-flex">
       <li class="nav-item">
+        <a class="nav-link" href="https://coreui.io/pricing/?framework=bootstrap&src=coreui-docs&cta=coreui-header-pricing">
+          Pricing
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://coreui.requestshub.com/p/coreui-for-bootstrap/roadmap" target="blank" rel="noopener noreferrer">
+          Roadmap
+          {{ partial "icons/external-link.svg" (dict "class" "icon icon-sm ms-1") }}
+        </a>
+      </li>
+    </ul>
+    <div class="docs-search ms-auto" id="docsearch"></div>
+    <ul class="header-nav ms-2">
+      <li class="nav-item d-none d-sm-block">
         <a class="nav-link" href="{{ .Site.Params.github_org }}" target="_blank" rel="noopener">
           {{ partial "icons/github.svg" (dict "class" "icon icon-xl") }}
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none d-sm-block">
         <a class="nav-link" href="https://x.com/{{ .Site.Params.twitter }}" target="_blank" rel="noopener">
           {{ partial "icons/x.svg" (dict "class" "icon icon-xl") }}
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item d-none d-sm-block">
         <a class="nav-link" href="https://discord.gg/pQRWe5XdGm" target="_blank" rel="noopener">
           {{ partial "icons/discord.svg" (dict "class" "icon icon-xl") }}
         </a>
@@ -62,16 +77,12 @@
         <hr class="d-lg-none my-2 text-white-50">
       </li>
     </ul>
-    <a class="btn btn-outline-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="/getting-started/download/">
-      {{ partial "icons/cloud-download.svg" (dict "class" "icon me-lg-2") }}
-      <span class="d-none d-lg-inline-block">Download</span>
-    </a>
-    <a class="btn btn-outline-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/about/services/?docs=coreui-header-button">
-      {{ partial "icons/handshake.svg" (dict "class" "icon me-2") }}
+    <a class="btn btn-outline-primary d-none d-lg-inline-block ms-md-3" href="https://coreui.io/about/services/?docs=coreui-header-button">
+      {{ partial "icons/handshake.svg" (dict "class" "icon me-xxl-2 d-none d-xxl-inline") }}
       Hire Us
     </a>
-    <a class="btn btn-primary d-lg-inline-block my-2 my-md-0 ms-md-3" href="https://coreui.io/pricing/?framework=bootstrap&docs=coreui-header-button">
-      Buy CoreUI PRO
+    <a class="btn btn-primary d-lg-inline-block ms-md-3" href="https://coreui.io/pricing/?framework=bootstrap&docs=coreui-header-button">
+      Get CoreUI PRO<span class="d-none d-xxl-inline"> all-access</span> →
     </a>
   </nav>
 </header>

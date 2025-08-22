@@ -20,12 +20,12 @@
 .docs-main {
   grid-area: main;
 
-  @include media-breakpoint-down(lg) {
+  @include media-breakpoint-down(xl) {
     max-width: 760px;
     margin-inline: auto;
   }
 
-  @include media-breakpoint-up(md) {
+  @include media-breakpoint-up(lg) {
     display: grid;
     grid-template-areas:
       "intro"
@@ -35,7 +35,7 @@
     gap: $grid-gutter-width;
   }
 
-  @include media-breakpoint-up(lg) {
+  @include media-breakpoint-up(xl) {
     grid-template-areas:
       "intro   toc"
       "content toc";
