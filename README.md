@@ -16,6 +16,8 @@
   ·
   <a href="https://github.com/coreui/coreui/issues/new?template=feature_request.md">Request feature</a>
   ·
+  <a href="https://coreui.requestshub.com/p/coreui-for-bootstrap/roadmap">Roadmap</a>
+  ·
   <a href="https://coreui.io/blog/">Blog</a>
 </p>
 
