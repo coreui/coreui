@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Bootstrap Theme v5.4.2 (https://coreui.io)
+ * CoreUI Bootstrap Theme v5.4.3 (https://coreui.io)
  * Copyright (c) 2025 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -580,6 +580,10 @@ legend + * {
 [type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
+}
+[type=search]::-webkit-search-cancel-button {
+  cursor: pointer;
+  filter: grayscale(1);
 }
 
 *[dir=rtl] [type=tel],
@@ -3224,18 +3228,18 @@ textarea.form-control-lg {
 }
 
 .btn-primary {
-  --bs-btn-color: #000;
+  --bs-btn-color: #fff;
   --bs-btn-bg: #0d6efd;
   --bs-btn-border-color: #0d6efd;
-  --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: rgb(49.3, 131.75, 253.3);
-  --bs-btn-hover-border-color: rgb(37.2, 124.5, 253.2);
-  --bs-btn-focus-shadow-rgb: 11.05, 93.5, 215.05;
-  --bs-btn-active-color: #000;
-  --bs-btn-active-bg: rgb(61.4, 139, 253.4);
-  --bs-btn-active-border-color: rgb(37.2, 124.5, 253.2);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: rgb(11.05, 93.5, 215.05);
+  --bs-btn-hover-border-color: rgb(10.4, 88, 202.4);
+  --bs-btn-focus-shadow-rgb: 49.3, 131.75, 253.3;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: rgb(10.4, 88, 202.4);
+  --bs-btn-active-border-color: rgb(9.75, 82.5, 189.75);
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  --bs-btn-disabled-color: #000;
+  --bs-btn-disabled-color: #fff;
   --bs-btn-disabled-bg: #0d6efd;
   --bs-btn-disabled-border-color: #0d6efd;
 }
@@ -3362,11 +3366,11 @@ textarea.form-control-lg {
 .btn-outline-primary {
   --bs-btn-color: #0d6efd;
   --bs-btn-border-color: #0d6efd;
-  --bs-btn-hover-color: #000;
+  --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0d6efd;
   --bs-btn-hover-border-color: #0d6efd;
   --bs-btn-focus-shadow-rgb: 13, 110, 253;
-  --bs-btn-active-color: #000;
+  --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #0d6efd;
   --bs-btn-active-border-color: #0d6efd;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
@@ -3500,10 +3504,10 @@ textarea.form-control-lg {
   --bs-btn-border-color: transparent;
   --bs-btn-hover-bg: #0d6efd;
   --bs-btn-hover-border-color: #0d6efd;
-  --bs-btn-hover-color: #000;
+  --bs-btn-hover-color: #fff;
   --bs-btn-active-bg: #0d6efd;
   --bs-btn-active-border-color: #0d6efd;
-  --bs-btn-active-color: #000;
+  --bs-btn-active-color: #fff;
   --bs-btn-disabled-color: #0d6efd;
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: transparent;
@@ -3618,7 +3622,7 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: #6c757d;
   --bs-btn-disabled-border-color: transparent;
   --bs-btn-box-shadow: none;
-  --bs-btn-focus-shadow-rgb: 11.05, 93.5, 215.05;
+  --bs-btn-focus-shadow-rgb: 49.3, 131.75, 253.3;
   text-decoration: underline;
 }
 .btn-link:focus-visible {
@@ -6629,6 +6633,7 @@ textarea.form-control-lg {
 .spinner-grow,
 .spinner-border {
   display: inline-block;
+  flex-shrink: 0;
   width: var(--bs-spinner-width);
   height: var(--bs-spinner-height);
   vertical-align: var(--bs-spinner-vertical-align);
@@ -8252,7 +8257,7 @@ textarea.form-control-lg {
 }
 
 .text-bg-primary {
-  color: #000 !important;
+  color: #fff !important;
   background-color: rgba(var(--bs-primary-rgb), var(--bs-bg-opacity, 1)) !important;
 }
 
@@ -8297,9 +8302,9 @@ textarea.form-control-lg {
   text-decoration-color: rgba(var(--bs-primary-rgb), var(--bs-link-underline-opacity, 1)) !important;
 }
 .link-primary:hover, .link-primary:focus {
-  color: rgba(61.4, 139, 253.4, var(--bs-link-opacity, 1)) !important;
-  -webkit-text-decoration-color: rgba(61.4, 139, 253.4, var(--bs-link-underline-opacity, 1)) !important;
-  text-decoration-color: rgba(61.4, 139, 253.4, var(--bs-link-underline-opacity, 1)) !important;
+  color: rgba(10.4, 88, 202.4, var(--bs-link-opacity, 1)) !important;
+  -webkit-text-decoration-color: rgba(10.4, 88, 202.4, var(--bs-link-underline-opacity, 1)) !important;
+  text-decoration-color: rgba(10.4, 88, 202.4, var(--bs-link-underline-opacity, 1)) !important;
 }
 
 .link-secondary {
