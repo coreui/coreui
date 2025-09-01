@@ -9,7 +9,7 @@
 
   @each $color in $foregrounds {
     $contrast-ratio: contrast-ratio($background, $color);
-    @if $contrast-ratio > $min-contrast-ratio {
+    @if $contrast-ratio >= $min-contrast-ratio {
       @return $color;
     } @else if $contrast-ratio > $max-ratio {
       $max-ratio: $contrast-ratio;
