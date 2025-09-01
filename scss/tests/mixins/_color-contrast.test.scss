@@ -1,7 +1,10 @@
-@use "../../functions" as *;
+@use "../../functions/color-contrast" as *;
+@use "../../functions/contrast-ratio" as *;
 @use "../../variables" as *;
 @use "../../maps" as *;
 @use "../../mixins" as *;
+
+$black: #000;
 
 @include describe("color-contrast function") {
   @include it("should return a color when contrast ratio equals minimum requirement (WCAG 2.1 compliance)") {
