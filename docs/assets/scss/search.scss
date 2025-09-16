@@ -19,7 +19,9 @@
 // stylelint-disable selector-class-pattern
 :root {
   --docsearch-primary-color: var(--cui-primary);
+  --docsearch-muted-color: var(--cui-secondary-color);
   --docsearch-logo-color: var(--cui-primary);
+  --docsearch-key-color: var(--cui-secondary-color);
 }
 
 @include color-mode(dark, true) {
@@ -43,7 +45,6 @@
 }
 
 .DocSearch-Container {
-  --docsearch-muted-color: var(--cui-secondary-color);
   --docsearch-hit-shadow: none;
 
   position: fixed;
@@ -74,7 +75,8 @@
   @include box-shadow($input-box-shadow);
   @include transition($input-transition);
 
-  &:focus {
+  &:focus,
+  &:hover {
     color: $input-focus-color;
     background-color: $input-focus-bg;
     border-color: $input-focus-border-color;
@@ -85,10 +87,6 @@
       // Avoid using mixin so we can pass custom focus shadow properly
       box-shadow: $input-focus-box-shadow;
     }
-  }
-
-  &:hover:not(:disabled):not([readonly])::file-selector-button {
-    background-color: $form-file-button-hover-bg;
   }
 
   @include media-breakpoint-down(md) {
@@ -109,32 +107,29 @@
 .DocSearch-Button-Keys {
   min-width: 0;
   padding: 0 .25rem;
-  background: rgba($black, .125);
+  background: var(--cui-secondary-bg);
   @include border-radius(.25rem);
 }
 
 .DocSearch-Button-Key {
-  top: 0;
   width: auto;
-  height: 1.5rem;
-  padding: 0 .125rem;
-  margin-right: 0;
-  font-size: .875rem;
+  padding: 0;
   background: none;
+  border: 0;
   box-shadow: none;
+
+  &:first-child {
+    margin-right: 0;
+  }
 }
 
-.DocSearch-Commands-Key {
-  padding-left: 1px;
-  font-size: .875rem;
-  background-color: rgba($black, .1);
-  background-image: none;
-  box-shadow: none;
-}
-
-.DocSearch-Form {
-  @include border-radius(var(--cui-border-radius));
-}
+// .DocSearch-Commands-Key {
+//   padding-left: 1px;
+//   font-size: .875rem;
+//   background-color: rgba($black, .1);
+//   background-image: none;
+//   box-shadow: none;
+// }
 
 .DocSearch-Hits {
   mark {
