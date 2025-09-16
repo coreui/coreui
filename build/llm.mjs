@@ -106,7 +106,7 @@ CoreUI builds upon Bootstrap by providing production-ready components, advanced 
 `
 
   const groupOrder = ['components', 'forms', 'utilities', 'helpers']
-  const sortedGroups = Object.keys(sections).sort((a, b) => {
+  const sortedGroups = Object.keys(sections).toSorted((a, b) => {
     const ai = groupOrder.indexOf(a)
     const bi = groupOrder.indexOf(b)
     return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi)
@@ -116,7 +116,7 @@ CoreUI builds upon Bootstrap by providing production-ready components, advanced 
     indexContent += `## 📁 ${
       group.charAt(0).toUpperCase() + group.slice(1)
     }\n\n`
-    for (const item of sections[group].sort((a, b) =>
+    for (const item of sections[group].toSorted((a, b) =>
       a.title.localeCompare(b.title)
     )) {
       indexContent += `- [${item.title}](${item.path})\n`
@@ -146,7 +146,7 @@ async function generateSingleMergedFile() {
   let mergedContent = `# 🧠 CoreUI LLM Knowledge Base\n\n`
   mergedContent += `This file contains all CoreUI documentation files in a format optimized for large language models (LLMs).\n\n`
 
-  for (const filePath of allFiles.sort()) {
+  for (const filePath of allFiles.toSorted()) {
     const relPath = path.relative(inputDir, filePath)
     const relativeDir = relPath.split(path.sep)[0]
 
