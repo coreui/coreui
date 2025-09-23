@@ -151,7 +151,7 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.50.2",
     "rollup-plugin-istanbul": "^5.0.0",
-    "sass-embedded": "^1.92.1",
+    "sass-embedded": "^1.93.1",
     "sass-true": "^9.0.0",
     "shelljs": "^0.10.0",
     "stylelint": "^16.24.0",
