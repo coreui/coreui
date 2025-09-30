@@ -131,7 +131,7 @@
     "html-entities": "^2.6.0",
     "hugo-bin": "^0.147.0",
     "ip": "^2.0.1",
-    "jasmine": "^5.10.0",
+    "jasmine": "^5.11.0",
     "jquery": "^3.7.1",
     "karma": "^6.4.4",
     "karma-browserstack-launcher": "1.6.0",
