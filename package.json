@@ -106,7 +106,7 @@
     "@babel/preset-env": "^7.28.3",
     "@docsearch/css": "^4.0.1",
     "@docsearch/js": "^4.0.1",
-    "@eslint/markdown": "^7.2.0",
+    "@eslint/markdown": "^7.3.0",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.6",
