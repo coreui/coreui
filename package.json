@@ -109,7 +109,7 @@
     "@eslint/markdown": "^7.4.1",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^6.1.0",
-    "@rollup/plugin-commonjs": "^28.0.8",
+    "@rollup/plugin-commonjs": "^28.0.9",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.2",
     "@stackblitz/sdk": "^1.11.0",
