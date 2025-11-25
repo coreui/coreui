@@ -121,12 +121,6 @@ export default [
       sourceType: 'module'
     }
   },
-  // {
-  //   files: ["**/*.json"],
-  //   rules: {
-  //     "unicorn/expiring-todo-comments": "off"
-  //   }
-  // },
   {
     files: ['build/**'],
     languageOptions: {
@@ -214,6 +208,14 @@ export default [
       },
       ecmaVersion: 2020,
       sourceType: 'module'
+    }
+  },
+  {
+    files: ['docs/static/assets/js/**'],
+    languageOptions: {
+      globals: {
+        ...globals.browser
+      }
     }
   },
   {
