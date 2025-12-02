@@ -44,7 +44,7 @@ jobs:
         run: npm run docs-vnu
 
       - name: Run linkinator
-        uses: JustinBeckwith/linkinator-action@v1
+        uses: JustinBeckwith/linkinator-action@v2
         with:
           paths: _gh_pages
           recurse: true
