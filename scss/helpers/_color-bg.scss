@@ -7,8 +7,10 @@
 
 @each $color, $value in $theme-colors {
   .text-bg-#{$color} {
-    color: color-contrast($value) if($enable-important-utilities, !important, null);
-    background-color: rgba(var(--#{$prefix}#{$color}-rgb), var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+    // stylelint-disable-next-line scss/at-function-named-arguments
+    color: color-contrast($value) if(sass($enable-important-utilities): !important);
+    // stylelint-disable-next-line scss/at-function-named-arguments
+    background-color: rgba(var(--#{$prefix}#{$color}-rgb), var(--#{$prefix}bg-opacity, 1)) if(sass($enable-important-utilities): !important);
   }
 }
 
@@ -17,8 +19,10 @@
     @each $color, $value in $theme-colors-dark {
       $color-rgb: to-rgb($value);
       .text-bg-#{$color} {
-        color: color-contrast($value) if($enable-important-utilities, !important, null);
-        background-color: rgba($color-rgb, var(--#{$prefix}bg-opacity, 1)) if($enable-important-utilities, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        color: color-contrast($value) if(sass($enable-important-utilities): !important);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        background-color: rgba($color-rgb, var(--#{$prefix}bg-opacity, 1)) if(sass($enable-important-utilities): !important);
       }
     }
   }

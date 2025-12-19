@@ -54,28 +54,34 @@
 
   @if $enable-ltr and $enable-rtl {
     @include ltr() {
-      #{$property}: $value if($important, !important, null);
+      // stylelint-disable-next-line scss/at-function-named-arguments
+      #{$property}: $value if(sass($important): !important);
     }
     @include rtl() {
       @if $value-rtl {
-        #{$property-reflected}: $value-rtl if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property-reflected}: $value-rtl if(sass($important): !important);
       }
       @else {
-        #{$property-reflected}: $value-reflected if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property-reflected}: $value-reflected if(sass($important): !important);
       }
     }
   }
   @else {
     @if $enable-rtl {
       @if $value-rtl {
-        #{$property-reflected}: $value-rtl if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property-reflected}: $value-rtl if(sass($important): !important);
       }
       @else {
-        #{$property-reflected}: $value-reflected if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property-reflected}: $value-reflected if(sass($important): !important);
       }
     }
     @else {
-      #{$property}: $value if($important, !important, null);
+      // stylelint-disable-next-line scss/at-function-named-arguments
+      #{$property}: $value if(sass($important): !important);
     }
   }
 }
@@ -94,25 +100,31 @@
 
   @if $enable-ltr and $enable-rtl {
     @include ltr() {
-      #{$property}: $value if($important, !important, null);
+      // stylelint-disable-next-line scss/at-function-named-arguments
+      #{$property}: $value if(sass($important): !important);
     }
     @include rtl() {
       @if $value-rtl {
-        #{$property}: $value-rtl if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property}: $value-rtl if(sass($important): !important);
       } @else {
-        #{$property}: $value-reflected if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property}: $value-reflected if(sass($important): !important);
       }
     }
   }
   @else {
     @if $enable-rtl {
       @if $value-rtl {
-        #{$property}: $value-rtl if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property}: $value-rtl if(sass($important): !important);
       } @else {
-        #{$property}: $value-reflected if($important, !important, null);
+        // stylelint-disable-next-line scss/at-function-named-arguments
+        #{$property}: $value-reflected if(sass($important): !important);
       }
     } @else {
-      #{$property}: $value if($important, !important, null);
+      // stylelint-disable-next-line scss/at-function-named-arguments
+      #{$property}: $value if(sass($important): !important);
     }
   }
 }
