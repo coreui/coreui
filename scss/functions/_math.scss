@@ -17,7 +17,7 @@
     @return $value1 + $value2;
   }
 
-  @return if($return-calc == true, calc(#{$value1} + #{$value2}), $value1 + string.unquote(" + ") + $value2);
+  @return if(sass($return-calc == true): calc(#{$value1} + #{$value2}); else: $value1 + string.unquote(" + ") + $value2);
 }
 
 @function subtract($value1, $value2, $return-calc: true) {
@@ -41,11 +41,12 @@
     $value2: string.unquote("(") + $value2 + string.unquote(")");
   }
 
-  @return if($return-calc == true, calc(#{$value1} - #{$value2}), $value1 + string.unquote(" - ") + $value2);
+  @return if(sass($return-calc == true): calc(#{$value1} - #{$value2}); else: $value1 + string.unquote(" - ") + $value2);
 }
 
 @function divide($dividend, $divisor, $precision: 10) {
-  $sign: if($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0, 1, -1);
+  // stylelint-disable-next-line scss/at-function-named-arguments
+  $sign: if(sass($dividend > 0 and $divisor > 0 or $dividend < 0 and $divisor < 0): 1; else: -1);
   $dividend: abs($dividend);
   $divisor: abs($divisor);
   @if $dividend == 0 {

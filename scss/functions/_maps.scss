@@ -14,7 +14,15 @@
     // allow to pass the $key and $value of the map as an function argument
     $_args: ();
     @each $arg in $args {
-      $_args: list.append($_args, if($arg == "$prefix", $prefix, if($arg == "$key", $key, if($arg == "$value", $value, $arg))));
+      @if $arg == "$prefix" {
+        $_args: list.append($_args, $prefix);
+      } @else if $arg == "$key" {
+        $_args: list.append($_args, $key);
+      } @else if $arg == "$value" {
+        $_args: list.append($_args, $value);
+      } @else {
+        $_args: list.append($_args, $arg);
+      }
     }
 
     $_map: map.merge($_map, ($key: meta.call(meta.get-function($func), $_args...)));
