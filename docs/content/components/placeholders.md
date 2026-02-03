@@ -144,7 +144,7 @@ Animate Bootstrap placeholders using `.placeholder-glow` or `.placeholder-wave` 
 
 ### SASS variables
 
-{{< scss-docs name="placeholders" file="scss/_variables.scss" >}}
+{{< scss-docs name="placeholders" file="scss/_placeholders.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Placeholder" >}}

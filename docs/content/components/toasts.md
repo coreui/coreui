@@ -393,7 +393,7 @@ Toasts use local CSS variables on `.toast` for improved real-time customization.
 
 ### SASS variables
 
-{{< scss-docs name="toast-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="toast-variables" file="scss/_toasts.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Toast" >}}

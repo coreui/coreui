@@ -800,11 +800,11 @@ Some additional CSS variables are also present on `.navbar-nav`:
 
 Variables for all navbars:
 
-{{< scss-docs name="navbar-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="navbar-variables" file="scss/_navbar.scss" >}}
 
 Variables for the [dark navbar](#color-schemes):
 
-{{< scss-docs name="navbar-dark-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="navbar-dark-variables" file="scss/_navbar.scss" >}}
 
 ### SASS loop
 

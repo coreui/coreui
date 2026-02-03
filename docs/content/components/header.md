@@ -282,4 +282,4 @@ Headers use local CSS variables on `.header` for enhanced real-time customizatio
 
 ### SASS variables
 
-{{< scss-docs name="header-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="header-variables" file="scss/_header.scss" >}}

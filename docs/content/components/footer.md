@@ -46,4 +46,4 @@ Sidebars use local CSS variables on `.footer` for enhanced real-time customizati
 
 ### SASS variables
 
-{{< scss-docs name="footer-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="footer-variables" file="scss/_footer.scss" >}}

@@ -170,7 +170,7 @@ Pagination now uses local CSS variables on `.pagination` for enhanced real-time 
 
 ### SASS variables
 
-{{< scss-docs name="pagination-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="pagination-variables" file="scss/_pagination.scss" >}}
 
 ### SASS mixins
 

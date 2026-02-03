@@ -110,7 +110,7 @@ Breadcrumbs use local CSS variables on `.breadcrumb` for enhanced real-time cust
 
 ### SASS variables
 
-{{< scss-docs name="breadcrumb-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="breadcrumb-variables" file="scss/_breadcrumb.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Breadcrumb" >}}

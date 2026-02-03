@@ -1,7 +1,61 @@
 @use "sass:map";
+@use "functions/color" as *;
 @use "mixins/breakpoints" as *;
 @use "mixins/table-variants" as *;
 @use "variables" as *;
+
+// scss-docs-start table-variables
+$table-cell-padding-y:        .5rem !default;
+$table-cell-padding-x:        .5rem !default;
+$table-cell-padding-y-sm:     .25rem !default;
+$table-cell-padding-x-sm:     .25rem !default;
+
+$table-cell-vertical-align:   top !default;
+
+$table-color:                 var(--#{$prefix}emphasis-color) !default;
+$table-bg:                    var(--#{$prefix}body-bg) !default;
+$table-accent-bg:             transparent !default;
+
+$table-th-font-weight:        null !default;
+
+$table-striped-color:         $table-color !default;
+$table-striped-bg-factor:     .05 !default;
+$table-striped-bg:            rgba(var(--#{$prefix}emphasis-color-rgb), $table-striped-bg-factor) !default;
+
+$table-active-color:          $table-color !default;
+$table-active-bg-factor:      .1 !default;
+$table-active-bg:             rgba(var(--#{$prefix}emphasis-color-rgb), $table-active-bg-factor) !default;
+
+$table-hover-color:           $table-color !default;
+$table-hover-bg-factor:       .075 !default;
+$table-hover-bg:              rgba(var(--#{$prefix}emphasis-color-rgb), $table-hover-bg-factor) !default;
+
+$table-border-factor:         .2 !default;
+$table-border-width:          var(--#{$prefix}border-width) !default;
+$table-border-color:          var(--#{$prefix}border-color) !default;
+
+$table-striped-order:         odd !default;
+$table-striped-columns-order: even !default;
+
+$table-group-separator-color: currentcolor !default;
+
+$table-caption-color:         var(--#{$prefix}secondary-color) !default;
+
+$table-bg-scale:              -80% !default;
+// scss-docs-end table-variables
+
+// scss-docs-start table-loop
+$table-variants: (
+  "primary":    shift-color($primary, $table-bg-scale),
+  "secondary":  shift-color($secondary, $table-bg-scale),
+  "success":    shift-color($success, $table-bg-scale),
+  "info":       shift-color($info, $table-bg-scale),
+  "warning":    shift-color($warning, $table-bg-scale),
+  "danger":     shift-color($danger, $table-bg-scale),
+  "light":      $light,
+  "dark":       $dark,
+) !default;
+// scss-docs-end table-loop
 
 //
 // Basic Bootstrap table
@@ -91,7 +145,6 @@
   > :not(caption) > * {
     border-width: $table-border-width 0;
 
-    // stylelint-disable-next-line selector-max-universal
     > * {
       border-width: 0 $table-border-width;
     }
@@ -156,7 +209,7 @@
 // and the colors of the striped, hovered & active tables
 
 @each $color, $value in $table-variants {
-  @include table-variant($color, $value);
+  @include table-variant($color, $value, $table-striped-bg-factor, $table-active-bg-factor, $table-hover-bg-factor, $table-border-factor);
 }
 
 // Responsive tables

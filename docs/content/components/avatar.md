@@ -134,4 +134,4 @@ Avatars use local CSS variables on `.avatar` for enhanced real-time customizatio
 
 ### SASS variables
 
-{{< scss-docs name="avatar-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="avatar-variables" file="scss/_avatar.scss" >}}

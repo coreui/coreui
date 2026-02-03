@@ -863,7 +863,7 @@ Modals use local CSS variables on `.modal` and `.modal-backdrop` for enhanced re
 
 ### SASS variables
 
-{{< scss-docs name="modal-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="modal-variables" file="scss/_modal.scss" >}}
 
 ### SASS Loop
 

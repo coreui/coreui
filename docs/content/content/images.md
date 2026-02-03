@@ -62,4 +62,4 @@ If you are using the `<picture>` element to specify multiple `<source>` elements
 
 Variables are available for image thumbnails.
 
-{{< scss-docs name="thumbnail-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="thumbnail-variables" file="scss/_images.scss" >}}

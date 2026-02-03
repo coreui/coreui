@@ -5,6 +5,22 @@
 @use "vendor/rfs" as *;
 @use "variables" as *;
 
+// scss-docs-start progress-variables
+$progress-height:                   1rem !default;
+$progress-font-size:                $font-size-base * .75 !default;
+$progress-bg:                       var(--#{$prefix}secondary-bg) !default;
+$progress-border-radius:            var(--#{$prefix}border-radius) !default;
+$progress-box-shadow:               var(--#{$prefix}box-shadow-inset) !default;
+$progress-bar-color:                $white !default;
+$progress-bar-bg:                   var(--#{$prefix}primary) !default;
+$progress-bar-animation-timing:     1s linear infinite !default;
+$progress-bar-transition:           width .6s ease !default;
+// scss-docs-end progress-variables
+
+// TODO: clean-up ???
+$progress-group-margin-bottom:         $spacer !default;
+$progress-group-header-margin-bottom:  $spacer * .25 !default;
+
 // Disable animation if transitions are disabled
 
 // scss-docs-start progress-keyframes

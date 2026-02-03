@@ -34,7 +34,7 @@ Callouts use local CSS variables on `.callout` for enhanced real-time customizat
 
 ### SASS variables
 
-{{< scss-docs name="callout-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="callout-variables" file="scss/_callout.scss" >}}
 
 #### Variants
 

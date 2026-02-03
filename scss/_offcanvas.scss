@@ -7,6 +7,22 @@
 @use "mixins/transition" as *;
 @use "variables" as *;
 
+// scss-docs-start offcanvas-variables
+$offcanvas-padding-y:               $spacer !default;
+$offcanvas-padding-x:               $spacer !default;
+$offcanvas-horizontal-width:        400px !default;
+$offcanvas-vertical-height:         30vh !default;
+$offcanvas-transition-duration:     .3s !default;
+$offcanvas-border-color:            var(--#{$prefix}border-color-translucent) !default;
+$offcanvas-border-width:            var(--#{$prefix}border-width) !default;
+$offcanvas-title-line-height:       $line-height-base !default;
+$offcanvas-bg-color:                var(--#{$prefix}body-bg) !default;
+$offcanvas-color:                   var(--#{$prefix}body-color) !default;
+$offcanvas-box-shadow:              var(--#{$prefix}box-shadow-sm) !default;
+$offcanvas-backdrop-bg:             $black !default;
+$offcanvas-backdrop-opacity:        .5 !default;
+// scss-docs-end offcanvas-variables
+
 %offcanvas-css-vars {
   // scss-docs-start offcanvas-css-vars
   --#{$prefix}offcanvas-zindex: #{$zindex-offcanvas};

@@ -484,7 +484,7 @@ List groups use local CSS variables on `.list-group` for enhanced real-time cust
 
 ### SASS variables
 
-{{< scss-docs name="list-group-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="list-group-variables" file="scss/_list-group.scss" >}}
 
 ### SASS mixins
 

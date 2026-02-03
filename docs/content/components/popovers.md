@@ -270,7 +270,7 @@ Popovers use local CSS variables on `.popover` for enhanced real-time customizat
 
 ### SASS variables
 
-{{< scss-docs name="popover-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="popover-variables" file="scss/_popover.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Popover" >}}

@@ -1,5 +1,10 @@
 @use "variables" as *;
 
+// scss-docs-start placeholders
+$placeholder-opacity-max:           .5 !default;
+$placeholder-opacity-min:           .2 !default;
+// scss-docs-end placeholders
+
 .placeholder {
   display: inline-block;
   min-height: 1em;

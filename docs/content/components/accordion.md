@@ -164,7 +164,7 @@ Accordions use local CSS variables on .accordion for enhanced real-time customiz
 
 ### SASS variables
 
-{{< scss-docs name="accordion-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="accordion-variables" file="scss/_accordion.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Accordion" >}}

@@ -181,9 +181,9 @@ Learn more about [support for datalist elements](https://caniuse.com/datalist).
 
 `$form-label-*` and `$form-text-*` are for our `<label>`s and `.form-text` component.
 
-{{< scss-docs name="form-label-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="form-label-variables" file="scss/forms/_labels.scss" >}}
 
-{{< scss-docs name="form-text-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="form-text-variables" file="scss/forms/_form-text.scss" >}}
 
 `$form-file-*` are for file input.
 

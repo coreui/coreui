@@ -386,11 +386,11 @@ myCarousel.addEventListener('slide.coreui.carousel', event => {
 
 Variables for all carousels:
 
-{{< scss-docs name="carousel-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="carousel-variables" file="scss/_carousel.scss" >}}
 
 Variables for the [dark carousel](#dark-variant):
 
-{{< scss-docs name="carousel-dark-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="carousel-dark-variables" file="scss/_carousel.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Carousel" >}}

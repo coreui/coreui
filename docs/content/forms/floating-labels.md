@@ -150,4 +150,4 @@ When working with the CoreUI for Bootstrap grid system, be sure to place form el
 
 ### SASS variables
 
-{{< scss-docs name="form-floating-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="form-floating-variables" file="scss/forms/_floating-labels.scss" >}}

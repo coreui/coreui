@@ -351,9 +351,9 @@ table {
 }
 
 caption {
-  padding-top: $table-cell-padding-y;
-  padding-bottom: $table-cell-padding-y;
-  color: var(--#{$prefix}table-caption-color, $table-caption-color);
+  // padding-top: $table-cell-padding-y;
+  // padding-bottom: $table-cell-padding-y;
+  // color: var(--#{$prefix}table-caption-color, $table-caption-color);
   text-align: start;
 }
 
@@ -362,7 +362,7 @@ caption {
 // 3. Fix alignment for Safari
 
 th {
-  font-weight: $table-th-font-weight; // 1
+  // font-weight: $table-th-font-weight; // 1
   text-align: inherit; // 2
   text-align: -webkit-match-parent; // 3
 }
@@ -443,6 +443,7 @@ select {
 // Remove the dropdown arrow only from text type inputs built with datalists in Chrome.
 // See https://stackoverflow.com/a/54997118
 
+// stylelint-disable-next-line selector-max-attribute
 [list]:not([type="date"]):not([type="datetime-local"]):not([type="month"]):not([type="week"]):not([type="time"])::-webkit-calendar-picker-indicator {
   display: none !important;
 }

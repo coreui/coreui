@@ -100,7 +100,7 @@ Badges use local CSS variables on `.badge` for enhanced real-time customization.
 
 ### SASS variables
 
-{{< scss-docs name="badge-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="badge-variables" file="scss/_badge.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Badge" >}}

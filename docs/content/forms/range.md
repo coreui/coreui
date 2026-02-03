@@ -68,7 +68,7 @@ The value of the range input can be shown using the `output` element and a bit o
 
 ### SASS variables
 
-{{< scss-docs name="form-range-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="form-range-variables" file="scss/forms/_form-range.scss" >}}
 
 {{< markdown >}}
 {{< coreui-vs-bootstrap component="Form Range" >}}

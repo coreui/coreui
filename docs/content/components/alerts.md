@@ -243,7 +243,7 @@ Our Bootstrap alerts utilize local CSS variables on `.alert` for improved real-t
 
 ### SASS variables
 
-{{< scss-docs name="alert-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="alert-variables" file="scss/_alert.scss" >}}
 
 ### SASS mixin
 

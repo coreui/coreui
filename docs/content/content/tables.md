@@ -825,12 +825,12 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 
 ### SASS variables
 
-{{< scss-docs name="table-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="table-variables" file="scss/_tables.scss" >}}
 
 
 ### SASS loop
 
-{{< scss-docs name="table-loop" file="scss/_variables.scss" >}}
+{{< scss-docs name="table-loop" file="scss/_tables.scss" >}}
 
 ### Customizing
 

@@ -231,7 +231,7 @@ Progress bars use local CSS variables on `.progress` for enhanced real-time cust
 
 ### SASS variables
 
-{{< scss-docs name="progress-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="progress-variables" file="scss/_progress.scss" >}}
 
 ### Keyframes
 

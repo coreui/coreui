@@ -5,7 +5,7 @@
 @use "../variables" as *;
 
 // scss-docs-start table-variant
-@mixin table-variant($state, $background) {
+@mixin table-variant($state, $background, $table-striped-bg-factor, $table-active-bg-factor, $table-hover-bg-factor, $table-border-factor) {
   .table-#{$state} {
     $color: color-contrast(opaque($body-bg, $background));
     $hover-bg: color.mix($color, $background, math.percentage($table-hover-bg-factor));

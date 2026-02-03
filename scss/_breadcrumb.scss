@@ -1,8 +1,23 @@
+@use "sass:string";
 @use "functions/escape-svg" as *;
 @use "mixins/border-radius" as *;
 @use "mixins/ltr-rtl" as *;
 @use "vendor/rfs" as *;
 @use "variables" as *;
+
+// scss-docs-start breadcrumb-variables
+$breadcrumb-font-size:              null !default;
+$breadcrumb-padding-y:              0 !default;
+$breadcrumb-padding-x:              0 !default;
+$breadcrumb-item-padding-x:         .5rem !default;
+$breadcrumb-margin-bottom:          1rem !default;
+$breadcrumb-bg:                     null !default;
+$breadcrumb-divider-color:          var(--#{$prefix}secondary-color) !default;
+$breadcrumb-active-color:           var(--#{$prefix}secondary-color) !default;
+$breadcrumb-divider:                string.quote("/") !default;
+$breadcrumb-divider-flipped:        $breadcrumb-divider !default;
+$breadcrumb-border-radius:          null !default;
+// scss-docs-end breadcrumb-variables
 
 .breadcrumb {
   // scss-docs-start breadcrumb-css-vars

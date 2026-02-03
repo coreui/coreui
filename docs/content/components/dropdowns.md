@@ -1114,15 +1114,15 @@ Customization through CSS variables can be seen on the `.dropdown-menu-dark` cla
 
 Variables for all dropdowns:
 
-{{< scss-docs name="dropdown-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="dropdown-variables" file="scss/_dropdown.scss" >}}
 
 Variables for the [dark dropdown](#dark-dropdowns):
 
-{{< scss-docs name="dropdown-dark-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="dropdown-dark-variables" file="scss/_dropdown.scss" >}}
 
 Variables for the CSS-based carets that indicate a dropdown's interactivity:
 
-{{< scss-docs name="caret-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="caret-variables" file="scss/mixins/_caret.scss" >}}
 
 ### SASS mixins
 

@@ -1,6 +1,28 @@
 @use "mixins/border-radius" as *;
 @use "variables" as *;
 
+// scss-docs-start callout-variables
+$callout-padding-y:                 $spacer !default;
+$callout-padding-x:                 $spacer !default;
+$callout-margin-y:                  $spacer !default;
+$callout-margin-x:                  0 !default;
+$callout-border-radius:             var(--#{$prefix}border-radius) !default;
+$callout-border-width:              var(--#{$prefix}border-width) !default;
+$callout-border-color:              var(--#{$prefix}border-color) !default;
+$callout-border-left-width:         calc(#{$callout-border-width} * 4) !default; // stylelint-disable-line function-disallowed-list
+
+$callout-variants: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "danger":     $danger,
+  "warning":    $warning,
+  "info":       $info,
+  "light":      $light,
+  "dark":       $dark
+) !default;
+// scss-docs-end callout-variables
+
 .callout {
   // scss-docs-start callout-css-vars
   --#{$prefix}callout-padding-x: #{$callout-padding-x};

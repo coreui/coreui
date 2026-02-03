@@ -2,10 +2,18 @@
 @use "vendor/rfs" as *;
 @use "variables" as *;
 
-// Base class
-//
-// Requires one of the contextual, color modifier classes for `color` and
-// `background-color`.
+// scss-docs-start badge-variables
+$badge-font-size:                   .75em !default;
+$badge-font-weight:                 $font-weight-bold !default;
+$badge-color:                       $white !default;
+$badge-padding-y:                   .35em !default;
+$badge-padding-x:                   .65em !default;
+$badge-border-radius:               var(--#{$prefix}border-radius) !default;
+
+$badge-font-size-sm:                .65em !default;
+$badge-padding-y-sm:                .3em !default;
+$badge-padding-x-sm:                .5em !default;
+// scss-docs-end badge-variables
 
 .badge {
   // scss-docs-start badge-css-vars

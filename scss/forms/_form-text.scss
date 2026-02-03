@@ -1,9 +1,13 @@
 @use "../vendor/rfs" as *;
 @use "../variables" as *;
 
-//
-// Form text
-//
+// scss-docs-start form-text-variables
+$form-text-margin-top:                  .25rem !default;
+$form-text-font-size:                   $small-font-size !default;
+$form-text-font-style:                  null !default;
+$form-text-font-weight:                 null !default;
+$form-text-color:                       var(--#{$prefix}secondary-color) !default;
+// scss-docs-end form-text-variables
 
 .form-text {
   margin-top: $form-text-margin-top;

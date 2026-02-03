@@ -193,7 +193,7 @@ For both spinners, small spinner modifier classes are used to update the values 
 
 ### SASS variables
 
-{{< scss-docs name="spinner-variables" file="scss/_variables.scss" >}}
+{{< scss-docs name="spinner-variables" file="scss/_spinners.scss" >}}
 
 ### Keyframes
 
