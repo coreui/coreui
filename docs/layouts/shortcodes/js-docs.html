@@ -6,6 +6,7 @@
 */ -}}
 
 {{- $name := .Get "name" -}}
+{{- $id := .Get "id" -}}
 {{- $file := .Get "file" -}}
 
 {{- /* If any parameters are missing, print an error and exit */ -}}
@@ -62,7 +63,7 @@
 
   {{- else -}}
 
-  <div class="docs-example-snippet docs-code-snippet docs-file-ref">
+  <div{{ with $id }} id="{{ $id }}"{{ end }} class="docs-example-snippet docs-code-snippet docs-file-ref">
     <div class="d-flex align-items-center highlight-toolbar ps-3 pe-2 py-1 border-bottom">
       <div class="font-monospace link-secondary link-underline-secondary link-underline-opacity-0 link-underline-opacity-100-hover small">
         {{- $file -}}
