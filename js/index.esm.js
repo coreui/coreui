@@ -8,6 +8,8 @@
 export { default as Alert } from './src/alert.js'
 export { default as Button } from './src/button.js'
 export { default as Carousel } from './src/carousel.js'
+export { default as Chip } from './src/chip.js'
+export { default as ChipInput } from './src/chip-input.js'
 export { default as Collapse } from './src/collapse.js'
 export { default as Dropdown } from './src/dropdown.js'
 export { default as Modal } from './src/modal.js'

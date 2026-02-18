@@ -43,6 +43,10 @@
     --#{$prefix}#{$color}-border-subtle: #{$value};
   }
 
+  @each $color, $value in $theme-colors-contrast {
+    --#{$prefix}#{$color}-contrast: #{$value};
+  }
+
   --#{$prefix}white-rgb: #{to-rgb($white)};
   --#{$prefix}black-rgb: #{to-rgb($black)};
 
@@ -154,6 +158,7 @@
   --#{$prefix}focus-ring-width: #{$focus-ring-width};
   --#{$prefix}focus-ring-opacity: #{$focus-ring-opacity};
   --#{$prefix}focus-ring-color: #{$focus-ring-color};
+  --#{$prefix}focus-ring-blur: #{$focus-ring-blur};
   // scss-docs-end root-focus-variables
 
   // scss-docs-start root-form-validation-variables
