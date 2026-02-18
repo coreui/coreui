@@ -1,13 +1,15 @@
 ---
 layout: docs
 title: Chip
-description: CoreUI Chip component for labels, selections, and dismissible tags with icons, avatars, and keyboard support.
+description: Bootstrap Chip component for CoreUI — build dismissible tags, selectable labels, and filterable chips with icons, avatars, and full keyboard support.
 group: components
 toc: true
 bootstrap: true
 ---
 
 ## Overview
+
+The CoreUI **Bootstrap Chip component** lets you build compact, interactive UI elements for labels, tags, filters, and selections. Chips support icons, avatars, dismissal, keyboard navigation, and theming via CSS variables.
 
 Chips are similar to badges, but they have a single size and more defined visual styles useful for indicating state and selection.
 
@@ -18,6 +20,15 @@ Chips are similar to badges, but they have a single size and more defined visual
 - Chips support keyboard navigation and selection in their container.
 
 See examples of all of this in action below.
+
+## When to use chips
+
+Use the Bootstrap Chip component when you need:
+
+- Multi-select filters in search or form interfaces
+- Dismissible tags for selected items or applied filters
+- Keyboard-navigable selection groups
+- Compact status indicators with icon or avatar support
 
 ## Basic chips
 
@@ -228,9 +239,9 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
 {{< /example >}}
 
 
-## Chip plugin
+## Chip component JavaScript plugin
 
-Use the Chip plugin for selection, keyboard navigation, and dismissal. You can initialize chips via data attributes or JavaScript.
+Use the Bootstrap Chip component JavaScript plugin for selection, keyboard navigation, and dismissal. You can initialize chip components via data attributes or JavaScript.
 
 ### Data attributes
 
@@ -364,10 +375,13 @@ Chips support keyboard navigation when they are `selectable` and/or `dismissible
 
 ## Accessibility
 
+The Bootstrap Chip component follows WAI-ARIA patterns for interactive widgets, ensuring the chip component is fully usable with keyboards and assistive technologies.
+
 - Chips become focusable when `selectable` or `dismissible` is enabled.
 - `aria-selected` is kept in sync with `.active` on selectable chips.
 - `aria-disabled="true"` is applied to disabled chips.
 - Each `.chip-dismiss` button includes an accessible label via `ariaDismissLabel`.
+- Use descriptive `aria-label` attributes on chip containers when the chip component group has a meaningful role (e.g., "Applied filters").
 
 ## Customizing
 

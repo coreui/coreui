@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Chip input
-description: Create tag-like multi-value inputs for skills, categories, or recipients using CoreUI chips.
+description: Bootstrap Chip Input component for CoreUI — create tag-like multi-value inputs for skills, categories, or recipients with keyboard support, selection, and form integration.
 group: forms
 toc: true
 bootstrap: true
@@ -12,11 +12,21 @@ snippets:
 
 ## Overview
 
-Chip input lets users enter multiple values as chips inside a single field. It supports keyboard-friendly entry, chip removal, and optional selection for bulk actions.
+The CoreUI **Bootstrap Chip Input component** lets users enter multiple values as chips inside a single field. Use it as a tag input, multi-value selector, or token field for skills, categories, email recipients, and more. The chip input component supports keyboard-friendly entry, chip removal, and optional selection for bulk actions.
 
 - Type values and press `Enter` (or a separator) to create chips.
 - Chips can be dismissible and selectable.
 - The input stays inline and grows as you type.
+- Full form integration via a hidden input with configurable `name`.
+
+## When to use Chip Input
+
+Use the Bootstrap Chip Input component when you need:
+
+- A **tag input** or **token field** for free-form multi-value entry
+- An **email or recipient input** where users add multiple addresses
+- A **skills or category selector** in forms
+- A **filterable multi-select** that integrates with standard HTML forms
 
 ## Basic example
 
@@ -148,9 +158,11 @@ In this example, `select.coreui.chip-input` updates a live list of selected valu
 
 ## Usage
 
+Initialize the Bootstrap Chip Input component via data attributes or JavaScript. The chip input component automatically creates a hidden form input to submit all chip values with the form.
+
 ### Via data attributes
 
-Add `data-coreui-chip-input` to initialize the component. Options can be passed as `data-coreui-*` attributes.
+Add `data-coreui-chip-input` to initialize the chip input component. Options can be passed as `data-coreui-*` attributes.
 
 ```html
 <div class="chip-input" data-coreui-chip-input data-coreui-name="skills" data-coreui-separator=",">
@@ -286,10 +298,13 @@ chipInputElement.addEventListener('change.coreui.chip-input', event => {
 
 ## Accessibility
 
+The Bootstrap Chip Input component follows WAI-ARIA patterns to ensure the chip input is fully usable with keyboards and assistive technologies.
+
 - Associate a `<label>` with the ghost input for screen readers.
 - Chips are focusable and keyboard navigable when initialized by the plugin.
 - Dismiss buttons include `aria-label="Remove"` by default.
 - Selected chips are reflected via `.active` and `aria-selected`.
+- Use a descriptive `aria-label` or `<label>` on the chip input container to communicate its purpose (e.g., "Add skills" or "Recipients").
 
 ## CSS
 
