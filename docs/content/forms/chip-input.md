@@ -5,6 +5,7 @@ description: Bootstrap Chip Input component for CoreUI — create tag-like multi
 group: forms
 toc: true
 bootstrap: true
+preview_component: true
 snippets: 
   - chip-selectable.js
   - chip-variants.js

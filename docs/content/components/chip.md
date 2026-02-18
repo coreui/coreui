@@ -5,6 +5,7 @@ description: Bootstrap Chip component for CoreUI — build dismissible tags, sel
 group: components
 toc: true
 bootstrap: true
+preview_component: true
 ---
 
 ## Overview
