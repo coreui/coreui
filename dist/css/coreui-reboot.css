@@ -69,6 +69,14 @@
   --cui-danger-border-subtle: #f2a9a9;
   --cui-light-border-subtle: #e7eaee;
   --cui-dark-border-subtle: #aab3c5;
+  --cui-primary-contrast: #fff;
+  --cui-secondary-contrast: #fff;
+  --cui-success-contrast: #080a0c;
+  --cui-info-contrast: #080a0c;
+  --cui-warning-contrast: #080a0c;
+  --cui-danger-contrast: #080a0c;
+  --cui-light-contrast: #080a0c;
+  --cui-dark-contrast: #fff;
   --cui-white-rgb: 255, 255, 255;
   --cui-black-rgb: 8, 10, 12;
   --cui-font-sans-serif: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -139,6 +147,7 @@
   --cui-focus-ring-width: 0.25rem;
   --cui-focus-ring-opacity: 0.25;
   --cui-focus-ring-color: rgba(88, 86, 214, 0.25);
+  --cui-focus-ring-blur: 0;
   --cui-form-valid-color: #1b9e3e;
   --cui-form-valid-border-color: #1b9e3e;
   --cui-form-invalid-color: #e55353;
