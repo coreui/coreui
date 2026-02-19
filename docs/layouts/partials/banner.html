@@ -21,3 +21,11 @@
   </ul>
 </div>
 {{ end }}
+{{ if .Page.Params.preview_component }}
+  <div class="bg-warning bg-opacity-10 border-start border-start-5 border-start-warning p-4 pb-3 mb-5">
+    <h3 class="mb-4">Release candidate (RC)</h3>
+    <p>
+      This component is in the Release Candidate phase and its API is considered stable. Minor adjustments may still occur before the final release.
+    </p>
+  </div>
+{{ end }}

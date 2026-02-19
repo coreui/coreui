@@ -1,0 +1,14 @@
+@use "../vendor/rfs" as *;
+@use "../variables" as *;
+
+// scss-docs-start chip-mixin
+@mixin chip-size($height, $padding-x, $chip-gap, $font-size, $img-size, $icon-size, $dismiss-size) {
+  --#{$prefix}chip-height: #{$height};
+  --#{$prefix}chip-padding-x: #{$padding-x};
+  --#{$prefix}chip-gap: #{$chip-gap};
+  @include rfs($font-size, --#{$prefix}chip-font-size);
+  --#{$prefix}chip-img-size: #{$img-size};
+  --#{$prefix}chip-icon-size: #{$icon-size};
+  --#{$prefix}chip-dismiss-size: #{$dismiss-size};
+}
+// scss-docs-end chip-mixin

@@ -8,6 +8,8 @@
 import Alert from './src/alert.js'
 import Button from './src/button.js'
 import Carousel from './src/carousel.js'
+import Chip from './src/chip.js'
+import ChipInput from './src/chip-input.js'
 import Collapse from './src/collapse.js'
 import Dropdown from './src/dropdown.js'
 import Modal from './src/modal.js'
@@ -24,6 +26,8 @@ export default {
   Alert,
   Button,
   Carousel,
+  Chip,
+  ChipInput,
   Collapse,
   Dropdown,
   Modal,

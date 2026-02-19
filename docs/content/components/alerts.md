@@ -6,6 +6,8 @@ group: components
 toc: true
 bootstrap: true
 other_frameworks: alert
+snippets:
+  - alert-live.js
 ---
 
 ## Examples
@@ -29,13 +31,13 @@ Bootstrap alerts can accommodate text of any length and feature an optional clos
 
 Click the button below to show an alert (initially hidden with inline styles), then dismiss (and destroy) it using the built-in close button.
 
-{{< example stackblitz_add_js="true" >}}
+{{< example stackblitz_add_js="alertLiveSnippet" >}}
 <div id="liveAlertPlaceholder"></div>
 <button type="button" class="btn btn-primary" id="liveAlertBtn">Show alert with message</button>
 {{< /example >}}
 
 The JavaScript below initiates our live alert demo:
-{{< js-docs name="live-alert" file="docs/assets/js/partials/snippets.js" >}}
+{{< js-docs id="alertLiveSnippet" name="live-alert" file="docs/assets/js/snippets/alert-live.js" >}}
 
 ### Link color
 

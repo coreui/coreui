@@ -1,5 +1,6 @@
 @use "sass:map";
 @use "functions/color" as *;
+@use "functions/color-contrast" as *;
 @use "functions/maps" as *;
 @use "functions/to-rgb" as *;
 @use "variables" as *;
@@ -51,6 +52,19 @@ $theme-colors-border-subtle: (
   "dark": $dark-border-subtle,
 ) !default;
 // scss-docs-end theme-border-subtle-map
+
+// scss-docs-start theme-contrast-map
+$theme-colors-contrast: (
+  "primary": color-contrast($primary),
+  "secondary": color-contrast($secondary),
+  "success": color-contrast($success),
+  "info": color-contrast($info),
+  "warning": color-contrast($warning),
+  "danger": color-contrast($danger),
+  "light": color-contrast($light),
+  "dark": color-contrast($dark),
+) !default;
+// scss-docs-end theme-contrast-map
 
 $theme-colors-rgb-dark: null !default;
 $theme-colors-text-dark: null !default;

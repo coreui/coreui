@@ -13,6 +13,25 @@
 {{- $applicationJs := resources.Get "js/application.js" | js.Build $esbuildOptions | resources.Copy "/assets/js/application.js" }}
 <script defer src="{{ $applicationJs.Permalink }}"></script>
 
+{{- /* Load and merge page-specific snippets from front matter */ -}}
+{{- $page := . }}
+{{- with .Params.snippets }}
+  {{- $snippetSlice := slice }}
+  {{- range . }}
+    {{- $snippetPath := printf "js/snippets/%s" . }}
+    {{- $snippetFile := resources.Get $snippetPath }}
+    {{- if $snippetFile }}
+      {{- $snippetSlice = $snippetSlice | append $snippetFile }}
+    {{- end }}
+  {{- end }}
+  {{- if gt (len $snippetSlice) 0 }}
+    {{- $pagePathHash := $page.RelPermalink | replaceRE "[^a-zA-Z0-9]+" "-" | strings.TrimSuffix "-" }}
+    {{- $snippetFileName := printf "js/snippets%s.js" $pagePathHash }}
+    {{- $mergedSnippets := $snippetSlice | resources.Concat $snippetFileName }}
+<script defer src="{{ $mergedSnippets.Permalink }}"></script>
+  {{- end }}
+{{- end }}
+
 {{- $esbuildParams := dict
   "apiKey" .Site.Params.algolia.apiKey
   "appId" .Site.Params.algolia.appId

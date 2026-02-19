@@ -65,6 +65,7 @@
     - title: Range
     - title: Input group
     - title: Floating labels
+    - title: Chip input
     - title: Layout
     - title: Validation
 
@@ -81,6 +82,7 @@
     - title: Callout
     - title: Card
     - title: Carousel
+    - title: Chip
     - title: Close button
     - title: Collapse
     - title: Dropdowns
