@@ -27,7 +27,7 @@
   {{- if gt (len $snippetSlice) 0 }}
     {{- $pagePathHash := $page.RelPermalink | replaceRE "[^a-zA-Z0-9]+" "-" | strings.TrimSuffix "-" }}
     {{- $snippetFileName := printf "js/snippets%s.js" $pagePathHash }}
-    {{- $mergedSnippets := $snippetSlice | resources.Concat $snippetFileName }}
+    {{- $mergedSnippets := $snippetSlice | resources.Concat $snippetFileName | js.Build $esbuildOptions }}
 <script defer src="{{ $mergedSnippets.Permalink }}"></script>
   {{- end }}
 {{- end }}
