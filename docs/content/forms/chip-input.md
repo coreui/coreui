@@ -34,13 +34,27 @@ Use the Bootstrap Chip Input component when you need:
 Wrap chips and add `data-coreui-chip-input` to enable behavior.
 
 {{< example >}}
-<div class="chip-input" data-coreui-chip-input data-coreui-placeholder="Add a skill...">
+<div class="chip-input" data-coreui-chip-input data-coreui-name="chipInputBasicExample" data-coreui-placeholder="Add a skill...">
   <label class="chip-input-label" for="skillsInputBasic">Skills:</label>
   <span class="chip">JavaScript</span>
   <span class="chip">TypeScript</span>
   <span class="chip">Accessibility</span>
 </div>
 {{< /example >}}
+
+{{< callout info >}}
+**Note:** The `<input class="chip-input-field">` is created automatically by the component when initialized. You can also add it manually in the markup if preferred. Additionally, a hidden input is generated automatically to submit chip values with the form. The `name` attribute of this hidden input is taken from the `data-coreui-name` attribute (e.g., `data-coreui-name="chipInputBasicExample"`).
+{{< /callout >}}
+
+```html
+<div class="chip-input" data-coreui-chip-input data-coreui-placeholder="Add a skill...">
+  <label class="chip-input-label" for="skillsInputBasic">Skills:</label>
+  <span class="chip">JavaScript</span>
+  <span class="chip">TypeScript</span>
+  <span class="chip">Accessibility</span>
+  <input type="text" class="chip-input-field" name="skillsInputBasic" placeholder="Add a skill...">
+</div>
+```
 
 ## Variants
 
@@ -70,22 +84,19 @@ The JavaScript below initializes the example:
 Use `chip-input-sm` and `chip-input-lg` to match surrounding form controls. Default size is provided by `.chip-input` without a size modifier.
 
 {{< example >}}
-<div class="chip-input chip-input-sm mb-3" data-coreui-chip-input>
+<div class="chip-input chip-input-sm mb-3" data-coreui-chip-input data-coreui-placeholder="Add small tag...">
   <label class="chip-input-label" for="skillsInputSm">Small</label>
   <span class="chip">HTML</span>
-  <input type="text" class="form-ghost" id="skillsInputSm" placeholder="Add small tag..." />
 </div>
 
-<div class="chip-input mb-3" data-coreui-chip-input>
+<div class="chip-input mb-3" data-coreui-chip-input data-coreui-placeholder="Add default tag...">
   <label class="chip-input-label" for="skillsInputMd">Default</label>
   <span class="chip">JavaScript</span>
-  <input type="text" class="form-ghost" id="skillsInputMd" placeholder="Add default tag..." />
 </div>
 
-<div class="chip-input chip-input-lg" data-coreui-chip-input>
+<div class="chip-input chip-input-lg" data-coreui-chip-input data-coreui-placeholder="Add large tag...">
   <label class="chip-input-label" for="skillsInputLg">Large</label>
   <span class="chip">TypeScript</span>
-  <input type="text" class="form-ghost" id="skillsInputLg" placeholder="Add large tag..." />
 </div>
 {{< /example >}}
 
@@ -94,9 +105,7 @@ Use `chip-input-sm` and `chip-input-lg` to match surrounding form controls. Defa
 Start with just the input and let users add chips as they type.
 
 {{< example >}}
-<div class="chip-input" data-coreui-chip-input data-coreui-name="tags">
-  <input type="text" class="form-ghost" placeholder="Start typing tags..." />
-</div>
+<div class="chip-input" data-coreui-chip-input data-coreui-name="tags" data-coreui-placeholder="Start typing tags..."></div>
 {{< /example >}}
 
 ## With label
@@ -106,10 +115,9 @@ Use a standard form label for accessibility.
 {{< example >}}
 <div class="mb-3">
   <label class="form-label" for="techStackInput">Tech stack</label>
-  <div class="chip-input" data-coreui-chip-input data-coreui-name="techStack">
+  <div class="chip-input" data-coreui-chip-input data-coreui-name="techStack" data-coreui-placeholder="Add package...">
     <span class="chip">Vue</span>
     <span class="chip">Vite</span>
-    <input type="text" class="form-ghost" id="techStackInput" placeholder="Add package...">
   </div>
   <div class="form-text">Press Enter or comma to add a value.</div>
 </div>
@@ -166,9 +174,7 @@ Initialize the Bootstrap Chip Input component via data attributes or JavaScript.
 Add `data-coreui-chip-input` to initialize the chip input component. Options can be passed as `data-coreui-*` attributes.
 
 ```html
-<div class="chip-input" data-coreui-chip-input data-coreui-name="skills" data-coreui-separator=",">
-  <input type="text" class="form-ghost" placeholder="Add tags...">
-</div>
+<div class="chip-input" data-coreui-chip-input data-coreui-name="skills" data-coreui-placeholder="Add tags..." data-coreui-separator=","></div>
 ```
 
 When initialized, Chip Input creates a hidden input to submit values with the form.  
