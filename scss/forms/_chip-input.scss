@@ -80,13 +80,13 @@ $chip-input-gap-lg:            .5rem !default;
       }
     }
   }
+}
 
-  input {
-    flex: 1 1 auto;
-    margin: 0;
-    border: 0;
-    outline: 0;
-  }
+.chip-input-field {
+  flex: 1 1 auto;
+  margin: 0;
+  border: 0;
+  outline: 0;
 }
 
 // Sizing variants
