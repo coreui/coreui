@@ -307,12 +307,14 @@ The Bootstrap Chip Input component follows WAI-ARIA patterns to ensure the chip 
 - Selected chips are reflected via `.active` and `aria-selected`.
 - Use a descriptive `aria-label` or `<label>` on the chip input container to communicate its purpose (e.g., "Add skills" or "Recipients").
 
-## CSS
+## Customizing
 
-### Chip variables
+### CSS variables
 
-{{< scss-docs name="chip-variables" file="scss/_chip.scss" >}}
+Chips inputs use local CSS variables on `.chip-input` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
 
-### Chip input variables
+{{< scss-docs name="chip-input-css-vars" file="scss/forms/_chip-input.scss" >}}
+
+### SASS variables
 
 {{< scss-docs name="chip-input-variables" file="scss/forms/_chip-input.scss" >}}
