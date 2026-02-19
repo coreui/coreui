@@ -80,6 +80,8 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 - [Bootstrap Callout](https://coreui.io/bootstrap/docs/components/callout/)
 - [Bootstrap Card](https://coreui.io/bootstrap/docs/components/card/)
 - [Bootstrap Carousel](https://coreui.io/bootstrap/docs/components/carousel/)
+- [Bootstrap Chip](https://coreui.io/bootstrap/docs/components/chip/)
+- [Bootstrap Chip Input](https://coreui.io/bootstrap/docs/forms/chip-input/)
 - [Bootstrap Checkbox](https://coreui.io/bootstrap/docs/forms/checkbox/)
 - [Bootstrap Close Button](https://coreui.io/bootstrap/docs/components/close-button/)
 - [Bootstrap Calendar](https://coreui.io/bootstrap/docs/components/calendar/) **PRO**
