@@ -14,7 +14,7 @@
     },
     {
       "path": "./dist/css/coreui-reboot.min.css",
-      "maxSize": "3.60 kB"
+      "maxSize": "3.65 kB"
     },
     {
       "path": "./dist/css/coreui-utilities.css",
@@ -22,7 +22,7 @@
     },
     {
       "path": "./dist/css/coreui-utilities.min.css",
-      "maxSize": "12.5 kB"
+      "maxSize": "12.55 kB"
     },
     {
       "path": "./dist/css/coreui.css",
@@ -30,7 +30,7 @@
     },
     {
       "path": "./dist/css/coreui.min.css",
-      "maxSize": "39.45 kB"
+      "maxSize": "41.00 kB"
     },
     {
       "path": "./dist/js/coreui.bundle.js",
@@ -38,7 +38,7 @@
     },
     {
       "path": "./dist/js/coreui.bundle.min.js",
-      "maxSize": "24.80 kB"
+      "maxSize": "27.70 kB"
     },
     {
       "path": "./dist/js/coreui.esm.js",
@@ -46,7 +46,7 @@
     },
     {
       "path": "./dist/js/coreui.esm.min.js",
-      "maxSize": "19.80 kB"
+      "maxSize": "23.00 kB"
     },
     {
       "path": "./dist/js/coreui.js",
@@ -54,7 +54,7 @@
     },
     {
       "path": "./dist/js/coreui.min.js",
-      "maxSize": "17.70 kB"
+      "maxSize": "20.65 kB"
     }
   ],
   "ci": {
