@@ -1,8 +1,6 @@
 @use "../vendor/rfs" as *;
 @use "../variables" as *;
 
-// Pagination
-
 // scss-docs-start chip-mixin
 @mixin chip-size($height, $padding-x, $chip-gap, $font-size, $img-size, $icon-size, $dismiss-size) {
   --#{$prefix}chip-height: #{$height};
