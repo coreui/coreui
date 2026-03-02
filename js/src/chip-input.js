@@ -32,27 +32,27 @@ const EVENT_INPUT = `input${EVENT_KEY}`
 const SELECTOR_DATA_CHIP_INPUT = '[data-coreui-chip-input]'
 const SELECTOR_CHIP = '.chip'
 const SELECTOR_CHIP_ACTIVE = `${SELECTOR_CHIP}.active`
-const SELECTOR_CHIP_DISMISS = '.chip-dismiss'
 const SELECTOR_CHIP_INPUT_LABEL = '.chip-input-label'
+const SELECTOR_CHIP_REMOVE = '.chip-remove'
 const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)'
 
 const CLASS_NAME_CHIP = 'chip'
 const CLASS_NAME_DISABLED = 'disabled'
 const CLASS_NAME_CHIP_INPUT_FIELD = 'chip-input-field'
 
-const DEFAULT_DISMISS_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
+const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
 
 const Default = {
   chipClassName: null,
   createOnBlur: true,
   disabled: false,
-  readonly: false,
-  dismissible: true,
-  dismissIcon: DEFAULT_DISMISS_ICON,
   id: null,
   maxChips: null,
   name: null,
   placeholder: '',
+  readonly: false,
+  removable: true,
+  removeIcon: DEFAULT_REMOVE_ICON,
   selectable: false,
   separator: ','
 }
@@ -61,13 +61,13 @@ const DefaultType = {
   chipClassName: '(string|function|null)',
   createOnBlur: 'boolean',
   disabled: 'boolean',
-  readonly: 'boolean',
-  dismissible: 'boolean',
-  dismissIcon: 'string',
   maxChips: '(number|null)',
   id: '(string|null)',
   name: '(string|null)',
   placeholder: 'string',
+  readonly: 'boolean',
+  removable: 'boolean',
+  removeIcon: 'string',
   selectable: 'boolean',
   separator: '(string|null)'
 }
@@ -336,9 +336,9 @@ class ChipInput extends BaseComponent {
     }
 
     const clone = chip.cloneNode(true)
-    const dismiss = SelectorEngine.findOne(SELECTOR_CHIP_DISMISS, clone)
-    if (dismiss) {
-      dismiss.remove()
+    const remove = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, clone)
+    if (remove) {
+      remove.remove()
     }
 
     return clone.textContent?.trim() || ''
@@ -381,16 +381,16 @@ class ChipInput extends BaseComponent {
 
   _setupChip(chip) {
     Chip.getOrCreateInstance(chip, {
-      ariaDismissLabel: `Remove ${this._getChipValue(chip)}`,
+      ariaRemoveLabel: `Remove ${this._getChipValue(chip)}`,
       disabled: this._disabled,
-      dismissible: this._config.dismissible && !this._readonly && !this._disabled,
-      dismissIcon: this._config.dismissIcon,
+      removable: this._config.removable && !this._readonly && !this._disabled,
+      removeIcon: this._config.removeIcon,
       selectable: this._config.selectable
     })
 
-    const dismissButton = SelectorEngine.findOne(SELECTOR_CHIP_DISMISS, chip)
-    if (dismissButton) {
-      dismissButton.disabled = this._disabled || this._readonly
+    const removeButton = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, chip)
+    if (removeButton) {
+      removeButton.disabled = this._disabled || this._readonly
     }
   }
 

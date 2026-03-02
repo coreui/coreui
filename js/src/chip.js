@@ -8,7 +8,6 @@
 import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
 import SelectorEngine from './dom/selector-engine.js'
-import { enableDismissTrigger } from './util/component-functions.js'
 import { defineJQueryPlugin, getNextActiveElement } from './util/index.js'
 
 /**
@@ -27,31 +26,31 @@ const EVENT_SELECTED = `selected${EVENT_KEY}`
 const EVENT_DESELECT = `deselect${EVENT_KEY}`
 const EVENT_DESELECTED = `deselected${EVENT_KEY}`
 
-const SELECTOR_CHIP_DISMISS = '.chip-dismiss'
+const SELECTOR_CHIP_REMOVE = '.chip-remove'
 const SELECTOR_DATA_CHIP = '[data-coreui-chip]'
 const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)'
 
 const CLASS_NAME_CHIP_CLICKABLE = 'chip-clickable'
-const CLASS_NAME_CHIP_DISMISS = 'chip-dismiss'
+const CLASS_NAME_CHIP_REMOVE = 'chip-remove'
 const CLASS_NAME_ACTIVE = 'active'
 const CLASS_NAME_DISABLED = 'disabled'
 
-const DEFAULT_DISMISS_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
+const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
 
 const Default = {
-  ariaDismissLabel: 'Remove',
+  ariaRemoveLabel: 'Remove',
   disabled: false,
-  dismissible: false,
-  dismissIcon: DEFAULT_DISMISS_ICON,
+  removable: false,
+  removeIcon: DEFAULT_REMOVE_ICON,
   selectable: false,
   selected: false
 }
 
 const DefaultType = {
-  ariaDismissLabel: 'string',
+  ariaRemoveLabel: 'string',
   disabled: 'boolean',
-  dismissible: 'boolean',
-  dismissIcon: 'string',
+  removable: 'boolean',
+  removeIcon: 'string',
   selectable: 'boolean',
   selected: 'boolean'
 }
@@ -67,10 +66,10 @@ class Chip extends BaseComponent {
     this._disabled = this._config.disabled || this._element.classList.contains(CLASS_NAME_DISABLED)
     this._selected = this._config.selected || this._element.classList.contains(CLASS_NAME_ACTIVE)
 
-    this._ensureDismissButton()
+    this._ensureRemoveButton()
     this._applyState()
 
-    if (this._config.selectable || this._config.dismissible) {
+    if (this._config.selectable || this._config.removable) {
       this._makeFocusable()
     }
 
@@ -163,11 +162,16 @@ class Chip extends BaseComponent {
         return
       }
 
-      if (event.target.closest(SELECTOR_CHIP_DISMISS)) {
+      if (event.target.closest(SELECTOR_CHIP_REMOVE)) {
         return
       }
 
       this.toggle()
+    })
+
+    EventHandler.on(this._element, 'click', SELECTOR_CHIP_REMOVE, event => {
+      event.stopPropagation()
+      this.remove()
     })
   }
 
@@ -197,27 +201,26 @@ class Chip extends BaseComponent {
     }
   }
 
-  _createDismissButton() {
+  _createRemoveButton() {
     const button = document.createElement('button')
     button.type = 'button'
-    button.className = CLASS_NAME_CHIP_DISMISS
-    button.setAttribute('data-coreui-dismiss', NAME)
-    button.setAttribute('aria-label', this._config.ariaDismissLabel)
+    button.className = CLASS_NAME_CHIP_REMOVE
+    button.setAttribute('aria-label', this._config.ariaRemoveLabel)
     button.setAttribute('tabindex', '-1') // Not in tab order, chips handle keyboard
-    button.innerHTML = this._config.dismissIcon
+    button.innerHTML = this._config.removeIcon
     return button
   }
 
-  _ensureDismissButton() {
-    if (!this._config.dismissible) {
+  _ensureRemoveButton() {
+    if (!this._config.removable) {
       return
     }
 
-    if (SelectorEngine.findOne(SELECTOR_CHIP_DISMISS, this._element)) {
+    if (SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, this._element)) {
       return
     }
 
-    this._element.append(this._createDismissButton())
+    this._element.append(this._createRemoveButton())
   }
 
   _makeFocusable() {
@@ -249,7 +252,7 @@ class Chip extends BaseComponent {
 
       case 'Backspace':
       case 'Delete': {
-        if (this._config.dismissible) {
+        if (this._config.removable) {
           event.preventDefault()
           const sibling = this._getFocusableSibling(false) || this._getFocusableSibling(true)
           sibling?.focus()
@@ -352,8 +355,6 @@ EventHandler.on(document, `DOMContentLoaded${EVENT_KEY}${DATA_API_KEY}`, () => {
     Chip.chipInterface(element)
   }
 })
-
-enableDismissTrigger(Chip, 'remove')
 
 /**
  * jQuery

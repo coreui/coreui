@@ -16,7 +16,7 @@ snippets:
 The CoreUI **Bootstrap Chip Input component** lets users enter multiple values as chips inside a single field. Use it as a tag input, multi-value selector, or token field for skills, categories, email recipients, and more. The chip input component supports keyboard-friendly entry, chip removal, and optional selection for bulk actions.
 
 - Type values and press `Enter` (or a separator) to create chips.
-- Chips can be dismissible and selectable.
+- Chips can be removable and selectable.
 - The input stays inline and grows as you type.
 - Full form integration via a hidden input with configurable `name`.
 
@@ -127,10 +127,10 @@ Use a standard form label for accessibility.
 
 Set disabled state on the component to make the input and managed chips non-interactive.
 You can use either the `disabled` class or the `data-coreui-disabled="true"` option.
-For disabled, non-removable chips, combine it with `data-coreui-dismissible="false"`.
+For disabled, non-removable chips, combine it with `data-coreui-removable="false"`.
 
 {{< example >}}
-<div class="chip-input" data-coreui-chip-input data-coreui-disabled="true" data-coreui-dismissible="false" data-coreui-placeholder="Input disabled">
+<div class="chip-input" data-coreui-chip-input data-coreui-disabled="true" data-coreui-removable="false" data-coreui-placeholder="Input disabled">
   <span class="chip">Read only</span>
   <span class="chip">Locked</span>
 </div>
@@ -208,8 +208,8 @@ const chipInput = coreui.ChipInput.getOrCreateInstance(chipInputElement, {
 | `maxChips` | number \| null | `null` | Maximum number of chips allowed. `null` for unlimited. |
 | `placeholder` | string | `''` | Placeholder text for dynamically created inputs. |
 | `selectable` | boolean | `false` | Enables selection behavior for chips managed by Chip Input. |
-| `dismissible` | boolean | `true` | Add dismiss buttons to created chips. |
-| `dismissIcon` | string | SVG | HTML string for the dismiss button icon. |
+| `removable` | boolean | `true` | Add remove buttons to created chips. |
+| `removeIcon` | string | SVG | HTML string for the remove button icon. |
 | `createOnBlur` | boolean | `true` | Create a chip from the input value when the input loses focus. |
 {{< /bs-table >}}
 
@@ -296,7 +296,7 @@ chipInputElement.addEventListener('change.coreui.chip-input', event => {
 | Key | Action |
 | --- | --- |
 | `Enter` / `Space` | Toggle selection (selectable chips) |
-| `Backspace` / `Delete` | Remove chip (dismissible chips) |
+| `Backspace` / `Delete` | Remove chip (removable chips) |
 | `←` | Move to previous chip |
 | `→` | Move to next chip |
 | `Home` | Move to first chip |
@@ -309,7 +309,7 @@ The Bootstrap Chip Input component follows WAI-ARIA patterns to ensure the chip 
 
 - Associate a `<label>` with the ghost input for screen readers.
 - Chips are focusable and keyboard navigable when initialized by the plugin.
-- Dismiss buttons include `aria-label="Remove"` by default.
+- Remove buttons include `aria-label="Remove"` by default.
 - Selected chips are reflected via `.active` and `aria-selected`.
 - Use a descriptive `aria-label` or `<label>` on the chip input container to communicate its purpose (e.g., "Add skills" or "Recipients").
 

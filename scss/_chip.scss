@@ -6,48 +6,48 @@
 @use "variables" as *;
 
 // scss-docs-start chip-variables
-$chip-font-size:                    .875rem !default;
-$chip-font-weight:                  $font-weight-normal !default;
-$chip-height:                       1.75rem !default;
-$chip-padding-x:                    .625rem !default;
-$chip-gap:                          .3125rem !default;
-$chip-border-radius:                var(--#{$prefix}border-radius-pill) !default;
-$chip-icon-size:                    1rem !default;
-$chip-img-size:                     1.25rem !default;
-$chip-img-border-radius:            50% !default;
-$chip-dismiss-size:                 1rem !default;
-$chip-dismiss-opacity:              .65 !default;
-$chip-dismiss-hover-opacity:        1 !default;
-$chip-transition:                   background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, color .15s ease-in-out !default;
+$chip-font-size:             .875rem !default;
+$chip-font-weight:           $font-weight-normal !default;
+$chip-height:                1.75rem !default;
+$chip-padding-x:             .625rem !default;
+$chip-gap:                   .3125rem !default;
+$chip-border-radius:         var(--#{$prefix}border-radius-pill) !default;
+$chip-icon-size:             1rem !default;
+$chip-img-size:              1.25rem !default;
+$chip-img-border-radius:     50% !default;
+$chip-remove-size:           1rem !default;
+$chip-remove-opacity:        .65 !default;
+$chip-remove-hover-opacity:  1 !default;
+$chip-transition:            background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, color .15s ease-in-out !default;
 
-$chip-color:                        var(--#{$prefix}body-color) !default;
-$chip-bg:                           var(--#{$prefix}tertiary-bg) !default;
-$chip-border-width:                 var(--#{$prefix}border-width) !default;
-$chip-border-color:                 transparent !default;
+$chip-color:                 var(--#{$prefix}body-color) !default;
+$chip-bg:                    var(--#{$prefix}tertiary-bg) !default;
+$chip-border-width:          var(--#{$prefix}border-width) !default;
+$chip-border-color:          transparent !default;
 
-$chip-active-color:                 rgba($white, .87) !default;
-$chip-active-bg:                    var(--#{$prefix}primary) !default;
-$chip-active-border-color:          transparent !default;
+$chip-active-color:          rgba($white, .87) !default;
+$chip-active-bg:             var(--#{$prefix}primary) !default;
+$chip-active-border-color:   transparent !default;
 
-$chip-hover-color:                  $chip-color !default;
-$chip-hover-bg:                     var(--#{$prefix}secondary-bg) !default;
-$chip-hover-border-color:           transparent !default;
+$chip-hover-color:           $chip-color !default;
+$chip-hover-bg:              var(--#{$prefix}secondary-bg) !default;
+$chip-hover-border-color:    transparent !default;
 
-$chip-font-size-sm:                 .75rem !default;
-$chip-height-sm:                    1.5rem !default;
-$chip-padding-x-sm:                 .625rem !default;
-$chip-gap-sm:                       .25rem !default;
-$chip-icon-size-sm:                 .875rem !default;
-$chip-img-size-sm:                  1rem !default;
-$chip-dismiss-size-sm:              .875rem !default;
+$chip-font-size-sm:          .75rem !default;
+$chip-height-sm:             1.5rem !default;
+$chip-padding-x-sm:          .625rem !default;
+$chip-gap-sm:                .25rem !default;
+$chip-icon-size-sm:          .875rem !default;
+$chip-img-size-sm:           1rem !default;
+$chip-remove-size-sm:        .875rem !default;
 
-$chip-font-size-lg:                 1rem !default;
-$chip-height-lg:                    2rem !default;
-$chip-padding-x-lg:                 .75rem !default;
-$chip-gap-lg:                       .375rem !default;
-$chip-icon-size-lg:                 1.25rem !default;
-$chip-img-size-lg:                  1.5rem !default;
-$chip-dismiss-size-lg:              1.25rem !default;
+$chip-font-size-lg:          1rem !default;
+$chip-height-lg:             2rem !default;
+$chip-padding-x-lg:          .75rem !default;
+$chip-gap-lg:                .375rem !default;
+$chip-icon-size-lg:          1.25rem !default;
+$chip-img-size-lg:           1.5rem !default;
+$chip-remove-size-lg:        1.25rem !default;
 // scss-docs-end chip-variables
 
 .chip {
@@ -61,9 +61,9 @@ $chip-dismiss-size-lg:              1.25rem !default;
   --#{$prefix}chip-img-size: #{$chip-img-size};
   --#{$prefix}chip-img-border-radius: #{$chip-img-border-radius};
   --#{$prefix}chip-icon-size: #{$chip-icon-size};
-  --#{$prefix}chip-dismiss-size: #{$chip-dismiss-size};
-  --#{$prefix}chip-dismiss-opacity: #{$chip-dismiss-opacity};
-  --#{$prefix}chip-dismiss-hover-opacity: #{$chip-dismiss-hover-opacity};
+  --#{$prefix}chip-remove-size: #{$chip-remove-size};
+  --#{$prefix}chip-remove-opacity: #{$chip-remove-opacity};
+  --#{$prefix}chip-remove-hover-opacity: #{$chip-remove-hover-opacity};
   --#{$prefix}chip-transition: #{$chip-transition};
 
   --#{$prefix}chip-color: var(--#{$prefix}text-emphasis, #{$chip-color});
@@ -185,7 +185,7 @@ $chip-dismiss-size-lg:              1.25rem !default;
   }
 }
 
-.chip-dismiss {
+.chip-remove {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -198,11 +198,11 @@ $chip-dismiss-size-lg:              1.25rem !default;
   cursor: pointer;
   background: transparent;
   border: 0;
-  opacity: var(--#{$prefix}chip-dismiss-opacity);
+  opacity: var(--#{$prefix}chip-remove-opacity);
   @include transition(opacity .15s ease-in-out);
 
   &:hover {
-    opacity: var(--#{$prefix}chip-dismiss-hover-opacity);
+    opacity: var(--#{$prefix}chip-remove-hover-opacity);
   }
 
   &:focus-visible {
@@ -213,8 +213,8 @@ $chip-dismiss-size-lg:              1.25rem !default;
 
   > svg {
     display: block; // Prevents baseline alignment issues
-    width: var(--#{$prefix}chip-dismiss-size);
-    height: var(--#{$prefix}chip-dismiss-size);
+    width: var(--#{$prefix}chip-remove-size);
+    height: var(--#{$prefix}chip-remove-size);
   }
 }
 
@@ -231,7 +231,7 @@ $chip-dismiss-size-lg:              1.25rem !default;
     $chip-font-size-lg,
     $chip-icon-size-lg,
     $chip-img-size-lg,
-    $chip-dismiss-size-lg
+    $chip-remove-size-lg
   );
 }
 
@@ -244,7 +244,7 @@ $chip-dismiss-size-lg:              1.25rem !default;
     $chip-font-size-sm,
     $chip-icon-size-sm,
     $chip-img-size-sm,
-    $chip-dismiss-size-sm
+    $chip-remove-size-sm
   );
 }
 

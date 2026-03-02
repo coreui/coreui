@@ -42,7 +42,7 @@ describe('ChipInput', () => {
         createOnBlur: true,
         disabled: false,
         readonly: false,
-        dismissible: true,
+        removable: true,
         selectable: false,
         separator: ','
       }))
@@ -54,7 +54,7 @@ describe('ChipInput', () => {
       expect(ChipInput.DefaultType).toEqual(jasmine.objectContaining({
         disabled: 'boolean',
         readonly: 'boolean',
-        dismissible: 'boolean',
+        removable: 'boolean',
         selectable: 'boolean'
       }))
     })

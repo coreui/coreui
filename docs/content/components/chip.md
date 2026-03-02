@@ -1,7 +1,7 @@
 ---
 layout: docs
 title: Chip
-description: Bootstrap Chip component for CoreUI — build dismissible tags, selectable labels, and filterable chips with icons, avatars, and full keyboard support.
+description: Bootstrap Chip component for CoreUI — build removable tags, selectable labels, and filterable chips with icons, avatars, and full keyboard support.
 group: components
 toc: true
 bootstrap: true
@@ -15,9 +15,9 @@ The CoreUI **Bootstrap Chip component** lets you build compact, interactive UI e
 Chips are similar to badges, but they have a single size and more defined visual styles useful for indicating state and selection.
 
 - Chips are statically sized—they don't scale with the parent element by default.
-- Chips can have icons, avatars, and dismiss buttons.
+- Chips can have icons, avatars, and remove buttons.
 - Chips can be active or disabled.
-- Chips automatically gain focus when they are `selectable` or `dismissible`.
+- Chips automatically gain focus when they are `selectable` or `removable`.
 - Chips support keyboard navigation and selection in their container.
 
 See examples of all of this in action below.
@@ -27,7 +27,7 @@ See examples of all of this in action below.
 Use the Bootstrap Chip component when you need:
 
 - Multi-select filters in search or form interfaces
-- Dismissible tags for selected items or applied filters
+- Removable tags for selected items or applied filters
 - Keyboard-navigable selection groups
 - Compact status indicators with icon or avatar support
 
@@ -170,8 +170,8 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
     Small with avatar 2
   </span>
   <span class="chip chip-sm">
-    Small dismissible
-    <button type="button" class="chip-dismiss" aria-label="Remove">
+    Small removable
+    <button type="button" class="chip-remove" aria-label="Remove">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="4" y1="4" x2="12" y2="12"/>
         <line x1="12" y1="4" x2="4" y2="12"/>
@@ -199,8 +199,8 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
     Default with avatar1
   </span>
   <span class="chip">
-    Default dismissible
-    <button type="button" class="chip-dismiss" aria-label="Remove">
+    Default removable
+    <button type="button" class="chip-remove" aria-label="Remove">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="4" y1="4" x2="12" y2="12"/>
         <line x1="12" y1="4" x2="4" y2="12"/>
@@ -228,8 +228,8 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
     Large with avatar 2
   </span>
   <span class="chip chip-lg">
-    Large dismissible
-    <button type="button" class="chip-dismiss" aria-label="Remove">
+    Large removable
+    <button type="button" class="chip-remove" aria-label="Remove">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <line x1="4" y1="4" x2="12" y2="12"/>
         <line x1="12" y1="4" x2="4" y2="12"/>
@@ -251,7 +251,7 @@ Add `data-coreui-chip` to enable the plugin and configure behavior with `data-co
 {{< example >}}
 <div class="d-flex flex-wrap gap-1">
   <span class="chip" data-coreui-chip data-coreui-selectable="true">Selectable</span>
-  <span class="chip" data-coreui-chip data-coreui-dismissible="true">Dismissible</span>
+  <span class="chip" data-coreui-chip data-coreui-removable="true">Removable</span>
   <span class="chip" data-coreui-chip data-coreui-selectable="true" data-coreui-selected="true">Selected</span>
   <span class="chip disabled" data-coreui-chip>Disabled</span>
 </div>
@@ -265,18 +265,18 @@ Initialize a chip directly and pass options:
 const chip = document.querySelector('#myChip')
 coreui.Chip.getOrCreateInstance(chip, {
   selectable: true,
-  dismissible: true
+  removable: true
 })
 ```
 
-### Dismiss button
+### Remove button
 
-If `dismissible` is enabled, the plugin will add the dismiss button automatically. You can also provide your own markup:
+If `removable` is enabled, the plugin will add the remove button automatically. You can also provide your own markup:
 
 ```html
-<span class="chip" data-coreui-chip data-coreui-dismissible="true">
-  Dismissible chip
-  <button type="button" class="chip-dismiss" aria-label="Remove">
+<span class="chip" data-coreui-chip data-coreui-removable="true">
+  Removable chip
+  <button type="button" class="chip-remove" aria-label="Remove">
     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
       <line x1="4" y1="4" x2="12" y2="12"/>
       <line x1="12" y1="4" x2="4" y2="12"/>
@@ -287,10 +287,10 @@ If `dismissible` is enabled, the plugin will add the dismiss button automaticall
 
 {{< example >}}
 <div class="d-flex flex-wrap gap-1">
-  <span class="chip" data-coreui-dismissible="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>
-  <span class="chip" data-coreui-dismissible="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>
-  <span class="chip disabled" data-coreui-dismissible="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>
-  <span class="chip" data-coreui-dismissible="true" data-coreui-selectable="true" data-coreui-chip>Chip 4</span>
+  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>
+  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>
+  <span class="chip disabled" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>
+  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 4</span>
 </div>
 {{< /example >}}
 
@@ -303,10 +303,10 @@ If `dismissible` is enabled, the plugin will add the dismiss button automaticall
 {{< bs-table >}}
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
-| `ariaDismissLabel` | string | `'Remove'` | Accessible label for the dismiss button. |
+| `ariaRemoveLabel` | string | `'Remove'` | Accessible label for the remove button. |
 | `disabled` | boolean | `false` | Disables interactions and focus. You can also apply the `.disabled` class in markup. |
-| `dismissible` | boolean | `false` | Adds a dismiss button (or enables dismissal if it exists in markup). |
-| `dismissIcon` | string | SVG | HTML string used as the dismiss icon. |
+| `removable` | boolean | `false` | Adds a remove button (or enables removal if it exists in markup). |
+| `removeIcon` | string | SVG | HTML string used as the remove icon. |
 | `selectable` | boolean | `false` | Enables selection and keyboard selection behavior. |
 | `selected` | boolean | `false` | Sets the initial selected state when `selectable` is enabled. |
 {{< /bs-table >}}
@@ -349,7 +349,7 @@ myChip.addEventListener('selected.coreui.chip', event => {
 
 ## Keyboard behavior
 
-Chips support keyboard navigation when they are `selectable` and/or `dismissible`.
+Chips support keyboard navigation when they are `selectable` and/or `removable`.
 
 ### When a chip is focused
 
@@ -357,7 +357,7 @@ Chips support keyboard navigation when they are `selectable` and/or `dismissible
 | Key | Action |
 | --- | --- |
 | `Enter` / `Space` | Toggle selection (only when `selectable` is enabled) |
-| `Backspace` / `Delete` | Close chip when `dismissible` is enabled |
+| `Backspace` / `Delete` | Close chip when `removable` is enabled |
 | `←` | Move focus to previous chip |
 | `→` | Move focus to next chip |
 | `Home` | Move focus to the first chip in the container |
@@ -370,17 +370,17 @@ Chips support keyboard navigation when they are `selectable` and/or `dismissible
 | Action | Effect |
 | --- | --- |
 | Click chip | Toggle selection (only when `selectable` is enabled) |
-| Click dismiss | Close chip (only when `dismissible` is enabled) |
+| Click remove | Close chip (only when `removable` is enabled) |
 {{< /bs-table >}}
 
 ## Accessibility
 
 The Bootstrap Chip component follows WAI-ARIA patterns for interactive widgets, ensuring the chip component is fully usable with keyboards and assistive technologies.
 
-- Chips become focusable when `selectable` or `dismissible` is enabled.
+- Chips become focusable when `selectable` or `removable` is enabled.
 - `aria-selected` is kept in sync with `.active` on selectable chips.
 - `aria-disabled="true"` is applied to disabled chips.
-- Each `.chip-dismiss` button includes an accessible label via `ariaDismissLabel`.
+- Each `.chip-remove` button includes an accessible label via `ariaRemoveLabel`.
 - Use descriptive `aria-label` attributes on chip containers when the chip component group has a meaningful role (e.g., "Applied filters").
 
 ## Customizing

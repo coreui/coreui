@@ -38,9 +38,9 @@ describe('Chip', () => {
   describe('Default', () => {
     it('should return default configuration', () => {
       expect(Chip.Default).toEqual(jasmine.objectContaining({
-        ariaDismissLabel: 'Remove',
+        ariaRemoveLabel: 'Remove',
         disabled: false,
-        dismissible: false,
+        removable: false,
         selectable: false,
         selected: false
       }))
@@ -50,9 +50,9 @@ describe('Chip', () => {
   describe('DefaultType', () => {
     it('should return default type configuration', () => {
       expect(Chip.DefaultType).toEqual(jasmine.objectContaining({
-        ariaDismissLabel: 'string',
+        ariaRemoveLabel: 'string',
         disabled: 'boolean',
-        dismissible: 'boolean',
+        removable: 'boolean',
         selectable: 'boolean',
         selected: 'boolean'
       }))
@@ -106,12 +106,12 @@ describe('Chip', () => {
       expect(chipEl.getAttribute('tabindex')).toEqual('0')
     })
 
-    it('should add tabindex when dismissible', () => {
+    it('should add tabindex when removable', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
       const chipEl = fixtureEl.querySelector('.chip')
       // eslint-disable-next-line no-new
-      new Chip(chipEl, { dismissible: true })
+      new Chip(chipEl, { removable: true })
 
       expect(chipEl.getAttribute('tabindex')).toEqual('0')
     })
@@ -137,52 +137,52 @@ describe('Chip', () => {
     })
   })
 
-  describe('dismissible', () => {
-    it('should append a dismiss button when dismissible is true', () => {
+  describe('removable', () => {
+    it('should append a remove button when removable is true', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
       const chipEl = fixtureEl.querySelector('.chip')
       // eslint-disable-next-line no-new
-      new Chip(chipEl, { dismissible: true })
+      new Chip(chipEl, { removable: true })
 
-      const btn = chipEl.querySelector('.chip-dismiss')
+      const btn = chipEl.querySelector('.chip-remove')
       expect(btn).not.toBeNull()
       expect(btn.getAttribute('aria-label')).toEqual('Remove')
     })
 
-    it('should not append a dismiss button when dismissible is false', () => {
+    it('should not append a remove button when removable is false', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
       const chipEl = fixtureEl.querySelector('.chip')
       // eslint-disable-next-line no-new
       new Chip(chipEl)
 
-      expect(chipEl.querySelector('.chip-dismiss')).toBeNull()
+      expect(chipEl.querySelector('.chip-remove')).toBeNull()
     })
 
-    it('should not append a second dismiss button if one already exists', () => {
+    it('should not append a second remove button if one already exists', () => {
       fixtureEl.innerHTML = [
         '<span class="chip">',
         '  Tag',
-        '  <button class="chip-dismiss" type="button">x</button>',
+        '  <button class="chip-remove" type="button">x</button>',
         '</span>'
       ].join('')
 
       const chipEl = fixtureEl.querySelector('.chip')
       // eslint-disable-next-line no-new
-      new Chip(chipEl, { dismissible: true })
+      new Chip(chipEl, { removable: true })
 
-      expect(chipEl.querySelectorAll('.chip-dismiss')).toHaveSize(1)
+      expect(chipEl.querySelectorAll('.chip-remove')).toHaveSize(1)
     })
 
-    it('should use custom ariaDismissLabel on the dismiss button', () => {
+    it('should use custom ariaRemoveLabel on the remove button', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
       const chipEl = fixtureEl.querySelector('.chip')
       // eslint-disable-next-line no-new
-      new Chip(chipEl, { dismissible: true, ariaDismissLabel: 'Close chip' })
+      new Chip(chipEl, { removable: true, ariaRemoveLabel: 'Close chip' })
 
-      const btn = chipEl.querySelector('.chip-dismiss')
+      const btn = chipEl.querySelector('.chip-remove')
       expect(btn.getAttribute('aria-label')).toEqual('Close chip')
     })
   })
@@ -250,13 +250,13 @@ describe('Chip', () => {
       })
     })
 
-    it('should remove chip via dismiss button click', () => {
+    it('should remove chip via remove button click', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
         const chipEl = fixtureEl.querySelector('.chip')
         // eslint-disable-next-line no-new
-        new Chip(chipEl, { dismissible: true })
+        new Chip(chipEl, { removable: true })
 
         chipEl.addEventListener('removed.coreui.chip', () => {
           setTimeout(() => {
@@ -265,7 +265,7 @@ describe('Chip', () => {
           }, 10)
         })
 
-        chipEl.querySelector('.chip-dismiss').click()
+        chipEl.querySelector('.chip-remove').click()
       })
     })
   })
@@ -523,13 +523,13 @@ describe('Chip', () => {
       expect(chip._selected).toBeTrue()
     })
 
-    it('should remove chip on Backspace key when dismissible', () => {
+    it('should remove chip on Backspace key when removable', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<div><span class="chip">Tag</span></div>'
 
         const chipEl = fixtureEl.querySelector('.chip')
         // eslint-disable-next-line no-new
-        new Chip(chipEl, { dismissible: true })
+        new Chip(chipEl, { removable: true })
 
         chipEl.addEventListener('removed.coreui.chip', () => {
           setTimeout(() => {
@@ -542,13 +542,13 @@ describe('Chip', () => {
       })
     })
 
-    it('should remove chip on Delete key when dismissible', () => {
+    it('should remove chip on Delete key when removable', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<div><span class="chip">Tag</span></div>'
 
         const chipEl = fixtureEl.querySelector('.chip')
         // eslint-disable-next-line no-new
-        new Chip(chipEl, { dismissible: true })
+        new Chip(chipEl, { removable: true })
 
         chipEl.addEventListener('removed.coreui.chip', () => {
           setTimeout(() => {
@@ -561,7 +561,7 @@ describe('Chip', () => {
       })
     })
 
-    it('should not remove chip on Backspace when not dismissible', () => {
+    it('should not remove chip on Backspace when not removable', () => {
       fixtureEl.innerHTML = '<div><span class="chip">Tag</span></div>'
 
       const chipEl = fixtureEl.querySelector('.chip')
