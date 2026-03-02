@@ -228,7 +228,6 @@ class Chip extends BaseComponent {
     this._element.setAttribute('tabindex', '0')
   }
 
-  // eslint-disable-next-line complexity
   _handleKeydown(event) {
     const { key } = event
     if (this._disabled) {
@@ -265,10 +264,6 @@ class Chip extends BaseComponent {
         const chip = this._getFocusableSibling(false)
         chip?.focus()
 
-        if (this._selected && event.shiftKey && chip) {
-          Chip.getInstance(chip)?.select()
-        }
-
         break
       }
 
@@ -276,10 +271,6 @@ class Chip extends BaseComponent {
         event.preventDefault()
         const chip = this._getFocusableSibling(true)
         chip?.focus()
-
-        if (this._selected && event.shiftKey && chip) {
-          Chip.getInstance(chip)?.select()
-        }
 
         break
       }

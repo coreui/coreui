@@ -115,8 +115,8 @@ Apply `.chip-*` classes to color your chips. Chips are subtle by default as this
 {{< chip.inline >}}
 <div class="d-flex flex-wrap gap-1">
 {{- range (index $.Site.Data "theme-colors") }}
-  <span class="chip chip-{{ .name }}">{{ .name | humanize }} chip</span>
-  <span class="chip chip-{{ .name }} active">{{ .name | humanize }} chip</span>{{- end -}}
+  <span class="chip chip-{{ .name }} chip-clickable" tabindex="0">{{ .name | humanize }} chip</span>
+  <span class="chip chip-{{ .name }} active" tabindex="0">{{ .name | humanize }} chip</span>{{- end -}}
 {{< /chip.inline >}}
 </div>
 {{< /example >}}
@@ -125,8 +125,8 @@ Apply `.chip-*` classes to color your chips. Chips are subtle by default as this
 {{< chip.inline >}}
 <div class="d-flex flex-wrap gap-1">
 {{- range (index $.Site.Data "theme-colors") }}
-  <span class="chip chip-outline chip-{{ .name }}">{{ .name | humanize }} chip</span>
-  <span class="chip chip-outline chip-{{ .name }} active">{{ .name | humanize }} chip</span>{{- end -}}
+  <span class="chip chip-outline chip-clickable chip-{{ .name }}" tabindex="0">{{ .name | humanize }} chip</span>
+  <span class="chip chip-outline chip-{{ .name }} active" tabindex="0">{{ .name | humanize }} chip</span>{{- end -}}
 {{< /chip.inline >}}
 </div>
 {{< /example >}}
@@ -360,7 +360,6 @@ Chips support keyboard navigation when they are `selectable` and/or `dismissible
 | `Backspace` / `Delete` | Close chip when `dismissible` is enabled |
 | `←` | Move focus to previous chip |
 | `→` | Move focus to next chip |
-| `Shift+←` / `Shift+→` | Extend selection to the previous/next chip (only when current chip is selected) |
 | `Home` | Move focus to the first chip in the container |
 | `End` | Move focus to the last chip in the container |
 {{< /bs-table >}}

@@ -66,17 +66,17 @@ $chip-dismiss-size-lg:              1.25rem !default;
   --#{$prefix}chip-dismiss-hover-opacity: #{$chip-dismiss-hover-opacity};
   --#{$prefix}chip-transition: #{$chip-transition};
 
-  --#{$prefix}chip-color: #{$chip-color};
-  --#{$prefix}chip-bg: #{$chip-bg};
+  --#{$prefix}chip-color: var(--#{$prefix}text-emphasis, #{$chip-color});
+  --#{$prefix}chip-bg: var(--#{$prefix}bg-subtle, #{$chip-bg});
   --#{$prefix}chip-border-width: #{$chip-border-width};
   --#{$prefix}chip-border-color: #{$chip-border-color};
 
-  --#{$prefix}chip-active-color: #{$chip-active-color};
-  --#{$prefix}chip-active-bg: #{$chip-active-bg};
+  --#{$prefix}chip-active-color: var(--#{$prefix}contrast, #{$chip-active-color});
+  --#{$prefix}chip-active-bg: var(--#{$prefix}color, #{$chip-active-bg});
   --#{$prefix}chip-active-border-color: #{$chip-active-border-color};
 
-  --#{$prefix}chip-hover-color: #{$chip-hover-color};
-  --#{$prefix}chip-hover-bg: #{$chip-hover-bg};
+  --#{$prefix}chip-hover-color: var(--#{$prefix}contrast, #{$chip-hover-color});
+  --#{$prefix}chip-hover-bg: var(--#{$prefix}color, #{$chip-hover-bg});
   --#{$prefix}chip-hover-border-color: #{$chip-hover-border-color};
   // scss-docs-end chip-css-vars
 
@@ -123,6 +123,19 @@ $chip-dismiss-size-lg:              1.25rem !default;
       margin-inline-start: -.375rem;
     }
   }
+}
+
+.chip-outline {
+  // scss-docs-start chip-outline-css-vars
+  --#{$prefix}chip-color: var(--#{$prefix}color, var(--#{$prefix}body-color));
+  --#{$prefix}chip-bg: transparent;
+  --#{$prefix}chip-border-color: var(--#{$prefix}color, var(--#{$prefix}border-color));
+  --#{$prefix}chip-hover-bg: var(--#{$prefix}bg-subtle, #{$chip-hover-bg});
+  --#{$prefix}chip-hover-color: var(--#{$prefix}text-emphasis, #{$chip-color});
+  --#{$prefix}chip-hover-border-color: var(--#{$prefix}color, var(--#{$prefix}border-color));
+  --#{$prefix}chip-active-bg: var(--#{$prefix}color, #{$chip-active-bg});
+  --#{$prefix}chip-active-color: var(--#{$prefix}contrast, #{$chip-active-color});
+  // scss-docs-end chip-outline-css-vars
 }
 
 .chip-clickable {
@@ -205,33 +218,6 @@ $chip-dismiss-size-lg:              1.25rem !default;
   }
 }
 
-// scss-docs-start chip-modifiers
-@each $state in map.keys($theme-colors) {
-  .chip-#{$state} {
-    --#{$prefix}chip-hover-color: var(--#{$prefix}#{$state}-contrast);
-    --#{$prefix}chip-bg: var(--#{$prefix}#{$state}-bg-subtle);
-    --#{$prefix}chip-border-color: transparent;
-    --#{$prefix}chip-hover-color: var(--#{$prefix}#{$state}-contrast);
-    --#{$prefix}chip-hover-bg: var(--#{$prefix}#{$state});
-    --#{$prefix}chip-hover-border-color: transparent;
-    --#{$prefix}chip-active-color: var(--#{$prefix}#{$state}-contrast);
-    --#{$prefix}chip-active-bg: var(--#{$prefix}#{$state});
-    --#{$prefix}chip-active-border-color: transparent;
-    --#{$prefix}focus-ring-color: rgba(var(--#{$prefix}#{$state}-rgb), var(--#{$prefix}focus-ring-opacity));
-
-    &.chip-outline {
-      --#{$prefix}chip-color: var(--#{$prefix}#{$state});
-      --#{$prefix}chip-bg: transparent;
-      --#{$prefix}chip-border-color: var(--#{$prefix}#{$state});
-      --#{$prefix}chip-hover-color: var(--#{$prefix}#{$state}-contrast);
-      --#{$prefix}chip-hover-bg: var(--#{$prefix}#{$state}-bg-subtle);
-      --#{$prefix}chip-active-bg: var(--#{$prefix}#{$state});
-      --#{$prefix}chip-active-color: var(--#{$prefix}#{$state}-contrast);
-    }
-  }
-}
-// scss-docs-end chip-modifiers
-
 //
 // Chip sizes
 //
@@ -261,3 +247,16 @@ $chip-dismiss-size-lg:              1.25rem !default;
     $chip-dismiss-size-sm
   );
 }
+
+// scss-docs-start chip-modifiers
+@each $state in map.keys($theme-colors) {
+  .chip-#{$state} {
+    --#{$prefix}bg-subtle: var(--#{$prefix}#{$state}-bg-subtle);
+    --#{$prefix}color: var(--#{$prefix}#{$state});
+    --#{$prefix}color-rgb: var(--#{$prefix}#{$state}-rgb);
+    --#{$prefix}contrast: var(--#{$prefix}#{$state}-contrast);
+    --#{$prefix}text-emphasis: var(--#{$prefix}#{$state}-text-emphasis);
+    --#{$prefix}focus-ring-color: rgba(var(--#{$prefix}#{$state}-rgb), var(--#{$prefix}focus-ring-opacity));
+  }
+}
+// scss-docs-end chip-modifiers
