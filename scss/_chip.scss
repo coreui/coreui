@@ -21,7 +21,7 @@ $chip-remove-hover-opacity:  1 !default;
 $chip-transition:            background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, color .15s ease-in-out !default;
 
 $chip-color:                 var(--#{$prefix}body-color) !default;
-$chip-bg:                    var(--#{$prefix}tertiary-bg) !default;
+$chip-bg:                    var(--#{$prefix}secondary-bg) !default;
 $chip-border-width:          var(--#{$prefix}border-width) !default;
 $chip-border-color:          transparent !default;
 
@@ -30,7 +30,7 @@ $chip-active-bg:             var(--#{$prefix}primary) !default;
 $chip-active-border-color:   transparent !default;
 
 $chip-hover-color:           $chip-color !default;
-$chip-hover-bg:              var(--#{$prefix}secondary-bg) !default;
+$chip-hover-bg:              color-mix(in srgb, var(--#{$prefix}secondary-bg) 95%, #000) !default;
 $chip-hover-border-color:    transparent !default;
 
 $chip-font-size-sm:          .75rem !default;
@@ -91,7 +91,6 @@ $chip-remove-size-lg:        1.25rem !default;
   text-decoration: none;
   white-space: nowrap;
   vertical-align: middle;
-  // cursor: pointer;
   background-color: var(--#{$prefix}chip-bg);
   border: var(--#{$prefix}chip-border-width) solid var(--#{$prefix}chip-border-color);
   @include border-radius(var(--#{$prefix}chip-border-radius));
