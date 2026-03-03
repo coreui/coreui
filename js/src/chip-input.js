@@ -409,8 +409,6 @@ class ChipInput extends BaseComponent {
       }
 
       if (event.key.length === 1) {
-        // eslint-disable-next-line no-console
-        console.log(event.key.length)
         this._input.focus()
       }
     })
