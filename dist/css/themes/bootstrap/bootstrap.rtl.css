@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
- * CoreUI Bootstrap Theme v5.5.0 (https://coreui.io)
- * Copyright (c) 2025 creativeLabs Łukasz Holeczek
+ * CoreUI Bootstrap Theme v5.6.0 (https://coreui.io)
+ * Copyright (c) 2026 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 :root,
@@ -7146,19 +7146,19 @@ textarea.form-control-lg {
   --bs-chip-img-size: 1.25rem;
   --bs-chip-img-border-radius: 50%;
   --bs-chip-icon-size: 1rem;
-  --bs-chip-dismiss-size: 1rem;
-  --bs-chip-dismiss-opacity: 0.65;
-  --bs-chip-dismiss-hover-opacity: 1;
+  --bs-chip-remove-size: 1rem;
+  --bs-chip-remove-opacity: 0.65;
+  --bs-chip-remove-hover-opacity: 1;
   --bs-chip-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, color 0.15s ease-in-out;
-  --bs-chip-color: var(--bs-body-color);
-  --bs-chip-bg: var(--bs-tertiary-bg);
+  --bs-chip-color: var(--bs-text-emphasis, var(--bs-body-color));
+  --bs-chip-bg: var(--bs-bg-subtle, var(--bs-secondary-bg));
   --bs-chip-border-width: var(--bs-border-width);
   --bs-chip-border-color: transparent;
-  --bs-chip-active-color: rgba(255, 255, 255, 0.87);
-  --bs-chip-active-bg: var(--bs-primary);
+  --bs-chip-active-color: var(--bs-contrast, rgba(255, 255, 255, 0.87));
+  --bs-chip-active-bg: var(--bs-color, var(--bs-primary));
   --bs-chip-active-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-body-color);
-  --bs-chip-hover-bg: var(--bs-secondary-bg);
+  --bs-chip-hover-color: var(--bs-contrast, var(--bs-body-color));
+  --bs-chip-hover-bg: var(--bs-color, color-mix(in srgb, var(--bs-secondary-bg) 95%, #000));
   --bs-chip-hover-border-color: transparent;
   display: inline-flex;
   gap: var(--bs-chip-gap);
@@ -7203,6 +7203,17 @@ textarea.form-control-lg {
   margin-inline-start: -0.375rem;
 }
 
+.chip-outline {
+  --bs-chip-color: var(--bs-color, var(--bs-body-color));
+  --bs-chip-bg: transparent;
+  --bs-chip-border-color: var(--bs-color, var(--bs-border-color));
+  --bs-chip-hover-bg: var(--bs-bg-subtle, color-mix(in srgb, var(--bs-secondary-bg) 95%, #000));
+  --bs-chip-hover-color: var(--bs-text-emphasis, var(--bs-body-color));
+  --bs-chip-hover-border-color: var(--bs-color, var(--bs-border-color));
+  --bs-chip-active-bg: var(--bs-color, var(--bs-primary));
+  --bs-chip-active-color: var(--bs-contrast, rgba(255, 255, 255, 0.87));
+}
+
 .chip-clickable {
   cursor: pointer;
 }
@@ -7245,7 +7256,7 @@ textarea.form-control-lg {
   border-radius: var(--bs-chip-img-border-radius);
 }
 
-.chip-dismiss {
+.chip-remove {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -7258,203 +7269,27 @@ textarea.form-control-lg {
   cursor: pointer;
   background: transparent;
   border: 0;
-  opacity: var(--bs-chip-dismiss-opacity);
+  opacity: var(--bs-chip-remove-opacity);
   transition: opacity 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .chip-dismiss {
+  .chip-remove {
     transition: none;
   }
 }
-.chip-dismiss:hover {
-  opacity: var(--bs-chip-dismiss-hover-opacity);
+.chip-remove:hover {
+  opacity: var(--bs-chip-remove-hover-opacity);
 }
-.chip-dismiss:focus-visible {
+.chip-remove:focus-visible {
   outline: 0;
   opacity: 1;
   outline: 0;
   box-shadow: 0 0 var(--bs-focus-ring-blur) var(--bs-focus-ring-width) var(--bs-focus-ring-color);
 }
-.chip-dismiss > svg {
+.chip-remove > svg {
   display: block;
-  width: var(--bs-chip-dismiss-size);
-  height: var(--bs-chip-dismiss-size);
-}
-
-.chip-primary {
-  --bs-chip-hover-color: var(--bs-primary-contrast);
-  --bs-chip-bg: var(--bs-primary-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-primary-contrast);
-  --bs-chip-hover-bg: var(--bs-primary);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-primary-contrast);
-  --bs-chip-active-bg: var(--bs-primary);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-primary-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-primary.chip-outline {
-  --bs-chip-color: var(--bs-primary);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-primary);
-  --bs-chip-hover-color: var(--bs-primary-contrast);
-  --bs-chip-hover-bg: var(--bs-primary-bg-subtle);
-  --bs-chip-active-bg: var(--bs-primary);
-  --bs-chip-active-color: var(--bs-primary-contrast);
-}
-
-.chip-secondary {
-  --bs-chip-hover-color: var(--bs-secondary-contrast);
-  --bs-chip-bg: var(--bs-secondary-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-secondary-contrast);
-  --bs-chip-hover-bg: var(--bs-secondary);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-secondary-contrast);
-  --bs-chip-active-bg: var(--bs-secondary);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-secondary-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-secondary.chip-outline {
-  --bs-chip-color: var(--bs-secondary);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-secondary);
-  --bs-chip-hover-color: var(--bs-secondary-contrast);
-  --bs-chip-hover-bg: var(--bs-secondary-bg-subtle);
-  --bs-chip-active-bg: var(--bs-secondary);
-  --bs-chip-active-color: var(--bs-secondary-contrast);
-}
-
-.chip-success {
-  --bs-chip-hover-color: var(--bs-success-contrast);
-  --bs-chip-bg: var(--bs-success-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-success-contrast);
-  --bs-chip-hover-bg: var(--bs-success);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-success-contrast);
-  --bs-chip-active-bg: var(--bs-success);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-success-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-success.chip-outline {
-  --bs-chip-color: var(--bs-success);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-success);
-  --bs-chip-hover-color: var(--bs-success-contrast);
-  --bs-chip-hover-bg: var(--bs-success-bg-subtle);
-  --bs-chip-active-bg: var(--bs-success);
-  --bs-chip-active-color: var(--bs-success-contrast);
-}
-
-.chip-info {
-  --bs-chip-hover-color: var(--bs-info-contrast);
-  --bs-chip-bg: var(--bs-info-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-info-contrast);
-  --bs-chip-hover-bg: var(--bs-info);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-info-contrast);
-  --bs-chip-active-bg: var(--bs-info);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-info-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-info.chip-outline {
-  --bs-chip-color: var(--bs-info);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-info);
-  --bs-chip-hover-color: var(--bs-info-contrast);
-  --bs-chip-hover-bg: var(--bs-info-bg-subtle);
-  --bs-chip-active-bg: var(--bs-info);
-  --bs-chip-active-color: var(--bs-info-contrast);
-}
-
-.chip-warning {
-  --bs-chip-hover-color: var(--bs-warning-contrast);
-  --bs-chip-bg: var(--bs-warning-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-warning-contrast);
-  --bs-chip-hover-bg: var(--bs-warning);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-warning-contrast);
-  --bs-chip-active-bg: var(--bs-warning);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-warning-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-warning.chip-outline {
-  --bs-chip-color: var(--bs-warning);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-warning);
-  --bs-chip-hover-color: var(--bs-warning-contrast);
-  --bs-chip-hover-bg: var(--bs-warning-bg-subtle);
-  --bs-chip-active-bg: var(--bs-warning);
-  --bs-chip-active-color: var(--bs-warning-contrast);
-}
-
-.chip-danger {
-  --bs-chip-hover-color: var(--bs-danger-contrast);
-  --bs-chip-bg: var(--bs-danger-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-danger-contrast);
-  --bs-chip-hover-bg: var(--bs-danger);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-danger-contrast);
-  --bs-chip-active-bg: var(--bs-danger);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-danger-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-danger.chip-outline {
-  --bs-chip-color: var(--bs-danger);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-danger);
-  --bs-chip-hover-color: var(--bs-danger-contrast);
-  --bs-chip-hover-bg: var(--bs-danger-bg-subtle);
-  --bs-chip-active-bg: var(--bs-danger);
-  --bs-chip-active-color: var(--bs-danger-contrast);
-}
-
-.chip-light {
-  --bs-chip-hover-color: var(--bs-light-contrast);
-  --bs-chip-bg: var(--bs-light-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-light-contrast);
-  --bs-chip-hover-bg: var(--bs-light);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-light-contrast);
-  --bs-chip-active-bg: var(--bs-light);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-light-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-light.chip-outline {
-  --bs-chip-color: var(--bs-light);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-light);
-  --bs-chip-hover-color: var(--bs-light-contrast);
-  --bs-chip-hover-bg: var(--bs-light-bg-subtle);
-  --bs-chip-active-bg: var(--bs-light);
-  --bs-chip-active-color: var(--bs-light-contrast);
-}
-
-.chip-dark {
-  --bs-chip-hover-color: var(--bs-dark-contrast);
-  --bs-chip-bg: var(--bs-dark-bg-subtle);
-  --bs-chip-border-color: transparent;
-  --bs-chip-hover-color: var(--bs-dark-contrast);
-  --bs-chip-hover-bg: var(--bs-dark);
-  --bs-chip-hover-border-color: transparent;
-  --bs-chip-active-color: var(--bs-dark-contrast);
-  --bs-chip-active-bg: var(--bs-dark);
-  --bs-chip-active-border-color: transparent;
-  --bs-focus-ring-color: rgba(var(--bs-dark-rgb), var(--bs-focus-ring-opacity));
-}
-.chip-dark.chip-outline {
-  --bs-chip-color: var(--bs-dark);
-  --bs-chip-bg: transparent;
-  --bs-chip-border-color: var(--bs-dark);
-  --bs-chip-hover-color: var(--bs-dark-contrast);
-  --bs-chip-hover-bg: var(--bs-dark-bg-subtle);
-  --bs-chip-active-bg: var(--bs-dark);
-  --bs-chip-active-color: var(--bs-dark-contrast);
+  width: var(--bs-chip-remove-size);
+  height: var(--bs-chip-remove-size);
 }
 
 .chip-lg,
@@ -7477,6 +7312,78 @@ textarea.form-control-lg {
   --bs-chip-img-size: 0.875rem;
   --bs-chip-icon-size: 1rem;
   --bs-chip-dismiss-size: 0.875rem;
+}
+
+.chip-primary {
+  --bs-bg-subtle: var(--bs-primary-bg-subtle);
+  --bs-color: var(--bs-primary);
+  --bs-color-rgb: var(--bs-primary-rgb);
+  --bs-contrast: var(--bs-primary-contrast);
+  --bs-text-emphasis: var(--bs-primary-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-primary-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-secondary {
+  --bs-bg-subtle: var(--bs-secondary-bg-subtle);
+  --bs-color: var(--bs-secondary);
+  --bs-color-rgb: var(--bs-secondary-rgb);
+  --bs-contrast: var(--bs-secondary-contrast);
+  --bs-text-emphasis: var(--bs-secondary-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-secondary-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-success {
+  --bs-bg-subtle: var(--bs-success-bg-subtle);
+  --bs-color: var(--bs-success);
+  --bs-color-rgb: var(--bs-success-rgb);
+  --bs-contrast: var(--bs-success-contrast);
+  --bs-text-emphasis: var(--bs-success-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-success-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-info {
+  --bs-bg-subtle: var(--bs-info-bg-subtle);
+  --bs-color: var(--bs-info);
+  --bs-color-rgb: var(--bs-info-rgb);
+  --bs-contrast: var(--bs-info-contrast);
+  --bs-text-emphasis: var(--bs-info-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-info-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-warning {
+  --bs-bg-subtle: var(--bs-warning-bg-subtle);
+  --bs-color: var(--bs-warning);
+  --bs-color-rgb: var(--bs-warning-rgb);
+  --bs-contrast: var(--bs-warning-contrast);
+  --bs-text-emphasis: var(--bs-warning-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-warning-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-danger {
+  --bs-bg-subtle: var(--bs-danger-bg-subtle);
+  --bs-color: var(--bs-danger);
+  --bs-color-rgb: var(--bs-danger-rgb);
+  --bs-contrast: var(--bs-danger-contrast);
+  --bs-text-emphasis: var(--bs-danger-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-danger-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-light {
+  --bs-bg-subtle: var(--bs-light-bg-subtle);
+  --bs-color: var(--bs-light);
+  --bs-color-rgb: var(--bs-light-rgb);
+  --bs-contrast: var(--bs-light-contrast);
+  --bs-text-emphasis: var(--bs-light-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-light-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-dark {
+  --bs-bg-subtle: var(--bs-dark-bg-subtle);
+  --bs-color: var(--bs-dark);
+  --bs-color-rgb: var(--bs-dark-rgb);
+  --bs-contrast: var(--bs-dark-contrast);
+  --bs-text-emphasis: var(--bs-dark-text-emphasis);
+  --bs-focus-ring-color: rgba(var(--bs-dark-rgb), var(--bs-focus-ring-opacity));
 }
 
 .avatar {

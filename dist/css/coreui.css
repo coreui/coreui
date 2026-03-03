@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.5.0 (https://coreui.io)
- * Copyright (c) 2025 creativeLabs Łukasz Holeczek
+ * CoreUI  v5.6.0 (https://coreui.io)
+ * Copyright (c) 2026 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
 :root,
@@ -7733,19 +7733,19 @@ textarea.form-control-lg {
   --cui-chip-img-size: 1.25rem;
   --cui-chip-img-border-radius: 50%;
   --cui-chip-icon-size: 1rem;
-  --cui-chip-dismiss-size: 1rem;
-  --cui-chip-dismiss-opacity: 0.65;
-  --cui-chip-dismiss-hover-opacity: 1;
+  --cui-chip-remove-size: 1rem;
+  --cui-chip-remove-opacity: 0.65;
+  --cui-chip-remove-hover-opacity: 1;
   --cui-chip-transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, color 0.15s ease-in-out;
-  --cui-chip-color: var(--cui-body-color);
-  --cui-chip-bg: var(--cui-tertiary-bg);
+  --cui-chip-color: var(--cui-text-emphasis, var(--cui-body-color));
+  --cui-chip-bg: var(--cui-bg-subtle, var(--cui-secondary-bg));
   --cui-chip-border-width: var(--cui-border-width);
   --cui-chip-border-color: transparent;
-  --cui-chip-active-color: rgba(255, 255, 255, 0.87);
-  --cui-chip-active-bg: var(--cui-primary);
+  --cui-chip-active-color: var(--cui-contrast, rgba(255, 255, 255, 0.87));
+  --cui-chip-active-bg: var(--cui-color, var(--cui-primary));
   --cui-chip-active-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-body-color);
-  --cui-chip-hover-bg: var(--cui-secondary-bg);
+  --cui-chip-hover-color: var(--cui-contrast, var(--cui-body-color));
+  --cui-chip-hover-bg: var(--cui-color, color-mix(in srgb, var(--cui-secondary-bg) 95%, #000));
   --cui-chip-hover-border-color: transparent;
   display: inline-flex;
   gap: var(--cui-chip-gap);
@@ -7789,6 +7789,17 @@ textarea.form-control-lg {
 .chip .avatar:first-child {
   -webkit-margin-start: -0.375rem;
   margin-inline-start: -0.375rem;
+}
+
+.chip-outline {
+  --cui-chip-color: var(--cui-color, var(--cui-body-color));
+  --cui-chip-bg: transparent;
+  --cui-chip-border-color: var(--cui-color, var(--cui-border-color));
+  --cui-chip-hover-bg: var(--cui-bg-subtle, color-mix(in srgb, var(--cui-secondary-bg) 95%, #000));
+  --cui-chip-hover-color: var(--cui-text-emphasis, var(--cui-body-color));
+  --cui-chip-hover-border-color: var(--cui-color, var(--cui-border-color));
+  --cui-chip-active-bg: var(--cui-color, var(--cui-primary));
+  --cui-chip-active-color: var(--cui-contrast, rgba(255, 255, 255, 0.87));
 }
 
 .chip-clickable {
@@ -7836,7 +7847,7 @@ textarea.form-control-lg {
   border-radius: var(--cui-chip-img-border-radius);
 }
 
-.chip-dismiss {
+.chip-remove {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -7850,203 +7861,27 @@ textarea.form-control-lg {
   cursor: pointer;
   background: transparent;
   border: 0;
-  opacity: var(--cui-chip-dismiss-opacity);
+  opacity: var(--cui-chip-remove-opacity);
   transition: opacity 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {
-  .chip-dismiss {
+  .chip-remove {
     transition: none;
   }
 }
-.chip-dismiss:hover {
-  opacity: var(--cui-chip-dismiss-hover-opacity);
+.chip-remove:hover {
+  opacity: var(--cui-chip-remove-hover-opacity);
 }
-.chip-dismiss:focus-visible {
+.chip-remove:focus-visible {
   outline: 0;
   opacity: 1;
   outline: 0;
   box-shadow: 0 0 var(--cui-focus-ring-blur) var(--cui-focus-ring-width) var(--cui-focus-ring-color);
 }
-.chip-dismiss > svg {
+.chip-remove > svg {
   display: block;
-  width: var(--cui-chip-dismiss-size);
-  height: var(--cui-chip-dismiss-size);
-}
-
-.chip-primary {
-  --cui-chip-hover-color: var(--cui-primary-contrast);
-  --cui-chip-bg: var(--cui-primary-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-primary-contrast);
-  --cui-chip-hover-bg: var(--cui-primary);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-primary-contrast);
-  --cui-chip-active-bg: var(--cui-primary);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-primary-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-primary.chip-outline {
-  --cui-chip-color: var(--cui-primary);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-primary);
-  --cui-chip-hover-color: var(--cui-primary-contrast);
-  --cui-chip-hover-bg: var(--cui-primary-bg-subtle);
-  --cui-chip-active-bg: var(--cui-primary);
-  --cui-chip-active-color: var(--cui-primary-contrast);
-}
-
-.chip-secondary {
-  --cui-chip-hover-color: var(--cui-secondary-contrast);
-  --cui-chip-bg: var(--cui-secondary-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-secondary-contrast);
-  --cui-chip-hover-bg: var(--cui-secondary);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-secondary-contrast);
-  --cui-chip-active-bg: var(--cui-secondary);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-secondary-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-secondary.chip-outline {
-  --cui-chip-color: var(--cui-secondary);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-secondary);
-  --cui-chip-hover-color: var(--cui-secondary-contrast);
-  --cui-chip-hover-bg: var(--cui-secondary-bg-subtle);
-  --cui-chip-active-bg: var(--cui-secondary);
-  --cui-chip-active-color: var(--cui-secondary-contrast);
-}
-
-.chip-success {
-  --cui-chip-hover-color: var(--cui-success-contrast);
-  --cui-chip-bg: var(--cui-success-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-success-contrast);
-  --cui-chip-hover-bg: var(--cui-success);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-success-contrast);
-  --cui-chip-active-bg: var(--cui-success);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-success-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-success.chip-outline {
-  --cui-chip-color: var(--cui-success);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-success);
-  --cui-chip-hover-color: var(--cui-success-contrast);
-  --cui-chip-hover-bg: var(--cui-success-bg-subtle);
-  --cui-chip-active-bg: var(--cui-success);
-  --cui-chip-active-color: var(--cui-success-contrast);
-}
-
-.chip-info {
-  --cui-chip-hover-color: var(--cui-info-contrast);
-  --cui-chip-bg: var(--cui-info-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-info-contrast);
-  --cui-chip-hover-bg: var(--cui-info);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-info-contrast);
-  --cui-chip-active-bg: var(--cui-info);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-info-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-info.chip-outline {
-  --cui-chip-color: var(--cui-info);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-info);
-  --cui-chip-hover-color: var(--cui-info-contrast);
-  --cui-chip-hover-bg: var(--cui-info-bg-subtle);
-  --cui-chip-active-bg: var(--cui-info);
-  --cui-chip-active-color: var(--cui-info-contrast);
-}
-
-.chip-warning {
-  --cui-chip-hover-color: var(--cui-warning-contrast);
-  --cui-chip-bg: var(--cui-warning-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-warning-contrast);
-  --cui-chip-hover-bg: var(--cui-warning);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-warning-contrast);
-  --cui-chip-active-bg: var(--cui-warning);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-warning-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-warning.chip-outline {
-  --cui-chip-color: var(--cui-warning);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-warning);
-  --cui-chip-hover-color: var(--cui-warning-contrast);
-  --cui-chip-hover-bg: var(--cui-warning-bg-subtle);
-  --cui-chip-active-bg: var(--cui-warning);
-  --cui-chip-active-color: var(--cui-warning-contrast);
-}
-
-.chip-danger {
-  --cui-chip-hover-color: var(--cui-danger-contrast);
-  --cui-chip-bg: var(--cui-danger-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-danger-contrast);
-  --cui-chip-hover-bg: var(--cui-danger);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-danger-contrast);
-  --cui-chip-active-bg: var(--cui-danger);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-danger-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-danger.chip-outline {
-  --cui-chip-color: var(--cui-danger);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-danger);
-  --cui-chip-hover-color: var(--cui-danger-contrast);
-  --cui-chip-hover-bg: var(--cui-danger-bg-subtle);
-  --cui-chip-active-bg: var(--cui-danger);
-  --cui-chip-active-color: var(--cui-danger-contrast);
-}
-
-.chip-light {
-  --cui-chip-hover-color: var(--cui-light-contrast);
-  --cui-chip-bg: var(--cui-light-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-light-contrast);
-  --cui-chip-hover-bg: var(--cui-light);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-light-contrast);
-  --cui-chip-active-bg: var(--cui-light);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-light-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-light.chip-outline {
-  --cui-chip-color: var(--cui-light);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-light);
-  --cui-chip-hover-color: var(--cui-light-contrast);
-  --cui-chip-hover-bg: var(--cui-light-bg-subtle);
-  --cui-chip-active-bg: var(--cui-light);
-  --cui-chip-active-color: var(--cui-light-contrast);
-}
-
-.chip-dark {
-  --cui-chip-hover-color: var(--cui-dark-contrast);
-  --cui-chip-bg: var(--cui-dark-bg-subtle);
-  --cui-chip-border-color: transparent;
-  --cui-chip-hover-color: var(--cui-dark-contrast);
-  --cui-chip-hover-bg: var(--cui-dark);
-  --cui-chip-hover-border-color: transparent;
-  --cui-chip-active-color: var(--cui-dark-contrast);
-  --cui-chip-active-bg: var(--cui-dark);
-  --cui-chip-active-border-color: transparent;
-  --cui-focus-ring-color: rgba(var(--cui-dark-rgb), var(--cui-focus-ring-opacity));
-}
-.chip-dark.chip-outline {
-  --cui-chip-color: var(--cui-dark);
-  --cui-chip-bg: transparent;
-  --cui-chip-border-color: var(--cui-dark);
-  --cui-chip-hover-color: var(--cui-dark-contrast);
-  --cui-chip-hover-bg: var(--cui-dark-bg-subtle);
-  --cui-chip-active-bg: var(--cui-dark);
-  --cui-chip-active-color: var(--cui-dark-contrast);
+  width: var(--cui-chip-remove-size);
+  height: var(--cui-chip-remove-size);
 }
 
 .chip-lg,
@@ -8069,6 +7904,78 @@ textarea.form-control-lg {
   --cui-chip-img-size: 0.875rem;
   --cui-chip-icon-size: 1rem;
   --cui-chip-dismiss-size: 0.875rem;
+}
+
+.chip-primary {
+  --cui-bg-subtle: var(--cui-primary-bg-subtle);
+  --cui-color: var(--cui-primary);
+  --cui-color-rgb: var(--cui-primary-rgb);
+  --cui-contrast: var(--cui-primary-contrast);
+  --cui-text-emphasis: var(--cui-primary-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-primary-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-secondary {
+  --cui-bg-subtle: var(--cui-secondary-bg-subtle);
+  --cui-color: var(--cui-secondary);
+  --cui-color-rgb: var(--cui-secondary-rgb);
+  --cui-contrast: var(--cui-secondary-contrast);
+  --cui-text-emphasis: var(--cui-secondary-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-secondary-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-success {
+  --cui-bg-subtle: var(--cui-success-bg-subtle);
+  --cui-color: var(--cui-success);
+  --cui-color-rgb: var(--cui-success-rgb);
+  --cui-contrast: var(--cui-success-contrast);
+  --cui-text-emphasis: var(--cui-success-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-success-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-info {
+  --cui-bg-subtle: var(--cui-info-bg-subtle);
+  --cui-color: var(--cui-info);
+  --cui-color-rgb: var(--cui-info-rgb);
+  --cui-contrast: var(--cui-info-contrast);
+  --cui-text-emphasis: var(--cui-info-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-info-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-warning {
+  --cui-bg-subtle: var(--cui-warning-bg-subtle);
+  --cui-color: var(--cui-warning);
+  --cui-color-rgb: var(--cui-warning-rgb);
+  --cui-contrast: var(--cui-warning-contrast);
+  --cui-text-emphasis: var(--cui-warning-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-warning-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-danger {
+  --cui-bg-subtle: var(--cui-danger-bg-subtle);
+  --cui-color: var(--cui-danger);
+  --cui-color-rgb: var(--cui-danger-rgb);
+  --cui-contrast: var(--cui-danger-contrast);
+  --cui-text-emphasis: var(--cui-danger-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-danger-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-light {
+  --cui-bg-subtle: var(--cui-light-bg-subtle);
+  --cui-color: var(--cui-light);
+  --cui-color-rgb: var(--cui-light-rgb);
+  --cui-contrast: var(--cui-light-contrast);
+  --cui-text-emphasis: var(--cui-light-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-light-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-dark {
+  --cui-bg-subtle: var(--cui-dark-bg-subtle);
+  --cui-color: var(--cui-dark);
+  --cui-color-rgb: var(--cui-dark-rgb);
+  --cui-contrast: var(--cui-dark-contrast);
+  --cui-text-emphasis: var(--cui-dark-text-emphasis);
+  --cui-focus-ring-color: rgba(var(--cui-dark-rgb), var(--cui-focus-ring-opacity));
 }
 
 .avatar {

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.5.0 (https://coreui.io)
+  * CoreUI v5.6.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -665,7 +665,7 @@
    * Constants
    */
 
-  const VERSION = '5.5.0';
+  const VERSION = '5.6.0';
 
   /**
    * Class definition
@@ -1510,27 +1510,27 @@
   const EVENT_SELECTED = `selected${EVENT_KEY$b}`;
   const EVENT_DESELECT = `deselect${EVENT_KEY$b}`;
   const EVENT_DESELECTED = `deselected${EVENT_KEY$b}`;
-  const SELECTOR_CHIP_DISMISS$1 = '.chip-dismiss';
+  const SELECTOR_CHIP_REMOVE$1 = '.chip-remove';
   const SELECTOR_DATA_CHIP = '[data-coreui-chip]';
   const SELECTOR_FOCUSABLE_ITEMS$1 = '.chip:not(.disabled)';
   const CLASS_NAME_CHIP_CLICKABLE = 'chip-clickable';
-  const CLASS_NAME_CHIP_DISMISS = 'chip-dismiss';
+  const CLASS_NAME_CHIP_REMOVE = 'chip-remove';
   const CLASS_NAME_ACTIVE$3 = 'active';
   const CLASS_NAME_DISABLED$1 = 'disabled';
-  const DEFAULT_DISMISS_ICON$1 = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
+  const DEFAULT_REMOVE_ICON$1 = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const Default$e = {
-    ariaDismissLabel: 'Remove',
+    ariaRemoveLabel: 'Remove',
     disabled: false,
-    dismissible: false,
-    dismissIcon: DEFAULT_DISMISS_ICON$1,
+    removable: false,
+    removeIcon: DEFAULT_REMOVE_ICON$1,
     selectable: false,
     selected: false
   };
   const DefaultType$e = {
-    ariaDismissLabel: 'string',
+    ariaRemoveLabel: 'string',
     disabled: 'boolean',
-    dismissible: 'boolean',
-    dismissIcon: 'string',
+    removable: 'boolean',
+    removeIcon: 'string',
     selectable: 'boolean',
     selected: 'boolean'
   };
@@ -1544,9 +1544,9 @@
       super(element, config);
       this._disabled = this._config.disabled || this._element.classList.contains(CLASS_NAME_DISABLED$1);
       this._selected = this._config.selected || this._element.classList.contains(CLASS_NAME_ACTIVE$3);
-      this._ensureDismissButton();
+      this._ensureRemoveButton();
       this._applyState();
-      if (this._config.selectable || this._config.dismissible) {
+      if (this._config.selectable || this._config.removable) {
         this._makeFocusable();
       }
       this._addEventListeners();
@@ -1619,10 +1619,14 @@
         if (this._disabled) {
           return;
         }
-        if (event.target.closest(SELECTOR_CHIP_DISMISS$1)) {
+        if (event.target.closest(SELECTOR_CHIP_REMOVE$1)) {
           return;
         }
         this.toggle();
+      });
+      EventHandler.on(this._element, 'click', SELECTOR_CHIP_REMOVE$1, event => {
+        event.stopPropagation();
+        this.remove();
       });
     }
     _applyState() {
@@ -1648,24 +1652,23 @@
         }
       }
     }
-    _createDismissButton() {
+    _createRemoveButton() {
       const button = document.createElement('button');
       button.type = 'button';
-      button.className = CLASS_NAME_CHIP_DISMISS;
-      button.setAttribute('data-coreui-dismiss', NAME$f);
-      button.setAttribute('aria-label', this._config.ariaDismissLabel);
+      button.className = CLASS_NAME_CHIP_REMOVE;
+      button.setAttribute('aria-label', this._config.ariaRemoveLabel);
       button.setAttribute('tabindex', '-1'); // Not in tab order, chips handle keyboard
-      button.innerHTML = this._config.dismissIcon;
+      button.innerHTML = this._config.removeIcon;
       return button;
     }
-    _ensureDismissButton() {
-      if (!this._config.dismissible) {
+    _ensureRemoveButton() {
+      if (!this._config.removable) {
         return;
       }
-      if (SelectorEngine.findOne(SELECTOR_CHIP_DISMISS$1, this._element)) {
+      if (SelectorEngine.findOne(SELECTOR_CHIP_REMOVE$1, this._element)) {
         return;
       }
-      this._element.append(this._createDismissButton());
+      this._element.append(this._createRemoveButton());
     }
     _makeFocusable() {
       if (this._element.hasAttribute('tabindex') || this._disabled) {
@@ -1673,8 +1676,6 @@
       }
       this._element.setAttribute('tabindex', '0');
     }
-
-    // eslint-disable-next-line complexity
     _handleKeydown(event) {
       const {
         key
@@ -1697,7 +1698,7 @@
         case 'Backspace':
         case 'Delete':
           {
-            if (this._config.dismissible) {
+            if (this._config.removable) {
               event.preventDefault();
               const sibling = this._getFocusableSibling(false) || this._getFocusableSibling(true);
               sibling == null || sibling.focus();
@@ -1710,10 +1711,6 @@
             event.preventDefault();
             const chip = this._getFocusableSibling(false);
             chip == null || chip.focus();
-            if (this._selected && event.shiftKey && chip) {
-              var _Chip$getInstance;
-              (_Chip$getInstance = Chip.getInstance(chip)) == null || _Chip$getInstance.select();
-            }
             break;
           }
         case 'ArrowRight':
@@ -1721,10 +1718,6 @@
             event.preventDefault();
             const chip = this._getFocusableSibling(true);
             chip == null || chip.focus();
-            if (this._selected && event.shiftKey && chip) {
-              var _Chip$getInstance2;
-              (_Chip$getInstance2 = Chip.getInstance(chip)) == null || _Chip$getInstance2.select();
-            }
             break;
           }
         case 'Home':
@@ -1795,7 +1788,6 @@
       Chip.chipInterface(element);
     }
   });
-  enableDismissTrigger(Chip, 'remove');
 
   /**
    * jQuery
@@ -1830,24 +1822,24 @@
   const SELECTOR_DATA_CHIP_INPUT = '[data-coreui-chip-input]';
   const SELECTOR_CHIP = '.chip';
   const SELECTOR_CHIP_ACTIVE = `${SELECTOR_CHIP}.active`;
-  const SELECTOR_CHIP_DISMISS = '.chip-dismiss';
   const SELECTOR_CHIP_INPUT_LABEL = '.chip-input-label';
+  const SELECTOR_CHIP_REMOVE = '.chip-remove';
   const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)';
   const CLASS_NAME_CHIP = 'chip';
   const CLASS_NAME_DISABLED = 'disabled';
   const CLASS_NAME_CHIP_INPUT_FIELD = 'chip-input-field';
-  const DEFAULT_DISMISS_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
+  const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const Default$d = {
     chipClassName: null,
     createOnBlur: true,
     disabled: false,
-    readonly: false,
-    dismissible: true,
-    dismissIcon: DEFAULT_DISMISS_ICON,
     id: null,
     maxChips: null,
     name: null,
     placeholder: '',
+    readonly: false,
+    removable: true,
+    removeIcon: DEFAULT_REMOVE_ICON,
     selectable: false,
     separator: ','
   };
@@ -1855,13 +1847,13 @@
     chipClassName: '(string|function|null)',
     createOnBlur: 'boolean',
     disabled: 'boolean',
-    readonly: 'boolean',
-    dismissible: 'boolean',
-    dismissIcon: 'string',
     maxChips: '(number|null)',
     id: '(string|null)',
     name: '(string|null)',
     placeholder: 'string',
+    readonly: 'boolean',
+    removable: 'boolean',
+    removeIcon: 'string',
     selectable: 'boolean',
     separator: '(string|null)'
   };
@@ -2085,9 +2077,9 @@
         return chip.dataset.coreuiChipValue;
       }
       const clone = chip.cloneNode(true);
-      const dismiss = SelectorEngine.findOne(SELECTOR_CHIP_DISMISS, clone);
-      if (dismiss) {
-        dismiss.remove();
+      const remove = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, clone);
+      if (remove) {
+        remove.remove();
       }
       return ((_clone$textContent = clone.textContent) == null ? void 0 : _clone$textContent.trim()) || '';
     }
@@ -2124,15 +2116,15 @@
     }
     _setupChip(chip) {
       Chip.getOrCreateInstance(chip, {
-        ariaDismissLabel: `Remove ${this._getChipValue(chip)}`,
+        ariaRemoveLabel: `Remove ${this._getChipValue(chip)}`,
         disabled: this._disabled,
-        dismissible: this._config.dismissible && !this._readonly && !this._disabled,
-        dismissIcon: this._config.dismissIcon,
+        removable: this._config.removable && !this._readonly && !this._disabled,
+        removeIcon: this._config.removeIcon,
         selectable: this._config.selectable
       });
-      const dismissButton = SelectorEngine.findOne(SELECTOR_CHIP_DISMISS, chip);
-      if (dismissButton) {
-        dismissButton.disabled = this._disabled || this._readonly;
+      const removeButton = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, chip);
+      if (removeButton) {
+        removeButton.disabled = this._disabled || this._readonly;
       }
     }
     _applyInteractionState() {

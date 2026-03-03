@@ -1,9 +1,9 @@
 {
   "name": "@coreui/coreui",
   "description": "The most popular front-end framework for developing responsive, mobile-first projects on the web rewritten and maintained by the CoreUI Team",
-  "version": "5.5.0",
+  "version": "5.6.0",
   "config": {
-    "version_short": "5.5"
+    "version_short": "5.6"
   },
   "keywords": [
     "css",
