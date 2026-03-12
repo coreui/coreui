@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.6.0 (https://coreui.io)
+  * CoreUI v5.6.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -684,7 +684,7 @@
    * Constants
    */
 
-  const VERSION = '5.6.0';
+  const VERSION = '5.6.1';
 
   /**
    * Class definition
@@ -2159,8 +2159,6 @@
           return;
         }
         if (event.key.length === 1) {
-          // eslint-disable-next-line no-console
-          console.log(event.key.length);
           this._input.focus();
         }
       });
