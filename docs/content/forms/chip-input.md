@@ -6,6 +6,7 @@ group: forms
 toc: true
 bootstrap: true
 preview_component: true
+other_frameworks: chip-input
 snippets: 
   - chip-selectable.js
   - chip-variants.js

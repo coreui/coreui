@@ -1,0 +1,33 @@
+{{ if .Page.Params.other_frameworks }}
+{{ $components := split $.Page.Params.other_frameworks ", " }}
+{{ $availableFrameworks := slice }}
+{{ range $component, $value := index .Site.Data "component-links" }}
+  {{ if in $components $component }}
+    {{ range $framework, $url := $value }}
+      {{ if ne $framework "bootstrap" }}
+        {{ $availableFrameworks = $availableFrameworks | append (humanize $framework | title) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+{{ $availableFrameworks = uniq $availableFrameworks }}
+{{ if gt (len $availableFrameworks) 0 }}
+<section aria-labelledby="other-frameworks-heading">
+  <h2 id="other-frameworks-heading">Available in Other JavaScript Frameworks</h2>
+  <p>CoreUI {{ .Title }} {{ if eq (len $availableFrameworks) 1 }}component is{{ else }}components are{{ end }} available as native {{ delimit (sort $availableFrameworks) ", " ", and " }} {{ if eq (len $availableFrameworks) 1 }}component{{ else }}components{{ end }}. Explore framework-specific implementations below:</p>
+  <nav aria-label="Framework-specific component links">
+    <ul>
+      {{ range $component, $value := index .Site.Data "component-links" }}
+        {{ if in $components $component }}
+          {{ range $framework, $url := $value }}
+            {{ if ne $framework "bootstrap" }}
+              <li><a href="{{ $url }}" title="View CoreUI {{ humanize $component | title }} component for {{ humanize $framework }}">{{ humanize $framework | title }} {{ humanize $component | title }}</a></li>
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </ul>
+  </nav>
+</section>
+{{ end }}
+{{ end }}

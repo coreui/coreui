@@ -103,6 +103,7 @@
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.29.0",
     "@babel/preset-env": "^7.29.0",
+    "@coreui/internal-links": "^5.0.0",
     "@docsearch/css": "^4.6.0",
     "@docsearch/js": "^4.6.0",
     "@eslint/markdown": "^7.5.1",

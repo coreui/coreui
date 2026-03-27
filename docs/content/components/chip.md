@@ -6,6 +6,7 @@ group: components
 toc: true
 bootstrap: true
 preview_component: true
+other_frameworks: chip
 ---
 
 ## Overview

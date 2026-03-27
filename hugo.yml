@@ -1,6 +1,6 @@
 languageCode:           "en"
 title:                  "CoreUI"
-baseURL:                "https://coreui.io/docs/"
+baseURL:                "https://coreui.io/bootstrap/docs/"
 canonifyURLs:           true
 
 outputs:
@@ -56,6 +56,8 @@ module:
       target:           content
     - source:           docs/data
       target:           data
+    - source:           node_modules/@coreui/internal-links/components.json
+      target:           data/component-links.json
     - source:           docs/layouts
       target:           layouts
     - source:           docs/static
@@ -75,7 +77,7 @@ params:
 
   current_version:      "5.6.1"
   current_ruby_version: "5.6.1"
-  docs_version:         "5.0"
+  docs_version:         "5.6"
   rfs_version:          "9.0.3"
   github_org:           "https://github.com/coreui/coreui"
   repo:                 "https://github.com/coreui/coreui"
@@ -124,3 +126,4 @@ params:
   anchors:
     min: 2
     max: 5
+    

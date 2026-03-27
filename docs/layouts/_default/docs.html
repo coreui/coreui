@@ -15,22 +15,7 @@
       <p class="docs-lead">{{ .Page.Params.Description | markdownify }}</p>
       <p>🤖 Looking for the LLM-optimized version? <a href="./llm.md">View llm.md</a></p>
       {{ partial "ads" . }}
-      {{ if .Page.Params.other_frameworks }}
-      <h2>Other frameworks</h2>
-      <p>CoreUI components are available as native Angular, React, and Vue components. To learn more please visit the following pages.</p>
-      <ul>
-        {{ $components := split $.Page.Params.other_frameworks ", " }}
-        {{ range $component, $value := .Site.Data.other_frameworks }}
-          {{ if in $components $component }}
-            {{ range $framework, $url := $value }}
-              {{ if ne $framework "bootstrap" }}
-                <li><a href="{{ $url }}">{{ humanize $framework }} {{ humanize $component | title }}</a></li>
-              {{ end }}
-            {{ end }}
-          {{ end }}
-        {{ end }}
-      </ul>
-      {{ end }}
+      {{ partial "other-frameworks" . }}
     </div>
 
     {{ if (eq .Page.Params.toc true) }}

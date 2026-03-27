@@ -1,12 +1,12 @@
 {{ if hugo.IsProduction -}}
 {{ if eq .Page.Params.direction "rtl" -}}
-<link href="/dist/css/coreui.rtl.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_rtl_hash | safeHTMLAttr }}>
+<link href="/dist/css/coreui.rtl.min.css?v={{ .Site.Params.current_version }}" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_rtl_hash | safeHTMLAttr }}>
 {{- else -}}
-<link href="/dist/css/coreui.min.css" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_hash | safeHTMLAttr }}>
+<link href="/dist/css/coreui.min.css?v={{ .Site.Params.current_version }}" rel="stylesheet" {{ printf "integrity=%q" .Site.Params.cdn.css_hash | safeHTMLAttr }}>
 {{- end -}}
 
 {{- else -}}
-<link href="/dist/css/coreui{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css" rel="stylesheet">
+<link href="/dist/css/coreui{{ if eq .Page.Params.direction "rtl" }}.rtl{{ end }}.css?v={{ .Site.Params.current_version }}" rel="stylesheet">
 {{- end }}
 
 {{- $sassOptions := dict "transpiler" "dartsass" "outputStyle" "expanded" "precision" 6 -}}
