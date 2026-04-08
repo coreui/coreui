@@ -40,7 +40,7 @@ execFile('java', ['-version'], (error, stdout, stderr) => {
     '--skip-non-html',
     '--Werror',
     `--filterpattern "${ignores}"`,
-    '_site/',
+    '_gh-pages/',
     'js/tests/'
   ]
 
