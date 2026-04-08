@@ -19,9 +19,9 @@ $_luminance-list: .0008 .001 .0011 .0013 .0015 .0017 .002 .0022 .0025 .0027 .003
 // See https://www.w3.org/TR/WCAG/#dfn-contrast-ratio
 @function luminance($color) {
   $rgb: (
-    "r": color.channel($color, "red"),
-    "g": color.channel($color, "green"),
-    "b": color.channel($color, "blue")
+    "r": color.channel($color, "red", rgb),
+    "g": color.channel($color, "green", rgb),
+    "b": color.channel($color, "blue", rgb)
   );
 
   @each $name, $value in $rgb {
