@@ -104,6 +104,9 @@
     - title: Toasts
     - title: Tooltips
 
+- title: Icons
+  icon: pen-nib.svg
+  
 - title: Helpers
   icon: healing
   pages:
