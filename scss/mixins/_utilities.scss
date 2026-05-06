@@ -67,6 +67,7 @@
     $is-css-var: map.get($utility, css-var);
     $is-dark-mode: map.get($utility, dark-mode);
     $is-local-vars: map.get($utility, local-vars);
+    $is-local-properties: map.get($utility, local-properties);
     $is-rtl: map.get($utility, rtl);
 
     @if $value != null {
@@ -79,10 +80,22 @@
           #{theme-prefix("dark", "#{$property-class + $infix + $property-class-modifier}")},
           .#{$property-class + $infix + $property-class-modifier} {
             --#{$prefix}#{$css-variable-name}: #{$value};
+            @if $is-local-properties {
+              @each $local-property, $variable in $is-local-properties {
+                // stylelint-disable-next-line scss/at-function-named-arguments
+                #{$local-property}: #{$variable} if(sass($enable-important-utilities): !important);
+              }
+            }
           }
         } @else {
           .#{$property-class + $infix + $property-class-modifier} {
             --#{$prefix}#{$css-variable-name}: #{$value};
+            @if $is-local-properties {
+              @each $local-property, $variable in $is-local-properties {
+                // stylelint-disable-next-line scss/at-function-named-arguments
+                #{$local-property}: #{$variable} if(sass($enable-important-utilities): !important);
+              }
+            }
           }
         }
 

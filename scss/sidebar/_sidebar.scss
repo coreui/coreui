@@ -259,18 +259,7 @@
 }
 
 .sidebar-dark {
-  --#{$prefix}body-color: #{$body-color-dark};
-  --#{$prefix}body-bg: #{$body-bg-dark};
-
-  --#{$prefix}emphasis-color: #{$body-emphasis-color-dark};
-
-  --#{$prefix}secondary-color: #{$body-secondary-color-dark};
-  --#{$prefix}secondary-bg: #{$body-secondary-bg-dark};
-
-  --#{$prefix}tertiary-color: #{$body-tertiary-color-dark};
-  --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
-
-  --#{$prefix}border-color: #{$border-color-dark};
+  color-scheme: dark;
 
   .sidebar-toggler {
     filter: var(--#{$prefix}sidebar-toggler-white-filter);

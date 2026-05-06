@@ -623,29 +623,21 @@ $utilities: map.merge(
     ),
     // scss-docs-end utils-text
     // scss-docs-start utils-color
-    "color": (
-      property: color,
+    "text-color": (
+      css-var: true,
       class: text,
+      css-variable-name: color,
       dark-mode: true,
-      local-vars: (
-        "text-opacity": 1
+      local-properties: (
+        color: var(--#{$prefix}color),
       ),
       values: map.merge(
         $utilities-text-colors,
         (
-          "muted": var(--#{$prefix}secondary-color), // deprecated
-          "black-50": rgba($black, .5), // deprecated
-          "white-50": rgba($white, .5), // deprecated
           "body-secondary": var(--#{$prefix}secondary-color),
           "body-tertiary": var(--#{$prefix}tertiary-color),
           "body-emphasis": var(--#{$prefix}emphasis-color),
           "reset": inherit,
-          "high-emphasis-inverse": var(--#{$prefix}high-emphasis-inverse), // deprecated
-          "medium-emphasis-inverse": var(--#{$prefix}medium-emphasis-inverse), // deprecated
-          "disabled-inverse": var(--#{$prefix}disabled-inverse), // deprecated
-          "high-emphasis": var(--#{$prefix}high-emphasis), // deprecated
-          "medium-emphasis": var(--#{$prefix}medium-emphasis), // deprecated
-          "disabled": var(--#{$prefix}disabled)
         )
       )
     ),
@@ -653,13 +645,13 @@ $utilities: map.merge(
       css-var: true,
       class: text-opacity,
       values: (
-        25: .25,
-        50: .5,
-        75: .75,
-        100: 1
+        25: color-mix(in srgb, var(--#{$prefix}color) 25%, transparent),
+        50: color-mix(in srgb, var(--#{$prefix}color) 50%, transparent),
+        75: color-mix(in srgb, var(--#{$prefix}color) 75%, transparent),
+        100: color-mix(in srgb, var(--#{$prefix}color) 100%, transparent)
       )
     ),
-    "text-color": (
+    "emphasis-text-color": (
       property: color,
       class: text,
       values: $utilities-text-emphasis-colors
@@ -717,18 +709,19 @@ $utilities: map.merge(
     // scss-docs-end utils-links
     // scss-docs-start utils-bg-color
     "background-color": (
-      property: background-color,
+      css-var: true,
+      css-variable-name: bg,
       class: bg,
       dark-mode: true,
-      local-vars: (
-        "bg-opacity": 1
+      local-properties: (
+        background-color:color-mix(in srgb, var(--#{$prefix}bg) var(--#{$prefix}bg-opacity, 100%), transparent)
       ),
       values: map.merge(
         $utilities-bg-colors,
         (
           "transparent": transparent,
-          "body-secondary": rgba(var(--#{$prefix}secondary-bg-rgb), var(--#{$prefix}bg-opacity)),
-          "body-tertiary": rgba(var(--#{$prefix}tertiary-bg-rgb), var(--#{$prefix}bg-opacity)),
+          "body-secondary": var(--#{$prefix}secondary-bg),
+          "body-tertiary": var(--#{$prefix}tertiary-bg),
         )
       )
     ),
@@ -736,17 +729,21 @@ $utilities: map.merge(
       css-var: true,
       class: bg-opacity,
       values: (
-        10: .1,
-        25: .25,
-        50: .5,
-        75: .75,
-        100: 1
+        10: 10%,
+        25: 25%,
+        50: 50%,
+        75: 75%,
+        100: 100%
       )
     ),
     "subtle-background-color": (
-      property: background-color,
+      css-var: true,
+      css-variable-name: bg,
       class: bg,
       dark-mode: true,
+      local-properties: (
+        background-color:color-mix(in srgb, var(--#{$prefix}bg) var(--#{$prefix}bg-opacity, 100%), transparent)
+      ),
       values: $utilities-bg-subtle
     ),
     // scss-docs-end utils-bg-color

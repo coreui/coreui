@@ -1,0 +1,3 @@
+@function to-css-var($prefix, $key) {
+  @return var(--#{$prefix}#{$key});
+}
