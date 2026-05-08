@@ -268,7 +268,7 @@ class Sidebar extends BaseComponent {
 
     EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
       event.preventDefault()
-      const toggle = Manipulator.getDataAttribute(event.target, 'toggle')
+      const toggle = Manipulator.getDataAttribute(event.target.closest(SELECTOR_DATA_TOGGLE), 'toggle')
 
       if (toggle === 'narrow') {
         this.toggleNarrow()
