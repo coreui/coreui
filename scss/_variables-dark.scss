@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "functions/color" as *;
+@use "functions/color-translucent" as *;
 @use "variables" as *;
 
 // Dark color mode variables
@@ -110,7 +111,7 @@ $body-tertiary-color-dark:          rgba($white, .38) !default;
 $body-tertiary-bg-dark:             color.mix($gray-800-dark, #212631, 50%) !default;
 $body-emphasis-color-dark:          $white !default;
 $border-color-dark:                 $gray-800-dark !default;
-$border-color-translucent-dark:     rgba($white, .1) !default;
+$border-color-translucent-dark:     color-translucent($gray-800-dark, .175, $body-bg-dark) !default;
 $headings-color-dark:               inherit !default;
 $link-color-dark:                   $primary-dark !default;
 $link-hover-color-dark:             shift-color($link-color-dark, -$link-shade-percentage) !default;

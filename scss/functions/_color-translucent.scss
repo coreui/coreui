@@ -1,0 +1,33 @@
+@use "sass:color";
+@use "sass:math";
+
+@function color-translucent($target-color, $alpha: .1, $bg-color: #fff) {
+  @if color.alpha($target-color) < 1 {
+    @return $target-color;
+  }
+
+  @if $alpha <= 0 or $alpha > 1 {
+    @error "Alpha must be greater than 0 and less than or equal to 1.";
+  }
+
+  $r: math.div(
+    color.channel($target-color, "red") - color.channel($bg-color, "red") * (1 - $alpha),
+    $alpha
+  );
+
+  $g: math.div(
+    color.channel($target-color, "green") - color.channel($bg-color, "green") * (1 - $alpha),
+    $alpha
+  );
+
+  $b: math.div(
+    color.channel($target-color, "blue") - color.channel($bg-color, "blue") * (1 - $alpha),
+    $alpha
+  );
+
+  @if $r < 0 or $r > 255 or $g < 0 or $g > 255 or $b < 0 or $b > 255 {
+    @error "Cannot reproduce #{$target-color} on #{$bg-color} with alpha #{$alpha}. Try a higher alpha.";
+  }
+
+  @return rgba(round($r), round($g), round($b), $alpha);
+}

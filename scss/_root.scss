@@ -1,5 +1,6 @@
 @use "sass:meta";
 @use "functions/color" as *;
+@use "functions/color-translucent" as *;
 @use "functions/to-rgb" as *;
 @use "mixins/color-mode" as *;
 @use "vendor/rfs" as *;
@@ -88,6 +89,7 @@
   --#{$prefix}tertiary-color-rgb: #{to-rgb($body-tertiary-color)};
   --#{$prefix}tertiary-bg: #{$body-tertiary-bg};
   --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg)};
+  --#{$prefix}tertiary-bg-translucent: #{color-translucent($body-tertiary-bg)};
 
   --#{$prefix}body-color-dark: #{$body-color-dark};
   --#{$prefix}body-color-rgb-dark: #{to-rgb($body-color-dark)};
@@ -191,6 +193,7 @@
     --#{$prefix}tertiary-color-rgb: #{to-rgb($body-tertiary-color-dark)};
     --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
     --#{$prefix}tertiary-bg-rgb: #{to-rgb($body-tertiary-bg-dark)};
+    --#{$prefix}tertiary-bg-translucent: #{color-translucent($body-tertiary-bg-dark, .1, $body-bg-dark)};
 
     --#{$prefix}high-emphasis: #{$high-emphasis-dark}; // Deprecated in v5.0.0
     --#{$prefix}medium-emphasis: #{$medium-emphasis-dark}; // Deprecated in v5.0.0
