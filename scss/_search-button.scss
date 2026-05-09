@@ -1,0 +1,127 @@
+@use "variables" as *;
+@use "mixins/border-radius" as *;
+@use "mixins/box-shadow" as *;
+@use "mixins/transition" as *;
+@use "vendor/rfs" as *;
+
+// scss-docs-start search-button-variables
+$search-button-height:         $input-height !default;
+$search-button-padding-x:      $input-padding-x !default;
+$search-button-font-family:    $input-font-family !default;
+$search-button-font-size:      $input-font-size !default;
+$search-button-font-weight:    $input-font-weight !default;
+$search-button-color:          $input-placeholder-color !default;
+$search-button-bg:             $input-bg !default;
+$search-button-border-width:   $input-border-width !default;
+$search-button-border-color:   $input-border-color !default;
+$search-button-border-radius:  $input-border-radius !default;
+$search-button-box-shadow:     $input-box-shadow !default;
+$search-button-transition:     $input-transition !default;
+
+$search-button-focus-color:         $input-focus-color !default;
+$search-button-focus-bg:            $input-focus-bg !default;
+$search-button-focus-border-color:  $input-focus-border-color !default;
+$search-button-focus-box-shadow:    $input-focus-box-shadow !default;
+
+$search-button-icon-size: 1.125rem !default;
+
+$search-button-keys-gap: .25rem !default;
+$search-button-key-width: 1.5rem !default;
+$search-button-key-height: 1.5rem !default;
+$search-button-key-padding-inline: .25rem !default;
+$search-button-key-font-size: .75rem !default;
+$search-button-key-bg: var(--#{$prefix}tertiary-bg) !default;
+$search-button-key-border-radius: var(--#{$prefix}border-radius-sm) !default;
+$search-button-key-active-bg: var(--#{$prefix}secondary-bg) !default;
+
+$search-button-placeholder-margin-inline: .55rem 2rem !default;
+// scss-docs-end search-button-variables
+
+.search-button {
+  // scss-docs-start search-button-css-vars
+  --#{$prefix}search-button-height: #{$search-button-height};
+  --#{$prefix}search-button-padding-x: #{$search-button-padding-x};
+  --#{$prefix}search-button-font-family: #{$search-button-font-family};
+  --#{$prefix}search-button-font-size: #{$search-button-font-size};
+  --#{$prefix}search-button-font-weight: #{$search-button-font-weight};
+  --#{$prefix}search-button-color: #{$search-button-color};
+  --#{$prefix}search-button-bg: #{$search-button-bg};
+  --#{$prefix}search-button-border-width: #{$search-button-border-width};
+  --#{$prefix}search-button-border-color: #{$search-button-border-color};
+  --#{$prefix}search-button-border-radius: #{$search-button-border-radius};
+  --#{$prefix}search-button-box-shadow: #{$search-button-box-shadow};
+  --#{$prefix}search-button-transition: #{$search-button-transition};
+  --#{$prefix}search-button-focus-color: #{$search-button-focus-color};
+  --#{$prefix}search-button-focus-bg: #{$search-button-focus-bg};
+  --#{$prefix}search-button-focus-border-color: #{$search-button-focus-border-color};
+  --#{$prefix}search-button-focus-box-shadow: #{$search-button-focus-box-shadow};
+  --#{$prefix}search-button-icon-size: #{$search-button-icon-size};
+  --#{$prefix}search-button-keys-gap: #{$search-button-keys-gap};
+  --#{$prefix}search-button-key-width: #{$search-button-key-width};
+  --#{$prefix}search-button-key-height: #{$search-button-key-height};
+  --#{$prefix}search-button-key-padding-inline: #{$search-button-key-padding-inline};
+  --#{$prefix}search-button-key-font-size: #{$search-button-key-font-size};
+  --#{$prefix}search-button-key-bg: #{$search-button-key-bg};
+  --#{$prefix}search-button-key-border-radius: #{$search-button-key-border-radius};
+  --#{$prefix}search-button-key-active-bg: #{$search-button-key-active-bg};
+  --#{$prefix}search-button-placeholder-margin-inline: #{$search-button-placeholder-margin-inline};
+  // scss-docs-end search-button-css-vars
+
+  display: flex;
+  align-items: center;
+  height: var(--#{$prefix}search-button-height);
+  padding-inline: var(--#{$prefix}search-button-padding-x);
+  font-family: var(--#{$prefix}search-button-font-family);
+  @include font-size(var(--#{$prefix}search-button-font-size));
+  font-weight: var(--#{$prefix}search-button-font-weight);
+  color: var(--#{$prefix}search-button-color);
+  background-color: var(--#{$prefix}search-button-bg);
+  border: var(--#{$prefix}search-button-border-width) solid var(--#{$prefix}search-button-border-color);
+
+  @include border-radius(var(--#{$prefix}search-button-border-radius), 0);
+  @include box-shadow(var(--#{$prefix}search-button-box-shadow));
+  @include transition(var(--#{$prefix}search-button-transition));
+
+  &:focus {
+    color: var(--#{$prefix}search-button-focus-color);
+    background-color: var(--#{$prefix}search-button-focus-bg);
+    border-color: var(--#{$prefix}search-button-focus-border-color);
+    outline: 0;
+    @if $enable-shadows {
+      @include box-shadow(var(--#{$prefix}search-button-box-shadow), var(--#{$prefix}search-button-focus-box-shadow));
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: var(--#{$prefix}search-button-focus-box-shadow);
+    }
+  }
+}
+
+.search-button-icon {
+  width: var(--#{$prefix}search-button-icon-size);
+  height: var(--#{$prefix}search-button-icon-size);
+}
+
+.search-button-keys {
+  display: inline-flex;
+  gap: var(--#{$prefix}search-button-keys-gap);
+}
+
+.search-button-key {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--#{$prefix}search-button-key-width);
+  height: var(--#{$prefix}search-button-key-height);
+  padding-inline: var(--#{$prefix}search-button-key-padding-inline);
+  font-size: var(--#{$prefix}search-button-key-font-size);
+  background-color: var(--#{$prefix}search-button-key-bg);
+  @include border-radius(var(--#{$prefix}search-button-key-border-radius));
+
+  &.active {
+    background-color: var(--#{$prefix}search-button-key-active-bg);
+  }
+}
+
+.search-button-placeholder {
+  margin-inline: var(--#{$prefix}search-button-placeholder-margin-inline);
+}

@@ -66,6 +66,9 @@
     - title: Input group
     - title: Floating labels
     - title: Chip input
+      badge:
+        color: success
+        text: NEW
     - title: Layout
     - title: Validation
 
@@ -83,6 +86,9 @@
     - title: Card
     - title: Carousel
     - title: Chip
+      badge:
+        color: success
+        text: NEW
     - title: Close button
     - title: Collapse
     - title: Dropdowns
@@ -99,7 +105,14 @@
     - title: Popovers
     - title: Progress
     - title: Scrollspy
+    - title: Search button
+      badge:
+        color: success
+        text: NEW
     - title: Sidebar
+      badge:
+        color: info
+        text: UPDATE
     - title: Spinners
     - title: Toasts
     - title: Tooltips

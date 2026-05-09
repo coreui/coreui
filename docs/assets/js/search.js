@@ -14,10 +14,15 @@ import { appId, apiKey, indexName } from '@params';
     return
   }
 
+  const isSearchButtonDocsPage = window.location.pathname.includes('/components/search-button/')
+
   docsearch({
     apiKey,
     indexName,
     appId,
-    container: searchElement
+    container: searchElement,
+    keyboardShortcuts: {
+      '/': !isSearchButtonDocsPage
+    }
   })
 })()
