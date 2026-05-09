@@ -32,7 +32,7 @@
   box-shadow: none;
   @include transition($sidebar-transition);
 
-  &:not(.sidebar-end){
+  &:not(.sidebar-end) {
     margin-inline-start: 0;
   }
 
@@ -152,10 +152,6 @@
 .sidebar-brand {
   color: var(--#{$prefix}sidebar-brand-color);
   white-space: nowrap;
-
-  .sidebar-brand-narrow {
-    display: none;
-  }
 }
 
 .sidebar-header {
@@ -229,7 +225,6 @@
   }
 
   &:focus {
-    position: relative;
     outline: 0;
     box-shadow: var(--#{$prefix}sidebar-toggler-focus-shadow);
 

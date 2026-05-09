@@ -155,14 +155,14 @@ class Sidebar extends BaseComponent {
 
   narrow() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_NARROW)
+      this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW)
       this._narrow = true
     }
   }
 
   unfoldable() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
+      this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE)
       this._unfoldable = true
     }
   }
@@ -234,21 +234,17 @@ class Sidebar extends BaseComponent {
     )
   }
 
-  _addClassName(className) {
-    this._element.classList.add(className)
-  }
-
-  _clickOutListener(event, sidebar) {
+  _clickOutListener(event) {
     if (event.target.closest(SELECTOR_SIDEBAR) === null) {
       event.preventDefault()
       event.stopPropagation()
-      sidebar.hide()
+      this.hide()
     }
   }
 
   _addClickOutListener() {
     EventHandler.on(document, EVENT_CLICK_DATA_API, event => {
-      this._clickOutListener(event, this)
+      this._clickOutListener(event)
     })
   }
 

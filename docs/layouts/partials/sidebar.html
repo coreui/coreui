@@ -15,7 +15,7 @@
   </div>
   {{- $url := split .Permalink "/" -}}
   {{- $page_slug := index $url (sub (len $url) 2) -}}
-  <ul class="sidebar-nav" data-coreui="navigation">
+  <ul class="sidebar-nav" data-coreui-navigation>
     {{- range $group := .Site.Data.sidebar -}}
       {{- $link := $group.title -}}
       {{- $link_slug := $link | urlize -}}

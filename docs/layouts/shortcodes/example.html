@@ -12,6 +12,7 @@
 
 {{- $id := .Get "id" -}}
 {{- $class := .Get "class" -}}
+{{- $style := .Get "style" -}}
 {{- $lang := .Get "lang" | default "html" -}}
 {{- $stackblitz_add_js := .Get "stackblitz_add_js" | default false -}}
 {{- $show_markup := .Get "show_markup" | default true -}}
@@ -31,7 +32,7 @@
 
 <div class="docs-example-snippet docs-code-snippet">
   {{- if eq $show_preview true -}}
-  <div{{ with $id }} id="{{ . }}"{{ end }} class="docs-example m-0 border-0{{ with $class }} {{ . }}{{ end }}">
+  <div{{ with $id }} id="{{ . }}"{{ end }} class="docs-example m-0 border-0{{ with $class }} {{ . }}{{ end }}"{{ with $style }} style="{{ . }}"{{ end }}>
     {{- $input -}}
   </div>
   {{- end -}}

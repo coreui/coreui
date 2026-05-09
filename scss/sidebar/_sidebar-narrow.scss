@@ -6,6 +6,7 @@
 .sidebar-narrow {
   // scss-docs-start sidebar-narrow-css-vars
   --#{$prefix}sidebar-narrow-width: #{$sidebar-narrow-width};
+  --#{$prefix}sidebar-padding-x: #{$sidebar-narrow-padding-x};
   // scss-docs-end sidebar-narrow-css-vars
 
   @include media-breakpoint-up($mobile-breakpoint) {
@@ -14,18 +15,9 @@
     padding-bottom: var(--#{$prefix}sidebar-toggler-height);
     overflow: visible;
 
-    .sidebar-brand-full {
-      display: none;
-    }
-
-    .sidebar-brand-narrow {
-      display: block;
-    }
-
     .sidebar-header {
       justify-content: center;
-      padding-right: 0;
-      padding-left: 0;
+      padding-inline: 0;
     }
 
     .sidebar-nav {
@@ -41,17 +33,21 @@
       flex: 0 0 calc(var(--#{$prefix}sidebar-narrow-width) - (var(--#{$prefix}sidebar-nav-padding-x) * 2) - (var(--#{$prefix}sidebar-nav-link-padding-x) * 2)); // stylelint-disable-line function-disallowed-list
     }
 
-    .d-narrow-none,
     .nav-label,
     .nav-title,
     .nav-group-items,
-    .nav-group.show .nav-group-items,
     .sidebar-form {
       height: 0 !important; // stylelint-disable-line declaration-no-important
       padding: 0 !important; // stylelint-disable-line declaration-no-important
       margin: 0 !important; // stylelint-disable-line declaration-no-important
       visibility: hidden;
       opacity: 0;
+    }
+
+    .d-narrow-none, // deprecated, TODO: remove in v6.0.0
+    .sidebar-brand-full, // deprecated, TODO: remove in v6.0.0
+    .d-sidebar-narrow-none {
+      display: none !important // stylelint-disable-line declaration-no-important
     }
 
     .sidebar-toggler::before {
@@ -69,6 +65,10 @@
   --#{$prefix}sidebar-narrow-unfoldable-box-shadow: #{$sidebar-narrow-unfoldable-box-shadow};
   // scss-docs-end sidebar-narrow-unfoldable-css-vars
 
+  .d-sidebar-narrow-unfoldable-none {
+    display: none !important // stylelint-disable-line declaration-no-important
+  }
+
   @extend .sidebar-fixed;
 
   &:not(:hover) {
@@ -77,7 +77,6 @@
 
   &:hover {
     box-shadow: var(--#{$prefix}sidebar-narrow-unfoldable-box-shadow);
-    box-shadow: $box-shadow;
 
     .sidebar-toggler::before {
       @include ltr-rtl("transform", rotate(-180deg), null, rotate(0deg));
@@ -99,4 +98,13 @@
       --#{$prefix}sidebar-occupy-end: #{$sidebar-narrow-width};
     }
   }
+}
+
+.sidebar:not(.sidebar-narrow) .sidebar-brand-narrow, // deprecated, TODO: remove in v6.0.0
+.sidebar:not(.sidebar-narrow) .d-sidebar-narrow {
+  display: none !important; // stylelint-disable-line declaration-no-important
+}
+
+.sidebar:not(.sidebar-narrow-unfoldable) .d-sidebar-narrow-unfoldable {
+  display: none !important; // stylelint-disable-line declaration-no-important
 }

@@ -484,17 +484,6 @@ describe('Sidebar', () => {
       })
     })
 
-    describe('_addClassName', () => {
-      it('should add class to sidebar element', () => {
-        fixtureEl.innerHTML = '<div class="sidebar"></div>'
-        const sidebar = new Sidebar('.sidebar')
-
-        sidebar._addClassName('test-class')
-
-        expect(sidebar._element.classList.contains('test-class')).toBe(true)
-      })
-    })
-
     describe('_clickOutListener', () => {
       it('should hide sidebar when clicking outside', () => {
         fixtureEl.innerHTML = '<div class="sidebar"></div><div class="outside"></div>'

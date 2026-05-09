@@ -13,7 +13,7 @@ describe('Navigation', () => {
   })
 
   it('should take care of element either passed as a CSS selector or DOM element', () => {
-    fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+    fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
 
     const navEl = fixtureEl.querySelector('nav')
     const navigationBySelector = new Navigation('nav')
@@ -29,7 +29,7 @@ describe('Navigation', () => {
 
   describe('Constructor', () => {
     it('should set default config', () => {
-      fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+      fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
       const navEl = fixtureEl.querySelector('nav')
       const navigation = new Navigation(navEl) // eslint-disable-line no-unused-vars
 
@@ -38,7 +38,7 @@ describe('Navigation', () => {
     })
 
     it('should merge custom config with default', () => {
-      fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+      fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
       const navEl = fixtureEl.querySelector('nav')
       const customConfig = {
         activeLinksExact: false,
@@ -52,7 +52,7 @@ describe('Navigation', () => {
 
     it('should call _setActiveLink on initialization', () => {
       fixtureEl.innerHTML = `
-        <nav data-coreui="navigation">
+        <nav data-coreui-navigation>
           <a class="nav-link" href="${window.location.href}">Active Link</a>
         </nav>
       `
@@ -65,7 +65,7 @@ describe('Navigation', () => {
     })
 
     it('should add event listeners on initialization', () => {
-      fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+      fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
       const navEl = fixtureEl.querySelector('nav')
       spyOn(Navigation.prototype, '_addEventListeners')
 
@@ -76,7 +76,18 @@ describe('Navigation', () => {
   })
 
   describe('Data API', () => {
-    it('should initialize navigation on elements with data-coreui="navigation"', () => {
+    it('should initialize navigation on elements with data-coreui-navigation', () => {
+      fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
+      const navEl = fixtureEl.querySelector('nav')
+      spyOn(Navigation, 'navigationInterface')
+
+      const loadEvent = new Event('load')
+      window.dispatchEvent(loadEvent)
+
+      expect(Navigation.navigationInterface).toHaveBeenCalledWith(navEl)
+    })
+
+    it('should initialize navigation on elements with legacy data-coreui="navigation"', () => {
       fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
       const navEl = fixtureEl.querySelector('nav')
       spyOn(Navigation, 'navigationInterface')
@@ -91,7 +102,7 @@ describe('Navigation', () => {
   describe('Static methods', () => {
     describe('navigationInterface', () => {
       it('should create instance if config is object', () => {
-        fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+        fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
         const navEl = fixtureEl.querySelector('nav')
 
         Navigation.navigationInterface(navEl, {})
@@ -100,7 +111,7 @@ describe('Navigation', () => {
       })
 
       it('should handle method calling via string config', () => {
-        fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+        fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
         const navEl = fixtureEl.querySelector('nav')
         const navigation = new Navigation(navEl) // eslint-disable-line no-unused-vars
 
@@ -112,7 +123,7 @@ describe('Navigation', () => {
       })
 
       it('should throw error for non-existent method', () => {
-        fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+        fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
         const navEl = fixtureEl.querySelector('nav')
         const navigation = new Navigation(navEl) // eslint-disable-line no-unused-vars
 
@@ -124,7 +135,7 @@ describe('Navigation', () => {
 
     describe('jQueryInterface', () => {
       it('should create instance when jQuery is present', () => {
-        fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+        fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
         const navEl = fixtureEl.querySelector('nav')
         jQueryMock.fn.navigation = Navigation.jQueryInterface
         jQueryMock.elements = [navEl]
@@ -138,7 +149,7 @@ describe('Navigation', () => {
 
   describe('_setActiveLink', () => {
     it('should call _setActiveLink during initialization', () => {
-      fixtureEl.innerHTML = '<nav data-coreui="navigation"></nav>'
+      fixtureEl.innerHTML = '<nav data-coreui-navigation></nav>'
       const navEl = fixtureEl.querySelector('nav')
       spyOn(Navigation.prototype, '_setActiveLink')
 
@@ -150,7 +161,7 @@ describe('Navigation', () => {
     it('should add active class to partial matching links when activeLinksExact is false', () => {
       const currentUrlBase = `${window.location.origin}/context`
       fixtureEl.innerHTML = `
-        <nav data-coreui="navigation">
+        <nav data-coreui-navigation>
           <a class="nav-link" href="${currentUrlBase}">Partial Match</a>
           <a class="nav-link" href="http://localhost:9876/other">No Match</a>
         </nav>
@@ -168,7 +179,7 @@ describe('Navigation', () => {
     it('should skip nav-group-toggle elements', () => {
       const currentUrl = window.location.href
       fixtureEl.innerHTML = `
-        <nav data-coreui="navigation">
+        <nav data-coreui-navigation>
           <a class="nav-link nav-group-toggle" href="${currentUrl}">Toggle</a>
         </nav>
       `
@@ -184,7 +195,7 @@ describe('Navigation', () => {
   describe('Parent group handling', () => {
     it('should process parent groups during initialization', () => {
       fixtureEl.innerHTML = `
-        <nav data-coreui="navigation">
+        <nav data-coreui-navigation>
           <div class="nav-group">
             <div class="nav-group">
               <a class="nav-link" href="/some/path">Link</a>
@@ -204,7 +215,7 @@ describe('Navigation', () => {
   describe('Event handling', () => {
     it('should handle nav-group-toggle clicks', () => {
       fixtureEl.innerHTML = `
-        <nav data-coreui="navigation">
+        <nav data-coreui-navigation>
           <div class="nav-group">
             <a class="nav-group-toggle">Toggle</a>
             <div class="nav-group-items">Items</div>
