@@ -17,6 +17,7 @@ import Navigation from './src/navigation.js'
 import OffCanvas from './src/offcanvas.js'
 import Popover from './src/popover.js'
 import ScrollSpy from './src/scrollspy.js'
+import SearchButton from './src/search-button.js'
 import Sidebar from './src/sidebar.js'
 import Tab from './src/tab.js'
 import Toast from './src/toast.js'
@@ -35,6 +36,7 @@ export default {
   OffCanvas,
   Popover,
   ScrollSpy,
+  SearchButton,
   Sidebar,
   Tab,
   Toast,
