@@ -80,7 +80,7 @@ Feel free to personalize the look of your tooltips with [CSS variables](#variabl
 
 Bootstrap Tooltips support multiple placements: top, right, bottom, and left. The default is top. Directions are mirrored when using CoreUI in RTL. To change placement, use the `data-coreui-placement` attribute:
 
-{{< example class="tooltip-demo" >}}
+{{< example class="tooltip-demo" stackblitz_add_js="true" >}}
 <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="top" title="Tooltip on top">Tooltip on top</button>
 <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Tooltip on right">Tooltip on right</button>
 <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
@@ -93,7 +93,7 @@ Bootstrap Tooltips support HTML content, allowing you to insert styled elements 
 
 To enable this, set the `data-coreui-html="true"` attribute and include valid HTML in the title attribute. Be mindful of security when injecting dynamic content.
 
-{{< example class="tooltip-demo" >}}
+{{< example class="tooltip-demo" stackblitz_add_js="true" >}}
 <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
   Tooltip with HTML
 </button>
@@ -107,7 +107,7 @@ Applying Bootstrap Tooltips to SVG elements requires a different approach, since
 
 It’s recommended to set the container option to `'body'` to avoid positioning issues, especially when SVGs are nested inside complex layouts.
 
-{{< example class="tooltip-demo" >}}
+{{< example class="tooltip-demo" stackblitz_add_js="true" >}}
 <a href="#" class="d-inline-block" data-coreui-toggle="tooltip" title="Default tooltip">
   <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
     <rect width="100%" height="100%" fill="#563d7c"/>

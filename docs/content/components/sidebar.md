@@ -201,22 +201,23 @@ Use `.d-sidebar-narrow` to show content only in the narrow state and `.d-sidebar
   </div>
   <ul class="sidebar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="#" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Nav item">
         <i class="nav-icon cil-speedometer"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#">
+      <a class="nav-link" href="#" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Nav item">
         <i class="nav-icon cil-speedometer"></i>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="https://coreui.io">
+      <a class="nav-link" href="https://coreui.io" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Download">
         <i class="nav-icon cil-cloud-download"></i>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="https://coreui.io/pricing/">
-        <i class="nav-icon cil-layers"></i>
+      <a class="nav-link" href="https://coreui.io/pricing/"  data-coreui-toggle="tooltip" data-coreui-placement="right" title="Get CoreUI PRO">
+        <i class="nav-icon cil-cart"></i>
       </a>
     </li>
   </ul>

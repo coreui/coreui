@@ -8,6 +8,8 @@ aliases:
 toc: true
 bootstrap: true
 other_frameworks: modal
+snippets: 
+  - varying-modal-content.js
 ---
 
 ## How it works
@@ -448,7 +450,7 @@ Have a bunch of buttons that all trigger the same modal with slightly different 
 
 Below is a live demo followed by example HTML and JavaScript. For more information, [read the modal events docs](#events) for details on `relatedTarget`.
 
-{{< example stackblitz_add_js="true" >}}
+{{< example stackblitz_add_js="varyingModalContent" >}}
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@mdo">Open modal for @mdo</button>
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@fat">Open modal for @fat</button>
 <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@getbootstrap">Open modal for @getbootstrap</button>
@@ -481,7 +483,7 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
 </div>
 {{< /example >}}
 
-{{< js-docs name="varying-modal-content" file="docs/assets/js/partials/snippets.js" >}}
+{{< js-docs id="varyingModalContent" name="varying-modal-content" file="docs/assets/js/snippets/varying-modal-content.js" >}}
 
 
 ### Toggle between modals

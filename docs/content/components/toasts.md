@@ -6,6 +6,8 @@ group: components
 toc: true
 bootstrap: true
 other_frameworks: toast
+snippets:
+  - live-toast.js
 ---
 
 Bootstrap toasts are lightweight notifications that mimic the push notifications popularized by mobile and desktop operating systems. They utilize flexbox, making them simple to align and position.
@@ -51,6 +53,7 @@ Previously, our scripts dynamically added the `.hide` class to fully hide a toas
 
 Click the button below to display a toast (positioned with our utilities in the lower right corner) that is hidden by default.
 
+{{< example stackblitz_add_js="liveToastExample" >}}
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
@@ -65,31 +68,12 @@ Click the button below to display a toast (positioned with our utilities in the 
   </div>
 </div>
 
-<div class="docs-example">
-  <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-</div>
-
-```html
 <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="toast-header">
-      <img src="..." class="rounded me-2" alt="...">
-      <strong class="me-auto">CoreUI for Bootstrap</strong>
-      <small>11 mins ago</small>
-      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
-    </div>
-    <div class="toast-body">
-      Hello, world! This is a toast message.
-    </div>
-  </div>
-</div>
-```
+{{< /example >}}
 
 We use the following JavaScript to trigger our live toast demo:
 
-{{< js-docs name="live-toast" file="docs/assets/js/partials/snippets.js" >}}
+{{< js-docs id="liveToastExample" name="live-toast" file="docs/assets/js/snippets/live-toast.js" >}}
 
 
 ### Translucent

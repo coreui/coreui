@@ -23,15 +23,6 @@ export default () => {
       new coreui.Tooltip(tooltip)
     })
 
-  // --------
-  // Popovers
-  // --------
-  // Instantiate all popovers in docs or StackBlitz
-  document.querySelectorAll('[data-coreui-toggle="popover"]')
-    .forEach(popover => {
-      new coreui.Popover(popover)
-    })
-
   // -------------------------------
   // Toasts
   // -------------------------------
@@ -50,6 +41,10 @@ export default () => {
   // Instantiate all toasts in docs pages only
   document.querySelectorAll('.docs-example .toast')
     .forEach(toastNode => {
+      if (toastNode.id === 'liveToast') {
+        return
+      }
+
       const toast = new coreui.Toast(toastNode, {
         autohide: false
       })
@@ -58,17 +53,6 @@ export default () => {
     })
 
   // Instantiate all toasts in docs pages only
-  // js-docs-start live-toast
-  const toastTrigger = document.getElementById('liveToastBtn')
-  const toastLiveExample = document.getElementById('liveToast')
-
-  if (toastTrigger) {
-    const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)
-    toastTrigger.addEventListener('click', () => {
-      toastCoreUI.show()
-    })
-  }
-  // js-docs-end live-toast
 
   // --------
   // Carousels
@@ -100,31 +84,6 @@ export default () => {
         event.preventDefault()
       })
     })
-
-  // -------------------------------
-  // Modal
-  // -------------------------------
-  // Modal 'Varying modal content' example in docs and StackBlitz
-  // js-docs-start varying-modal-content
-  const exampleModal = document.getElementById('exampleModal')
-  if (exampleModal) {
-    exampleModal.addEventListener('show.coreui.modal', event => {
-      // Button that triggered the modal
-      const button = event.relatedTarget
-      // Extract info from data-coreui-* attributes
-      const recipient = button.getAttribute('data-coreui-whatever')
-      // If necessary, you could initiate an Ajax request here
-      // and then do the updating in a callback.
-
-      // Update the modal's content.
-      const modalTitle = exampleModal.querySelector('.modal-title')
-      const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-      modalTitle.textContent = `New message to ${recipient}`
-      modalBodyInput.value = recipient
-    })
-  }
-  // js-docs-end varying-modal-content
 
   // -------------------------------
   // Offcanvas
