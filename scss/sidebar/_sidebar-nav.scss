@@ -74,7 +74,8 @@
   .nav-item + .nav-item,
   .nav-item + .nav-group,
   .nav-group + .nav-item,
-  .nav-group + .nav-group {
+  .nav-group + .nav-group,
+  .nav-group-items {
     margin-top: var(--#{$prefix}sidebar-nav-gap);
   }
 
