@@ -5,11 +5,13 @@ describe('SearchButton', () => {
   let fixtureEl
   let originalPlatform
   let originalUserAgent
+  let originalUserAgentData
 
   beforeAll(() => {
     fixtureEl = getFixture()
     originalPlatform = window.navigator.platform
     originalUserAgent = window.navigator.userAgent
+    originalUserAgentData = window.navigator.userAgentData
   })
 
   afterEach(() => {
@@ -21,6 +23,10 @@ describe('SearchButton', () => {
     Object.defineProperty(window.navigator, 'userAgent', {
       configurable: true,
       get: () => originalUserAgent
+    })
+    Object.defineProperty(window.navigator, 'userAgentData', {
+      configurable: true,
+      get: () => originalUserAgentData
     })
   })
 
@@ -102,6 +108,11 @@ describe('SearchButton', () => {
         get: () => 'Win32'
       })
 
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'Windows' })
+      })
+
       const buttonEl = fixtureEl.querySelector('button')
       // eslint-disable-next-line no-new
       new SearchButton(buttonEl, { shortcut: 'meta+k,ctrl+k' })
@@ -133,6 +144,11 @@ describe('SearchButton', () => {
       Object.defineProperty(window.navigator, 'platform', {
         configurable: true,
         get: () => 'Win32'
+      })
+
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'Windows' })
       })
 
       const buttonEl = fixtureEl.querySelector('button')
