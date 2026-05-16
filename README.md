@@ -111,6 +111,7 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 - [Bootstrap Rating](https://coreui.io/bootstrap/docs/forms/rating/) **PRO**
 - [Bootstrap Select](https://coreui.io/bootstrap/docs/forms/select/)
 - [Bootstrap Sidebar](https://coreui.io/bootstrap/docs/components/sidebar/)
+- [Bootstrap Search Button](https://coreui.io/bootstrap/docs/components/search-button/)
 - [Bootstrap Spinner](https://coreui.io/bootstrap/docs/components/spinner/)
 - [Bootstrap Stepper](https://coreui.io/bootstrap/docs/forms/stepper/) **PRO**
 - [Bootstrap Switch](https://coreui.io/bootstrap/docs/forms/switch/)
