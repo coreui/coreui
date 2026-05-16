@@ -277,16 +277,11 @@ searchButton.trigger()
 | `trigger.coreui.search-button` | Fired when the component is activated by click, API call, or keyboard shortcut. |
 {{< /bs-table >}}
 
-The event exposes these extra properties:
-
-- `trigger`: `'click'`, `'shortcut'`, or `'api'`
-
 ```js
 const element = document.querySelector('[data-coreui-search-button]')
 
-element.addEventListener('trigger.coreui.search-button', event => {
-  // eslint-disable-next-line no-console
-  console.log(event.trigger)
+element.addEventListener('trigger.coreui.search-button', () => {
+  // do something
 })
 ```
 

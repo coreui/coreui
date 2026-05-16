@@ -5,36 +5,36 @@
 @use "vendor/rfs" as *;
 
 // scss-docs-start search-button-variables
-$search-button-height:         $input-height !default;
-$search-button-padding-x:      $input-padding-x !default;
-$search-button-font-family:    $input-font-family !default;
-$search-button-font-size:      $input-font-size !default;
-$search-button-font-weight:    $input-font-weight !default;
-$search-button-color:          $input-placeholder-color !default;
-$search-button-bg:             $input-bg !default;
-$search-button-border-width:   $input-border-width !default;
-$search-button-border-color:   $input-border-color !default;
-$search-button-border-radius:  $input-border-radius !default;
-$search-button-box-shadow:     $input-box-shadow !default;
-$search-button-transition:     $input-transition !default;
+$search-button-height:              $input-height !default;
+$search-button-padding-x:           $input-padding-x !default;
+$search-button-font-family:         $input-font-family !default;
+$search-button-font-size:           $input-font-size !default;
+$search-button-font-weight:         $input-font-weight !default;
+$search-button-color:               $input-placeholder-color !default;
+$search-button-bg:                  $input-bg !default;
+$search-button-border-width:        $input-border-width !default;
+$search-button-border-color:        $input-border-color !default;
+$search-button-border-radius:       $input-border-radius !default;
+$search-button-box-shadow:          $input-box-shadow !default;
+$search-button-transition:          $input-transition !default;
 
 $search-button-focus-color:         $input-focus-color !default;
 $search-button-focus-bg:            $input-focus-bg !default;
 $search-button-focus-border-color:  $input-focus-border-color !default;
 $search-button-focus-box-shadow:    $input-focus-box-shadow !default;
 
-$search-button-icon-size: 1.125rem !default;
+$search-button-icon-size:           1.125rem !default;
 
-$search-button-keys-gap: .25rem !default;
-$search-button-key-width: 1.5rem !default;
-$search-button-key-height: 1.5rem !default;
-$search-button-key-padding-inline: .25rem !default;
-$search-button-key-font-size: .75rem !default;
-$search-button-key-bg: var(--#{$prefix}tertiary-bg) !default;
-$search-button-key-border-radius: var(--#{$prefix}border-radius-sm) !default;
-$search-button-key-active-bg: var(--#{$prefix}secondary-bg) !default;
+$search-button-keys-gap:            .25rem !default;
+$search-button-key-width:           1.5rem !default;
+$search-button-key-height:          1.5rem !default;
+$search-button-key-padding-inline:  .25rem !default;
+$search-button-key-font-size:       .75rem !default;
+$search-button-key-bg:              var(--#{$prefix}tertiary-bg) !default;
+$search-button-key-border-radius:   var(--#{$prefix}border-radius-sm) !default;
+$search-button-key-active-bg:       var(--#{$prefix}secondary-bg) !default;
 
-$search-button-placeholder-margin-inline: .55rem 2rem !default;
+$search-button-placeholder-margin-inline:  .55rem 2rem !default;
 // scss-docs-end search-button-variables
 
 .search-button {
