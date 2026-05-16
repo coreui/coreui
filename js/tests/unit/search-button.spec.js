@@ -63,6 +63,11 @@ describe('SearchButton', () => {
         get: () => 'MacIntel'
       })
 
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'macOS' })
+      })
+
       const buttonEl = fixtureEl.querySelector('button')
       // eslint-disable-next-line no-new
       new SearchButton(buttonEl, { shortcut: 'meta+k,ctrl+k' })
@@ -83,6 +88,10 @@ describe('SearchButton', () => {
       Object.defineProperty(window.navigator, 'platform', {
         configurable: true,
         get: () => ''
+      })
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => undefined
       })
       Object.defineProperty(window.navigator, 'userAgent', {
         configurable: true,
@@ -126,6 +135,16 @@ describe('SearchButton', () => {
         '  <span class="search-button-placeholder">Search</span>',
         '</button>'
       ].join('')
+
+      Object.defineProperty(window.navigator, 'platform', {
+        configurable: true,
+        get: () => 'MacIntel'
+      })
+
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'macOS' })
+      })
 
       const buttonEl = fixtureEl.querySelector('button')
       // eslint-disable-next-line no-new
@@ -274,6 +293,11 @@ describe('SearchButton', () => {
         get: () => 'MacIntel'
       })
 
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'macOS' })
+      })
+
       const buttonEl = fixtureEl.querySelector('button')
       // eslint-disable-next-line no-new
       new SearchButton(buttonEl, { shortcut: 'meta+/,ctrl+/' })
@@ -344,6 +368,11 @@ describe('SearchButton', () => {
       Object.defineProperty(window.navigator, 'platform', {
         configurable: true,
         get: () => 'MacIntel'
+      })
+
+      Object.defineProperty(window.navigator, 'userAgentData', {
+        configurable: true,
+        get: () => ({ platform: 'macOS' })
       })
 
       const buttonEl = fixtureEl.querySelector('button')
