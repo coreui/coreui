@@ -1,5 +1,5 @@
 /*!
-  * CoreUI navigation.js v5.6.1 (https://coreui.io)
+  * CoreUI navigation.js v5.7.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -45,7 +45,7 @@
   const SELECTOR_NAV_GROUP_ITEMS = '.nav-group-items';
   const SELECTOR_NAV_GROUP_TOGGLE = '.nav-group-toggle';
   const SELECTOR_NAV_LINK = '.nav-link';
-  const SELECTOR_DATA_NAVIGATION = '[data-coreui="navigation"]';
+  const SELECTOR_DATA_NAVIGATION = '[data-coreui-navigation], [data-coreui="navigation"]';
 
   /**
    * ------------------------------------------------------------------------

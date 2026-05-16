@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v5.6.1 (https://coreui.io)
+  * CoreUI sidebar.js v5.7.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -135,13 +135,13 @@
     }
     narrow() {
       if (!this._isMobile()) {
-        this._addClassName(CLASS_NAME_SIDEBAR_NARROW);
+        this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW);
         this._narrow = true;
       }
     }
     unfoldable() {
       if (!this._isMobile()) {
-        this._addClassName(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
+        this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
         this._unfoldable = true;
       }
     }
@@ -199,19 +199,16 @@
       const rect = this._element.getBoundingClientRect();
       return rect.top >= 0 && rect.left >= 0 && Math.floor(rect.bottom) <= (window.innerHeight || document.documentElement.clientHeight) && Math.floor(rect.right) <= (window.innerWidth || document.documentElement.clientWidth);
     }
-    _addClassName(className) {
-      this._element.classList.add(className);
-    }
-    _clickOutListener(event, sidebar) {
+    _clickOutListener(event) {
       if (event.target.closest(SELECTOR_SIDEBAR) === null) {
         event.preventDefault();
         event.stopPropagation();
-        sidebar.hide();
+        this.hide();
       }
     }
     _addClickOutListener() {
       EventHandler.on(document, EVENT_CLICK_DATA_API, event => {
-        this._clickOutListener(event, this);
+        this._clickOutListener(event);
       });
     }
     _removeClickOutListener() {
@@ -228,7 +225,7 @@
       }
       EventHandler.on(this._element, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
         event.preventDefault();
-        const toggle = Manipulator.getDataAttribute(event.target, 'toggle');
+        const toggle = Manipulator.getDataAttribute(event.target.closest(SELECTOR_DATA_TOGGLE), 'toggle');
         if (toggle === 'narrow') {
           this.toggleNarrow();
         }

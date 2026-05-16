@@ -111,8 +111,8 @@
         text: NEW
     - title: Sidebar
       badge:
-        color: info
-        text: UPDATE
+        color: success
+        text: NEW
     - title: Spinners
     - title: Toasts
     - title: Tooltips

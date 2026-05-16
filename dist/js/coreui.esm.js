@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.6.1 (https://coreui.io)
+  * CoreUI v5.7.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -661,7 +661,7 @@ class Config {
  * Constants
  */
 
-const VERSION = '5.6.1';
+const VERSION = '5.7.0';
 
 /**
  * Class definition
@@ -855,11 +855,11 @@ const enableDismissTrigger = (component, method = 'hide') => {
  * Constants
  */
 
-const NAME$j = 'alert';
-const DATA_KEY$e = 'coreui.alert';
-const EVENT_KEY$f = `.${DATA_KEY$e}`;
-const EVENT_CLOSE = `close${EVENT_KEY$f}`;
-const EVENT_CLOSED = `closed${EVENT_KEY$f}`;
+const NAME$k = 'alert';
+const DATA_KEY$f = 'coreui.alert';
+const EVENT_KEY$g = `.${DATA_KEY$f}`;
+const EVENT_CLOSE = `close${EVENT_KEY$g}`;
+const EVENT_CLOSED = `closed${EVENT_KEY$g}`;
 const CLASS_NAME_FADE$5 = 'fade';
 const CLASS_NAME_SHOW$a = 'show';
 
@@ -870,7 +870,7 @@ const CLASS_NAME_SHOW$a = 'show';
 class Alert extends BaseComponent {
   // Getters
   static get NAME() {
-    return NAME$j;
+    return NAME$k;
   }
 
   // Public
@@ -933,13 +933,13 @@ defineJQueryPlugin(Alert);
  * Constants
  */
 
-const NAME$i = 'button';
-const DATA_KEY$d = 'coreui.button';
-const EVENT_KEY$e = `.${DATA_KEY$d}`;
-const DATA_API_KEY$a = '.data-api';
-const CLASS_NAME_ACTIVE$5 = 'active';
-const SELECTOR_DATA_TOGGLE$6 = '[data-coreui-toggle="button"]';
-const EVENT_CLICK_DATA_API$8 = `click${EVENT_KEY$e}${DATA_API_KEY$a}`;
+const NAME$j = 'button';
+const DATA_KEY$e = 'coreui.button';
+const EVENT_KEY$f = `.${DATA_KEY$e}`;
+const DATA_API_KEY$b = '.data-api';
+const CLASS_NAME_ACTIVE$6 = 'active';
+const SELECTOR_DATA_TOGGLE$7 = '[data-coreui-toggle="button"]';
+const EVENT_CLICK_DATA_API$9 = `click${EVENT_KEY$f}${DATA_API_KEY$b}`;
 
 /**
  * Class definition
@@ -948,13 +948,13 @@ const EVENT_CLICK_DATA_API$8 = `click${EVENT_KEY$e}${DATA_API_KEY$a}`;
 class Button extends BaseComponent {
   // Getters
   static get NAME() {
-    return NAME$i;
+    return NAME$j;
   }
 
   // Public
   toggle() {
     // Toggle class and sync the `aria-pressed` attribute with the return value of the `.toggle()` method
-    this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$5));
+    this._element.setAttribute('aria-pressed', this._element.classList.toggle(CLASS_NAME_ACTIVE$6));
   }
 
   // Static
@@ -972,9 +972,9 @@ class Button extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API$8, SELECTOR_DATA_TOGGLE$6, event => {
+EventHandler.on(document, EVENT_CLICK_DATA_API$9, SELECTOR_DATA_TOGGLE$7, event => {
   event.preventDefault();
-  const button = event.target.closest(SELECTOR_DATA_TOGGLE$6);
+  const button = event.target.closest(SELECTOR_DATA_TOGGLE$7);
   const data = Button.getOrCreateInstance(button);
   data.toggle();
 });
@@ -1000,23 +1000,23 @@ defineJQueryPlugin(Button);
  * Constants
  */
 
-const NAME$h = 'swipe';
-const EVENT_KEY$d = '.coreui.swipe';
-const EVENT_TOUCHSTART = `touchstart${EVENT_KEY$d}`;
-const EVENT_TOUCHMOVE = `touchmove${EVENT_KEY$d}`;
-const EVENT_TOUCHEND = `touchend${EVENT_KEY$d}`;
-const EVENT_POINTERDOWN = `pointerdown${EVENT_KEY$d}`;
-const EVENT_POINTERUP = `pointerup${EVENT_KEY$d}`;
+const NAME$i = 'swipe';
+const EVENT_KEY$e = '.coreui.swipe';
+const EVENT_TOUCHSTART = `touchstart${EVENT_KEY$e}`;
+const EVENT_TOUCHMOVE = `touchmove${EVENT_KEY$e}`;
+const EVENT_TOUCHEND = `touchend${EVENT_KEY$e}`;
+const EVENT_POINTERDOWN = `pointerdown${EVENT_KEY$e}`;
+const EVENT_POINTERUP = `pointerup${EVENT_KEY$e}`;
 const POINTER_TYPE_TOUCH = 'touch';
 const POINTER_TYPE_PEN = 'pen';
 const CLASS_NAME_POINTER_EVENT = 'pointer-event';
 const SWIPE_THRESHOLD = 40;
-const Default$g = {
+const Default$h = {
   endCallback: null,
   leftCallback: null,
   rightCallback: null
 };
-const DefaultType$g = {
+const DefaultType$h = {
   endCallback: '(function|null)',
   leftCallback: '(function|null)',
   rightCallback: '(function|null)'
@@ -1041,18 +1041,18 @@ class Swipe extends Config {
 
   // Getters
   static get Default() {
-    return Default$g;
+    return Default$h;
   }
   static get DefaultType() {
-    return DefaultType$g;
+    return DefaultType$h;
   }
   static get NAME() {
-    return NAME$h;
+    return NAME$i;
   }
 
   // Public
   dispose() {
-    EventHandler.off(this._element, EVENT_KEY$d);
+    EventHandler.off(this._element, EVENT_KEY$e);
   }
 
   // Private
@@ -1123,10 +1123,10 @@ class Swipe extends Config {
  * Constants
  */
 
-const NAME$g = 'carousel';
-const DATA_KEY$c = 'coreui.carousel';
-const EVENT_KEY$c = `.${DATA_KEY$c}`;
-const DATA_API_KEY$9 = '.data-api';
+const NAME$h = 'carousel';
+const DATA_KEY$d = 'coreui.carousel';
+const EVENT_KEY$d = `.${DATA_KEY$d}`;
+const DATA_API_KEY$a = '.data-api';
 const ARROW_LEFT_KEY$1 = 'ArrowLeft';
 const ARROW_RIGHT_KEY$1 = 'ArrowRight';
 const TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
@@ -1135,16 +1135,16 @@ const ORDER_NEXT = 'next';
 const ORDER_PREV = 'prev';
 const DIRECTION_LEFT = 'left';
 const DIRECTION_RIGHT = 'right';
-const EVENT_SLIDE = `slide${EVENT_KEY$c}`;
-const EVENT_SLID = `slid${EVENT_KEY$c}`;
-const EVENT_KEYDOWN$1 = `keydown${EVENT_KEY$c}`;
-const EVENT_MOUSEENTER$1 = `mouseenter${EVENT_KEY$c}`;
-const EVENT_MOUSELEAVE$1 = `mouseleave${EVENT_KEY$c}`;
-const EVENT_DRAG_START = `dragstart${EVENT_KEY$c}`;
-const EVENT_LOAD_DATA_API$5 = `load${EVENT_KEY$c}${DATA_API_KEY$9}`;
-const EVENT_CLICK_DATA_API$7 = `click${EVENT_KEY$c}${DATA_API_KEY$9}`;
+const EVENT_SLIDE = `slide${EVENT_KEY$d}`;
+const EVENT_SLID = `slid${EVENT_KEY$d}`;
+const EVENT_KEYDOWN$1 = `keydown${EVENT_KEY$d}`;
+const EVENT_MOUSEENTER$1 = `mouseenter${EVENT_KEY$d}`;
+const EVENT_MOUSELEAVE$1 = `mouseleave${EVENT_KEY$d}`;
+const EVENT_DRAG_START = `dragstart${EVENT_KEY$d}`;
+const EVENT_LOAD_DATA_API$5 = `load${EVENT_KEY$d}${DATA_API_KEY$a}`;
+const EVENT_CLICK_DATA_API$8 = `click${EVENT_KEY$d}${DATA_API_KEY$a}`;
 const CLASS_NAME_CAROUSEL = 'carousel';
-const CLASS_NAME_ACTIVE$4 = 'active';
+const CLASS_NAME_ACTIVE$5 = 'active';
 const CLASS_NAME_SLIDE = 'slide';
 const CLASS_NAME_END = 'carousel-item-end';
 const CLASS_NAME_START = 'carousel-item-start';
@@ -1161,7 +1161,7 @@ const KEY_TO_DIRECTION = {
   [ARROW_LEFT_KEY$1]: DIRECTION_RIGHT,
   [ARROW_RIGHT_KEY$1]: DIRECTION_LEFT
 };
-const Default$f = {
+const Default$g = {
   interval: 5000,
   keyboard: true,
   pause: 'hover',
@@ -1169,7 +1169,7 @@ const Default$f = {
   touch: true,
   wrap: true
 };
-const DefaultType$f = {
+const DefaultType$g = {
   interval: '(number|boolean)',
   // TODO:v6 remove boolean support
   keyboard: 'boolean',
@@ -1200,13 +1200,13 @@ class Carousel extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$f;
+    return Default$g;
   }
   static get DefaultType() {
-    return DefaultType$f;
+    return DefaultType$g;
   }
   static get NAME() {
-    return NAME$g;
+    return NAME$h;
   }
 
   // Public
@@ -1333,11 +1333,11 @@ class Carousel extends BaseComponent {
       return;
     }
     const activeIndicator = SelectorEngine.findOne(SELECTOR_ACTIVE, this._indicatorsElement);
-    activeIndicator.classList.remove(CLASS_NAME_ACTIVE$4);
+    activeIndicator.classList.remove(CLASS_NAME_ACTIVE$5);
     activeIndicator.removeAttribute('aria-current');
     const newActiveIndicator = SelectorEngine.findOne(`[data-coreui-slide-to="${index}"]`, this._indicatorsElement);
     if (newActiveIndicator) {
-      newActiveIndicator.classList.add(CLASS_NAME_ACTIVE$4);
+      newActiveIndicator.classList.add(CLASS_NAME_ACTIVE$5);
       newActiveIndicator.setAttribute('aria-current', 'true');
     }
   }
@@ -1390,8 +1390,8 @@ class Carousel extends BaseComponent {
     nextElement.classList.add(directionalClassName);
     const completeCallBack = () => {
       nextElement.classList.remove(directionalClassName, orderClassName);
-      nextElement.classList.add(CLASS_NAME_ACTIVE$4);
-      activeElement.classList.remove(CLASS_NAME_ACTIVE$4, orderClassName, directionalClassName);
+      nextElement.classList.add(CLASS_NAME_ACTIVE$5);
+      activeElement.classList.remove(CLASS_NAME_ACTIVE$5, orderClassName, directionalClassName);
       this._isSliding = false;
       triggerEvent(EVENT_SLID);
     };
@@ -1450,7 +1450,7 @@ class Carousel extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API$7, SELECTOR_DATA_SLIDE, function (event) {
+EventHandler.on(document, EVENT_CLICK_DATA_API$8, SELECTOR_DATA_SLIDE, function (event) {
   const target = SelectorEngine.getElementFromSelector(this);
   if (!target || !target.classList.contains(CLASS_NAME_CAROUSEL)) {
     return;
@@ -1496,25 +1496,25 @@ defineJQueryPlugin(Carousel);
  * Constants
  */
 
-const NAME$f = 'chip';
-const DATA_KEY$b = 'coreui.chip';
-const EVENT_KEY$b = `.${DATA_KEY$b}`;
-const DATA_API_KEY$8 = '.data-api';
-const EVENT_REMOVE$1 = `remove${EVENT_KEY$b}`;
-const EVENT_REMOVED = `removed${EVENT_KEY$b}`;
-const EVENT_SELECT$1 = `select${EVENT_KEY$b}`;
-const EVENT_SELECTED = `selected${EVENT_KEY$b}`;
-const EVENT_DESELECT = `deselect${EVENT_KEY$b}`;
-const EVENT_DESELECTED = `deselected${EVENT_KEY$b}`;
+const NAME$g = 'chip';
+const DATA_KEY$c = 'coreui.chip';
+const EVENT_KEY$c = `.${DATA_KEY$c}`;
+const DATA_API_KEY$9 = '.data-api';
+const EVENT_REMOVE$1 = `remove${EVENT_KEY$c}`;
+const EVENT_REMOVED = `removed${EVENT_KEY$c}`;
+const EVENT_SELECT$1 = `select${EVENT_KEY$c}`;
+const EVENT_SELECTED = `selected${EVENT_KEY$c}`;
+const EVENT_DESELECT = `deselect${EVENT_KEY$c}`;
+const EVENT_DESELECTED = `deselected${EVENT_KEY$c}`;
 const SELECTOR_CHIP_REMOVE$1 = '.chip-remove';
 const SELECTOR_DATA_CHIP = '[data-coreui-chip]';
 const SELECTOR_FOCUSABLE_ITEMS$1 = '.chip:not(.disabled)';
 const CLASS_NAME_CHIP_CLICKABLE = 'chip-clickable';
 const CLASS_NAME_CHIP_REMOVE = 'chip-remove';
-const CLASS_NAME_ACTIVE$3 = 'active';
+const CLASS_NAME_ACTIVE$4 = 'active';
 const CLASS_NAME_DISABLED$1 = 'disabled';
 const DEFAULT_REMOVE_ICON$1 = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
-const Default$e = {
+const Default$f = {
   ariaRemoveLabel: 'Remove',
   disabled: false,
   removable: false,
@@ -1522,7 +1522,7 @@ const Default$e = {
   selectable: false,
   selected: false
 };
-const DefaultType$e = {
+const DefaultType$f = {
   ariaRemoveLabel: 'string',
   disabled: 'boolean',
   removable: 'boolean',
@@ -1539,7 +1539,7 @@ class Chip extends BaseComponent {
   constructor(element, config) {
     super(element, config);
     this._disabled = this._config.disabled || this._element.classList.contains(CLASS_NAME_DISABLED$1);
-    this._selected = this._config.selected || this._element.classList.contains(CLASS_NAME_ACTIVE$3);
+    this._selected = this._config.selected || this._element.classList.contains(CLASS_NAME_ACTIVE$4);
     this._ensureRemoveButton();
     this._applyState();
     if (this._config.selectable || this._config.removable) {
@@ -1550,13 +1550,13 @@ class Chip extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$e;
+    return Default$f;
   }
   static get DefaultType() {
-    return DefaultType$e;
+    return DefaultType$f;
   }
   static get NAME() {
-    return NAME$f;
+    return NAME$g;
   }
 
   // Public
@@ -1639,10 +1639,10 @@ class Chip extends BaseComponent {
       }
     }
     if (this._config.selectable) {
-      this._element.classList.toggle(CLASS_NAME_ACTIVE$3, this._selected);
+      this._element.classList.toggle(CLASS_NAME_ACTIVE$4, this._selected);
       this._element.setAttribute('aria-selected', this._selected ? 'true' : 'false');
     } else {
-      this._element.classList.remove(CLASS_NAME_ACTIVE$3);
+      this._element.classList.remove(CLASS_NAME_ACTIVE$4);
       if (this._element.getAttribute('aria-selected') === 'true') {
         this._element.setAttribute('aria-selected', 'false');
       }
@@ -1779,7 +1779,7 @@ class Chip extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$b}${DATA_API_KEY$8}`, () => {
+EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$c}${DATA_API_KEY$9}`, () => {
   for (const element of SelectorEngine.find(SELECTOR_DATA_CHIP)) {
     Chip.chipInterface(element);
   }
@@ -1806,15 +1806,15 @@ defineJQueryPlugin(Chip);
  * Constants
  */
 
-const NAME$e = 'chip-input';
-const DATA_KEY$a = 'coreui.chip-input';
-const EVENT_KEY$a = `.${DATA_KEY$a}`;
-const DATA_API_KEY$7 = '.data-api';
-const EVENT_ADD = `add${EVENT_KEY$a}`;
-const EVENT_REMOVE = `remove${EVENT_KEY$a}`;
-const EVENT_CHANGE = `change${EVENT_KEY$a}`;
-const EVENT_SELECT = `select${EVENT_KEY$a}`;
-const EVENT_INPUT = `input${EVENT_KEY$a}`;
+const NAME$f = 'chip-input';
+const DATA_KEY$b = 'coreui.chip-input';
+const EVENT_KEY$b = `.${DATA_KEY$b}`;
+const DATA_API_KEY$8 = '.data-api';
+const EVENT_ADD = `add${EVENT_KEY$b}`;
+const EVENT_REMOVE = `remove${EVENT_KEY$b}`;
+const EVENT_CHANGE = `change${EVENT_KEY$b}`;
+const EVENT_SELECT = `select${EVENT_KEY$b}`;
+const EVENT_INPUT = `input${EVENT_KEY$b}`;
 const SELECTOR_DATA_CHIP_INPUT = '[data-coreui-chip-input]';
 const SELECTOR_CHIP = '.chip';
 const SELECTOR_CHIP_ACTIVE = `${SELECTOR_CHIP}.active`;
@@ -1825,7 +1825,7 @@ const CLASS_NAME_CHIP = 'chip';
 const CLASS_NAME_DISABLED = 'disabled';
 const CLASS_NAME_CHIP_INPUT_FIELD = 'chip-input-field';
 const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
-const Default$d = {
+const Default$e = {
   chipClassName: null,
   createOnBlur: true,
   disabled: false,
@@ -1839,7 +1839,7 @@ const Default$d = {
   selectable: false,
   separator: ','
 };
-const DefaultType$d = {
+const DefaultType$e = {
   chipClassName: '(string|function|null)',
   createOnBlur: 'boolean',
   disabled: 'boolean',
@@ -1881,13 +1881,13 @@ class ChipInput extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$d;
+    return Default$e;
   }
   static get DefaultType() {
-    return DefaultType$d;
+    return DefaultType$e;
   }
   static get NAME() {
-    return NAME$e;
+    return NAME$f;
   }
 
   // Public
@@ -2296,7 +2296,7 @@ class ChipInput extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$a}${DATA_API_KEY$7}`, () => {
+EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$b}${DATA_API_KEY$8}`, () => {
   for (const element of SelectorEngine.find(SELECTOR_DATA_CHIP_INPUT)) {
     ChipInput.getOrCreateInstance(element);
   }
@@ -2317,15 +2317,15 @@ EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$a}${DATA_API_KEY$7}`, () 
  * Constants
  */
 
-const NAME$d = 'collapse';
-const DATA_KEY$9 = 'coreui.collapse';
-const EVENT_KEY$9 = `.${DATA_KEY$9}`;
-const DATA_API_KEY$6 = '.data-api';
-const EVENT_SHOW$7 = `show${EVENT_KEY$9}`;
-const EVENT_SHOWN$7 = `shown${EVENT_KEY$9}`;
-const EVENT_HIDE$7 = `hide${EVENT_KEY$9}`;
-const EVENT_HIDDEN$7 = `hidden${EVENT_KEY$9}`;
-const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$9}${DATA_API_KEY$6}`;
+const NAME$e = 'collapse';
+const DATA_KEY$a = 'coreui.collapse';
+const EVENT_KEY$a = `.${DATA_KEY$a}`;
+const DATA_API_KEY$7 = '.data-api';
+const EVENT_SHOW$7 = `show${EVENT_KEY$a}`;
+const EVENT_SHOWN$7 = `shown${EVENT_KEY$a}`;
+const EVENT_HIDE$7 = `hide${EVENT_KEY$a}`;
+const EVENT_HIDDEN$7 = `hidden${EVENT_KEY$a}`;
+const EVENT_CLICK_DATA_API$7 = `click${EVENT_KEY$a}${DATA_API_KEY$7}`;
 const CLASS_NAME_SHOW$9 = 'show';
 const CLASS_NAME_COLLAPSE = 'collapse';
 const CLASS_NAME_COLLAPSING = 'collapsing';
@@ -2335,12 +2335,12 @@ const CLASS_NAME_HORIZONTAL = 'collapse-horizontal';
 const WIDTH = 'width';
 const HEIGHT = 'height';
 const SELECTOR_ACTIVES = '.collapse.show, .collapse.collapsing';
-const SELECTOR_DATA_TOGGLE$5 = '[data-coreui-toggle="collapse"]';
-const Default$c = {
+const SELECTOR_DATA_TOGGLE$6 = '[data-coreui-toggle="collapse"]';
+const Default$d = {
   parent: null,
   toggle: true
 };
-const DefaultType$c = {
+const DefaultType$d = {
   parent: '(null|element)',
   toggle: 'boolean'
 };
@@ -2354,7 +2354,7 @@ class Collapse extends BaseComponent {
     super(element, config);
     this._isTransitioning = false;
     this._triggerArray = [];
-    const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE$5);
+    const toggleList = SelectorEngine.find(SELECTOR_DATA_TOGGLE$6);
     for (const elem of toggleList) {
       const selector = SelectorEngine.getSelectorFromElement(elem);
       const filterElement = SelectorEngine.find(selector).filter(foundElement => foundElement === this._element);
@@ -2373,13 +2373,13 @@ class Collapse extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$c;
+    return Default$d;
   }
   static get DefaultType() {
-    return DefaultType$c;
+    return DefaultType$d;
   }
   static get NAME() {
-    return NAME$d;
+    return NAME$e;
   }
 
   // Public
@@ -2476,7 +2476,7 @@ class Collapse extends BaseComponent {
     if (!this._config.parent) {
       return;
     }
-    const children = this._getFirstLevelChildren(SELECTOR_DATA_TOGGLE$5);
+    const children = this._getFirstLevelChildren(SELECTOR_DATA_TOGGLE$6);
     for (const element of children) {
       const selected = SelectorEngine.getElementFromSelector(element);
       if (selected) {
@@ -2521,7 +2521,7 @@ class Collapse extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, function (event) {
+EventHandler.on(document, EVENT_CLICK_DATA_API$7, SELECTOR_DATA_TOGGLE$6, function (event) {
   // preventDefault only for <a> elements (which change the URL) not inside the collapsible element
   if (event.target.tagName === 'A' || event.delegateTarget && event.delegateTarget.tagName === 'A') {
     event.preventDefault();
@@ -2554,31 +2554,31 @@ defineJQueryPlugin(Collapse);
  * Constants
  */
 
-const NAME$c = 'dropdown';
-const DATA_KEY$8 = 'coreui.dropdown';
-const EVENT_KEY$8 = `.${DATA_KEY$8}`;
-const DATA_API_KEY$5 = '.data-api';
+const NAME$d = 'dropdown';
+const DATA_KEY$9 = 'coreui.dropdown';
+const EVENT_KEY$9 = `.${DATA_KEY$9}`;
+const DATA_API_KEY$6 = '.data-api';
 const ESCAPE_KEY$2 = 'Escape';
 const TAB_KEY$1 = 'Tab';
 const ARROW_UP_KEY$1 = 'ArrowUp';
 const ARROW_DOWN_KEY$1 = 'ArrowDown';
 const RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
 
-const EVENT_HIDE$6 = `hide${EVENT_KEY$8}`;
-const EVENT_HIDDEN$6 = `hidden${EVENT_KEY$8}`;
-const EVENT_SHOW$6 = `show${EVENT_KEY$8}`;
-const EVENT_SHOWN$6 = `shown${EVENT_KEY$8}`;
-const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$8}${DATA_API_KEY$5}`;
-const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY$8}${DATA_API_KEY$5}`;
-const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY$8}${DATA_API_KEY$5}`;
+const EVENT_HIDE$6 = `hide${EVENT_KEY$9}`;
+const EVENT_HIDDEN$6 = `hidden${EVENT_KEY$9}`;
+const EVENT_SHOW$6 = `show${EVENT_KEY$9}`;
+const EVENT_SHOWN$6 = `shown${EVENT_KEY$9}`;
+const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$9}${DATA_API_KEY$6}`;
+const EVENT_KEYDOWN_DATA_API$1 = `keydown${EVENT_KEY$9}${DATA_API_KEY$6}`;
+const EVENT_KEYUP_DATA_API$1 = `keyup${EVENT_KEY$9}${DATA_API_KEY$6}`;
 const CLASS_NAME_SHOW$8 = 'show';
 const CLASS_NAME_DROPUP = 'dropup';
 const CLASS_NAME_DROPEND = 'dropend';
 const CLASS_NAME_DROPSTART = 'dropstart';
 const CLASS_NAME_DROPUP_CENTER = 'dropup-center';
 const CLASS_NAME_DROPDOWN_CENTER = 'dropdown-center';
-const SELECTOR_DATA_TOGGLE$4 = '[data-coreui-toggle="dropdown"]:not(.disabled):not(:disabled)';
-const SELECTOR_DATA_TOGGLE_SHOWN = `${SELECTOR_DATA_TOGGLE$4}.${CLASS_NAME_SHOW$8}`;
+const SELECTOR_DATA_TOGGLE$5 = '[data-coreui-toggle="dropdown"]:not(.disabled):not(:disabled)';
+const SELECTOR_DATA_TOGGLE_SHOWN = `${SELECTOR_DATA_TOGGLE$5}.${CLASS_NAME_SHOW$8}`;
 const SELECTOR_MENU = '.dropdown-menu';
 const SELECTOR_NAVBAR = '.navbar';
 const SELECTOR_NAVBAR_NAV = '.navbar-nav';
@@ -2591,7 +2591,7 @@ const PLACEMENT_RIGHT = isRTL() ? 'left-start' : 'right-start';
 const PLACEMENT_LEFT = isRTL() ? 'right-start' : 'left-start';
 const PLACEMENT_TOPCENTER = 'top';
 const PLACEMENT_BOTTOMCENTER = 'bottom';
-const Default$b = {
+const Default$c = {
   autoClose: true,
   boundary: 'clippingParents',
   display: 'dynamic',
@@ -2599,7 +2599,7 @@ const Default$b = {
   popperConfig: null,
   reference: 'toggle'
 };
-const DefaultType$b = {
+const DefaultType$c = {
   autoClose: '(boolean|string)',
   boundary: '(string|element)',
   display: 'string',
@@ -2624,13 +2624,13 @@ class Dropdown extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$b;
+    return Default$c;
   }
   static get DefaultType() {
-    return DefaultType$b;
+    return DefaultType$c;
   }
   static get NAME() {
-    return NAME$c;
+    return NAME$d;
   }
 
   // Public
@@ -2714,7 +2714,7 @@ class Dropdown extends BaseComponent {
     config = super._getConfig(config);
     if (typeof config.reference === 'object' && !isElement(config.reference) && typeof config.reference.getBoundingClientRect !== 'function') {
       // Popper virtual elements require a getBoundingClientRect method
-      throw new TypeError(`${NAME$c.toUpperCase()}: Option "reference" provided type "object" without a required "getBoundingClientRect" method.`);
+      throw new TypeError(`${NAME$d.toUpperCase()}: Option "reference" provided type "object" without a required "getBoundingClientRect" method.`);
     }
     return config;
   }
@@ -2874,7 +2874,7 @@ class Dropdown extends BaseComponent {
     event.preventDefault();
 
     // TODO: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.3/forms/input-group/
-    const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE$4) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE$4)[0] || SelectorEngine.next(this, SELECTOR_DATA_TOGGLE$4)[0] || SelectorEngine.findOne(SELECTOR_DATA_TOGGLE$4, event.delegateTarget.parentNode);
+    const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE$5) ? this : SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE$5)[0] || SelectorEngine.next(this, SELECTOR_DATA_TOGGLE$5)[0] || SelectorEngine.findOne(SELECTOR_DATA_TOGGLE$5, event.delegateTarget.parentNode);
     const instance = Dropdown.getOrCreateInstance(getToggleButton);
     if (isUpOrDownEvent) {
       event.stopPropagation();
@@ -2895,11 +2895,11 @@ class Dropdown extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE$4, Dropdown.dataApiKeydownHandler);
-EventHandler.on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-EventHandler.on(document, EVENT_CLICK_DATA_API$5, Dropdown.clearMenus);
-EventHandler.on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_TOGGLE$4, function (event) {
+EventHandler.on(document, EVENT_KEYDOWN_DATA_API$1, SELECTOR_DATA_TOGGLE$5, Dropdown.dataApiKeydownHandler);
+EventHandler.on(document, EVENT_KEYDOWN_DATA_API$1, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
+EventHandler.on(document, EVENT_CLICK_DATA_API$6, Dropdown.clearMenus);
+EventHandler.on(document, EVENT_KEYUP_DATA_API$1, Dropdown.clearMenus);
+EventHandler.on(document, EVENT_CLICK_DATA_API$6, SELECTOR_DATA_TOGGLE$5, function (event) {
   event.preventDefault();
   Dropdown.getOrCreateInstance(this).toggle();
 });
@@ -2925,11 +2925,11 @@ defineJQueryPlugin(Dropdown);
  * Constants
  */
 
-const NAME$b = 'backdrop';
+const NAME$c = 'backdrop';
 const CLASS_NAME_FADE$4 = 'fade';
 const CLASS_NAME_SHOW$7 = 'show';
-const EVENT_MOUSEDOWN = `mousedown.coreui.${NAME$b}`;
-const Default$a = {
+const EVENT_MOUSEDOWN = `mousedown.coreui.${NAME$c}`;
+const Default$b = {
   className: 'modal-backdrop',
   clickCallback: null,
   isAnimated: false,
@@ -2937,7 +2937,7 @@ const Default$a = {
   // if false, we use the backdrop helper without adding any element to the dom
   rootElement: 'body' // give the choice to place backdrop under different elements
 };
-const DefaultType$a = {
+const DefaultType$b = {
   className: 'string',
   clickCallback: '(function|null)',
   isAnimated: 'boolean',
@@ -2959,13 +2959,13 @@ class Backdrop extends Config {
 
   // Getters
   static get Default() {
-    return Default$a;
+    return Default$b;
   }
   static get DefaultType() {
-    return DefaultType$a;
+    return DefaultType$b;
   }
   static get NAME() {
-    return NAME$b;
+    return NAME$c;
   }
 
   // Public
@@ -3052,19 +3052,19 @@ class Backdrop extends Config {
  * Constants
  */
 
-const NAME$a = 'focustrap';
-const DATA_KEY$7 = 'coreui.focustrap';
-const EVENT_KEY$7 = `.${DATA_KEY$7}`;
-const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$7}`;
-const EVENT_KEYDOWN_TAB = `keydown.tab${EVENT_KEY$7}`;
+const NAME$b = 'focustrap';
+const DATA_KEY$8 = 'coreui.focustrap';
+const EVENT_KEY$8 = `.${DATA_KEY$8}`;
+const EVENT_FOCUSIN$2 = `focusin${EVENT_KEY$8}`;
+const EVENT_KEYDOWN_TAB = `keydown.tab${EVENT_KEY$8}`;
 const TAB_KEY = 'Tab';
 const TAB_NAV_FORWARD = 'forward';
 const TAB_NAV_BACKWARD = 'backward';
-const Default$9 = {
+const Default$a = {
   autofocus: true,
   trapElement: null // The element to trap focus inside of
 };
-const DefaultType$9 = {
+const DefaultType$a = {
   autofocus: 'boolean',
   trapElement: 'element'
 };
@@ -3083,13 +3083,13 @@ class FocusTrap extends Config {
 
   // Getters
   static get Default() {
-    return Default$9;
+    return Default$a;
   }
   static get DefaultType() {
-    return DefaultType$9;
+    return DefaultType$a;
   }
   static get NAME() {
-    return NAME$a;
+    return NAME$b;
   }
 
   // Public
@@ -3100,7 +3100,7 @@ class FocusTrap extends Config {
     if (this._config.autofocus) {
       this._config.trapElement.focus();
     }
-    EventHandler.off(document, EVENT_KEY$7); // guard against infinite focus loop
+    EventHandler.off(document, EVENT_KEY$8); // guard against infinite focus loop
     EventHandler.on(document, EVENT_FOCUSIN$2, event => this._handleFocusin(event));
     EventHandler.on(document, EVENT_KEYDOWN_TAB, event => this._handleKeydown(event));
     this._isActive = true;
@@ -3110,7 +3110,7 @@ class FocusTrap extends Config {
       return;
     }
     this._isActive = false;
-    EventHandler.off(document, EVENT_KEY$7);
+    EventHandler.off(document, EVENT_KEY$8);
   }
 
   // Private
@@ -3254,21 +3254,21 @@ class ScrollBarHelper {
  * Constants
  */
 
-const NAME$9 = 'modal';
-const DATA_KEY$6 = 'coreui.modal';
-const EVENT_KEY$6 = `.${DATA_KEY$6}`;
-const DATA_API_KEY$4 = '.data-api';
+const NAME$a = 'modal';
+const DATA_KEY$7 = 'coreui.modal';
+const EVENT_KEY$7 = `.${DATA_KEY$7}`;
+const DATA_API_KEY$5 = '.data-api';
 const ESCAPE_KEY$1 = 'Escape';
-const EVENT_HIDE$5 = `hide${EVENT_KEY$6}`;
-const EVENT_HIDE_PREVENTED$1 = `hidePrevented${EVENT_KEY$6}`;
-const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$6}`;
-const EVENT_SHOW$5 = `show${EVENT_KEY$6}`;
-const EVENT_SHOWN$5 = `shown${EVENT_KEY$6}`;
-const EVENT_RESIZE$2 = `resize${EVENT_KEY$6}`;
-const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY$6}`;
-const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY$6}`;
-const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$6}`;
-const EVENT_CLICK_DATA_API$4 = `click${EVENT_KEY$6}${DATA_API_KEY$4}`;
+const EVENT_HIDE$5 = `hide${EVENT_KEY$7}`;
+const EVENT_HIDE_PREVENTED$1 = `hidePrevented${EVENT_KEY$7}`;
+const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$7}`;
+const EVENT_SHOW$5 = `show${EVENT_KEY$7}`;
+const EVENT_SHOWN$5 = `shown${EVENT_KEY$7}`;
+const EVENT_RESIZE$2 = `resize${EVENT_KEY$7}`;
+const EVENT_CLICK_DISMISS = `click.dismiss${EVENT_KEY$7}`;
+const EVENT_MOUSEDOWN_DISMISS = `mousedown.dismiss${EVENT_KEY$7}`;
+const EVENT_KEYDOWN_DISMISS$1 = `keydown.dismiss${EVENT_KEY$7}`;
+const EVENT_CLICK_DATA_API$5 = `click${EVENT_KEY$7}${DATA_API_KEY$5}`;
 const CLASS_NAME_OPEN = 'modal-open';
 const CLASS_NAME_FADE$3 = 'fade';
 const CLASS_NAME_SHOW$6 = 'show';
@@ -3276,13 +3276,13 @@ const CLASS_NAME_STATIC = 'modal-static';
 const OPEN_SELECTOR$1 = '.modal.show';
 const SELECTOR_DIALOG = '.modal-dialog';
 const SELECTOR_MODAL_BODY = '.modal-body';
-const SELECTOR_DATA_TOGGLE$3 = '[data-coreui-toggle="modal"]';
-const Default$8 = {
+const SELECTOR_DATA_TOGGLE$4 = '[data-coreui-toggle="modal"]';
+const Default$9 = {
   backdrop: true,
   focus: true,
   keyboard: true
 };
-const DefaultType$8 = {
+const DefaultType$9 = {
   backdrop: '(boolean|string)',
   focus: 'boolean',
   keyboard: 'boolean'
@@ -3306,13 +3306,13 @@ class Modal extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$8;
+    return Default$9;
   }
   static get DefaultType() {
-    return DefaultType$8;
+    return DefaultType$9;
   }
   static get NAME() {
-    return NAME$9;
+    return NAME$a;
   }
 
   // Public
@@ -3351,8 +3351,8 @@ class Modal extends BaseComponent {
     this._queueCallback(() => this._hideModal(), this._element, this._isAnimated());
   }
   dispose() {
-    EventHandler.off(window, EVENT_KEY$6);
-    EventHandler.off(this._dialog, EVENT_KEY$6);
+    EventHandler.off(window, EVENT_KEY$7);
+    EventHandler.off(this._dialog, EVENT_KEY$7);
     this._backdrop.dispose();
     this._focustrap.deactivate();
     super.dispose();
@@ -3514,7 +3514,7 @@ class Modal extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API$4, SELECTOR_DATA_TOGGLE$3, function (event) {
+EventHandler.on(document, EVENT_CLICK_DATA_API$5, SELECTOR_DATA_TOGGLE$4, function (event) {
   const target = SelectorEngine.getElementFromSelector(this);
   if (['A', 'AREA'].includes(this.tagName)) {
     event.preventDefault();
@@ -3561,29 +3561,29 @@ defineJQueryPlugin(Modal);
  * ------------------------------------------------------------------------
  */
 
-const NAME$8 = 'navigation';
-const DATA_KEY$5 = 'coreui.navigation';
-const EVENT_KEY$5 = `.${DATA_KEY$5}`;
-const DATA_API_KEY$3 = '.data-api';
-const Default$7 = {
+const NAME$9 = 'navigation';
+const DATA_KEY$6 = 'coreui.navigation';
+const EVENT_KEY$6 = `.${DATA_KEY$6}`;
+const DATA_API_KEY$4 = '.data-api';
+const Default$8 = {
   activeLinksExact: true,
   groupsAutoCollapse: true
 };
-const DefaultType$7 = {
+const DefaultType$8 = {
   activeLinksExact: 'boolean',
   groupsAutoCollapse: '(string|boolean)'
 };
-const CLASS_NAME_ACTIVE$2 = 'active';
+const CLASS_NAME_ACTIVE$3 = 'active';
 const CLASS_NAME_SHOW$5 = 'show';
 const CLASS_NAME_NAV_GROUP = 'nav-group';
 const CLASS_NAME_NAV_GROUP_TOGGLE = 'nav-group-toggle';
-const EVENT_CLICK_DATA_API$3 = `click${EVENT_KEY$5}${DATA_API_KEY$3}`;
-const EVENT_LOAD_DATA_API$4 = `load${EVENT_KEY$5}${DATA_API_KEY$3}`;
+const EVENT_CLICK_DATA_API$4 = `click${EVENT_KEY$6}${DATA_API_KEY$4}`;
+const EVENT_LOAD_DATA_API$4 = `load${EVENT_KEY$6}${DATA_API_KEY$4}`;
 const SELECTOR_NAV_GROUP = '.nav-group';
 const SELECTOR_NAV_GROUP_ITEMS = '.nav-group-items';
 const SELECTOR_NAV_GROUP_TOGGLE = '.nav-group-toggle';
 const SELECTOR_NAV_LINK = '.nav-link';
-const SELECTOR_DATA_NAVIGATION = '[data-coreui="navigation"]';
+const SELECTOR_DATA_NAVIGATION = '[data-coreui-navigation], [data-coreui="navigation"]';
 
 /**
  * ------------------------------------------------------------------------
@@ -3597,21 +3597,21 @@ class Navigation extends BaseComponent {
     this._config = this._getConfig(config);
     this._setActiveLink();
     this._addEventListeners();
-    Data.set(element, DATA_KEY$5, this);
+    Data.set(element, DATA_KEY$6, this);
   }
   // Getters
 
   static get Default() {
-    return Default$7;
+    return Default$8;
   }
   static get DATA_KEY() {
-    return DATA_KEY$5;
+    return DATA_KEY$6;
   }
   static get DefaultType() {
-    return DefaultType$7;
+    return DefaultType$8;
   }
   static get NAME() {
-    return NAME$8;
+    return NAME$9;
   }
 
   // Private
@@ -3632,7 +3632,7 @@ class Navigation extends BaseComponent {
         currentUrl = currentUrl.split('#')[0];
       }
       if (this._config.activeLinksExact && element.href === currentUrl) {
-        element.classList.add(CLASS_NAME_ACTIVE$2);
+        element.classList.add(CLASS_NAME_ACTIVE$3);
         // eslint-disable-next-line unicorn/no-array-for-each
         Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
           element.classList.add(CLASS_NAME_SHOW$5);
@@ -3640,7 +3640,7 @@ class Navigation extends BaseComponent {
         });
       }
       if (!this._config.activeLinksExact && currentUrl.startsWith(element.href)) {
-        element.classList.add(CLASS_NAME_ACTIVE$2);
+        element.classList.add(CLASS_NAME_ACTIVE$3);
         // eslint-disable-next-line unicorn/no-array-for-each
         Array.from(this._getParents(element, SELECTOR_NAV_GROUP)).forEach(element => {
           element.classList.add(CLASS_NAME_SHOW$5);
@@ -3748,7 +3748,7 @@ class Navigation extends BaseComponent {
     this._slideDown(SelectorEngine.findOne(SELECTOR_NAV_GROUP_ITEMS, toggler.parentNode));
   }
   _addEventListeners() {
-    EventHandler.on(this._element, EVENT_CLICK_DATA_API$3, SELECTOR_NAV_GROUP_TOGGLE, event => {
+    EventHandler.on(this._element, EVENT_CLICK_DATA_API$4, SELECTOR_NAV_GROUP_TOGGLE, event => {
       event.preventDefault();
       this._toggleGroupItems(event, this);
     });
@@ -3807,32 +3807,32 @@ defineJQueryPlugin(Navigation);
  * Constants
  */
 
-const NAME$7 = 'offcanvas';
-const DATA_KEY$4 = 'coreui.offcanvas';
-const EVENT_KEY$4 = `.${DATA_KEY$4}`;
-const DATA_API_KEY$2 = '.data-api';
-const EVENT_LOAD_DATA_API$3 = `load${EVENT_KEY$4}${DATA_API_KEY$2}`;
+const NAME$8 = 'offcanvas';
+const DATA_KEY$5 = 'coreui.offcanvas';
+const EVENT_KEY$5 = `.${DATA_KEY$5}`;
+const DATA_API_KEY$3 = '.data-api';
+const EVENT_LOAD_DATA_API$3 = `load${EVENT_KEY$5}${DATA_API_KEY$3}`;
 const ESCAPE_KEY = 'Escape';
 const CLASS_NAME_SHOW$4 = 'show';
 const CLASS_NAME_SHOWING$1 = 'showing';
 const CLASS_NAME_HIDING = 'hiding';
 const CLASS_NAME_BACKDROP$1 = 'offcanvas-backdrop';
 const OPEN_SELECTOR = '.offcanvas.show';
-const EVENT_SHOW$4 = `show${EVENT_KEY$4}`;
-const EVENT_SHOWN$4 = `shown${EVENT_KEY$4}`;
-const EVENT_HIDE$4 = `hide${EVENT_KEY$4}`;
-const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY$4}`;
-const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$4}`;
-const EVENT_RESIZE$1 = `resize${EVENT_KEY$4}`;
-const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$4}${DATA_API_KEY$2}`;
-const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$4}`;
-const SELECTOR_DATA_TOGGLE$2 = '[data-coreui-toggle="offcanvas"]';
-const Default$6 = {
+const EVENT_SHOW$4 = `show${EVENT_KEY$5}`;
+const EVENT_SHOWN$4 = `shown${EVENT_KEY$5}`;
+const EVENT_HIDE$4 = `hide${EVENT_KEY$5}`;
+const EVENT_HIDE_PREVENTED = `hidePrevented${EVENT_KEY$5}`;
+const EVENT_HIDDEN$4 = `hidden${EVENT_KEY$5}`;
+const EVENT_RESIZE$1 = `resize${EVENT_KEY$5}`;
+const EVENT_CLICK_DATA_API$3 = `click${EVENT_KEY$5}${DATA_API_KEY$3}`;
+const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$5}`;
+const SELECTOR_DATA_TOGGLE$3 = '[data-coreui-toggle="offcanvas"]';
+const Default$7 = {
   backdrop: true,
   keyboard: true,
   scroll: false
 };
-const DefaultType$6 = {
+const DefaultType$7 = {
   backdrop: '(boolean|string)',
   keyboard: 'boolean',
   scroll: 'boolean'
@@ -3853,13 +3853,13 @@ class Offcanvas extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$6;
+    return Default$7;
   }
   static get DefaultType() {
-    return DefaultType$6;
+    return DefaultType$7;
   }
   static get NAME() {
-    return NAME$7;
+    return NAME$8;
   }
 
   // Public
@@ -3983,7 +3983,7 @@ class Offcanvas extends BaseComponent {
  * Data API implementation
  */
 
-EventHandler.on(document, EVENT_CLICK_DATA_API$2, SELECTOR_DATA_TOGGLE$2, function (event) {
+EventHandler.on(document, EVENT_CLICK_DATA_API$3, SELECTOR_DATA_TOGGLE$3, function (event) {
   const target = SelectorEngine.getElementFromSelector(this);
   if (['A', 'AREA'].includes(this.tagName)) {
     event.preventDefault();
@@ -4139,8 +4139,8 @@ function sanitizeHtml(unsafeHtml, allowList, sanitizeFunction) {
  * Constants
  */
 
-const NAME$6 = 'TemplateFactory';
-const Default$5 = {
+const NAME$7 = 'TemplateFactory';
+const Default$6 = {
   allowList: DefaultAllowlist,
   content: {},
   // { selector : text ,  selector2 : text2 , }
@@ -4150,7 +4150,7 @@ const Default$5 = {
   sanitizeFn: null,
   template: '<div></div>'
 };
-const DefaultType$5 = {
+const DefaultType$6 = {
   allowList: 'object',
   content: 'object',
   extraClass: '(string|function)',
@@ -4176,13 +4176,13 @@ class TemplateFactory extends Config {
 
   // Getters
   static get Default() {
-    return Default$5;
+    return Default$6;
   }
   static get DefaultType() {
-    return DefaultType$5;
+    return DefaultType$6;
   }
   static get NAME() {
-    return NAME$6;
+    return NAME$7;
   }
 
   // Public
@@ -4278,7 +4278,7 @@ class TemplateFactory extends Config {
  * Constants
  */
 
-const NAME$5 = 'tooltip';
+const NAME$6 = 'tooltip';
 const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
 const CLASS_NAME_FADE$2 = 'fade';
 const CLASS_NAME_MODAL = 'modal';
@@ -4307,7 +4307,7 @@ const AttachmentMap = {
   BOTTOM: 'bottom',
   LEFT: isRTL() ? 'right' : 'left'
 };
-const Default$4 = {
+const Default$5 = {
   allowList: DefaultAllowlist,
   animation: true,
   boundary: 'clippingParents',
@@ -4326,7 +4326,7 @@ const Default$4 = {
   title: '',
   trigger: 'hover focus'
 };
-const DefaultType$4 = {
+const DefaultType$5 = {
   allowList: 'object',
   animation: 'boolean',
   boundary: '(string|element)',
@@ -4376,13 +4376,13 @@ class Tooltip extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$4;
+    return Default$5;
   }
   static get DefaultType() {
-    return DefaultType$4;
+    return DefaultType$5;
   }
   static get NAME() {
-    return NAME$5;
+    return NAME$6;
   }
 
   // Public
@@ -4793,10 +4793,10 @@ defineJQueryPlugin(Tooltip);
  * Constants
  */
 
-const NAME$4 = 'popover';
+const NAME$5 = 'popover';
 const SELECTOR_TITLE = '.popover-header';
 const SELECTOR_CONTENT = '.popover-body';
-const Default$3 = {
+const Default$4 = {
   ...Tooltip.Default,
   content: '',
   offset: [0, 8],
@@ -4804,7 +4804,7 @@ const Default$3 = {
   template: '<div class="popover" role="tooltip">' + '<div class="popover-arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div>' + '</div>',
   trigger: 'click'
 };
-const DefaultType$3 = {
+const DefaultType$4 = {
   ...Tooltip.DefaultType,
   content: '(null|string|element|function)'
 };
@@ -4816,13 +4816,13 @@ const DefaultType$3 = {
 class Popover extends Tooltip {
   // Getters
   static get Default() {
-    return Default$3;
+    return Default$4;
   }
   static get DefaultType() {
-    return DefaultType$3;
+    return DefaultType$4;
   }
   static get NAME() {
-    return NAME$4;
+    return NAME$5;
   }
 
   // Overrides
@@ -4877,15 +4877,15 @@ defineJQueryPlugin(Popover);
  * Constants
  */
 
-const NAME$3 = 'scrollspy';
-const DATA_KEY$3 = 'coreui.scrollspy';
-const EVENT_KEY$3 = `.${DATA_KEY$3}`;
-const DATA_API_KEY$1 = '.data-api';
-const EVENT_ACTIVATE = `activate${EVENT_KEY$3}`;
-const EVENT_CLICK = `click${EVENT_KEY$3}`;
-const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$3}${DATA_API_KEY$1}`;
+const NAME$4 = 'scrollspy';
+const DATA_KEY$4 = 'coreui.scrollspy';
+const EVENT_KEY$4 = `.${DATA_KEY$4}`;
+const DATA_API_KEY$2 = '.data-api';
+const EVENT_ACTIVATE = `activate${EVENT_KEY$4}`;
+const EVENT_CLICK = `click${EVENT_KEY$4}`;
+const EVENT_LOAD_DATA_API$2 = `load${EVENT_KEY$4}${DATA_API_KEY$2}`;
 const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
-const CLASS_NAME_ACTIVE$1 = 'active';
+const CLASS_NAME_ACTIVE$2 = 'active';
 const SELECTOR_DATA_SPY = '[data-coreui-spy="scroll"]';
 const SELECTOR_TARGET_LINKS = '[href]';
 const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
@@ -4895,7 +4895,7 @@ const SELECTOR_LIST_ITEMS = '.list-group-item';
 const SELECTOR_LINK_ITEMS = `${SELECTOR_NAV_LINKS}, ${SELECTOR_NAV_ITEMS} > ${SELECTOR_NAV_LINKS}, ${SELECTOR_LIST_ITEMS}`;
 const SELECTOR_DROPDOWN = '.dropdown';
 const SELECTOR_DROPDOWN_TOGGLE$1 = '.dropdown-toggle';
-const Default$2 = {
+const Default$3 = {
   offset: null,
   // TODO: v6 @deprecated, keep it for backwards compatibility reasons
   rootMargin: '0px 0px -25%',
@@ -4903,7 +4903,7 @@ const Default$2 = {
   target: null,
   threshold: [0.1, 0.5, 1]
 };
-const DefaultType$2 = {
+const DefaultType$3 = {
   offset: '(number|null)',
   // TODO v6 @deprecated, keep it for backwards compatibility reasons
   rootMargin: 'string',
@@ -4935,13 +4935,13 @@ class ScrollSpy extends BaseComponent {
 
   // Getters
   static get Default() {
-    return Default$2;
+    return Default$3;
   }
   static get DefaultType() {
-    return DefaultType$2;
+    return DefaultType$3;
   }
   static get NAME() {
-    return NAME$3;
+    return NAME$4;
   }
 
   // Public
@@ -5066,7 +5066,7 @@ class ScrollSpy extends BaseComponent {
     }
     this._clearActiveClass(this._config.target);
     this._activeTarget = target;
-    target.classList.add(CLASS_NAME_ACTIVE$1);
+    target.classList.add(CLASS_NAME_ACTIVE$2);
     this._activateParents(target);
     EventHandler.trigger(this._element, EVENT_ACTIVATE, {
       relatedTarget: target
@@ -5075,22 +5075,22 @@ class ScrollSpy extends BaseComponent {
   _activateParents(target) {
     // Activate dropdown parents
     if (target.classList.contains(CLASS_NAME_DROPDOWN_ITEM)) {
-      SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, target.closest(SELECTOR_DROPDOWN)).classList.add(CLASS_NAME_ACTIVE$1);
+      SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE$1, target.closest(SELECTOR_DROPDOWN)).classList.add(CLASS_NAME_ACTIVE$2);
       return;
     }
     for (const listGroup of SelectorEngine.parents(target, SELECTOR_NAV_LIST_GROUP)) {
       // Set triggered links parents as active
       // With both <ul> and <nav> markup a parent is the previous sibling of any nav ancestor
       for (const item of SelectorEngine.prev(listGroup, SELECTOR_LINK_ITEMS)) {
-        item.classList.add(CLASS_NAME_ACTIVE$1);
+        item.classList.add(CLASS_NAME_ACTIVE$2);
       }
     }
   }
   _clearActiveClass(parent) {
-    parent.classList.remove(CLASS_NAME_ACTIVE$1);
-    const activeNodes = SelectorEngine.find(`${SELECTOR_TARGET_LINKS}.${CLASS_NAME_ACTIVE$1}`, parent);
+    parent.classList.remove(CLASS_NAME_ACTIVE$2);
+    const activeNodes = SelectorEngine.find(`${SELECTOR_TARGET_LINKS}.${CLASS_NAME_ACTIVE$2}`, parent);
     for (const node of activeNodes) {
-      node.classList.remove(CLASS_NAME_ACTIVE$1);
+      node.classList.remove(CLASS_NAME_ACTIVE$2);
     }
   }
 
@@ -5124,6 +5124,327 @@ EventHandler.on(window, EVENT_LOAD_DATA_API$2, () => {
  */
 
 defineJQueryPlugin(ScrollSpy);
+
+/**
+ * --------------------------------------------------------------------------
+ * CoreUI search-button.js
+ * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+ * --------------------------------------------------------------------------
+ */
+
+
+/**
+ * Constants
+ */
+
+const NAME$3 = 'search-button';
+const DATA_KEY$3 = 'coreui.search-button';
+const EVENT_KEY$3 = `.${DATA_KEY$3}`;
+const DATA_API_KEY$1 = '.data-api';
+const EVENT_BLUR_DATA_API = `blur${EVENT_KEY$3}${DATA_API_KEY$1}`;
+const EVENT_CLICK_DATA_API$2 = `click${EVENT_KEY$3}${DATA_API_KEY$1}`;
+const EVENT_KEYDOWN_DATA_API = `keydown${EVENT_KEY$3}${DATA_API_KEY$1}`;
+const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY$3}${DATA_API_KEY$1}`;
+const EVENT_TRIGGER = `trigger${EVENT_KEY$3}`;
+const CLASS_NAME_SHORTCUT_KEYS = 'search-button-keys';
+const CLASS_NAME_SHORTCUT_KEY = 'search-button-key';
+const CLASS_NAME_ACTIVE$1 = 'active';
+const SELECTOR_DATA_TOGGLE$2 = '[data-coreui-search-button]';
+const SELECTOR_EDITABLE_TARGET = 'input, textarea, select, [contenteditable=""], [contenteditable="true"], [contenteditable="plaintext-only"]';
+const SELECTOR_PLACEHOLDER = '.search-button-placeholder';
+const SELECTOR_SHORTCUT_KEY = '.search-button-key';
+const SELECTOR_SHORTCUT_KEYS = '.search-button-keys';
+const Default$2 = {
+  preventDefault: true,
+  shortcut: 'meta+/,ctrl+/'
+};
+const DefaultType$2 = {
+  preventDefault: 'boolean',
+  shortcut: 'string'
+};
+const MODIFIER_KEYS = new Set(['alt', 'ctrl', 'meta', 'shift']);
+const KEY_ALIASES = {
+  cmd: 'meta',
+  command: 'meta',
+  control: 'ctrl',
+  option: 'alt',
+  return: 'enter',
+  esc: 'escape',
+  spacebar: 'space',
+  ' ': 'space'
+};
+const KEY_LABELS = {
+  alt: 'Alt',
+  ctrl: 'Ctrl',
+  meta: '⌘',
+  shift: 'Shift',
+  space: 'Space'
+};
+
+/**
+ * Class definition
+ */
+
+class SearchButton extends BaseComponent {
+  constructor(element, config) {
+    super(element, config);
+    this._shortcutTriggered = false;
+    this._shortcuts = this._parseShortcut(this._config.shortcut);
+    this._preferredShortcut = this._getPreferredShortcut(this._shortcuts);
+    this._syncShortcutKeys();
+  }
+
+  // Getters
+  static get Default() {
+    return Default$2;
+  }
+  static get DefaultType() {
+    return DefaultType$2;
+  }
+  static get NAME() {
+    return NAME$3;
+  }
+
+  // Public
+  trigger() {
+    this._triggerEvent('api');
+  }
+
+  // Private
+  _triggerEvent(trigger) {
+    if (this._isDisabled()) {
+      return;
+    }
+    EventHandler.trigger(this._element, EVENT_TRIGGER, {
+      trigger
+    });
+  }
+  _handleShortcut(event) {
+    if (this._isDisabled() || event.defaultPrevented || event.repeat || this._shouldIgnoreShortcut(event)) {
+      return false;
+    }
+    const matchedShortcut = this._shortcuts.find(shortcut => this._matchesShortcut(shortcut, event));
+    if (!matchedShortcut) {
+      return false;
+    }
+    if (this._config.preventDefault) {
+      event.preventDefault();
+    }
+    this._shortcutTriggered = true;
+    try {
+      this._element.click();
+    } finally {
+      this._shortcutTriggered = false;
+    }
+    return true;
+  }
+  _isDisabled() {
+    return this._element.classList.contains('disabled') || this._element.getAttribute('aria-disabled') === 'true' || this._element.disabled;
+  }
+  _ensureShortcutKeys() {
+    const existingShortcutKeys = this._element.querySelector(SELECTOR_SHORTCUT_KEYS);
+    if (existingShortcutKeys) {
+      return existingShortcutKeys;
+    }
+    const shortcutKeys = document.createElement('span');
+    shortcutKeys.className = CLASS_NAME_SHORTCUT_KEYS;
+    shortcutKeys.setAttribute('aria-hidden', 'true');
+    const placeholder = this._element.querySelector(SELECTOR_PLACEHOLDER);
+    if (placeholder) {
+      placeholder.after(shortcutKeys);
+      return shortcutKeys;
+    }
+    this._element.append(shortcutKeys);
+    return shortcutKeys;
+  }
+  _syncShortcutKeys() {
+    var _this$_preferredShort;
+    const shortcutKeys = this._ensureShortcutKeys();
+    const shortcutTokens = this._formatShortcutTokens(((_this$_preferredShort = this._preferredShortcut) == null ? void 0 : _this$_preferredShort.shortcut) || '').filter(Boolean);
+    shortcutKeys.replaceChildren();
+    for (const key of shortcutTokens) {
+      const shortcutKey = document.createElement('span');
+      shortcutKey.className = CLASS_NAME_SHORTCUT_KEY;
+      shortcutKey.textContent = key;
+      shortcutKey.dataset.coreuiSearchButtonKey = key;
+      shortcutKeys.append(shortcutKey);
+    }
+  }
+  _syncActiveKeys(event) {
+    const pressedKeys = this._getPressedKeys(event);
+    for (const shortcutKey of this._element.querySelectorAll(SELECTOR_SHORTCUT_KEY)) {
+      shortcutKey.classList.toggle(CLASS_NAME_ACTIVE$1, pressedKeys.has(shortcutKey.dataset.coreuiSearchButtonKey));
+    }
+  }
+  _clearActiveKeys() {
+    for (const shortcutKey of this._element.querySelectorAll(SELECTOR_SHORTCUT_KEY)) {
+      shortcutKey.classList.remove(CLASS_NAME_ACTIVE$1);
+    }
+  }
+  _consumeShortcutTrigger() {
+    const shortcutTriggered = this._shortcutTriggered;
+    this._shortcutTriggered = false;
+    return shortcutTriggered;
+  }
+  _shouldIgnoreShortcut(event) {
+    return this._isEditableTarget(event.target) && !event.ctrlKey && !event.metaKey;
+  }
+  _isEditableTarget(target) {
+    if (!(target instanceof Element)) {
+      return false;
+    }
+    return target.matches(SELECTOR_EDITABLE_TARGET) || target.closest(SELECTOR_EDITABLE_TARGET);
+  }
+  _normalizeKey(key) {
+    return KEY_ALIASES[key.toLowerCase()] || key.toLowerCase();
+  }
+  _parseShortcut(shortcut) {
+    return shortcut.split(',').map(value => value.trim()).filter(Boolean).map(value => {
+      const keys = value.split('+').map(part => this._normalizeKey(part.trim()));
+      const modifiers = {
+        alt: false,
+        ctrl: false,
+        meta: false,
+        shift: false
+      };
+      let key = '';
+      for (const part of keys) {
+        if (MODIFIER_KEYS.has(part)) {
+          modifiers[part] = true;
+          continue;
+        }
+        key = part;
+      }
+      return {
+        key,
+        modifiers,
+        shortcut: value
+      };
+    });
+  }
+  _matchesShortcut(shortcut, event) {
+    if (!shortcut.key || this._normalizeKey(event.key) !== shortcut.key) {
+      return false;
+    }
+    return shortcut.modifiers.alt === event.altKey && shortcut.modifiers.ctrl === event.ctrlKey && shortcut.modifiers.meta === event.metaKey && shortcut.modifiers.shift === event.shiftKey;
+  }
+  _formatShortcutTokens(shortcut) {
+    return shortcut.split('+').map(part => this._normalizeKey(part.trim())).map(part => this._getKeyLabel(part));
+  }
+  _getPlatform() {
+    var _window$navigator$use;
+    return ((_window$navigator$use = window.navigator.userAgentData) == null ? void 0 : _window$navigator$use.platform) || window.navigator.platform || window.navigator.userAgent || '';
+  }
+  _isMacOS() {
+    return /Mac|iPhone|iPad|iPod|macOS|Macintosh/.test(this._getPlatform());
+  }
+  _getPreferredShortcut(shortcuts) {
+    return shortcuts.find(shortcut => {
+      return this._isMacOS() ? shortcut.modifiers.meta : shortcut.modifiers.ctrl;
+    }) || shortcuts[0] || null;
+  }
+  _getPressedKeys(event) {
+    const pressedKeys = new Set();
+    if (event.altKey) {
+      pressedKeys.add(KEY_LABELS.alt);
+    }
+    if (event.ctrlKey) {
+      pressedKeys.add(KEY_LABELS.ctrl);
+    }
+    if (event.metaKey) {
+      pressedKeys.add(KEY_LABELS.meta);
+    }
+    if (event.shiftKey) {
+      pressedKeys.add(KEY_LABELS.shift);
+    }
+    const normalizedKey = this._normalizeKey(event.key);
+    const keyLabel = this._getKeyLabel(normalizedKey);
+    if (!MODIFIER_KEYS.has(normalizedKey) && event.type === 'keydown') {
+      pressedKeys.add(keyLabel);
+    }
+    return pressedKeys;
+  }
+  _getKeyLabel(key) {
+    return KEY_LABELS[key] || (key.length === 1 ? key.toUpperCase() : `${key.charAt(0).toUpperCase()}${key.slice(1)}`);
+  }
+
+  // Static
+  static searchButtonInterface(element, config) {
+    const data = SearchButton.getOrCreateInstance(element, config);
+    if (typeof config === 'string') {
+      if (config.startsWith('_') || typeof data[config] !== 'function') {
+        throw new TypeError(`No method named "${config}"`);
+      }
+      data[config]();
+    }
+  }
+  static jQueryInterface(config) {
+    return this.each(function () {
+      SearchButton.searchButtonInterface(this, config);
+    });
+  }
+  static _initializeDataApi() {
+    for (const button of document.querySelectorAll(SELECTOR_DATA_TOGGLE$2)) {
+      SearchButton.getOrCreateInstance(button);
+    }
+  }
+  static _handleDataApiClick(event) {
+    event.preventDefault();
+    const button = event.target.closest(SELECTOR_DATA_TOGGLE$2);
+    const data = SearchButton.getOrCreateInstance(button);
+    const shortcutTriggered = data._consumeShortcutTrigger();
+    if (shortcutTriggered) {
+      data._triggerEvent('shortcut');
+      return;
+    }
+    data._triggerEvent('click');
+  }
+  static _handleDataApiKeydown(event) {
+    for (const button of document.querySelectorAll(SELECTOR_DATA_TOGGLE$2)) {
+      const data = SearchButton.getOrCreateInstance(button);
+      data._syncActiveKeys(event);
+      if (data._handleShortcut(event)) {
+        break;
+      }
+    }
+  }
+  static _handleDataApiKeyup(event) {
+    for (const button of document.querySelectorAll(SELECTOR_DATA_TOGGLE$2)) {
+      SearchButton.getOrCreateInstance(button)._syncActiveKeys(event);
+    }
+  }
+  static _handleDataApiBlur() {
+    for (const button of document.querySelectorAll(SELECTOR_DATA_TOGGLE$2)) {
+      SearchButton.getOrCreateInstance(button)._clearActiveKeys();
+    }
+  }
+}
+
+/**
+ * Data API implementation
+ */
+
+EventHandler.on(document, `DOMContentLoaded${EVENT_KEY$3}${DATA_API_KEY$1}`, () => {
+  SearchButton._initializeDataApi();
+});
+EventHandler.on(document, EVENT_CLICK_DATA_API$2, SELECTOR_DATA_TOGGLE$2, event => {
+  SearchButton._handleDataApiClick(event);
+});
+EventHandler.on(document, EVENT_KEYDOWN_DATA_API, event => {
+  SearchButton._handleDataApiKeydown(event);
+});
+EventHandler.on(document, EVENT_KEYUP_DATA_API, event => {
+  SearchButton._handleDataApiKeyup(event);
+});
+EventHandler.on(window, EVENT_BLUR_DATA_API, () => {
+  SearchButton._handleDataApiBlur();
+});
+
+/**
+ * jQuery
+ */
+
+defineJQueryPlugin(SearchButton);
 
 /**
  * --------------------------------------------------------------------------
@@ -5251,13 +5572,13 @@ class Sidebar extends BaseComponent {
   }
   narrow() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_NARROW);
+      this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW);
       this._narrow = true;
     }
   }
   unfoldable() {
     if (!this._isMobile()) {
-      this._addClassName(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
+      this._element.classList.add(CLASS_NAME_SIDEBAR_NARROW_UNFOLDABLE);
       this._unfoldable = true;
     }
   }
@@ -5315,19 +5636,16 @@ class Sidebar extends BaseComponent {
     const rect = this._element.getBoundingClientRect();
     return rect.top >= 0 && rect.left >= 0 && Math.floor(rect.bottom) <= (window.innerHeight || document.documentElement.clientHeight) && Math.floor(rect.right) <= (window.innerWidth || document.documentElement.clientWidth);
   }
-  _addClassName(className) {
-    this._element.classList.add(className);
-  }
-  _clickOutListener(event, sidebar) {
+  _clickOutListener(event) {
     if (event.target.closest(SELECTOR_SIDEBAR) === null) {
       event.preventDefault();
       event.stopPropagation();
-      sidebar.hide();
+      this.hide();
     }
   }
   _addClickOutListener() {
     EventHandler.on(document, EVENT_CLICK_DATA_API$1, event => {
-      this._clickOutListener(event, this);
+      this._clickOutListener(event);
     });
   }
   _removeClickOutListener() {
@@ -5344,7 +5662,7 @@ class Sidebar extends BaseComponent {
     }
     EventHandler.on(this._element, EVENT_CLICK_DATA_API$1, SELECTOR_DATA_TOGGLE$1, event => {
       event.preventDefault();
-      const toggle = Manipulator.getDataAttribute(event.target, 'toggle');
+      const toggle = Manipulator.getDataAttribute(event.target.closest(SELECTOR_DATA_TOGGLE$1), 'toggle');
       if (toggle === 'narrow') {
         this.toggleNarrow();
       }
@@ -5861,5 +6179,5 @@ enableDismissTrigger(Toast);
 
 defineJQueryPlugin(Toast);
 
-export { Alert, Button, Carousel, Chip, ChipInput, Collapse, Dropdown, Modal, Navigation, Offcanvas, Popover, ScrollSpy, Sidebar, Tab, Toast, Tooltip };
+export { Alert, Button, Carousel, Chip, ChipInput, Collapse, Dropdown, Modal, Navigation, Offcanvas, Popover, ScrollSpy, SearchButton, Sidebar, Tab, Toast, Tooltip };
 //# sourceMappingURL=coreui.esm.js.map
