@@ -54,6 +54,8 @@
   --#{$prefix}sidebar-nav-group-border-width: #{$sidebar-nav-group-border-width};
   --#{$prefix}sidebar-nav-group-border-radius: #{$sidebar-nav-group-border-radius};
   --#{$prefix}sidebar-nav-group-border-color: #{$sidebar-nav-group-border-color};
+  --#{$prefix}sidebar-nav-group-items-padding-y: #{$sidebar-nav-group-items-padding-y};
+  --#{$prefix}sidebar-nav-group-items-padding-x: #{$sidebar-nav-group-items-padding-x};
   --#{$prefix}sidebar-nav-group-indicator-color: #{$sidebar-nav-group-indicator-color};
   --#{$prefix}sidebar-nav-group-indicator-icon: #{escape-svg($sidebar-nav-group-indicator-icon)};
   --#{$prefix}sidebar-nav-group-indicator-hover-color: #{$sidebar-nav-group-indicator-hover-color};
@@ -237,7 +239,7 @@
   }
 
   .nav-group-items {
-    padding: 0;
+    padding: var(--#{$prefix}sidebar-nav-group-items-padding-y) var(--#{$prefix}sidebar-nav-group-items-padding-x);
     overflow: hidden;
     list-style: none;
     @include transition($sidebar-nav-group-items-transition);

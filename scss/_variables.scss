@@ -2006,6 +2006,8 @@ $sidebar-nav-group-border-radius:             var(--#{$prefix}border-radius) !de
 $sidebar-nav-group-transition:                background .15s ease-in-out !default;
 $sidebar-nav-group-toggle-show-color:         $sidebar-nav-link-color !default;
 
+$sidebar-nav-group-items-padding-y:           0 !default;
+$sidebar-nav-group-items-padding-x:           0 !default;
 $sidebar-nav-group-items-transition:          height .15s ease !default;
 
 $sidebar-nav-group-indicator-color:           var(--#{$prefix}tertiary-color) !default;
