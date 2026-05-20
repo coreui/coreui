@@ -104,6 +104,7 @@ $search-button-placeholder-margin-inline:  .55rem 2rem !default;
 .search-button-keys {
   display: inline-flex;
   gap: var(--#{$prefix}search-button-keys-gap);
+  margin-inline-start: auto;
 }
 
 .search-button-key {
