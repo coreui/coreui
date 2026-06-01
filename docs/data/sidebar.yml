@@ -89,6 +89,10 @@
       badge:
         color: success
         text: NEW
+    - title: Chip set
+      badge:
+        color: success
+        text: NEW
     - title: Close button
     - title: Collapse
     - title: Dropdowns

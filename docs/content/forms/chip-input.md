@@ -21,6 +21,8 @@ The CoreUI **Bootstrap Chip Input component** lets users enter multiple values a
 - The input stays inline and grows as you type.
 - Full form integration via a hidden input with configurable `name`.
 
+The chip input is built on top of the [Chip set]({{< docsref "/components/chip-set" >}}) component, so it inherits the same roving focus and keyboard navigation between chips. Its public API and events are unchanged.
+
 ## When to use Chip Input
 
 Use the Bootstrap Chip Input component when you need:

@@ -8,7 +8,7 @@
 import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
 import SelectorEngine from './dom/selector-engine.js'
-import { defineJQueryPlugin, getNextActiveElement } from './util/index.js'
+import { defineJQueryPlugin } from './util/index.js'
 
 /**
  * Constants
@@ -28,7 +28,6 @@ const EVENT_DESELECTED = `deselected${EVENT_KEY}`
 
 const SELECTOR_CHIP_REMOVE = '.chip-remove'
 const SELECTOR_DATA_CHIP = '[data-coreui-chip]'
-const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)'
 
 const CLASS_NAME_CHIP_CLICKABLE = 'chip-clickable'
 const CLASS_NAME_CHIP_REMOVE = 'chip-remove'
@@ -212,7 +211,8 @@ class Chip extends BaseComponent {
   }
 
   _ensureRemoveButton() {
-    if (!this._config.removable) {
+    // A disabled chip is not interactive, so it never shows a remove button.
+    if (!this._config.removable || this._disabled) {
       return
     }
 
@@ -254,60 +254,14 @@ class Chip extends BaseComponent {
       case 'Delete': {
         if (this._config.removable) {
           event.preventDefault()
-          const sibling = this._getFocusableSibling(false) || this._getFocusableSibling(true)
-          sibling?.focus()
           this.remove()
         }
 
         break
       }
 
-      case 'ArrowLeft': {
-        event.preventDefault()
-        const chip = this._getFocusableSibling(false)
-        chip?.focus()
-
-        break
-      }
-
-      case 'ArrowRight': {
-        event.preventDefault()
-        const chip = this._getFocusableSibling(true)
-        chip?.focus()
-
-        break
-      }
-
-      case 'Home': {
-        event.preventDefault()
-        this._navigateToEdge(0)
-        break
-      }
-
-      case 'End': {
-        event.preventDefault()
-        this._navigateToEdge(-1)
-        break
-      }
-
       // No default
     }
-  }
-
-  _getFocusableSibling(shouldGetNext) {
-    const chips = SelectorEngine.find(SELECTOR_FOCUSABLE_ITEMS, this._element.parentElement)
-    const sibling = getNextActiveElement(chips, this._element, shouldGetNext, !chips.includes(this._element))
-    return sibling === this._element ? null : sibling
-  }
-
-  _navigateToEdge(targetIndex) {
-    const chips = SelectorEngine.find(SELECTOR_FOCUSABLE_ITEMS, this._element.parentElement)
-    if (chips.length === 0) {
-      return
-    }
-
-    const targetChip = chips.at(targetIndex)
-    targetChip?.focus()
   }
 
   _destroyElement() {

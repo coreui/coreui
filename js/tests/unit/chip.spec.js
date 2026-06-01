@@ -160,6 +160,16 @@ describe('Chip', () => {
       expect(chipEl.querySelector('.chip-remove')).toBeNull()
     })
 
+    it('should not append a remove button when the chip is disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip disabled">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { removable: true })
+
+      expect(chipEl.querySelector('.chip-remove')).toBeNull()
+    })
+
     it('should not append a second remove button if one already exists', () => {
       fixtureEl.innerHTML = [
         '<span class="chip">',
@@ -571,88 +581,6 @@ describe('Chip', () => {
       chipEl.dispatchEvent(new KeyboardEvent('keydown', { key: 'Backspace', bubbles: true }))
 
       expect(fixtureEl.querySelector('.chip')).not.toBeNull()
-    })
-
-    it('should focus previous chip on ArrowLeft', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      // eslint-disable-next-line no-new
-      new Chip(chips[0], { selectable: true })
-      // eslint-disable-next-line no-new
-      new Chip(chips[1], { selectable: true })
-
-      chips[1].focus()
-      chips[1].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[0])
-    })
-
-    it('should focus next chip on ArrowRight', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      // eslint-disable-next-line no-new
-      new Chip(chips[0], { selectable: true })
-      // eslint-disable-next-line no-new
-      new Chip(chips[1], { selectable: true })
-
-      chips[0].focus()
-      chips[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[1])
-    })
-
-    it('should focus first chip on Home key', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '  <span class="chip" tabindex="0">Third</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      for (const chip of chips) {
-        // eslint-disable-next-line no-new
-        new Chip(chip, { selectable: true })
-      }
-
-      chips[2].focus()
-      chips[2].dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[0])
-    })
-
-    it('should focus last chip on End key', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '  <span class="chip" tabindex="0">Third</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      for (const chip of chips) {
-        // eslint-disable-next-line no-new
-        new Chip(chip, { selectable: true })
-      }
-
-      chips[0].focus()
-      chips[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'End', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[2])
     })
 
     it('should not handle keyboard events when disabled', () => {

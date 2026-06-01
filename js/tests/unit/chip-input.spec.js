@@ -1,5 +1,6 @@
 import ChipInput from '../../src/chip-input.js'
 import Chip from '../../src/chip.js'
+import ChipSet from '../../src/chip-set.js'
 import { clearFixture, getFixture } from '../helpers/fixture.js'
 
 describe('ChipInput', () => {
@@ -139,9 +140,9 @@ describe('ChipInput', () => {
       fixtureEl.innerHTML = '<div class="chip-input"></div>'
 
       const el = fixtureEl.querySelector('.chip-input')
-      const chipInput = new ChipInput(el, { readonly: true })
+      // eslint-disable-next-line no-new
+      new ChipInput(el, { readonly: true })
 
-      expect(chipInput._readonly).toBeTrue()
       expect(el.querySelector('input[type="text"]').readOnly).toBeTrue()
     })
 
@@ -931,6 +932,15 @@ describe('ChipInput', () => {
       chipInput.dispose()
 
       expect(ChipInput.getInstance(el)).toBeNull()
+    })
+
+    it('should be an instance of ChipSet', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+
+      expect(chipInput).toBeInstanceOf(ChipSet)
     })
   })
 
