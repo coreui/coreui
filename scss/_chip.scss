@@ -184,6 +184,20 @@ $chip-remove-size-lg:        1.25rem !default;
   }
 }
 
+.chip-check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: calc(var(--#{$prefix}chip-gap) * -.25); // stylelint-disable-line function-disallowed-list
+
+  > svg {
+    display: block; // Prevents baseline alignment issues
+    width: var(--#{$prefix}chip-icon-size);
+    height: var(--#{$prefix}chip-icon-size);
+  }
+}
+
 .chip-remove {
   display: flex;
   flex-shrink: 0;

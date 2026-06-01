@@ -57,6 +57,21 @@ Use `data-coreui-selection-mode="single"` to allow only one selected chip at a t
 </div>
 {{< /example >}}
 
+## Filter chips
+
+Add `data-coreui-filter="true"` (together with `data-coreui-selectable="true"`) to turn the chips into filter chips. A check icon is shown on each selected chip and removed when it is deselected.
+
+{{< example >}}
+<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true" data-coreui-filter="true">
+  <span class="chip">Design</span>
+  <span class="chip active">Development</span>
+  <span class="chip">Marketing</span>
+  <span class="chip active">Sales</span>
+</div>
+{{< /example >}}
+
+Customize the check with the `selectedIcon` option (or `data-coreui-selected-icon`), the same way you customize the remove icon.
+
 ## Removable chips
 
 Set `data-coreui-removable="true"` to add a remove button to every chip. When a chip is removed, focus moves to a neighboring chip.
@@ -64,12 +79,14 @@ Set `data-coreui-removable="true"` to add a remove button to every chip. When a 
 {{< example >}}
 <div class="chip-set" data-coreui-chip-set data-coreui-removable="true">
   <span class="chip">Filter one</span>
-  <span class="chip" data-coreui-removable="false">Filter two</span>
+  <span class="chip">Filter two</span>
   <span class="chip disabled">Filter three</span>
 </div>
 {{< /example >}}
 
-## Chip set component JavaScript plugin
+## JavaScript plugin
+
+{{< bootstrap-compatibility >}}
 
 ### Data attributes
 
@@ -104,10 +121,12 @@ coreui.ChipSet.getOrCreateInstance(chipSet, {
 | `ariaRemoveLabel` | string | `'Remove'` | Accessible label applied to each chip's remove button. |
 | `chipClassName` | string, function, null | `null` | CSS class(es) added to chips created through `add`. A function receives the chip value and returns the class string. |
 | `disabled` | boolean | `false` | Disables interactions and focus for the chips in the set. |
+| `filter` | boolean | `false` | Turns the chips into filter chips — a check icon is shown on the selected ones. Requires `selectable`. |
 | `maxChips` | number, null | `null` | Maximum number of chips allowed. `null` means no limit. |
 | `removable` | boolean | `false` | Adds a remove button to each chip. |
 | `removeIcon` | string | SVG | HTML string used as the remove icon. |
 | `selectable` | boolean | `false` | Enables selection and keyboard selection on the chips. |
+| `selectedIcon` | string | SVG | HTML string used as the check icon on selected filter chips. |
 | `selectionMode` | string | `'multiple'` | Selection behavior: `'multiple'` allows several active chips, `'single'` keeps at most one. |
 | `unique` | boolean | `false` | Prevents adding a chip whose value already exists in the set. |
 {{< /bs-table >}}

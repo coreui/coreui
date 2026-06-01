@@ -280,6 +280,55 @@ describe('Chip', () => {
     })
   })
 
+  describe('filter', () => {
+    it('should add a check icon when a filter chip is selected', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true, filter: true })
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+
+      chip.select()
+
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+    })
+
+    it('should remove the check icon when a filter chip is deselected', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true, filter: true })
+
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+
+      chip.deselect()
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+    })
+
+    it('should not add a check icon when filter is disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true })
+
+      chip.select()
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+    })
+
+    it('should use a custom selectedIcon', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { selectable: true, filter: true, selectedIcon: '<svg class="my-check"></svg>' })
+
+      expect(chipEl.querySelector('.chip-check .my-check')).not.toBeNull()
+    })
+  })
+
   describe('select', () => {
     it('should add active class and set aria-selected when selected', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'

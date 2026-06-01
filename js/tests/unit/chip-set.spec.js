@@ -280,6 +280,19 @@ describe('ChipSet', () => {
       })
     })
 
+    it('should forward filter so a selected chip shows a check icon', () => {
+      const el = setMarkup(['First'])
+      // eslint-disable-next-line no-new
+      new ChipSet(el, { selectable: true, filter: true })
+
+      const chip = el.querySelector('.chip')
+      expect(chip.querySelector('.chip-check')).toBeNull()
+
+      Chip.getInstance(chip).select()
+
+      expect(chip.querySelector('.chip-check')).not.toBeNull()
+    })
+
     it('should select and deselect all chips', () => {
       const el = setMarkup(['First', 'Second'])
       const chipSet = new ChipSet(el, { selectable: true })

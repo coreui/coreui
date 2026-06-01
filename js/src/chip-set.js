@@ -44,15 +44,18 @@ const CLASS_NAME_DISABLED = 'disabled'
 const SELECTION_MODE_SINGLE = 'single'
 
 const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
+const DEFAULT_SELECTED_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>'
 
 const Default = {
   ariaRemoveLabel: 'Remove',
   chipClassName: null,
   disabled: false,
+  filter: false,
   maxChips: null,
   removable: false,
   removeIcon: DEFAULT_REMOVE_ICON,
   selectable: false,
+  selectedIcon: DEFAULT_SELECTED_ICON,
   selectionMode: 'multiple',
   unique: false
 }
@@ -61,10 +64,12 @@ const DefaultType = {
   ariaRemoveLabel: 'string',
   chipClassName: '(string|function|null)',
   disabled: 'boolean',
+  filter: 'boolean',
   maxChips: '(number|null)',
   removable: 'boolean',
   removeIcon: 'string',
   selectable: 'boolean',
+  selectedIcon: 'string',
   selectionMode: 'string',
   unique: 'boolean'
 }
@@ -297,9 +302,11 @@ class ChipSet extends BaseComponent {
     return {
       ariaRemoveLabel: this._config.ariaRemoveLabel,
       disabled: this._disabled,
+      filter: this._config.filter,
       removable: this._config.removable,
       removeIcon: this._config.removeIcon,
       selectable: this._config.selectable,
+      selectedIcon: this._config.selectedIcon,
       ...Manipulator.getDataAttributes(chip)
     }
   }
