@@ -247,6 +247,15 @@ class ChipSet extends BaseComponent {
   }
 
   // Private
+  _configAfterMerge(config) {
+    // Filter chips are selectable by definition.
+    if (config.filter) {
+      config.selectable = true
+    }
+
+    return config
+  }
+
   _canModify() {
     return !this._disabled
   }

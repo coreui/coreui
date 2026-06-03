@@ -307,6 +307,18 @@ describe('Chip', () => {
       expect(chipEl.querySelector('.chip-check')).toBeNull()
     })
 
+    it('should imply selectable when filter is enabled', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { filter: true })
+
+      chip.toggle()
+
+      expect(chip._selected).toBeTrue()
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+    })
+
     it('should not add a check icon when filter is disabled', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 

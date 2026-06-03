@@ -59,10 +59,10 @@ Use `data-coreui-selection-mode="single"` to allow only one selected chip at a t
 
 ## Filter chips
 
-Add `data-coreui-filter="true"` (together with `data-coreui-selectable="true"`) to turn the chips into filter chips. A check icon is shown on each selected chip and removed when it is deselected.
+Add `data-coreui-filter="true"` to turn the chips into filter chips. A check icon is shown on each selected chip and removed when it is deselected. `filter` implies `selectable`, so you don't need to set both.
 
 {{< example >}}
-<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true" data-coreui-filter="true">
+<div class="chip-set" data-coreui-chip-set data-coreui-filter="true">
   <span class="chip">Design</span>
   <span class="chip active">Development</span>
   <span class="chip">Marketing</span>
@@ -121,7 +121,7 @@ coreui.ChipSet.getOrCreateInstance(chipSet, {
 | `ariaRemoveLabel` | string | `'Remove'` | Accessible label applied to each chip's remove button. |
 | `chipClassName` | string, function, null | `null` | CSS class(es) added to chips created through `add`. A function receives the chip value and returns the class string. |
 | `disabled` | boolean | `false` | Disables interactions and focus for the chips in the set. |
-| `filter` | boolean | `false` | Turns the chips into filter chips — a check icon is shown on the selected ones. Requires `selectable`. |
+| `filter` | boolean | `false` | Turns the chips into filter chips — a check icon is shown on the selected ones. Implies `selectable`. |
 | `maxChips` | number, null | `null` | Maximum number of chips allowed. `null` means no limit. |
 | `removable` | boolean | `false` | Adds a remove button to each chip. |
 | `removeIcon` | string | SVG | HTML string used as the remove icon. |

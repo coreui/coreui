@@ -318,7 +318,7 @@ The chips above work independently. To get roving focus and arrow-key navigation
 | --- | --- | --- | --- |
 | `ariaRemoveLabel` | string | `'Remove'` | Accessible label for the remove button. |
 | `disabled` | boolean | `false` | Disables interactions and focus. You can also apply the `.disabled` class in markup. |
-| `filter` | boolean | `false` | Shows a check icon while the chip is selected (filter chip). Requires `selectable`. |
+| `filter` | boolean | `false` | Shows a check icon while the chip is selected (filter chip). Implies `selectable`. |
 | `removable` | boolean | `false` | Adds a remove button (or enables removal if it exists in markup). |
 | `removeIcon` | string | SVG | HTML string used as the remove icon. |
 | `selectable` | boolean | `false` | Enables selection and keyboard selection behavior. |

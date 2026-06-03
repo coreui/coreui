@@ -160,6 +160,15 @@ class Chip extends BaseComponent {
   }
 
   // Private
+  _configAfterMerge(config) {
+    // A filter chip is selectable by definition.
+    if (config.filter) {
+      config.selectable = true
+    }
+
+    return config
+  }
+
   _addEventListeners() {
     EventHandler.on(this._element, 'keydown', event => this._handleKeydown(event))
 
