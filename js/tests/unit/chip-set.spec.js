@@ -496,6 +496,19 @@ describe('ChipSet', () => {
       expect(ChipSet.getInstance(el)).not.toBeNull()
     })
 
+    it('should call a method via jQueryInterface', () => {
+      const el = setMarkup(['First'])
+      const chipSet = new ChipSet(el, { selectable: true })
+      const spy = spyOn(chipSet, 'deselectAll')
+
+      jQueryMock.fn.chipSet = ChipSet.jQueryInterface
+      jQueryMock.elements = [el]
+
+      jQueryMock.fn.chipSet.call(jQueryMock, 'deselectAll')
+
+      expect(spy).toHaveBeenCalled()
+    })
+
     it('should throw an error on undefined method', () => {
       const el = setMarkup(['First'])
       const action = 'undefinedMethod'
@@ -506,6 +519,58 @@ describe('ChipSet', () => {
       expect(() => {
         jQueryMock.fn.chipSet.call(jQueryMock, action)
       }).toThrowError(TypeError, `No method named "${action}"`)
+    })
+  })
+
+  describe('chipSetInterface', () => {
+    it('should call a method when config is a string', () => {
+      const el = setMarkup(['First'])
+      const chipSet = new ChipSet(el, { selectable: true })
+      const spy = spyOn(chipSet, 'deselectAll')
+
+      ChipSet.chipSetInterface(el, 'deselectAll')
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should throw on an undefined method', () => {
+      const el = setMarkup(['First'])
+
+      expect(() => {
+        ChipSet.chipSetInterface(el, 'undefinedMethod')
+      }).toThrowError(TypeError, 'No method named "undefinedMethod"')
+    })
+  })
+
+  describe('disabled', () => {
+    it('should not add a chip when the set is disabled', () => {
+      const el = setMarkup([])
+      const chipSet = new ChipSet(el, { disabled: true })
+
+      expect(chipSet.add('Nope')).toBeNull()
+      expect(el.querySelectorAll('.chip')).toHaveSize(0)
+    })
+
+    it('should not remove a chip when the set is disabled', () => {
+      const el = setMarkup(['First'])
+      const chipSet = new ChipSet(el, { disabled: true, removable: true })
+
+      expect(chipSet.remove('First')).toBeFalse()
+      expect(el.querySelectorAll('.chip')).toHaveSize(1)
+    })
+
+    it('should remove a chip that has no instance via its value', () => {
+      const el = setMarkup(['First'])
+      const chipSet = new ChipSet(el)
+
+      const raw = document.createElement('span')
+      raw.className = 'chip'
+      raw.textContent = 'Manual'
+      el.append(raw)
+
+      chipSet.remove('Manual')
+
+      expect(el.querySelector('.chip').textContent).toContain('First')
     })
   })
 })

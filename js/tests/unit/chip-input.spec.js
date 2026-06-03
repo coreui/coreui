@@ -682,6 +682,30 @@ describe('ChipInput', () => {
 
       expect(document.activeElement).toEqual(chipInput._input)
     })
+
+    it('should focus the input when a character key is pressed on the container', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+      const spy = spyOn(chipInput._input, 'focus')
+
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'a', bubbles: true }))
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should focus the input when clicking the container background', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+      const spy = spyOn(chipInput._input, 'focus')
+
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+      expect(spy).toHaveBeenCalled()
+    })
   })
 
   describe('keyboard navigation - input', () => {

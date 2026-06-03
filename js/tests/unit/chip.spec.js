@@ -687,6 +687,50 @@ describe('Chip', () => {
 
       expect(chipEl.getAttribute('aria-selected')).toEqual('false')
     })
+
+    it('should reset a stale aria-disabled attribute when not disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip" aria-disabled="true">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl)
+
+      expect(chipEl.getAttribute('aria-disabled')).toEqual('false')
+    })
+
+    it('should reset a stale aria-selected attribute when not selectable', () => {
+      fixtureEl.innerHTML = '<span class="chip" aria-selected="true">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl)
+
+      expect(chipEl.getAttribute('aria-selected')).toEqual('false')
+    })
+  })
+
+  describe('chipInterface', () => {
+    it('should call a method when config is a string', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true })
+      const spy = spyOn(chip, 'toggle')
+
+      Chip.chipInterface(chipEl, 'toggle')
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should throw on an undefined method', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+
+      expect(() => {
+        Chip.chipInterface(chipEl, 'undefinedMethod')
+      }).toThrowError(TypeError, 'No method named "undefinedMethod"')
+    })
   })
 
   describe('data-api', () => {
