@@ -45,6 +45,7 @@ Whether you're starting a new project or migrating from Bootstrap, CoreUI gives 
 - [Documentation](#documentation)
 - [Frameworks](#frameworks)
 - [Templates](#templates)
+- [Templates](#boilerplates)
 - [Contributing](#contributing)
 - [Community](#community)
 - [Versioning](#versioning)
@@ -80,6 +81,7 @@ Read the [Getting started page](https://coreui.io/docs/getting-started/introduct
 - [Bootstrap Carousel](https://coreui.io/bootstrap/docs/components/carousel/)
 - [Bootstrap Chip](https://coreui.io/bootstrap/docs/components/chip/)
 - [Bootstrap Chip Input](https://coreui.io/bootstrap/docs/forms/chip-input/)
+- [Bootstrap Chip Set](https://coreui.io/bootstrap/docs/components/chip-set/)
 - [Bootstrap Checkbox](https://coreui.io/bootstrap/docs/forms/checkbox/)
 - [Bootstrap Close Button](https://coreui.io/bootstrap/docs/components/close-button/)
 - [Bootstrap Calendar](https://coreui.io/bootstrap/docs/components/calendar/) **PRO**
@@ -225,6 +227,10 @@ Fully featured, out-of-the-box, templates for your application based on CoreUI.
 - [Next.js Admin Templates](https://coreui.io/themes-templates/admin-dashboard/next-js/)
 - [React Admin Templates](https://coreui.io/themes-templates/admin-dashboard/react/)
 - [Vue Admin Templates](https://coreui.io/themes-templates/admin-dashboard/vue/)
+
+## Boilerplates
+
+- [AI-Native Next.js Boilerplate for Internal Tools](https://coreui.io/product/next-js-boilerplate/)
 
 ## Contributing
 

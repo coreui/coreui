@@ -8,7 +8,7 @@
 import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
 import SelectorEngine from './dom/selector-engine.js'
-import { defineJQueryPlugin, getNextActiveElement } from './util/index.js'
+import { defineJQueryPlugin } from './util/index.js'
 
 /**
  * Constants
@@ -26,33 +26,39 @@ const EVENT_SELECTED = `selected${EVENT_KEY}`
 const EVENT_DESELECT = `deselect${EVENT_KEY}`
 const EVENT_DESELECTED = `deselected${EVENT_KEY}`
 
+const SELECTOR_CHIP_CHECK = '.chip-check'
 const SELECTOR_CHIP_REMOVE = '.chip-remove'
 const SELECTOR_DATA_CHIP = '[data-coreui-chip]'
-const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)'
 
+const CLASS_NAME_CHIP_CHECK = 'chip-check'
 const CLASS_NAME_CHIP_CLICKABLE = 'chip-clickable'
 const CLASS_NAME_CHIP_REMOVE = 'chip-remove'
 const CLASS_NAME_ACTIVE = 'active'
 const CLASS_NAME_DISABLED = 'disabled'
 
 const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
+const DEFAULT_SELECTED_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>'
 
 const Default = {
   ariaRemoveLabel: 'Remove',
   disabled: false,
+  filter: false,
   removable: false,
   removeIcon: DEFAULT_REMOVE_ICON,
   selectable: false,
-  selected: false
+  selected: false,
+  selectedIcon: DEFAULT_SELECTED_ICON
 }
 
 const DefaultType = {
   ariaRemoveLabel: 'string',
   disabled: 'boolean',
+  filter: 'boolean',
   removable: 'boolean',
   removeIcon: 'string',
   selectable: 'boolean',
-  selected: 'boolean'
+  selected: 'boolean',
+  selectedIcon: 'string'
 }
 
 /**
@@ -154,6 +160,15 @@ class Chip extends BaseComponent {
   }
 
   // Private
+  _configAfterMerge(config) {
+    // A filter chip is selectable by definition.
+    if (config.filter) {
+      config.selectable = true
+    }
+
+    return config
+  }
+
   _addEventListeners() {
     EventHandler.on(this._element, 'keydown', event => this._handleKeydown(event))
 
@@ -193,12 +208,32 @@ class Chip extends BaseComponent {
     if (this._config.selectable) {
       this._element.classList.toggle(CLASS_NAME_ACTIVE, this._selected)
       this._element.setAttribute('aria-selected', this._selected ? 'true' : 'false')
+
+      if (this._config.filter) {
+        if (this._selected) {
+          this._ensureCheckIcon()
+        } else {
+          SelectorEngine.findOne(SELECTOR_CHIP_CHECK, this._element)?.remove()
+        }
+      }
     } else {
       this._element.classList.remove(CLASS_NAME_ACTIVE)
       if (this._element.getAttribute('aria-selected') === 'true') {
         this._element.setAttribute('aria-selected', 'false')
       }
     }
+  }
+
+  _ensureCheckIcon() {
+    if (SelectorEngine.findOne(SELECTOR_CHIP_CHECK, this._element)) {
+      return
+    }
+
+    const check = document.createElement('span')
+    check.className = CLASS_NAME_CHIP_CHECK
+    check.setAttribute('aria-hidden', 'true')
+    check.innerHTML = this._config.selectedIcon
+    this._element.prepend(check)
   }
 
   _createRemoveButton() {
@@ -212,7 +247,8 @@ class Chip extends BaseComponent {
   }
 
   _ensureRemoveButton() {
-    if (!this._config.removable) {
+    // A disabled chip is not interactive, so it never shows a remove button.
+    if (!this._config.removable || this._disabled) {
       return
     }
 
@@ -254,60 +290,14 @@ class Chip extends BaseComponent {
       case 'Delete': {
         if (this._config.removable) {
           event.preventDefault()
-          const sibling = this._getFocusableSibling(false) || this._getFocusableSibling(true)
-          sibling?.focus()
           this.remove()
         }
 
         break
       }
 
-      case 'ArrowLeft': {
-        event.preventDefault()
-        const chip = this._getFocusableSibling(false)
-        chip?.focus()
-
-        break
-      }
-
-      case 'ArrowRight': {
-        event.preventDefault()
-        const chip = this._getFocusableSibling(true)
-        chip?.focus()
-
-        break
-      }
-
-      case 'Home': {
-        event.preventDefault()
-        this._navigateToEdge(0)
-        break
-      }
-
-      case 'End': {
-        event.preventDefault()
-        this._navigateToEdge(-1)
-        break
-      }
-
       // No default
     }
-  }
-
-  _getFocusableSibling(shouldGetNext) {
-    const chips = SelectorEngine.find(SELECTOR_FOCUSABLE_ITEMS, this._element.parentElement)
-    const sibling = getNextActiveElement(chips, this._element, shouldGetNext, !chips.includes(this._element))
-    return sibling === this._element ? null : sibling
-  }
-
-  _navigateToEdge(targetIndex) {
-    const chips = SelectorEngine.find(SELECTOR_FOCUSABLE_ITEMS, this._element.parentElement)
-    if (chips.length === 0) {
-      return
-    }
-
-    const targetChip = chips.at(targetIndex)
-    targetChip?.focus()
   }
 
   _destroyElement() {

@@ -19,9 +19,13 @@ Chips are similar to badges, but they have a single size and more defined visual
 - Chips can have icons, avatars, and remove buttons.
 - Chips can be active or disabled.
 - Chips automatically gain focus when they are `selectable` or `removable`.
-- Chips support keyboard navigation and selection in their container.
+- A single chip handles its own selection and removal; group chips in a [Chip set]({{< docsref "/components/chip-set" >}}) for roving focus and arrow-key navigation.
 
 See examples of all of this in action below.
+
+{{< callout info >}}
+**Rendering more than one chip? Reach for the [Chip set]({{< docsref "/components/chip-set" >}}) component.** A standalone `.chip` is the building block for a single, independent chip. The Chip set is the recommended container for any group of chips — it instantiates the chips for you and manages selection, removal, and keyboard navigation (arrow keys, <kbd>Home</kbd>/<kbd>End</kbd>) across the whole set. The [Chip input]({{< docsref "/forms/chip-input" >}}) builds on it for tag-style text entry.
+{{< /callout >}}
 
 ## When to use chips
 
@@ -241,9 +245,13 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
 {{< /example >}}
 
 
-## Chip component JavaScript plugin
+## JavaScript plugin
 
-Use the Bootstrap Chip component JavaScript plugin for selection, keyboard navigation, and dismissal. You can initialize chip components via data attributes or JavaScript.
+{{< bootstrap-compatibility >}}
+
+Use the Bootstrap Chip component JavaScript plugin for selection and dismissal. You can initialize chip components via data attributes or JavaScript. To navigate between several chips with the arrow keys, group them in a [Chip set]({{< docsref "/components/chip-set" >}}).
+
+The options below can be configured per chip, but in practice you'll usually set them once on a [Chip set]({{< docsref "/components/chip-set" >}}): the set forwards `selectable`, `removable`, `disabled`, `removeIcon`, and `ariaRemoveLabel` to every chip it manages and instantiates them for you, so you don't have to add `data-coreui-chip` to each one.
 
 ### Data attributes
 
@@ -295,6 +303,10 @@ If `removable` is enabled, the plugin will add the remove button automatically. 
 </div>
 {{< /example >}}
 
+{{< callout info >}}
+The chips above work independently. To get roving focus and arrow-key navigation across the group, wrap them in a [Chip set]({{< docsref "/components/chip-set" >}}) with `data-coreui-chip-set`, which also instantiates each chip for you.
+{{< /callout >}}
+
 ### Options
 
 {{< markdown >}}
@@ -306,10 +318,12 @@ If `removable` is enabled, the plugin will add the remove button automatically. 
 | --- | --- | --- | --- |
 | `ariaRemoveLabel` | string | `'Remove'` | Accessible label for the remove button. |
 | `disabled` | boolean | `false` | Disables interactions and focus. You can also apply the `.disabled` class in markup. |
+| `filter` | boolean | `false` | Shows a check icon while the chip is selected (filter chip). Implies `selectable`. |
 | `removable` | boolean | `false` | Adds a remove button (or enables removal if it exists in markup). |
 | `removeIcon` | string | SVG | HTML string used as the remove icon. |
 | `selectable` | boolean | `false` | Enables selection and keyboard selection behavior. |
 | `selected` | boolean | `false` | Sets the initial selected state when `selectable` is enabled. |
+| `selectedIcon` | string | SVG | HTML string used as the check icon when `filter` is enabled. |
 {{< /bs-table >}}
 
 ### Methods
@@ -350,7 +364,7 @@ myChip.addEventListener('selected.coreui.chip', event => {
 
 ## Keyboard behavior
 
-Chips support keyboard navigation when they are `selectable` and/or `removable`.
+A standalone chip handles its own selection and removal from the keyboard when it is `selectable` and/or `removable`. Roving focus between chips (arrow keys, <kbd>Home</kbd>/<kbd>End</kbd>) is provided by the parent [Chip set]({{< docsref "/components/chip-set" >}}) container.
 
 ### When a chip is focused
 
@@ -359,11 +373,9 @@ Chips support keyboard navigation when they are `selectable` and/or `removable`.
 | --- | --- |
 | `Enter` / `Space` | Toggle selection (only when `selectable` is enabled) |
 | `Backspace` / `Delete` | Close chip when `removable` is enabled |
-| `←` | Move focus to previous chip |
-| `→` | Move focus to next chip |
-| `Home` | Move focus to the first chip in the container |
-| `End` | Move focus to the last chip in the container |
 {{< /bs-table >}}
+
+When chips are grouped in a [Chip set]({{< docsref "/components/chip-set" >}}), the arrow keys, <kbd>Home</kbd>, and <kbd>End</kbd> move focus between chips, and focus moves to a neighboring chip after one is removed.
 
 ### Mouse interaction
 

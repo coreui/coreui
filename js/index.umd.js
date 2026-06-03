@@ -10,6 +10,7 @@ import Button from './src/button.js'
 import Carousel from './src/carousel.js'
 import Chip from './src/chip.js'
 import ChipInput from './src/chip-input.js'
+import ChipSet from './src/chip-set.js'
 import Collapse from './src/collapse.js'
 import Dropdown from './src/dropdown.js'
 import Modal from './src/modal.js'
@@ -29,6 +30,7 @@ export default {
   Carousel,
   Chip,
   ChipInput,
+  ChipSet,
   Collapse,
   Dropdown,
   Modal,

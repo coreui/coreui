@@ -160,6 +160,16 @@ describe('Chip', () => {
       expect(chipEl.querySelector('.chip-remove')).toBeNull()
     })
 
+    it('should not append a remove button when the chip is disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip disabled">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { removable: true })
+
+      expect(chipEl.querySelector('.chip-remove')).toBeNull()
+    })
+
     it('should not append a second remove button if one already exists', () => {
       fixtureEl.innerHTML = [
         '<span class="chip">',
@@ -267,6 +277,67 @@ describe('Chip', () => {
 
         chipEl.querySelector('.chip-remove').click()
       })
+    })
+  })
+
+  describe('filter', () => {
+    it('should add a check icon when a filter chip is selected', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true, filter: true })
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+
+      chip.select()
+
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+    })
+
+    it('should remove the check icon when a filter chip is deselected', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true, filter: true })
+
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+
+      chip.deselect()
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+    })
+
+    it('should imply selectable when filter is enabled', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { filter: true })
+
+      chip.toggle()
+
+      expect(chip._selected).toBeTrue()
+      expect(chipEl.querySelector('.chip-check')).not.toBeNull()
+    })
+
+    it('should not add a check icon when filter is disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true })
+
+      chip.select()
+
+      expect(chipEl.querySelector('.chip-check')).toBeNull()
+    })
+
+    it('should use a custom selectedIcon', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { selectable: true, filter: true, selectedIcon: '<svg class="my-check"></svg>' })
+
+      expect(chipEl.querySelector('.chip-check .my-check')).not.toBeNull()
     })
   })
 
@@ -573,88 +644,6 @@ describe('Chip', () => {
       expect(fixtureEl.querySelector('.chip')).not.toBeNull()
     })
 
-    it('should focus previous chip on ArrowLeft', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      // eslint-disable-next-line no-new
-      new Chip(chips[0], { selectable: true })
-      // eslint-disable-next-line no-new
-      new Chip(chips[1], { selectable: true })
-
-      chips[1].focus()
-      chips[1].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[0])
-    })
-
-    it('should focus next chip on ArrowRight', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      // eslint-disable-next-line no-new
-      new Chip(chips[0], { selectable: true })
-      // eslint-disable-next-line no-new
-      new Chip(chips[1], { selectable: true })
-
-      chips[0].focus()
-      chips[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[1])
-    })
-
-    it('should focus first chip on Home key', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '  <span class="chip" tabindex="0">Third</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      for (const chip of chips) {
-        // eslint-disable-next-line no-new
-        new Chip(chip, { selectable: true })
-      }
-
-      chips[2].focus()
-      chips[2].dispatchEvent(new KeyboardEvent('keydown', { key: 'Home', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[0])
-    })
-
-    it('should focus last chip on End key', () => {
-      fixtureEl.innerHTML = [
-        '<div>',
-        '  <span class="chip" tabindex="0">First</span>',
-        '  <span class="chip" tabindex="0">Second</span>',
-        '  <span class="chip" tabindex="0">Third</span>',
-        '</div>'
-      ].join('')
-
-      const chips = fixtureEl.querySelectorAll('.chip')
-      for (const chip of chips) {
-        // eslint-disable-next-line no-new
-        new Chip(chip, { selectable: true })
-      }
-
-      chips[0].focus()
-      chips[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'End', bubbles: true }))
-
-      expect(document.activeElement).toEqual(chips[2])
-    })
-
     it('should not handle keyboard events when disabled', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'
 
@@ -697,6 +686,50 @@ describe('Chip', () => {
       new Chip(chipEl, { selectable: true })
 
       expect(chipEl.getAttribute('aria-selected')).toEqual('false')
+    })
+
+    it('should reset a stale aria-disabled attribute when not disabled', () => {
+      fixtureEl.innerHTML = '<span class="chip" aria-disabled="true">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl)
+
+      expect(chipEl.getAttribute('aria-disabled')).toEqual('false')
+    })
+
+    it('should reset a stale aria-selected attribute when not selectable', () => {
+      fixtureEl.innerHTML = '<span class="chip" aria-selected="true">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl)
+
+      expect(chipEl.getAttribute('aria-selected')).toEqual('false')
+    })
+  })
+
+  describe('chipInterface', () => {
+    it('should call a method when config is a string', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { selectable: true })
+      const spy = spyOn(chip, 'toggle')
+
+      Chip.chipInterface(chipEl, 'toggle')
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should throw on an undefined method', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+
+      expect(() => {
+        Chip.chipInterface(chipEl, 'undefinedMethod')
+      }).toThrowError(TypeError, 'No method named "undefinedMethod"')
     })
   })
 

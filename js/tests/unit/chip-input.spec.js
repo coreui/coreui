@@ -1,5 +1,6 @@
 import ChipInput from '../../src/chip-input.js'
 import Chip from '../../src/chip.js'
+import ChipSet from '../../src/chip-set.js'
 import { clearFixture, getFixture } from '../helpers/fixture.js'
 
 describe('ChipInput', () => {
@@ -139,9 +140,9 @@ describe('ChipInput', () => {
       fixtureEl.innerHTML = '<div class="chip-input"></div>'
 
       const el = fixtureEl.querySelector('.chip-input')
-      const chipInput = new ChipInput(el, { readonly: true })
+      // eslint-disable-next-line no-new
+      new ChipInput(el, { readonly: true })
 
-      expect(chipInput._readonly).toBeTrue()
       expect(el.querySelector('input[type="text"]').readOnly).toBeTrue()
     })
 
@@ -681,6 +682,30 @@ describe('ChipInput', () => {
 
       expect(document.activeElement).toEqual(chipInput._input)
     })
+
+    it('should focus the input when a character key is pressed on the container', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+      const spy = spyOn(chipInput._input, 'focus')
+
+      el.dispatchEvent(new KeyboardEvent('keydown', { key: 'a', bubbles: true }))
+
+      expect(spy).toHaveBeenCalled()
+    })
+
+    it('should focus the input when clicking the container background', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+      const spy = spyOn(chipInput._input, 'focus')
+
+      el.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+      expect(spy).toHaveBeenCalled()
+    })
   })
 
   describe('keyboard navigation - input', () => {
@@ -931,6 +956,15 @@ describe('ChipInput', () => {
       chipInput.dispose()
 
       expect(ChipInput.getInstance(el)).toBeNull()
+    })
+
+    it('should be an instance of ChipSet', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+
+      expect(chipInput).toBeInstanceOf(ChipSet)
     })
   })
 

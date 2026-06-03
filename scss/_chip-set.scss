@@ -1,0 +1,15 @@
+@use "variables" as *;
+
+// scss-docs-start chip-set-variables
+$chip-set-gap: .25rem !default;
+// scss-docs-end chip-set-variables
+
+.chip-set {
+  // scss-docs-start chip-set-css-vars
+  --#{$prefix}chip-set-gap: #{$chip-set-gap};
+  // scss-docs-end chip-set-css-vars
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--#{$prefix}chip-set-gap);
+}
