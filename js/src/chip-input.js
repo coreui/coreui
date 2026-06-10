@@ -161,6 +161,17 @@ class ChipInput extends ChipSet {
         return
       }
 
+      // ArrowRight past the last chip moves focus into the text field
+      // (mirrors ArrowLeft from the start of the input focusing the last chip).
+      if (event.key === 'ArrowRight') {
+        const chips = this._getFocusableChips()
+        if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+          event.preventDefault()
+          this._input.focus()
+          return
+        }
+      }
+
       if (event.key.length === 1) {
         this._input.focus()
       }

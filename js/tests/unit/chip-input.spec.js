@@ -1009,4 +1009,25 @@ describe('ChipInput', () => {
       expect(ChipInput.getOrCreateInstance(el)).toBeInstanceOf(ChipInput)
     })
   })
+
+  describe('keyboard navigation', () => {
+    it('should move focus to the input on ArrowRight from the last chip', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+
+      chipInput.add('React')
+      chipInput.add('Vue')
+
+      const chips = el.querySelectorAll('.chip')
+      const lastChip = chips[chips.length - 1]
+      const input = el.querySelector('input.chip-input-field')
+      lastChip.focus()
+
+      lastChip.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))
+
+      expect(document.activeElement).toEqual(input)
+    })
+  })
 })
