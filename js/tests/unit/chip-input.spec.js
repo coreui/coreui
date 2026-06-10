@@ -1029,5 +1029,28 @@ describe('ChipInput', () => {
 
       expect(document.activeElement).toEqual(input)
     })
+
+    it('should move focus to the input on ArrowLeft from the last chip in RTL', () => {
+      document.documentElement.dir = 'rtl'
+
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+
+      chipInput.add('React')
+      chipInput.add('Vue')
+
+      const chips = el.querySelectorAll('.chip')
+      const lastChip = chips[chips.length - 1]
+      const input = el.querySelector('input.chip-input-field')
+      lastChip.focus()
+
+      lastChip.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))
+
+      expect(document.activeElement).toEqual(input)
+
+      document.documentElement.dir = ''
+    })
   })
 })

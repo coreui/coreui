@@ -138,6 +138,25 @@ describe('ChipSet', () => {
       expect(document.activeElement).toEqual(chips[1])
     })
 
+    it('should mirror arrow keys in RTL', () => {
+      document.documentElement.dir = 'rtl'
+
+      const el = setMarkup(['First', 'Second'])
+      // eslint-disable-next-line no-new
+      new ChipSet(el, { selectable: true })
+
+      const chips = el.querySelectorAll('.chip')
+      chips[0].focus()
+      // In RTL, ArrowLeft moves to the next chip.
+      chips[0].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowLeft', bubbles: true }))
+      expect(document.activeElement).toEqual(chips[1])
+
+      chips[1].dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }))
+      expect(document.activeElement).toEqual(chips[0])
+
+      document.documentElement.dir = ''
+    })
+
     it('should focus first chip on Home key', () => {
       const el = setMarkup()
       // eslint-disable-next-line no-new
