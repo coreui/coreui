@@ -10,7 +10,7 @@ import Chip from './chip.js'
 import EventHandler from './dom/event-handler.js'
 import Manipulator from './dom/manipulator.js'
 import SelectorEngine from './dom/selector-engine.js'
-import { defineJQueryPlugin, getNextActiveElement } from './util/index.js'
+import { defineJQueryPlugin, getNextActiveElement, isRTL } from './util/index.js'
 
 /**
  * Constants
@@ -370,13 +370,14 @@ class ChipSet extends BaseComponent {
     switch (event.key) {
       case 'ArrowLeft': {
         event.preventDefault()
-        this._focusSibling(chip, false)
+        // In RTL the visual direction is mirrored, so ArrowLeft moves to the next chip.
+        this._focusSibling(chip, isRTL())
         break
       }
 
       case 'ArrowRight': {
         event.preventDefault()
-        this._focusSibling(chip, true)
+        this._focusSibling(chip, !isRTL())
         break
       }
 

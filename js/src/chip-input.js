@@ -11,7 +11,7 @@
 import ChipSet from './chip-set.js'
 import EventHandler from './dom/event-handler.js'
 import SelectorEngine from './dom/selector-engine.js'
-import { getUID } from './util/index.js'
+import { getUID, isRTL } from './util/index.js'
 
 /**
  * Constants
@@ -161,6 +161,18 @@ class ChipInput extends ChipSet {
         return
       }
 
+      // The arrow key past the last chip moves focus into the text field, which
+      // sits after the chips (mirrors the input's "go to last chip" key). The
+      // direction is mirrored in RTL.
+      if (event.key === (isRTL() ? 'ArrowLeft' : 'ArrowRight')) {
+        const chips = this._getFocusableChips()
+        if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+          event.preventDefault()
+          this._input.focus()
+          return
+        }
+      }
+
       if (event.key.length === 1) {
         this._input.focus()
       }
@@ -266,8 +278,16 @@ class ChipInput extends ChipSet {
         break
       }
 
-      case 'ArrowLeft': {
-        if (this._input.selectionStart === 0 && this._input.selectionEnd === 0) {
+      case 'ArrowLeft':
+      case 'ArrowRight': {
+        // The arrow pointing toward the chips (left in LTR, right in RTL) jumps
+        // to the last chip when the caret is at the start of the input.
+        const towardChipsKey = isRTL() ? 'ArrowRight' : 'ArrowLeft'
+        if (
+          key === towardChipsKey &&
+          this._input.selectionStart === 0 &&
+          this._input.selectionEnd === 0
+        ) {
           event.preventDefault()
           const chips = this._getChipElements()
 
