@@ -91,7 +91,7 @@ Shortcuts such as `meta+f`, `ctrl+f`, `meta+s`, or `ctrl+s` can override native 
 {{< /callout >}}
 
 {{< example >}}
-<button type="button" class="search-button" data-coreui-search-button data-coreui-shortcut="meta+k,ctrl+k">
+<button type="button" class="search-button" data-coreui-search-button data-coreui-shortcut="meta+i,ctrl+i">
   <svg class="search-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
     <path fill="currentcolor" d="m479.6 399.716-81.084-81.084-62.368-25.767A175 175 0 0 0 368 192c0-97.047-78.953-176-176-176S16 94.953 16 192s78.953 176 176 176a175.03 175.03 0 0 0 101.619-32.377l25.7 62.2 81.081 81.088a56 56 0 1 0 79.2-79.195M48 192c0-79.4 64.6-144 144-144s144 64.6 144 144-64.6 144-144 144S48 271.4 48 192m408.971 264.284a24.03 24.03 0 0 1-33.942 0l-76.572-76.572-23.894-57.835 57.837 23.894 76.573 76.572a24.03 24.03 0 0 1-.002 33.941"/>
   </svg>
@@ -100,7 +100,7 @@ Shortcuts such as `meta+f`, `ctrl+f`, `meta+s`, or `ctrl+s` can override native 
 {{< /example >}}
 
 ```html
-<button type="button" class="search-button" data-coreui-search-button data-coreui-shortcut="meta+k,ctrl+k">
+<button type="button" class="search-button" data-coreui-search-button data-coreui-shortcut="meta+i,ctrl+i">
   <svg class="search-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" aria-hidden="true">
     <path fill="currentcolor" d="..."/>
   </svg>
@@ -241,7 +241,7 @@ Use `data-coreui-search-button` to enable the plugin. Configure behavior with `d
 const searchButton = document.querySelector('[data-coreui-search-button]')
 
 new coreui.SearchButton(searchButton, {
-  shortcut: 'meta+k,ctrl+k'
+  shortcut: 'meta+i,ctrl+i'
 })
 ```
 
