@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carousel · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Carousel</h1>
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-coreui-target="#carouselExample" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-coreui-target="#carouselExample" data-coreui-slide-to="1" aria-label="Slide 2"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-block w-100 bg-dark text-white p-5 text-center">First slide</div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-block w-100 bg-secondary text-white p-5 text-center">Second slide</div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-coreui-target="#carouselExample" data-coreui-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-coreui-target="#carouselExample" data-coreui-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Offcanvas · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Offcanvas</h1>
+      <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasExample" aria-controls="offcanvasExample">
+        Toggle offcanvas
+      </button>
+
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+          <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          The offcanvas content goes here.
+        </div>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

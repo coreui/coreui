@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Popover · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-5">
+      <h1>Popover</h1>
+      <button
+        type="button"
+        class="btn btn-danger"
+        data-coreui-toggle="popover"
+        data-coreui-title="Popover title"
+        data-coreui-content="And here's some amazing content."
+      >
+        Toggle popover
+      </button>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+    <script>
+      for (const el of document.querySelectorAll('[data-coreui-toggle="popover"]')) {
+        new coreui.Popover(el)
+      }
+    </script>
+  </body>
+</html>

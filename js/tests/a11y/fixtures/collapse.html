@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Collapse · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Collapse</h1>
+      <p>
+        <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Toggle content
+        </button>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Some placeholder content for the collapse component.
+        </div>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

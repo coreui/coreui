@@ -161,6 +161,12 @@ export default [
     }
   },
   {
+    files: ['js/tests/a11y/**/*.{js,mjs}'],
+    rules: {
+      'import/no-named-as-default': 'off'
+    }
+  },
+  {
     files: ['js/tests/visual/**'],
     plugins: {
       html

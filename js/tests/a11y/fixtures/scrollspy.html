@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Scrollspy · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Scrollspy</h1>
+      <div class="row">
+        <div class="col-4">
+          <nav id="navbar-example" class="h-100 flex-column align-items-stretch pe-4 border-end" aria-label="Section navigation">
+            <nav class="nav nav-pills flex-column">
+              <a class="nav-link" href="#item-1">Item 1</a>
+              <a class="nav-link" href="#item-2">Item 2</a>
+            </nav>
+          </nav>
+        </div>
+        <div class="col-8">
+          <div data-coreui-spy="scroll" data-coreui-target="#navbar-example" data-coreui-smooth-scroll="true" tabindex="0" style="height: 200px; overflow-y: scroll;">
+            <h2 id="item-1">Item 1</h2>
+            <p>Content for the first section.</p>
+            <h2 id="item-2">Item 2</h2>
+            <p>Content for the second section.</p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

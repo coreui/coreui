@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chip · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Chip</h1>
+      <div class="d-flex flex-wrap gap-1">
+        <span class="chip">Basic chip</span>
+        <span class="chip">Basic chip 2</span>
+        <span class="chip" data-coreui-chip data-coreui-removable="true">
+          Removable chip
+          <button type="button" class="chip-remove" aria-label="Remove">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+              <line x1="4" y1="4" x2="12" y2="12"/>
+              <line x1="12" y1="4" x2="4" y2="12"/>
+            </svg>
+          </button>
+        </span>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navigation · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <nav class="sidebar h-100" aria-label="Main">
+      <ul class="sidebar-nav sidebar-nav-tree" data-coreui-navigation>
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Dashboard</a>
+        </li>
+        <li class="nav-group">
+          <a class="nav-link nav-group-toggle" href="#">Components</a>
+          <ul class="nav-group-items">
+            <li class="nav-item"><a class="nav-link" href="#">Buttons</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Cards</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>

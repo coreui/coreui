@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search button · a11y fixture</title>
+    <link rel="stylesheet" href="/dist/css/coreui.min.css">
+  </head>
+  <body>
+    <main class="container py-4">
+      <h1>Search button</h1>
+      <button
+        type="button"
+        class="search-button"
+        data-coreui-search-button
+        data-coreui-toggle="modal"
+        data-coreui-target="#searchButtonModal"
+      >
+        <svg class="search-button-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="16" height="16" aria-hidden="true">
+          <path fill="currentcolor" d="M48 192c0-79.4 64.6-144 144-144s144 64.6 144 144-64.6 144-144 144S48 271.4 48 192"/>
+        </svg>
+        <span class="search-button-placeholder">Search</span>
+      </button>
+
+      <div class="modal fade" id="searchButtonModal" tabindex="-1" aria-labelledby="searchButtonModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="searchButtonModalLabel">Search</h5>
+              <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <label for="searchInput" class="form-label">Search</label>
+              <input type="search" id="searchInput" class="form-control" placeholder="Type to search...">
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="/dist/js/coreui.bundle.min.js"></script>
+  </body>
+</html>
