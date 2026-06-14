@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI Bootstrap Theme v5.7.1 (https://coreui.io)
+ * CoreUI Bootstrap Theme v5.8.0 (https://coreui.io)
  * Copyright (c) 2026 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -7463,6 +7463,20 @@ textarea.form-control-lg {
   border-radius: var(--bs-chip-img-border-radius);
 }
 
+.chip-check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  -webkit-margin-start: calc(var(--bs-chip-gap) * -0.25);
+  margin-inline-start: calc(var(--bs-chip-gap) * -0.25);
+}
+.chip-check > svg {
+  display: block;
+  width: var(--bs-chip-icon-size);
+  height: var(--bs-chip-icon-size);
+}
+
 .chip-remove {
   display: flex;
   flex-shrink: 0;
@@ -7592,6 +7606,13 @@ textarea.form-control-lg {
   --bs-contrast: var(--bs-dark-contrast);
   --bs-text-emphasis: var(--bs-dark-text-emphasis);
   --bs-focus-ring-color: rgba(var(--bs-dark-rgb), var(--bs-focus-ring-opacity));
+}
+
+.chip-set {
+  --bs-chip-set-gap: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--bs-chip-set-gap);
 }
 
 .avatar {
@@ -8037,6 +8058,8 @@ textarea.form-control-lg {
 .search-button-keys {
   display: inline-flex;
   gap: var(--bs-search-button-keys-gap);
+  -webkit-margin-start: auto;
+  margin-inline-start: auto;
 }
 
 .search-button-key {

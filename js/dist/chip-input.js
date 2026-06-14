@@ -1,13 +1,13 @@
 /*!
-  * CoreUI chip-input.js v5.7.1 (https://coreui.io)
+  * CoreUI chip-input.js v5.8.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./chip.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './chip', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ChipInput = factory(global.BaseComponent, global.Chip, global.EventHandler, global.SelectorEngine, global.Index));
-})(this, (function (BaseComponent, Chip, EventHandler, SelectorEngine, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./chip-set.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./chip-set', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.ChipInput = factory(global.ChipSet, global.EventHandler, global.SelectorEngine, global.Index));
+})(this, (function (ChipSet, EventHandler, SelectorEngine, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -28,73 +28,58 @@
   const DATA_KEY = 'coreui.chip-input';
   const EVENT_KEY = `.${DATA_KEY}`;
   const DATA_API_KEY = '.data-api';
-  const EVENT_ADD = `add${EVENT_KEY}`;
-  const EVENT_REMOVE = `remove${EVENT_KEY}`;
-  const EVENT_CHANGE = `change${EVENT_KEY}`;
-  const EVENT_SELECT = `select${EVENT_KEY}`;
   const EVENT_INPUT = `input${EVENT_KEY}`;
   const SELECTOR_DATA_CHIP_INPUT = '[data-coreui-chip-input]';
   const SELECTOR_CHIP = '.chip';
-  const SELECTOR_CHIP_ACTIVE = `${SELECTOR_CHIP}.active`;
   const SELECTOR_CHIP_INPUT_LABEL = '.chip-input-label';
   const SELECTOR_CHIP_REMOVE = '.chip-remove';
-  const SELECTOR_FOCUSABLE_ITEMS = '.chip:not(.disabled)';
-  const CLASS_NAME_CHIP = 'chip';
   const CLASS_NAME_DISABLED = 'disabled';
   const CLASS_NAME_CHIP_INPUT_FIELD = 'chip-input-field';
-  const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const Default = {
-    chipClassName: null,
+    ...ChipSet.Default,
     createOnBlur: true,
-    disabled: false,
     id: null,
-    maxChips: null,
     name: null,
     placeholder: '',
     readonly: false,
     removable: true,
-    removeIcon: DEFAULT_REMOVE_ICON,
-    selectable: false,
-    separator: ','
+    separator: ',',
+    unique: true
   };
   const DefaultType = {
-    chipClassName: '(string|function|null)',
+    ...ChipSet.DefaultType,
     createOnBlur: 'boolean',
-    disabled: 'boolean',
-    maxChips: '(number|null)',
     id: '(string|null)',
     name: '(string|null)',
     placeholder: 'string',
     readonly: 'boolean',
-    removable: 'boolean',
-    removeIcon: 'string',
-    selectable: 'boolean',
     separator: '(string|null)'
   };
 
   /**
    * Class definition
+   *
+   * ChipInput is a thin input layer on top of ChipSet: ChipSet owns the chips
+   * (the single source of truth), while ChipInput only adds the text field, form
+   * integration (hidden input) and turns typed text into chips. The public API
+   * (methods + `*.coreui.chip-input` events) is preserved through overrides.
    */
 
-  class ChipInput extends BaseComponent {
+  class ChipInput extends ChipSet {
     constructor(element, config) {
       var _this$_config$id;
       super(element, config);
-      this._uniqueId = (_this$_config$id = this._config.id) != null ? _this$_config$id : index_js.getUID(`${this.constructor.NAME}`);
-      this._disabled = this._config.disabled || this._element.classList.contains(CLASS_NAME_DISABLED);
-      this._readonly = this._config.readonly;
-      this._chips = [];
-      this._input = SelectorEngine.findOne('input', this._element);
+      this._uniqueId = (_this$_config$id = this._config.id) != null ? _this$_config$id : index_js.getUID(NAME);
       this._hiddenInput = null;
+      this._input = SelectorEngine.findOne('input', this._element);
       if (this._input) {
         this._setInputSize();
       } else {
         this._createInput();
       }
       this._applyInteractionState();
-      this._initializeExistingChips();
       this._createHiddenInput();
-      this._addEventListeners();
+      this._addInputEventListeners();
     }
 
     // Getters
@@ -109,136 +94,110 @@
     }
 
     // Public
+    // Keep the inherited add behavior and mirror the new value into the form input.
     add(value) {
-      if (this._disabled || this._readonly) {
-        return null;
+      const chip = super.add(value);
+      if (chip) {
+        this._syncHiddenInput();
       }
-      const trimmedValue = String(value).trim();
-      if (!trimmedValue) {
-        return null;
-      }
-
-      // Chips are unique by value
-      if (this._chips.includes(trimmedValue)) {
-        return null;
-      }
-
-      // Check max chips limit
-      if (this._config.maxChips !== null && this._chips.length >= this._config.maxChips) {
-        return null;
-      }
-      const addEvent = EventHandler.trigger(this._element, EVENT_ADD, {
-        value: trimmedValue,
-        relatedTarget: this._input
-      });
-      if (addEvent.defaultPrevented) {
-        return null;
-      }
-      const chip = this._createChip(trimmedValue);
-      this._element.insertBefore(chip, this._input);
-      this._chips.push(trimmedValue);
-      const values = this.getValues();
-      this._hiddenInput.value = values.join(',');
-      EventHandler.trigger(this._element, EVENT_CHANGE, {
-        values
-      });
       return chip;
     }
-    remove(chipOrValue) {
-      if (this._disabled || this._readonly) {
-        return false;
-      }
-      let chip;
-      let value;
-      if (typeof chipOrValue === 'string') {
-        value = chipOrValue;
-        chip = this._findChipByValue(value);
-      } else {
-        chip = chipOrValue;
-        value = this._getChipValue(chip);
-      }
-      if (!chip || !value) {
-        return false;
-      }
-      const removeEvent = EventHandler.trigger(this._element, EVENT_REMOVE, {
-        value,
-        chip,
-        relatedTarget: this._input
-      });
-      if (removeEvent.defaultPrevented) {
-        return false;
-      }
-      const chipInstance = Chip.getInstance(chip);
-      if (chipInstance) {
-        chipInstance.remove();
-      } else {
-        chip.remove();
-        this._handleChipRemoved(chip, value);
-      }
-      return !chip.isConnected;
-    }
-    removeSelected() {
-      var _this$_input;
-      const chipsToRemove = this._getSelectedChipElements();
-      for (const chip of chipsToRemove) {
-        this.remove(chip);
-      }
-      (_this$_input = this._input) == null || _this$_input.focus();
-    }
-    getValues() {
-      return [...this._chips];
-    }
-    getSelectedValues() {
-      return this._getSelectedChipElements().map(chip => this._getChipValue(chip));
-    }
-    clear() {
-      const chips = SelectorEngine.find(SELECTOR_CHIP, this._element);
-      for (const chip of chips) {
-        this.remove(chip);
-      }
-    }
-    clearSelection() {
-      for (const chip of this._getSelectedChipElements()) {
-        var _Chip$getInstance;
-        (_Chip$getInstance = Chip.getInstance(chip)) == null || _Chip$getInstance.deselect();
-      }
-      EventHandler.trigger(this._element, EVENT_SELECT, {
-        selected: []
-      });
-    }
-    selectChip(chip) {
-      const chipElements = this._getChipElements();
-      if (!chipElements.includes(chip)) {
-        return;
-      }
-      const chipInstance = Chip.getInstance(chip);
-      if (!chipInstance) {
-        return;
-      }
-      chipInstance.select();
-    }
     focus() {
-      var _this$_input2;
-      (_this$_input2 = this._input) == null || _this$_input2.focus();
+      var _this$_input;
+      (_this$_input = this._input) == null || _this$_input.focus();
     }
 
     // Private
-    _emitSelectionChange() {
-      EventHandler.trigger(this._element, EVENT_SELECT, {
-        selected: this.getSelectedValues()
+    _canModify() {
+      return !this._disabled && !this._config.readonly;
+    }
+
+    // Chips live before the text field, not at the end of the set.
+    _appendChip(chip) {
+      this._element.insertBefore(chip, this._input);
+    }
+
+    // Per-chip configuration based on the chip value and the input's
+    // disabled/readonly state.
+    _getChipConfig(chip) {
+      return {
+        ariaRemoveLabel: `Remove ${this._getChipValue(chip)}`,
+        disabled: this._disabled,
+        removable: this._config.removable && !this._config.readonly && !this._disabled,
+        removeIcon: this._config.removeIcon,
+        selectable: this._config.selectable
+      };
+    }
+
+    // Keep the inherited chip instantiation and sync the remove button.
+    _setupChip(chip) {
+      super._setupChip(chip);
+      const removeButton = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, chip);
+      if (removeButton) {
+        removeButton.disabled = this._disabled || this._config.readonly;
+      }
+    }
+
+    // Sync the form mirror and refocus the text field after a chip is removed.
+    _handleChipRemoved(event) {
+      var _this$_input2;
+      super._handleChipRemoved(event);
+      this._syncHiddenInput();
+      (_this$_input2 = this._input) == null || _this$_input2.focus();
+    }
+    _syncHiddenInput() {
+      if (this._hiddenInput) {
+        this._hiddenInput.value = this.getValues().join(',');
+      }
+    }
+    _addInputEventListeners() {
+      EventHandler.on(this._element, 'keydown', event => {
+        if (event.target === this._input) {
+          return;
+        }
+
+        // The arrow key past the last chip moves focus into the text field, which
+        // sits after the chips (mirrors the input's "go to last chip" key). The
+        // direction is mirrored in RTL.
+        if (event.key === (index_js.isRTL() ? 'ArrowLeft' : 'ArrowRight')) {
+          const chips = this._getFocusableChips();
+          if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+            event.preventDefault();
+            this._input.focus();
+            return;
+          }
+        }
+        if (event.key.length === 1) {
+          this._input.focus();
+        }
       });
-    }
-    _getChipElements() {
-      return SelectorEngine.find(SELECTOR_CHIP, this._element);
-    }
-    _getSelectedChipElements() {
-      return SelectorEngine.find(SELECTOR_CHIP_ACTIVE, this._element);
+      EventHandler.on(this._input, 'keydown', event => this._handleInputKeydown(event));
+      EventHandler.on(this._input, 'input', event => this._handleInput(event));
+      EventHandler.on(this._input, 'paste', event => this._handlePaste(event));
+      EventHandler.on(this._input, 'focus', () => this.clearSelection());
+      if (this._config.createOnBlur) {
+        EventHandler.on(this._input, 'blur', event => {
+          var _event$relatedTarget;
+          // Don't create chip if clicking on a chip
+          if (!((_event$relatedTarget = event.relatedTarget) != null && _event$relatedTarget.closest(SELECTOR_CHIP))) {
+            this._createChipFromInput();
+          }
+        });
+      }
+
+      // Focus input when clicking container background
+      EventHandler.on(this._element, 'click', event => {
+        if (event.target === this._element) {
+          var _this$_input3;
+          (_this$_input3 = this._input) == null || _this$_input3.focus();
+        }
+      });
     }
     _createInput() {
       const input = document.createElement('input');
       const label = SelectorEngine.findOne(SELECTOR_CHIP_INPUT_LABEL, this._element);
       const labelFor = label == null ? void 0 : label.getAttribute('for');
-      const generatedInputId = labelFor || index_js.getUID(`${this.constructor.NAME}-input`);
+      const generatedInputId = labelFor || index_js.getUID(`${NAME}-input`);
       input.type = 'text';
       input.className = CLASS_NAME_CHIP_INPUT_FIELD;
       input.id = generatedInputId;
@@ -261,17 +220,8 @@
       this._hiddenInput = hiddenInput;
       this._hiddenInput.value = this.getValues().join(',');
     }
-    _createChip(value) {
-      const chip = document.createElement('span');
-      chip.className = CLASS_NAME_CHIP;
-      chip.dataset.coreuiChipValue = value;
-      chip.append(document.createTextNode(value));
-      this._applyChipClassName(chip, value);
-      this._setupChip(chip);
-      return chip;
-    }
     _createChipFromInput() {
-      if (this._disabled || this._readonly) {
+      if (!this._canModify()) {
         return;
       }
       const value = this._input.value.trim();
@@ -281,126 +231,15 @@
         this._setInputSize();
       }
     }
-    _findChipByValue(value) {
-      const chips = this._getChipElements();
-      return chips.find(chip => this._getChipValue(chip) === value);
-    }
-    _getChipValue(chip) {
-      var _clone$textContent;
-      if (chip.dataset.coreuiChipValue) {
-        return chip.dataset.coreuiChipValue;
-      }
-      const clone = chip.cloneNode(true);
-      const remove = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, clone);
-      if (remove) {
-        remove.remove();
-      }
-      return ((_clone$textContent = clone.textContent) == null ? void 0 : _clone$textContent.trim()) || '';
-    }
-    _initializeExistingChips() {
-      const existingChips = SelectorEngine.find(SELECTOR_CHIP, this._element);
-      for (const chip of existingChips) {
-        const value = this._getChipValue(chip);
-        if (value) {
-          this._chips.push(value);
-          this._applyChipClassName(chip, value);
-          this._setupChip(chip);
-        }
-      }
-    }
-    _applyChipClassName(chip, value) {
-      const className = this._resolveChipClassName(value);
-      if (!className) {
-        return;
-      }
-      chip.classList.add(...className.split(/\s+/).filter(Boolean));
-    }
-    _resolveChipClassName(value) {
-      const {
-        chipClassName
-      } = this._config;
-      if (!chipClassName) {
-        return '';
-      }
-      if (typeof chipClassName === 'function') {
-        const resolvedClassName = chipClassName(value);
-        return typeof resolvedClassName === 'string' ? resolvedClassName : '';
-      }
-      return typeof chipClassName === 'string' ? chipClassName : '';
-    }
-    _setupChip(chip) {
-      Chip.getOrCreateInstance(chip, {
-        ariaRemoveLabel: `Remove ${this._getChipValue(chip)}`,
-        disabled: this._disabled,
-        removable: this._config.removable && !this._readonly && !this._disabled,
-        removeIcon: this._config.removeIcon,
-        selectable: this._config.selectable
-      });
-      const removeButton = SelectorEngine.findOne(SELECTOR_CHIP_REMOVE, chip);
-      if (removeButton) {
-        removeButton.disabled = this._disabled || this._readonly;
-      }
-    }
     _applyInteractionState() {
+      const {
+        readonly
+      } = this._config;
       this._element.classList.toggle(CLASS_NAME_DISABLED, this._disabled);
       this._input.disabled = this._disabled;
-      this._input.readOnly = !this._disabled && this._readonly;
+      this._input.readOnly = !this._disabled && readonly;
       this._element.setAttribute('aria-disabled', this._disabled ? 'true' : 'false');
-      this._element.setAttribute('aria-readonly', this._readonly ? 'true' : 'false');
-    }
-    _addEventListeners() {
-      EventHandler.on(this._element, 'keydown', event => {
-        if (event.target === this._input) {
-          return;
-        }
-        if (event.key.length === 1) {
-          this._input.focus();
-        }
-      });
-      EventHandler.on(this._input, 'keydown', event => this._handleInputKeydown(event));
-      EventHandler.on(this._input, 'input', event => this._handleInput(event));
-      EventHandler.on(this._input, 'paste', event => this._handlePaste(event));
-      EventHandler.on(this._input, 'focus', () => this.clearSelection());
-      if (this._config.createOnBlur) {
-        EventHandler.on(this._input, 'blur', event => {
-          var _event$relatedTarget;
-          // Don't create chip if clicking on a chip
-          if (!((_event$relatedTarget = event.relatedTarget) != null && _event$relatedTarget.closest(SELECTOR_CHIP))) {
-            this._createChipFromInput();
-          }
-        });
-      }
-      EventHandler.on(this._element, 'selected.coreui.chip', SELECTOR_CHIP, () => {
-        this._emitSelectionChange();
-      });
-      EventHandler.on(this._element, 'deselected.coreui.chip', SELECTOR_CHIP, () => {
-        this._emitSelectionChange();
-      });
-      EventHandler.on(this._element, 'remove.coreui.chip', SELECTOR_CHIP, event => {
-        if (this._disabled || this._readonly) {
-          event.preventDefault();
-        }
-      });
-      EventHandler.on(this._element, 'removed.coreui.chip', SELECTOR_CHIP, event => {
-        const chip = event.target.closest(SELECTOR_CHIP);
-        if (chip) {
-          this._handleChipRemoved(chip);
-          const focusableChips = SelectorEngine.find(SELECTOR_FOCUSABLE_ITEMS, this._element);
-          if (focusableChips.length > 0) {
-            var _this$_input3;
-            (_this$_input3 = this._input) == null || _this$_input3.focus();
-          }
-          this._emitSelectionChange();
-        }
-      });
-
-      // Focus input when clicking container background
-      EventHandler.on(this._element, 'click', event => {
-        if (event.target === this._element) {
-          var _this$_input4;
-          (_this$_input4 = this._input) == null || _this$_input4.focus();
-        }
-      });
+      this._element.setAttribute('aria-readonly', readonly ? 'true' : 'false');
     }
     _handleInputKeydown(event) {
       const {
@@ -420,20 +259,22 @@
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                const lastChip = chips.at(-1);
-                lastChip.focus();
+                chips.at(-1).focus();
               }
             }
             break;
           }
         case 'ArrowLeft':
+        case 'ArrowRight':
           {
-            if (this._input.selectionStart === 0 && this._input.selectionEnd === 0) {
+            // The arrow pointing toward the chips (left in LTR, right in RTL) jumps
+            // to the last chip when the caret is at the start of the input.
+            const towardChipsKey = index_js.isRTL() ? 'ArrowRight' : 'ArrowLeft';
+            if (key === towardChipsKey && this._input.selectionStart === 0 && this._input.selectionEnd === 0) {
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                const lastChip = chips.at(-1);
-                lastChip.focus();
+                chips.at(-1).focus();
               }
             }
             break;
@@ -448,20 +289,8 @@
         // No default
       }
     }
-    _handleChipRemoved(chip, value = null) {
-      const chipValue = value || this._getChipValue(chip);
-      const valueIndex = this._chips.indexOf(chipValue);
-      if (valueIndex !== -1) {
-        this._chips.splice(valueIndex, 1);
-      }
-      const values = this.getValues();
-      this._hiddenInput.value = values.join(',');
-      EventHandler.trigger(this._element, EVENT_CHANGE, {
-        values
-      });
-    }
     _handleInput(event) {
-      if (this._disabled || this._readonly) {
+      if (!this._canModify()) {
         return;
       }
       const {
@@ -484,7 +313,7 @@
       });
     }
     _handlePaste(event) {
-      if (this._disabled || this._readonly) {
+      if (!this._canModify()) {
         return;
       }
       const {

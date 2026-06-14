@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.7.1 (https://coreui.io)
+ * CoreUI  v5.8.0 (https://coreui.io)
  * Copyright (c) 2026 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -7644,6 +7644,19 @@ textarea.form-control-lg {
   border-radius: var(--cui-chip-img-border-radius);
 }
 
+.chip-check {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  margin-inline-start: calc(var(--cui-chip-gap) * -0.25);
+}
+.chip-check > svg {
+  display: block;
+  width: var(--cui-chip-icon-size);
+  height: var(--cui-chip-icon-size);
+}
+
 .chip-remove {
   display: flex;
   flex-shrink: 0;
@@ -7772,6 +7785,13 @@ textarea.form-control-lg {
   --cui-contrast: var(--cui-dark-contrast);
   --cui-text-emphasis: var(--cui-dark-text-emphasis);
   --cui-focus-ring-color: rgba(var(--cui-dark-rgb), var(--cui-focus-ring-opacity));
+}
+
+.chip-set {
+  --cui-chip-set-gap: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cui-chip-set-gap);
 }
 
 .avatar {
@@ -8211,6 +8231,7 @@ textarea.form-control-lg {
 .search-button-keys {
   display: inline-flex;
   gap: var(--cui-search-button-keys-gap);
+  margin-inline-start: auto;
 }
 
 .search-button-key {
