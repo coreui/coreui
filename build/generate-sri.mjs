@@ -20,12 +20,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 sh.config.fatal = true
 
-const configFile = path.join(__dirname, '../hugo.yml')
+// Write the hashes into the Bootstrap-shaped `config.yml` the Astro docs read via
+// [[config:...]].
+const configFiles = [path.join(__dirname, '../config.yml')]
 const isCanaryVersion = pkg.version.includes('canary')
 
 // Array of objects which holds the files to generate SRI hashes for.
 // `file` is the path from the root folder
-// `configPropertyName` is the hugo.yml variable's name of the file
+// `configPropertyName` is the config.yml variable's name of the file
 const files = [
   {
     file: 'dist/css/coreui.min.css',
@@ -78,6 +80,8 @@ for (const { file, configPropertyName } of files) {
 
     console.log(`${propertyName}: ${integrity}`)
 
-    sh.sed('-i', new RegExp(`^(\\s+${propertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
+    for (const configFile of configFiles) {
+      sh.sed('-i', new RegExp(`^(\\s+${propertyName}:\\s+["'])\\S*(["'])`), `$1${integrity}$2`, configFile)
+    }
   })
 }

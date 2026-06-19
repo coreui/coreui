@@ -1,0 +1,41 @@
+---
+title: "Bootstrap 5 Close Button"
+name: "Close button"
+description: "A generic close button for dismissing content like modals and alerts."
+otherFrameworks:
+  - close-button
+---
+
+## Example
+
+Provide an option to dismiss or close a component with `.btn-close`. Default styling is limited, but highly customizable. Modify the Sass variables to replace the default `background-image`. **Be sure to include text for screen readers**, as we've done with `aria-label`.
+
+<Example lang="html" name="components-close-button-1" componentName="Close button" code={[`<button type="button" class="btn-close" aria-label="Close"></button>`]} html={[`<button type="button" class="btn-close" aria-label="Close"></button>`]} />
+
+## Disabled state
+
+Disabled close buttons change their `opacity`. We've also applied `pointer-events: none` and `user-select: none` to preventing hover and active states from triggering.
+
+<Example lang="html" name="components-close-button-2" componentName="Close button" code={[`<button type="button" class="btn-close" disabled aria-label="Close"></button>`]} html={[`<button type="button" class="btn-close" disabled aria-label="Close"></button>`]} />
+
+## Dark variant
+
+
+
+<Callout color="warning">
+**Heads up!** As of v5.0.0, the `.btn-close-white` class is deprecated. Instead, use `data-coreui-theme="dark"` to change the color mode of the close button.
+</Callout>
+
+Add `data-coreui-theme="dark"` to the `.btn-close`, or to its parent element, to invert the close button. This uses the `filter` property to invert the `background-image` without overriding its value.
+
+<Example lang="html" name="components-close-button-3" componentName="Close button" class="bg-dark" code={[`<div data-coreui-theme="dark">`, `  <button type="button" class="btn-close" aria-label="Close"></button>`, `  <button type="button" class="btn-close" disabled aria-label="Close"></button>`, `</div>`]} html={[`<div data-coreui-theme="dark">`, `  <button type="button" class="btn-close" aria-label="Close"></button>`, `  <button type="button" class="btn-close" disabled aria-label="Close"></button>`, `</div>`]} />
+
+## Customizing
+
+### SASS variables
+
+<ScssDocs file="scss/_variables.scss" capture="close-variables" />
+
+
+
+

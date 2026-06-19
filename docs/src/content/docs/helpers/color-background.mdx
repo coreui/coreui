@@ -1,0 +1,28 @@
+---
+title: "Bootstrap 5 Color & Background"
+name: "Color & background"
+description: "Set a background color with contrasting foreground color."
+---
+
+## Overview
+
+<AddedIn version="4.2.6" />
+
+Color and background helpers combine the power of our [`.text-*` utilities](/utilities/colors/) and [`.bg-*` utilities](/utilities/background/) in one class. Using our Sass `color-contrast()` function, we automatically determine a contrasting `color` for a particular `background-color`.
+
+<Callout color="warning">
+**Heads up!** There's currently no support for a CSS-native `color-contrast` function, so we use our own via Sass. This means that customizing our theme colors via CSS variables may cause color contrast issues with these utilities.
+</Callout>
+
+<Example lang="html" name="helpers-color-background-1" componentName="Color & background" code={[`<div class="text-bg-primary p-3">Primary with contrasting color</div>`, `<div class="text-bg-secondary p-3">Secondary with contrasting color</div>`, `<div class="text-bg-success p-3">Success with contrasting color</div>`, `<div class="text-bg-danger p-3">Danger with contrasting color</div>`, `<div class="text-bg-warning p-3">Warning with contrasting color</div>`, `<div class="text-bg-info p-3">Info with contrasting color</div>`]} html={[`<div class="text-bg-primary p-3">Primary with contrasting color</div>`, `<div class="text-bg-secondary p-3">Secondary with contrasting color</div>`, `<div class="text-bg-success p-3">Success with contrasting color</div>`, `<div class="text-bg-danger p-3">Danger with contrasting color</div>`, `<div class="text-bg-warning p-3">Warning with contrasting color</div>`, `<div class="text-bg-info p-3">Info with contrasting color</div>`]} />
+
+## With components
+
+Use them in place of combined `.text-*` and `.bg-*` classes, like on [badges](/components/badge/#background-colors):
+
+<Example lang="html" name="helpers-color-background-2" componentName="Color & background" code={[`<span class="badge text-bg-primary">Primary</span>`, `<span class="badge text-bg-info">Info</span>`]} html={[`<span class="badge text-bg-primary">Primary</span>`, `<span class="badge text-bg-info">Info</span>`]} />
+
+Or on [cards](/components/card/#background-and-color):
+
+<Example lang="html" name="helpers-color-background-3" componentName="Color & background" code={[`<div class="card text-bg-primary mb-3" style="max-width: 18rem;">`, `  <div class="card-header">Header</div>`, `  <div class="card-body">`, `    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>`, `  </div>`, `</div>`, `<div class="card text-bg-info mb-3" style="max-width: 18rem;">`, `  <div class="card-header">Header</div>`, `  <div class="card-body">`, `    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>`, `  </div>`, `</div>`]} html={[`<div class="card text-bg-primary mb-3" style="max-width: 18rem;">`, `  <div class="card-header">Header</div>`, `  <div class="card-body">`, `    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>`, `  </div>`, `</div>`, `<div class="card text-bg-info mb-3" style="max-width: 18rem;">`, `  <div class="card-header">Header</div>`, `  <div class="card-body">`, `    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>`, `  </div>`, `</div>`]} />
+

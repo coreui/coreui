@@ -19,10 +19,10 @@ export default [
       '**/dist/',
       '**/vendor/',
       '.babelrc.js',
-      '_gh_pages/',
-      'js/coverage/',
-      'docs/static/sw.js',
-      'docs/layouts/partials/'
+      '_site/',
+      'docs/',
+      'docs-old/',
+      'js/coverage/'
     ]
   },
   {
@@ -181,41 +181,6 @@ export default [
         ...globals.node
       },
       sourceType: 'commonjs'
-    }
-  },
-  {
-    files: ['docs/**'],
-    languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...Object.fromEntries(
-          Object.entries(globals.node).map(([key]) => [key, 'off'])
-        )
-      },
-      ecmaVersion: 2019,
-      sourceType: 'script'
-    },
-    rules: {
-      'no-new': 'off',
-      'unicorn/no-array-for-each': 'off'
-    }
-  },
-  {
-    files: ['docs/assets/js/**'],
-    languageOptions: {
-      globals: {
-        ...globals.browser
-      },
-      ecmaVersion: 2020,
-      sourceType: 'module'
-    }
-  },
-  {
-    files: ['docs/static/assets/js/**'],
-    languageOptions: {
-      globals: {
-        ...globals.browser
-      }
     }
   },
   {

@@ -1,0 +1,288 @@
+- title: Getting started
+  icon: <rect width="32" height="32" x="144" y="464" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><rect width="32" height="32" x="240" y="464" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><rect width="32" height="32" x="336" y="464" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><path fill="var(--ci-primary-color, currentColor)" d="M312,76.82v34.265a142.419,142.419,0,0,1,86.207,130.708C398.207,320.206,334.413,384,256,384S113.793,320.206,113.793,241.793A142.419,142.419,0,0,1,200,111.085V76.82c-68.671,23.373-118.207,88.5-118.207,164.973C81.793,337.851,159.942,416,256,416s174.207-78.149,174.207-174.207C430.207,165.316,380.671,100.193,312,76.82Z" class="ci-primary"></path><rect width="32" height="229.793" x="240" y="16" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect>
+  pages:
+    - title: Introduction
+      to: /getting-started/introduction/
+    - title: Download
+      to: /getting-started/download/
+    - title: Contents
+      to: /getting-started/contents/
+    - title: Browsers & devices
+      to: /getting-started/browsers-devices/
+    - title: JavaScript
+      to: /getting-started/javascript/
+    - title: Webpack
+      to: /getting-started/webpack/
+    - title: Parcel
+      to: /getting-started/parcel/
+    - title: Vite
+      to: /getting-started/vite/
+    - title: Accessibility
+      to: /getting-started/accessibility/
+    - title: RFS
+      to: /getting-started/rfs/
+    - title: RTL
+      to: /getting-started/rtl/
+- title: Integration guides
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M152,16V120H88V311.005l104,96v89H320V407.005l104-96V120H360V16H328V120H184V16ZM392,152V297L288,393V464H224V393L120,297V152Z" class="ci-primary"/>
+  pages:
+    - title: Laravel
+      to: /integration-guides/laravel/
+- title: Customize
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M425.514,82.055C380.778,39.458,320.673,16,256.271,16,196.248,16,136.415,36.073,92.115,71.071,43.032,109.85,16,164.161,16,224c0,60.1,15.531,98.87,48.876,122.019,28,19.438,68.412,27.731,135.124,27.731h29.75A26.28,26.28,0,0,1,256,400v47.984a32,32,0,0,0,32,32h.032l90.755-.088a32.094,32.094,0,0,0,19.686-6.8c9.725-7.622,34.727-29.4,56.8-66.9C482.3,360.262,496,307.037,496,248,496,184.268,470.968,125.334,425.514,82.055Zm2.173,307.915c-19.3,32.792-40.663,51.447-48.932,57.926L288,447.984V400a58.316,58.316,0,0,0-58.25-58.25H200c-59.69,0-94.644-6.585-116.876-22.019C58.833,302.869,48,273.344,48,224,48,113.833,153.9,48,256.271,48,372.755,48,464,135.851,464,248,464,301.253,451.782,349.019,427.687,389.97Z" class="ci-primary"/><path fill="var(--ci-primary-color, currentColor)" d="M128,144a56,56,0,1,0,56,56A56.064,56.064,0,0,0,128,144Zm0,80a24,24,0,1,1,24-24A24.027,24.027,0,0,1,128,224Z" class="ci-primary"/><path fill="var(--ci-primary-color, currentColor)" d="M240,72a56,56,0,1,0,56,56A56.064,56.064,0,0,0,240,72Zm0,80a24,24,0,1,1,24-24A24.027,24.027,0,0,1,240,152Z" class="ci-primary"/><path fill="var(--ci-primary-color, currentColor)" d="M360,128a56,56,0,1,0,56,56A56.064,56.064,0,0,0,360,128Zm0,80a24,24,0,1,1,24-24A24.027,24.027,0,0,1,360,208Z" class="ci-primary"/><path fill="var(--ci-primary-color, currentColor)" d="M376,264a56,56,0,1,0,56,56A56.064,56.064,0,0,0,376,264Zm0,80a24,24,0,1,1,24-24A24.027,24.027,0,0,1,376,344Z" class="ci-primary"/>
+  pages:
+    - title: Overview
+      to: /customize/overview/
+    - title: Sass
+      to: /customize/sass/
+    - title: Options
+      to: /customize/options/
+    - title: Color
+      to: /customize/color/
+    - title: Color modes
+      to: /customize/color-modes/
+    - title: Components
+      to: /customize/components/
+    - title: CSS variables
+      to: /customize/css-variables/
+    - title: Optimize
+      to: /customize/optimize/
+- title: Layout
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M16,64V448H496V64ZM464,240H192V96H464ZM192,272H312V416H192ZM48,96H160V416H48ZM344,416V272H464V416Z" class="ci-primary"></path>
+  pages:
+    - title: Breakpoints
+      to: /layout/breakpoints/
+    - title: Containers
+      to: /layout/containers/
+    - title: Grid
+      to: /layout/grid/
+    - title: Columns
+      to: /layout/columns/
+    - title: Gutters
+      to: /layout/gutters/
+    - title: Utilities
+      to: /layout/utilities/
+    - title: Z-index
+      to: /layout/z-index/
+    - title: CSS Grid
+      to: /layout/css-grid/
+    - title: Container queries Grid
+      to: /layout/container-queries-grid/
+- title: Content
+  icon: |-
+    <path fill="var(--ci-primary-color, currentColor)" d="M136,24H16V144H136Zm-32,88H48V56h56Z" class="ci-primary"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M136,200H16V320H136Zm-32,88H48V232h56Z" class="ci-primary"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M136,376H16V496H136Zm-32,88H48V408h56Z" class="ci-primary"/>
+      <rect width="320" height="32" x="176" y="23.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+      <rect width="256" height="32" x="176" y="111.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+      <rect width="320" height="32" x="176" y="199.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+      <rect width="256" height="32" x="176" y="287.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+      <rect width="256" height="32" x="176" y="463.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+      <rect width="320" height="32" x="176" y="375.998" fill="var(--ci-primary-color, currentColor)" class="ci-primary"/>
+  pages:
+    - title: Reboot
+      to: /content/reboot/
+    - title: Typography
+      to: /content/typography/
+    - title: Images
+      to: /content/images/
+    - title: Tables
+      to: /content/tables/
+    - title: Figures
+      to: /content/figures/
+- title: Forms
+  icon: <rect width="288" height="32" x="112" y="152" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><rect width="288" height="32" x="112" y="240" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><rect width="152" height="32" x="112" y="328" fill="var(--ci-primary-color, currentColor)" class="ci-primary"></rect><path fill="var(--ci-primary-color, currentColor)" d="M480,48H32V464H480ZM448,432H64V80H448Z" class="ci-primary"></path>
+  pages:
+    - title: Overview
+      to: /forms/overview/
+    - title: Form control
+      to: /forms/form-control/
+    - title: Select
+      to: /forms/select/
+    - title: Checks & radios
+      to: /forms/checks-radios/
+    - title: Range
+      to: /forms/range/
+    - title: Input group
+      to: /forms/input-group/
+    - title: Floating labels
+      to: /forms/floating-labels/
+    - title: Chip input
+      to: /forms/chip-input/
+    - title: Layout
+      to: /forms/layout/
+    - title: Validation
+      to: /forms/validation/
+- title: Components
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M410.989,16H101.011L16,237.029V496H496V237.029Zm-288,32H240V240H49.143ZM184,272H328v40H184ZM464,464H48V272H152v72H360V272H464ZM272,240V48H389.012l73.845,192Z" class="ci-primary"></path>
+  pages:
+    - title: Accordion
+      to: /components/accordion/
+    - title: Alerts
+      to: /components/alerts/
+    - title: Avatar
+      to: /components/avatar/
+    - title: Badge
+      to: /components/badge/
+    - title: Breadcrumb
+      to: /components/breadcrumb/
+    - title: Buttons
+      to: /components/buttons/
+    - title: Button group
+      to: /components/button-group/
+    - title: Callout
+      to: /components/callout/
+    - title: Card
+      to: /components/card/
+    - title: Carousel
+      to: /components/carousel/
+    - title: Chip
+      to: /components/chip/
+    - title: Chip set
+      to: /components/chip-set/
+    - title: Close button
+      to: /components/close-button/
+    - title: Collapse
+      to: /components/collapse/
+    - title: Dropdowns
+      to: /components/dropdowns/
+    - title: Footer
+      to: /components/footer/
+    - title: Header
+      to: /components/header/
+    - title: Jumbotron
+      to: /components/jumbotron/
+    - title: List group
+      to: /components/list-group/
+    - title: Modal
+      to: /components/modal/
+    - title: Navbar
+      to: /components/navbar/
+    - title: Navs & tabs
+      to: /components/navs-tabs/
+    - title: Offcanvas
+      to: /components/offcanvas/
+    - title: Pagination
+      to: /components/pagination/
+    - title: Placeholders
+      to: /components/placeholders/
+    - title: Popovers
+      to: /components/popovers/
+    - title: Progress
+      to: /components/progress/
+    - title: Scrollspy
+      to: /components/scrollspy/
+    - title: Search button
+      to: /components/search-button/
+    - title: Sidebar
+      to: /components/sidebar/
+    - title: Spinners
+      to: /components/spinners/
+    - title: Toasts
+      to: /components/toasts/
+    - title: Tooltips
+      to: /components/tooltips/
+- title: Icons
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M487.97,155.853a24.035,24.035,0,0,0-7-18.166L376.126,32.842a24,24,0,0,0-35.546,1.772L250.644,144.536,120.507,171.05a27.1,27.1,0,0,0-20.025,17.026L17.883,405.84a27.268,27.268,0,0,0,6.205,28.917l53.271,53.271a27.263,27.263,0,0,0,28.915,6.207L324.134,411.6a27.144,27.144,0,0,0,16.95-19.655l28.1-128.7L479.2,173.232A24.041,24.041,0,0,0,487.97,155.853Zm-177.6,226.741L97.807,463.222,84.665,450.079l99.36-99.36a56.061,56.061,0,1,0-22.268-22.986l-99.72,99.72L48.894,414.31,129.47,201.881l124.717-25.41,83.052,83.051ZM187.42,301.9a24,24,0,1,1,24,24A24,24,0,0,1,187.42,301.9Zm168.391-69.065L280.973,158,359.749,61.72l92.343,92.343Z" class="ci-primary"/>
+  to: /icons/
+  pages: []
+- title: Helpers
+  icon: |-
+    <path fill="var(--ci-primary-color, currentColor)" d="M93.976,276.6,38.211,332.367a32,32,0,0,0,0,45.255l96.167,96.168a32.038,32.038,0,0,0,45.254,0L235.4,418.024l-22.616-22.616L157.02,451.175a.094.094,0,0,1-.015-.013L60.839,355,116.6,299.23Z" class="ci-primary"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M473.789,134.378,377.622,38.21a32.037,32.037,0,0,0-45.254,0L276.6,93.976,299.23,116.6,355,60.838l96.166,96.167L395.4,212.772,418.024,235.4l55.765-55.764a32,32,0,0,0,0-45.255Z" class="ci-primary"/>
+      <rect width="21.941" height="21.941" x="245.515" y="196.544" fill="var(--ci-primary-color, currentColor)" class="ci-primary" transform="rotate(-45 256.485 207.514)"/>
+      <rect width="21.941" height="21.941" x="245.515" y="293.515" fill="var(--ci-primary-color, currentColor)" class="ci-primary" transform="rotate(-45 256.487 304.486)"/>
+      <rect width="21.941" height="21.941" x="294" y="245.029" fill="var(--ci-primary-color, currentColor)" class="ci-primary" transform="rotate(-45 304.969 256)"/>
+      <rect width="21.941" height="21.941" x="197.029" y="245.029" fill="var(--ci-primary-color, currentColor)" class="ci-primary" transform="rotate(-45 208 256)"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M321.3,462.705a47.988,47.988,0,0,0,67.641-.23l73.539-73.539a48,48,0,0,0,0-67.882l-7.764-7.765-240-240L190.946,49.525a48,48,0,0,0-67.882,0l-73.54,73.539h0a48,48,0,0,0,0,67.882l31.764,31.765L321.054,462.475C321.133,462.553,321.216,462.626,321.3,462.705ZM72.152,168.319a16,16,0,0,1,0-22.628l73.539-73.539a16,16,0,0,1,22.628,0l65.054,65.054-96.167,96.167ZM159.833,256,256,159.833,352.171,256l-96.162,96.172Zm214.961,22.627,65.054,65.054a16,16,0,0,1,0,22.628l-73.539,73.539a16,16,0,0,1-22.628,0l-65.054-65.054Z" class="ci-primary"/>
+  pages:
+    - title: Clearfix
+      to: /helpers/clearfix/
+    - title: Color & background
+      to: /helpers/color-background/
+    - title: Colored links
+      to: /helpers/colored-links/
+    - title: Focus ring
+      to: /helpers/focus-ring/
+    - title: Icon link
+      to: /helpers/icon-link/
+    - title: Position
+      to: /helpers/position/
+    - title: Ratio
+      to: /helpers/ratio/
+    - title: Stacks
+      to: /helpers/stacks/
+    - title: Stretched link
+      to: /helpers/stretched-link/
+    - title: Text truncation
+      to: /helpers/text-truncation/
+    - title: Vertical rule
+      to: /helpers/vertical-rule/
+    - title: Visually hidden
+      to: /helpers/visually-hidden/
+- title: Utilities
+  icon: |-
+    <path fill="var(--ci-primary-color, currentColor)" d="M40,496H472a24.028,24.028,0,0,0,24-24V400a24.028,24.028,0,0,0-24-24H40a24.028,24.028,0,0,0-24,24v72A24.028,24.028,0,0,0,40,496Zm8-88H464v56H48Z" class="ci-primary"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M45.01,239.489a50.2,50.2,0,0,0,36.2,61.07l158.5,40.524h0a50.174,50.174,0,0,0,61.07-36.2L353.742,97.745,97.969,32.352,85.959,79.326l-58-14.827-7.926,31,58,14.828ZM121.045,71.281l193.767,49.54L294.568,200H88.135ZM286.387,232,269.78,296.956a18.221,18.221,0,0,1-22.141,13.125h0l-158.5-40.525a18.22,18.22,0,0,1-13.124-22.14L80,231.82V232Z" class="ci-primary"/>
+      <path fill="var(--ci-primary-color, currentColor)" d="M420,352c37.5,0,68-32.3,68-72,0-16.181-9.341-38.514-28.559-68.277-13.285-20.576-26.39-37.021-26.941-37.711L420,158.37l-12.5,15.642c-.551.69-13.656,17.135-26.941,37.711C361.341,241.486,352,263.819,352,280,352,319.7,382.505,352,420,352Zm0-141.441C437.658,235.2,456,265.985,456,280c0,22.056-16.149,40-36,40s-36-17.944-36-40C384,265.985,402.343,235.2,420,210.559Z" class="ci-primary"/>
+  pages:
+    - title: API
+      to: /utilities/api/
+    - title: Background
+      to: /utilities/background/
+    - title: Borders
+      to: /utilities/borders/
+    - title: Colors
+      to: /utilities/colors/
+    - title: Display
+      to: /utilities/display/
+    - title: Flex
+      to: /utilities/flex/
+    - title: Float
+      to: /utilities/float/
+    - title: Interactions
+      to: /utilities/interactions/
+    - title: Link
+      to: /utilities/link/
+    - title: Object fit
+      to: /utilities/object-fit/
+    - title: Opacity
+      to: /utilities/opacity/
+    - title: Overflow
+      to: /utilities/overflow/
+    - title: Position
+      to: /utilities/position/
+    - title: Shadows
+      to: /utilities/shadows/
+    - title: Sizing
+      to: /utilities/sizing/
+    - title: Spacing
+      to: /utilities/spacing/
+    - title: Text
+      to: /utilities/text/
+    - title: Vertical align
+      to: /utilities/vertical-align/
+    - title: Visibility
+      to: /utilities/visibility/
+    - title: Z-index
+      to: /utilities/z-index/
+- title: Templates
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M472,232H424V120a24.028,24.028,0,0,0-24-24H40a24.028,24.028,0,0,0-24,24V366a24.028,24.028,0,0,0,24,24H212v50H152v32H304V440H244V390h92v58a24.027,24.027,0,0,0,24,24H472a24.027,24.027,0,0,0,24-24V256A24.027,24.027,0,0,0,472,232ZM336,256V358H48V128H392V232H360A24.027,24.027,0,0,0,336,256ZM464,440H368V264h96Z" class="ci-primary"/>
+  pages:
+    - title: Admin & Dashboard
+      to: /templates/admin-dashboard/
+    - title: Download
+      to: /templates/download/
+    - title: Installation
+      to: /templates/installation/
+    - title: Customize
+      to: /templates/customize/
+    - title: Contents
+      to: /templates/contents/
+- title: Migration
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M464,256.25C464,370.8,370.8,464,256.25,464S48.5,370.8,48.5,256.25,141.7,48.5,256.25,48.5a208,208,0,0,1,149.963,64H328.5v32h128V16.5h-32V85.478A239.717,239.717,0,1,0,496,256.25Z" class="ci-primary"></path><polygon fill="var(--ci-primary-color, currentColor)" points="272.5 112.451 240.5 112.549 241.017 282.756 353.301 334.53 366.699 305.47 272.954 262.244 272.5 112.451" class="ci-primary"></polygon>
+  pages:
+    - title: v4
+      to: /migration/v4/
+    - title: v5
+      to: /migration/v5/

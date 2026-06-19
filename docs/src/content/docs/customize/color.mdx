@@ -1,0 +1,841 @@
+---
+title: "Color"
+description: "CoreUI for Bootstrap is supported by an extensive color system that themes our styles and components. This enables more comprehensive customization and extension for any project."
+---
+
+## Colors
+
+<AddedIn version="5.0.0" />
+
+Bootstrap's color palette has continued to expand and become more nuanced in v5.0.0. We've added new variables for `secondary` and `tertiary` text and background colors, plus `{color}-bg-subtle`, `{color}-border-subtle`, and `{color}-text-emphasis` for our theme colors. These new colors are available through Sass and CSS variables (but not our color maps or utility classes) with the express goal of making it easier to customize across multiple colors modes like light and dark. These new variables are globally set on `:root` and are adapted for our new dark color mode while our original theme colors remain unchanged.
+
+Colors ending in `-rgb` provide the `red, green, blue` values for use in `rgb()` and `rgba()` color modes. For example, `rgba(var(--cui-secondary-bg-rgb), .5)`.
+
+
+**Heads up!** There's some potential confusion with our new secondary and tertiary colors, and our existing secondary theme color, as well as our light and dark theme colors. Expect this to be ironed out in v6.
+
+
+<table class="table table-swatches">
+  <thead>
+    <tr>
+      <th style="width: 340px;">Description</th>
+      <th style="width: 200px;" class="ps-0">Swatch</th>
+      <th>Variables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2">
+        **Body —** Default foreground (color) and background, including components.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-body-color);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-body-color`<br />`--cui-body-color-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-body-bg);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-body-bg`<br />`--cui-body-bg-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        **Secondary —** Use the `color` option for lighter text. Use the `bg` option for dividers and to indicate disabled component states.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-secondary-color);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-secondary-color`<br />`--cui-secondary-color-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-secondary-bg);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-secondary-bg`<br />`--cui-secondary-bg-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="2">
+        **Tertiary —** Use the `color` option for even lighter text. Use the `bg` option to style backgrounds for hover states, accents, and wells.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-tertiary-color);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-tertiary-color`<br />`--cui-tertiary-color-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2 border" style="background-color: var(--cui-tertiary-bg);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-tertiary-bg`<br />`--cui-tertiary-bg-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Emphasis —** For higher contrast text. Not applicable for backgrounds.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-emphasis-color);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-emphasis-color`<br />`--cui-emphasis-color-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        **Border —** For component borders, dividers, and rules. Use `--cui-border-color-translucent` to blend with backgrounds with an `rgba()` value.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2" style="background-color: var(--cui-border-color);">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-border-color`<br />`--cui-border-color-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Primary —** Main theme color, used for hyperlinks, focus styles, and component and form active states.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-primary">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-primary`<br />`--cui-primary-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-primary-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-primary-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-primary-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-primary-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-primary-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-primary-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Success —** Theme color used for positive or successful actions and information.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-success">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-success`<br />`--cui-success-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-success-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-success-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-success-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-success-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-success-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-success-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Danger —** Theme color used for errors and dangerous actions.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-danger">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-danger`<br />`--cui-danger-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-danger-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-danger-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-danger-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-danger-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-danger-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-danger-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Warning —** Theme color used for non-destructive warning messages.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-warning">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-warning`<br />`--cui-warning-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-warning-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-warning-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-warning-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-warning-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-warning-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-warning-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Info —** Theme color used for neutral and informative content.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-info">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-info`<br />`--cui-info-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-info-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-info-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-info-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-info-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-info-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-info-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Light —** Additional theme option for less contrasting colors.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-light">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-light`<br />`--cui-light-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-light-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-light-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-light-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-light-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-light-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-light-text-emphasis`
+      </td>
+    </tr>
+    <tr>
+      <td rowspan="4">
+        **Dark —** Additional theme option for higher contrasting colors.
+      </td>
+      <td class="ps-0">
+        <div class="p-3 rounded-2 bg-dark">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-dark`<br />`--cui-dark-rgb`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="background-color: var(--cui-dark-bg-subtle)">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-dark-bg-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="p-3 rounded-2" style="border: 5px var(--cui-dark-border-subtle) solid">&nbsp;</div>
+      </td>
+      <td>
+        `--cui-dark-border-subtle`
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="py-3 fw-bold h5" style="color: var(--cui-dark-text-emphasis)">Text</div>
+      </td>
+      <td>
+        `--cui-dark-text-emphasis`
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+### Using the new colors
+
+These new colors are accessible via CSS variables and utility classes—like `--cui-primary-bg-subtle` and `.bg-primary-subtle`—allowing you to compose your own CSS rules with the variables, or to quickly apply styles via classes. The utilities are built with the color's associated CSS variables, and since we customize those CSS variables for dark mode, they are also adaptive to color mode by default.
+
+<Example lang="html" name="customize-color-1" componentName="Color" code={[`<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">`, `  Example element with utilities`, `</div>`]} html={[`<div class="p-3 text-primary-emphasis bg-primary-subtle border border-primary-subtle rounded-3">`, `  Example element with utilities`, `</div>`]} />
+
+## Theme colors
+
+We use a subset of all colors to create a smaller color palette for generating color schemes, also available as Sass variables and a Sass map in CoreUI for Bootstrap's `scss/_variables.scss` file.
+
+<div class="row">
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-primary rounded-3">Primary</div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-secondary rounded-3">Secondary</div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-success rounded-3">Success</div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-danger rounded-3">Danger</div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-warning rounded-3">Warning</div>
+    </div>
+  
+    <div class="col-md-4">
+      <div class="p-3 mb-3 text-bg-info rounded-3">Info</div>
+    </div>
+  
+</div>
+
+All these colors are available as a Sass map, `$theme-colors`.
+
+<ScssDocs file="scss/_variables.scss" capture="theme-colors-map" />
+
+Check out [our Sass maps and loops docs](/customize/sass/#maps-and-loops) for how to modify these colors.
+
+## All colors
+
+All CoreUI for Bootstrap colors are available as Sass variables and a Sass map in `scss/_variables.scss` file. To avoid increased file sizes, we don't create text or background color classes for each of these variables. Instead, we choose a subset of these colors for a [theme palette](#theme-colors).
+
+Be sure to monitor contrast ratios as you customize colors. As shown below, we've added three contrast ratios to each of the main colors—one for the swatch's current colors, one for against white, and one for against black.
+
+<div class="row font-monospace">
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-blue">
+        <strong class="d-block">$blue</strong>
+        #0d6efd
+      </div>
+      
+      <div class="p-3 docs-blue-100">$blue-100</div>
+      
+      <div class="p-3 docs-blue-200">$blue-200</div>
+      
+      <div class="p-3 docs-blue-300">$blue-300</div>
+      
+      <div class="p-3 docs-blue-400">$blue-400</div>
+      
+      <div class="p-3 docs-blue-500">$blue-500</div>
+      
+      <div class="p-3 docs-blue-600">$blue-600</div>
+      
+      <div class="p-3 docs-blue-700">$blue-700</div>
+      
+      <div class="p-3 docs-blue-800">$blue-800</div>
+      
+      <div class="p-3 docs-blue-900">$blue-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-indigo">
+        <strong class="d-block">$indigo</strong>
+        #6610f2
+      </div>
+      
+      <div class="p-3 docs-indigo-100">$indigo-100</div>
+      
+      <div class="p-3 docs-indigo-200">$indigo-200</div>
+      
+      <div class="p-3 docs-indigo-300">$indigo-300</div>
+      
+      <div class="p-3 docs-indigo-400">$indigo-400</div>
+      
+      <div class="p-3 docs-indigo-500">$indigo-500</div>
+      
+      <div class="p-3 docs-indigo-600">$indigo-600</div>
+      
+      <div class="p-3 docs-indigo-700">$indigo-700</div>
+      
+      <div class="p-3 docs-indigo-800">$indigo-800</div>
+      
+      <div class="p-3 docs-indigo-900">$indigo-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-purple">
+        <strong class="d-block">$purple</strong>
+        #6f42c1
+      </div>
+      
+      <div class="p-3 docs-purple-100">$purple-100</div>
+      
+      <div class="p-3 docs-purple-200">$purple-200</div>
+      
+      <div class="p-3 docs-purple-300">$purple-300</div>
+      
+      <div class="p-3 docs-purple-400">$purple-400</div>
+      
+      <div class="p-3 docs-purple-500">$purple-500</div>
+      
+      <div class="p-3 docs-purple-600">$purple-600</div>
+      
+      <div class="p-3 docs-purple-700">$purple-700</div>
+      
+      <div class="p-3 docs-purple-800">$purple-800</div>
+      
+      <div class="p-3 docs-purple-900">$purple-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-pink">
+        <strong class="d-block">$pink</strong>
+        #d63384
+      </div>
+      
+      <div class="p-3 docs-pink-100">$pink-100</div>
+      
+      <div class="p-3 docs-pink-200">$pink-200</div>
+      
+      <div class="p-3 docs-pink-300">$pink-300</div>
+      
+      <div class="p-3 docs-pink-400">$pink-400</div>
+      
+      <div class="p-3 docs-pink-500">$pink-500</div>
+      
+      <div class="p-3 docs-pink-600">$pink-600</div>
+      
+      <div class="p-3 docs-pink-700">$pink-700</div>
+      
+      <div class="p-3 docs-pink-800">$pink-800</div>
+      
+      <div class="p-3 docs-pink-900">$pink-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-red">
+        <strong class="d-block">$red</strong>
+        #dc3545
+      </div>
+      
+      <div class="p-3 docs-red-100">$red-100</div>
+      
+      <div class="p-3 docs-red-200">$red-200</div>
+      
+      <div class="p-3 docs-red-300">$red-300</div>
+      
+      <div class="p-3 docs-red-400">$red-400</div>
+      
+      <div class="p-3 docs-red-500">$red-500</div>
+      
+      <div class="p-3 docs-red-600">$red-600</div>
+      
+      <div class="p-3 docs-red-700">$red-700</div>
+      
+      <div class="p-3 docs-red-800">$red-800</div>
+      
+      <div class="p-3 docs-red-900">$red-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-orange">
+        <strong class="d-block">$orange</strong>
+        #fd7e14
+      </div>
+      
+      <div class="p-3 docs-orange-100">$orange-100</div>
+      
+      <div class="p-3 docs-orange-200">$orange-200</div>
+      
+      <div class="p-3 docs-orange-300">$orange-300</div>
+      
+      <div class="p-3 docs-orange-400">$orange-400</div>
+      
+      <div class="p-3 docs-orange-500">$orange-500</div>
+      
+      <div class="p-3 docs-orange-600">$orange-600</div>
+      
+      <div class="p-3 docs-orange-700">$orange-700</div>
+      
+      <div class="p-3 docs-orange-800">$orange-800</div>
+      
+      <div class="p-3 docs-orange-900">$orange-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-yellow">
+        <strong class="d-block">$yellow</strong>
+        #ffc107
+      </div>
+      
+      <div class="p-3 docs-yellow-100">$yellow-100</div>
+      
+      <div class="p-3 docs-yellow-200">$yellow-200</div>
+      
+      <div class="p-3 docs-yellow-300">$yellow-300</div>
+      
+      <div class="p-3 docs-yellow-400">$yellow-400</div>
+      
+      <div class="p-3 docs-yellow-500">$yellow-500</div>
+      
+      <div class="p-3 docs-yellow-600">$yellow-600</div>
+      
+      <div class="p-3 docs-yellow-700">$yellow-700</div>
+      
+      <div class="p-3 docs-yellow-800">$yellow-800</div>
+      
+      <div class="p-3 docs-yellow-900">$yellow-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-green">
+        <strong class="d-block">$green</strong>
+        #198754
+      </div>
+      
+      <div class="p-3 docs-green-100">$green-100</div>
+      
+      <div class="p-3 docs-green-200">$green-200</div>
+      
+      <div class="p-3 docs-green-300">$green-300</div>
+      
+      <div class="p-3 docs-green-400">$green-400</div>
+      
+      <div class="p-3 docs-green-500">$green-500</div>
+      
+      <div class="p-3 docs-green-600">$green-600</div>
+      
+      <div class="p-3 docs-green-700">$green-700</div>
+      
+      <div class="p-3 docs-green-800">$green-800</div>
+      
+      <div class="p-3 docs-green-900">$green-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-teal">
+        <strong class="d-block">$teal</strong>
+        #20c997
+      </div>
+      
+      <div class="p-3 docs-teal-100">$teal-100</div>
+      
+      <div class="p-3 docs-teal-200">$teal-200</div>
+      
+      <div class="p-3 docs-teal-300">$teal-300</div>
+      
+      <div class="p-3 docs-teal-400">$teal-400</div>
+      
+      <div class="p-3 docs-teal-500">$teal-500</div>
+      
+      <div class="p-3 docs-teal-600">$teal-600</div>
+      
+      <div class="p-3 docs-teal-700">$teal-700</div>
+      
+      <div class="p-3 docs-teal-800">$teal-800</div>
+      
+      <div class="p-3 docs-teal-900">$teal-900</div>
+      
+    </div>
+    
+  
+    
+    <div class="col-md-4 mb-3">
+      <div class="p-3 mb-2 position-relative swatch-cyan">
+        <strong class="d-block">$cyan</strong>
+        #0dcaf0
+      </div>
+      
+      <div class="p-3 docs-cyan-100">$cyan-100</div>
+      
+      <div class="p-3 docs-cyan-200">$cyan-200</div>
+      
+      <div class="p-3 docs-cyan-300">$cyan-300</div>
+      
+      <div class="p-3 docs-cyan-400">$cyan-400</div>
+      
+      <div class="p-3 docs-cyan-500">$cyan-500</div>
+      
+      <div class="p-3 docs-cyan-600">$cyan-600</div>
+      
+      <div class="p-3 docs-cyan-700">$cyan-700</div>
+      
+      <div class="p-3 docs-cyan-800">$cyan-800</div>
+      
+      <div class="p-3 docs-cyan-900">$cyan-900</div>
+      
+    </div>
+    
+  
+    
+  
+    
+  
+    
+  
+
+  <div class="col-md-4 mb-3">
+    <div class="p-3 mb-2 position-relative swatch-gray-500">
+      <strong class="d-block">$gray-500</strong>
+      #9da5b1
+    </div>
+  
+    <div class="p-3 docs-gray-100">$gray-100</div>
+  
+    <div class="p-3 docs-gray-200">$gray-200</div>
+  
+    <div class="p-3 docs-gray-300">$gray-300</div>
+  
+    <div class="p-3 docs-gray-400">$gray-400</div>
+  
+    <div class="p-3 docs-gray-500">$gray-500</div>
+  
+    <div class="p-3 docs-gray-600">$gray-600</div>
+  
+    <div class="p-3 docs-gray-700">$gray-700</div>
+  
+    <div class="p-3 docs-gray-800">$gray-800</div>
+  
+    <div class="p-3 docs-gray-900">$gray-900</div>
+  
+  </div>
+
+  <div class="col-md-4 mb-3">
+    <div class="p-3 mb-2 docs-black text-white">
+      <strong class="d-block">$black</strong>
+      #000
+    </div>
+    <div class="p-3 mb-2 docs-white border">
+      <strong class="d-block">$white</strong>
+      #fff
+    </div>
+  </div>
+</div>
+
+### Notes on Sass
+
+Sass cannot programmatically generate variables, so we manually created variables for every tint and shade ourselves. We specify the midpoint value (e.g., `$blue-500`) and use custom color functions to tint (lighten) or shade (darken) our colors via Sass's `mix()` color function.
+
+Using `mix()` is not the same as `lighten()` and `darken()`—the former blends the specified color with white or black, while the latter only adjusts the lightness value of each color. The result is a much more complete suite of colors, as [shown in this CodePen demo](https://codepen.io/emdeoh/pen/zYOQOPB).
+
+Our `tint-color()` and `shade-color()` functions use `mix()` alongside our `$theme-color-interval` variable, which specifies a stepped percentage value for each mixed color we produce. See the `scss/_functions.scss` and `scss/_variables.scss` files for the full source code.
+
+## Color Sass maps
+
+CoreUI for Bootstrap's source Sass files include three maps to help you quickly and easily loop over a list of colors and their hex values.
+
+- `$colors` lists all our available base (`500`) colors
+- `$theme-colors` lists all semantically named theme colors (shown below)
+- `$grays` lists all tints and shades of gray
+
+Within `scss/_variables.scss`, you'll find CoreUI for Bootstrap's color variables and Sass map. Here's an example of the `$colors` Sass map:
+
+<ScssDocs file="scss/_variables.scss" capture="colors-map" />
+
+Add, remove, or modify values within the map to update how they're used in many other components. Unfortunately at this time, not _every_ component utilizes this Sass map. Future updates will strive to improve upon this. Until then, plan on making use of the `${color}` variables and this Sass map.
+
+### Example
+
+Here's how you can use these in your Sass:
+
+```scss
+.alpha { color: $purple; }
+.beta {
+  color: $yellow-300;
+  background-color: $indigo-900;
+}
+```
+
+[Color](/utilities/colors/) and [background](/utilities/background/) utility classes are also available for setting `color` and `background-color` using the `500` color values.
+
+## Generating utilities
+
+<AddedIn version="4.1.0" />
+
+Bootstrap doesn't include `color` and `background-color` utilities for every color variable, but you can generate these yourself with our [utility API](/utilities/api/) and our extended Sass maps added in v4.1.0.
+
+1. To start, make sure you've imported our functions, variables, mixins, and utilities.
+2. Use our `map-merge-multiple()` function to quickly merge multiple Sass maps together in a new map.
+3. Merge this new combined map to extend any utility with a `{color}-{level}` class name.
+
+Here's an example that generates text color utilities (e.g., `.text-purple-500`) using the above steps.
+
+<Callout color="info"><Fragment set:html={`<p> <strong>Heads up!</strong> Since <code>@coreui/coreui</code> v5.3.0 and <code>@coreui/coreui-pro</code> v5.10.0, we support Sass modules. </p> <p> You can now use the modern <code>@use</code> and <code>@forward</code> rules instead of <code>@import</code>, which is deprecated and will be removed in Dart Sass 3.0.0. Using <code>@import</code> will result in a compilation warning. You can learn more about this transition <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>. </p>`} /></Callout>
+
+```scss
+@use "sass:map";
+@use "@coreui/coreui/scss/functions/maps" as *;
+@use "@coreui/coreui/scss/variables" as *;
+@use "@coreui/coreui/scss/utilities" as *;
+
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+@use "@coreui/coreui/scss/utilities/api";
+```
+
+<Callout color="warning"><Fragment set:html={`<p> <strong>Sass <code>@import</code> are deprecated and will be removed in Dart Sass 3.0.0.!</strong> </p> <p>You can also use <code>@import</code> rules, but please be aware that they are deprecated and will be removed in Dart Sass 3.0.0, resulting in a compilation warning. You can learn more about this deprecation <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>.</p>`} /></Callout>
+
+```scss
+@import "@coreui/coreui/scss/functions";
+@import "@coreui/coreui/scss/variables";
+@import "@coreui/coreui/scss/maps";
+@import "@coreui/coreui/scss/mixins";
+@import "@coreui/coreui/scss/utilities";
+
+$all-colors: map-merge-multiple($blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+@import "@coreui/coreui/scss/utilities/api";
+```
+
+This will generate new `.text-{color}-{level}` utilities for every color and level. You can do the same for any other utility and property as well.
+

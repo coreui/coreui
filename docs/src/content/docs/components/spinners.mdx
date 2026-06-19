@@ -1,0 +1,132 @@
+---
+title: "Bootstrap 5 Spinners"
+name: "Spinners"
+description: "Indicate the loading state of a component or page with Bootstrap spinners, built entirely with HTML, CSS, and no JavaScript."
+otherFrameworks:
+  - spinner
+---
+
+## About
+
+Bootstrap "spinners" can be used to show the loading state in your projects. They're built only with HTML and CSS, meaning you don't need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility. Their appearance, alignment, and sizing can be easily customized with our amazing utility classes.
+
+For accessibility purposes, each loader here includes `role="status"` and a nested `<span class="visually-hidden">Loading...</span>`.
+
+<Callout color="info">
+This component's animation effect relies on the `prefers-reduced-motion` media query. For more information, refer to the [reduced motion section of our accessibility documentation](/getting-started/accessibility/#reduced-motion).
+</Callout>
+
+## Border spinner
+
+Use the border spinners for a lightweight loading indicator.
+
+<Example lang="html" name="components-spinners-1" componentName="Spinners" code={[`<div class="spinner-border" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-border" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+### Colors
+
+The border spinner uses `currentColor` for its `border-color`, meaning you can customize the color with [text color utilities][color]. You can use any of our text color utilities on the standard spinner.
+
+<Example lang="html" name="components-spinners-2" componentName="Spinners" code={[`<div class="spinner-border text-primary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-secondary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-success" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-danger" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-warning" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-info" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-border text-primary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-secondary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-success" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-danger" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-warning" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-border text-info" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+<Callout color="info">
+**Why not use `border-color` utilities?** Each border spinner specifies a `transparent` border for at least one side, so `.border-{color}` utilities would override that.
+</Callout>
+
+## Growing spinner
+
+If you don't fancy a border spinner, switch to the grow spinner. While it doesn't technically spin, it does repeatedly grow!
+
+<Example lang="html" name="components-spinners-3" componentName="Spinners" code={[`<div class="spinner-grow" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-grow" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+Once again, this spinner is built with `currentColor`, so you can easily change its appearance with [text color utilities][color]. Here it is in blue, along with the supported variants.
+
+<Example lang="html" name="components-spinners-4" componentName="Spinners" code={[`<div class="spinner-grow text-primary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-secondary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-success" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-danger" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-warning" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-info" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-grow text-primary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-secondary" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-success" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-danger" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-warning" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow text-info" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+## Alignment
+
+Spinners in Bootstrap are built with `rem`s, `currentColor`, and `display: inline-flex`. This means they can easily be resized, recolored, and quickly aligned.
+
+### Margin
+
+Use [margin utilities][margin] like `.m-5` for easy spacing.
+
+<Example lang="html" name="components-spinners-5" componentName="Spinners" code={[`<div class="spinner-border m-5" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-border m-5" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+### Placement
+
+Use [flexbox utilities][flex], [float utilities][float], or [text alignment][text] utilities to place spinners exactly where you need them in any situation.
+
+#### Flex
+
+<Example lang="html" name="components-spinners-6" componentName="Spinners" code={[`<div class="d-flex justify-content-center">`, `  <div class="spinner-border" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} html={[`<div class="d-flex justify-content-center">`, `  <div class="spinner-border" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} />
+
+<Example lang="html" name="components-spinners-7" componentName="Spinners" code={[`<div class="d-flex align-items-center">`, `  <strong role="status">Loading...</strong>`, `  <div class="spinner-border ms-auto" aria-hidden="true"></div>`, `</div>`]} html={[`<div class="d-flex align-items-center">`, `  <strong role="status">Loading...</strong>`, `  <div class="spinner-border ms-auto" aria-hidden="true"></div>`, `</div>`]} />
+
+#### Floats
+
+<Example lang="html" name="components-spinners-8" componentName="Spinners" code={[`<div class="clearfix">`, `  <div class="spinner-border float-end" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} html={[`<div class="clearfix">`, `  <div class="spinner-border float-end" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} />
+
+#### Text align
+
+<Example lang="html" name="components-spinners-9" componentName="Spinners" code={[`<div class="text-center">`, `  <div class="spinner-border" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} html={[`<div class="text-center">`, `  <div class="spinner-border" role="status">`, `    <span class="visually-hidden">Loading...</span>`, `  </div>`, `</div>`]} />
+
+## Size
+
+Add `.spinner-border-sm` and `.spinner-grow-sm` to make a smaller spinner that can quickly be used within other components.
+
+<Example lang="html" name="components-spinners-10" componentName="Spinners" code={[`<div class="spinner-border spinner-border-sm" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow spinner-grow-sm" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-border spinner-border-sm" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow spinner-grow-sm" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+Or, use custom CSS or inline styles to change the dimensions as needed.
+
+<Example lang="html" name="components-spinners-11" componentName="Spinners" code={[`<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} html={[`<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`, `<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">`, `  <span class="visually-hidden">Loading...</span>`, `</div>`]} />
+
+## Buttons
+
+Use spinners within buttons to indicate an action is currently processing or taking place. You may also swap the text out of the spinner element and utilize button text as needed.
+
+<Example lang="html" name="components-spinners-12" componentName="Spinners" code={[`<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`, `  <span class="visually-hidden" role="status">Loading...</span>`, `</button>`, `<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`, `  <span role="status">Loading...</span>`, `</button>`]} html={[`<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`, `  <span class="visually-hidden" role="status">Loading...</span>`, `</button>`, `<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>`, `  <span role="status">Loading...</span>`, `</button>`]} />
+
+<Example lang="html" name="components-spinners-13" componentName="Spinners" code={[`<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>`, `  <span class="visually-hidden" role="status">Loading...</span>`, `</button>`, `<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>`, `  <span role="status">Loading...</span>`, `</button>`]} html={[`<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>`, `  <span class="visually-hidden" role="status">Loading...</span>`, `</button>`, `<button class="btn btn-primary" type="button" disabled>`, `  <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>`, `  <span role="status">Loading...</span>`, `</button>`]} />
+
+## Customizing
+
+### CSS variables
+
+Spinners use local CSS variables on `.spinner-border` and `.spinner-grow` for enhanced real-time customization. Values for the CSS variables are set via Sass, so Sass customization is still supported, too.
+
+Border spinner variables:
+
+<ScssDocs file="scss/_spinners.scss" capture="spinner-border-css-vars" />
+
+Growing spinner variables:
+
+<ScssDocs file="scss/_spinners.scss" capture="spinner-grow-css-vars" />
+
+For both spinners, small spinner modifier classes are used to update the values of these CSS variables as needed. For example, the `.spinner-border-sm` class does the following:
+
+<ScssDocs file="scss/_spinners.scss" capture="spinner-border-sm-css-vars" />
+
+### SASS variables
+
+<ScssDocs file="scss/_variables.scss" capture="spinner-variables" />
+
+### Keyframes
+
+Used for creating the CSS animations for our spinners. Included in `scss/_spinners.scss`.
+
+<ScssDocs file="scss/_spinners.scss" capture="spinner-border-keyframes" />
+
+<ScssDocs file="scss/_spinners.scss" capture="spinner-grow-keyframes" />
+
+
+[color]:   /utilities/colors/
+[display]: /utilities/display/
+[flex]:    /utilities/flex/
+[float]:   /utilities/float/
+[margin]:  /utilities/spacing/
+[sizing]:  /utilities/sizing/
+[text]:    /utilities/text/
+
+
+
+

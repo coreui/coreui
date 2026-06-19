@@ -1,5 +1,6 @@
 **/*.min.css
 **/dist/
 **/vendor/
-/_gh_pages/
+/_site/
+/docs-old/
 /js/coverage/
