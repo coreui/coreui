@@ -21,7 +21,7 @@
     smol-toml "^1.6.0"
     unified "^11.0.5"
 
-"@astrojs/markdown-remark@7.2.0":
+"@astrojs/markdown-remark@7.2.0", "@astrojs/markdown-remark@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@astrojs/markdown-remark/-/markdown-remark-7.2.0.tgz#0d38f54a07bb81da8fc365084bb6415c7c54a86c"
   integrity sha512-+YxmVQu1Bd+MFfSzjq1rOJvD9+nIOJzz5YIIhdIH01RrxRkKbyKoEgyIqP3yv51MhzMDgd79QaPv+kCVPT8vHw==
@@ -132,9 +132,23 @@
     fast-wrap-ansi "^0.2.0"
     sisteransi "^1.0.5"
 
-"@coreui/astro-docs@link:../../coreui-astro-docs/packages/astro-docs":
-  version "0.0.0"
-  uid ""
+"@coreui/astro-docs@0.1.0-beta.1":
+  version "0.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@coreui/astro-docs/-/astro-docs-0.1.0-beta.1.tgz#f3d57432cabf0cf8dedc746ffb23716941151cae"
+  integrity sha512-ypuhWXdfHnx1cKy/NEwLmQiZ4tG6Qre3J3Gdfbo7aTdK6y52GtVKhTFxZVMo9OiSJE3xLEJspM+aozYM3NBd9w==
+  dependencies:
+    "@astrojs/markdown-remark" "^7.2.0"
+    "@coreui/icons" "^3.1.0"
+    "@coreui/internal-links" "^5.1.0"
+    "@docsearch/css" "^4.6.3"
+    "@docsearch/js" "^4.6.3"
+    "@stackblitz/sdk" "^1.11.0"
+    astro-auto-import "^0.5.1"
+    js-yaml "^4.2.0"
+    lz-string "^1.5.0"
+    rehype-autolink-headings "^7.1.0"
+    unist-util-visit "^5.1.0"
+    zod "^4.4.3"
 
 "@coreui/icons@^3.1.0":
   version "3.1.0"
