@@ -6,6 +6,8 @@ otherFrameworks:
   - table
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Overview
 
 Due to the widespread use of `<table>` elements across third-party widgets like calendars and date pickers, CoreUI for Bootstrap's tables are **opt-in**. Add the base class `.table` to any `<table>`, then extend with our optional modifier classes or custom styles. All table styles are not inherited in Bootstrap, meaning any nested tables can be styled independent from the parent.
@@ -18,7 +20,25 @@ Using the most basic table markup, here's how `.table`-based tables look in Boot
 
 Use contextual classes to color tables, table rows or individual cells.
 
-<Example html={[`<table class="table">`, `    <thead>`, `      <tr>`, `        <th scope="col">Class</th>`, `        <th scope="col">Heading</th>`, `        <th scope="col">Heading</th>`, `      </tr>`, `    </thead>`, `    <tbody>`, `      <tr>`, `        <th scope="row">Default</th>`, `        <td>Cell</td>`, `        <td>Cell</td>`, `      </tr>`, `      `, `      `, `        <tr class="table-primary">`, `          <th scope="row">Primary</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `        <tr class="table-secondary">`, `          <th scope="row">Secondary</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `        <tr class="table-success">`, `          <th scope="row">Success</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `        <tr class="table-danger">`, `          <th scope="row">Danger</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `        <tr class="table-warning">`, `          <th scope="row">Warning</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `        <tr class="table-info">`, `          <th scope="row">Info</th>`, `          <td>Cell</td>`, `          <td>Cell</td>`, `        </tr>`, `      `, `    </tbody>`, `  </table>`]} />
+<Example html={[`<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Class</th>
+        <th scope="col">Heading</th>
+        <th scope="col">Heading</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Default</th>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>`, ...getData('theme-colors').map((c) => `      <tr class="table-${c.name}">
+        <th scope="row">${c.title}</th>
+        <td>Cell</td>
+        <td>Cell</td>
+      </tr>`), `    </tbody>
+  </table>`]} />
 
 
 
