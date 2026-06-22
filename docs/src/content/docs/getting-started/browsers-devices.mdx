@@ -12,7 +12,18 @@ Alternative browsers which use the latest version of WebKit, Blink, or Gecko, wh
 You can find our supported range of browsers and their versions [in our `.browserslistrc file`](https://github.com/coreui/coreui/blob/v5.8.0/.browserslistrc):
 
 ```text
-{{- readFile ".browserslistrc" | chomp | htmlEscape -}}
+# https://github.com/browserslist/browserslist#readme
+
+>= 0.5%
+last 2 major versions
+not dead
+Chrome >= 60
+Firefox >= 60
+Firefox ESR
+iOS >= 12
+Safari >= 12
+not Explorer <= 11
+not kaios <= 2.5 # fix floating label issues in Firefox (see https://github.com/postcss/autoprefixer/issues/1533)
 ```
 
 We use [Autoprefixer](https://github.com/postcss/autoprefixer) to handle intended browser support via CSS prefixes, which uses [Browserslist](https://github.com/browserslist/browserslist) to manage these browser versions. Consult their documentation for how to integrate these tools into your projects.

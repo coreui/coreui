@@ -11,30 +11,13 @@ CoreUI for Bootstrap includes around two dozen [CSS custom properties (variables
 
 Here are the variables we include (note that the `:root` is required) that can be accessed anywhere CoreUI for Bootstrap's CSS is loaded. They're located in our `_root.scss` file and included in our compiled dist files.
 
-```css
-{{- $css := readFile "dist/css/coreui.css" -}}
-{{- $match := findRE `:root,\n\[data-coreui-theme=light\] {([^}]*)}` $css 1 -}}
-
-{{- if (eq (len $match) 0) -}}
-{{- errorf "Got no matches for :root in %q!" $.Page.Path -}}
-{{- end -}}
-
-{{- index $match 0 -}}
-
-```
+<ScssDocs file="scss/_root.scss" capture="root-body-variables" />
 
 ### Dark mode
 
 These variables are scoped to our built-in dark mode.
 
-```css
-{{- $css := readFile "dist/css/coreui.css" -}}
-{{- $match := findRE `\[data-coreui-theme=dark\] {([^}]*)}` $css 1 -}}
-{{- if (eq (len $match) 0) -}}
-{{- errorf "Got no matches for [data-coreui-theme=dark] in %q!" $.Page.Path -}}
-{{- end -}}
-{{- index $match 0 -}}
-```
+<ScssDocs file="scss/_root.scss" capture="root-dark-mode-vars" />
 
 ## Component variables
 
