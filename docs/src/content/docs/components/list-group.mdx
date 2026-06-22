@@ -128,36 +128,11 @@ Add `.list-group-horizontal` to change the layout of list group items from verti
 
 **ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
 
-<Example code={`<ul class="list-group list-group-horizontal">
+<Example code={getData('breakpoints').map((b) => `<ul class="list-group list-group-horizontal${b.abbr}">
     <li class="list-group-item">An item</li>
     <li class="list-group-item">A second item</li>
     <li class="list-group-item">A third item</li>
-  </ul>
-  <ul class="list-group list-group-horizontal-sm">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <ul class="list-group list-group-horizontal-md">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <ul class="list-group list-group-horizontal-lg">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <ul class="list-group list-group-horizontal-xl">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>
-  <ul class="list-group list-group-horizontal-xxl">
-    <li class="list-group-item">An item</li>
-    <li class="list-group-item">A second item</li>
-    <li class="list-group-item">A third item</li>
-  </ul>`} />
+  </ul>`)} />
 
 ## Contextual classes
 
