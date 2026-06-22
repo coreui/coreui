@@ -16,7 +16,7 @@ Cards are built with as little markup and styles as possible but still manage to
 
 Below is an example of a basic card with mixed content and a fixed width. Cards have no fixed width to start, so they'll naturally fill the full width of its parent element. This is easily customized with our various [sizing options](#sizing).
 
-<Example lang="html" name="components-card-1" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -33,7 +33,7 @@ Bootstrap card supports a wide variety of content, including images, text, list 
 
 The main block of a card is the `.card-body`. Use it whenever you need a padded section within a card.
 
-<Example lang="html" name="components-card-2" componentName="Card" code={`<div class="card">
+<Example code={`<div class="card">
     <div class="card-body">
       This is some text within a card body.
     </div>
@@ -45,7 +45,7 @@ Card titles are managed by adding `.card-title` to a `<h*>` tag. Identically, li
 
 Subtitles are managed by adding a `.card-subtitle` to a `<h*>` tag. If the `.card-title` also, the `.card-subtitle` items are stored in a `.card-body` item, the card title, and subtitle are arranged rightly.
 
-<Example lang="html" name="components-card-3" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
@@ -59,7 +59,7 @@ Subtitles are managed by adding a `.card-subtitle` to a `<h*>` tag. If the `.car
 
 `.card-img-top` and `.card-img-bottom` respectively set the top and bottom corners rounded to match the card's borders. Text within `.card-text` can additionally be styled with the regular HTML tags.
 
-<Example lang="html" name="components-card-4" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -70,7 +70,7 @@ Subtitles are managed by adding a `.card-subtitle` to a `<h*>` tag. If the `.car
 
 Create lists of content in a card with a flush list group.
 
-<Example lang="html" name="components-card-5" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">An item</li>
       <li class="list-group-item">A second item</li>
@@ -78,7 +78,7 @@ Create lists of content in a card with a flush list group.
     </ul>
   </div>`} />
 
-<Example lang="html" name="components-card-6" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <div class="card-header">
       Featured
     </div>
@@ -89,7 +89,7 @@ Create lists of content in a card with a flush list group.
     </ul>
   </div>`} />
 
-<Example lang="html" name="components-card-7" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <ul class="list-group list-group-flush">
       <li class="list-group-item">An item</li>
       <li class="list-group-item">A second item</li>
@@ -104,7 +104,7 @@ Create lists of content in a card with a flush list group.
 
 Combine and match many content types to build the card you need, or throw everything in there. Shown below are image styles, blocks, text styles, and a list group—all wrapped in a fixed-width card.
 
-<Example lang="html" name="components-card-8" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -125,7 +125,7 @@ Combine and match many content types to build the card you need, or throw everyt
 
 Add an optional header and/or footer within a card.
 
-<Example lang="html" name="components-card-9" componentName="Card" code={`<div class="card">
+<Example code={`<div class="card">
     <div class="card-header">
       Featured
     </div>
@@ -138,7 +138,7 @@ Add an optional header and/or footer within a card.
 
 Card headers can be styled by adding `.card-header` to `<h*>` elements.
 
-<Example lang="html" name="components-card-10" componentName="Card" code={`<div class="card">
+<Example code={`<div class="card">
     <h5 class="card-header">Featured</h5>
     <div class="card-body">
       <h5 class="card-title">Special title treatment</h5>
@@ -147,7 +147,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
     </div>
   </div>`} />
 
-<Example lang="html" name="components-card-11" componentName="Card" code={`<div class="card">
+<Example code={`<div class="card">
     <div class="card-header">
       Quote
     </div>
@@ -159,7 +159,7 @@ Card headers can be styled by adding `.card-header` to `<h*>` elements.
     </div>
   </div>`} />
 
-<Example lang="html" name="components-card-12" componentName="Card" code={`<div class="card text-center">
+<Example code={`<div class="card text-center">
     <div class="card-header">
       Featured
     </div>
@@ -181,7 +181,7 @@ Cards assume no specific `width` to start, so they'll be 100% wide unless otherw
 
 Using the grid, wrap cards in columns and rows as needed.
 
-<Example lang="html" name="components-card-13" componentName="Card" code={`<div class="row">
+<Example code={`<div class="row">
     <div class="col-sm-6 mb-3 mb-sm-0">
       <div class="card">
         <div class="card-body">
@@ -206,7 +206,7 @@ Using the grid, wrap cards in columns and rows as needed.
 
 Use some of [available sizing utilities](/utilities/sizing/) to rapidly set a card's width.
 
-<Example lang="html" name="components-card-14" componentName="Card" code={`<div class="card w-75 mb-3">
+<Example code={`<div class="card w-75 mb-3">
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -226,7 +226,7 @@ Use some of [available sizing utilities](/utilities/sizing/) to rapidly set a ca
 
 Use custom CSS in your stylesheets or as inline styles to set a width.
 
-<Example lang="html" name="components-card-15" componentName="Card" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Special title treatment</h5>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -238,7 +238,7 @@ Use custom CSS in your stylesheets or as inline styles to set a width.
 
 You can instantly change the text arrangement of any card—in its whole or specific parts—with [text align classes](/utilities/text/#text-alignment).
 
-<Example lang="html" name="components-card-16" componentName="Card" code={`<div class="card mb-3" style="width: 18rem;">
+<Example code={`<div class="card mb-3" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Special title treatment</h5>
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -266,7 +266,7 @@ You can instantly change the text arrangement of any card—in its whole or spec
 
 Add some navigation to a card's header (or block) with CoreUI for Bootstrap's [nav components](/components/navs-tabs/).
 
-<Example lang="html" name="components-card-17" componentName="Card" code={`<div class="card text-center">
+<Example code={`<div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-tabs card-header-tabs">
         <li class="nav-item">
@@ -287,7 +287,7 @@ Add some navigation to a card's header (or block) with CoreUI for Bootstrap's [n
     </div>
   </div>`} />
 
-<Example lang="html" name="components-card-18" componentName="Card" code={`<div class="card text-center">
+<Example code={`<div class="card text-center">
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
@@ -316,7 +316,7 @@ Cards introduce several options for acting with images. Pick from appending "ima
 
 Similar to headers and footers, cards can include top and bottom "image caps"—images at the top or bottom of a card.
 
-<Example lang="html" name="components-card-19" componentName="Card" code={`<div class="card mb-3">
+<Example code={`<div class="card mb-3">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
     <div class="card-body">
       <h5 class="card-title">Card title</h5>
@@ -338,7 +338,7 @@ Similar to headers and footers, cards can include top and bottom "image caps"—
 Adapt an image into a background and overlay your text. Depending on the image, you may need additional styles or utilities.
 
 
-<Example lang="html" name="components-card-20" componentName="Card" code={`<div class="card text-bg-dark">
+<Example code={`<div class="card text-bg-dark">
     <svg class="docs-placeholder-img docs-placeholder-img-lg card-img" width="100%" height="270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Card image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Card image</text></svg>
     <div class="card-img-overlay">
       <h5 class="card-title">Card title</h5>
@@ -355,7 +355,7 @@ Note that content should not be larger than the height of the image. If content 
 
 Using a combination of grid and utility classes, cards can be made horizontal in a mobile-friendly and responsive way. In the example below, we remove the grid gutters with `.g-0` and use `.col-md-*` classes to make the card horizontal at the `md` breakpoint. Further adjustments may be needed depending on your card content.
 
-<Example lang="html" name="components-card-21" componentName="Card" code={`<div class="card mb-3" style="max-width: 540px;">
+<Example code={`<div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
         <svg class="docs-placeholder-img img-fluid rounded-start" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
@@ -380,7 +380,7 @@ Cards include various options for customizing their backgrounds, borders, and co
 
 Set a `background-color` with contrasting foreground `color` with [our `.text-bg-{color}` helpers](helpers/color-background/). Previously it was required to manually pair your choice of [`.text-{color}`](/utilities/colors/) and [`.bg-{color}`](/utilities/background/) utilities for styling, which you still may use if you prefer.
 
-<Example lang="html" name="components-card-22" componentName="Card" code={`<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+<Example code={`<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
     <div class="card-body">
       <h5 class="card-title">Primary card title</h5>
@@ -433,7 +433,7 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Use [border utilities](/utilities/borders/) to change just the `border-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
 
-<Example lang="html" name="components-card-23" componentName="Card" code={`<div class="card border-primary mb-3" style="max-width: 18rem;">
+<Example code={`<div class="card border-primary mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
     <div class="card-body text-primary">
       <h5 class="card-title">Primary card title</h5>
@@ -480,7 +480,7 @@ Use [border utilities](/utilities/borders/) to change just the `border-color` of
 
 Use [border utilities](/utilities/borders/) to change just the `border-top-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
 
-<Example lang="html" name="components-card-24" componentName="Card" code={`<div class="card border-top-primary border-top-3 mb-3" style="max-width: 18rem;">
+<Example code={`<div class="card border-top-primary border-top-3 mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
     <div class="card-body text-primary">
       <h5 class="card-title">Primary card title</h5>
@@ -527,7 +527,7 @@ Use [border utilities](/utilities/borders/) to change just the `border-top-color
 
 You are able to adjust the borders on the card elements as needed, and even exclude their `background-color` with `.bg-transparent`.
 
-<Example lang="html" name="components-card-25" componentName="Card" code={`<div class="card border-success mb-3" style="max-width: 18rem;">
+<Example code={`<div class="card border-success mb-3" style="max-width: 18rem;">
     <div class="card-header bg-transparent border-success">Header</div>
     <div class="card-body text-success">
       <h5 class="card-title">Success card title</h5>
@@ -544,7 +544,7 @@ In addition to styling the content within cards, Bootstrap includes a few option
 
 Use card groups to render cards as a single, attached element with equal width and height columns. Card groups start off stacked and use `display: flex;` to become attached with uniform dimensions starting at the `sm` breakpoint.
 
-<Example lang="html" name="components-card-26" componentName="Card" code={`<div class="card-group">
+<Example code={`<div class="card-group">
     <div class="card">
       <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
       <div class="card-body">
@@ -573,7 +573,7 @@ Use card groups to render cards as a single, attached element with equal width a
 
 When using card groups with footers, their content will automatically line up.
 
-<Example lang="html" name="components-card-27" componentName="Card" code={`<div class="card-group">
+<Example code={`<div class="card-group">
     <div class="card">
       <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
       <div class="card-body">
@@ -610,7 +610,7 @@ When using card groups with footers, their content will automatically line up.
 
 Use the Bootstrap grid system and its [`.row-cols` classes](/layout/grid/#row-columns) to control how many grid columns (wrapped around your cards) you show per row. For example, here's `.row-cols-1` laying out the cards on one column, and `.row-cols-md-2` splitting four cards to equal width across multiple rows, from the medium breakpoint up.
 
-<Example lang="html" name="components-card-28" componentName="Card" code={`<div class="row row-cols-1 row-cols-md-2 g-4">
+<Example code={`<div class="row row-cols-1 row-cols-md-2 g-4">
     <div class="col">
       <div class="card">
         <svg class="docs-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
@@ -651,7 +651,7 @@ Use the Bootstrap grid system and its [`.row-cols` classes](/layout/grid/#row-co
 
 Change it to `.row-cols-3` and you'll see the fourth card wrap.
 
-<Example lang="html" name="components-card-29" componentName="Card" code={`<div class="row row-cols-1 row-cols-md-3 g-4">
+<Example code={`<div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card">
         <svg class="docs-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
@@ -692,7 +692,7 @@ Change it to `.row-cols-3` and you'll see the fourth card wrap.
 
 When you need equal height, add `.h-100` to the cards. If you want equal heights by default, you can set `$card-height: 100%` in Sass.
 
-<Example lang="html" name="components-card-30" componentName="Card" code={`<div class="row row-cols-1 row-cols-md-3 g-4">
+<Example code={`<div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100">
         <svg class="docs-placeholder-img card-img-top" width="100%" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
@@ -733,7 +733,7 @@ When you need equal height, add `.h-100` to the cards. If you want equal heights
 
 Just like with card groups, card footers will automatically line up.
 
-<Example lang="html" name="components-card-31" componentName="Card" code={`<div class="row row-cols-1 row-cols-md-3 g-4">
+<Example code={`<div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
       <div class="card h-100">
         <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>

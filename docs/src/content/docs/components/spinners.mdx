@@ -20,7 +20,7 @@ This component's animation effect relies on the `prefers-reduced-motion` media q
 
 Use the border spinners for a lightweight loading indicator.
 
-<Example lang="html" name="components-spinners-1" componentName="Spinners" code={`<div class="spinner-border" role="status">
+<Example code={`<div class="spinner-border" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>`} />
 
@@ -28,7 +28,7 @@ Use the border spinners for a lightweight loading indicator.
 
 The border spinner uses `currentColor` for its `border-color`, meaning you can customize the color with [text color utilities][color]. You can use any of our text color utilities on the standard spinner.
 
-<Example lang="html" name="components-spinners-2" componentName="Spinners" code={`<div class="spinner-border text-primary" role="status">
+<Example code={`<div class="spinner-border text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <div class="spinner-border text-secondary" role="status">
@@ -55,13 +55,13 @@ The border spinner uses `currentColor` for its `border-color`, meaning you can c
 
 If you don't fancy a border spinner, switch to the grow spinner. While it doesn't technically spin, it does repeatedly grow!
 
-<Example lang="html" name="components-spinners-3" componentName="Spinners" code={`<div class="spinner-grow" role="status">
+<Example code={`<div class="spinner-grow" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>`} />
 
 Once again, this spinner is built with `currentColor`, so you can easily change its appearance with [text color utilities][color]. Here it is in blue, along with the supported variants.
 
-<Example lang="html" name="components-spinners-4" componentName="Spinners" code={`<div class="spinner-grow text-primary" role="status">
+<Example code={`<div class="spinner-grow text-primary" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <div class="spinner-grow text-secondary" role="status">
@@ -88,7 +88,7 @@ Spinners in Bootstrap are built with `rem`s, `currentColor`, and `display: inlin
 
 Use [margin utilities][margin] like `.m-5` for easy spacing.
 
-<Example lang="html" name="components-spinners-5" componentName="Spinners" code={`<div class="spinner-border m-5" role="status">
+<Example code={`<div class="spinner-border m-5" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>`} />
 
@@ -98,20 +98,20 @@ Use [flexbox utilities][flex], [float utilities][float], or [text alignment][tex
 
 #### Flex
 
-<Example lang="html" name="components-spinners-6" componentName="Spinners" code={`<div class="d-flex justify-content-center">
+<Example code={`<div class="d-flex justify-content-center">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </div>`} />
 
-<Example lang="html" name="components-spinners-7" componentName="Spinners" code={`<div class="d-flex align-items-center">
+<Example code={`<div class="d-flex align-items-center">
     <strong role="status">Loading...</strong>
     <div class="spinner-border ms-auto" aria-hidden="true"></div>
   </div>`} />
 
 #### Floats
 
-<Example lang="html" name="components-spinners-8" componentName="Spinners" code={`<div class="clearfix">
+<Example code={`<div class="clearfix">
     <div class="spinner-border float-end" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -119,7 +119,7 @@ Use [flexbox utilities][flex], [float utilities][float], or [text alignment][tex
 
 #### Text align
 
-<Example lang="html" name="components-spinners-9" componentName="Spinners" code={`<div class="text-center">
+<Example code={`<div class="text-center">
     <div class="spinner-border" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
@@ -129,7 +129,7 @@ Use [flexbox utilities][flex], [float utilities][float], or [text alignment][tex
 
 Add `.spinner-border-sm` and `.spinner-grow-sm` to make a smaller spinner that can quickly be used within other components.
 
-<Example lang="html" name="components-spinners-10" componentName="Spinners" code={`<div class="spinner-border spinner-border-sm" role="status">
+<Example code={`<div class="spinner-border spinner-border-sm" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <div class="spinner-grow spinner-grow-sm" role="status">
@@ -138,7 +138,7 @@ Add `.spinner-border-sm` and `.spinner-grow-sm` to make a smaller spinner that c
 
 Or, use custom CSS or inline styles to change the dimensions as needed.
 
-<Example lang="html" name="components-spinners-11" componentName="Spinners" code={`<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+<Example code={`<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
     <span class="visually-hidden">Loading...</span>
   </div>
   <div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status">
@@ -149,7 +149,7 @@ Or, use custom CSS or inline styles to change the dimensions as needed.
 
 Use spinners within buttons to indicate an action is currently processing or taking place. You may also swap the text out of the spinner element and utilize button text as needed.
 
-<Example lang="html" name="components-spinners-12" componentName="Spinners" code={`<button class="btn btn-primary" type="button" disabled>
+<Example code={`<button class="btn btn-primary" type="button" disabled>
     <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
     <span class="visually-hidden" role="status">Loading...</span>
   </button>
@@ -158,7 +158,7 @@ Use spinners within buttons to indicate an action is currently processing or tak
     <span role="status">Loading...</span>
   </button>`} />
 
-<Example lang="html" name="components-spinners-13" componentName="Spinners" code={`<button class="btn btn-primary" type="button" disabled>
+<Example code={`<button class="btn btn-primary" type="button" disabled>
     <span class="spinner-grow spinner-grow-sm" aria-hidden="true"></span>
     <span class="visually-hidden" role="status">Loading...</span>
   </button>

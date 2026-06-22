@@ -39,7 +39,7 @@ Headers come with built-in support for a handful of sub-components. Choose from 
 
 Here's an example of all the sub-components included in a responsive header.
 
-<Example lang="html" name="components-header-1" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <a class="header-brand" href="#">
       <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
       CoreUI
@@ -81,7 +81,7 @@ This example uses [color](/utilities/colors/) (`bg-light`) and [spacing](/utilit
 
 The `.header-brand` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 
-<Example lang="html" name="components-header-2" componentName="Header" code={`<!-- As a link -->
+<Example code={`<!-- As a link -->
   <header class="header">
     <a class="header-brand" href="#">CoreUI</a>
   </header>
@@ -93,14 +93,14 @@ The `.header-brand` can be applied to most elements, but an anchor works best as
 
 Adding images to the `.header-brand` will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.
 
-<Example lang="html" name="components-header-3" componentName="Header" code={`<!-- Just an image -->
+<Example code={`<!-- Just an image -->
   <header class="header">
     <a class="header-brand" href="#">
       <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" alt="CoreUI Logo">
     </a>
   </header>`} />
 
-<Example lang="html" name="components-header-4" componentName="Header" code={`<!-- Image and text -->
+<Example code={`<!-- Image and text -->
   <header class="header">
     <a class="header-brand" href="#">
       <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
@@ -114,7 +114,7 @@ Header navigation links build on our `.header-nav`.
 
 Active states—with `.active`—to indicate the current page can be applied directly to `.nav-link`s or their immediate parent `.nav-item`s.
 
-<Example lang="html" name="components-header-5" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <a class="header-brand" href="#">CoreUI</a>
     <ul class="header-nav">
       <li class="nav-item active">
@@ -134,7 +134,7 @@ Active states—with `.active`—to indicate the current page can be applied dir
 
 And because we use classes for our navs, you can avoid the list-based approach entirely if you like.
 
-<Example lang="html" name="components-header-6" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <a class="header-brand" href="#">CoreUI</a>
     <div class="header-nav">
       <a class="nav-item nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
@@ -146,7 +146,7 @@ And because we use classes for our navs, you can avoid the list-based approach e
 
 You may also utilize dropdowns in your header nav. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
 
-<Example lang="html" name="components-header-7" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <a class="header-brand" href="#">CoreUI</a>
     <ul class="header-nav">
       <li class="nav-item active">
@@ -175,7 +175,7 @@ You may also utilize dropdowns in your header nav. Dropdown menus require a wrap
 
 Place various form controls and components within a header with `.d-flex`.
 
-<Example lang="html" name="components-header-8" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success" type="submit">Search</button>
@@ -184,7 +184,7 @@ Place various form controls and components within a header with `.d-flex`.
 
 Immediate children elements in `.header` use flex layout and will default to `justify-content: between`. Use additional [flex utilities](/utilities/flex/) as needed to adjust this behavior.
 
-<Example lang="html" name="components-header-9" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <a class="header-brand">Header</a>
     <form class="d-flex">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -194,7 +194,7 @@ Immediate children elements in `.header` use flex layout and will default to `ju
 
 Input groups work, too:
 
-<Example lang="html" name="components-header-10" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <form class="d-flex">
       <div class="input-group">
         <div class="input-group-prepend">
@@ -207,7 +207,7 @@ Input groups work, too:
 
 Various buttons are supported as part of these header forms, too. This is also a great reminder that vertical alignment utilities can be used to align different sized elements.
 
-<Example lang="html" name="components-header-11" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <form class="d-flex">
       <button class="btn btn-outline-success" type="button">Main button</button>
       <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
@@ -218,7 +218,7 @@ Various buttons are supported as part of these header forms, too. This is also a
 
 Headers may contain bits of text with the help of `.header-text`. This class adjusts vertical alignment and horizontal spacing for strings of text.
 
-<Example lang="html" name="components-header-12" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <span class="header-text">
       Header text with an inline element
     </span>
@@ -228,7 +228,7 @@ Headers may contain bits of text with the help of `.header-text`. This class adj
 
 Although it's not required, you can wrap a header in a `.container` to center it on a page or add one within to only center the contents of a [fixed or static top header](#placement).
 
-<Example lang="html" name="components-header-13" componentName="Header" code={`<div class="container">
+<Example code={`<div class="container">
     <header class="header">
       <a class="header-brand" href="#">CoreUI</a>
     </header>
@@ -236,7 +236,7 @@ Although it's not required, you can wrap a header in a `.container` to center it
 
 When the container is within your header, its horizontal padding is removed at breakpoints lower than your specified `.header-expand{-sm|-md|-lg|-xl}` class. This ensures we're not doubling up on padding unnecessarily on lower viewports when your header is collapsed.
 
-<Example lang="html" name="components-header-14" componentName="Header" code={`<header class="header">
+<Example code={`<header class="header">
     <div class="container">
       <a class="header-brand" href="#">CoreUI</a>
     </div>

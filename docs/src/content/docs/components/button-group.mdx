@@ -10,7 +10,7 @@ otherFrameworks:
 
 Wrap a series of buttons with `.btn` in `.btn-group`. Add on optional JavaScript radio and checkbox style behavior with [our buttons plugin](/components/buttons/#button-plugin).
 
-<Example lang="html" name="components-button-group-1" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Basic example">
+<Example code={`<div class="btn-group" role="group" aria-label="Basic example">
     <button type="button" class="btn btn-primary">Left</button>
     <button type="button" class="btn btn-primary">Middle</button>
     <button type="button" class="btn btn-primary">Right</button>
@@ -26,7 +26,7 @@ Besides, groups and toolbars should be provided an understandable label, as most
 
 These classes can also be added to groups of links, as an alternative to the [`.nav` navigation components](/components/navs-tabs/).
 
-<Example lang="html" name="components-button-group-2" componentName="Button group" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <a href="#" class="btn btn-primary active" aria-current="page">Active link</a>
     <a href="#" class="btn btn-primary">Link</a>
     <a href="#" class="btn btn-primary">Link</a>
@@ -34,7 +34,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 
 ## Mixed styles
 
-<Example lang="html" name="components-button-group-3" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+<Example code={`<div class="btn-group" role="group" aria-label="Basic mixed styles example">
     <button type="button" class="btn btn-danger">Left</button>
     <button type="button" class="btn btn-warning">Middle</button>
     <button type="button" class="btn btn-success">Right</button>
@@ -42,7 +42,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 
 ## Outlined styles
 
-<Example lang="html" name="components-button-group-4" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Basic outlined example">
+<Example code={`<div class="btn-group" role="group" aria-label="Basic outlined example">
     <button type="button" class="btn btn-outline-primary">Left</button>
     <button type="button" class="btn btn-outline-primary">Middle</button>
     <button type="button" class="btn btn-outline-primary">Right</button>
@@ -52,7 +52,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 
 Combine button-like checkbox and radio [toggle buttons](/forms/checks-radios/) into a seamless looking button group.
 
-<Example lang="html" name="components-button-group-5" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+<Example code={`<div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
     <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
     <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
 
@@ -63,7 +63,7 @@ Combine button-like checkbox and radio [toggle buttons](/forms/checks-radios/) i
     <label class="btn btn-outline-primary" for="btncheck3">Checkbox 3</label>
   </div>`} />
 
-<Example lang="html" name="components-button-group-6" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+<Example code={`<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
     <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
     <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
 
@@ -78,7 +78,7 @@ Combine button-like checkbox and radio [toggle buttons](/forms/checks-radios/) i
 
 Join sets of button groups into button toolbars for more complicated components. Use utility classes as needed to space out groups, buttons, and more.
 
-<Example lang="html" name="components-button-group-7" componentName="Button group" code={`<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<Example code={`<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
     <div class="btn-group me-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-primary">1</button>
       <button type="button" class="btn btn-primary">2</button>
@@ -97,7 +97,7 @@ Join sets of button groups into button toolbars for more complicated components.
 
 Feel free to combine input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities through to space items correctly.
 
-<Example lang="html" name="components-button-group-8" componentName="Button group" code={`<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+<Example code={`<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
     <div class="btn-group me-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-outline-secondary">1</button>
       <button type="button" class="btn btn-outline-secondary">2</button>
@@ -127,7 +127,7 @@ Feel free to combine input groups with button groups in your toolbars. Similar t
 
 Alternatively, of implementing button sizing classes to each button in a group, add `.btn-group-*` to all `.btn-group`, including each one when nesting multiple groups.
 
-<Example lang="html" name="components-button-group-9" componentName="Button group" code={`<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
+<Example code={`<div class="btn-group btn-group-lg" role="group" aria-label="Large button group">
     <button type="button" class="btn btn-outline-primary">Left</button>
     <button type="button" class="btn btn-outline-primary">Middle</button>
     <button type="button" class="btn btn-outline-primary">Right</button>
@@ -149,7 +149,7 @@ Alternatively, of implementing button sizing classes to each button in a group, 
 
 Put a `.btn-group` inside another `.btn-group` when you need dropdown menus combined with a series of buttons.
 
-<Example lang="html" name="components-button-group-10" componentName="Button group" code={`<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+<Example code={`<div class="btn-group" role="group" aria-label="Button group with nested dropdown">
     <button type="button" class="btn btn-primary">1</button>
     <button type="button" class="btn btn-primary">2</button>
 
@@ -168,7 +168,7 @@ Put a `.btn-group` inside another `.btn-group` when you need dropdown menus comb
 
 Create a set of buttons that appear vertically stacked rather than horizontally. **Split button dropdowns are not supported here.**
 
-<Example lang="html" name="components-button-group-11" componentName="Button group" code={`<div class="docs-example">
+<Example code={`<div class="docs-example">
     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
       <button type="button" class="btn btn-primary">Button</button>
       <button type="button" class="btn btn-primary">Button</button>
@@ -177,7 +177,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
     </div>
   </div>`} />
 
-<Example lang="html" name="components-button-group-12" componentName="Button group" code={`<div class="docs-example">
+<Example code={`<div class="docs-example">
     <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
       <div class="btn-group" role="group">
         <button id="btnGroupVerticalDrop1" type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
@@ -231,7 +231,7 @@ Create a set of buttons that appear vertically stacked rather than horizontally.
     </div>
   </div>`} />
 
-<Example lang="html" name="components-button-group-13" componentName="Button group" code={`<div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+<Example code={`<div class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio1" autocomplete="off" checked>
     <label class="btn btn-outline-danger" for="vbtn-radio1">Radio 1</label>
     <input type="radio" class="btn-check" name="vbtn-radio" id="vbtn-radio2" autocomplete="off">

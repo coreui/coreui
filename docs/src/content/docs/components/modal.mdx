@@ -38,7 +38,7 @@ Keep reading for demos and usage guidelines.
 
 Below is a _static_ modal example (meaning its `position` and `display` have been overridden). Included are the modal header, modal body (required for `padding`), and modal footer (optional). We ask that you include modal headers with dismiss actions whenever possible, or provide another explicit dismiss action.
 
-<Example lang="html" class="bg-body-tertiary" html={[`<div class="modal position-static d-block" tabindex="-1">`, `    <div class="modal-dialog">`, `      <div class="modal-content">`, `        <div class="modal-header">`, `          <h5 class="modal-title">Modal title</h5>`, `          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>`, `        </div>`, `        <div class="modal-body">`, `          <p>Modal body text goes here.</p>`, `        </div>`, `        <div class="modal-footer">`, `          <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>`, `          <button type="button" class="btn btn-primary">Save changes</button>`, `        </div>`, `      </div>`, `    </div>`, `  </div>`]} />
+<Example class="bg-body-tertiary" html={[`<div class="modal position-static d-block" tabindex="-1">`, `    <div class="modal-dialog">`, `      <div class="modal-content">`, `        <div class="modal-header">`, `          <h5 class="modal-title">Modal title</h5>`, `          <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>`, `        </div>`, `        <div class="modal-body">`, `          <p>Modal body text goes here.</p>`, `        </div>`, `        <div class="modal-footer">`, `          <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>`, `          <button type="button" class="btn btn-primary">Save changes</button>`, `        </div>`, `      </div>`, `    </div>`, `  </div>`]} />
 
 ```html
 <div class="modal" tabindex="-1">
@@ -82,7 +82,7 @@ Toggle a working modal demo by clicking the button below. It will slide down and
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLive">`, `    Launch demo modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLive">`, `    Launch demo modal`, `  </button>`]} />
 
 ```html
 <!-- Button trigger modal -->
@@ -132,7 +132,7 @@ When backdrop is set to static, the modal will not close when clicking outside o
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#staticBackdropLive">`, `    Launch static backdrop modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#staticBackdropLive">`, `    Launch static backdrop modal`, `  </button>`]} />
 
 ```html
 <!-- Button trigger modal -->
@@ -182,7 +182,7 @@ When modals become too long for the user's viewport or device, they scroll indep
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLong">`, `    Launch demo modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLong">`, `    Launch demo modal`, `  </button>`]} />
 
 You can also create a scrollable modal that allows scroll the modal body by adding `.modal-dialog-scrollable` to `.modal-dialog`.
 
@@ -206,7 +206,7 @@ You can also create a scrollable modal that allows scroll the modal body by addi
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalScrollable">`, `    Launch demo modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalScrollable">`, `    Launch demo modal`, `  </button>`]} />
 
 ```html
 <!-- Scrollable modal -->
@@ -257,7 +257,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalCenter">`, `    Vertically centered modal`, `  </button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalCenteredScrollable">`, `    Vertically centered scrollable modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalCenter">`, `    Vertically centered modal`, `  </button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalCenteredScrollable">`, `    Vertically centered scrollable modal`, `  </button>`]} />
 
 ```html
 <!-- Vertically centered modal -->
@@ -297,7 +297,7 @@ Add `.modal-dialog-centered` to `.modal-dialog` to vertically center the modal.
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalPopovers">`, `    Launch demo modal`, `  </button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalPopovers">`, `    Launch demo modal`, `  </button>`]} />
 
 ```html
 <div class="modal-body">
@@ -356,7 +356,7 @@ Utilize the Bootstrap grid system within a modal by nesting `.container-fluid` w
   </div>
 </div>
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#gridSystemModal">`, `  Launch demo modal`, `</button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#gridSystemModal">`, `  Launch demo modal`, `</button>`]} />
 
 ```html
 <div class="modal-body">
@@ -395,7 +395,7 @@ Have a bunch of buttons that all trigger the same modal with slightly different 
 
 Below is a live demo followed by example HTML and JavaScript. For more information, [read the modal events docs](#events) for details on `relatedTarget`.
 
-<Example lang="html" name="components-modal-1" componentName="Modal" code={`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@mdo">Open modal for @mdo</button>
+<Example code={`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@mdo">Open modal for @mdo</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@fat">Open modal for @fat</button>
   <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModal" data-coreui-whatever="@getbootstrap">Open modal for @getbootstrap</button>
 
@@ -452,7 +452,7 @@ if (exampleModal) {
 
 Toggle between multiple modals with some clever placement of the `data-coreui-target` and `data-coreui-toggle` attributes. For example, you could toggle a password reset modal from within an already open sign in modal. **Please note multiple modals cannot be open at the same time**—this method simply toggles between two separate modals.
 
-<Example lang="html" name="components-modal-2" componentName="Modal" code={`<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<Example code={`<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -529,7 +529,7 @@ Modals have three optional sizes, available via modifier classes to be placed on
 
 Our default modal without modifier class constitutes the "medium" size modal.
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalXl">Extra large modal</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLg">Large modal</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalSm">Small modal</button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalXl">Extra large modal</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalLg">Large modal</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalSm">Small modal</button>`]} />
 
 ```html
 <div class="modal-dialog modal-xl">...</div>
@@ -594,7 +594,7 @@ Another override is the option to pop up a modal that covers the user viewport, 
 | `.modal-fullscreen-xxl-down` | `1400px` |
 
 
-<Example lang="html" html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreen">Full screen</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenSm">Full screen below sm</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenMd">Full screen below md</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenLg">Full screen below lg</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXl">Full screen below xl</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXxl">Full screen below xxl</button>`]} />
+<Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreen">Full screen</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenSm">Full screen below sm</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenMd">Full screen below md</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenLg">Full screen below lg</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXl">Full screen below xl</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXxl">Full screen below xxl</button>`]} />
 
 ```html
 <!-- Full screen modal -->

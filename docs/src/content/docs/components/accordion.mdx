@@ -20,7 +20,7 @@ To render an accordion that's expanded by default:
 - add the `.show` class on the `.accordion-collapse` element.
 - drop the `.collapsed` class from the `.accordion-button` element and set its `aria-expanded` attribute to `true`.
 
-<Example lang="html" name="components-accordion-1" componentName="Accordion" code={`<div class="accordion" id="accordionExample">
+<Example code={`<div class="accordion" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -63,7 +63,7 @@ To render an accordion that's expanded by default:
 
 Add `.accordion-flush` to remove the default `background-color`, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.
 
-<Example lang="html" name="components-accordion-2" componentName="Accordion" class="bg-body-secondary" code={`<div class="accordion accordion-flush" id="accordionFlushExample">
+<Example class="bg-body-secondary" code={`<div class="accordion accordion-flush" id="accordionFlushExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button collapsed" type="button" data-coreui-toggle="collapse" data-coreui-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
@@ -100,7 +100,7 @@ Add `.accordion-flush` to remove the default `background-color`, some borders, a
 
 Omit the `data-coreui-parent` attribute on each `.accordion-collapse` to make accordion items stay open when another item is opened.
 
-<Example lang="html" name="components-accordion-3" componentName="Accordion" code={`<div class="accordion" id="accordionPanelsStayOpenExample">
+<Example code={`<div class="accordion" id="accordionPanelsStayOpenExample">
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-coreui-toggle="collapse" data-coreui-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">

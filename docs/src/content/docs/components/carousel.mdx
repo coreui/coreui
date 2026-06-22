@@ -28,7 +28,7 @@ Carousels don't automatically normalize slide dimensions. As such, you may want 
 
 Here's a carousel with slides. Note the appearance of the `.d-block` also, `.w-100` on carousel images to override browser default image alignment.
 
-<Example lang="html" name="components-carousel-1" componentName="Carousel" code={`<div id="carouselExampleSlidesOnly" class="carousel slide" data-coreui-ride="carousel">
+<Example code={`<div id="carouselExampleSlidesOnly" class="carousel slide" data-coreui-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <svg class="docs-placeholder-img docs-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>First slide</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">First slide</text></svg>
@@ -46,7 +46,7 @@ Here's a carousel with slides. Note the appearance of the `.d-block` also, `.w-1
 
 Adding in the previous and next controls. We recommend using `<button>` elements, but you can also use `<a>` elements with `role="button"`.
 
-<Example lang="html" name="components-carousel-2" componentName="Carousel" code={`<div id="carouselExampleControls" class="carousel slide" data-coreui-ride="carousel">
+<Example code={`<div id="carouselExampleControls" class="carousel slide" data-coreui-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <svg class="docs-placeholder-img docs-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>First slide</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">First slide</text></svg>
@@ -72,7 +72,7 @@ Adding in the previous and next controls. We recommend using `<button>` elements
 
 You can attach the indicators to the carousel, lengthwise the controls, too.
 
-<Example lang="html" name="components-carousel-3" componentName="Carousel" code={`<div id="carouselExampleIndicators" class="carousel slide" data-coreui-ride="true">
+<Example code={`<div id="carouselExampleIndicators" class="carousel slide" data-coreui-ride="true">
     <div class="carousel-indicators">
       <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-coreui-target="#carouselExampleIndicators" data-coreui-slide-to="1" aria-label="Slide 2"></button>
@@ -103,7 +103,7 @@ You can attach the indicators to the carousel, lengthwise the controls, too.
 
 You can add captions to slides with the `.carousel-caption` element within any `.carousel-item`. They can be immediately hidden on smaller viewports, as shown below, with optional [display utilities](/utilities/display/). We hide them with `.d-none` and draw them back on medium-sized devices with `.d-md-block`.
 
-<Example lang="html" name="components-carousel-4" componentName="Carousel" code={`<div id="carouselExampleCaptions" class="carousel slide" data-coreui-ride="false">
+<Example code={`<div id="carouselExampleCaptions" class="carousel slide" data-coreui-ride="false">
     <div class="carousel-indicators">
       <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-coreui-target="#carouselExampleCaptions" data-coreui-slide-to="1" aria-label="Slide 2"></button>
@@ -146,7 +146,7 @@ You can add captions to slides with the `.carousel-caption` element within any `
 
 Add `.carousel-fade` to your carousel to animate slides with a fade transition instead of a slide. Depending on your carousel content (e.g., text only slides), you may want to add `.bg-body` or some custom CSS to the `.carousel-item`s for proper crossfading.
 
-<Example lang="html" name="components-carousel-5" componentName="Carousel" code={`<div id="carouselExampleFade" class="carousel slide carousel-fade" data-coreui-ride="carousel">
+<Example code={`<div id="carouselExampleFade" class="carousel slide carousel-fade" data-coreui-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <svg class="docs-placeholder-img docs-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>First slide</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">First slide</text></svg>
@@ -172,7 +172,7 @@ Add `.carousel-fade` to your carousel to animate slides with a fade transition i
 
 Add `data-coreui-interval=""` to a `.carousel-item` to change the amount of time to delay between automatically cycling to the next item.
 
-<Example lang="html" name="components-carousel-6" componentName="Carousel" code={`<div id="carouselExampleInterval" class="carousel slide" data-coreui-ride="carousel">
+<Example code={`<div id="carouselExampleInterval" class="carousel slide" data-coreui-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-coreui-interval="10000">
         <svg class="docs-placeholder-img docs-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>First slide</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">First slide</text></svg>
@@ -198,7 +198,7 @@ Add `data-coreui-interval=""` to a `.carousel-item` to change the amount of time
 
 Carousels support swiping left/right on touchscreen devices to move between slides. This can be disabled using the `data-coreui-touch` attribute. The example below also does not include the `data-coreui-ride` attribute so it doesn't autoplay.
 
-<Example lang="html" name="components-carousel-7" componentName="Carousel" code={`<div id="carouselExampleControlsNoTouching" class="carousel slide" data-coreui-touch="false">
+<Example code={`<div id="carouselExampleControlsNoTouching" class="carousel slide" data-coreui-touch="false">
     <div class="carousel-inner">
       <div class="carousel-item active">
         <svg class="docs-placeholder-img docs-placeholder-img-lg d-block w-100" width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="First slide" preserveAspectRatio="xMidYMid slice" focusable="false"><title>First slide</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">First slide</text></svg>
@@ -228,7 +228,7 @@ Add `.carousel-dark` to the `.carousel` for darker controls, indicators, and cap
 
 
 
-<Example lang="html" name="components-carousel-8" componentName="Carousel" code={`<div id="carouselExampleDark" class="carousel carousel-dark slide">
+<Example code={`<div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
       <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-coreui-target="#carouselExampleDark" data-coreui-slide-to="1" aria-label="Slide 2"></button>

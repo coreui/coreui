@@ -18,7 +18,7 @@ Aspect ratios are declared in a Sass map and included in each class via CSS vari
 
 Wrap any embed, like an `<iframe>`, in a parent element with `.ratio` and an aspect ratio class. The immediate child element is automatically sized thanks to our universal selector `.ratio > *`.
 
-<Example lang="html" name="helpers-ratio-1" componentName="Ratios" code={`<div class="ratio ratio-16x9">
+<Example code={`<div class="ratio ratio-16x9">
     <iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
   </div>`} />
 
@@ -26,7 +26,7 @@ Wrap any embed, like an `<iframe>`, in a parent element with `.ratio` and an asp
 
 Aspect ratios can be customized with modifier classes. By default the following ratio classes are provided:
 
-<Example lang="html" name="helpers-ratio-2" componentName="Ratios" class="docs-example-ratios" code={`<div class="ratio ratio-1x1">
+<Example class="docs-example-ratios" code={`<div class="ratio ratio-1x1">
     <div>1x1</div>
   </div>
   <div class="ratio ratio-4x3">
@@ -45,7 +45,7 @@ Each `.ratio-*` class includes a CSS custom property (or CSS variable) in the se
 
 For example, to create a 2x1 aspect ratio, set `aspect-ratio: 50%` on the `.ratio`.
 
-<Example lang="html" name="helpers-ratio-3" componentName="Ratios" class="docs-example-ratios" code={`<div class="ratio" style="--cui-aspect-ratio: 50%;">
+<Example class="docs-example-ratios" code={`<div class="ratio" style="--cui-aspect-ratio: 50%;">
     <div>2x1</div>
   </div>`} />
 
@@ -59,7 +59,7 @@ This CSS variable makes it easy to modify the aspect ratio across breakpoints. T
 }
 ```
 
-<Example lang="html" name="helpers-ratio-4" componentName="Ratios" class="docs-example-ratios docs-example-ratios-breakpoint" code={`<div class="ratio ratio-4x3">
+<Example class="docs-example-ratios docs-example-ratios-breakpoint" code={`<div class="ratio ratio-4x3">
     <div>4x3, then 2x1</div>
   </div>`} />
 

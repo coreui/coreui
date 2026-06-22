@@ -10,7 +10,7 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 ### Additive
 
-<Example lang="html" name="utilities-borders-1" componentName="Borders" class="docs-example-border-utils" code={`<span class="border"></span>
+<Example class="docs-example-border-utils" code={`<span class="border"></span>
   <span class="border-top"></span>
   <span class="border-end"></span>
   <span class="border-bottom"></span>
@@ -20,7 +20,7 @@ Use border utilities to add or remove an element's borders. Choose from all bord
 
 Or remove borders:
 
-<Example lang="html" name="utilities-borders-2" componentName="Borders" class="docs-example-border-utils" code={`<span class="border border-0"></span>
+<Example class="docs-example-border-utils" code={`<span class="border border-0"></span>
   <span class="border border-top-0"></span>
   <span class="border border-end-0"></span>
   <span class="border border-bottom-0"></span>
@@ -30,7 +30,7 @@ Or remove borders:
 
 Change the border color using utilities built on our theme colors.
 
-<Example lang="html" name="utilities-borders-3" componentName="Borders" class="docs-example-border-utils" code={`<span class="border border-primary"></span>
+<Example class="docs-example-border-utils" code={`<span class="border border-primary"></span>
   <span class="border border-primary-subtle"></span>
   <span class="border border-secondary"></span>
   <span class="border border-secondary-subtle"></span>
@@ -47,7 +47,7 @@ Change the border color using utilities built on our theme colors.
 
 Using utilities you can change the border on one side only, or you can change all borders to make them different colors.
 
-<Example lang="html" name="utilities-borders-4" componentName="Borders" class="docs-example-border-utils" code={`<span class="border-top border-top-primary"></span>
+<Example class="docs-example-border-utils" code={`<span class="border-top border-top-primary"></span>
   <span class="border-end border-end-primary"></span>
   <span class="border-bottom border-bottom-primary"></span>
   <span class="border-start border-start-primary"></span>
@@ -58,7 +58,7 @@ Using utilities you can change the border on one side only, or you can change al
 ## Border-width
 Or modify the default `border-color` of a component:
 
-<Example lang="html" name="utilities-borders-5" componentName="Borders" code={`<div class="mb-4">
+<Example code={`<div class="mb-4">
     <label for="exampleFormControlInput1" class="form-label">Email address</label>
     <input type="email" class="form-control border-success" id="exampleFormControlInput1" placeholder="name@example.com">
   </div>
@@ -94,12 +94,12 @@ We use an RGB version of our `--cui-success` (with the value of `25, 135, 84`) C
 
 To change that opacity, override `--cui-border-opacity` via custom styles or inline styles.
 
-<Example lang="html" name="utilities-borders-6" componentName="Borders" code={`<div class="border border-success p-2 mb-2">This is default success border</div>
+<Example code={`<div class="border border-success p-2 mb-2">This is default success border</div>
   <div class="border border-success p-2" style="--cui-border-opacity: .5;">This is 50% opacity success border</div>`} />
 
 Or, choose from any of the `.border-opacity` utilities:
 
-<Example lang="html" name="utilities-borders-7" componentName="Borders" code={`<div class="border border-success p-2 mb-2">This is default success border</div>
+<Example code={`<div class="border border-success p-2 mb-2">This is default success border</div>
   <div class="border border-success p-2 mb-2 border-opacity-75">This is 75% opacity success border</div>
   <div class="border border-success p-2 mb-2 border-opacity-50">This is 50% opacity success border</div>
   <div class="border border-success p-2 mb-2 border-opacity-25">This is 25% opacity success border</div>
@@ -107,7 +107,7 @@ Or, choose from any of the `.border-opacity` utilities:
 
 ## Width
 
-<Example lang="html" name="utilities-borders-8" componentName="Borders" class="docs-example-border-utils" code={`<span class="border border-1"></span>
+<Example class="docs-example-border-utils" code={`<span class="border border-1"></span>
   <span class="border border-2"></span>
   <span class="border border-3"></span>
   <span class="border border-4"></span>
@@ -135,13 +135,13 @@ Or, choose from any of the `.border-opacity` utilities:
 
 Add classes to an element to easily round its corners.
 
-<Example lang="html" name="utilities-borders-9" componentName="Borders" class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+<Example class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-top" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example top rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example top rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-end" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example right rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example right rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-bottom" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example bottom rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example bottom rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-start" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example left rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example left rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>`} />
 
-<Example lang="html" name="utilities-borders-10" componentName="Borders" class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded-bottom-1" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example small rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example small rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+<Example class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded-bottom-1" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example small rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example small rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-start-2" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example default left rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example default left rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-end-circle" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example right completely round image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example right completely round image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-start-pill" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example left rounded pill image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example left rounded pill image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
@@ -151,7 +151,7 @@ Add classes to an element to easily round its corners.
 
 Use the scaling classes for larger or smaller rounded corners. Sizes range from `0` to `5` including `circle` and `pill`, and can be configured by modifying the utilities API.
 
-<Example lang="html" name="utilities-borders-11" componentName="Borders" class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded-0" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example non-rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example non-rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
+<Example class="docs-example-rounded-utils" code={`<svg class="docs-placeholder-img rounded-0" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example non-rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example non-rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-1" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example small rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example small rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-2" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example default rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example default rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>
   <svg class="docs-placeholder-img rounded-3" width="75" height="75" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Example large rounded image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Example large rounded image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em"></text></svg>

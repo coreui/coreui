@@ -16,7 +16,7 @@ Alternatively, you can also switch to a media query implementation thanks to our
 
 For example, to change the color mode of a dropdown menu, add `data-coreui-theme="light"` or `data-coreui-theme="dark"` to the parent `.dropdown`. Now, no matter the global color mode, these dropdowns will display with the specified theme value.
 
-<Example lang="html" name="customize-color-modes-1" componentName="Color modes" class="d-flex justify-content-between" code={`<div class="dropdown" data-coreui-theme="light">
+<Example class="d-flex justify-content-between" code={`<div class="dropdown" data-coreui-theme="light">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonLight" data-coreui-toggle="dropdown" aria-expanded="false">
       Default dropdown
     </button>
@@ -143,7 +143,7 @@ For example, you can create a "blue theme" with the selector `data-coreui-theme=
 
 <ScssDocs file="docs/assets/scss/_content.scss" capture="custom-color-mode" />
 
-<Example lang="html" class="text-body bg-body" html={[`<div class="h4">Example blue theme</div>`, `  <p>Some paragraph text to show how the blue theme might look with written copy.</p>`, ``, `  <hr class="my-4">`, ``, `  <div class="dropdown">`, `    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonCustom" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropdown button`, `    </button>`, `    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonCustom">`, `      <li><a class="dropdown-item active" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
+<Example class="text-body bg-body" html={[`<div class="h4">Example blue theme</div>`, `  <p>Some paragraph text to show how the blue theme might look with written copy.</p>`, ``, `  <hr class="my-4">`, ``, `  <div class="dropdown">`, `    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonCustom" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropdown button`, `    </button>`, `    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonCustom">`, `      <li><a class="dropdown-item active" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
 
 ```html
 <div data-coreui-theme="blue">

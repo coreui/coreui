@@ -10,7 +10,7 @@ Cards have `position: relative` by default in Bootstrap, so in this case you can
 
 Multiple links and tap targets are not recommended with stretched links. However, some `position` and `z-index` styles can help should this be required.
 
-<Example lang="html" name="helpers-stretched-link-1" componentName="Stretched link" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
     <div class="card-body">
       <h5 class="card-title">Card with stretched link</h5>
@@ -21,7 +21,7 @@ Multiple links and tap targets are not recommended with stretched links. However
 
 Most custom components do not have `position: relative` by default, so we need to add the `.position-relative` here to prevent the link from stretching outside the parent element.
 
-<Example lang="html" name="helpers-stretched-link-2" componentName="Stretched link" code={`<div class="d-flex position-relative">
+<Example code={`<div class="d-flex position-relative">
     <svg class="docs-placeholder-img flex-shrink-0 me-3" width="144" height="144" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generic placeholder image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Generic placeholder image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
     <div>
       <h5 class="mt-0">Custom component with stretched link</h5>
@@ -30,7 +30,7 @@ Most custom components do not have `position: relative` by default, so we need t
     </div>
   </div>`} />
 
-<Example lang="html" name="helpers-stretched-link-3" componentName="Stretched link" code={`<div class="row g-0 bg-light position-relative">
+<Example code={`<div class="row g-0 bg-light position-relative">
     <div class="col-md-6 mb-md-0 p-md-4">
       <svg class="docs-placeholder-img w-100" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generic placeholder image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Generic placeholder image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
     </div>
@@ -50,7 +50,7 @@ If the stretched link doesn't seem to work, the [containing block](https://devel
 - A `will-change` value of `transform` or `perspective`
 - A `filter` value other than `none` or a `will-change` value of `filter` (only works on Firefox)
 
-<Example lang="html" name="helpers-stretched-link-4" componentName="Stretched link" code={`<div class="card" style="width: 18rem;">
+<Example code={`<div class="card" style="width: 18rem;">
     <svg class="docs-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Card image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Card image cap</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
     <div class="card-body">
       <h5 class="card-title">Card with stretched links</h5>

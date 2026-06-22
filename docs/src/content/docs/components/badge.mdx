@@ -12,7 +12,7 @@ Bootstrap badge scale to suit the size of the parent element by using relative f
 
 ### Headings
 
-<Example lang="html" name="components-badge-1" componentName="Badges" code={`<h1>Example heading <span class="badge text-bg-secondary">New</span></h1>
+<Example code={`<h1>Example heading <span class="badge text-bg-secondary">New</span></h1>
   <h2>Example heading <span class="badge text-bg-secondary">New</span></h2>
   <h3>Example heading <span class="badge text-bg-secondary">New</span></h3>
   <h4>Example heading <span class="badge text-bg-secondary">New</span></h4>
@@ -23,7 +23,7 @@ Bootstrap badge scale to suit the size of the parent element by using relative f
 
 Badges can be used as part of links or buttons to provide a counter.
 
-<Example lang="html" name="components-badge-2" componentName="Badges" code={`<button type="button" class="btn btn-primary">
+<Example code={`<button type="button" class="btn btn-primary">
     Notifications <span class="badge text-bg-secondary">4</span>
   </button>`} />
 
@@ -35,7 +35,7 @@ Unless the context is clear, consider including additional context with a visual
 
 Use utilities to modify a `.badge` and position it in the corner of a link or button.
 
-<Example lang="html" name="components-badge-3" componentName="Badges" code={`<button type="button" class="btn btn-primary position-relative">
+<Example code={`<button type="button" class="btn btn-primary position-relative">
     Inbox
     <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
       99+
@@ -45,7 +45,7 @@ Use utilities to modify a `.badge` and position it in the corner of a link or bu
 
 You can also replace the `.badge` class with a few more utilities without a count for a more generic indicator.
 
-<Example lang="html" name="components-badge-4" componentName="Badges" code={`<button type="button" class="btn btn-primary position-relative">
+<Example code={`<button type="button" class="btn btn-primary position-relative">
     Profile
     <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
       <span class="visually-hidden">New alerts</span>
@@ -56,7 +56,7 @@ You can also replace the `.badge` class with a few more utilities without a coun
 
 Add any of the below-mentioned classes to modify the presentation of a badge. Please note that when using CoreUI for Bootstrap's default `.bg-light`, you'll likely need a text color utility like `.text-dark` for proper styling. This is because background utilities do not set anything but `background-color`.
 
-<Example lang="html" name="components-badge-5" componentName="Badges" code={`<span class="badge text-bg-primary">Primary</span>
+<Example code={`<span class="badge text-bg-primary">Primary</span>
   <span class="badge text-bg-secondary">Secondary</span>
   <span class="badge text-bg-success">Success</span>
   <span class="badge text-bg-danger">Danger</span>
@@ -73,7 +73,7 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Apply the `.rounded-pill` modifier class to make badges rounded.
 
-<Example lang="html" name="components-badge-6" componentName="Badges" code={`<span class="badge rounded-pill text-bg-primary">Primary</span>
+<Example code={`<span class="badge rounded-pill text-bg-primary">Primary</span>
   <span class="badge rounded-pill text-bg-secondary">Secondary</span>
   <span class="badge rounded-pill text-bg-success">Success</span>
   <span class="badge rounded-pill text-bg-danger">Danger</span>

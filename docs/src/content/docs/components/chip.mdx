@@ -37,7 +37,7 @@ Use the Bootstrap Chip component when you need:
 
 Use `.chip` for standalone chips.
 
-<Example lang="html" name="components-chip-1" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip">Basic chip</span>
     <span class="chip">Basic chip 2</span>
     <span class="chip">Basic chip 3</span>
@@ -48,7 +48,7 @@ Use `.chip` for standalone chips.
 
 Add `.chip-outline` to remove all background images and colors on any chip.
 
-<Example lang="html" name="components-chip-2" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip chip-outline">Outline chip</span>
     <span class="chip chip-outline">Outline chip 2</span>
     <span class="chip chip-outline">Outline chip 3</span>
@@ -59,7 +59,7 @@ Add `.chip-outline` to remove all background images and colors on any chip.
 
 Add `.chip-icon` for a leading icon.
 
-<Example lang="html" name="components-chip-3" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip">
       <span class="chip-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -82,7 +82,7 @@ Add `.chip-icon` for a leading icon.
 
 Add `.chip-img` for an image like an avatar or use our avatar component.
 
-<Example lang="html" name="components-chip-4" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip">
       <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
       Chip with avatar
@@ -105,7 +105,7 @@ Add `.chip-img` for an image like an avatar or use our avatar component.
 
 Apply `.chip-*` classes to color your chips. Chips are subtle by default as this allows for a clear, themed active state.
 
-<Example lang="html" name="components-chip-5" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
 
     <span class="chip chip-primary chip-clickable" tabindex="0">Primary chip</span>
     <span class="chip chip-primary active" tabindex="0">Primary chip</span>
@@ -121,7 +121,7 @@ Apply `.chip-*` classes to color your chips. Chips are subtle by default as this
     <span class="chip chip-info active" tabindex="0">Info chip</span>
   </div>`} />
 
-<Example lang="html" name="components-chip-6" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
 
     <span class="chip chip-outline chip-clickable chip-primary" tabindex="0">Primary chip</span>
     <span class="chip chip-outline chip-primary active" tabindex="0">Primary chip</span>
@@ -141,7 +141,7 @@ Apply `.chip-*` classes to color your chips. Chips are subtle by default as this
 
 Add `.active` to make chips use the solid appearance (bg/contrast). This is useful for toggle-style chip selections.
 
-<Example lang="html" name="components-chip-7" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip">Default</span>
     <span class="chip active">Active</span>
     <span class="chip chip-primary">Primary</span>
@@ -154,7 +154,7 @@ Add `.active` to make chips use the solid appearance (bg/contrast). This is usef
 
 Use `.chip-sm` or `.chip-lg` for different sizes.
 
-<Example lang="html" name="components-chip-8" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1 mb-3">
+<Example code={`<div class="d-flex flex-wrap gap-1 mb-3">
     <span class="chip chip-sm">Small</span>
     <span class="chip chip-sm">
       <span class="chip-icon">
@@ -254,7 +254,7 @@ The options below can be configured per chip, but in practice you'll usually set
 
 Add `data-coreui-chip` to enable the plugin and configure behavior with `data-coreui-*` options.
 
-<Example lang="html" name="components-chip-9" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip" data-coreui-chip data-coreui-selectable="true">Selectable</span>
     <span class="chip" data-coreui-chip data-coreui-removable="true">Removable</span>
     <span class="chip" data-coreui-chip data-coreui-selectable="true" data-coreui-selected="true">Selected</span>
@@ -289,7 +289,7 @@ If `removable` is enabled, the plugin will add the remove button automatically. 
 </span>
 ```
 
-<Example lang="html" name="components-chip-10" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+<Example code={`<div class="d-flex flex-wrap gap-1">
     <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>
     <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>
     <span class="chip disabled" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>

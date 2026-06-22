@@ -16,7 +16,7 @@ CoreUI’s container query grid system uses a series of containers, rows, and co
 **New to or unfamiliar with container queries?** Read up on [CSS Container Queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) for an introduction.
 </Callout>
 
-<Example lang="html" name="layout-container-queries-grid-1" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col">
         Column
@@ -152,7 +152,7 @@ Just as with our media query grid, you can use breakpoint-specific column classe
 
 For example, here are two grid layouts that apply to every container size, from the smallest up:
 
-<Example lang="html" name="layout-container-queries-grid-2" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col">
         1 of 2
@@ -178,7 +178,7 @@ For example, here are two grid layouts that apply to every container size, from 
 
 Auto-layout in a flexbox grid means you can set the width of one column and have the other columns automatically resize around it. You can do this with predefined classes, Sass mixins, or inline styles. The sibling columns will always adjust around the explicitly sized column.
 
-<Example lang="html" name="layout-container-queries-grid-3" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col">
         1 of 3
@@ -207,7 +207,7 @@ Auto-layout in a flexbox grid means you can set the width of one column and have
 
 Use the `.cq-col-{breakpoint}-auto` classes to size columns based on the natural width of their content.
 
-<Example lang="html" name="layout-container-queries-grid-4" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row justify-content-md-center">
       <div class="cq-col cq-col-lg-2">
         1 of 3
@@ -240,7 +240,7 @@ Our container query grid includes six tiers of predefined classes for building c
 
 For grids that are identical across all container sizes, use the `.cq-col` and `.cq-col-*` classes. Specify a numbered class when you need a particular sized column; otherwise, stick with `.cq-col`.
 
-<Example lang="html" name="layout-container-queries-grid-5" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col">col</div>
       <div class="cq-col">col</div>
@@ -257,7 +257,7 @@ For grids that are identical across all container sizes, use the `.cq-col` and `
 
 Using a single set of `.cq-col-sm-*` classes, you can create a grid that starts stacked (for smaller container sizes) and becomes horizontal when the container’s width reaches the small breakpoint.
 
-<Example lang="html" name="layout-container-queries-grid-6" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col-sm-8">cq-col-sm-8</div>
       <div class="cq-col-sm-4">cq-col-sm-4</div>
@@ -273,7 +273,7 @@ Using a single set of `.cq-col-sm-*` classes, you can create a grid that starts 
 
 Combine classes from different breakpoints to achieve a layout that adjusts at various container widths.
 
-<Example lang="html" name="layout-container-queries-grid-7" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <!-- Stack columns on narrow containers: one full-width, one half-width -->
     <div class="cq-row">
       <div class="cq-col-md-8">.cq-col-md-8</div>
@@ -300,7 +300,7 @@ Just as with our original grid, you can use responsive `.row-cols-*`–style cla
 
 For example:
 
-<Example lang="html" name="layout-container-queries-grid-8" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row cq-row-cols-3">
       <div class="cq-col">Column</div>
       <div class="cq-col">Column</div>
@@ -327,7 +327,7 @@ You can also use the accompanying Sass mixin, `row-cols()`, with container query
 
 To nest content, simply add a new `.cq-row` and set of `.cq-col-*` columns inside an existing column. When nesting, the inner row inherits the gutter spacing from the outer grid, and the nested columns should add up to 12 (or fewer).
 
-<Example lang="html" name="layout-container-queries-grid-9" componentName="Grid system (Container Query version)" class="docs-example-row" code={`<div class="container text-center">
+<Example class="docs-example-row" code={`<div class="container text-center">
     <div class="cq-row">
       <div class="cq-col-sm-3">
         Level 1: .cq-col-sm-3

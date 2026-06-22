@@ -10,7 +10,7 @@ The `.focus-ring` helper removes the default `outline` on `:focus`, replacing it
 
 Click directly on the link below to see the focus ring in action, or into the example below and then press <kbd>Tab</kbd>.
 
-<Example lang="html" name="helpers-focus-ring-1" componentName="Focus ring" code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2">
+<Example code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2">
     Custom focus ring
   </a>`} />
 
@@ -22,7 +22,7 @@ Modify the styling of a focus ring with our CSS variables, Sass variables, utili
 
 Modify the `--cui-focus-ring-*` CSS variables as needed to change the default appearance.
 
-<Example lang="html" name="helpers-focus-ring-2" componentName="Focus ring" code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--cui-focus-ring-color: rgba(var(--cui-success-rgb), .25)">
+<Example code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--cui-focus-ring-color: rgba(var(--cui-success-rgb), .25)">
     Green focus ring
   </a>`} />
 
@@ -32,7 +32,7 @@ Modify the `--cui-focus-ring-*` CSS variables as needed to change the default ap
 
 By default, there is no `--cui-focus-ring-x`, `--cui-focus-ring-y`, or `--cui-focus-ring-blur`, but we provide CSS variables with fallbacks to initial `0` values. Modify them to change the default appearance.
 
-<Example lang="html" name="helpers-focus-ring-3" componentName="Focus ring" code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--cui-focus-ring-x: 10px; --cui-focus-ring-y: 10px; --cui-focus-ring-blur: 4px">
+<Example code={`<a href="#" class="d-inline-flex focus-ring py-1 px-2 text-decoration-none border rounded-2" style="--cui-focus-ring-x: 10px; --cui-focus-ring-y: 10px; --cui-focus-ring-blur: 4px">
     Blurry offset focus ring
   </a>`} />
 
@@ -46,7 +46,7 @@ Customize the focus ring Sass variables to modify all usage of the focus ring st
 
 In addition to `.focus-ring`, we have several `.focus-ring-*` utilities to modify the helper class defaults. Modify the color with any of our [theme colors](/customize/color/#theme-colors). Note that the light and dark variants may not be visible on all background colors given current color mode support.
 
-<Example lang="html" name="helpers-focus-ring-4" componentName="Focus ring" code={`<p><a href="#" class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">Primary focus</a></p>
+<Example code={`<p><a href="#" class="d-inline-flex focus-ring focus-ring-primary py-1 px-2 text-decoration-none border rounded-2">Primary focus</a></p>
   <p><a href="#" class="d-inline-flex focus-ring focus-ring-secondary py-1 px-2 text-decoration-none border rounded-2">Secondary focus</a></p>
   <p><a href="#" class="d-inline-flex focus-ring focus-ring-success py-1 px-2 text-decoration-none border rounded-2">Success focus</a></p>
   <p><a href="#" class="d-inline-flex focus-ring focus-ring-danger py-1 px-2 text-decoration-none border rounded-2">Danger focus</a></p>

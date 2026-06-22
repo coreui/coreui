@@ -8,7 +8,7 @@ description: "Convey meaning through `background-color` and add decoration with 
 
 Similar to the contextual text color classes, set the background of an element to any contextual class. Background utilities **do not set `color`**, so in some cases you'll want to use `.text-*` [color utilities](/utilities/colors/).
 
-<Example lang="html" name="utilities-background-1" componentName="Background" code={`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+<Example code={`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
   <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
   <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
   <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
@@ -68,12 +68,12 @@ We use an RGB version of our `--cui-success` (with the value of `25, 135, 84`) C
 
 To change that opacity, override `--cui-bg-opacity` via custom styles or inline styles.
 
-<Example lang="html" name="utilities-background-2" componentName="Background" code={`<div class="bg-success p-2 text-white">This is default success background</div>
+<Example code={`<div class="bg-success p-2 text-white">This is default success background</div>
   <div class="bg-success p-2" style="--cui-bg-opacity: .5;">This is 50% opacity success background</div>`} />
 
 Or, choose from any of the `.bg-opacity` utilities:
 
-<Example lang="html" name="utilities-background-3" componentName="Background" code={`<div class="bg-success p-2 text-white">This is default success background</div>
+<Example code={`<div class="bg-success p-2 text-white">This is default success background</div>
   <div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
   <div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
   <div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>

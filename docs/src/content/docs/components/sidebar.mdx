@@ -33,7 +33,7 @@ Sidebar come with built-in support for a handful of sub-components. Choose from 
 
 Below is a more complete sidebar example shown by default on desktop devices. It combines several optional features in a single demo, including narrow visibility helpers, tree navigation, nested groups, a custom group indicator, badges, and a footer dropdown.
 
-<Example lang="html" name="components-sidebar-1" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end h-100">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end h-100">
     <div class="sidebar-header position-relative">
       <div class="sidebar-brand">
         <svg role="img" aria-label="CoreUI Logo Full" class="d-sidebar-narrow-none" width="88" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 312 115">
@@ -185,7 +185,7 @@ Add the `.sidebar-narrow` class to make the sidebar narrow.
 
 Use `.d-sidebar-narrow` to show content only in the narrow state and `.d-sidebar-narrow-none` to hide content in the narrow state. These utility classes replace the older brand-specific visibility helpers such as `.sidebar-brand-full` and `.sidebar-brand-narrow`, which are deprecated and will be removed in v6.
 
-<Example lang="html" name="components-sidebar-2" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-narrow border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-narrow border-end">
     <div class="sidebar-header">
       <div class="sidebar-brand">
         <svg role="img" aria-label="CoreUI Logo Signet" width="88" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 102 115">
@@ -226,7 +226,7 @@ Add the `.sidebar-narrow-unfoldable` class to make the sidebar narrow with unfol
 
 Use `.d-sidebar-narrow-unfoldable` and `.d-sidebar-narrow-unfoldable-none` to control content visibility for unfoldable sidebars.
 
-<Example lang="html" name="components-sidebar-3" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-narrow-unfoldable border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-narrow-unfoldable border-end">
     <div class="sidebar-header">
       <div class="sidebar-brand">
         <svg role="img" aria-label="CoreUI Logo Full" class="d-sidebar-narrow-none" width="88" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 312 115">
@@ -325,7 +325,7 @@ Add `.compact` to `.sidebar-nav` to reduce the vertical padding of links across 
 
 Use `.compact` on `.sidebar-nav` to make the entire navigation denser, or on `.nav-group-items` to compact only a nested section.
 
-<Example lang="html" name="components-sidebar-4" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
     <ul class="sidebar-nav compact">
       <li class="nav-title">Compact nav</li>
       <li class="nav-item">
@@ -358,7 +358,7 @@ Use `.compact` on `.sidebar-nav` to make the entire navigation denser, or on `.n
 
 Add the `.sidebar-nav-tree` class to `.sidebar-nav` to render nested groups as a tree. Nested `.nav-group-items` get connector lines automatically, making deeper navigation levels easier to scan.
 
-<Example lang="html" name="components-sidebar-5" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
     <ul class="sidebar-nav sidebar-nav-tree" data-coreui-navigation>
       <li class="nav-item nav-group show">
         <a class="nav-link nav-group-toggle" href="#">
@@ -396,7 +396,7 @@ Add the `.sidebar-nav-tree` class to `.sidebar-nav` to render nested groups as a
 
 By default, `.nav-group-toggle` renders its own indicator with a pseudo-element. No additional markup is required.
 
-<Example lang="html" name="components-sidebar-6" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
     <ul class="sidebar-nav" data-coreui-navigation>
       <li class="nav-item nav-group show">
         <a class="nav-link nav-group-toggle" href="#">
@@ -420,7 +420,7 @@ To replace the default indicator, add a `.nav-group-toggle-indicator` element in
 
 Use `.show` and `.hide` inside `.nav-group-toggle-indicator` to control which icon is visible when the group is expanded or collapsed.
 
-<Example lang="html" name="components-sidebar-7" componentName="Sidebar" class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
+<Example class="bg-body-secondary p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar border-end">
     <ul class="sidebar-nav" data-coreui-navigation>
       <li class="nav-item nav-group show">
         <a class="nav-link nav-group-toggle" href="#">
@@ -463,7 +463,7 @@ Use `.show` and `.hide` inside `.nav-group-toggle-indicator` to control which ic
 
 Change the appearance of sidebars with the `.sidebar-dark` class.
 
-<Example lang="html" name="components-sidebar-8" componentName="Sidebar" class="p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-dark border-end">
+<Example class="p-0 rounded-bottom-0 overflow-hidden" code={`<div class="sidebar sidebar-dark border-end">
     <div class="sidebar-header">
       <div class="sidebar-brand">
         <svg role="img" aria-label="CoreUI Logo Full" width="88" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 312 115">

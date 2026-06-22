@@ -19,7 +19,7 @@ Progress components are built with two HTML elements, some CSS to set the width,
 
 Put that all together, and you have the following examples.
 
-<Example lang="html" name="components-progress-1" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="progress">
@@ -37,7 +37,7 @@ Put that all together, and you have the following examples.
 
 Bootstrap provides a handful of [utilities for setting width](/utilities/sizing/). Depending on your needs, these may help with quickly configuring progress.
 
-<Example lang="html" name="components-progress-2" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
   </div>`} />
 
@@ -45,7 +45,7 @@ Bootstrap provides a handful of [utilities for setting width](/utilities/sizing/
 
 Add labels to your progress bars by placing text within the `.progress-bar`.
 
-<Example lang="html" name="components-progress-3" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
   </div>`} />
 
@@ -53,7 +53,7 @@ Add labels to your progress bars by placing text within the `.progress-bar`.
 
 We only set a `height` value on the `.progress`, so if you change that value the inner `.progress-bar` will automatically resize accordingly.
 
-<Example lang="html" name="components-progress-4" componentName="Progress" code={`<div class="progress" style="height: 1px;">
+<Example code={`<div class="progress" style="height: 1px;">
     <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="progress" style="height: 20px;">
@@ -64,7 +64,7 @@ We only set a `height` value on the `.progress`, so if you change that value the
 
 Use background utility classes to change the appearance of individual progress bars.
 
-<Example lang="html" name="components-progress-5" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="progress">
@@ -81,7 +81,7 @@ Use background utility classes to change the appearance of individual progress b
 
 Include multiple progress bars in a progress component if you need.
 
-<Example lang="html" name="components-progress-6" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>
     <div class="progress-bar bg-success" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
     <div class="progress-bar bg-info" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
@@ -91,7 +91,7 @@ Include multiple progress bars in a progress component if you need.
 
 Add `.progress-bar-striped` to any `.progress-bar` to apply a stripe via CSS gradient over the progress bar's background color.
 
-<Example lang="html" name="components-progress-7" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
   <div class="progress">
@@ -111,13 +111,13 @@ Add `.progress-bar-striped` to any `.progress-bar` to apply a stripe via CSS gra
 
 The striped gradient can also be animated. Add `.progress-bar-animated` to `.progress-bar` to animate the stripes right to left via CSS3 animations.
 
-<Example lang="html" name="components-progress-8" componentName="Progress" code={`<div class="progress">
+<Example code={`<div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
   </div>`} />
 
 ## Progress group
 
-<Example lang="html" name="components-progress-9" componentName="Progress" code={`<div class="progress-group mb-4">
+<Example code={`<div class="progress-group mb-4">
     <div class="progress-group-prepend">
       <span class="text-body-secondary small">
         Title
@@ -172,7 +172,7 @@ The striped gradient can also be animated. Add `.progress-bar-animated` to `.pro
     </div>
   </div>`} />
 
-<Example lang="html" name="components-progress-10" componentName="Progress" code={`<div class="progress-group">
+<Example code={`<div class="progress-group">
     <div class="progress-group-header">
       <i class="cil-user progress-group-icon me-2"></i>
       <div>Male</div>
@@ -185,7 +185,7 @@ The striped gradient can also be animated. Add `.progress-bar-animated` to `.pro
     </div>
   </div>`} />
 
-<Example lang="html" name="components-progress-11" componentName="Progress" code={`<div class="progress-group">
+<Example code={`<div class="progress-group">
     <div class="progress-group-header align-items-end">
       <i class="cil-globe-alt progress-group-icon me-2"></i>
       <div>Organic Search</div>

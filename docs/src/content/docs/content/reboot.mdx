@@ -80,7 +80,7 @@ All heading elements—e.g., `<h1>`—and `<p>` are reset to have their `margin-
 
 The `<hr />` element has been simplified. Similar to browser defaults, `<hr />`s are styled via `border-top`, have a default `opacity: .25`, and automatically inherit their `border-color` via `color`, including when `color` is set via the parent. They can be modified with text, border, and opacity utilities.
 
-<Example lang="html" name="content-reboot-1" componentName="Reboot" code={`<hr>
+<Example code={`<hr>
 
   <div class="text-success">
     <hr>
@@ -93,23 +93,23 @@ The `<hr />` element has been simplified. Similar to browser defaults, `<hr />`s
 
 All lists—`<ul>`, `<ol>`, and `<dl>`—have their `margin-top` removed and a `margin-bottom: 1rem`. Nested lists have no `margin-bottom`. We've also reset the `padding-left` on `<ul>` and `<ol>` elements.
 
-<Example lang="html" html={[``, `* All lists have their top margin removed`, `* And their bottom margin normalized`, `* Nested lists have no bottom margin`, `  * This way they have a more even appearance`, `  * Particularly when followed by more list items`, `* The left padding has also been reset`, ``, `1. Here's an ordered list`, `2. With a few list items`, `3. It has the same overall look`, `4. As the previous unordered list`, ``]} />
+<Example html={[``, `* All lists have their top margin removed`, `* And their bottom margin normalized`, `* Nested lists have no bottom margin`, `  * This way they have a more even appearance`, `  * Particularly when followed by more list items`, `* The left padding has also been reset`, ``, `1. Here's an ordered list`, `2. With a few list items`, `3. It has the same overall look`, `4. As the previous unordered list`, ``]} />
 
 For simpler styling, clear hierarchy, and better spacing, description lists have updated `margin`s. `<dd>`s reset `margin-left` to `0` and add `margin-bottom: .5rem`. `<dt>`s are **bolded**.
 
-<Example lang="html" html={[`<dl>`, `    <dt>Description lists</dt>`, `    <dd>A description list is perfect for defining terms.</dd>`, `    <dt>Term</dt>`, `    <dd>Definition for the term.</dd>`, `    <dd>A second definition for the same term.</dd>`, `    <dt>Another term</dt>`, `    <dd>Definition for this other term.</dd>`, `  </dl>`]} />
+<Example html={[`<dl>`, `    <dt>Description lists</dt>`, `    <dd>A description list is perfect for defining terms.</dd>`, `    <dt>Term</dt>`, `    <dd>Definition for the term.</dd>`, `    <dd>A second definition for the same term.</dd>`, `    <dt>Another term</dt>`, `    <dd>Definition for this other term.</dd>`, `  </dl>`]} />
 
 ## Inline code
 
 Wrap inline snippets of code with `<code>`. Be sure to escape HTML angle brackets.
 
-<Example lang="html" name="content-reboot-2" componentName="Reboot" code={`For example, <code>&lt;section&gt;</code> should be wrapped as inline.`} />
+<Example code={`For example, <code>&lt;section&gt;</code> should be wrapped as inline.`} />
 
 ## Code blocks
 
 Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle brackets in the code for proper rendering. The `<pre>` element is reset to remove its `margin-top` and use `rem` units for its `margin-bottom`.
 
-<Example lang="html" name="content-reboot-3" componentName="Reboot" code={`<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+<Example code={`<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
   &lt;p&gt;And another line of sample text here...&lt;/p&gt;
   </code></pre>`} />
 
@@ -117,26 +117,26 @@ Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle
 
 For indicating variables use the `<var>` tag.
 
-<Example lang="html" name="content-reboot-4" componentName="Reboot" code={`<var>y</var> = <var>m</var><var>x</var> + <var>b</var>`} />
+<Example code={`<var>y</var> = <var>m</var><var>x</var> + <var>b</var>`} />
 
 ## User input
 
 Use the `<kbd>` to indicate input that is typically entered via keyboard.
 
-<Example lang="html" name="content-reboot-5" componentName="Reboot" code={`To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+<Example code={`To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
   To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>`} />
 
 ## Sample output
 
 For indicating sample output from a program use the `<samp>` tag.
 
-<Example lang="html" name="content-reboot-6" componentName="Reboot" code={`<samp>This text is meant to be treated as sample output from a computer program.</samp>`} />
+<Example code={`<samp>This text is meant to be treated as sample output from a computer program.</samp>`} />
 
 ## Tables
 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class](/content/tables/).
 
-<Example lang="html" name="content-reboot-7" componentName="Reboot" code={`<table>
+<Example code={`<table>
     <caption>
       This is an example table, and this is its caption to describe the contents.
     </caption>
@@ -315,7 +315,7 @@ Keep in mind date inputs are [not fully supported](https://caniuse.com/input-dat
 
 Reboot includes an enhancement for `role="button"` to change the default cursor to `pointer`. Add this attribute to elements to help indicate elements are interactive. This role isn't necessary for `<button>` elements, which get their own `cursor` change.
 
-<Example lang="html" name="content-reboot-8" componentName="Reboot" code={`<span role="button" tabindex="0">Non-button element button</span>`} />
+<Example code={`<span role="button" tabindex="0">Non-button element button</span>`} />
 
 ## Misc elements
 
@@ -323,25 +323,25 @@ Reboot includes an enhancement for `role="button"` to change the default cursor 
 
 The `<address>` element is updated to reset the browser default `font-style` from `italic` to `normal`. `line-height` is also now inherited, and `margin-bottom: 1rem` has been added. `<address>`s are for presenting contact information for the nearest ancestor (or an entire body of work). Preserve formatting by ending lines with `<br />`.
 
-<Example lang="html" html={[`<address>`, `    <strong>Twitter, Inc.</strong><br>`, `    1355 Market St, Suite 900<br>`, `    San Francisco, CA 94103<br>`, `    <abbr title="Phone">P:</abbr> (123) 456-7890`, `  </address>`, ``, `  <address>`, `    <strong>Full Name</strong><br>`, `    <a href="mailto:first.last@example.com">first.last@example.com</a>`, `  </address>`]} />
+<Example html={[`<address>`, `    <strong>Twitter, Inc.</strong><br>`, `    1355 Market St, Suite 900<br>`, `    San Francisco, CA 94103<br>`, `    <abbr title="Phone">P:</abbr> (123) 456-7890`, `  </address>`, ``, `  <address>`, `    <strong>Full Name</strong><br>`, `    <a href="mailto:first.last@example.com">first.last@example.com</a>`, `  </address>`]} />
 
 ### Blockquote
 
 The default `margin` on blockquotes is `1em 40px`, so we reset that to `0 0 1rem` for something more consistent with other elements.
 
-<Example lang="html" html={[`<blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <p>Someone famous in <cite title="Source Title">Source Title</cite></p>`]} />
+<Example html={[`<blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <p>Someone famous in <cite title="Source Title">Source Title</cite></p>`]} />
 
 ### Inline elements
 
 The `<abbr>` element receives basic styling to make it stand out amongst paragraph text.
 
-<Example lang="html" html={[`Nulla <abbr title="attribute">attr</abbr> vitae elit libero, a pharetra augue.`]} />
+<Example html={[`Nulla <abbr title="attribute">attr</abbr> vitae elit libero, a pharetra augue.`]} />
 
 ### Summary
 
 The default `cursor` on summary is `text`, so we reset that to `pointer` to convey that the element can be interacted with by clicking on it.
 
-<Example lang="html" html={[`<details>`, `    <summary>Some details</summary>`, `    <p>More info about the details.</p>`, `  </details>`, ``, `  <details open>`, `    <summary>Even more details</summary>`, `    <p>Here are even more details about the details.</p>`, `  </details>`]} />
+<Example html={[`<details>`, `    <summary>Some details</summary>`, `    <p>More info about the details.</p>`, `  </details>`, ``, `  <details open>`, `    <summary>Even more details</summary>`, `    <p>Here are even more details about the details.</p>`, `  </details>`]} />
 
 ## HTML5 `[hidden]` attribute
 

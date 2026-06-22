@@ -8,7 +8,7 @@ description: "Convey meaning through `color` with a handful of color utility cla
 
 Colorize text with color utilities. If you want to colorize links, you can use the [`.link-*` helper classes](/helpers/colored-links/) which have `:hover` and `:focus` states.
 
-<Example lang="html" name="utilities-colors-1" componentName="Colors" code={`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>
+<Example code={`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>
   <p class="text-primary-emphasis">.text-primary-emphasis</p>
   <p class="text-secondary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-secondary</p>
   <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
@@ -64,12 +64,12 @@ We use an RGB version of our `--cui-primary` (with the value of `13, 110, 253`) 
 
 To change that opacity, override `--cui-text-opacity` via custom styles or inline styles.
 
-<Example lang="html" name="utilities-colors-2" componentName="Colors" code={`<div class="text-primary">This is default primary text</div>
+<Example code={`<div class="text-primary">This is default primary text</div>
   <div class="text-primary" style="--cui-text-opacity: .5;">This is 50% opacity primary text</div>`} />
 
 Or, choose from any of the `.text-opacity` utilities:
 
-<Example lang="html" name="utilities-colors-3" componentName="Colors" code={`<div class="text-primary">This is default primary text</div>
+<Example code={`<div class="text-primary">This is default primary text</div>
   <div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
   <div class="text-primary text-opacity-50">This is 50% opacity primary text</div>
   <div class="text-primary text-opacity-25">This is 25% opacity primary text</div>`} />

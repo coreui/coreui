@@ -18,7 +18,7 @@ The base `.nav` component does not include any `.active` state. The following ex
 To convey the active state to assistive technologies, use the `aria-current` attribute — using the `page` value for current page, or `true` for the current item in a set.
 </Callout>
 
-<Example lang="html" name="components-navs-tabs-1" componentName="Navs and tabs" code={`<ul class="nav">
+<Example code={`<ul class="nav">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -35,7 +35,7 @@ To convey the active state to assistive technologies, use the `aria-current` att
 
 Classes are used throughout, so your markup can be super flexible. Use `<ul>`s like above, `<ol>` if the order of your items is important, or roll your own with a `<nav>` element. Because the `.nav` uses `display: flex`, the nav links behave the same as nav items would, but without the extra markup.
 
-<Example lang="html" name="components-navs-tabs-2" componentName="Navs and tabs" code={`<nav class="nav">
+<Example code={`<nav class="nav">
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <a class="nav-link" href="#">Link</a>
     <a class="nav-link" href="#">Link</a>
@@ -52,7 +52,7 @@ Change the horizontal alignment of your nav with [flexbox utilities](/utilities/
 
 Centered with `.justify-content-center`:
 
-<Example lang="html" name="components-navs-tabs-3" componentName="Navs and tabs" code={`<ul class="nav justify-content-center">
+<Example code={`<ul class="nav justify-content-center">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -69,7 +69,7 @@ Centered with `.justify-content-center`:
 
 Right-aligned with `.justify-content-end`:
 
-<Example lang="html" name="components-navs-tabs-4" componentName="Navs and tabs" code={`<ul class="nav justify-content-end">
+<Example code={`<ul class="nav justify-content-end">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -88,7 +88,7 @@ Right-aligned with `.justify-content-end`:
 
 Stack your navigation by changing the flex item direction with the `.flex-column` utility. Need to stack them on some viewports but not others? Use the responsive versions (e.g., `.flex-sm-column`).
 
-<Example lang="html" name="components-navs-tabs-5" componentName="Navs and tabs" code={`<ul class="nav flex-column">
+<Example code={`<ul class="nav flex-column">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -105,7 +105,7 @@ Stack your navigation by changing the flex item direction with the `.flex-column
 
 As always, vertical navigation is possible without `<ul>`s, too.
 
-<Example lang="html" name="components-navs-tabs-6" componentName="Navs and tabs" code={`<nav class="nav flex-column">
+<Example code={`<nav class="nav flex-column">
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <a class="nav-link" href="#">Link</a>
     <a class="nav-link" href="#">Link</a>
@@ -116,7 +116,7 @@ As always, vertical navigation is possible without `<ul>`s, too.
 
 Takes the basic nav from above and adds the `.nav-tabs` class to generate a tabbed interface. Use them to create tabbable regions with our [tab JavaScript plugin](#javascript-behavior).
 
-<Example lang="html" name="components-navs-tabs-7" componentName="Navs and tabs" code={`<ul class="nav nav-tabs">
+<Example code={`<ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -135,7 +135,7 @@ Takes the basic nav from above and adds the `.nav-tabs` class to generate a tabb
 
 Take that same HTML, but use `.nav-pills` instead:
 
-<Example lang="html" name="components-navs-tabs-8" componentName="Navs and tabs" code={`<ul class="nav nav-pills">
+<Example code={`<ul class="nav nav-pills">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -154,7 +154,7 @@ Take that same HTML, but use `.nav-pills` instead:
 
 Take that same HTML, but use `.nav-underline` instead:
 
-<Example lang="html" name="components-navs-tabs-9" componentName="Navs and tabs" code={`<ul class="nav nav-underline">
+<Example code={`<ul class="nav nav-underline">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -173,7 +173,7 @@ Take that same HTML, but use `.nav-underline` instead:
 
 Take that same HTML, but use `.nav-underline-border` instead:
 
-<Example lang="html" name="components-navs-tabs-10" componentName="Navs and tabs" code={`<ul class="nav nav-underline-border">
+<Example code={`<ul class="nav nav-underline-border">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -192,7 +192,7 @@ Take that same HTML, but use `.nav-underline-border` instead:
 
 Use the `.nav-enclosed` class to give your navigation items a subtle border and rounded styling.
 
-<Example lang="html" name="components-navs-tabs-11" componentName="Navs and tabs" code={`<ul class="nav nav-enclosed">
+<Example code={`<ul class="nav nav-enclosed">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -212,7 +212,7 @@ Use the `.nav-enclosed` class to give your navigation items a subtle border and 
 Combine `.nav-enclosed` with `.nav-enclosed-pills` to achieve a pill-style appearance for each nav item, using pill-shaped borders and smoother outlines.
 
 
-<Example lang="html" name="components-navs-tabs-12" componentName="Navs and tabs" code={`<ul class="nav nav-enclosed nav-enclosed-pills">
+<Example code={`<ul class="nav nav-enclosed nav-enclosed-pills">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -231,7 +231,7 @@ Combine `.nav-enclosed` with `.nav-enclosed-pills` to achieve a pill-style appea
 
 Force your `.nav`'s contents to extend the full available width one of two modifier classes. To proportionately fill all available space with your `.nav-item`s, use `.nav-fill`. Notice that all horizontal space is occupied, but not every nav item has the same width.
 
-<Example lang="html" name="components-navs-tabs-13" componentName="Navs and tabs" code={`<ul class="nav nav-pills nav-fill">
+<Example code={`<ul class="nav nav-pills nav-fill">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -248,7 +248,7 @@ Force your `.nav`'s contents to extend the full available width one of two modif
 
 When using a `<nav>`-based navigation, you can safely omit `.nav-item` as only `.nav-link` is required for styling `<a>` elements.
 
-<Example lang="html" name="components-navs-tabs-14" componentName="Navs and tabs" code={`<nav class="nav nav-pills nav-fill">
+<Example code={`<nav class="nav nav-pills nav-fill">
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <a class="nav-link" href="#">Much longer nav link</a>
     <a class="nav-link" href="#">Link</a>
@@ -257,7 +257,7 @@ When using a `<nav>`-based navigation, you can safely omit `.nav-item` as only `
 
 For equal-width elements, use `.nav-justified`. All horizontal space will be occupied by nav links, but unlike the `.nav-fill` above, every nav item will be the same width.
 
-<Example lang="html" name="components-navs-tabs-15" componentName="Navs and tabs" code={`<ul class="nav nav-pills nav-justified">
+<Example code={`<ul class="nav nav-pills nav-justified">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -274,7 +274,7 @@ For equal-width elements, use `.nav-justified`. All horizontal space will be occ
 
 Similar to the `.nav-fill` example using a `<nav>`-based navigation.
 
-<Example lang="html" name="components-navs-tabs-16" componentName="Navs and tabs" code={`<nav class="nav nav-pills nav-justified">
+<Example code={`<nav class="nav nav-pills nav-justified">
     <a class="nav-link active" aria-current="page" href="#">Active</a>
     <a class="nav-link" href="#">Much longer nav link</a>
     <a class="nav-link" href="#">Link</a>
@@ -284,7 +284,7 @@ Similar to the `.nav-fill` example using a `<nav>`-based navigation.
 
 If you need responsive nav variations, consider using a series of [flexbox utilities](/utilities/flex/). While more verbose, these utilities offer greater customization across responsive breakpoints. In the example below, our nav will be stacked on the lowest breakpoint, then adapt to a horizontal layout that fills the available width starting from the small breakpoint.
 
-<Example lang="html" name="components-navs-tabs-17" componentName="Navs and tabs" code={`<nav class="nav nav-pills flex-column flex-sm-row">
+<Example code={`<nav class="nav nav-pills flex-column flex-sm-row">
     <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
     <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
@@ -303,7 +303,7 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
 
 ### Tabs with dropdowns
 
-<Example lang="html" name="components-navs-tabs-18" componentName="Navs and tabs" code={`<ul class="nav nav-tabs">
+<Example code={`<ul class="nav nav-tabs">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -327,7 +327,7 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
 
 ### Pills with dropdowns
 
-<Example lang="html" name="components-navs-tabs-19" componentName="Navs and tabs" code={`<ul class="nav nav-pills">
+<Example code={`<ul class="nav nav-pills">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
     </li>
@@ -359,7 +359,7 @@ Dynamic tabbed interfaces, as described in the [<abbr title="Web Accessibility I
 
 Note that dynamic tabbed interfaces should <em>not</em> contain dropdown menus, as this causes both usability and accessibility issues. From a usability perspective, the fact that the currently displayed tab's trigger element is not immediately visible (as it's inside the closed dropdown menu) can cause confusion. From an accessibility point of view, there is currently no sensible way to map this sort of construct to a standard WAI ARIA pattern, meaning that it cannot be easily made understandable to users of assistive technologies.
 
-<Example lang="html" html={[`<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link active" id="home-tab" data-coreui-toggle="tab" data-coreui-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="profile-tab" data-coreui-toggle="tab" data-coreui-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="contact-tab" data-coreui-toggle="tab" data-coreui-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>`, `    </li>`, `  </ul>`, `  <div class="tab-content" id="myTabContent">`, `    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
+<Example html={[`<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link active" id="home-tab" data-coreui-toggle="tab" data-coreui-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Home</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="profile-tab" data-coreui-toggle="tab" data-coreui-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="contact-tab" data-coreui-toggle="tab" data-coreui-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Contact</button>`, `    </li>`, `  </ul>`, `  <div class="tab-content" id="myTabContent">`, `    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="disabled-tab-pane" role="tabpanel" aria-labelledby="disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
 
 ```html
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -383,7 +383,7 @@ Note that dynamic tabbed interfaces should <em>not</em> contain dropdown menus, 
 
 To help fit your needs, this works with `<ul>`-based markup, as shown above, or with any arbitrary "roll your own" markup. Note that if you're using `<nav>`, you shouldn't add `role="tablist"` directly to it, as this would override the element's native role as a navigation landmark. Instead, switch to an alternative element (in the example below, a simple `<div>`) and wrap the `<nav>` around it.
 
-<Example lang="html" html={[`<nav>`, `    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">`, `      <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>`, `      <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>`, `      <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>`, `    </div>`, `  </nav>`, `  <div class="tab-content" id="nav-tabContent">`, `    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
+<Example html={[`<nav>`, `    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">`, `      <button class="nav-link active" id="nav-home-tab" data-coreui-toggle="tab" data-coreui-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>`, `      <button class="nav-link" id="nav-profile-tab" data-coreui-toggle="tab" data-coreui-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>`, `      <button class="nav-link" id="nav-contact-tab" data-coreui-toggle="tab" data-coreui-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>`, `    </div>`, `  </nav>`, `  <div class="tab-content" id="nav-tabContent">`, `    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="nav-disabled" role="tabpanel" aria-labelledby="nav-disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
 
 ```html
 <nav>
@@ -403,7 +403,7 @@ To help fit your needs, this works with `<ul>`-based markup, as shown above, or 
 
 The tabs plugin also works with pills.
 
-<Example lang="html" html={[`<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link active" id="pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>`, `    </li>`, `  </ul>`, `  <div class="tab-content" id="pills-tabContent">`, `    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
+<Example html={[`<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link active" id="pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Home</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-contact-tab" data-coreui-toggle="pill" data-coreui-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</button>`, `    </li>`, `    <li class="nav-item" role="presentation">`, `      <button class="nav-link" id="pills-disabled-tab" data-coreui-toggle="pill" data-coreui-target="#pills-disabled" type="button" role="tab" aria-controls="pills-disabled" aria-selected="false" disabled>Disabled</button>`, `    </li>`, `  </ul>`, `  <div class="tab-content" id="pills-tabContent">`, `    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Contact tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `    </div>`, `    <div class="tab-pane fade" id="pills-disabled" role="tabpanel" aria-labelledby="pills-disabled-tab" tabindex="0">`, `      <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `    </div>`, `  </div>`]} />
 
 ```html
 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -430,7 +430,7 @@ The tabs plugin also works with pills.
 
 And with vertical pills. Ideally, for vertical tabs, you should also add `aria-orientation="vertical"` to the tab list container.
 
-<Example lang="html" html={[`<div class="d-flex align-items-start">`, `    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">`, `      <button class="nav-link active" id="v-pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>`, `      <button class="nav-link" id="v-pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>`, `      <button class="nav-link" id="v-pills-messages-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>`, `      <button class="nav-link" id="v-pills-settings-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>`, `    </div>`, `    <div class="tab-content" id="v-pills-tabContent">`, `      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Messages tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Settings tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `    </div>`, `  </div>`]} />
+<Example html={[`<div class="d-flex align-items-start">`, `    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">`, `      <button class="nav-link active" id="v-pills-home-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</button>`, `      <button class="nav-link" id="v-pills-profile-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</button>`, `      <button class="nav-link" id="v-pills-messages-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-messages" type="button" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</button>`, `      <button class="nav-link" id="v-pills-settings-tab" data-coreui-toggle="pill" data-coreui-target="#v-pills-settings" type="button" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</button>`, `    </div>`, `    <div class="tab-content" id="v-pills-tabContent">`, `      <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Home tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Profile tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel" aria-labelledby="v-pills-disabled-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Disabled tab's</strong> associated content.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Messages tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `      <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab" tabindex="0">`, `        <p>This is some placeholder content the <strong>Settings tab's</strong> associated content. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling. You can use it with tabs, pills, and any other <code>.nav</code>-powered navigation.</p>`, `      </div>`, `    </div>`, `  </div>`]} />
 
 ```html
 <div class="d-flex align-items-start">

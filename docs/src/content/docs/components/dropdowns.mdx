@@ -28,7 +28,7 @@ Bind the dropdown's toggle and the dropdown menu inside `.dropdown`, or differen
 
 Each single `.btn` can be changed into a dropdown toggle with small changes. Here's how you can put them to work with either `<button>` elements:
 
-<Example lang="html" name="components-dropdowns-1" componentName="Dropdowns" code={`<div class="dropdown">
+<Example code={`<div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown button
     </button>
@@ -41,7 +41,7 @@ Each single `.btn` can be changed into a dropdown toggle with small changes. Her
 
 And with `<a>` elements:
 
-<Example lang="html" name="components-dropdowns-2" componentName="Dropdowns" code={`<div class="dropdown">
+<Example code={`<div class="dropdown">
     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown link
     </a>
@@ -55,7 +55,7 @@ And with `<a>` elements:
 
 The best part is you can do this with any button variant, too:
 
-<Example lang="html" html={[`<div class="btn-group">`, `    <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Primary</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Secondary</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-success dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Success</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-info dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Info</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-warning dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Warning</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-danger dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Danger</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`]} />
+<Example html={[`<div class="btn-group">`, `    <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Primary</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Secondary</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-success dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Success</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-info dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Info</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-warning dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Warning</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-danger dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">Danger</button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`]} />
 
 ```html
 <!-- Example single danger button -->
@@ -79,7 +79,7 @@ Similarly, create split button dropdowns with virtually the same markup as singl
 
 We use this extra class to reduce the horizontal `padding` on either side of the caret by 25% and remove the `margin-left` that's attached for normal button dropdowns. Those additional changes hold the caret centered in the split button and implement a more properly sized hit area next to the main button.
 
-<Example lang="html" html={[`<div class="btn-group">`, `    <button type="button" class="btn btn-primary">Primary</button>`, `    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-secondary">Secondary</button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-success">Success</button>`, `    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-info">Info</button>`, `    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-warning">Warning</button>`, `    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-danger">Danger</button>`, `    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`]} />
+<Example html={[`<div class="btn-group">`, `    <button type="button" class="btn btn-primary">Primary</button>`, `    <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-secondary">Secondary</button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-success">Success</button>`, `    <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-info">Info</button>`, `    <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-warning">Warning</button>`, `    <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-danger">Danger</button>`, `    <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div><!-- /btn-group -->`]} />
 
 ```html
 <!-- Example split danger button -->
@@ -102,7 +102,7 @@ We use this extra class to reduce the horizontal `padding` on either side of the
 
 Button dropdowns work with buttons of all sizes, including default and split dropdown buttons.
 
-<Example lang="html" html={[`<div class="btn-group">`, `    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Large button`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-lg btn-secondary">Large split button</button>`, `    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
+<Example html={[`<div class="btn-group">`, `    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Large button`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-lg btn-secondary">Large split button</button>`, `    <button type="button" class="btn btn-lg btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
 
 ```html
 <!-- Large button groups (default and split) -->
@@ -127,7 +127,7 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 </div>
 ```
 
-<Example lang="html" html={[`<div class="btn-group">`, `    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Small button`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-sm btn-secondary">Small split button</button>`, `    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
+<Example html={[`<div class="btn-group">`, `    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Small button`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group">`, `    <button type="button" class="btn btn-sm btn-secondary">Small split button</button>`, `    <button type="button" class="btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
 
 ```html
 <div class="btn-group">
@@ -159,7 +159,7 @@ Opt into darker dropdowns to match a dark navbar or custom style by adding `.dro
 
 
 
-<Example lang="html" name="components-dropdowns-3" componentName="Dropdowns" code={`<div class="dropdown">
+<Example code={`<div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown button
     </button>
@@ -174,7 +174,7 @@ Opt into darker dropdowns to match a dark navbar or custom style by adding `.dro
 
 And putting it to use in a navbar:
 
-<Example lang="html" name="components-dropdowns-4" componentName="Dropdowns" code={`<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<Example code={`<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Navbar</a>
       <button class="navbar-toggler" type="button" data-coreui-toggle="collapse" data-coreui-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -208,7 +208,7 @@ Directions are mirrored when using CoreUI in RTL, meaning `.dropstart` will appe
 
 Make the dropdown menu centered below the toggle with `.dropdown-center` on the parent element.
 
-<Example lang="html" name="components-dropdowns-5" componentName="Dropdowns" code={`<div class="dropdown-center">
+<Example code={`<div class="dropdown-center">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Centered dropdown
     </button>
@@ -223,7 +223,7 @@ Make the dropdown menu centered below the toggle with `.dropdown-center` on the 
 
 Trigger dropdown menus above elements by adding `.dropup` to the parent element.
 
-<Example lang="html" html={[`<div class="btn-group dropup">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropup`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropup">`, `    <button type="button" class="btn btn-secondary">`, `      Split dropup`, `    </button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
+<Example html={[`<div class="btn-group dropup">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropup`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropup">`, `    <button type="button" class="btn btn-secondary">`, `      Split dropup`, `    </button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropdown</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
 
 ```html
 <!-- Default dropup button -->
@@ -254,7 +254,7 @@ Trigger dropdown menus above elements by adding `.dropup` to the parent element.
 
 Make the dropup menu centered above the toggle with `.dropup-center` on the parent element.
 
-<Example lang="html" name="components-dropdowns-6" componentName="Dropdowns" code={`<div class="dropup-center dropup">
+<Example code={`<div class="dropup-center dropup">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Centered dropup
     </button>
@@ -269,7 +269,7 @@ Make the dropup menu centered above the toggle with `.dropup-center` on the pare
 
 Trigger dropdown menus at the right of the elements by adding `.dropend` to the parent element.
 
-<Example lang="html" html={[`<div class="btn-group dropend">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropend`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropend">`, `    <button type="button" class="btn btn-secondary">`, `      Split dropend`, `    </button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropend</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
+<Example html={[`<div class="btn-group dropend">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropend`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropend">`, `    <button type="button" class="btn btn-secondary">`, `      Split dropend`, `    </button>`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropend</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`]} />
 
 ```html
 <!-- Default dropend button -->
@@ -300,7 +300,7 @@ Trigger dropdown menus at the right of the elements by adding `.dropend` to the 
 
 Trigger dropdown menus at the left of the elements by adding `.dropstart` to the parent element.
 
-<Example lang="html" html={[`<div class="btn-group dropstart">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropstart`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropstart">`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropstart</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `    <button type="button" class="btn btn-secondary">`, `      Split dropstart`, `    </button>`, `  </div>`]} />
+<Example html={[`<div class="btn-group dropstart">`, `    <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">`, `      Dropstart`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </div>`, `  <div class="btn-group dropstart">`, `    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-coreui-toggle="dropdown" aria-expanded="false">`, `      <span class="visually-hidden">Toggle Dropstart</span>`, `    </button>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `    <button type="button" class="btn btn-secondary">`, `      Split dropstart`, `    </button>`, `  </div>`]} />
 
 ```html
 <!-- Default dropstart button -->
@@ -331,7 +331,7 @@ Trigger dropdown menus at the left of the elements by adding `.dropstart` to the
 
 You can use `<a>` or `<button>` elements as dropdown items.
 
-<Example lang="html" name="components-dropdowns-7" componentName="Dropdowns" code={`<div class="dropdown">
+<Example code={`<div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown
     </button>
@@ -344,7 +344,7 @@ You can use `<a>` or `<button>` elements as dropdown items.
 
 You can also create non-interactive dropdown items with `.dropdown-item-text`. Feel free to style further with custom CSS or text utilities.
 
-<Example lang="html" name="components-dropdowns-8" componentName="Dropdowns" code={`<ul class="dropdown-menu">
+<Example code={`<ul class="dropdown-menu">
     <li><span class="dropdown-item-text">Dropdown item text</span></li>
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -355,7 +355,7 @@ You can also create non-interactive dropdown items with `.dropdown-item-text`. F
 
 Add `.active` to items in the dropdown to **style them as active**. To convey the active state to assistive technologies, use the `aria-current` attribute — using the `page` value for the current page, or `true` for the current item in a set.
 
-<Example lang="html" name="components-dropdowns-9" componentName="Dropdowns" code={`<ul class="dropdown-menu">
+<Example code={`<ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Regular link</a></li>
     <li><a class="dropdown-item active" href="#" aria-current="true">Active link</a></li>
     <li><a class="dropdown-item" href="#">Another link</a></li>
@@ -365,7 +365,7 @@ Add `.active` to items in the dropdown to **style them as active**. To convey th
 
 Add `.disabled` to items in the dropdown to **style them as disabled**.
 
-<Example lang="html" name="components-dropdowns-10" componentName="Dropdowns" code={`<ul class="dropdown-menu">
+<Example code={`<ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Regular link</a></li>
     <li><a class="dropdown-item disabled" aria-disabled="true">Disabled link</a></li>
     <li><a class="dropdown-item" href="#">Another link</a></li>
@@ -379,7 +379,7 @@ By default, a dropdown menu is automatically positioned 100% from the top and al
 **Heads up!** Dropdowns are positioned thanks to Popper except when they are contained in a navbar.
 </Callout>
 
-<Example lang="html" name="components-dropdowns-11" componentName="Dropdowns" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false">
       Right-aligned menu example
     </button>
@@ -396,7 +396,7 @@ If you want to use responsive alignment, disable dynamic positioning by adding t
 
 To align **right** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu{-sm|-md|-lg|-xl|-xxl}-end`.
 
-<Example lang="html" name="components-dropdowns-12" componentName="Dropdowns" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" data-coreui-display="static" aria-expanded="false">
       Left-aligned but right aligned when large screen
     </button>
@@ -409,7 +409,7 @@ To align **right** the dropdown menu with the given breakpoint or larger, add `.
 
 To align **left** the dropdown menu with the given breakpoint or larger, add `.dropdown-menu-end` and `.dropdown-menu{-sm|-md|-lg|-xl|-xxl}-start`.
 
-<Example lang="html" name="components-dropdowns-13" componentName="Dropdowns" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" data-coreui-display="static" aria-expanded="false">
       Right-aligned but left aligned when large screen
     </button>
@@ -426,7 +426,7 @@ Note that you don't need to add a `data-coreui-display="static"` attribute to dr
 
 Taking most of the options shown above, here's a small kitchen sink demo of various dropdown alignment options in one place.
 
-<Example lang="html" name="components-dropdowns-14" componentName="Dropdowns" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
       Dropdown
     </button>
@@ -509,7 +509,7 @@ Taking most of the options shown above, here's a small kitchen sink demo of vari
 
 Add a header to label sections of actions in any dropdown menu.
 
-<Example lang="html" name="components-dropdowns-15" componentName="Dropdowns" code={`<ul class="dropdown-menu">
+<Example code={`<ul class="dropdown-menu">
     <li><h6 class="dropdown-header">Dropdown header</h6></li>
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
@@ -519,7 +519,7 @@ Add a header to label sections of actions in any dropdown menu.
 
 Separate groups of related menu items with a divider.
 
-<Example lang="html" name="components-dropdowns-16" componentName="Dropdowns" code={`<ul class="dropdown-menu">
+<Example code={`<ul class="dropdown-menu">
     <li><a class="dropdown-item" href="#">Action</a></li>
     <li><a class="dropdown-item" href="#">Another action</a></li>
     <li><a class="dropdown-item" href="#">Something else here</a></li>
@@ -531,7 +531,7 @@ Separate groups of related menu items with a divider.
 
 Place any freeform text within a dropdown menu with text and use [spacing utilities](/utilities/spacing/). Note that you'll likely need additional sizing styles to constrain the menu width.
 
-<Example lang="html" name="components-dropdowns-17" componentName="Dropdowns" code={`<div class="dropdown-menu p-4 text-body-secondary" style="max-width: 200px;">
+<Example code={`<div class="dropdown-menu p-4 text-body-secondary" style="max-width: 200px;">
     <p>
       Some example text that's free-flowing within the dropdown menu.
     </p>
@@ -544,7 +544,7 @@ Place any freeform text within a dropdown menu with text and use [spacing utilit
 
 Put a form within a dropdown menu, or make it into a dropdown menu, and use [margin or padding utilities](/utilities/spacing/) to give it the negative space you require.
 
-<Example lang="html" name="components-dropdowns-18" componentName="Dropdowns" code={`<div class="dropdown-menu">
+<Example code={`<div class="dropdown-menu">
     <form class="px-4 py-3">
       <div class="mb-3">
         <label for="exampleDropdownFormEmail1" class="form-label">Email address</label>
@@ -569,7 +569,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
     <a class="dropdown-item" href="#">Forgot password?</a>
   </div>`} />
 
-<Example lang="html" name="components-dropdowns-19" componentName="Dropdowns" code={`<div class="dropdown">
+<Example code={`<div class="dropdown">
     <button type="button" class="btn btn-primary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-auto-close="outside">
       Dropdown form
     </button>
@@ -598,7 +598,7 @@ Put a form within a dropdown menu, or make it into a dropdown menu, and use [mar
 
 Use `data-coreui-offset` or `data-coreui-reference` to change the location of the dropdown.
 
-<Example lang="html" name="components-dropdowns-20" componentName="Dropdowns" code={`<div class="d-flex">
+<Example code={`<div class="d-flex">
     <div class="dropdown me-1">
       <button type="button" class="btn btn-secondary dropdown-toggle" data-coreui-toggle="dropdown" aria-expanded="false" data-coreui-offset="10,20">
         Offset
@@ -628,7 +628,7 @@ Use `data-coreui-offset` or `data-coreui-reference` to change the location of th
 
 By default, the dropdown menu is closed when clicking inside or outside the dropdown menu. You can use the `autoClose` option to change this behavior of the dropdown.
 
-<Example lang="html" name="components-dropdowns-21" componentName="Dropdowns" code={`<div class="btn-group">
+<Example code={`<div class="btn-group">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" data-coreui-auto-close="true" aria-expanded="false">
       Default dropdown
     </button>

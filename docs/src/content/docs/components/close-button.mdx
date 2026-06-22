@@ -10,13 +10,13 @@ otherFrameworks:
 
 Provide an option to dismiss or close a component with `.btn-close`. Default styling is limited, but highly customizable. Modify the Sass variables to replace the default `background-image`. **Be sure to include text for screen readers**, as we've done with `aria-label`.
 
-<Example lang="html" name="components-close-button-1" componentName="Close button" code={`<button type="button" class="btn-close" aria-label="Close"></button>`} />
+<Example code={`<button type="button" class="btn-close" aria-label="Close"></button>`} />
 
 ## Disabled state
 
 Disabled close buttons change their `opacity`. We've also applied `pointer-events: none` and `user-select: none` to preventing hover and active states from triggering.
 
-<Example lang="html" name="components-close-button-2" componentName="Close button" code={`<button type="button" class="btn-close" disabled aria-label="Close"></button>`} />
+<Example code={`<button type="button" class="btn-close" disabled aria-label="Close"></button>`} />
 
 ## Dark variant
 
@@ -28,7 +28,7 @@ Disabled close buttons change their `opacity`. We've also applied `pointer-event
 
 Add `data-coreui-theme="dark"` to the `.btn-close`, or to its parent element, to invert the close button. This uses the `filter` property to invert the `background-image` without overriding its value.
 
-<Example lang="html" name="components-close-button-3" componentName="Close button" class="bg-dark" code={`<div data-coreui-theme="dark">
+<Example class="bg-dark" code={`<div data-coreui-theme="dark">
     <button type="button" class="btn-close" aria-label="Close"></button>
     <button type="button" class="btn-close" disabled aria-label="Close"></button>
   </div>`} />

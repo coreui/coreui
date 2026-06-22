@@ -27,7 +27,7 @@ To encourage extensible and predictable toasts, we recommend a header and body. 
 
 Bootstrap toasts are as flexible as you need and require very little markup. At a minimum, you should have a single element containing your “toasted” content, and it's strongly recommended to include a dismiss button.
 
-<Example lang="html" name="components-toasts-1" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<Example class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
       <strong class="me-auto">CoreUI for Bootstrap</strong>
@@ -47,7 +47,7 @@ Previously, our scripts dynamically added the `.hide` class to fully hide a toas
 
 Click the button below to display a toast (positioned with our utilities in the lower right corner) that is hidden by default.
 
-<Example lang="html" name="components-toasts-2" componentName="Toasts" code={`<div class="toast-container position-fixed bottom-0 end-0 p-3">
+<Example code={`<div class="toast-container position-fixed bottom-0 end-0 p-3">
     <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
@@ -80,7 +80,7 @@ toastTrigger.addEventListener('click', () => {
 
 Toasts are slightly translucent to blend in with what's below them.
 
-<Example lang="html" name="components-toasts-3" componentName="Toasts" class="bg-dark" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<Example class="bg-dark" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-header">
       <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
       <strong class="me-auto">CoreUI for Bootstrap</strong>
@@ -96,7 +96,7 @@ Toasts are slightly translucent to blend in with what's below them.
 
 Wrap toasts in a toast container to stack them, which adds vertical spacing.
 
-<Example lang="html" name="components-toasts-4" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast-container position-static">
+<Example class=" bg-body-tertiary" code={`<div class="toast-container position-static">
     <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
       <div class="toast-header">
         <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
@@ -126,7 +126,7 @@ Wrap toasts in a toast container to stack them, which adds vertical spacing.
 
 Customize your toasts by removing sub-components, adjusting them with [utilities](/utilities/api/), or adding your own markup. In this example, we've made a simpler toast by removing the default `.toast-header`, incorporating a custom hide icon from [CoreUI Icons](https://coreui.io/icons/), and using [flexbox utilities](/utilities/flex/) to modify the layout.
 
-<Example lang="html" name="components-toasts-5" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+<Example class=" bg-body-tertiary" code={`<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body">
       Hello, world! This is a toast message.
@@ -137,7 +137,7 @@ Customize your toasts by removing sub-components, adjusting them with [utilities
 
 Alternatively, you can also add additional controls and components to toasts.
 
-<Example lang="html" name="components-toasts-6" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+<Example class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="toast-body">
       Hello, world! This is a toast message.
       <div class="mt-2 pt-2 border-top">
@@ -153,7 +153,7 @@ Building on the previous example, you can design various toast color schemes usi
 
 Building on the previous example, you can design various toast color schemes using our [color](/utilities/colors/) and [background](/utilities/background/) utilities. We added `.text-bg-primary` to the `.toast`, and applied `.btn-close-white` to the close button. To achieve a clean edge, we remove the default border with `.border-0`.
 
-<Example lang="html" name="components-toasts-7" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+<Example class=" bg-body-tertiary" code={`<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
     <div class="d-flex">
       <div class="toast-body">
         Hello, world! This is a toast message.
@@ -166,7 +166,7 @@ Building on the previous example, you can design various toast color schemes usi
 
 Place toasts with custom CSS where needed. The top right and top middle are common positions for notifications. If you're only ever going to display one toast at a time, apply the positioning styles directly to the `.toast`.
 
-<Example lang="html" name="components-toasts-8" componentName="Toasts" code={`<form>
+<Example code={`<form>
     <div class="mb-3">
       <label for="selectToastPlacement">Toast placement</label>
       <select class="form-select mt-2" id="selectToastPlacement">
@@ -200,7 +200,7 @@ Place toasts with custom CSS where needed. The top right and top middle are comm
 
 For systems that generate more notifications, consider using a wrapping element to allow them to stack easily.
 
-<Example lang="html" name="components-toasts-9" componentName="Toasts" class="bg-dark docs-example-toasts p-0" code={`<div aria-live="polite" aria-atomic="true" class="position-relative">
+<Example class="bg-dark docs-example-toasts p-0" code={`<div aria-live="polite" aria-atomic="true" class="position-relative">
     <!-- Position it: -->
     <!-- - \`.toast-container\` for spacing between toasts -->
     <!-- - \`top-0\` & \`end-0\` to position the toasts in the upper right corner -->
@@ -236,7 +236,7 @@ For systems that generate more notifications, consider using a wrapping element 
 
 You can also get fancy with flexbox utilities to align toasts horizontally and/or vertically.
 
-<Example lang="html" name="components-toasts-10" componentName="Toasts" class="bg-dark docs-example-toasts d-flex" code={`<!-- Flexbox container for aligning the toasts -->
+<Example class="bg-dark docs-example-toasts d-flex" code={`<!-- Flexbox container for aligning the toasts -->
   <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
 
     <!-- Then put toasts within -->
@@ -271,7 +271,7 @@ As the content changes, remember to update the [`delay` timeout](#options) so us
 
 When using `autohide: false`, you need to add a close button to let users dismiss the toast.
 
-<Example lang="html" name="components-toasts-11" componentName="Toasts" class=" bg-body-tertiary" code={`<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">
+<Example class=" bg-body-tertiary" code={`<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">
     <div class="toast-header">
       <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
       <strong class="me-auto">CoreUI for Bootstrap</strong>
