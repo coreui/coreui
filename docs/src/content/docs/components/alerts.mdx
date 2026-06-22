@@ -6,6 +6,8 @@ otherFrameworks:
   - alert
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Examples
 
 Bootstrap alerts can accommodate text of any length and feature an optional close button. To style an alert, apply one of the required contextual classes (e.g., .alert-success). For inline dismissal, utilize the [alerts JavaScript plugin](#dismissing).
@@ -163,24 +165,9 @@ Use solid alerts to create high-contrast notifications by applying background ut
 
 To create a solid alert, remove the `alert-*` contextual class (like alert-primary) and apply any of the `bg-*` utility classes (e.g. `bg-primary`, `bg-danger`, `bg-success`, etc.). Make sure to also add the appropriate `text-*` class to ensure good contrast and accessibility.
 
-<Example code={`<div class="alert bg-primary text-white" role="alert">
-    Here's a straightforward example of solid primary alert—take a look!
-  </div>
-  <div class="alert bg-secondary text-white" role="alert">
-    Here's a straightforward example of solid secondary alert—take a look!
-  </div>
-  <div class="alert bg-success text-white" role="alert">
-    Here's a straightforward example of solid success alert—take a look!
-  </div>
-  <div class="alert bg-danger text-white" role="alert">
-    Here's a straightforward example of solid danger alert—take a look!
-  </div>
-  <div class="alert bg-warning text-white" role="alert">
-    Here's a straightforward example of solid warning alert—take a look!
-  </div>
-  <div class="alert bg-info text-white" role="alert">
-    Here's a straightforward example of solid info alert—take a look!
-  </div>`} />
+<Example code={getData('theme-colors').map((c) => `<div class="alert bg-${c.name} text-white" role="alert">
+    Here's a straightforward example of solid ${c.name} alert—take a look!
+  </div>`)} />
 
 ### Dismissing
 

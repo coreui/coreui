@@ -6,6 +6,8 @@ otherFrameworks:
   - placeholder
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## About
 
 Bootstrap placeholders can enhance your application's user experience. They're built exclusively with HTML and CSS, so you don't need any JavaScript to create them. However, you'll require some custom JavaScript to toggle their visibility. Their appearance, color, and size can be easily customized using our utility classes.
@@ -73,14 +75,7 @@ You can adjust the `width` using grid column classes, width utilities, or inline
 
 By default, the `placeholder` uses `currentColor`, but this can be replaced with a custom color or utility class.
 
-<Example code={`<span class="placeholder col-12"></span>
-
-  <span class="placeholder col-12 bg-primary"></span>
-  <span class="placeholder col-12 bg-secondary"></span>
-  <span class="placeholder col-12 bg-success"></span>
-  <span class="placeholder col-12 bg-danger"></span>
-  <span class="placeholder col-12 bg-warning"></span>
-  <span class="placeholder col-12 bg-info"></span>`} />
+<Example code={[`<span class="placeholder col-12"></span>`, ...getData('theme-colors').map((c) => `<span class="placeholder col-12 bg-${c.name}"></span>`)]} />
 
 ### Sizing
 

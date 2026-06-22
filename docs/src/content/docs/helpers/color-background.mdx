@@ -4,6 +4,8 @@ name: "Color & background"
 description: "Set a background color with contrasting foreground color."
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Overview
 
 <AddedIn version="4.2.6" />
@@ -14,12 +16,7 @@ Color and background helpers combine the power of our [`.text-*` utilities](/uti
 **Heads up!** There's currently no support for a CSS-native `color-contrast` function, so we use our own via Sass. This means that customizing our theme colors via CSS variables may cause color contrast issues with these utilities.
 </Callout>
 
-<Example code={`<div class="text-bg-primary p-3">Primary with contrasting color</div>
-  <div class="text-bg-secondary p-3">Secondary with contrasting color</div>
-  <div class="text-bg-success p-3">Success with contrasting color</div>
-  <div class="text-bg-danger p-3">Danger with contrasting color</div>
-  <div class="text-bg-warning p-3">Warning with contrasting color</div>
-  <div class="text-bg-info p-3">Info with contrasting color</div>`} />
+<Example code={getData('theme-colors').map((c) => `<div class="text-bg-${c.name} p-3">${c.title} with contrasting color</div>`)} />
 
 ## With components
 

@@ -6,6 +6,8 @@ otherFrameworks:
   - chip
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Overview
 
 The CoreUI **Bootstrap Chip component** lets you build compact, interactive UI elements for labels, tags, filters, and selections. Chips support icons, avatars, dismissal, keyboard navigation, and theming via CSS variables.
@@ -105,37 +107,11 @@ Add `.chip-img` for an image like an avatar or use our avatar component.
 
 Apply `.chip-*` classes to color your chips. Chips are subtle by default as this allows for a clear, themed active state.
 
-<Example code={`<div class="d-flex flex-wrap gap-1">
+<Example code={[`<div class="d-flex flex-wrap gap-1">`, ...getData('theme-colors').map((c) => `<span class="chip chip-${c.name} chip-clickable" tabindex="0">${c.title} chip</span>
+    <span class="chip chip-${c.name} active" tabindex="0">${c.title} chip</span>`), ``, `  </div>`]} />
 
-    <span class="chip chip-primary chip-clickable" tabindex="0">Primary chip</span>
-    <span class="chip chip-primary active" tabindex="0">Primary chip</span>
-    <span class="chip chip-secondary chip-clickable" tabindex="0">Secondary chip</span>
-    <span class="chip chip-secondary active" tabindex="0">Secondary chip</span>
-    <span class="chip chip-success chip-clickable" tabindex="0">Success chip</span>
-    <span class="chip chip-success active" tabindex="0">Success chip</span>
-    <span class="chip chip-danger chip-clickable" tabindex="0">Danger chip</span>
-    <span class="chip chip-danger active" tabindex="0">Danger chip</span>
-    <span class="chip chip-warning chip-clickable" tabindex="0">Warning chip</span>
-    <span class="chip chip-warning active" tabindex="0">Warning chip</span>
-    <span class="chip chip-info chip-clickable" tabindex="0">Info chip</span>
-    <span class="chip chip-info active" tabindex="0">Info chip</span>
-  </div>`} />
-
-<Example code={`<div class="d-flex flex-wrap gap-1">
-
-    <span class="chip chip-outline chip-clickable chip-primary" tabindex="0">Primary chip</span>
-    <span class="chip chip-outline chip-primary active" tabindex="0">Primary chip</span>
-    <span class="chip chip-outline chip-clickable chip-secondary" tabindex="0">Secondary chip</span>
-    <span class="chip chip-outline chip-secondary active" tabindex="0">Secondary chip</span>
-    <span class="chip chip-outline chip-clickable chip-success" tabindex="0">Success chip</span>
-    <span class="chip chip-outline chip-success active" tabindex="0">Success chip</span>
-    <span class="chip chip-outline chip-clickable chip-danger" tabindex="0">Danger chip</span>
-    <span class="chip chip-outline chip-danger active" tabindex="0">Danger chip</span>
-    <span class="chip chip-outline chip-clickable chip-warning" tabindex="0">Warning chip</span>
-    <span class="chip chip-outline chip-warning active" tabindex="0">Warning chip</span>
-    <span class="chip chip-outline chip-clickable chip-info" tabindex="0">Info chip</span>
-    <span class="chip chip-outline chip-info active" tabindex="0">Info chip</span>
-  </div>`} />
+<Example code={[`<div class="d-flex flex-wrap gap-1">`, ...getData('theme-colors').map((c) => `<span class="chip chip-outline chip-clickable chip-${c.name}" tabindex="0">${c.title} chip</span>
+    <span class="chip chip-outline chip-${c.name} active" tabindex="0">${c.title} chip</span>`), ``, `  </div>`]} />
 
 ### Active state
 

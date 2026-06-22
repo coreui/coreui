@@ -6,6 +6,8 @@ otherFrameworks:
   - badge
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Examples
 
 Bootstrap badge scale to suit the size of the parent element by using relative font sizing and `em` units.
@@ -56,12 +58,7 @@ You can also replace the `.badge` class with a few more utilities without a coun
 
 Add any of the below-mentioned classes to modify the presentation of a badge. Please note that when using CoreUI for Bootstrap's default `.bg-light`, you'll likely need a text color utility like `.text-dark` for proper styling. This is because background utilities do not set anything but `background-color`.
 
-<Example code={`<span class="badge text-bg-primary">Primary</span>
-  <span class="badge text-bg-secondary">Secondary</span>
-  <span class="badge text-bg-success">Success</span>
-  <span class="badge text-bg-danger">Danger</span>
-  <span class="badge text-bg-warning">Warning</span>
-  <span class="badge text-bg-info">Info</span>`} />
+<Example code={getData('theme-colors').map((c) => `<span class="badge text-bg-${c.name}">${c.title}</span>`)} />
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies
@@ -73,12 +70,7 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Apply the `.rounded-pill` modifier class to make badges rounded.
 
-<Example code={`<span class="badge rounded-pill text-bg-primary">Primary</span>
-  <span class="badge rounded-pill text-bg-secondary">Secondary</span>
-  <span class="badge rounded-pill text-bg-success">Success</span>
-  <span class="badge rounded-pill text-bg-danger">Danger</span>
-  <span class="badge rounded-pill text-bg-warning">Warning</span>
-  <span class="badge rounded-pill text-bg-info">Info</span>`} />
+<Example code={getData('theme-colors').map((c) => `<span class="badge rounded-pill text-bg-${c.name}">${c.title}</span>`)} />
 
 ## Customizing
 

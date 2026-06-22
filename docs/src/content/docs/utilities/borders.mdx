@@ -4,6 +4,8 @@ name: "Borders"
 description: "Use border utilities to quickly style the border and border-radius of an element. Great for images, buttons, or any other element."
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Border
 
 Use border utilities to add or remove an element's borders. Choose from all borders or one at a time.
@@ -30,20 +32,9 @@ Or remove borders:
 
 Change the border color using utilities built on our theme colors.
 
-<Example class="docs-example-border-utils" code={`<span class="border border-primary"></span>
-  <span class="border border-primary-subtle"></span>
-  <span class="border border-secondary"></span>
-  <span class="border border-secondary-subtle"></span>
-  <span class="border border-success"></span>
-  <span class="border border-success-subtle"></span>
-  <span class="border border-danger"></span>
-  <span class="border border-danger-subtle"></span>
-  <span class="border border-warning"></span>
-  <span class="border border-warning-subtle"></span>
-  <span class="border border-info"></span>
-  <span class="border border-info-subtle"></span>
-  <span class="border border-black"></span>
-  <span class="border border-white"></span>`} />
+<Example class="docs-example-border-utils" code={[...getData('theme-colors').map((c) => `<span class="border border-${c.name}"></span>
+  <span class="border border-${c.name}-subtle"></span>`), ``, `  <span class="border border-black"></span>
+  <span class="border border-white"></span>`]} />
 
 Using utilities you can change the border on one side only, or you can change all borders to make them different colors.
 

@@ -6,6 +6,8 @@ otherFrameworks:
   - card
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## About
 
 A Bootstrap card component is a content container. It incorporates options for images, headers, and footers, a wide variety of content, contextual background colors, and excellent display options. Bootstrap cards replace old Bootstrap panels, Bootstrap wells, and Bootstrap thumbnails.
@@ -380,48 +382,13 @@ Cards include various options for customizing their backgrounds, borders, and co
 
 Set a `background-color` with contrasting foreground `color` with [our `.text-bg-{color}` helpers](helpers/color-background/). Previously it was required to manually pair your choice of [`.text-{color}`](/utilities/colors/) and [`.bg-{color}`](/utilities/background/) utilities for styling, which you still may use if you prefer.
 
-<Example code={`<div class="card text-bg-primary mb-3" style="max-width: 18rem;">
+<Example code={getData('theme-colors').map((c) => `<div class="card text-bg-${c.name} mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
     <div class="card-body">
-      <h5 class="card-title">Primary card title</h5>
+      <h5 class="card-title">${c.title} card title</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-  </div>
-  <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Secondary card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card text-bg-success mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card text-bg-danger mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Danger card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card text-bg-warning mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Warning card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card text-bg-info mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body">
-      <h5 class="card-title">Info card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>`} />
+  </div>`)} />
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies
@@ -433,95 +400,25 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Use [border utilities](/utilities/borders/) to change just the `border-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
 
-<Example code={`<div class="card border-primary mb-3" style="max-width: 18rem;">
+<Example code={getData('theme-colors').map((c) => `<div class="card border-${c.name} mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">Primary card title</h5>
+    <div class="card-body text-${c.name}">
+      <h5 class="card-title">${c.title} card title</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-  </div>
-  <div class="card border-secondary mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-secondary">
-      <h5 class="card-title">Secondary card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-success mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-success">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-danger mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-danger">
-      <h5 class="card-title">Danger card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-warning mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-warning">
-      <h5 class="card-title">Warning card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-info mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-info">
-      <h5 class="card-title">Info card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>`} />
+  </div>`)} />
 
 ### Top border
 
 Use [border utilities](/utilities/borders/) to change just the `border-top-color` of a card. Note that you can put `.text-{color}` classes on the parent `.card` or a subset of the card's contents as shown below.
 
-<Example code={`<div class="card border-top-primary border-top-3 mb-3" style="max-width: 18rem;">
+<Example code={getData('theme-colors').map((c) => `<div class="card border-top-${c.name} border-top-3 mb-3" style="max-width: 18rem;">
     <div class="card-header">Header</div>
-    <div class="card-body text-primary">
-      <h5 class="card-title">Primary card title</h5>
+    <div class="card-body text-${c.name}">
+      <h5 class="card-title">${c.title} card title</h5>
       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     </div>
-  </div>
-  <div class="card border-top-secondary border-top-3 mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-secondary">
-      <h5 class="card-title">Secondary card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-top-success border-top-3 mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-success">
-      <h5 class="card-title">Success card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-top-danger border-top-3 mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-danger">
-      <h5 class="card-title">Danger card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-top-warning border-top-3 mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-warning">
-      <h5 class="card-title">Warning card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>
-  <div class="card border-top-info border-top-3 mb-3" style="max-width: 18rem;">
-    <div class="card-header">Header</div>
-    <div class="card-body text-info">
-      <h5 class="card-title">Info card title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-  </div>`} />
+  </div>`)} />
 
 ### Mixins utilities
 

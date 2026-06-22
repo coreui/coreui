@@ -6,6 +6,8 @@ otherFrameworks:
   - spinner
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## About
 
 Bootstrap "spinners" can be used to show the loading state in your projects. They're built only with HTML and CSS, meaning you don't need any JavaScript to create them. You will, however, need some custom JavaScript to toggle their visibility. Their appearance, alignment, and sizing can be easily customized with our amazing utility classes.
@@ -28,24 +30,9 @@ Use the border spinners for a lightweight loading indicator.
 
 The border spinner uses `currentColor` for its `border-color`, meaning you can customize the color with [text color utilities][color]. You can use any of our text color utilities on the standard spinner.
 
-<Example code={`<div class="spinner-border text-primary" role="status">
+<Example code={getData('theme-colors').map((c) => `<div class="spinner-border text-${c.name}" role="status">
     <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-border text-secondary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-border text-success" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-border text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-border text-warning" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-border text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>`} />
+  </div>`)} />
 
 <Callout color="info">
 **Why not use `border-color` utilities?** Each border spinner specifies a `transparent` border for at least one side, so `.border-{color}` utilities would override that.
@@ -61,24 +48,9 @@ If you don't fancy a border spinner, switch to the grow spinner. While it doesn'
 
 Once again, this spinner is built with `currentColor`, so you can easily change its appearance with [text color utilities][color]. Here it is in blue, along with the supported variants.
 
-<Example code={`<div class="spinner-grow text-primary" role="status">
+<Example code={getData('theme-colors').map((c) => `<div class="spinner-grow text-${c.name}" role="status">
     <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-grow text-secondary" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-grow text-success" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-grow text-danger" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-grow text-warning" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  <div class="spinner-grow text-info" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>`} />
+  </div>`)} />
 
 ## Alignment
 

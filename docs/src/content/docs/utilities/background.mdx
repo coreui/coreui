@@ -4,29 +4,23 @@ name: "Background"
 description: "Convey meaning through `background-color` and add decoration with gradients."
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Background color
 
 Similar to the contextual text color classes, set the background of an element to any contextual class. Background utilities **do not set `color`**, so in some cases you'll want to use `.text-*` [color utilities](/utilities/colors/).
 
-<Example code={`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
-  <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
-  <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
-  <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
-  <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
-  <div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
-  <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
-  <div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
-  <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
-  <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
-  <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
-  <div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
-  <p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>
-  <p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>
+<Example code={[
+  ...getData('theme-colors').map((c) => `<div class="p-3 mb-2 bg-${c.name} ${c.contrast_color ? `text-${c.contrast_color}` : `text-white`}">.bg-${c.name}</div>
+<div class="p-3 mb-2 bg-${c.name}-subtle text-${c.name}-emphasis">.bg-${c.name}-subtle</div>`),
+  `<p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>
+<p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>
 
-  <div class="p-3 mb-2 bg-body text-body">.bg-body</div>
-  <div class="p-3 mb-2 bg-black text-white">.bg-black</div>
-  <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
-  <div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>`} />
+<div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+<div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+<div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>`
+]} />
 
 ## Background gradient
 

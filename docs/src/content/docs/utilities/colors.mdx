@@ -4,32 +4,26 @@ name: "Colors"
 description: "Convey meaning through `color` with a handful of color utility classes. Includes support for styling links with hover states, too."
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Colors
 
 Colorize text with color utilities. If you want to colorize links, you can use the [`.link-*` helper classes](/helpers/colored-links/) which have `:hover` and `:focus` states.
 
-<Example code={`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>
-  <p class="text-primary-emphasis">.text-primary-emphasis</p>
-  <p class="text-secondary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-secondary</p>
-  <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
-  <p class="text-success{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-success</p>
-  <p class="text-success-emphasis">.text-success-emphasis</p>
-  <p class="text-danger{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-danger</p>
-  <p class="text-danger-emphasis">.text-danger-emphasis</p>
-  <p class="text-warning{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-warning</p>
-  <p class="text-warning-emphasis">.text-warning-emphasis</p>
-  <p class="text-info{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-info</p>
-  <p class="text-info-emphasis">.text-info-emphasis</p>
+<Example code={[
+  ...getData('theme-colors').map((c) => `<p class="text-${c.name}${c.contrast_color ? ` bg-${c.contrast_color}` : ``}">.text-${c.name}</p>
+<p class="text-${c.name}-emphasis">.text-${c.name}-emphasis</p>`),
+  `
+<p class="text-body">.text-body</p>
+<p class="text-body-emphasis">.text-body-emphasis</p>
+<p class="text-body-secondary">.text-body-secondary</p>
+<p class="text-body-tertiary">.text-body-tertiary</p>
 
-  <p class="text-body">.text-body</p>
-  <p class="text-body-emphasis">.text-body-emphasis</p>
-  <p class="text-body-secondary">.text-body-secondary</p>
-  <p class="text-body-tertiary">.text-body-tertiary</p>
-
-  <p class="text-black bg-white">.text-black</p>
-  <p class="text-white bg-dark">.text-white</p>
-  <p class="text-black-50 bg-white">.text-black-50</p>
-  <p class="text-white-50 bg-dark">.text-white-50</p>`} />
+<p class="text-black bg-white">.text-black</p>
+<p class="text-white bg-dark">.text-white</p>
+<p class="text-black-50 bg-white">.text-black-50</p>
+<p class="text-white-50 bg-dark">.text-white-50</p>`
+]} />
 
 <Callout color="warning">
 **Deprecation:** With the addition of `.text-opacity-*` utilities and CSS variables for text utilities, `.text-black-50` and `.text-white-50` are deprecated as of v4.1.0. They'll be removed in v6.0.0.

@@ -6,27 +6,14 @@ otherFrameworks:
   - callout
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Examples
 
 Callout component is prepared for any length of text, as well as an optional elements like icons, headings, etc. For a styling, use one of the **required** contextual classes (e.g., `.callout-success`).
-<Example code={`<div class="callout callout-primary">
+<Example code={getData('theme-colors').map((c) => `<div class="callout callout-${c.name}">
     New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>
-  <div class="callout callout-secondary">
-    New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>
-  <div class="callout callout-success">
-    New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>
-  <div class="callout callout-danger">
-    New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>
-  <div class="callout callout-warning">
-    New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>
-  <div class="callout callout-info">
-    New to or unfamiliar with flexbox? Read this CSS Tricks flexbox guide for background, terminology, guidelines, and code snippets.
-  </div>`} />
+  </div>`)} />
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies

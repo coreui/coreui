@@ -4,14 +4,11 @@ name: "Colored links"
 description: "Colored links with hover states"
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 You can use the `.link-*` classes to colorize links. Unlike the [`.text-*` classes](/utilities/colors/), these classes have a `:hover` and `:focus` state.
 
-<Example code={`<a href="#" class="link-primary">Primary link</a>
-  <a href="#" class="link-secondary">Secondary link</a>
-  <a href="#" class="link-success">Success link</a>
-  <a href="#" class="link-danger">Danger link</a>
-  <a href="#" class="link-warning">Warning link</a>
-  <a href="#" class="link-info">Info link</a>`} />
+<Example code={getData('theme-colors').map((c) => `<a href="#" class="link-${c.name}">${c.title} link</a>`)} />
 
 <Callout color="info">
 Some of the link styles use a relatively light foreground color, and should only be used on a dark background in order to have sufficient contrast.

@@ -6,6 +6,8 @@ otherFrameworks:
   - list-group
 ---
 
+import { getData } from '@coreui/astro-docs/data'
+
 ## Basic example
 
 The default list group is an unordered list with items and the proper CSS classes. Build upon it with the options that follow, or with your CSS as required.
@@ -161,29 +163,11 @@ Add `.list-group-horizontal` to change the layout of list group items from verti
 
 Use contextual classes to style list items with a stateful background and color.
 
-<Example code={`<ul class="list-group">
-    <li class="list-group-item">A simple default list group item</li>
-
-    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
-    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
-    <li class="list-group-item list-group-item-success">A simple success list group item</li>
-    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
-    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
-    <li class="list-group-item list-group-item-info">A simple info list group item</li>
-  </ul>`} />
+<Example code={[`<ul class="list-group">`, `<li class="list-group-item">A simple default list group item</li>`, ...getData('theme-colors').map((c) => `<li class="list-group-item list-group-item-${c.name}">A simple ${c.name} list group item</li>`), ``, `</ul>`]} />
 
 Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
 
-<Example code={`<div class="list-group">
-    <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
-
-    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
-    <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
-  </div>`} />
+<Example code={[`<div class="list-group">`, `<a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>`, ...getData('theme-colors').map((c) => `<a href="#" class="list-group-item list-group-item-action list-group-item-${c.name}">A simple ${c.name} list group item</a>`), ``, `</div>`]} />
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies
