@@ -39,7 +39,41 @@ Headers come with built-in support for a handful of sub-components. Choose from 
 
 Here's an example of all the sub-components included in a responsive header.
 
-<Example lang="html" name="components-header-1" componentName="Header" code={[`<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">`, `    CoreUI`, `  </a>`, `  <button class="header-toggler" type="button">`, `    <span class="header-toggler-icon"></span>`, `  </button>`, `  <ul class="header-nav mr-auto">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Link</a>`, `    </li>`, `    <li class="nav-item dropdown">`, `      <a class="nav-link dropdown-toggle" href="#" id="headerDropdown" role="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `        Dropdown`, `      </a>`, `      <div class="dropdown-menu" aria-labelledby="headerDropdown">`, `        <a class="dropdown-item" href="#">Action</a>`, `        <a class="dropdown-item" href="#">Another action</a>`, `        <div class="dropdown-divider"></div>`, `        <a class="dropdown-item" href="#">Something else here</a>`, `      </div>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `    </li>`, `  </ul>`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} html={[`<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">`, `    CoreUI`, `  </a>`, `  <button class="header-toggler" type="button">`, `    <span class="header-toggler-icon"></span>`, `  </button>`, `  <ul class="header-nav mr-auto">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Link</a>`, `    </li>`, `    <li class="nav-item dropdown">`, `      <a class="nav-link dropdown-toggle" href="#" id="headerDropdown" role="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `        Dropdown`, `      </a>`, `      <div class="dropdown-menu" aria-labelledby="headerDropdown">`, `        <a class="dropdown-item" href="#">Action</a>`, `        <a class="dropdown-item" href="#">Another action</a>`, `        <div class="dropdown-divider"></div>`, `        <a class="dropdown-item" href="#">Something else here</a>`, `      </div>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `    </li>`, `  </ul>`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} />
+<Example lang="html" name="components-header-1" componentName="Header" code={`<header class="header">
+    <a class="header-brand" href="#">
+      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
+      CoreUI
+    </a>
+    <button class="header-toggler" type="button">
+      <span class="header-toggler-icon"></span>
+    </button>
+    <ul class="header-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="headerDropdown" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="headerDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </header>`} />
 
 This example uses [color](/utilities/colors/) (`bg-light`) and [spacing](/utilities/spacing/) (`my-2`, `my-lg-0`, `mr-sm-0`, `my-sm-0`) utility classes.
 
@@ -47,13 +81,32 @@ This example uses [color](/utilities/colors/) (`bg-light`) and [spacing](/utilit
 
 The `.header-brand` can be applied to most elements, but an anchor works best as some elements might require utility classes or custom styles.
 
-<Example lang="html" name="components-header-2" componentName="Header" code={[`<!-- As a link -->`, `<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `</header>`, ``, `<!-- As a heading -->`, `<header class="header">`, `  <span class="header-brand mb-0 h1">Header</span>`, `</header>`]} html={[`<!-- As a link -->`, `<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `</header>`, ``, `<!-- As a heading -->`, `<header class="header">`, `  <span class="header-brand mb-0 h1">Header</span>`, `</header>`]} />
+<Example lang="html" name="components-header-2" componentName="Header" code={`<!-- As a link -->
+  <header class="header">
+    <a class="header-brand" href="#">CoreUI</a>
+  </header>
+
+  <!-- As a heading -->
+  <header class="header">
+    <span class="header-brand mb-0 h1">Header</span>
+  </header>`} />
 
 Adding images to the `.header-brand` will likely always require custom styles or utilities to properly size. Here are some examples to demonstrate.
 
-<Example lang="html" name="components-header-3" componentName="Header" code={[`<!-- Just an image -->`, `<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" alt="CoreUI Logo">`, `  </a>`, `</header>`]} html={[`<!-- Just an image -->`, `<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" alt="CoreUI Logo">`, `  </a>`, `</header>`]} />
+<Example lang="html" name="components-header-3" componentName="Header" code={`<!-- Just an image -->
+  <header class="header">
+    <a class="header-brand" href="#">
+      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" alt="CoreUI Logo">
+    </a>
+  </header>`} />
 
-<Example lang="html" name="components-header-4" componentName="Header" code={[`<!-- Image and text -->`, `<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">`, `    CoreUI`, `  </a>`, `</header>`]} html={[`<!-- Image and text -->`, `<header class="header">`, `  <a class="header-brand" href="#">`, `    <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">`, `    CoreUI`, `  </a>`, `</header>`]} />
+<Example lang="html" name="components-header-4" componentName="Header" code={`<!-- Image and text -->
+  <header class="header">
+    <a class="header-brand" href="#">
+      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
+      CoreUI
+    </a>
+  </header>`} />
 
 ### Nav
 
@@ -61,49 +114,133 @@ Header navigation links build on our `.header-nav`.
 
 Active states—with `.active`—to indicate the current page can be applied directly to `.nav-link`s or their immediate parent `.nav-item`s.
 
-<Example lang="html" name="components-header-5" componentName="Header" code={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <ul class="header-nav">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Features</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Pricing</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `    </li>`, `  </ul>`, `</header>`]} html={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <ul class="header-nav">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Features</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Pricing</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `    </li>`, `  </ul>`, `</header>`]} />
+<Example lang="html" name="components-header-5" componentName="Header" code={`<header class="header">
+    <a class="header-brand" href="#">CoreUI</a>
+    <ul class="header-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </header>`} />
 
 And because we use classes for our navs, you can avoid the list-based approach entirely if you like.
 
-<Example lang="html" name="components-header-6" componentName="Header" code={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <div class="header-nav">`, `    <a class="nav-item nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    <a class="nav-item nav-link" href="#">Features</a>`, `    <a class="nav-item nav-link" href="#">Pricing</a>`, `    <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `  </div>`, `</header>`]} html={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <div class="header-nav">`, `    <a class="nav-item nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    <a class="nav-item nav-link" href="#">Features</a>`, `    <a class="nav-item nav-link" href="#">Pricing</a>`, `    <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>`, `  </div>`, `</header>`]} />
+<Example lang="html" name="components-header-6" componentName="Header" code={`<header class="header">
+    <a class="header-brand" href="#">CoreUI</a>
+    <div class="header-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="visually-hidden">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+    </div>
+  </header>`} />
 
 You may also utilize dropdowns in your header nav. Dropdown menus require a wrapping element for positioning, so be sure to use separate and nested elements for `.nav-item` and `.nav-link` as shown below.
 
-<Example lang="html" name="components-header-7" componentName="Header" code={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <ul class="header-nav">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Features</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Pricing</a>`, `    </li>`, `    <li class="nav-item dropdown">`, `      <a class="nav-link dropdown-toggle" href="#" id="headerDropdownMenuLink" role="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `        Dropdown link`, `      </a>`, `      <div class="dropdown-menu" aria-labelledby="headerDropdownMenuLink">`, `        <a class="dropdown-item" href="#">Action</a>`, `        <a class="dropdown-item" href="#">Another action</a>`, `        <a class="dropdown-item" href="#">Something else here</a>`, `      </div>`, `    </li>`, `  </ul>`, `</header>`]} html={[`<header class="header">`, `  <a class="header-brand" href="#">CoreUI</a>`, `  <ul class="header-nav">`, `    <li class="nav-item active">`, `      <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Features</a>`, `    </li>`, `    <li class="nav-item">`, `      <a class="nav-link" href="#">Pricing</a>`, `    </li>`, `    <li class="nav-item dropdown">`, `      <a class="nav-link dropdown-toggle" href="#" id="headerDropdownMenuLink" role="button" data-coreui-toggle="dropdown" aria-expanded="false">`, `        Dropdown link`, `      </a>`, `      <div class="dropdown-menu" aria-labelledby="headerDropdownMenuLink">`, `        <a class="dropdown-item" href="#">Action</a>`, `        <a class="dropdown-item" href="#">Another action</a>`, `        <a class="dropdown-item" href="#">Something else here</a>`, `      </div>`, `    </li>`, `  </ul>`, `</header>`]} />
+<Example lang="html" name="components-header-7" componentName="Header" code={`<header class="header">
+    <a class="header-brand" href="#">CoreUI</a>
+    <ul class="header-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="headerDropdownMenuLink" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
+          Dropdown link
+        </a>
+        <div class="dropdown-menu" aria-labelledby="headerDropdownMenuLink">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+    </ul>
+  </header>`} />
 
 ### Forms
 
 Place various form controls and components within a header with `.d-flex`.
 
-<Example lang="html" name="components-header-8" componentName="Header" code={[`<header class="header">`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} html={[`<header class="header">`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} />
+<Example lang="html" name="components-header-8" componentName="Header" code={`<header class="header">
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </header>`} />
 
 Immediate children elements in `.header` use flex layout and will default to `justify-content: between`. Use additional [flex utilities](/utilities/flex/) as needed to adjust this behavior.
 
-<Example lang="html" name="components-header-9" componentName="Header" code={[`<header class="header">`, `  <a class="header-brand">Header</a>`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} html={[`<header class="header">`, `  <a class="header-brand">Header</a>`, `  <form class="d-flex">`, `    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">`, `    <button class="btn btn-outline-success" type="submit">Search</button>`, `  </form>`, `</header>`]} />
+<Example lang="html" name="components-header-9" componentName="Header" code={`<header class="header">
+    <a class="header-brand">Header</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </header>`} />
 
 Input groups work, too:
 
-<Example lang="html" name="components-header-10" componentName="Header" code={[`<header class="header">`, `  <form class="d-flex">`, `    <div class="input-group">`, `      <div class="input-group-prepend">`, `        <span class="input-group-text" id="basic-addon1">@</span>`, `      </div>`, `      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">`, `    </div>`, `  </form>`, `</header>`]} html={[`<header class="header">`, `  <form class="d-flex">`, `    <div class="input-group">`, `      <div class="input-group-prepend">`, `        <span class="input-group-text" id="basic-addon1">@</span>`, `      </div>`, `      <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">`, `    </div>`, `  </form>`, `</header>`]} />
+<Example lang="html" name="components-header-10" componentName="Header" code={`<header class="header">
+    <form class="d-flex">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">@</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+    </form>
+  </header>`} />
 
 Various buttons are supported as part of these header forms, too. This is also a great reminder that vertical alignment utilities can be used to align different sized elements.
 
-<Example lang="html" name="components-header-11" componentName="Header" code={[`<header class="header">`, `  <form class="d-flex">`, `    <button class="btn btn-outline-success" type="button">Main button</button>`, `    <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>`, `  </form>`, `</header>`]} html={[`<header class="header">`, `  <form class="d-flex">`, `    <button class="btn btn-outline-success" type="button">Main button</button>`, `    <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>`, `  </form>`, `</header>`]} />
+<Example lang="html" name="components-header-11" componentName="Header" code={`<header class="header">
+    <form class="d-flex">
+      <button class="btn btn-outline-success" type="button">Main button</button>
+      <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
+    </form>
+  </header>`} />
 
 ### Text
 
 Headers may contain bits of text with the help of `.header-text`. This class adjusts vertical alignment and horizontal spacing for strings of text.
 
-<Example lang="html" name="components-header-12" componentName="Header" code={[`<header class="header">`, `  <span class="header-text">`, `    Header text with an inline element`, `  </span>`, `</header>`]} html={[`<header class="header">`, `  <span class="header-text">`, `    Header text with an inline element`, `  </span>`, `</header>`]} />
+<Example lang="html" name="components-header-12" componentName="Header" code={`<header class="header">
+    <span class="header-text">
+      Header text with an inline element
+    </span>
+  </header>`} />
 
 ## Containers
 
 Although it's not required, you can wrap a header in a `.container` to center it on a page or add one within to only center the contents of a [fixed or static top header](#placement).
 
-<Example lang="html" name="components-header-13" componentName="Header" code={[`<div class="container">`, `  <header class="header">`, `    <a class="header-brand" href="#">CoreUI</a>`, `  </header>`, `</div>`]} html={[`<div class="container">`, `  <header class="header">`, `    <a class="header-brand" href="#">CoreUI</a>`, `  </header>`, `</div>`]} />
+<Example lang="html" name="components-header-13" componentName="Header" code={`<div class="container">
+    <header class="header">
+      <a class="header-brand" href="#">CoreUI</a>
+    </header>
+  </div>`} />
 
 When the container is within your header, its horizontal padding is removed at breakpoints lower than your specified `.header-expand{-sm|-md|-lg|-xl}` class. This ensures we're not doubling up on padding unnecessarily on lower viewports when your header is collapsed.
 
-<Example lang="html" name="components-header-14" componentName="Header" code={[`<header class="header">`, `  <div class="container">`, `    <a class="header-brand" href="#">CoreUI</a>`, `  </div>`, `</header>`]} html={[`<header class="header">`, `  <div class="container">`, `    <a class="header-brand" href="#">CoreUI</a>`, `  </div>`, `</header>`]} />
+<Example lang="html" name="components-header-14" componentName="Header" code={`<header class="header">
+    <div class="container">
+      <a class="header-brand" href="#">CoreUI</a>
+    </div>
+  </header>`} />
 
 ## Customizing
 

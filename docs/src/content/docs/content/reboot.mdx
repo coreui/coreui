@@ -80,7 +80,14 @@ All heading elements—e.g., `<h1>`—and `<p>` are reset to have their `margin-
 
 The `<hr />` element has been simplified. Similar to browser defaults, `<hr />`s are styled via `border-top`, have a default `opacity: .25`, and automatically inherit their `border-color` via `color`, including when `color` is set via the parent. They can be modified with text, border, and opacity utilities.
 
-<Example lang="html" name="content-reboot-1" componentName="Reboot" code={[`<hr>`, ``, `<div class="text-success">`, `  <hr>`, `</div>`, ``, `<hr class="border border-danger border-2 opacity-50">`, `<hr class="border border-primary border-3 opacity-75">`]} html={[`<hr>`, ``, `<div class="text-success">`, `  <hr>`, `</div>`, ``, `<hr class="border border-danger border-2 opacity-50">`, `<hr class="border border-primary border-3 opacity-75">`]} />
+<Example lang="html" name="content-reboot-1" componentName="Reboot" code={`<hr>
+
+  <div class="text-success">
+    <hr>
+  </div>
+
+  <hr class="border border-danger border-2 opacity-50">
+  <hr class="border border-primary border-3 opacity-75">`} />
 
 ## Lists
 
@@ -96,37 +103,72 @@ For simpler styling, clear hierarchy, and better spacing, description lists have
 
 Wrap inline snippets of code with `<code>`. Be sure to escape HTML angle brackets.
 
-<Example lang="html" name="content-reboot-2" componentName="Reboot" code={[`For example, <code>&lt;section&gt;</code> should be wrapped as inline.`]} html={[`For example, <code>&lt;section&gt;</code> should be wrapped as inline.`]} />
+<Example lang="html" name="content-reboot-2" componentName="Reboot" code={`For example, <code>&lt;section&gt;</code> should be wrapped as inline.`} />
 
 ## Code blocks
 
 Use `<pre>`s for multiple lines of code. Once again, be sure to escape any angle brackets in the code for proper rendering. The `<pre>` element is reset to remove its `margin-top` and use `rem` units for its `margin-bottom`.
 
-<Example lang="html" name="content-reboot-3" componentName="Reboot" code={[`<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;`, `&lt;p&gt;And another line of sample text here...&lt;/p&gt;`, `</code></pre>`]} html={[`<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;`, `&lt;p&gt;And another line of sample text here...&lt;/p&gt;`, `</code></pre>`]} />
+<Example lang="html" name="content-reboot-3" componentName="Reboot" code={`<pre><code>&lt;p&gt;Sample text here...&lt;/p&gt;
+  &lt;p&gt;And another line of sample text here...&lt;/p&gt;
+  </code></pre>`} />
 
 ## Variables
 
 For indicating variables use the `<var>` tag.
 
-<Example lang="html" name="content-reboot-4" componentName="Reboot" code={[`<var>y</var> = <var>m</var><var>x</var> + <var>b</var>`]} html={[`<var>y</var> = <var>m</var><var>x</var> + <var>b</var>`]} />
+<Example lang="html" name="content-reboot-4" componentName="Reboot" code={`<var>y</var> = <var>m</var><var>x</var> + <var>b</var>`} />
 
 ## User input
 
 Use the `<kbd>` to indicate input that is typically entered via keyboard.
 
-<Example lang="html" name="content-reboot-5" componentName="Reboot" code={[`To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>`, `To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>`]} html={[`To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>`, `To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>`]} />
+<Example lang="html" name="content-reboot-5" componentName="Reboot" code={`To switch directories, type <kbd>cd</kbd> followed by the name of the directory.<br>
+  To edit settings, press <kbd><kbd>ctrl</kbd> + <kbd>,</kbd></kbd>`} />
 
 ## Sample output
 
 For indicating sample output from a program use the `<samp>` tag.
 
-<Example lang="html" name="content-reboot-6" componentName="Reboot" code={[`<samp>This text is meant to be treated as sample output from a computer program.</samp>`]} html={[`<samp>This text is meant to be treated as sample output from a computer program.</samp>`]} />
+<Example lang="html" name="content-reboot-6" componentName="Reboot" code={`<samp>This text is meant to be treated as sample output from a computer program.</samp>`} />
 
 ## Tables
 
 Tables are slightly adjusted to style `<caption>`s, collapse borders, and ensure consistent `text-align` throughout. Additional changes for borders, padding, and more come with [the `.table` class](/content/tables/).
 
-<Example lang="html" name="content-reboot-7" componentName="Reboot" code={[`<table>`, `  <caption>`, `    This is an example table, and this is its caption to describe the contents.`, `  </caption>`, `  <thead>`, `    <tr>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `    </tr>`, `  </thead>`, `  <tbody>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `  </tbody>`, `</table>`]} html={[`<table>`, `  <caption>`, `    This is an example table, and this is its caption to describe the contents.`, `  </caption>`, `  <thead>`, `    <tr>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `      <th>Table heading</th>`, `    </tr>`, `  </thead>`, `  <tbody>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `    <tr>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `      <td>Table cell</td>`, `    </tr>`, `  </tbody>`, `</table>`]} />
+<Example lang="html" name="content-reboot-7" componentName="Reboot" code={`<table>
+    <caption>
+      This is an example table, and this is its caption to describe the contents.
+    </caption>
+    <thead>
+      <tr>
+        <th>Table heading</th>
+        <th>Table heading</th>
+        <th>Table heading</th>
+        <th>Table heading</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+      </tr>
+      <tr>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+      </tr>
+      <tr>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+        <td>Table cell</td>
+      </tr>
+    </tbody>
+  </table>`} />
 
 ## Forms
 
@@ -273,7 +315,7 @@ Keep in mind date inputs are [not fully supported](https://caniuse.com/input-dat
 
 Reboot includes an enhancement for `role="button"` to change the default cursor to `pointer`. Add this attribute to elements to help indicate elements are interactive. This role isn't necessary for `<button>` elements, which get their own `cursor` change.
 
-<Example lang="html" name="content-reboot-8" componentName="Reboot" code={[`<span role="button" tabindex="0">Non-button element button</span>`]} html={[`<span role="button" tabindex="0">Non-button element button</span>`]} />
+<Example lang="html" name="content-reboot-8" componentName="Reboot" code={`<span role="button" tabindex="0">Non-button element button</span>`} />
 
 ## Misc elements
 

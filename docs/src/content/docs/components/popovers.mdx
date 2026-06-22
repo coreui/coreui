@@ -57,13 +57,24 @@ We use JavaScript similar to the snippet above to render the following live popo
 You can choose to use either `title` or `data-coreui-title` in your HTML. If you opt for `title,` Popper will automatically change it to `data-coreui-title` upon rendering the element.
 </Callout>
 
-<Example lang="html" name="components-popovers-1" componentName="Popovers" code={[`<button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>`]} html={[`<button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>`]} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
+<Example lang="html" name="components-popovers-1" componentName="Popovers" code={`<button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>`} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
 
 ### Four directions
 
 Four options are available: top, right, bottom, and left aligned. Directions are mirrored when using CoreUI in RTL.
 
-<Example lang="html" name="components-popovers-2" componentName="Popovers" code={[`<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Top popover">`, `  Popover on top`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Right popover">`, `  Popover on right`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Bottom popover">`, `  Popover on bottom`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">`, `  Popover on left`, `</button>`]} html={[`<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Top popover">`, `  Popover on top`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Right popover">`, `  Popover on right`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Bottom popover">`, `  Popover on bottom`, `</button>`, `<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">`, `  Popover on left`, `</button>`]} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
+<Example lang="html" name="components-popovers-2" componentName="Popovers" code={`<button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="top" data-coreui-content="Top popover">
+    Popover on top
+  </button>
+  <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="right" data-coreui-content="Right popover">
+    Popover on right
+  </button>
+  <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="bottom" data-coreui-content="Bottom popover">
+    Popover on bottom
+  </button>
+  <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">
+    Popover on left
+  </button>`} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
 
 ### Using the `container` option
 
@@ -81,7 +92,13 @@ const popover = new coreui.Popover(document.querySelector('.example-popover'), {
 
 You can customize the appearance of popovers using [CSS variables](#variables). We set a custom class with `data-coreui-custom-class="custom-popover"` to scope our custom appearance and use it to override some of the local CSS variables.
 <ScssDocs file="docs/assets/scss/_component-examples.scss" capture="custom-popovers" />
-<Example lang="html" name="components-popovers-3" componentName="Popovers" code={[`<button type="button" class="btn btn-secondary"`, `        data-coreui-toggle="popover" data-coreui-placement="right"`, `        data-coreui-custom-class="custom-popover"`, `        data-coreui-title="Custom popover"`, `        data-coreui-content="This popover is themed via CSS variables.">`, `  Custom popover`, `</button>`]} html={[`<button type="button" class="btn btn-secondary"`, `        data-coreui-toggle="popover" data-coreui-placement="right"`, `        data-coreui-custom-class="custom-popover"`, `        data-coreui-title="Custom popover"`, `        data-coreui-content="This popover is themed via CSS variables.">`, `  Custom popover`, `</button>`]} />
+<Example lang="html" name="components-popovers-3" componentName="Popovers" code={`<button type="button" class="btn btn-secondary"
+          data-coreui-toggle="popover" data-coreui-placement="right"
+          data-coreui-custom-class="custom-popover"
+          data-coreui-title="Custom popover"
+          data-coreui-content="This popover is themed via CSS variables.">
+    Custom popover
+  </button>`} />
 
 ### Dismiss on next click
 
@@ -93,7 +110,7 @@ Use the `focus` trigger to dismiss popovers on the user's next click of a differ
 For proper cross-browser and cross-platform behavior, you must use the `<a>` tag, _not_ the `<button>` tag, and you also must include a [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) attribute.
 </Callout>
 
-<Example lang="html" name="components-popovers-4" componentName="Popovers" code={[`<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-coreui-toggle="popover" data-coreui-trigger="focus" title="Dismissible popover" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>`]} html={[`<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-coreui-toggle="popover" data-coreui-trigger="focus" title="Dismissible popover" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>`]} />
+<Example lang="html" name="components-popovers-4" componentName="Popovers" code={`<a tabindex="0" class="btn btn-lg btn-danger" role="button" data-coreui-toggle="popover" data-coreui-trigger="focus" title="Dismissible popover" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Dismissible popover</a>`} />
 
 ```js
 const popover = new coreui.Popover(document.querySelector('.popover-dismiss'), {
@@ -107,7 +124,9 @@ Elements with the `disabled` attribute aren't interactive, meaning users cannot 
 
 For disabled popover triggers, you may also prefer `data-coreui-trigger="hover focus"` so that the popover appears as immediate visual feedback to your users as they may not expect to _click_ on a disabled element.
 
-<Example lang="html" name="components-popovers-5" componentName="Popovers" code={[`<span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content="Disabled popover">`, `  <button class="btn btn-primary" type="button" disabled>Disabled button</button>`, `</span>`]} html={[`<span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content="Disabled popover">`, `  <button class="btn btn-primary" type="button" disabled>Disabled button</button>`, `</span>`]} />
+<Example lang="html" name="components-popovers-5" componentName="Popovers" code={`<span class="d-inline-block" tabindex="0" data-coreui-toggle="popover" data-coreui-trigger="hover focus" data-coreui-content="Disabled popover">
+    <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+  </span>`} />
 
 ## Usage
 

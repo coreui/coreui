@@ -16,17 +16,24 @@ Customize them with additional styles as needed.
 
 ## Example
 
-<Example lang="html" name="helpers-vertical-rule-1" componentName="Vertical rule" code={[`<div class="vr"></div>`]} html={[`<div class="vr"></div>`]} />
+<Example lang="html" name="helpers-vertical-rule-1" componentName="Vertical rule" code={`<div class="vr"></div>`} />
 
 Vertical rules scale their height in flex layouts:
 
-<Example lang="html" name="helpers-vertical-rule-2" componentName="Vertical rule" code={[`<div class="d-flex" style="height: 200px;">`, `  <div class="vr"></div>`, `</div>`]} html={[`<div class="d-flex" style="height: 200px;">`, `  <div class="vr"></div>`, `</div>`]} />
+<Example lang="html" name="helpers-vertical-rule-2" componentName="Vertical rule" code={`<div class="d-flex" style="height: 200px;">
+    <div class="vr"></div>
+  </div>`} />
 
 ## With stacks
 
 They can also be used in [stacks](/helpers/stacks/):
 
-<Example lang="html" name="helpers-vertical-rule-3" componentName="Vertical rule" code={[`<div class="hstack gap-3">`, `  <div class="bg-light border">First item</div>`, `  <div class="bg-light border ms-auto">Second item</div>`, `  <div class="vr"></div>`, `  <div class="bg-light border">Third item</div>`, `</div>`]} html={[`<div class="hstack gap-3">`, `  <div class="bg-light border">First item</div>`, `  <div class="bg-light border ms-auto">Second item</div>`, `  <div class="vr"></div>`, `  <div class="bg-light border">Third item</div>`, `</div>`]} />
+<Example lang="html" name="helpers-vertical-rule-3" componentName="Vertical rule" code={`<div class="hstack gap-3">
+    <div class="bg-light border">First item</div>
+    <div class="bg-light border ms-auto">Second item</div>
+    <div class="vr"></div>
+    <div class="bg-light border">Third item</div>
+  </div>`} />
 
 ## Customizing
 

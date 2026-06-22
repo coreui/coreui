@@ -51,7 +51,11 @@ Create placeholders using the `.placeholder` class along with a grid column clas
 To ensure the `height` is maintained, we style `.btn`s with `::before`. This pattern can be expanded for other cases or a `&nbsp;` can be added inside the element to match the height when actual text appears.
 
 
-<Example lang="html" name="components-placeholders-1" componentName="Placeholders" code={[`<p aria-hidden="true">`, `  <span class="placeholder col-6"></span>`, `</p>`, ``, `<a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>`]} html={[`<p aria-hidden="true">`, `  <span class="placeholder col-6"></span>`, `</p>`, ``, `<a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>`]} />
+<Example lang="html" name="components-placeholders-1" componentName="Placeholders" code={`<p aria-hidden="true">
+    <span class="placeholder col-6"></span>
+  </p>
+
+  <a class="btn btn-primary disabled placeholder col-4" aria-disabled="true"></a>`} />
 
 <Callout color="info">
 Using `aria-hidden="true"` simply tells screen readers to ignore the element. The actual *loading* behavior of the placeholder depends on how authors implement and style the placeholder, as well as how they update it. Some JavaScript may be necessary to *toggle* the placeholder's state and notify AT users of the change.
@@ -61,25 +65,43 @@ Using `aria-hidden="true"` simply tells screen readers to ignore the element. Th
 
 You can adjust the `width` using grid column classes, width utilities, or inline styles.
 
-<Example lang="html" name="components-placeholders-2" componentName="Placeholders" code={[`<span class="placeholder col-6"></span>`, `<span class="placeholder w-75"></span>`, `<span class="placeholder" style="width: 25%;"></span>`]} html={[`<span class="placeholder col-6"></span>`, `<span class="placeholder w-75"></span>`, `<span class="placeholder" style="width: 25%;"></span>`]} />
+<Example lang="html" name="components-placeholders-2" componentName="Placeholders" code={`<span class="placeholder col-6"></span>
+  <span class="placeholder w-75"></span>
+  <span class="placeholder" style="width: 25%;"></span>`} />
 
 ### Color
 
 By default, the `placeholder` uses `currentColor`, but this can be replaced with a custom color or utility class.
 
-<Example lang="html" name="components-placeholders-3" componentName="Placeholders" code={[`<span class="placeholder col-12"></span>`, ``, `<span class="placeholder col-12 bg-primary"></span>`, `<span class="placeholder col-12 bg-secondary"></span>`, `<span class="placeholder col-12 bg-success"></span>`, `<span class="placeholder col-12 bg-danger"></span>`, `<span class="placeholder col-12 bg-warning"></span>`, `<span class="placeholder col-12 bg-info"></span>`]} html={[`<span class="placeholder col-12"></span>`, ``, `<span class="placeholder col-12 bg-primary"></span>`, `<span class="placeholder col-12 bg-secondary"></span>`, `<span class="placeholder col-12 bg-success"></span>`, `<span class="placeholder col-12 bg-danger"></span>`, `<span class="placeholder col-12 bg-warning"></span>`, `<span class="placeholder col-12 bg-info"></span>`]} />
+<Example lang="html" name="components-placeholders-3" componentName="Placeholders" code={`<span class="placeholder col-12"></span>
+
+  <span class="placeholder col-12 bg-primary"></span>
+  <span class="placeholder col-12 bg-secondary"></span>
+  <span class="placeholder col-12 bg-success"></span>
+  <span class="placeholder col-12 bg-danger"></span>
+  <span class="placeholder col-12 bg-warning"></span>
+  <span class="placeholder col-12 bg-info"></span>`} />
 
 ### Sizing
 
 The size of `.placeholder`s depends on the typographic style of the parent element. Customize them with size modifiers: `.placeholder-lg`, `.placeholder-sm`, or `.placeholder-xs`.
 
-<Example lang="html" name="components-placeholders-4" componentName="Placeholders" code={[`<span class="placeholder col-12 placeholder-lg"></span>`, `<span class="placeholder col-12"></span>`, `<span class="placeholder col-12 placeholder-sm"></span>`, `<span class="placeholder col-12 placeholder-xs"></span>`]} html={[`<span class="placeholder col-12 placeholder-lg"></span>`, `<span class="placeholder col-12"></span>`, `<span class="placeholder col-12 placeholder-sm"></span>`, `<span class="placeholder col-12 placeholder-xs"></span>`]} />
+<Example lang="html" name="components-placeholders-4" componentName="Placeholders" code={`<span class="placeholder col-12 placeholder-lg"></span>
+  <span class="placeholder col-12"></span>
+  <span class="placeholder col-12 placeholder-sm"></span>
+  <span class="placeholder col-12 placeholder-xs"></span>`} />
 
 ### Animation
 
 Animate Bootstrap placeholders using `.placeholder-glow` or `.placeholder-wave` to visually suggest that content is _actively_ loading.
 
-<Example lang="html" name="components-placeholders-5" componentName="Placeholders" code={[`<p class="placeholder-glow">`, `  <span class="placeholder col-12"></span>`, `</p>`, ``, `<p class="placeholder-wave">`, `  <span class="placeholder col-12"></span>`, `</p>`]} html={[`<p class="placeholder-glow">`, `  <span class="placeholder col-12"></span>`, `</p>`, ``, `<p class="placeholder-wave">`, `  <span class="placeholder col-12"></span>`, `</p>`]} />
+<Example lang="html" name="components-placeholders-5" componentName="Placeholders" code={`<p class="placeholder-glow">
+    <span class="placeholder col-12"></span>
+  </p>
+
+  <p class="placeholder-wave">
+    <span class="placeholder col-12"></span>
+  </p>`} />
 
 ## Customization
 

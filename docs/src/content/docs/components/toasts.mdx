@@ -27,7 +27,17 @@ To encourage extensible and predictable toasts, we recommend a header and body. 
 
 Bootstrap toasts are as flexible as you need and require very little markup. At a minimum, you should have a single element containing your “toasted” content, and it's strongly recommended to include a dismiss button.
 
-<Example lang="html" name="components-toasts-1" componentName="Toasts" class=" bg-body-tertiary" code={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small>11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} html={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small>11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-1" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>`} />
 
 <Callout color="warning">
 Previously, our scripts dynamically added the `.hide` class to fully hide a toast (using `display:none` instead of just `opacity:0`). This is no longer necessary. However, for backwards compatibility, our script will still toggle the class (even though there is no practical reason to do so) until the next major version.
@@ -37,7 +47,21 @@ Previously, our scripts dynamically added the `.hide` class to fully hide a toas
 
 Click the button below to display a toast (positioned with our utilities in the lower right corner) that is hidden by default.
 
-<Example lang="html" name="components-toasts-2" componentName="Toasts" code={[`<div class="toast-container position-fixed bottom-0 end-0 p-3">`, `  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small>11 mins ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `  </div>`, `</div>`, ``, `<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>`]} html={[`<div class="toast-container position-fixed bottom-0 end-0 p-3">`, `  <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small>11 mins ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `  </div>`, `</div>`, ``, `<button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>`]} sandboxJs={[`const toastTrigger = document.getElementById('liveToastBtn')`, `const toastLiveExample = document.getElementById('liveToast')`, ``, `const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)`, `toastTrigger.addEventListener('click', () => {`, `  toastCoreUI.show()`, `})`].join('\n')} />
+<Example lang="html" name="components-toasts-2" componentName="Toasts" code={`<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>`} sandboxJs={[`const toastTrigger = document.getElementById('liveToastBtn')`, `const toastLiveExample = document.getElementById('liveToast')`, ``, `const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)`, `toastTrigger.addEventListener('click', () => {`, `  toastCoreUI.show()`, `})`].join('\n')} />
 
 We use the following JavaScript to trigger our live toast demo:
 
@@ -56,23 +80,72 @@ toastTrigger.addEventListener('click', () => {
 
 Toasts are slightly translucent to blend in with what's below them.
 
-<Example lang="html" name="components-toasts-3" componentName="Toasts" class="bg-dark" code={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small class="text-muted">11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} html={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small class="text-muted">11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-3" componentName="Toasts" class="bg-dark" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-header">
+      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
+      <small class="text-muted">11 mins ago</small>
+      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>`} />
 
 ### Stacking
 
 Wrap toasts in a toast container to stack them, which adds vertical spacing.
 
-<Example lang="html" name="components-toasts-4" componentName="Toasts" class=" bg-body-tertiary" code={[`<div class="toast-container position-static">`, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small class="text-muted">just now</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      See? Just like this.`, `    </div>`, `  </div>`, ``, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small class="text-muted">2 seconds ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Heads up, toasts will stack automatically`, `    </div>`, `  </div>`, `</div>`]} html={[`<div class="toast-container position-static">`, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small class="text-muted">just now</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      See? Just like this.`, `    </div>`, `  </div>`, ``, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small class="text-muted">2 seconds ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Heads up, toasts will stack automatically`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-4" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast-container position-static">
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
+        <small class="text-muted">just now</small>
+        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        See? Just like this.
+      </div>
+    </div>
+
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
+        <small class="text-muted">2 seconds ago</small>
+        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Heads up, toasts will stack automatically
+      </div>
+    </div>
+  </div>`} />
 
 ### Custom content
 
 Customize your toasts by removing sub-components, adjusting them with [utilities](/utilities/api/), or adding your own markup. In this example, we've made a simpler toast by removing the default `.toast-header`, incorporating a custom hide icon from [CoreUI Icons](https://coreui.io/icons/), and using [flexbox utilities](/utilities/flex/) to modify the layout.
 
-<Example lang="html" name="components-toasts-5" componentName="Toasts" class=" bg-body-tertiary" code={[`<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="d-flex">`, `    <div class="toast-body">`, `    Hello, world! This is a toast message.`, `   </div>`, `    <button type="button" class="btn-close me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `</div>`]} html={[`<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="d-flex">`, `    <div class="toast-body">`, `    Hello, world! This is a toast message.`, `   </div>`, `    <button type="button" class="btn-close me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-5" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+      Hello, world! This is a toast message.
+     </div>
+      <button type="button" class="btn-close me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>`} />
 
 Alternatively, you can also add additional controls and components to toasts.
 
-<Example lang="html" name="components-toasts-6" componentName="Toasts" class=" bg-body-tertiary" code={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `    <div class="mt-2 pt-2 border-top">`, `      <button type="button" class="btn btn-primary btn-sm">Take action</button>`, `      <button type="button" class="btn btn-secondary btn-sm" data-coreui-dismiss="toast">Close</button>`, `    </div>`, `  </div>`, `</div>`]} html={[`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `    <div class="mt-2 pt-2 border-top">`, `      <button type="button" class="btn btn-primary btn-sm">Take action</button>`, `      <button type="button" class="btn btn-secondary btn-sm" data-coreui-dismiss="toast">Close</button>`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-6" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+      <div class="mt-2 pt-2 border-top">
+        <button type="button" class="btn btn-primary btn-sm">Take action</button>
+        <button type="button" class="btn btn-secondary btn-sm" data-coreui-dismiss="toast">Close</button>
+      </div>
+    </div>
+  </div>`} />
 
 ### Color schemes
 
@@ -80,21 +153,105 @@ Building on the previous example, you can design various toast color schemes usi
 
 Building on the previous example, you can design various toast color schemes using our [color](/utilities/colors/) and [background](/utilities/background/) utilities. We added `.text-bg-primary` to the `.toast`, and applied `.btn-close-white` to the close button. To achieve a clean edge, we remove the default border with `.border-0`.
 
-<Example lang="html" name="components-toasts-7" componentName="Toasts" class=" bg-body-tertiary" code={[`<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="d-flex">`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `</div>`]} html={[`<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">`, `  <div class="d-flex">`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-7" componentName="Toasts" class=" bg-body-tertiary" code={`<div class="toast align-items-center text-bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="d-flex">
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-coreui-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>`} />
 
 ## Placement
 
 Place toasts with custom CSS where needed. The top right and top middle are common positions for notifications. If you're only ever going to display one toast at a time, apply the positioning styles directly to the `.toast`.
 
-<Example lang="html" name="components-toasts-8" componentName="Toasts" code={[`<form>`, `  <div class="mb-3">`, `    <label for="selectToastPlacement">Toast placement</label>`, `    <select class="form-select mt-2" id="selectToastPlacement">`, `      <option value="" selected>Select a position...</option>`, `      <option value="top-0 start-0">Top left</option>`, `      <option value="top-0 start-50 translate-middle-x">Top center</option>`, `      <option value="top-0 end-0">Top right</option>`, `      <option value="top-50 start-0 translate-middle-y">Middle left</option>`, `      <option value="top-50 start-50 translate-middle">Middle center</option>`, `      <option value="top-50 end-0 translate-middle-y">Middle right</option>`, `      <option value="bottom-0 start-0">Bottom left</option>`, `      <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>`, `      <option value="bottom-0 end-0">Bottom right</option>`, `    </select>`, `  </div>`, `</form>`, `<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative docs-example-toasts">`, `  <div class="toast-container position-absolute p-3" id="toastPlacement">`, `    <div class="toast">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small>11 mins ago</small>`, `      </div>`, `      <div class="toast-body">`, `        Hello, world! This is a toast message.`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} html={[`<form>`, `  <div class="mb-3">`, `    <label for="selectToastPlacement">Toast placement</label>`, `    <select class="form-select mt-2" id="selectToastPlacement">`, `      <option value="" selected>Select a position...</option>`, `      <option value="top-0 start-0">Top left</option>`, `      <option value="top-0 start-50 translate-middle-x">Top center</option>`, `      <option value="top-0 end-0">Top right</option>`, `      <option value="top-50 start-0 translate-middle-y">Middle left</option>`, `      <option value="top-50 start-50 translate-middle">Middle center</option>`, `      <option value="top-50 end-0 translate-middle-y">Middle right</option>`, `      <option value="bottom-0 start-0">Bottom left</option>`, `      <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>`, `      <option value="bottom-0 end-0">Bottom right</option>`, `    </select>`, `  </div>`, `</form>`, `<div aria-live="polite" aria-atomic="true" class="bg-dark position-relative docs-example-toasts">`, `  <div class="toast-container position-absolute p-3" id="toastPlacement">`, `    <div class="toast">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small>11 mins ago</small>`, `      </div>`, `      <div class="toast-body">`, `        Hello, world! This is a toast message.`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-8" componentName="Toasts" code={`<form>
+    <div class="mb-3">
+      <label for="selectToastPlacement">Toast placement</label>
+      <select class="form-select mt-2" id="selectToastPlacement">
+        <option value="" selected>Select a position...</option>
+        <option value="top-0 start-0">Top left</option>
+        <option value="top-0 start-50 translate-middle-x">Top center</option>
+        <option value="top-0 end-0">Top right</option>
+        <option value="top-50 start-0 translate-middle-y">Middle left</option>
+        <option value="top-50 start-50 translate-middle">Middle center</option>
+        <option value="top-50 end-0 translate-middle-y">Middle right</option>
+        <option value="bottom-0 start-0">Bottom left</option>
+        <option value="bottom-0 start-50 translate-middle-x">Bottom center</option>
+        <option value="bottom-0 end-0">Bottom right</option>
+      </select>
+    </div>
+  </form>
+  <div aria-live="polite" aria-atomic="true" class="bg-dark position-relative docs-example-toasts">
+    <div class="toast-container position-absolute p-3" id="toastPlacement">
+      <div class="toast">
+        <div class="toast-header">
+          <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+          <strong class="me-auto">CoreUI for Bootstrap</strong>
+          <small>11 mins ago</small>
+        </div>
+        <div class="toast-body">
+          Hello, world! This is a toast message.
+        </div>
+      </div>
+    </div>
+  </div>`} />
 
 For systems that generate more notifications, consider using a wrapping element to allow them to stack easily.
 
-<Example lang="html" name="components-toasts-9" componentName="Toasts" class="bg-dark docs-example-toasts p-0" code={[`<div aria-live="polite" aria-atomic="true" class="position-relative">`, `  <!-- Position it: -->`, `  <!-- - \`.toast-container\` for spacing between toasts -->`, `  <!-- - \`top-0\` & \`end-0\` to position the toasts in the upper right corner -->`, `  <!-- - \`.p-3\` to prevent the toasts from sticking to the edge of the container  -->`, `  <div class="toast-container top-0 end-0 p-3">`, ``, `    <!-- Then put toasts within -->`, `    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small class="text-muted">just now</small>`, `        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `      </div>`, `      <div class="toast-body">`, `        See? Just like this.`, `      </div>`, `    </div>`, ``, `    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small class="text-muted">2 seconds ago</small>`, `        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `      </div>`, `      <div class="toast-body">`, `        Heads up, toasts will stack automatically`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} html={[`<div aria-live="polite" aria-atomic="true" class="position-relative">`, `  <!-- Position it: -->`, `  <!-- - \`.toast-container\` for spacing between toasts -->`, `  <!-- - \`top-0\` & \`end-0\` to position the toasts in the upper right corner -->`, `  <!-- - \`.p-3\` to prevent the toasts from sticking to the edge of the container  -->`, `  <div class="toast-container top-0 end-0 p-3">`, ``, `    <!-- Then put toasts within -->`, `    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small class="text-muted">just now</small>`, `        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `      </div>`, `      <div class="toast-body">`, `        See? Just like this.`, `      </div>`, `    </div>`, ``, `    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `      <div class="toast-header">`, `        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `        <strong class="me-auto">CoreUI for Bootstrap</strong>`, `        <small class="text-muted">2 seconds ago</small>`, `        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `      </div>`, `      <div class="toast-body">`, `        Heads up, toasts will stack automatically`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-9" componentName="Toasts" class="bg-dark docs-example-toasts p-0" code={`<div aria-live="polite" aria-atomic="true" class="position-relative">
+    <!-- Position it: -->
+    <!-- - \`.toast-container\` for spacing between toasts -->
+    <!-- - \`top-0\` & \`end-0\` to position the toasts in the upper right corner -->
+    <!-- - \`.p-3\` to prevent the toasts from sticking to the edge of the container  -->
+    <div class="toast-container top-0 end-0 p-3">
+
+      <!-- Then put toasts within -->
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+          <strong class="me-auto">CoreUI for Bootstrap</strong>
+          <small class="text-muted">just now</small>
+          <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          See? Just like this.
+        </div>
+      </div>
+
+      <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+          <strong class="me-auto">CoreUI for Bootstrap</strong>
+          <small class="text-muted">2 seconds ago</small>
+          <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Heads up, toasts will stack automatically
+        </div>
+      </div>
+    </div>
+  </div>`} />
 
 You can also get fancy with flexbox utilities to align toasts horizontally and/or vertically.
 
-<Example lang="html" name="components-toasts-10" componentName="Toasts" class="bg-dark docs-example-toasts d-flex" code={[`<!-- Flexbox container for aligning the toasts -->`, `<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">`, ``, `  <!-- Then put toasts within -->`, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small>11 mins ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `  </div>`, `</div>`]} html={[`<!-- Flexbox container for aligning the toasts -->`, `<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">`, ``, `  <!-- Then put toasts within -->`, `  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">`, `    <div class="toast-header">`, `      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `      <strong class="me-auto">CoreUI for Bootstrap</strong>`, `      <small>11 mins ago</small>`, `      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `    </div>`, `    <div class="toast-body">`, `      Hello, world! This is a toast message.`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-10" componentName="Toasts" class="bg-dark docs-example-toasts d-flex" code={`<!-- Flexbox container for aligning the toasts -->
+  <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center w-100">
+
+    <!-- Then put toasts within -->
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header">
+        <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+        <strong class="me-auto">CoreUI for Bootstrap</strong>
+        <small>11 mins ago</small>
+        <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body">
+        Hello, world! This is a toast message.
+      </div>
+    </div>
+  </div>`} />
 
 ## Accessibility
 
@@ -114,7 +271,17 @@ As the content changes, remember to update the [`delay` timeout](#options) so us
 
 When using `autohide: false`, you need to add a close button to let users dismiss the toast.
 
-<Example lang="html" name="components-toasts-11" componentName="Toasts" class=" bg-body-tertiary" code={[`<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small>11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} html={[`<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">`, `  <div class="toast-header">`, `    <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>`, `    <strong class="me-auto">CoreUI for Bootstrap</strong>`, `    <small>11 mins ago</small>`, `    <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>`, `  </div>`, `  <div class="toast-body">`, `    Hello, world! This is a toast message.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-toasts-11" componentName="Toasts" class=" bg-body-tertiary" code={`<div role="alert" aria-live="assertive" aria-atomic="true" class="toast" data-coreui-autohide="false">
+    <div class="toast-header">
+      <svg class="docs-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="false" preserveAspectRatio="xMidYMid slice" focusable="false"><title>false</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">false</text></svg>
+      <strong class="me-auto">CoreUI for Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button type="button" class="btn-close" data-coreui-dismiss="toast" aria-label="Close"></button>
+    </div>
+    <div class="toast-body">
+      Hello, world! This is a toast message.
+    </div>
+  </div>`} />
 
 While technically it's possible to add focusable or actionable controls, such as additional buttons or links, to your toast, you should avoid doing this with autohiding toasts. Even if you set a long [`delay` timeout](#options), keyboard and assistive technology users might find it hard to reach the toast in time to act because toasts don't receive focus when they appear. If you absolutely need to have additional controls, we recommend using a toast with `autohide: false`.
 

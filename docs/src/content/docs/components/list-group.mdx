@@ -10,19 +10,37 @@ otherFrameworks:
 
 The default list group is an unordered list with items and the proper CSS classes. Build upon it with the options that follow, or with your CSS as required.
 
-<Example lang="html" name="components-list-group-1" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-1" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>`} />
 
 ## Active items
 
 Attach `.active` to a `.list-group-item` to show the current active selection.
 
-<Example lang="html" name="components-list-group-2" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item active" aria-current="true">An active item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item active" aria-current="true">An active item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-2" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">An active item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>`} />
 
 ## Disabled items
 
 Attach `.disabled` to a `.list-group-item` to make it appear disabled. Remark that some of the elements with `.disabled` will also require custom JavaScript to disable their click events (e.g., links).
 
-<Example lang="html" name="components-list-group-3" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-3" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>`} />
 
 ## Links and buttons
 
@@ -30,17 +48,39 @@ Use `<a>`s or `<button>`s to create _actionable_ list group items with hover, di
 
 Be sure to **not use the standard `.btn` classes here**.
 
-<Example lang="html" name="components-list-group-4" componentName="List group" code={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">`, `    The current link item`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">A second link item</a>`, `  <a href="#" class="list-group-item list-group-item-action">A third link item</a>`, `  <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>`, `  <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>`, `</div>`]} html={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">`, `    The current link item`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">A second link item</a>`, `  <a href="#" class="list-group-item list-group-item-action">A third link item</a>`, `  <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>`, `  <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>`, `</div>`]} />
+<Example lang="html" name="components-list-group-4" componentName="List group" code={`<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+      The current link item
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">A second link item</a>
+    <a href="#" class="list-group-item list-group-item-action">A third link item</a>
+    <a href="#" class="list-group-item list-group-item-action">A fourth link item</a>
+    <a class="list-group-item list-group-item-action disabled" aria-disabled="true">A disabled link item</a>
+  </div>`} />
 
 With `<button>`s, you can also make use of the `disabled` attribute instead of the `.disabled` class. Sadly, `<a>`s don't support the disabled attribute.
 
-<Example lang="html" name="components-list-group-5" componentName="List group" code={[`<div class="list-group">`, `  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">`, `    The current button`, `  </button>`, `  <button type="button" class="list-group-item list-group-item-action">A second button item</button>`, `  <button type="button" class="list-group-item list-group-item-action">A third button item</button>`, `  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>`, `  <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>`, `</div>`]} html={[`<div class="list-group">`, `  <button type="button" class="list-group-item list-group-item-action active" aria-current="true">`, `    The current button`, `  </button>`, `  <button type="button" class="list-group-item list-group-item-action">A second button item</button>`, `  <button type="button" class="list-group-item list-group-item-action">A third button item</button>`, `  <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>`, `  <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>`, `</div>`]} />
+<Example lang="html" name="components-list-group-5" componentName="List group" code={`<div class="list-group">
+    <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
+      The current button
+    </button>
+    <button type="button" class="list-group-item list-group-item-action">A second button item</button>
+    <button type="button" class="list-group-item list-group-item-action">A third button item</button>
+    <button type="button" class="list-group-item list-group-item-action">A fourth button item</button>
+    <button type="button" class="list-group-item list-group-item-action" disabled>A disabled button item</button>
+  </div>`} />
 
 ## Flush
 
 Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
 
-<Example lang="html" name="components-list-group-6" componentName="List group" code={[`<ul class="list-group list-group-flush">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} html={[`<ul class="list-group list-group-flush">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `  <li class="list-group-item">A fourth item</li>`, `  <li class="list-group-item">And a fifth one</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-6" componentName="List group" code={`<ul class="list-group list-group-flush">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+  </ul>`} />
 
 ## Numbered
 
@@ -48,11 +88,37 @@ Add the `.list-group-numbered` modifier class (and optionally use an `<ol>` elem
 
 Numbers are generated by `counter-reset` on the `<ol>`, and then styled and placed with a `::before` pseudo-element on the `<li>` with `counter-increment` and `content`.
 
-<Example lang="html" name="components-list-group-7" componentName="List group" code={[`<ol class="list-group list-group-numbered">`, `  <li class="list-group-item">A list item</li>`, `  <li class="list-group-item">A list item</li>`, `  <li class="list-group-item">A list item</li>`, `</ol>`]} html={[`<ol class="list-group list-group-numbered">`, `  <li class="list-group-item">A list item</li>`, `  <li class="list-group-item">A list item</li>`, `  <li class="list-group-item">A list item</li>`, `</ol>`]} />
+<Example lang="html" name="components-list-group-7" componentName="List group" code={`<ol class="list-group list-group-numbered">
+    <li class="list-group-item">A list item</li>
+    <li class="list-group-item">A list item</li>
+    <li class="list-group-item">A list item</li>
+  </ol>`} />
 
 These work great with custom content as well.
 
-<Example lang="html" name="components-list-group-8" componentName="List group" code={[`<ol class="list-group list-group-numbered">`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `</ol>`]} html={[`<ol class="list-group list-group-numbered">`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-start">`, `    <div class="ms-2 me-auto">`, `      <div class="fw-bold">Subheading</div>`, `      Content for list item`, `    </div>`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `</ol>`]} />
+<Example lang="html" name="components-list-group-8" componentName="List group" code={`<ol class="list-group list-group-numbered">
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Subheading</div>
+        Content for list item
+      </div>
+      <span class="badge text-bg-primary rounded-pill">14</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Subheading</div>
+        Content for list item
+      </div>
+      <span class="badge text-bg-primary rounded-pill">14</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-start">
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">Subheading</div>
+        Content for list item
+      </div>
+      <span class="badge text-bg-primary rounded-pill">14</span>
+    </li>
+  </ol>`} />
 
 ## Horizontal
 
@@ -60,17 +126,64 @@ Add `.list-group-horizontal` to change the layout of list group items from verti
 
 **ProTip:** Want equal-width list group items when horizontal? Add `.flex-fill` to each list group item.
 
-<Example lang="html" name="components-list-group-9" componentName="List group" code={[`<ul class="list-group list-group-horizontal">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-sm">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-md">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-lg">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-xl">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-xxl">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`]} html={[`<ul class="list-group list-group-horizontal">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-sm">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-md">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-lg">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-xl">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`, `<ul class="list-group list-group-horizontal-xxl">`, `  <li class="list-group-item">An item</li>`, `  <li class="list-group-item">A second item</li>`, `  <li class="list-group-item">A third item</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-9" componentName="List group" code={`<ul class="list-group list-group-horizontal">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-md">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-lg">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-xl">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>
+  <ul class="list-group list-group-horizontal-xxl">
+    <li class="list-group-item">An item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+  </ul>`} />
 
 ## Contextual classes
 
 Use contextual classes to style list items with a stateful background and color.
 
-<Example lang="html" name="components-list-group-10" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item">A simple default list group item</li>`, ``, `  <li class="list-group-item list-group-item-primary">A simple primary list group item</li>`, `  <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>`, `  <li class="list-group-item list-group-item-success">A simple success list group item</li>`, `  <li class="list-group-item list-group-item-danger">A simple danger list group item</li>`, `  <li class="list-group-item list-group-item-warning">A simple warning list group item</li>`, `  <li class="list-group-item list-group-item-info">A simple info list group item</li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item">A simple default list group item</li>`, ``, `  <li class="list-group-item list-group-item-primary">A simple primary list group item</li>`, `  <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>`, `  <li class="list-group-item list-group-item-success">A simple success list group item</li>`, `  <li class="list-group-item list-group-item-danger">A simple danger list group item</li>`, `  <li class="list-group-item list-group-item-warning">A simple warning list group item</li>`, `  <li class="list-group-item list-group-item-info">A simple info list group item</li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-10" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item">A simple default list group item</li>
+
+    <li class="list-group-item list-group-item-primary">A simple primary list group item</li>
+    <li class="list-group-item list-group-item-secondary">A simple secondary list group item</li>
+    <li class="list-group-item list-group-item-success">A simple success list group item</li>
+    <li class="list-group-item list-group-item-danger">A simple danger list group item</li>
+    <li class="list-group-item list-group-item-warning">A simple warning list group item</li>
+    <li class="list-group-item list-group-item-info">A simple info list group item</li>
+  </ul>`} />
 
 Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
 
-<Example lang="html" name="components-list-group-11" componentName="List group" code={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>`, ``, `  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>`, `</div>`]} html={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>`, ``, `  <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>`, `  <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>`, `</div>`]} />
+<Example lang="html" name="components-list-group-11" componentName="List group" code={`<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
+
+    <a href="#" class="list-group-item list-group-item-action list-group-item-primary">A simple primary list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">A simple secondary list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-success">A simple success list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-danger">A simple danger list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-warning">A simple warning list group item</a>
+    <a href="#" class="list-group-item list-group-item-action list-group-item-info">A simple info list group item</a>
+  </div>`} />
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies
@@ -82,23 +195,103 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities](/utilities/flex/).
 
-<Example lang="html" name="components-list-group-12" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A list item`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A second list item`, `    <span class="badge text-bg-primary rounded-pill">2</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A third list item`, `    <span class="badge text-bg-primary rounded-pill">1</span>`, `  </li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A list item`, `    <span class="badge text-bg-primary rounded-pill">14</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A second list item`, `    <span class="badge text-bg-primary rounded-pill">2</span>`, `  </li>`, `  <li class="list-group-item d-flex justify-content-between align-items-center">`, `    A third list item`, `    <span class="badge text-bg-primary rounded-pill">1</span>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-12" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      A list item
+      <span class="badge text-bg-primary rounded-pill">14</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      A second list item
+      <span class="badge text-bg-primary rounded-pill">2</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      A third list item
+      <span class="badge text-bg-primary rounded-pill">1</span>
+    </li>
+  </ul>`} />
 
 ## Custom content
 
 Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities](/utilities/flex/).
 
-<Example lang="html" name="components-list-group-13" componentName="List group" code={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small>3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small>And some small print.</small>`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small class="text-muted">3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small class="text-muted">And some muted small print.</small>`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small class="text-muted">3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small class="text-muted">And some muted small print.</small>`, `  </a>`, `</div>`]} html={[`<div class="list-group">`, `  <a href="#" class="list-group-item list-group-item-action active" aria-current="true">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small>3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small>And some small print.</small>`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small class="text-muted">3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small class="text-muted">And some muted small print.</small>`, `  </a>`, `  <a href="#" class="list-group-item list-group-item-action">`, `    <div class="d-flex w-100 justify-content-between">`, `      <h5 class="mb-1">List group item heading</h5>`, `      <small class="text-muted">3 days ago</small>`, `    </div>`, `    <p class="mb-1">Some placeholder content in a paragraph.</p>`, `    <small class="text-muted">And some muted small print.</small>`, `  </a>`, `</div>`]} />
+<Example lang="html" name="components-list-group-13" componentName="List group" code={`<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small>3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small>And some small print.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small class="text-muted">And some muted small print.</small>
+    </a>
+    <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">List group item heading</h5>
+        <small class="text-muted">3 days ago</small>
+      </div>
+      <p class="mb-1">Some placeholder content in a paragraph.</p>
+      <small class="text-muted">And some muted small print.</small>
+    </a>
+  </div>`} />
 
 ## Checkboxes and radios
 
 Place CoreUI for Bootstrap's checkboxes and radios within list group items and customize as needed. You can use them without `<label>`s, but please remember to include an `aria-label` attribute and value for accessibility.
 
-<Example lang="html" name="components-list-group-14" componentName="List group" code={[`<ul class="list-group">`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    First checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Second checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Third checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Fourth checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Fifth checkbox`, `  </li>`, `</ul>`]} html={[`<ul class="list-group">`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    First checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Second checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Third checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Fourth checkbox`, `  </li>`, `  <li class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">`, `    Fifth checkbox`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-list-group-14" componentName="List group" code={`<ul class="list-group">
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+      First checkbox
+    </li>
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+      Second checkbox
+    </li>
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+      Third checkbox
+    </li>
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+      Fourth checkbox
+    </li>
+    <li class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
+      Fifth checkbox
+    </li>
+  </ul>`} />
 
 And if you want `<label>`s as the `.list-group-item` for large hit areas, you can do that, too.
 
-<Example lang="html" name="components-list-group-15" componentName="List group" code={[`<div class="list-group">`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    First checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Second checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Third checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Fourth checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Fifth checkbox`, `  </label>`, `</div>`]} html={[`<div class="list-group">`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    First checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Second checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Third checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Fourth checkbox`, `  </label>`, `  <label class="list-group-item">`, `    <input class="form-check-input me-1" type="checkbox" value="">`, `    Fifth checkbox`, `  </label>`, `</div>`]} />
+<Example lang="html" name="components-list-group-15" componentName="List group" code={`<div class="list-group">
+    <label class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="">
+      First checkbox
+    </label>
+    <label class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="">
+      Second checkbox
+    </label>
+    <label class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="">
+      Third checkbox
+    </label>
+    <label class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="">
+      Fourth checkbox
+    </label>
+    <label class="list-group-item">
+      <input class="form-check-input me-1" type="checkbox" value="">
+      Fifth checkbox
+    </label>
+  </div>`} />
 
 ## JavaScript behavior
 

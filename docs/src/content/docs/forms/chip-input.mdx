@@ -30,7 +30,12 @@ Use the Bootstrap Chip Input component when you need:
 
 Wrap chips and add `data-coreui-chip-input` to enable behavior.
 
-<Example lang="html" name="forms-chip-input-1" componentName="Chip input" code={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="chipInputBasicExample" data-coreui-placeholder="Add a skill...">`, `  <label class="chip-input-label" for="skillsInputBasic">Skills:</label>`, `  <span class="chip">JavaScript</span>`, `  <span class="chip">TypeScript</span>`, `  <span class="chip">Accessibility</span>`, `</div>`]} html={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="chipInputBasicExample" data-coreui-placeholder="Add a skill...">`, `  <label class="chip-input-label" for="skillsInputBasic">Skills:</label>`, `  <span class="chip">JavaScript</span>`, `  <span class="chip">TypeScript</span>`, `  <span class="chip">Accessibility</span>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-1" componentName="Chip input" code={`<div class="chip-input" data-coreui-chip-input data-coreui-name="chipInputBasicExample" data-coreui-placeholder="Add a skill...">
+    <label class="chip-input-label" for="skillsInputBasic">Skills:</label>
+    <span class="chip">JavaScript</span>
+    <span class="chip">TypeScript</span>
+    <span class="chip">Accessibility</span>
+  </div>`} />
 
 <Callout color="info">
 **Note:** The `<input class="chip-input-field" />` is created automatically by the component when initialized. You can also add it manually in the markup if preferred. Additionally, a hidden input is generated automatically to submit chip values with the form. The `name` attribute of this hidden input is taken from the `data-coreui-name` attribute (e.g., `data-coreui-name="chipInputBasicExample"`).
@@ -50,11 +55,16 @@ Wrap chips and add `data-coreui-chip-input` to enable behavior.
 
 Use contextual chip classes inside Bootstrap 5 Chip Input to represent categories, status, or priority.
 
-<Example lang="html" name="forms-chip-input-2" componentName="Chip input" code={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="issues" data-coreui-placeholder="Add label...">`, `  <span class="chip chip-primary">Feature</span>`, `  <span class="chip chip-success">Approved</span>`, `  <span class="chip chip-warning">Needs review</span>`, `  <span class="chip chip-danger">Blocking</span>`, `</div>`]} html={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="issues" data-coreui-placeholder="Add label...">`, `  <span class="chip chip-primary">Feature</span>`, `  <span class="chip chip-success">Approved</span>`, `  <span class="chip chip-warning">Needs review</span>`, `  <span class="chip chip-danger">Blocking</span>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-2" componentName="Chip input" code={`<div class="chip-input" data-coreui-chip-input data-coreui-name="issues" data-coreui-placeholder="Add label...">
+    <span class="chip chip-primary">Feature</span>
+    <span class="chip chip-success">Approved</span>
+    <span class="chip chip-warning">Needs review</span>
+    <span class="chip chip-danger">Blocking</span>
+  </div>`} />
 
 In the example below, the chip color is assigned dynamically based on the chip text using the `chipClassName` callback. Each value (e.g., `Feature` or `Blocking`) maps to a contextual class, so chips remain visually consistent even when added programmatically.
 
-<Example lang="html" name="forms-chip-input-3" componentName="Chip input" code={[`<div id="chipVariants" class="chip-input"></div>`]} html={[`<div id="chipVariants" class="chip-input"></div>`]} sandboxJs={[`const chipInputElement = document.querySelector('#chipVariants')`, `const chipInput = new coreui.ChipInput(chipInputElement, {`, `  // Class is resolved dynamically from chip value.`, `  chipClassName(value) {`, `    const variants = {`, `      approved: 'chip-success',`, `      blocking: 'chip-danger',`, `      feature: 'chip-primary',`, `      'needs review': 'chip-warning'`, `    }`, ``, `    return variants[value.trim().toLowerCase()] || 'chip-secondary'`, `  },`, `  placeholder: 'Add a bug...'`, `})`, ``, `chipInput.add('Feature')`].join('\n')} />
+<Example lang="html" name="forms-chip-input-3" componentName="Chip input" code={`<div id="chipVariants" class="chip-input"></div>`} sandboxJs={[`const chipInputElement = document.querySelector('#chipVariants')`, `const chipInput = new coreui.ChipInput(chipInputElement, {`, `  // Class is resolved dynamically from chip value.`, `  chipClassName(value) {`, `    const variants = {`, `      approved: 'chip-success',`, `      blocking: 'chip-danger',`, `      feature: 'chip-primary',`, `      'needs review': 'chip-warning'`, `    }`, ``, `    return variants[value.trim().toLowerCase()] || 'chip-secondary'`, `  },`, `  placeholder: 'Add a bug...'`, `})`, ``, `chipInput.add('Feature')`].join('\n')} />
 
 The JavaScript below initializes the example:
 
@@ -82,19 +92,39 @@ chipInput.add('Feature')
 
 Use `chip-input-sm` and `chip-input-lg` to match surrounding form controls. Default size is provided by `.chip-input` without a size modifier.
 
-<Example lang="html" name="forms-chip-input-4" componentName="Chip input" code={[`<div class="chip-input chip-input-sm mb-3" data-coreui-chip-input data-coreui-placeholder="Add small tag...">`, `  <label class="chip-input-label" for="skillsInputSm">Small</label>`, `  <span class="chip">HTML</span>`, `</div>`, ``, `<div class="chip-input mb-3" data-coreui-chip-input data-coreui-placeholder="Add default tag...">`, `  <label class="chip-input-label" for="skillsInputMd">Default</label>`, `  <span class="chip">JavaScript</span>`, `</div>`, ``, `<div class="chip-input chip-input-lg" data-coreui-chip-input data-coreui-placeholder="Add large tag...">`, `  <label class="chip-input-label" for="skillsInputLg">Large</label>`, `  <span class="chip">TypeScript</span>`, `</div>`]} html={[`<div class="chip-input chip-input-sm mb-3" data-coreui-chip-input data-coreui-placeholder="Add small tag...">`, `  <label class="chip-input-label" for="skillsInputSm">Small</label>`, `  <span class="chip">HTML</span>`, `</div>`, ``, `<div class="chip-input mb-3" data-coreui-chip-input data-coreui-placeholder="Add default tag...">`, `  <label class="chip-input-label" for="skillsInputMd">Default</label>`, `  <span class="chip">JavaScript</span>`, `</div>`, ``, `<div class="chip-input chip-input-lg" data-coreui-chip-input data-coreui-placeholder="Add large tag...">`, `  <label class="chip-input-label" for="skillsInputLg">Large</label>`, `  <span class="chip">TypeScript</span>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-4" componentName="Chip input" code={`<div class="chip-input chip-input-sm mb-3" data-coreui-chip-input data-coreui-placeholder="Add small tag...">
+    <label class="chip-input-label" for="skillsInputSm">Small</label>
+    <span class="chip">HTML</span>
+  </div>
+
+  <div class="chip-input mb-3" data-coreui-chip-input data-coreui-placeholder="Add default tag...">
+    <label class="chip-input-label" for="skillsInputMd">Default</label>
+    <span class="chip">JavaScript</span>
+  </div>
+
+  <div class="chip-input chip-input-lg" data-coreui-chip-input data-coreui-placeholder="Add large tag...">
+    <label class="chip-input-label" for="skillsInputLg">Large</label>
+    <span class="chip">TypeScript</span>
+  </div>`} />
 
 ## Empty state
 
 Start with just the input and let users add chips as they type.
 
-<Example lang="html" name="forms-chip-input-5" componentName="Chip input" code={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="tags" data-coreui-placeholder="Start typing tags..."></div>`]} html={[`<div class="chip-input" data-coreui-chip-input data-coreui-name="tags" data-coreui-placeholder="Start typing tags..."></div>`]} />
+<Example lang="html" name="forms-chip-input-5" componentName="Chip input" code={`<div class="chip-input" data-coreui-chip-input data-coreui-name="tags" data-coreui-placeholder="Start typing tags..."></div>`} />
 
 ## With label
 
 Use a standard form label for accessibility.
 
-<Example lang="html" name="forms-chip-input-6" componentName="Chip input" code={[`<div class="mb-3">`, `  <label class="form-label" for="techStackInput">Tech stack</label>`, `  <div class="chip-input" data-coreui-chip-input data-coreui-name="techStack" data-coreui-placeholder="Add package...">`, `    <span class="chip">Vue</span>`, `    <span class="chip">Vite</span>`, `  </div>`, `  <div class="form-text">Press Enter or comma to add a value.</div>`, `</div>`]} html={[`<div class="mb-3">`, `  <label class="form-label" for="techStackInput">Tech stack</label>`, `  <div class="chip-input" data-coreui-chip-input data-coreui-name="techStack" data-coreui-placeholder="Add package...">`, `    <span class="chip">Vue</span>`, `    <span class="chip">Vite</span>`, `  </div>`, `  <div class="form-text">Press Enter or comma to add a value.</div>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-6" componentName="Chip input" code={`<div class="mb-3">
+    <label class="form-label" for="techStackInput">Tech stack</label>
+    <div class="chip-input" data-coreui-chip-input data-coreui-name="techStack" data-coreui-placeholder="Add package...">
+      <span class="chip">Vue</span>
+      <span class="chip">Vite</span>
+    </div>
+    <div class="form-text">Press Enter or comma to add a value.</div>
+  </div>`} />
 
 ## Disabled
 
@@ -102,21 +132,33 @@ Set disabled state on the component to make the input and managed chips non-inte
 You can use either the `disabled` class or the `data-coreui-disabled="true"` option.
 For disabled, non-removable chips, combine it with `data-coreui-removable="false"`.
 
-<Example lang="html" name="forms-chip-input-7" componentName="Chip input" code={[`<div class="chip-input" data-coreui-chip-input data-coreui-disabled="true" data-coreui-removable="false" data-coreui-placeholder="Input disabled">`, `  <span class="chip">Read only</span>`, `  <span class="chip">Locked</span>`, `</div>`]} html={[`<div class="chip-input" data-coreui-chip-input data-coreui-disabled="true" data-coreui-removable="false" data-coreui-placeholder="Input disabled">`, `  <span class="chip">Read only</span>`, `  <span class="chip">Locked</span>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-7" componentName="Chip input" code={`<div class="chip-input" data-coreui-chip-input data-coreui-disabled="true" data-coreui-removable="false" data-coreui-placeholder="Input disabled">
+    <span class="chip">Read only</span>
+    <span class="chip">Locked</span>
+  </div>`} />
 
 ## Readonly
 
 Use readonly state when chips should stay visible and focusable, but values must not change.
 Set `data-coreui-readonly="true"` (or `readonly: true` in JavaScript) to block adding and removing chips.
 
-<Example lang="html" name="forms-chip-input-8" componentName="Chip input" code={[`<div class="chip-input" data-coreui-chip-input data-coreui-readonly="true" data-coreui-placeholder="Read-only values">`, `  <span class="chip">JavaScript</span>`, `  <span class="chip">TypeScript</span>`, `</div>`]} html={[`<div class="chip-input" data-coreui-chip-input data-coreui-readonly="true" data-coreui-placeholder="Read-only values">`, `  <span class="chip">JavaScript</span>`, `  <span class="chip">TypeScript</span>`, `</div>`]} />
+<Example lang="html" name="forms-chip-input-8" componentName="Chip input" code={`<div class="chip-input" data-coreui-chip-input data-coreui-readonly="true" data-coreui-placeholder="Read-only values">
+    <span class="chip">JavaScript</span>
+    <span class="chip">TypeScript</span>
+  </div>`} />
 
 ## Selectable chips
 
 Enable selection for chips managed by Chip Input.
 In this example, `select.coreui.chip-input` updates a live list of selected values below the field.
 
-<Example lang="html" name="forms-chip-input-9" componentName="Chip input" code={[`<div id="chipSelectable" class="chip-input">`, `  <span class="chip">Design</span>`, `  <span class="chip">Backend</span>`, `  <span class="chip active">QA</span>`, `  <span class="chip active">DevOps</span>`, `</div>`, `<p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`]} html={[`<div id="chipSelectable" class="chip-input">`, `  <span class="chip">Design</span>`, `  <span class="chip">Backend</span>`, `  <span class="chip active">QA</span>`, `  <span class="chip active">DevOps</span>`, `</div>`, `<p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`]} />
+<Example lang="html" name="forms-chip-input-9" componentName="Chip input" code={`<div id="chipSelectable" class="chip-input">
+    <span class="chip">Design</span>
+    <span class="chip">Backend</span>
+    <span class="chip active">QA</span>
+    <span class="chip active">DevOps</span>
+  </div>
+  <p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`} />
 
 ```js
 const chipSelectableElement = document.querySelector('#chipSelectable')

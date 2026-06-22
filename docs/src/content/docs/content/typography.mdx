@@ -42,13 +42,21 @@ All HTML headings, `<h1>` through `<h6>`, are available.
 
 `.h1` through `.h6` classes are also available, for when you want to match the font styling of a heading but cannot use the associated HTML element.
 
-<Example lang="html" name="content-typography-1" componentName="Typography" code={[`<p class="h1">h1. CoreUI heading</p>`, `<p class="h2">h2. CoreUI heading</p>`, `<p class="h3">h3. CoreUI heading</p>`, `<p class="h4">h4. CoreUI heading</p>`, `<p class="h5">h5. CoreUI heading</p>`, `<p class="h6">h6. CoreUI heading</p>`]} html={[`<p class="h1">h1. CoreUI heading</p>`, `<p class="h2">h2. CoreUI heading</p>`, `<p class="h3">h3. CoreUI heading</p>`, `<p class="h4">h4. CoreUI heading</p>`, `<p class="h5">h5. CoreUI heading</p>`, `<p class="h6">h6. CoreUI heading</p>`]} />
+<Example lang="html" name="content-typography-1" componentName="Typography" code={`<p class="h1">h1. CoreUI heading</p>
+  <p class="h2">h2. CoreUI heading</p>
+  <p class="h3">h3. CoreUI heading</p>
+  <p class="h4">h4. CoreUI heading</p>
+  <p class="h5">h5. CoreUI heading</p>
+  <p class="h6">h6. CoreUI heading</p>`} />
 
 ### Customizing headings
 
 Use the included utility classes to recreate the small secondary heading text from CoreUI 3.
 
-<Example lang="html" name="content-typography-2" componentName="Typography" code={[`<h3>`, `  Fancy display heading`, `  <small class="text-muted">With faded secondary text</small>`, `</h3>`]} html={[`<h3>`, `  Fancy display heading`, `  <small class="text-muted">With faded secondary text</small>`, `</h3>`]} />
+<Example lang="html" name="content-typography-2" componentName="Typography" code={`<h3>
+    Fancy display heading
+    <small class="text-muted">With faded secondary text</small>
+  </h3>`} />
 
 ## Display headings
 
@@ -73,13 +81,22 @@ Display headings are configured via the `$display-font-sizes` Sass map and two v
 
 Make a paragraph stand out by adding `.lead`.
 
-<Example lang="html" name="content-typography-3" componentName="Typography" code={[`<p class="lead">`, `  This is a lead paragraph. It stands out from regular paragraphs.`, `</p>`]} html={[`<p class="lead">`, `  This is a lead paragraph. It stands out from regular paragraphs.`, `</p>`]} />
+<Example lang="html" name="content-typography-3" componentName="Typography" code={`<p class="lead">
+    This is a lead paragraph. It stands out from regular paragraphs.
+  </p>`} />
 
 ## Inline text elements
 
 Styling for common inline HTML5 elements.
 
-<Example lang="html" name="content-typography-4" componentName="Typography" code={[`<p>You can use the mark tag to <mark>highlight</mark> text.</p>`, `<p><del>This line of text is meant to be treated as deleted text.</del></p>`, `<p><s>This line of text is meant to be treated as no longer accurate.</s></p>`, `<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>`, `<p><u>This line of text will render as underlined.</u></p>`, `<p><small>This line of text is meant to be treated as fine print.</small></p>`, `<p><strong>This line rendered as bold text.</strong></p>`, `<p><em>This line rendered as italicized text.</em></p>`]} html={[`<p>You can use the mark tag to <mark>highlight</mark> text.</p>`, `<p><del>This line of text is meant to be treated as deleted text.</del></p>`, `<p><s>This line of text is meant to be treated as no longer accurate.</s></p>`, `<p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>`, `<p><u>This line of text will render as underlined.</u></p>`, `<p><small>This line of text is meant to be treated as fine print.</small></p>`, `<p><strong>This line rendered as bold text.</strong></p>`, `<p><em>This line rendered as italicized text.</em></p>`]} />
+<Example lang="html" name="content-typography-4" componentName="Typography" code={`<p>You can use the mark tag to <mark>highlight</mark> text.</p>
+  <p><del>This line of text is meant to be treated as deleted text.</del></p>
+  <p><s>This line of text is meant to be treated as no longer accurate.</s></p>
+  <p><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+  <p><u>This line of text will render as underlined.</u></p>
+  <p><small>This line of text is meant to be treated as fine print.</small></p>
+  <p><strong>This line rendered as bold text.</strong></p>
+  <p><em>This line rendered as italicized text.</em></p>`} />
 
 Beware that those tags should be used for semantic purpose:
 
@@ -107,27 +124,51 @@ Stylized implementation of HTML's `<abbr>` element for abbreviations and acronym
 
 Add `.initialism` to an abbreviation for a slightly smaller font-size.
 
-<Example lang="html" name="content-typography-5" componentName="Typography" code={[`<p><abbr title="attribute">attr</abbr></p>`, `<p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>`]} html={[`<p><abbr title="attribute">attr</abbr></p>`, `<p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>`]} />
+<Example lang="html" name="content-typography-5" componentName="Typography" code={`<p><abbr title="attribute">attr</abbr></p>
+  <p><abbr title="HyperText Markup Language" class="initialism">HTML</abbr></p>`} />
 
 ## Blockquotes
 
 For quoting blocks of content from another source within your document. Wrap `<blockquote class="blockquote">` around any HTML as the quote.
 
-<Example lang="html" name="content-typography-6" componentName="Typography" code={[`<blockquote class="blockquote">`, `  <p>A well-known quote, contained in a blockquote element.</p>`, `</blockquote>`]} html={[`<blockquote class="blockquote">`, `  <p>A well-known quote, contained in a blockquote element.</p>`, `</blockquote>`]} />
+<Example lang="html" name="content-typography-6" componentName="Typography" code={`<blockquote class="blockquote">
+    <p>A well-known quote, contained in a blockquote element.</p>
+  </blockquote>`} />
 
 ### Naming a source
 
 The HTML spec requires that blockquote attribution be placed outside the `<blockquote>`. When providing attribution, wrap your `<blockquote>` in a `<figure>` and use a `<figcaption>` or a block level element (e.g., `<p>`) with the `.blockquote-footer` class. Be sure to wrap the name of the source work in `<cite>` as well.
 
-<Example lang="html" name="content-typography-7" componentName="Typography" code={[`<figure>`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} html={[`<figure>`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} />
+<Example lang="html" name="content-typography-7" componentName="Typography" code={`<figure>
+    <blockquote class="blockquote">
+      <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+  </figure>`} />
 
 ### Alignment
 
 Use text utilities as needed to change the alignment of your blockquote.
 
-<Example lang="html" name="content-typography-8" componentName="Typography" code={[`<figure class="text-center">`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} html={[`<figure class="text-center">`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} />
+<Example lang="html" name="content-typography-8" componentName="Typography" code={`<figure class="text-center">
+    <blockquote class="blockquote">
+      <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+  </figure>`} />
 
-<Example lang="html" name="content-typography-9" componentName="Typography" code={[`<figure class="text-end">`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} html={[`<figure class="text-end">`, `  <blockquote class="blockquote">`, `    <p>A well-known quote, contained in a blockquote element.</p>`, `  </blockquote>`, `  <figcaption class="blockquote-footer">`, `    Someone famous in <cite title="Source Title">Source Title</cite>`, `  </figcaption>`, `</figure>`]} />
+<Example lang="html" name="content-typography-9" componentName="Typography" code={`<figure class="text-end">
+    <blockquote class="blockquote">
+      <p>A well-known quote, contained in a blockquote element.</p>
+    </blockquote>
+    <figcaption class="blockquote-footer">
+      Someone famous in <cite title="Source Title">Source Title</cite>
+    </figcaption>
+  </figure>`} />
 
 ## Lists
 
@@ -135,19 +176,59 @@ Use text utilities as needed to change the alignment of your blockquote.
 
 Remove the default `list-style` and left margin on list items (immediate children only). **This only applies to immediate children list items**, meaning you will need to add the class for any nested lists as well.
 
-<Example lang="html" name="content-typography-10" componentName="Typography" code={[`<ul class="list-unstyled">`, `  <li>This is a list.</li>`, `  <li>It appears completely unstyled.</li>`, `  <li>Structurally, it's still a list.</li>`, `  <li>However, this style only applies to immediate child elements.</li>`, `  <li>Nested lists:`, `    <ul>`, `      <li>are unaffected by this style</li>`, `      <li>will still show a bullet</li>`, `      <li>and have appropriate left margin</li>`, `    </ul>`, `  </li>`, `  <li>This may still come in handy in some situations.</li>`, `</ul>`]} html={[`<ul class="list-unstyled">`, `  <li>This is a list.</li>`, `  <li>It appears completely unstyled.</li>`, `  <li>Structurally, it's still a list.</li>`, `  <li>However, this style only applies to immediate child elements.</li>`, `  <li>Nested lists:`, `    <ul>`, `      <li>are unaffected by this style</li>`, `      <li>will still show a bullet</li>`, `      <li>and have appropriate left margin</li>`, `    </ul>`, `  </li>`, `  <li>This may still come in handy in some situations.</li>`, `</ul>`]} />
+<Example lang="html" name="content-typography-10" componentName="Typography" code={`<ul class="list-unstyled">
+    <li>This is a list.</li>
+    <li>It appears completely unstyled.</li>
+    <li>Structurally, it's still a list.</li>
+    <li>However, this style only applies to immediate child elements.</li>
+    <li>Nested lists:
+      <ul>
+        <li>are unaffected by this style</li>
+        <li>will still show a bullet</li>
+        <li>and have appropriate left margin</li>
+      </ul>
+    </li>
+    <li>This may still come in handy in some situations.</li>
+  </ul>`} />
 
 ### Inline
 
 Remove a list's bullets and apply some light `margin` with a combination of two classes, `.list-inline` and `.list-inline-item`.
 
-<Example lang="html" name="content-typography-11" componentName="Typography" code={[`<ul class="list-inline">`, `  <li class="list-inline-item">This is a list item.</li>`, `  <li class="list-inline-item">And another one.</li>`, `  <li class="list-inline-item">But they're displayed inline.</li>`, `</ul>`]} html={[`<ul class="list-inline">`, `  <li class="list-inline-item">This is a list item.</li>`, `  <li class="list-inline-item">And another one.</li>`, `  <li class="list-inline-item">But they're displayed inline.</li>`, `</ul>`]} />
+<Example lang="html" name="content-typography-11" componentName="Typography" code={`<ul class="list-inline">
+    <li class="list-inline-item">This is a list item.</li>
+    <li class="list-inline-item">And another one.</li>
+    <li class="list-inline-item">But they're displayed inline.</li>
+  </ul>`} />
 
 ### Description list alignment
 
 Align terms and descriptions horizontally by using our grid system's predefined classes (or semantic mixins). For longer terms, you can optionally add a `.text-truncate` class to truncate the text with an ellipsis.
 
-<Example lang="html" name="content-typography-12" componentName="Typography" code={[`<dl class="row">`, `  <dt class="col-sm-3">Description lists</dt>`, `  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>`, ``, `  <dt class="col-sm-3">Term</dt>`, `  <dd class="col-sm-9">`, `    <p>Definition for the term.</p>`, `    <p>And some more placeholder definition text.</p>`, `  </dd>`, ``, `  <dt class="col-sm-3">Another term</dt>`, `  <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>`, ``, `  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>`, `  <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>`, ``, `  <dt class="col-sm-3">Nesting</dt>`, `  <dd class="col-sm-9">`, `    <dl class="row">`, `      <dt class="col-sm-4">Nested definition list</dt>`, `      <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>`, `    </dl>`, `  </dd>`, `</dl>`]} html={[`<dl class="row">`, `  <dt class="col-sm-3">Description lists</dt>`, `  <dd class="col-sm-9">A description list is perfect for defining terms.</dd>`, ``, `  <dt class="col-sm-3">Term</dt>`, `  <dd class="col-sm-9">`, `    <p>Definition for the term.</p>`, `    <p>And some more placeholder definition text.</p>`, `  </dd>`, ``, `  <dt class="col-sm-3">Another term</dt>`, `  <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>`, ``, `  <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>`, `  <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>`, ``, `  <dt class="col-sm-3">Nesting</dt>`, `  <dd class="col-sm-9">`, `    <dl class="row">`, `      <dt class="col-sm-4">Nested definition list</dt>`, `      <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>`, `    </dl>`, `  </dd>`, `</dl>`]} />
+<Example lang="html" name="content-typography-12" componentName="Typography" code={`<dl class="row">
+    <dt class="col-sm-3">Description lists</dt>
+    <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+
+    <dt class="col-sm-3">Term</dt>
+    <dd class="col-sm-9">
+      <p>Definition for the term.</p>
+      <p>And some more placeholder definition text.</p>
+    </dd>
+
+    <dt class="col-sm-3">Another term</dt>
+    <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+
+    <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
+    <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+
+    <dt class="col-sm-3">Nesting</dt>
+    <dd class="col-sm-9">
+      <dl class="row">
+        <dt class="col-sm-4">Nested definition list</dt>
+        <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>
+      </dl>
+    </dd>
+  </dl>`} />
 
 ## Responsive font sizes
 

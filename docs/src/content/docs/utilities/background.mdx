@@ -8,7 +8,25 @@ description: "Convey meaning through `background-color` and add decoration with 
 
 Similar to the contextual text color classes, set the background of an element to any contextual class. Background utilities **do not set `color`**, so in some cases you'll want to use `.text-*` [color utilities](/utilities/colors/).
 
-<Example lang="html" name="utilities-background-1" componentName="Background" code={[`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>`, `<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>`, `<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>`, `<div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>`, `<div class="p-3 mb-2 bg-success text-white">.bg-success</div>`, `<div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>`, `<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>`, `<div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>`, `<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>`, `<div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>`, `<div class="p-3 mb-2 bg-info text-dark">.bg-info</div>`, `<div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>`, `<p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>`, `<p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>`, ``, `<div class="p-3 mb-2 bg-body text-body">.bg-body</div>`, `<div class="p-3 mb-2 bg-black text-white">.bg-black</div>`, `<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>`, `<div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>`]} html={[`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>`, `<div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>`, `<div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>`, `<div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>`, `<div class="p-3 mb-2 bg-success text-white">.bg-success</div>`, `<div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>`, `<div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>`, `<div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>`, `<div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>`, `<div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>`, `<div class="p-3 mb-2 bg-info text-dark">.bg-info</div>`, `<div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>`, `<p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>`, `<p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>`, ``, `<div class="p-3 mb-2 bg-body text-body">.bg-body</div>`, `<div class="p-3 mb-2 bg-black text-white">.bg-black</div>`, `<div class="p-3 mb-2 bg-white text-dark">.bg-white</div>`, `<div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>`]} />
+<Example lang="html" name="utilities-background-1" componentName="Background" code={`<div class="p-3 mb-2 bg-primary text-white">.bg-primary</div>
+  <div class="p-3 mb-2 bg-primary-subtle text-primary-emphasis">.bg-primary-subtle</div>
+  <div class="p-3 mb-2 bg-secondary text-white">.bg-secondary</div>
+  <div class="p-3 mb-2 bg-secondary-subtle text-secondary-emphasis">.bg-secondary-subtle</div>
+  <div class="p-3 mb-2 bg-success text-white">.bg-success</div>
+  <div class="p-3 mb-2 bg-success-subtle text-success-emphasis">.bg-success-subtle</div>
+  <div class="p-3 mb-2 bg-danger text-white">.bg-danger</div>
+  <div class="p-3 mb-2 bg-danger-subtle text-danger-emphasis">.bg-danger-subtle</div>
+  <div class="p-3 mb-2 bg-warning text-dark">.bg-warning</div>
+  <div class="p-3 mb-2 bg-warning-subtle text-warning-emphasis">.bg-warning-subtle</div>
+  <div class="p-3 mb-2 bg-info text-dark">.bg-info</div>
+  <div class="p-3 mb-2 bg-info-subtle text-info-emphasis">.bg-info-subtle</div>
+  <p class="p-3 mb-2 bg-body-secondary">.bg-body-secondary</p>
+  <p class="p-3 mb-2 bg-body-tertiary">.bg-body-tertiary</p>
+
+  <div class="p-3 mb-2 bg-body text-body">.bg-body</div>
+  <div class="p-3 mb-2 bg-black text-white">.bg-black</div>
+  <div class="p-3 mb-2 bg-white text-dark">.bg-white</div>
+  <div class="p-3 mb-2 bg-transparent text-body">.bg-transparent</div>`} />
 
 ## Background gradient
 
@@ -50,11 +68,16 @@ We use an RGB version of our `--cui-success` (with the value of `25, 135, 84`) C
 
 To change that opacity, override `--cui-bg-opacity` via custom styles or inline styles.
 
-<Example lang="html" name="utilities-background-2" componentName="Background" code={[`<div class="bg-success p-2 text-white">This is default success background</div>`, `<div class="bg-success p-2" style="--cui-bg-opacity: .5;">This is 50% opacity success background</div>`]} html={[`<div class="bg-success p-2 text-white">This is default success background</div>`, `<div class="bg-success p-2" style="--cui-bg-opacity: .5;">This is 50% opacity success background</div>`]} />
+<Example lang="html" name="utilities-background-2" componentName="Background" code={`<div class="bg-success p-2 text-white">This is default success background</div>
+  <div class="bg-success p-2" style="--cui-bg-opacity: .5;">This is 50% opacity success background</div>`} />
 
 Or, choose from any of the `.bg-opacity` utilities:
 
-<Example lang="html" name="utilities-background-3" componentName="Background" code={[`<div class="bg-success p-2 text-white">This is default success background</div>`, `<div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>`]} html={[`<div class="bg-success p-2 text-white">This is default success background</div>`, `<div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>`, `<div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>`]} />
+<Example lang="html" name="utilities-background-3" componentName="Background" code={`<div class="bg-success p-2 text-white">This is default success background</div>
+  <div class="bg-success p-2 text-white bg-opacity-75">This is 75% opacity success background</div>
+  <div class="bg-success p-2 text-dark bg-opacity-50">This is 50% opacity success background</div>
+  <div class="bg-success p-2 text-dark bg-opacity-25">This is 25% opacity success background</div>
+  <div class="bg-success p-2 text-dark bg-opacity-10">This is 10% opacity success background</div>`} />
 
 ## Sass
 

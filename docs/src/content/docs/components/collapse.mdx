@@ -24,7 +24,19 @@ Click the buttons below to show and hide another element via class changes:
 
 You can use a link with the `href` attribute, or a button with the `data-coreui-target` attribute. In both samples, the `data-coreui-toggle="collapse""` is required.
 
-<Example lang="html" name="components-collapse-1" componentName="Collapse" code={[`<p class="d-inline-flex gap-1">`, `  <a class="btn btn-primary" data-coreui-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">`, `    Link with href`, `  </a>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">`, `    Button with data-coreui-target`, `  </button>`, `</p>`, `<div class="collapse" id="collapseExample">`, `  <div class="card card-body">`, `    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `  </div>`, `</div>`]} html={[`<p class="d-inline-flex gap-1">`, `  <a class="btn btn-primary" data-coreui-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">`, `    Link with href`, `  </a>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">`, `    Button with data-coreui-target`, `  </button>`, `</p>`, `<div class="collapse" id="collapseExample">`, `  <div class="card card-body">`, `    Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-collapse-1" componentName="Collapse" code={`<p class="d-inline-flex gap-1">
+    <a class="btn btn-primary" data-coreui-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+      Link with href
+    </a>
+    <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Button with data-coreui-target
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+    <div class="card card-body">
+      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+    </div>
+  </div>`} />
 
 ## Horizontal
 
@@ -34,14 +46,45 @@ The collapse plugin also supports horizontal collapsing. Add the `.collapse-hori
 Please note that while the example below has a `min-height` set to avoid excessive repaints in our docs, this is not explicitly required. **Only the `width` on the child element is required.**
 </Callout>
 
-<Example lang="html" name="components-collapse-2" componentName="Collapse" code={[`<p>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">`, `    Toggle width collapse`, `  </button>`, `</p>`, `<div style="min-height: 120px;">`, `  <div class="collapse collapse-horizontal" id="collapseWidthExample">`, `    <div class="card card-body" style="width: 300px;">`, `      This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.`, `    </div>`, `  </div>`, `</div>`]} html={[`<p>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">`, `    Toggle width collapse`, `  </button>`, `</p>`, `<div style="min-height: 120px;">`, `  <div class="collapse collapse-horizontal" id="collapseWidthExample">`, `    <div class="card card-body" style="width: 300px;">`, `      This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-collapse-2" componentName="Collapse" code={`<p>
+    <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+      Toggle width collapse
+    </button>
+  </p>
+  <div style="min-height: 120px;">
+    <div class="collapse collapse-horizontal" id="collapseWidthExample">
+      <div class="card card-body" style="width: 300px;">
+        This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+      </div>
+    </div>
+  </div>`} />
 
 ## Multiple targets
 
 A `<button>` or `<a>` can show and hide multiple elements by referencing them with a selector in its `href` or `data-coreui-target` attribute.
 Multiple `<button>` or `<a>` can show and hide an element if they each reference it with their `href` or `data-coreui-target` attribute
 
-<Example lang="html" name="components-collapse-3" componentName="Collapse" code={[`<p class="d-inline-flex gap-1">`, `  <a class="btn btn-primary" data-coreui-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>`, `</p>`, `<div class="row">`, `  <div class="col">`, `    <div class="collapse multi-collapse" id="multiCollapseExample1">`, `      <div class="card card-body">`, `        Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `      </div>`, `    </div>`, `  </div>`, `  <div class="col">`, `    <div class="collapse multi-collapse" id="multiCollapseExample2">`, `      <div class="card card-body">`, `        Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} html={[`<p class="d-inline-flex gap-1">`, `  <a class="btn btn-primary" data-coreui-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>`, `  <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>`, `</p>`, `<div class="row">`, `  <div class="col">`, `    <div class="collapse multi-collapse" id="multiCollapseExample1">`, `      <div class="card card-body">`, `        Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `      </div>`, `    </div>`, `  </div>`, `  <div class="col">`, `    <div class="collapse multi-collapse" id="multiCollapseExample2">`, `      <div class="card card-body">`, `        Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.`, `      </div>`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-collapse-3" componentName="Collapse" code={`<p class="d-inline-flex gap-1">
+    <a class="btn btn-primary" data-coreui-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+    <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+    <button class="btn btn-primary" type="button" data-coreui-toggle="collapse" data-coreui-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+  </p>
+  <div class="row">
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample1">
+        <div class="card card-body">
+          Some placeholder content for the first collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="collapse multi-collapse" id="multiCollapseExample2">
+        <div class="card card-body">
+          Some placeholder content for the second collapse component of this multi-collapse example. This panel is hidden by default but revealed when the user activates the relevant trigger.
+        </div>
+      </div>
+    </div>
+  </div>`} />
 
 ## Accessibility
 

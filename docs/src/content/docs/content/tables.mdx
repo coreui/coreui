@@ -189,7 +189,35 @@ Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` 
 
 Add a thicker border, darker between table groups—`<thead>`, `<tbody>`, and `<tfoot>`—with `.table-group-divider`. Customize the color by changing the `border-top-color` (which we don't currently provide a utility class for at this time).
 
-<Example lang="html" name="content-tables-1" componentName="Tables" code={[`<table class="table">`, `  <thead>`, `    <tr>`, `      <th scope="col">#</th>`, `      <th scope="col">First</th>`, `      <th scope="col">Last</th>`, `      <th scope="col">Handle</th>`, `    </tr>`, `  </thead>`, `  <tbody class="table-group-divider">`, `    <tr>`, `      <th scope="row">1</th>`, `      <td>Mark</td>`, `      <td>Otto</td>`, `      <td>@mdo</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">2</th>`, `      <td>Jacob</td>`, `      <td>Thornton</td>`, `      <td>@fat</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">3</th>`, `      <td colspan="2">Larry the Bird</td>`, `      <td>@twitter</td>`, `    </tr>`, `  </tbody>`, `</table>`]} html={[`<table class="table">`, `  <thead>`, `    <tr>`, `      <th scope="col">#</th>`, `      <th scope="col">First</th>`, `      <th scope="col">Last</th>`, `      <th scope="col">Handle</th>`, `    </tr>`, `  </thead>`, `  <tbody class="table-group-divider">`, `    <tr>`, `      <th scope="row">1</th>`, `      <td>Mark</td>`, `      <td>Otto</td>`, `      <td>@mdo</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">2</th>`, `      <td>Jacob</td>`, `      <td>Thornton</td>`, `      <td>@fat</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">3</th>`, `      <td colspan="2">Larry the Bird</td>`, `      <td>@twitter</td>`, `    </tr>`, `  </tbody>`, `</table>`]} />
+<Example lang="html" name="content-tables-1" componentName="Tables" code={`<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>`} />
 
 ## Vertical alignment
 
@@ -324,7 +352,37 @@ A `<caption>` functions like a heading for a table. It helps users with screen r
 
 You can also put the `<caption>` on the top of the table with `.caption-top`.
 
-<Example lang="html" name="content-tables-2" componentName="Tables" code={[`<table class="table caption-top">`, `  <caption>List of users</caption>`, `  <thead>`, `    <tr>`, `      <th scope="col">#</th>`, `      <th scope="col">First</th>`, `      <th scope="col">Last</th>`, `      <th scope="col">Handle</th>`, `    </tr>`, `  </thead>`, `  <tbody>`, `    <tr>`, `      <th scope="row">1</th>`, `      <td>Mark</td>`, `      <td>Otto</td>`, `      <td>@mdo</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">2</th>`, `      <td>Jacob</td>`, `      <td>Thornton</td>`, `      <td>@fat</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">3</th>`, `      <td>Larry</td>`, `      <td>the Bird</td>`, `      <td>@twitter</td>`, `    </tr>`, `  </tbody>`, `</table>`]} html={[`<table class="table caption-top">`, `  <caption>List of users</caption>`, `  <thead>`, `    <tr>`, `      <th scope="col">#</th>`, `      <th scope="col">First</th>`, `      <th scope="col">Last</th>`, `      <th scope="col">Handle</th>`, `    </tr>`, `  </thead>`, `  <tbody>`, `    <tr>`, `      <th scope="row">1</th>`, `      <td>Mark</td>`, `      <td>Otto</td>`, `      <td>@mdo</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">2</th>`, `      <td>Jacob</td>`, `      <td>Thornton</td>`, `      <td>@fat</td>`, `    </tr>`, `    <tr>`, `      <th scope="row">3</th>`, `      <td>Larry</td>`, `      <td>the Bird</td>`, `      <td>@twitter</td>`, `    </tr>`, `  </tbody>`, `</table>`]} />
+<Example lang="html" name="content-tables-2" componentName="Tables" code={`<table class="table caption-top">
+    <caption>List of users</caption>
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>the Bird</td>
+        <td>@twitter</td>
+      </tr>
+    </tbody>
+  </table>`} />
 
 ## Responsive tables
 

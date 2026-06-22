@@ -19,25 +19,44 @@ A chip set instantiates the child `.chip` elements for you, so you don't need to
 
 Wrap your chips in `.chip-set` and enable the plugin with `data-coreui-chip-set`.
 
-<Example lang="html" name="components-chip-set-1" componentName="Chip set" code={[`<div class="chip-set" data-coreui-chip-set>`, `  <span class="chip">Apple</span>`, `  <span class="chip">Banana</span>`, `  <span class="chip">Cherry</span>`, `  <span class="chip">Date</span>`, `</div>`]} html={[`<div class="chip-set" data-coreui-chip-set>`, `  <span class="chip">Apple</span>`, `  <span class="chip">Banana</span>`, `  <span class="chip">Cherry</span>`, `  <span class="chip">Date</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-set-1" componentName="Chip set" code={`<div class="chip-set" data-coreui-chip-set>
+    <span class="chip">Apple</span>
+    <span class="chip">Banana</span>
+    <span class="chip">Cherry</span>
+    <span class="chip">Date</span>
+  </div>`} />
 
 ## Selectable chips
 
 Set `data-coreui-selectable="true"` to make every chip in the set selectable. With the default `selectionMode` of `multiple`, any number of chips can be active at once — useful for filters.
 
-<Example lang="html" name="components-chip-set-2" componentName="Chip set" code={[`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true">`, `  <span class="chip">Design</span>`, `  <span class="chip active">Development</span>`, `  <span class="chip">Marketing</span>`, `  <span class="chip active">Sales</span>`, `</div>`]} html={[`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true">`, `  <span class="chip">Design</span>`, `  <span class="chip active">Development</span>`, `  <span class="chip">Marketing</span>`, `  <span class="chip active">Sales</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-set-2" componentName="Chip set" code={`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true">
+    <span class="chip">Design</span>
+    <span class="chip active">Development</span>
+    <span class="chip">Marketing</span>
+    <span class="chip active">Sales</span>
+  </div>`} />
 
 ### Single selection
 
 Use `data-coreui-selection-mode="single"` to allow only one selected chip at a time — selecting a chip deselects its siblings. This is useful for choice chips.
 
-<Example lang="html" name="components-chip-set-3" componentName="Chip set" code={[`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true" data-coreui-selection-mode="single">`, `  <span class="chip active">Small</span>`, `  <span class="chip">Medium</span>`, `  <span class="chip">Large</span>`, `</div>`]} html={[`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true" data-coreui-selection-mode="single">`, `  <span class="chip active">Small</span>`, `  <span class="chip">Medium</span>`, `  <span class="chip">Large</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-set-3" componentName="Chip set" code={`<div class="chip-set" data-coreui-chip-set data-coreui-selectable="true" data-coreui-selection-mode="single">
+    <span class="chip active">Small</span>
+    <span class="chip">Medium</span>
+    <span class="chip">Large</span>
+  </div>`} />
 
 ## Filter chips
 
 Add `data-coreui-filter="true"` to turn the chips into filter chips. A check icon is shown on each selected chip and removed when it is deselected. `filter` implies `selectable`, so you don't need to set both.
 
-<Example lang="html" name="components-chip-set-4" componentName="Chip set" code={[`<div class="chip-set" data-coreui-chip-set data-coreui-filter="true">`, `  <span class="chip">Design</span>`, `  <span class="chip active">Development</span>`, `  <span class="chip">Marketing</span>`, `  <span class="chip active">Sales</span>`, `</div>`]} html={[`<div class="chip-set" data-coreui-chip-set data-coreui-filter="true">`, `  <span class="chip">Design</span>`, `  <span class="chip active">Development</span>`, `  <span class="chip">Marketing</span>`, `  <span class="chip active">Sales</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-set-4" componentName="Chip set" code={`<div class="chip-set" data-coreui-chip-set data-coreui-filter="true">
+    <span class="chip">Design</span>
+    <span class="chip active">Development</span>
+    <span class="chip">Marketing</span>
+    <span class="chip active">Sales</span>
+  </div>`} />
 
 Customize the check with the `selectedIcon` option (or `data-coreui-selected-icon`), the same way you customize the remove icon.
 
@@ -45,7 +64,11 @@ Customize the check with the `selectedIcon` option (or `data-coreui-selected-ico
 
 Set `data-coreui-removable="true"` to add a remove button to every chip. When a chip is removed, focus moves to a neighboring chip.
 
-<Example lang="html" name="components-chip-set-5" componentName="Chip set" code={[`<div class="chip-set" data-coreui-chip-set data-coreui-removable="true">`, `  <span class="chip">Filter one</span>`, `  <span class="chip">Filter two</span>`, `  <span class="chip disabled">Filter three</span>`, `</div>`]} html={[`<div class="chip-set" data-coreui-chip-set data-coreui-removable="true">`, `  <span class="chip">Filter one</span>`, `  <span class="chip">Filter two</span>`, `  <span class="chip disabled">Filter three</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-set-5" componentName="Chip set" code={`<div class="chip-set" data-coreui-chip-set data-coreui-removable="true">
+    <span class="chip">Filter one</span>
+    <span class="chip">Filter two</span>
+    <span class="chip disabled">Filter three</span>
+  </div>`} />
 
 ## JavaScript plugin
 

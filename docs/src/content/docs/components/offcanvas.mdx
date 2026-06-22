@@ -27,7 +27,15 @@ This component's animation effect relies on the `prefers-reduced-motion` media q
 
 Below is a default offcanvas example (via `.show` on `.offcanvas`). Offcanvas supports a header with a close button and an optional body class for initial `padding`. We recommend including offcanvas headers with dismiss actions whenever possible, or providing an explicit dismiss action.
 
-<Example lang="html" name="components-offcanvas-1" componentName="Offcanvas" class="docs-example-offcanvas p-0 bg-light overflow-hidden" code={[`<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    The content for the Bootstrap offcanvas goes here. You can place nearly any Bootstrap component or custom element here.`, `  </div>`, `</div>`]} html={[`<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    The content for the Bootstrap offcanvas goes here. You can place nearly any Bootstrap component or custom element here.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-1" componentName="Offcanvas" class="docs-example-offcanvas p-0 bg-light overflow-hidden" code={`<div class="offcanvas offcanvas-start show" tabindex="-1" id="offcanvas" aria-labelledby="offcanvasLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasLabel">Offcanvas</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      The content for the Bootstrap offcanvas goes here. You can place nearly any Bootstrap component or custom element here.
+    </div>
+  </div>`} />
 
 ### Live demo
 
@@ -38,24 +46,86 @@ Utilize the buttons below to toggle the visibility of an offcanvas element using
 
 You can employ a link with the `href` attribute or a button featuring the `data-coreui-target` attribute. In both instances, including `data-coreui-toggle="offcanvas"` is necessary.
 
-<Example lang="html" name="components-offcanvas-2" componentName="Offcanvas" code={[`<a class="btn btn-primary" data-coreui-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">`, `  Link with href`, `</a>`, `<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasExample" aria-controls="offcanvasExample">`, `  Button with data-coreui-target`, `</button>`, ``, `<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <div class="">`, `      Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images, lists, etc.`, `    </div>`, `    <div class="dropdown mt-3">`, `      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown">`, `        Dropdown button`, `      </button>`, `      <ul class="dropdown-menu">`, `        <li><a class="dropdown-item" href="#">Action</a></li>`, `        <li><a class="dropdown-item" href="#">Another action</a></li>`, `        <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      </ul>`, `    </div>`, `  </div>`, `</div>`]} html={[`<a class="btn btn-primary" data-coreui-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">`, `  Link with href`, `</a>`, `<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasExample" aria-controls="offcanvasExample">`, `  Button with data-coreui-target`, `</button>`, ``, `<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <div class="">`, `      Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images, lists, etc.`, `    </div>`, `    <div class="dropdown mt-3">`, `      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown">`, `        Dropdown button`, `      </button>`, `      <ul class="dropdown-menu">`, `        <li><a class="dropdown-item" href="#">Action</a></li>`, `        <li><a class="dropdown-item" href="#">Another action</a></li>`, `        <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      </ul>`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-2" componentName="Offcanvas" code={`<a class="btn btn-primary" data-coreui-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+    Link with href
+  </a>
+  <button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasExample" aria-controls="offcanvasExample">
+    Button with data-coreui-target
+  </button>
+
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+      <button type="button" class="btn-close text-reset" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="">
+        Some text as a placeholder. In real life, you can have the elements you have chosen, like text, images, lists, etc.
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-coreui-toggle="dropdown">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>`} />
 
 ### Body scrolling
 
 The `<body>` element's scrolling is disabled when the Bootstrap offcanvas and its backdrop are visible. Utilize the `data-coreui-scroll` attribute to allow scrolling on the `<body>`.
 
-<Example lang="html" name="components-offcanvas-3" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-scroll="true" data-coreui-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Scroll further down the page to see this option in action.`, `</p>`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-scroll="true" data-coreui-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Scroll further down the page to see this option in action.`, `</p>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-3" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+
+  <div class="offcanvas offcanvas-start" data-coreui-scroll="true" data-coreui-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas with body scrolling</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Scroll further down the page to see this option in action.
+  </p>
+    </div>
+  </div>`} />
 
 ### Body scrolling and backdrop
 
 You can also enable `<body>` scrolling with a visible backdrop.
 
-<Example lang="html" name="components-offcanvas-4" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Try scrolling the rest of the page to see this option in action.</p>`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Try scrolling the rest of the page to see this option in action.</p>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-4" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Enable both scrolling & backdrop</button>
+
+  <div class="offcanvas offcanvas-start" data-coreui-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdrop with scrolling</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Try scrolling the rest of the page to see this option in action.</p>
+    </div>
+  </div>`} />
 
 ### Static backdrop
 
 When the backdrop is set to static, the Bootstrap offcanvas will remain open when clicking outside of it.
-<Example lang="html" name="components-offcanvas-5" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#staticBackdrop" aria-controls="staticBackdrop">`, `  Toggle static offcanvas`, `</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <div>`, `      I won’t close if you click outside of me.`, `    </div>`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#staticBackdrop" aria-controls="staticBackdrop">`, `  Toggle static offcanvas`, `</button>`, ``, `<div class="offcanvas offcanvas-start" data-coreui-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <div>`, `      I won’t close if you click outside of me.`, `    </div>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-5" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#staticBackdrop" aria-controls="staticBackdrop">
+    Toggle static offcanvas
+  </button>
+
+  <div class="offcanvas offcanvas-start" data-coreui-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="staticBackdropLabel">Offcanvas</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        I won’t close if you click outside of me.
+      </div>
+    </div>
+  </div>`} />
 
 ## Dark offcanvas
 
@@ -67,7 +137,15 @@ Change the appearance of offcanvas elements using utilities to better match vari
 Attention! Dark variants for components are no longer supported as of v5.3.0 due to the introduction of color modes. Instead of manually adding the classes mentioned earlier, simply set `data-coreui-theme="dark"` on the root element, a parent wrapper, or the component itself.
 </Callout>
 
-<Example lang="html" name="components-offcanvas-6" componentName="Offcanvas" class="docs-example-offcanvas p-0 bg-body-secondary overflow-hidden" code={[`<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close btn-close-white" data-coreui-dismiss="offcanvasDark" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Place offcanvas content here.</p>`, `  </div>`, `</div>`]} html={[`<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>`, `    <button type="button" class="btn-close btn-close-white" data-coreui-dismiss="offcanvasDark" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p>Place offcanvas content here.</p>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-6" componentName="Offcanvas" class="docs-example-offcanvas p-0 bg-body-secondary overflow-hidden" code={`<div class="offcanvas offcanvas-start show text-bg-dark" tabindex="-1" id="offcanvasDark" aria-labelledby="offcanvasDarkLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasDarkLabel">Offcanvas</h5>
+      <button type="button" class="btn-close btn-close-white" data-coreui-dismiss="offcanvasDark" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p>Place offcanvas content here.</p>
+    </div>
+  </div>`} />
 
 ## Responsive
 
@@ -75,7 +153,19 @@ Attention! Dark variants for components are no longer supported as of v5.3.0 due
 
 Responsive offcanvas classes hide content that is outside the viewport from a specified breakpoint and lower. Above that breakpoint, the content will behave normally. For example, `.offcanvas-lg` hides content in an offcanvas below the `lg` breakpoint, but displays the content above the `lg` breakpoint.
 
-<Example lang="html" name="components-offcanvas-7" componentName="Offcanvas" code={[`<button class="btn btn-primary d-lg-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button>`, ``, `<div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>`, ``, `<div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" data-coreui-target="#offcanvasResponsive" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p class="mb-0">This is content within an <code>.offcanvas-lg</code>.</p>`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary d-lg-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button>`, ``, `<div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>`, ``, `<div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" data-coreui-target="#offcanvasResponsive" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    <p class="mb-0">This is content within an <code>.offcanvas-lg</code>.</p>`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-7" componentName="Offcanvas" code={`<button class="btn btn-primary d-lg-none" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasResponsive" aria-controls="offcanvasResponsive">Toggle offcanvas</button>
+
+  <div class="alert alert-info d-none d-lg-block">Resize your browser to show the responsive offcanvas toggle.</div>
+
+  <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasResponsive" aria-labelledby="offcanvasResponsiveLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasResponsiveLabel">Responsive offcanvas</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" data-coreui-target="#offcanvasResponsive" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <p class="mb-0">This is content within an <code>.offcanvas-lg</code>.</p>
+    </div>
+  </div>`} />
 
 Responsive offcanvas classes are available for each breakpoint.
 
@@ -97,11 +187,41 @@ Offcanvas components do not have a default position; therefore, you need to appl
 
 Feel free to experiment with the top, right, and bottom examples below.
 
-<Example lang="html" name="components-offcanvas-8" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>`, ``, `<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    ...`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>`, ``, `<div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    ...`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-8" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasTop" aria-controls="offcanvasTop">Toggle top offcanvas</button>
 
-<Example lang="html" name="components-offcanvas-9" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>`, ``, `<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    ...`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>`, ``, `<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body">`, `    ...`, `  </div>`, `</div>`]} />
+  <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasTopLabel">Offcanvas top</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      ...
+    </div>
+  </div>`} />
 
-<Example lang="html" name="components-offcanvas-10" componentName="Offcanvas" code={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>`, ``, `<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body small">`, `    ...`, `  </div>`, `</div>`]} html={[`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>`, ``, `<div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">`, `  <div class="offcanvas-header">`, `    <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>`, `    <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>`, `  </div>`, `  <div class="offcanvas-body small">`, `    ...`, `  </div>`, `</div>`]} />
+<Example lang="html" name="components-offcanvas-9" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>
+
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      ...
+    </div>
+  </div>`} />
+
+<Example lang="html" name="components-offcanvas-10" componentName="Offcanvas" code={`<button class="btn btn-primary" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasBottom" aria-controls="offcanvasBottom">Toggle bottom offcanvas</button>
+
+  <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+      <button type="button" class="btn-close" data-coreui-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body small">
+      ...
+    </div>
+  </div>`} />
 
 ## Accessibility
 

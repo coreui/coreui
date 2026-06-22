@@ -96,7 +96,12 @@ The syntax is nearly the same as the default, positive margin utilities, but wit
 
 When using `display: grid` or `display: flex`, you can make use of `gap` utilities on the parent element. This can save on having to add margin utilities to individual children of a grid or flex container. Gap utilities are responsive by default, and are generated via our utilities API, based on the `$spacers` Sass map.
 
-<Example lang="html" name="utilities-spacing-1" componentName="Spacing" class="docs-example-cssgrid" code={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} html={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} />
+<Example lang="html" name="utilities-spacing-1" componentName="Spacing" class="docs-example-cssgrid" code={`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-3">
+    <div class="p-2">Grid item 1</div>
+    <div class="p-2">Grid item 2</div>
+    <div class="p-2">Grid item 3</div>
+    <div class="p-2">Grid item 4</div>
+  </div>`} />
 
 Support includes responsive options for all of CoreUI's grid breakpoints, as well as six sizes from the `$spacers` map (`0`–`5`). There is no `.gap-auto` utility class as it's effectively the same as `.gap-0`.
 
@@ -104,13 +109,23 @@ Support includes responsive options for all of CoreUI's grid breakpoints, as wel
 
 `row-gap` sets the vertical space between children items in the specified container.
 
-<Example lang="html" name="utilities-spacing-2" componentName="Spacing" class="docs-example-cssgrid" code={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 row-gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} html={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 row-gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} />
+<Example lang="html" name="utilities-spacing-2" componentName="Spacing" class="docs-example-cssgrid" code={`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 row-gap-3">
+    <div class="p-2">Grid item 1</div>
+    <div class="p-2">Grid item 2</div>
+    <div class="p-2">Grid item 3</div>
+    <div class="p-2">Grid item 4</div>
+  </div>`} />
 
 ### column-gap
 
 `column-gap` sets the horizontal space between children items in the specified container.
 
-<Example lang="html" name="utilities-spacing-3" componentName="Spacing" class="docs-example-cssgrid" code={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 column-gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} html={[`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 column-gap-3">`, `  <div class="p-2">Grid item 1</div>`, `  <div class="p-2">Grid item 2</div>`, `  <div class="p-2">Grid item 3</div>`, `  <div class="p-2">Grid item 4</div>`, `</div>`]} />
+<Example lang="html" name="utilities-spacing-3" componentName="Spacing" class="docs-example-cssgrid" code={`<div style="grid-template-columns: 1fr 1fr;" class="d-grid gap-0 column-gap-3">
+    <div class="p-2">Grid item 1</div>
+    <div class="p-2">Grid item 2</div>
+    <div class="p-2">Grid item 3</div>
+    <div class="p-2">Grid item 4</div>
+  </div>`} />
 
 ## Sass
 

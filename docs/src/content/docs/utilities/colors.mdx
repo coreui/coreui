@@ -8,7 +8,28 @@ description: "Convey meaning through `color` with a handful of color utility cla
 
 Colorize text with color utilities. If you want to colorize links, you can use the [`.link-*` helper classes](/helpers/colored-links/) which have `:hover` and `:focus` states.
 
-<Example lang="html" name="utilities-colors-1" componentName="Colors" code={[`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>`, `<p class="text-primary-emphasis">.text-primary-emphasis</p>`, `<p class="text-secondary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-secondary</p>`, `<p class="text-secondary-emphasis">.text-secondary-emphasis</p>`, `<p class="text-success{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-success</p>`, `<p class="text-success-emphasis">.text-success-emphasis</p>`, `<p class="text-danger{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-danger</p>`, `<p class="text-danger-emphasis">.text-danger-emphasis</p>`, `<p class="text-warning{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-warning</p>`, `<p class="text-warning-emphasis">.text-warning-emphasis</p>`, `<p class="text-info{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-info</p>`, `<p class="text-info-emphasis">.text-info-emphasis</p>`, ``, `<p class="text-body">.text-body</p>`, `<p class="text-body-emphasis">.text-body-emphasis</p>`, `<p class="text-body-secondary">.text-body-secondary</p>`, `<p class="text-body-tertiary">.text-body-tertiary</p>`, ``, `<p class="text-black bg-white">.text-black</p>`, `<p class="text-white bg-dark">.text-white</p>`, `<p class="text-black-50 bg-white">.text-black-50</p>`, `<p class="text-white-50 bg-dark">.text-white-50</p>`]} html={[`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>`, `<p class="text-primary-emphasis">.text-primary-emphasis</p>`, `<p class="text-secondary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-secondary</p>`, `<p class="text-secondary-emphasis">.text-secondary-emphasis</p>`, `<p class="text-success{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-success</p>`, `<p class="text-success-emphasis">.text-success-emphasis</p>`, `<p class="text-danger{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-danger</p>`, `<p class="text-danger-emphasis">.text-danger-emphasis</p>`, `<p class="text-warning{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-warning</p>`, `<p class="text-warning-emphasis">.text-warning-emphasis</p>`, `<p class="text-info{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-info</p>`, `<p class="text-info-emphasis">.text-info-emphasis</p>`, ``, `<p class="text-body">.text-body</p>`, `<p class="text-body-emphasis">.text-body-emphasis</p>`, `<p class="text-body-secondary">.text-body-secondary</p>`, `<p class="text-body-tertiary">.text-body-tertiary</p>`, ``, `<p class="text-black bg-white">.text-black</p>`, `<p class="text-white bg-dark">.text-white</p>`, `<p class="text-black-50 bg-white">.text-black-50</p>`, `<p class="text-white-50 bg-dark">.text-white-50</p>`]} />
+<Example lang="html" name="utilities-colors-1" componentName="Colors" code={`<p class="text-primary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-primary</p>
+  <p class="text-primary-emphasis">.text-primary-emphasis</p>
+  <p class="text-secondary{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-secondary</p>
+  <p class="text-secondary-emphasis">.text-secondary-emphasis</p>
+  <p class="text-success{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-success</p>
+  <p class="text-success-emphasis">.text-success-emphasis</p>
+  <p class="text-danger{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-danger</p>
+  <p class="text-danger-emphasis">.text-danger-emphasis</p>
+  <p class="text-warning{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-warning</p>
+  <p class="text-warning-emphasis">.text-warning-emphasis</p>
+  <p class="text-info{{ with .contrast_color }} bg-{{ . }}{{ end }}">.text-info</p>
+  <p class="text-info-emphasis">.text-info-emphasis</p>
+
+  <p class="text-body">.text-body</p>
+  <p class="text-body-emphasis">.text-body-emphasis</p>
+  <p class="text-body-secondary">.text-body-secondary</p>
+  <p class="text-body-tertiary">.text-body-tertiary</p>
+
+  <p class="text-black bg-white">.text-black</p>
+  <p class="text-white bg-dark">.text-white</p>
+  <p class="text-black-50 bg-white">.text-black-50</p>
+  <p class="text-white-50 bg-dark">.text-white-50</p>`} />
 
 <Callout color="warning">
 **Deprecation:** With the addition of `.text-opacity-*` utilities and CSS variables for text utilities, `.text-black-50` and `.text-white-50` are deprecated as of v4.1.0. They'll be removed in v6.0.0.
@@ -43,11 +64,15 @@ We use an RGB version of our `--cui-primary` (with the value of `13, 110, 253`) 
 
 To change that opacity, override `--cui-text-opacity` via custom styles or inline styles.
 
-<Example lang="html" name="utilities-colors-2" componentName="Colors" code={[`<div class="text-primary">This is default primary text</div>`, `<div class="text-primary" style="--cui-text-opacity: .5;">This is 50% opacity primary text</div>`]} html={[`<div class="text-primary">This is default primary text</div>`, `<div class="text-primary" style="--cui-text-opacity: .5;">This is 50% opacity primary text</div>`]} />
+<Example lang="html" name="utilities-colors-2" componentName="Colors" code={`<div class="text-primary">This is default primary text</div>
+  <div class="text-primary" style="--cui-text-opacity: .5;">This is 50% opacity primary text</div>`} />
 
 Or, choose from any of the `.text-opacity` utilities:
 
-<Example lang="html" name="utilities-colors-3" componentName="Colors" code={[`<div class="text-primary">This is default primary text</div>`, `<div class="text-primary text-opacity-75">This is 75% opacity primary text</div>`, `<div class="text-primary text-opacity-50">This is 50% opacity primary text</div>`, `<div class="text-primary text-opacity-25">This is 25% opacity primary text</div>`]} html={[`<div class="text-primary">This is default primary text</div>`, `<div class="text-primary text-opacity-75">This is 75% opacity primary text</div>`, `<div class="text-primary text-opacity-50">This is 50% opacity primary text</div>`, `<div class="text-primary text-opacity-25">This is 25% opacity primary text</div>`]} />
+<Example lang="html" name="utilities-colors-3" componentName="Colors" code={`<div class="text-primary">This is default primary text</div>
+  <div class="text-primary text-opacity-75">This is 75% opacity primary text</div>
+  <div class="text-primary text-opacity-50">This is 50% opacity primary text</div>
+  <div class="text-primary text-opacity-25">This is 25% opacity primary text</div>`} />
 
 ## Specificity
 

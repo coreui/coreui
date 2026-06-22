@@ -37,45 +37,209 @@ Use the Bootstrap Chip component when you need:
 
 Use `.chip` for standalone chips.
 
-<Example lang="html" name="components-chip-1" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">Basic chip</span>`, `  <span class="chip">Basic chip 2</span>`, `  <span class="chip">Basic chip 3</span>`, `  <span class="chip">Basic chip 4</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">Basic chip</span>`, `  <span class="chip">Basic chip 2</span>`, `  <span class="chip">Basic chip 3</span>`, `  <span class="chip">Basic chip 4</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-1" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip">Basic chip</span>
+    <span class="chip">Basic chip 2</span>
+    <span class="chip">Basic chip 3</span>
+    <span class="chip">Basic chip 4</span>
+  </div>`} />
 
 ## Outline chips
 
 Add `.chip-outline` to remove all background images and colors on any chip.
 
-<Example lang="html" name="components-chip-2" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip chip-outline">Outline chip</span>`, `  <span class="chip chip-outline">Outline chip 2</span>`, `  <span class="chip chip-outline">Outline chip 3</span>`, `  <span class="chip chip-outline">Outline chip 4</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip chip-outline">Outline chip</span>`, `  <span class="chip chip-outline">Outline chip 2</span>`, `  <span class="chip chip-outline">Outline chip 3</span>`, `  <span class="chip chip-outline">Outline chip 4</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-2" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip chip-outline">Outline chip</span>
+    <span class="chip chip-outline">Outline chip 2</span>
+    <span class="chip chip-outline">Outline chip 3</span>
+    <span class="chip chip-outline">Outline chip 4</span>
+  </div>`} />
 
 ## Chips with icons
 
 Add `.chip-icon` for a leading icon.
 
-<Example lang="html" name="components-chip-3" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Chip with icon 1`, `  </span>`, `  <span class="chip">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Chip with icon 2`, `  </span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Chip with icon 1`, `  </span>`, `  <span class="chip">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Chip with icon 2`, `  </span>`, `</div>`]} />
+<Example lang="html" name="components-chip-3" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip">
+      <span class="chip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </span>
+      Chip with icon 1
+    </span>
+    <span class="chip">
+      <span class="chip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </span>
+      Chip with icon 2
+    </span>
+  </div>`} />
 
 ## Chips with avatars
 
 Add `.chip-img` for an image like an avatar or use our avatar component.
 
-<Example lang="html" name="components-chip-4" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Chip with avatar`, `  </span>`, `  <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Chip with avatar 2`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Chip with avatar 3`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-success text-white">L</span>`, `    Chip with avatar 4`, `  </span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Chip with avatar`, `  </span>`, `  <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Chip with avatar 2`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Chip with avatar 3`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-success text-white">L</span>`, `    Chip with avatar 4`, `  </span>`, `</div>`]} />
+<Example lang="html" name="components-chip-4" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip">
+      <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
+      Chip with avatar
+    </span>
+    <span class="chip">
+      <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
+      Chip with avatar 2
+    </span>
+    <span class="chip">
+      <span class="avatar bg-primary text-white">L</span>
+      Chip with avatar 3
+    </span>
+    <span class="chip">
+      <span class="avatar bg-success text-white">L</span>
+      Chip with avatar 4
+    </span>
+  </div>`} />
 
 ## Variants
 
 Apply `.chip-*` classes to color your chips. Chips are subtle by default as this allows for a clear, themed active state.
 
-<Example lang="html" name="components-chip-5" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, ``, `  <span class="chip chip-primary chip-clickable" tabindex="0">Primary chip</span>`, `  <span class="chip chip-primary active" tabindex="0">Primary chip</span>`, `  <span class="chip chip-secondary chip-clickable" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-secondary active" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-success chip-clickable" tabindex="0">Success chip</span>`, `  <span class="chip chip-success active" tabindex="0">Success chip</span>`, `  <span class="chip chip-danger chip-clickable" tabindex="0">Danger chip</span>`, `  <span class="chip chip-danger active" tabindex="0">Danger chip</span>`, `  <span class="chip chip-warning chip-clickable" tabindex="0">Warning chip</span>`, `  <span class="chip chip-warning active" tabindex="0">Warning chip</span>`, `  <span class="chip chip-info chip-clickable" tabindex="0">Info chip</span>`, `  <span class="chip chip-info active" tabindex="0">Info chip</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, ``, `  <span class="chip chip-primary chip-clickable" tabindex="0">Primary chip</span>`, `  <span class="chip chip-primary active" tabindex="0">Primary chip</span>`, `  <span class="chip chip-secondary chip-clickable" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-secondary active" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-success chip-clickable" tabindex="0">Success chip</span>`, `  <span class="chip chip-success active" tabindex="0">Success chip</span>`, `  <span class="chip chip-danger chip-clickable" tabindex="0">Danger chip</span>`, `  <span class="chip chip-danger active" tabindex="0">Danger chip</span>`, `  <span class="chip chip-warning chip-clickable" tabindex="0">Warning chip</span>`, `  <span class="chip chip-warning active" tabindex="0">Warning chip</span>`, `  <span class="chip chip-info chip-clickable" tabindex="0">Info chip</span>`, `  <span class="chip chip-info active" tabindex="0">Info chip</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-5" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
 
-<Example lang="html" name="components-chip-6" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, ``, `  <span class="chip chip-outline chip-clickable chip-primary" tabindex="0">Primary chip</span>`, `  <span class="chip chip-outline chip-primary active" tabindex="0">Primary chip</span>`, `  <span class="chip chip-outline chip-clickable chip-secondary" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-outline chip-secondary active" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-outline chip-clickable chip-success" tabindex="0">Success chip</span>`, `  <span class="chip chip-outline chip-success active" tabindex="0">Success chip</span>`, `  <span class="chip chip-outline chip-clickable chip-danger" tabindex="0">Danger chip</span>`, `  <span class="chip chip-outline chip-danger active" tabindex="0">Danger chip</span>`, `  <span class="chip chip-outline chip-clickable chip-warning" tabindex="0">Warning chip</span>`, `  <span class="chip chip-outline chip-warning active" tabindex="0">Warning chip</span>`, `  <span class="chip chip-outline chip-clickable chip-info" tabindex="0">Info chip</span>`, `  <span class="chip chip-outline chip-info active" tabindex="0">Info chip</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, ``, `  <span class="chip chip-outline chip-clickable chip-primary" tabindex="0">Primary chip</span>`, `  <span class="chip chip-outline chip-primary active" tabindex="0">Primary chip</span>`, `  <span class="chip chip-outline chip-clickable chip-secondary" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-outline chip-secondary active" tabindex="0">Secondary chip</span>`, `  <span class="chip chip-outline chip-clickable chip-success" tabindex="0">Success chip</span>`, `  <span class="chip chip-outline chip-success active" tabindex="0">Success chip</span>`, `  <span class="chip chip-outline chip-clickable chip-danger" tabindex="0">Danger chip</span>`, `  <span class="chip chip-outline chip-danger active" tabindex="0">Danger chip</span>`, `  <span class="chip chip-outline chip-clickable chip-warning" tabindex="0">Warning chip</span>`, `  <span class="chip chip-outline chip-warning active" tabindex="0">Warning chip</span>`, `  <span class="chip chip-outline chip-clickable chip-info" tabindex="0">Info chip</span>`, `  <span class="chip chip-outline chip-info active" tabindex="0">Info chip</span>`, `</div>`]} />
+    <span class="chip chip-primary chip-clickable" tabindex="0">Primary chip</span>
+    <span class="chip chip-primary active" tabindex="0">Primary chip</span>
+    <span class="chip chip-secondary chip-clickable" tabindex="0">Secondary chip</span>
+    <span class="chip chip-secondary active" tabindex="0">Secondary chip</span>
+    <span class="chip chip-success chip-clickable" tabindex="0">Success chip</span>
+    <span class="chip chip-success active" tabindex="0">Success chip</span>
+    <span class="chip chip-danger chip-clickable" tabindex="0">Danger chip</span>
+    <span class="chip chip-danger active" tabindex="0">Danger chip</span>
+    <span class="chip chip-warning chip-clickable" tabindex="0">Warning chip</span>
+    <span class="chip chip-warning active" tabindex="0">Warning chip</span>
+    <span class="chip chip-info chip-clickable" tabindex="0">Info chip</span>
+    <span class="chip chip-info active" tabindex="0">Info chip</span>
+  </div>`} />
+
+<Example lang="html" name="components-chip-6" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+
+    <span class="chip chip-outline chip-clickable chip-primary" tabindex="0">Primary chip</span>
+    <span class="chip chip-outline chip-primary active" tabindex="0">Primary chip</span>
+    <span class="chip chip-outline chip-clickable chip-secondary" tabindex="0">Secondary chip</span>
+    <span class="chip chip-outline chip-secondary active" tabindex="0">Secondary chip</span>
+    <span class="chip chip-outline chip-clickable chip-success" tabindex="0">Success chip</span>
+    <span class="chip chip-outline chip-success active" tabindex="0">Success chip</span>
+    <span class="chip chip-outline chip-clickable chip-danger" tabindex="0">Danger chip</span>
+    <span class="chip chip-outline chip-danger active" tabindex="0">Danger chip</span>
+    <span class="chip chip-outline chip-clickable chip-warning" tabindex="0">Warning chip</span>
+    <span class="chip chip-outline chip-warning active" tabindex="0">Warning chip</span>
+    <span class="chip chip-outline chip-clickable chip-info" tabindex="0">Info chip</span>
+    <span class="chip chip-outline chip-info active" tabindex="0">Info chip</span>
+  </div>`} />
 
 ### Active state
 
 Add `.active` to make chips use the solid appearance (bg/contrast). This is useful for toggle-style chip selections.
 
-<Example lang="html" name="components-chip-7" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">Default</span>`, `  <span class="chip active">Active</span>`, `  <span class="chip chip-primary">Primary</span>`, `  <span class="chip chip-primary active">Active</span>`, `  <span class="chip chip-success">Success</span>`, `  <span class="chip chip-success active">Active</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip">Default</span>`, `  <span class="chip active">Active</span>`, `  <span class="chip chip-primary">Primary</span>`, `  <span class="chip chip-primary active">Active</span>`, `  <span class="chip chip-success">Success</span>`, `  <span class="chip chip-success active">Active</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-7" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip">Default</span>
+    <span class="chip active">Active</span>
+    <span class="chip chip-primary">Primary</span>
+    <span class="chip chip-primary active">Active</span>
+    <span class="chip chip-success">Success</span>
+    <span class="chip chip-success active">Active</span>
+  </div>`} />
 
 ## Sizes
 
 Use `.chip-sm` or `.chip-lg` for different sizes.
 
-<Example lang="html" name="components-chip-8" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1 mb-3">`, `  <span class="chip chip-sm">Small</span>`, `  <span class="chip chip-sm">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Small with icon`, `  </span>`, `  <span class="chip chip-sm">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Small with avatar`, `  </span>`, `  <span class="chip chip-sm">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Small with avatar 2`, `  </span>`, `  <span class="chip chip-sm">`, `    Small removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`, ``, `<div class="d-flex flex-wrap gap-1 mb-3">`, `  <span class="chip">Default</span>`, `  <span class="chip chip-sm">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Default with icon 1`, `  </span>`, `    <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Default with avatar`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Default with avatar1`, `  </span>`, `  <span class="chip">`, `    Default removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`, ``, `<div class="d-flex flex-wrap gap-1">`, `  <span class="chip chip-lg">Large</span>`, `  <span class="chip chip-lg">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Small with icon 1`, `  </span>`, `  <span class="chip chip-lg">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Large with avatar`, `  </span>`, `  <span class="chip chip-lg">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Large with avatar 2`, `  </span>`, `  <span class="chip chip-lg">`, `    Large removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1 mb-3">`, `  <span class="chip chip-sm">Small</span>`, `  <span class="chip chip-sm">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Small with icon`, `  </span>`, `  <span class="chip chip-sm">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Small with avatar`, `  </span>`, `  <span class="chip chip-sm">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Small with avatar 2`, `  </span>`, `  <span class="chip chip-sm">`, `    Small removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`, ``, `<div class="d-flex flex-wrap gap-1 mb-3">`, `  <span class="chip">Default</span>`, `  <span class="chip chip-sm">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Default with icon 1`, `  </span>`, `    <span class="chip">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Default with avatar`, `  </span>`, `  <span class="chip">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Default with avatar1`, `  </span>`, `  <span class="chip">`, `    Default removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`, ``, `<div class="d-flex flex-wrap gap-1">`, `  <span class="chip chip-lg">Large</span>`, `  <span class="chip chip-lg">`, `    <span class="chip-icon">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">`, `        <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>`, `      </svg>`, `    </span>`, `    Small with icon 1`, `  </span>`, `  <span class="chip chip-lg">`, `    <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">`, `    Large with avatar`, `  </span>`, `  <span class="chip chip-lg">`, `    <span class="avatar bg-primary text-white">L</span>`, `    Large with avatar 2`, `  </span>`, `  <span class="chip chip-lg">`, `    Large removable`, `    <button type="button" class="chip-remove" aria-label="Remove">`, `      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">`, `        <line x1="4" y1="4" x2="12" y2="12"/>`, `        <line x1="12" y1="4" x2="4" y2="12"/>`, `      </svg>`, `    </button>`, `  </span>`, `</div>`]} />
+<Example lang="html" name="components-chip-8" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1 mb-3">
+    <span class="chip chip-sm">Small</span>
+    <span class="chip chip-sm">
+      <span class="chip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </span>
+      Small with icon
+    </span>
+    <span class="chip chip-sm">
+      <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
+      Small with avatar
+    </span>
+    <span class="chip chip-sm">
+      <span class="avatar bg-primary text-white">L</span>
+      Small with avatar 2
+    </span>
+    <span class="chip chip-sm">
+      Small removable
+      <button type="button" class="chip-remove" aria-label="Remove">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="12" y2="12"/>
+          <line x1="12" y1="4" x2="4" y2="12"/>
+        </svg>
+      </button>
+    </span>
+  </div>
+
+  <div class="d-flex flex-wrap gap-1 mb-3">
+    <span class="chip">Default</span>
+    <span class="chip chip-sm">
+      <span class="chip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </span>
+      Default with icon 1
+    </span>
+      <span class="chip">
+      <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
+      Default with avatar
+    </span>
+    <span class="chip">
+      <span class="avatar bg-primary text-white">L</span>
+      Default with avatar1
+    </span>
+    <span class="chip">
+      Default removable
+      <button type="button" class="chip-remove" aria-label="Remove">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="12" y2="12"/>
+          <line x1="12" y1="4" x2="4" y2="12"/>
+        </svg>
+      </button>
+    </span>
+  </div>
+
+  <div class="d-flex flex-wrap gap-1">
+    <span class="chip chip-lg">Large</span>
+    <span class="chip chip-lg">
+      <span class="chip-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+        </svg>
+      </span>
+      Small with icon 1
+    </span>
+    <span class="chip chip-lg">
+      <img src="/assets/img/avatars/1.jpg" class="chip-img" width="16" height="16" alt="">
+      Large with avatar
+    </span>
+    <span class="chip chip-lg">
+      <span class="avatar bg-primary text-white">L</span>
+      Large with avatar 2
+    </span>
+    <span class="chip chip-lg">
+      Large removable
+      <button type="button" class="chip-remove" aria-label="Remove">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="4" x2="12" y2="12"/>
+          <line x1="12" y1="4" x2="4" y2="12"/>
+        </svg>
+      </button>
+    </span>
+  </div>`} />
 
 
 ## JavaScript plugin
@@ -90,7 +254,12 @@ The options below can be configured per chip, but in practice you'll usually set
 
 Add `data-coreui-chip` to enable the plugin and configure behavior with `data-coreui-*` options.
 
-<Example lang="html" name="components-chip-9" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip" data-coreui-chip data-coreui-selectable="true">Selectable</span>`, `  <span class="chip" data-coreui-chip data-coreui-removable="true">Removable</span>`, `  <span class="chip" data-coreui-chip data-coreui-selectable="true" data-coreui-selected="true">Selected</span>`, `  <span class="chip disabled" data-coreui-chip>Disabled</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip" data-coreui-chip data-coreui-selectable="true">Selectable</span>`, `  <span class="chip" data-coreui-chip data-coreui-removable="true">Removable</span>`, `  <span class="chip" data-coreui-chip data-coreui-selectable="true" data-coreui-selected="true">Selected</span>`, `  <span class="chip disabled" data-coreui-chip>Disabled</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-9" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip" data-coreui-chip data-coreui-selectable="true">Selectable</span>
+    <span class="chip" data-coreui-chip data-coreui-removable="true">Removable</span>
+    <span class="chip" data-coreui-chip data-coreui-selectable="true" data-coreui-selected="true">Selected</span>
+    <span class="chip disabled" data-coreui-chip>Disabled</span>
+  </div>`} />
 
 ### JavaScript
 
@@ -120,7 +289,12 @@ If `removable` is enabled, the plugin will add the remove button automatically. 
 </span>
 ```
 
-<Example lang="html" name="components-chip-10" componentName="Chip" code={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>`, `  <span class="chip disabled" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 4</span>`, `</div>`]} html={[`<div class="d-flex flex-wrap gap-1">`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>`, `  <span class="chip disabled" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>`, `  <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 4</span>`, `</div>`]} />
+<Example lang="html" name="components-chip-10" componentName="Chip" code={`<div class="d-flex flex-wrap gap-1">
+    <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 1</span>
+    <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 2</span>
+    <span class="chip disabled" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 3</span>
+    <span class="chip" data-coreui-removable="true" data-coreui-selectable="true" data-coreui-chip>Chip 4</span>
+  </div>`} />
 
 <Callout color="info">
 The chips above work independently. To get roving focus and arrow-key navigation across the group, wrap them in a [Chip set](/components/chip-set/) with `data-coreui-chip-set`, which also instantiates each chip for you.

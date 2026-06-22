@@ -18,11 +18,29 @@ The base `.nav` component does not include any `.active` state. The following ex
 To convey the active state to assistive technologies, use the `aria-current` attribute — using the `page` value for current page, or `true` for the current item in a set.
 </Callout>
 
-<Example lang="html" name="components-navs-tabs-1" componentName="Navs and tabs" code={[`<ul class="nav">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-1" componentName="Navs and tabs" code={`<ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 Classes are used throughout, so your markup can be super flexible. Use `<ul>`s like above, `<ol>` if the order of your items is important, or roll your own with a `<nav>` element. Because the `.nav` uses `display: flex`, the nav links behave the same as nav items would, but without the extra markup.
 
-<Example lang="html" name="components-navs-tabs-2" componentName="Navs and tabs" code={[`<nav class="nav">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} html={[`<nav class="nav">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} />
+<Example lang="html" name="components-navs-tabs-2" componentName="Navs and tabs" code={`<nav class="nav">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </nav>`} />
 
 ## Available styles
 
@@ -34,81 +52,244 @@ Change the horizontal alignment of your nav with [flexbox utilities](/utilities/
 
 Centered with `.justify-content-center`:
 
-<Example lang="html" name="components-navs-tabs-3" componentName="Navs and tabs" code={[`<ul class="nav justify-content-center">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav justify-content-center">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-3" componentName="Navs and tabs" code={`<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 Right-aligned with `.justify-content-end`:
 
-<Example lang="html" name="components-navs-tabs-4" componentName="Navs and tabs" code={[`<ul class="nav justify-content-end">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav justify-content-end">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-4" componentName="Navs and tabs" code={`<ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Vertical
 
 Stack your navigation by changing the flex item direction with the `.flex-column` utility. Need to stack them on some viewports but not others? Use the responsive versions (e.g., `.flex-sm-column`).
 
-<Example lang="html" name="components-navs-tabs-5" componentName="Navs and tabs" code={[`<ul class="nav flex-column">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav flex-column">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-5" componentName="Navs and tabs" code={`<ul class="nav flex-column">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 As always, vertical navigation is possible without `<ul>`s, too.
 
-<Example lang="html" name="components-navs-tabs-6" componentName="Navs and tabs" code={[`<nav class="nav flex-column">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} html={[`<nav class="nav flex-column">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} />
+<Example lang="html" name="components-navs-tabs-6" componentName="Navs and tabs" code={`<nav class="nav flex-column">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </nav>`} />
 
 ### Tabs
 
 Takes the basic nav from above and adds the `.nav-tabs` class to generate a tabbed interface. Use them to create tabbable regions with our [tab JavaScript plugin](#javascript-behavior).
 
-<Example lang="html" name="components-navs-tabs-7" componentName="Navs and tabs" code={[`<ul class="nav nav-tabs">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-tabs">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-7" componentName="Navs and tabs" code={`<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Pills
 
 Take that same HTML, but use `.nav-pills` instead:
 
-<Example lang="html" name="components-navs-tabs-8" componentName="Navs and tabs" code={[`<ul class="nav nav-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-8" componentName="Navs and tabs" code={`<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Underline
 
 Take that same HTML, but use `.nav-underline` instead:
 
-<Example lang="html" name="components-navs-tabs-9" componentName="Navs and tabs" code={[`<ul class="nav nav-underline">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-underline">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-9" componentName="Navs and tabs" code={`<ul class="nav nav-underline">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Underline border
 
 Take that same HTML, but use `.nav-underline-border` instead:
 
-<Example lang="html" name="components-navs-tabs-10" componentName="Navs and tabs" code={[`<ul class="nav nav-underline-border">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-underline-border">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-10" componentName="Navs and tabs" code={`<ul class="nav nav-underline-border">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Enclosed
 
 Use the `.nav-enclosed` class to give your navigation items a subtle border and rounded styling.
 
-<Example lang="html" name="components-navs-tabs-11" componentName="Navs and tabs" code={[`<ul class="nav nav-enclosed">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-enclosed">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-11" componentName="Navs and tabs" code={`<ul class="nav nav-enclosed">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Enclosed pills
 
 Combine `.nav-enclosed` with `.nav-enclosed-pills` to achieve a pill-style appearance for each nav item, using pill-shaped borders and smoother outlines.
 
 
-<Example lang="html" name="components-navs-tabs-12" componentName="Navs and tabs" code={[`<ul class="nav nav-enclosed nav-enclosed-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-enclosed nav-enclosed-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-12" componentName="Navs and tabs" code={`<ul class="nav nav-enclosed nav-enclosed-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Fill and justify
 
 Force your `.nav`'s contents to extend the full available width one of two modifier classes. To proportionately fill all available space with your `.nav-item`s, use `.nav-fill`. Notice that all horizontal space is occupied, but not every nav item has the same width.
 
-<Example lang="html" name="components-navs-tabs-13" componentName="Navs and tabs" code={[`<ul class="nav nav-pills nav-fill">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Much longer nav link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-pills nav-fill">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Much longer nav link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-13" componentName="Navs and tabs" code={`<ul class="nav nav-pills nav-fill">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Much longer nav link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 When using a `<nav>`-based navigation, you can safely omit `.nav-item` as only `.nav-link` is required for styling `<a>` elements.
 
-<Example lang="html" name="components-navs-tabs-14" componentName="Navs and tabs" code={[`<nav class="nav nav-pills nav-fill">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Much longer nav link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} html={[`<nav class="nav nav-pills nav-fill">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Much longer nav link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} />
+<Example lang="html" name="components-navs-tabs-14" componentName="Navs and tabs" code={`<nav class="nav nav-pills nav-fill">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+    <a class="nav-link" href="#">Much longer nav link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </nav>`} />
 
 For equal-width elements, use `.nav-justified`. All horizontal space will be occupied by nav links, but unlike the `.nav-fill` above, every nav item will be the same width.
 
-<Example lang="html" name="components-navs-tabs-15" componentName="Navs and tabs" code={[`<ul class="nav nav-pills nav-justified">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Much longer nav link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-pills nav-justified">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Much longer nav link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-15" componentName="Navs and tabs" code={`<ul class="nav nav-pills nav-justified">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Much longer nav link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 Similar to the `.nav-fill` example using a `<nav>`-based navigation.
 
-<Example lang="html" name="components-navs-tabs-16" componentName="Navs and tabs" code={[`<nav class="nav nav-pills nav-justified">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Much longer nav link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} html={[`<nav class="nav nav-pills nav-justified">`, `  <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="nav-link" href="#">Much longer nav link</a>`, `  <a class="nav-link" href="#">Link</a>`, `  <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} />
+<Example lang="html" name="components-navs-tabs-16" componentName="Navs and tabs" code={`<nav class="nav nav-pills nav-justified">
+    <a class="nav-link active" aria-current="page" href="#">Active</a>
+    <a class="nav-link" href="#">Much longer nav link</a>
+    <a class="nav-link" href="#">Link</a>
+    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+  </nav>`} />
 ## Working with flex utilities
 
 If you need responsive nav variations, consider using a series of [flexbox utilities](/utilities/flex/). While more verbose, these utilities offer greater customization across responsive breakpoints. In the example below, our nav will be stacked on the lowest breakpoint, then adapt to a horizontal layout that fills the available width starting from the small breakpoint.
 
-<Example lang="html" name="components-navs-tabs-17" componentName="Navs and tabs" code={[`<nav class="nav nav-pills flex-column flex-sm-row">`, `  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>`, `  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>`, `  <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} html={[`<nav class="nav nav-pills flex-column flex-sm-row">`, `  <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>`, `  <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>`, `  <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>`, `  <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>`, `</nav>`]} />
+<Example lang="html" name="components-navs-tabs-17" componentName="Navs and tabs" code={`<nav class="nav nav-pills flex-column flex-sm-row">
+    <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Active</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="#">Longer nav link</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="#">Link</a>
+    <a class="flex-sm-fill text-sm-center nav-link disabled" aria-disabled="true">Disabled</a>
+  </nav>`} />
 
 ## Regarding accessibility
 
@@ -122,11 +303,51 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
 
 ### Tabs with dropdowns
 
-<Example lang="html" name="components-navs-tabs-18" componentName="Navs and tabs" code={[`<ul class="nav nav-tabs">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item dropdown">`, `    <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-tabs">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item dropdown">`, `    <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-18" componentName="Navs and tabs" code={`<ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ### Pills with dropdowns
 
-<Example lang="html" name="components-navs-tabs-19" componentName="Navs and tabs" code={[`<ul class="nav nav-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item dropdown">`, `    <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} html={[`<ul class="nav nav-pills">`, `  <li class="nav-item">`, `    <a class="nav-link active" aria-current="page" href="#">Active</a>`, `  </li>`, `  <li class="nav-item dropdown">`, `    <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>`, `    <ul class="dropdown-menu">`, `      <li><a class="dropdown-item" href="#">Action</a></li>`, `      <li><a class="dropdown-item" href="#">Another action</a></li>`, `      <li><a class="dropdown-item" href="#">Something else here</a></li>`, `      <li><hr class="dropdown-divider"></li>`, `      <li><a class="dropdown-item" href="#">Separated link</a></li>`, `    </ul>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link" href="#">Link</a>`, `  </li>`, `  <li class="nav-item">`, `    <a class="nav-link disabled" aria-disabled="true">Disabled</a>`, `  </li>`, `</ul>`]} />
+<Example lang="html" name="components-navs-tabs-19" componentName="Navs and tabs" code={`<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Separated link</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+    </li>
+  </ul>`} />
 
 ## JavaScript behavior
 

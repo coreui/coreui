@@ -8,9 +8,9 @@ description: "Quickly manage the layout, alignment, and sizing of grid columns, 
 
 Apply `display` utilities to create a flexbox container and transform **direct children elements** into flex items. Flex containers and items are able to be modified further with additional flex properties.
 
-<Example lang="html" name="utilities-flex-1" componentName="Flex" code={[`<div class="d-flex p-2 docs-highlight">I'm a flexbox container!</div>`]} html={[`<div class="d-flex p-2 docs-highlight">I'm a flexbox container!</div>`]} />
+<Example lang="html" name="utilities-flex-1" componentName="Flex" code={`<div class="d-flex p-2 docs-highlight">I'm a flexbox container!</div>`} />
 
-<Example lang="html" name="utilities-flex-2" componentName="Flex" code={[`<div class="d-inline-flex p-2 docs-highlight">I'm an inline flexbox container!</div>`]} html={[`<div class="d-inline-flex p-2 docs-highlight">I'm an inline flexbox container!</div>`]} />
+<Example lang="html" name="utilities-flex-2" componentName="Flex" code={`<div class="d-inline-flex p-2 docs-highlight">I'm an inline flexbox container!</div>`} />
 
 Responsive variations also exist for `.d-flex` and `.d-inline-flex`.
 
@@ -36,11 +36,29 @@ Set the direction of flex items in a flex container with direction utilities. In
 
 Use `.flex-row` to set a horizontal direction (the browser default), or `.flex-row-reverse` to start the horizontal direction from the opposite side.
 
-<Example lang="html" name="utilities-flex-3" componentName="Flex" code={[`<div class="d-flex flex-row docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`, `<div class="d-flex flex-row-reverse docs-highlight">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`]} html={[`<div class="d-flex flex-row docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`, `<div class="d-flex flex-row-reverse docs-highlight">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-3" componentName="Flex" code={`<div class="d-flex flex-row docs-highlight mb-3">
+    <div class="p-2 docs-highlight">Flex item 1</div>
+    <div class="p-2 docs-highlight">Flex item 2</div>
+    <div class="p-2 docs-highlight">Flex item 3</div>
+  </div>
+  <div class="d-flex flex-row-reverse docs-highlight">
+    <div class="p-2 docs-highlight">Flex item 1</div>
+    <div class="p-2 docs-highlight">Flex item 2</div>
+    <div class="p-2 docs-highlight">Flex item 3</div>
+  </div>`} />
 
 Use `.flex-column` to set a vertical direction, or `.flex-column-reverse`  to start the vertical direction from the opposite side.
 
-<Example lang="html" name="utilities-flex-4" componentName="Flex" code={[`<div class="d-flex flex-column docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`, `<div class="d-flex flex-column-reverse docs-highlight">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`]} html={[`<div class="d-flex flex-column docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`, `<div class="d-flex flex-column-reverse docs-highlight">`, `  <div class="p-2 docs-highlight">Flex item 1</div>`, `  <div class="p-2 docs-highlight">Flex item 2</div>`, `  <div class="p-2 docs-highlight">Flex item 3</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-4" componentName="Flex" code={`<div class="d-flex flex-column docs-highlight mb-3">
+    <div class="p-2 docs-highlight">Flex item 1</div>
+    <div class="p-2 docs-highlight">Flex item 2</div>
+    <div class="p-2 docs-highlight">Flex item 3</div>
+  </div>
+  <div class="d-flex flex-column-reverse docs-highlight">
+    <div class="p-2 docs-highlight">Flex item 1</div>
+    <div class="p-2 docs-highlight">Flex item 2</div>
+    <div class="p-2 docs-highlight">Flex item 3</div>
+  </div>`} />
 
 Responsive variations also exist for `flex-direction`.
 
@@ -233,7 +251,11 @@ Responsive variations also exist for `align-self`.
 
 Use the `.flex-fill` class on a series of sibling elements to force them into widths equal to their content (or equal widths if their content does not surpass their border-boxes) while taking up all available horizontal space.
 
-<Example lang="html" name="utilities-flex-5" componentName="Flex" code={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 flex-fill docs-highlight">Flex item with a lot of content</div>`, `  <div class="p-2 flex-fill docs-highlight">Flex item</div>`, `  <div class="p-2 flex-fill docs-highlight">Flex item</div>`, `</div>`]} html={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 flex-fill docs-highlight">Flex item with a lot of content</div>`, `  <div class="p-2 flex-fill docs-highlight">Flex item</div>`, `  <div class="p-2 flex-fill docs-highlight">Flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-5" componentName="Flex" code={`<div class="d-flex docs-highlight">
+    <div class="p-2 flex-fill docs-highlight">Flex item with a lot of content</div>
+    <div class="p-2 flex-fill docs-highlight">Flex item</div>
+    <div class="p-2 flex-fill docs-highlight">Flex item</div>
+  </div>`} />
 
 Responsive variations also exist for `flex-fill`.
 
@@ -251,11 +273,18 @@ Responsive variations also exist for `flex-fill`.
 
 Use `.flex-grow-*` utilities to toggle a flex item's ability to grow to fill available space. In the example below, the `.flex-grow-1` elements uses all available space it can, while allowing the remaining two flex items their necessary space.
 
-<Example lang="html" name="utilities-flex-6" componentName="Flex" code={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 flex-grow-1 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Third flex item</div>`, `</div>`]} html={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 flex-grow-1 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Third flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-6" componentName="Flex" code={`<div class="d-flex docs-highlight">
+    <div class="p-2 flex-grow-1 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Third flex item</div>
+  </div>`} />
 
 Use `.flex-shrink-*` utilities to toggle a flex item's ability to shrink if necessary. In the example below, the second flex item with `.flex-shrink-1` is forced to wrap its contents to a new line, "shrinking" to allow more space for the previous flex item with `.w-100`.
 
-<Example lang="html" name="utilities-flex-7" componentName="Flex" code={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 w-100 docs-highlight">Flex item</div>`, `  <div class="p-2 flex-shrink-1 docs-highlight">Flex item</div>`, `</div>`]} html={[`<div class="d-flex docs-highlight">`, `  <div class="p-2 w-100 docs-highlight">Flex item</div>`, `  <div class="p-2 flex-shrink-1 docs-highlight">Flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-7" componentName="Flex" code={`<div class="d-flex docs-highlight">
+    <div class="p-2 w-100 docs-highlight">Flex item</div>
+    <div class="p-2 flex-shrink-1 docs-highlight">Flex item</div>
+  </div>`} />
 
 Responsive variations also exist for `flex-grow` and `flex-shrink`.
 
@@ -279,13 +308,39 @@ Responsive variations also exist for `flex-grow` and `flex-shrink`.
 
 Flexbox can do some pretty awesome things when you mix flex alignments with auto margins. Shown below are three examples of controlling flex items via auto margins: default (no auto margin), pushing two items to the right (`.me-auto`), and pushing two items to the left (`.ms-auto`).
 
-<Example lang="html" name="utilities-flex-8" componentName="Flex" code={[`<div class="d-flex docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex docs-highlight mb-3">`, `  <div class="me-auto p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="ms-auto p-2 docs-highlight">Flex item</div>`, `</div>`]} html={[`<div class="d-flex docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex docs-highlight mb-3">`, `  <div class="me-auto p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex docs-highlight mb-3">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="ms-auto p-2 docs-highlight">Flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-8" componentName="Flex" code={`<div class="d-flex docs-highlight mb-3">
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+  </div>
+
+  <div class="d-flex docs-highlight mb-3">
+    <div class="me-auto p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+  </div>
+
+  <div class="d-flex docs-highlight mb-3">
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="ms-auto p-2 docs-highlight">Flex item</div>
+  </div>`} />
 
 ### With align-items
 
 Vertically move one flex item to the top or bottom of a container by mixing `align-items`, `flex-direction: column`, and `margin-top: auto` or `margin-bottom: auto`.
 
-<Example lang="html" name="utilities-flex-9" componentName="Flex" code={[`<div class="d-flex align-items-start flex-column docs-highlight mb-3" style="height: 200px;">`, `  <div class="mb-auto p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex align-items-end flex-column docs-highlight mb-3" style="height: 200px;">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="mt-auto p-2 docs-highlight">Flex item</div>`, `</div>`]} html={[`<div class="d-flex align-items-start flex-column docs-highlight mb-3" style="height: 200px;">`, `  <div class="mb-auto p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `</div>`, ``, `<div class="d-flex align-items-end flex-column docs-highlight mb-3" style="height: 200px;">`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="p-2 docs-highlight">Flex item</div>`, `  <div class="mt-auto p-2 docs-highlight">Flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-9" componentName="Flex" code={`<div class="d-flex align-items-start flex-column docs-highlight mb-3" style="height: 200px;">
+    <div class="mb-auto p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+  </div>
+
+  <div class="d-flex align-items-end flex-column docs-highlight mb-3" style="height: 200px;">
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="p-2 docs-highlight">Flex item</div>
+    <div class="mt-auto p-2 docs-highlight">Flex item</div>
+  </div>`} />
 
 ## Wrap
 
@@ -344,7 +399,11 @@ Responsive variations also exist for `flex-wrap`.
 
 Change the _visual_ order of specific flex items with a handful of `order` utilities. We only provide options for making an item first or last, as well as a reset to use the DOM order. As `order` takes any integer value from 0 to 5, add custom CSS for any additional values needed.
 
-<Example lang="html" name="utilities-flex-10" componentName="Flex" code={[`<div class="d-flex flex-nowrap docs-highlight">`, `  <div class="order-3 p-2 docs-highlight">First flex item</div>`, `  <div class="order-2 p-2 docs-highlight">Second flex item</div>`, `  <div class="order-1 p-2 docs-highlight">Third flex item</div>`, `</div>`]} html={[`<div class="d-flex flex-nowrap docs-highlight">`, `  <div class="order-3 p-2 docs-highlight">First flex item</div>`, `  <div class="order-2 p-2 docs-highlight">Second flex item</div>`, `  <div class="order-1 p-2 docs-highlight">Third flex item</div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-10" componentName="Flex" code={`<div class="d-flex flex-nowrap docs-highlight">
+    <div class="order-3 p-2 docs-highlight">First flex item</div>
+    <div class="order-2 p-2 docs-highlight">Second flex item</div>
+    <div class="order-1 p-2 docs-highlight">Third flex item</div>
+  </div>`} />
 
 Responsive variations also exist for `order`.
 
@@ -490,11 +549,25 @@ Responsive variations also exist for `align-content`.
 
 Looking to replicate the [media object component](https://getbootstrap.com/docs/4.6/components/media-object/) from Bootstrap 4? Recreate it in no time with a few flex utilities that allow even more flexibility and customization than before.
 
-<Example lang="html" name="utilities-flex-11" componentName="Flex" code={[`<div class="d-flex">`, `  <div class="flex-shrink-0">`, `    <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>`, `  </div>`, `  <div class="flex-grow-1 ms-3">`, `    This is some content from a media component. You can replace this with any content and adjust it as needed.`, `  </div>`, `</div>`]} html={[`<div class="d-flex">`, `  <div class="flex-shrink-0">`, `    <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>`, `  </div>`, `  <div class="flex-grow-1 ms-3">`, `    This is some content from a media component. You can replace this with any content and adjust it as needed.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-11" componentName="Flex" code={`<div class="d-flex">
+    <div class="flex-shrink-0">
+      <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+    </div>
+    <div class="flex-grow-1 ms-3">
+      This is some content from a media component. You can replace this with any content and adjust it as needed.
+    </div>
+  </div>`} />
 
 And say you want to vertically center the content next to the image:
 
-<Example lang="html" name="utilities-flex-12" componentName="Flex" code={[`<div class="d-flex align-items-center">`, `  <div class="flex-shrink-0">`, `    <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>`, `  </div>`, `  <div class="flex-grow-1 ms-3">`, `    This is some content from a media component. You can replace this with any content and adjust it as needed.`, `  </div>`, `</div>`]} html={[`<div class="d-flex align-items-center">`, `  <div class="flex-shrink-0">`, `    <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>`, `  </div>`, `  <div class="flex-grow-1 ms-3">`, `    This is some content from a media component. You can replace this with any content and adjust it as needed.`, `  </div>`, `</div>`]} />
+<Example lang="html" name="utilities-flex-12" componentName="Flex" code={`<div class="d-flex align-items-center">
+    <div class="flex-shrink-0">
+      <svg class="docs-placeholder-img " width="100" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Image" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Image</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+    </div>
+    <div class="flex-grow-1 ms-3">
+      This is some content from a media component. You can replace this with any content and adjust it as needed.
+    </div>
+  </div>`} />
 
 ## SASS
 

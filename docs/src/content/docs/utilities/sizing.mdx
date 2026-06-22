@@ -8,15 +8,27 @@ description: "Easily make an element as wide or as tall with our width and heigh
 
 Width and height utilities are generated from the utility API in `_utilities.scss`. Includes support for `25%`, `50%`, `75%`, `100%`, and `auto` by default. Modify those values as you need to generate different utilities here.
 
-<Example lang="html" name="utilities-sizing-1" componentName="Sizing" code={[`<div class="w-25 p-3" style="background-color: #eee;">Width 25%</div>`, `<div class="w-50 p-3" style="background-color: #eee;">Width 50%</div>`, `<div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>`, `<div class="w-100 p-3" style="background-color: #eee;">Width 100%</div>`, `<div class="w-auto p-3" style="background-color: #eee;">Width auto</div>`]} html={[`<div class="w-25 p-3" style="background-color: #eee;">Width 25%</div>`, `<div class="w-50 p-3" style="background-color: #eee;">Width 50%</div>`, `<div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>`, `<div class="w-100 p-3" style="background-color: #eee;">Width 100%</div>`, `<div class="w-auto p-3" style="background-color: #eee;">Width auto</div>`]} />
+<Example lang="html" name="utilities-sizing-1" componentName="Sizing" code={`<div class="w-25 p-3" style="background-color: #eee;">Width 25%</div>
+  <div class="w-50 p-3" style="background-color: #eee;">Width 50%</div>
+  <div class="w-75 p-3" style="background-color: #eee;">Width 75%</div>
+  <div class="w-100 p-3" style="background-color: #eee;">Width 100%</div>
+  <div class="w-auto p-3" style="background-color: #eee;">Width auto</div>`} />
 
-<Example lang="html" name="utilities-sizing-2" componentName="Sizing" code={[`<div style="height: 100px; background-color: rgba(255,0,0,0.1);">`, `  <div class="h-25 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 25%</div>`, `  <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>`, `  <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>`, `  <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>`, `  <div class="h-auto d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height auto</div>`, `</div>`]} html={[`<div style="height: 100px; background-color: rgba(255,0,0,0.1);">`, `  <div class="h-25 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 25%</div>`, `  <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>`, `  <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>`, `  <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>`, `  <div class="h-auto d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height auto</div>`, `</div>`]} />
+<Example lang="html" name="utilities-sizing-2" componentName="Sizing" code={`<div style="height: 100px; background-color: rgba(255,0,0,0.1);">
+    <div class="h-25 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 25%</div>
+    <div class="h-50 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 50%</div>
+    <div class="h-75 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 75%</div>
+    <div class="h-100 d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height 100%</div>
+    <div class="h-auto d-inline-block" style="width: 120px; background-color: rgba(0,0,255,.1)">Height auto</div>
+  </div>`} />
 
 You can also use `max-width: 100%;` and `max-height: 100%;` utilities as needed.
 
-<Example lang="html" name="utilities-sizing-3" componentName="Sizing" code={[`<svg class="docs-placeholder-img mw-100" width="100%" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Max-width 100%" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Max-width 100%</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Max-width 100%</text></svg>`]} html={[`<svg class="docs-placeholder-img mw-100" width="100%" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Max-width 100%" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Max-width 100%</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Max-width 100%</text></svg>`]} />
+<Example lang="html" name="utilities-sizing-3" componentName="Sizing" code={`<svg class="docs-placeholder-img mw-100" width="100%" height="100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Max-width 100%" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Max-width 100%</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Max-width 100%</text></svg>`} />
 
-<Example lang="html" name="utilities-sizing-4" componentName="Sizing" code={[`<div style="height: 100px; background-color: rgba(255,0,0,.1);">`, `  <div class="mh-100" style="width: 100px; height: 200px; background-color: rgba(0,0,255,.1);">Max-height 100%</div>`, `</div>`]} html={[`<div style="height: 100px; background-color: rgba(255,0,0,.1);">`, `  <div class="mh-100" style="width: 100px; height: 200px; background-color: rgba(0,0,255,.1);">Max-height 100%</div>`, `</div>`]} />
+<Example lang="html" name="utilities-sizing-4" componentName="Sizing" code={`<div style="height: 100px; background-color: rgba(255,0,0,.1);">
+    <div class="mh-100" style="width: 100px; height: 200px; background-color: rgba(0,0,255,.1);">Max-height 100%</div>
+  </div>`} />
 
 ## Relative to the viewport
 
