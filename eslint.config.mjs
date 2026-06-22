@@ -21,7 +21,6 @@ export default [
       '.babelrc.js',
       '_site/',
       'docs/',
-      'docs-old/',
       'js/coverage/'
     ]
   },
