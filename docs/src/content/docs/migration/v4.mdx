@@ -21,10 +21,10 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 ## Documentation changes
 
 - Redesigned homepage, docs layout, and footer.
-- Added [new Parcel guide](https://coreui.io/docs/getting-started/parcel/).
-- Added [new Customize section](https://coreui.io/docs/customize/overview/).
-- Reorganized all form documentation into [new Forms section](https://coreui.io/docs/forms/overview/), breaking apart the content into more focused pages.
-- Similarly, updated [the Layout section](https://coreui.io/docs/layout/breakpoints/), to flesh out grid content more clearly.
+- Added [new Parcel guide](https://coreui.io/bootstrap/docs/getting-started/parcel/).
+- Added [new Customize section](https://coreui.io/bootstrap/docs/customize/overview/).
+- Reorganized all form documentation into [new Forms section](https://coreui.io/bootstrap/docs/forms/overview/), breaking apart the content into more focused pages.
+- Similarly, updated [the Layout section](https://coreui.io/bootstrap/docs/layout/breakpoints/), to flesh out grid content more clearly.
 - Renamed "Navs" component page to "Navs & Tabs".
 - Renamed "Checks" page to "Checks & radios".
 - Redesigned the navbar and added a new subnav to make it easier to get around our sites and docs versions.
@@ -79,7 +79,7 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 - **New breakpoint!** Added new `xxl` breakpoint for `1400px` and up. No changes to all other breakpoints.
 
 - **Improved gutters.** Gutters are now set in rems, and are narrower than v4 (`1.5rem`, or about `24px`, down from `30px`). This aligns our grid system's gutters with our spacing utilities.
-  - Added new [gutter class](https://coreui.io/docs/layout/gutters/) (`.g-*`, `.gx-*`, and `.gy-*`) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
+  - Added new [gutter class](https://coreui.io/bootstrap/docs/layout/gutters/) (`.g-*`, `.gx-*`, and `.gy-*`) to control horizontal/vertical gutters, horizontal gutters, and vertical gutters.
   - <span class="badge bg-danger">Breaking</span> Renamed `.no-gutters` to `.g-0` to match new gutter utilities.
 
 - Columns no longer have `position: relative` applied, so you may have to add `.position-relative` to some elements to restore that behavior.
@@ -190,9 +190,9 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 
 ### Buttons
 
-- <span class="badge bg-danger">Breaking</span> **[Toggle buttons](https://coreui.io/docs/forms/checks-radios/#toggle-buttons), with checkboxes or radios, no longer require JavaScript and have new markup.** We no long require a wrapping element, add `.btn-check` to the `<input />`, and pair it with any `.btn` classes on the `<label>`. _The docs for this has moved from our Buttons page to the new Forms section._
+- <span class="badge bg-danger">Breaking</span> **[Toggle buttons](https://coreui.io/bootstrap/docs/forms/checks-radios/#toggle-buttons), with checkboxes or radios, no longer require JavaScript and have new markup.** We no long require a wrapping element, add `.btn-check` to the `<input />`, and pair it with any `.btn` classes on the `<label>`. _The docs for this has moved from our Buttons page to the new Forms section._
 
-- <span class="badge bg-danger">Breaking</span> **Dropped `.btn-block` for utilities.** Instead of using `.btn-block` on the `.btn`, wrap your buttons with `.d-grid` and a `.gap-*` utility to space them as needed. Switch to responsive classes for even more control over them. [Read the docs for some examples.](https://coreui.io/docs/components/buttons/#block-buttons)
+- <span class="badge bg-danger">Breaking</span> **Dropped `.btn-block` for utilities.** Instead of using `.btn-block` on the `.btn`, wrap your buttons with `.d-grid` and a `.gap-*` utility to space them as needed. Switch to responsive classes for even more control over them. [Read the docs for some examples.](https://coreui.io/bootstrap/docs/components/buttons/#block-buttons)
 
 - Updated our `button-variant()` and `button-outline-variant()` mixins to support additional parameters.
 
