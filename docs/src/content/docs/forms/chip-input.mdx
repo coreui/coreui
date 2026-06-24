@@ -158,29 +158,7 @@ In this example, `select.coreui.chip-input` updates a live list of selected valu
     <span class="chip active">QA</span>
     <span class="chip active">DevOps</span>
   </div>
-  <p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`} />
-
-```js
-const chipSelectableElement = document.querySelector('#chipSelectable')
-const chipSelectableOutput = document.querySelector('#chipSelectableOutput')
-
-const chipSelectable = new coreui.ChipInput(chipSelectableElement, {
-  placeholder: 'Add team role...',
-  selectable: true
-})
-
-const updateSelectedOutput = selected => {
-  chipSelectableOutput.textContent = selected.length > 0 ? selected.join(', ') : 'None'
-}
-
-chipSelectableElement.addEventListener('select.coreui.chip-input', event => {
-  updateSelectedOutput(event.selected)
-})
-
-chipSelectable.add('Frontend')
-chipSelectable.add('Security')
-updateSelectedOutput(chipSelectable.getSelectedValues())
-```
+  <p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`} sandboxJs={[`const chipSelectableElement = document.querySelector('#chipSelectable')`, `const chipSelectableOutput = document.querySelector('#chipSelectableOutput')`, ``, `const chipSelectable = new coreui.ChipInput(chipSelectableElement, {`, `  placeholder: 'Add team role...',`, `  selectable: true`, `})`, ``, `const updateSelectedOutput = selected => {`, `  chipSelectableOutput.textContent = selected.length > 0 ? selected.join(', ') : 'None'`, `}`, ``, `chipSelectableElement.addEventListener('select.coreui.chip-input', event => {`, `  updateSelectedOutput(event.selected)`, `})`, ``, `chipSelectable.add('Frontend')`, `chipSelectable.add('Security')`, `updateSelectedOutput(chipSelectable.getSelectedValues())`].join('\n')} />
 
 ## Usage
 
@@ -209,12 +187,9 @@ const chipInput = coreui.ChipInput.getOrCreateInstance(chipInputElement, {
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -231,9 +206,7 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `removeIcon` | string | SVG | HTML string for the remove button icon. |
 | `createOnBlur` | boolean | `true` | Create a chip from the input value when the input loses focus. |
 
-
 ### Methods
-
 
 | Method | Description |
 | --- | --- |
@@ -247,7 +220,6 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `selectChip(chip)` | Selects a specific chip element. |
 | `focus()` | Focuses the ghost input. |
 | `dispose()` | Destroys the component instance. |
-
 
 ```js
 const chipInputElement = document.querySelector('.chip-input')
@@ -265,7 +237,6 @@ chipInput.clear()
 
 ### Events
 
-
 | Event | Description |
 | --- | --- |
 | `input.coreui.chip-input` | Fired when the inline input value changes. Contains `value` and `relatedTarget`. |
@@ -273,7 +244,6 @@ chipInput.clear()
 | `remove.coreui.chip-input` | Fired before a chip is removed. Call `event.preventDefault()` to cancel. |
 | `change.coreui.chip-input` | Fired after any chip is added or removed. Contains `values`. |
 | `select.coreui.chip-input` | Fired when chip selection changes. Contains `selected`. |
-
 
 ```js
 const chipInputElement = document.querySelector('.chip-input')
@@ -299,7 +269,6 @@ chipInputElement.addEventListener('change.coreui.chip-input', event => {
 
 ### When input is focused
 
-
 | Key | Action |
 | --- | --- |
 | `Enter` | Create chip from current input value |
@@ -308,9 +277,7 @@ chipInputElement.addEventListener('change.coreui.chip-input', event => {
 | `←` | When cursor is at start, move focus to the last chip |
 | `Escape` | Clear selection, clear input, and blur |
 
-
 ### When a chip is focused
-
 
 | Key | Action |
 | --- | --- |
@@ -320,7 +287,6 @@ chipInputElement.addEventListener('change.coreui.chip-input', event => {
 | `→` | Move to next chip |
 | `Home` | Move to first chip |
 | `End` | Move to last chip |
-
 
 ## Accessibility
 
@@ -343,45 +309,3 @@ Chips inputs use local CSS variables on `.chip-input` for enhanced real-time cus
 ### SASS variables
 
 <ScssDocs file="scss/forms/_chip-input.scss" capture="chip-input-variables" />
-
-
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-const chipSelectableElement = document.querySelector('#chipSelectable')
-const chipSelectableOutput = document.querySelector('#chipSelectableOutput')
-
-const chipSelectable = new coreui.ChipInput(chipSelectableElement, {
-  placeholder: 'Add team role...',
-  selectable: true
-})
-
-const updateSelectedOutput = selected => {
-  chipSelectableOutput.textContent = selected.length > 0 ? selected.join(', ') : 'None'
-}
-
-chipSelectableElement.addEventListener('select.coreui.chip-input', event => {
-  updateSelectedOutput(event.selected)
-})
-
-chipSelectable.add('Frontend')
-chipSelectable.add('Security')
-updateSelectedOutput(chipSelectable.getSelectedValues())
-})`} />
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-const chipInputElement = document.querySelector('#chipVariants')
-const chipInput = new coreui.ChipInput(chipInputElement, {
-  // Class is resolved dynamically from chip value.
-  chipClassName(value) {
-    const variants = {
-      approved: 'chip-success',
-      blocking: 'chip-danger',
-      feature: 'chip-primary',
-      'needs review': 'chip-warning'
-    }
-
-    return variants[value.trim().toLowerCase()] || 'chip-secondary'
-  },
-  placeholder: 'Add a bug...'
-})
-
-chipInput.add('Feature')
-})`} />

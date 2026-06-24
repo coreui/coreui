@@ -447,7 +447,6 @@ if (exampleModal) {
 }
 ```
 
-
 ### Toggle between modals
 
 Toggle between multiple modals with some clever placement of the `data-coreui-target` and `data-coreui-toggle` attributes. For example, you could toggle a password reset modal from within an already open sign in modal. **Please note multiple modals cannot be open at the same time**—this method simply toggles between two separate modals.
@@ -518,14 +517,12 @@ Embedding YouTube videos in modals requires additional JavaScript not in Bootstr
 
 Modals have three optional sizes, available via modifier classes to be placed on a `.modal-dialog`. These sizes kick in at certain breakpoints to avoid horizontal scrollbars on narrower viewports.
 
-
 | Size | Class | Modal max-width
 | --- | --- | --- |
 | Small | `.modal-sm` | `300px` |
 | Default | <span class="text-body-secondary">None</span> | `500px` |
 | Large | `.modal-lg` | `800px` |
 | Extra large | `.modal-xl` | `1140px` |
-
 
 Our default modal without modifier class constitutes the "medium" size modal.
 
@@ -583,7 +580,6 @@ Our default modal without modifier class constitutes the "medium" size modal.
 
 Another override is the option to pop up a modal that covers the user viewport, available via modifier classes that are placed on a `.modal-dialog`.
 
-
 | Class | Availability |
 | --- | --- |
 | `.modal-fullscreen` | Always |
@@ -592,7 +588,6 @@ Another override is the option to pop up a modal that covers the user viewport, 
 | `.modal-fullscreen-lg-down` | `992px` |
 | `.modal-fullscreen-xl-down` | `1200px` |
 | `.modal-fullscreen-xxl-down` | `1400px` |
-
 
 <Example html={[`<button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreen">Full screen</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenSm">Full screen below sm</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenMd">Full screen below md</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenLg">Full screen below lg</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXl">Full screen below xl</button>`, `  <button type="button" class="btn btn-primary" data-coreui-toggle="modal" data-coreui-target="#exampleModalFullscreenXxl">Full screen below xxl</button>`]} />
 
@@ -707,8 +702,6 @@ Another override is the option to pop up a modal that covers the user viewport, 
 
 ## Usage
 
-
-
 The modal plugin toggles your hidden content on demand, via data attributes or JavaScript. It also overrides default scrolling behavior and generates a `.modal-backdrop` to provide a click area for dismissing shown modals when clicking outside the modal.
 
 ### Via data attributes
@@ -745,19 +738,15 @@ const myModalAlternative = new coreui.Modal('#myModal', options)
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `backdrop` | boolean, `'static'` | `true` | Includes a modal-backdrop element. Alternatively, specify `static` for a backdrop which doesn't close the modal when clicked. |
 | `focus` | boolean | `true` | Puts the focus on the modal when initialized. |
 | `keyboard` | boolean | `true` | Closes the modal when escape key is pressed. |
-
 
 ### Methods
 
@@ -779,7 +768,6 @@ const myModal = new coreui.Modal('#myModal', {
 })
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's modal. (Removes stored data on the DOM element) |
@@ -790,11 +778,9 @@ const myModal = new coreui.Modal('#myModal', {
 | `show` | Manually opens a modal. **Returns to the caller before the modal has actually been shown** (i.e. before the `shown.coreui.modal` event occurs). Also, you can pass a DOM element as an argument that can be received in the modal events (as the `relatedTarget` property). (i.e. `const modalToggle = document.getElementById('toggleMyModal'); myModal.show(modalToggle)` |
 | `toggle` | Manually toggles a modal. **Returns to the caller before the modal has actually been shown or hidden** (i.e. before the `shown.coreui.modal` or `hidden.coreui.modal` event occurs). |
 
-
 ### Events
 
 CoreUI for Bootstrap's modal class exposes a few events for hooking into modal functionality. All modal events are fired at the modal itself (i.e. at the `<div class="modal">`).
-
 
 | Event | Description |
 | --- | --- |
@@ -803,7 +789,6 @@ CoreUI for Bootstrap's modal class exposes a few events for hooking into modal f
 | `hidePrevented.coreui.modal` | This event is fired when the modal is shown, its backdrop is `static` and a click outside of the modal is performed. The event is also fired when the escape key is pressed and the `keyboard` option is set to `false`. |
 | `show.coreui.modal` | This event fires immediately when the `show` instance method is called. If caused by a click, the clicked element is available as the `relatedTarget` property of the event. |
 | `shown.coreui.modal` | This event is fired when the modal has been made visible to the user (will wait for CSS transitions to complete). If caused by a click, the clicked element is available as the `relatedTarget` property of the event. |
-
 
 ```js
 const myModalEl = document.getElementById('myModal')
@@ -831,28 +816,3 @@ Modals use local CSS variables on `.modal` and `.modal-backdrop` for enhanced re
 [Responsive fullscreen modals](#fullscreen-modal) are generated via the `$breakpoints` map and a loop in `scss/_modal.scss`.
 
 <ScssDocs file="scss/_modal.scss" capture="modal-fullscreen-loop" />
-
-
-
-
-
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-  exampleModal.addEventListener('show.coreui.modal', event => {
-    // Button that triggered the modal
-    const button = event.relatedTarget
-    // Extract info from data-coreui-* attributes
-    const recipient = button.getAttribute('data-coreui-whatever')
-    // If necessary, you could initiate an Ajax request here
-    // and then do the updating in a callback.
-
-    // Update the modal's content.
-    const modalTitle = exampleModal.querySelector('.modal-title')
-    const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-    modalTitle.textContent = \`New message to \${recipient}\`
-    modalBodyInput.value = recipient
-  })
-}
-})`} />

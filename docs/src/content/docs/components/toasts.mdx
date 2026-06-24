@@ -75,7 +75,6 @@ toastTrigger.addEventListener('click', () => {
 })
 ```
 
-
 ### Translucent
 
 Toasts are slightly translucent to blend in with what's below them.
@@ -287,8 +286,6 @@ While technically it's possible to add focusable or actionable controls, such as
 
 ## Usage
 
-
-
 Initialize toasts using JavaScript:
 
 ```js
@@ -306,20 +303,15 @@ Dismissal can be achieved with the `data` attribute on a button **within the toa
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `animation` | boolean | `true` | Adds a CSS fade transition to the toast |
 | `autohide` | boolean | `true` | Hides the Bootstrap toast automatically |
 | `delay` | number | `5000` | Sets delay before hiding the toast (ms) |
-
-
 
 ### Methods
 
@@ -331,7 +323,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 [Refer to our JavaScript documentation for further details](/getting-started/javascript/#asynchronous-functions-and-transitions).
 </Callout>
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Hides an element's toast. Your Bootstrap toast will stay in the DOM but won't be visible anymore. |
@@ -341,9 +332,7 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 | `isShown` | Returns a boolean indicating the toast's visibility state. |
 | `show` | Reveals an element's toast. **Returns to the caller before the toast is actually shown** (i.e., before the `shown.coreui.toast` event occurs). You need to call this method manually; otherwise, your toast won't appear. |
 
-
 ### Events
-
 
 | Event | Description |
 | --- | --- |
@@ -351,7 +340,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 | `hidden.coreui.toast` | This event occurs when the toast has finished hiding from the user. |
 | `show.coreui.toast` | This event triggers immediately when the `show` instance method is called. |
 | `shown.coreui.toast` | This event occurs when the toast has become visible to the user. |
-
 
 ```js
 const myToastEl = document.getElementById('myToast')
@@ -370,17 +358,3 @@ Toasts use local CSS variables on `.toast` for improved real-time customization.
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="toast-variables" />
-
-
-
-
-
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)
-toastTrigger.addEventListener('click', () => {
-  toastCoreUI.show()
-})
-})`} />

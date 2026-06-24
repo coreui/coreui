@@ -130,8 +130,6 @@ For disabled popover triggers, you may also prefer `data-coreui-trigger="hover f
 
 ## Usage
 
-
-
 Enable popovers via JavaScript:
 
 ```js
@@ -157,7 +155,6 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` options cannot be supplied using data attributes.
 </Callout>
 
-
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `allowList` | object | [Default value](/getting-started/javascript/#sanitizer) | Object which contains allowed attributes and tags. |
@@ -178,7 +175,6 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
 | `template` | string | `'<div class="popover" role="popover"><div class="popover-arrow"></div><div class="popover-body"></div></div>'` | Base HTML to use when creating the popover. The popover's `title` will be injected into the `.popover-body`. `.popover-arrow` will become the popover's arrow. The outermost wrapper element should have the `.popover` class and `role="popover"`. |
 | `title` | string, element, function | `''` | Default title value if `title` attribute isn't present. If a function is given, it will be called with its `this` reference set to the element that the popover is attached to. |
 | `trigger` | string | `'click'` | How popover is triggered: click, hover, focus, manual. You may pass multiple triggers; separate them with a space. `'manual'` indicates that the popover will be triggered programmatically via the `.popover('show')`, `.popover('hide')` and `.popover('toggle')` methods; this value cannot be combined with any other trigger. `'hover'` on its own will result in popovers that cannot be triggered via the keyboard, and should only be used if alternative methods for conveying the same information for keyboard users is present. |
-
 
 <Callout color="info">
 #### Data attributes for individual popovers
@@ -208,7 +204,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 [Refer to our JavaScript documentation for further details](/getting-started/javascript/#asynchronous-functions-and-transitions).
 </Callout>
 
-
 | Method | Description |
 | --- | --- |
 | `disable` | Removes the ability for an element's popover to be shown. The popover will only be able to be shown if it is re-enabled. |
@@ -222,8 +217,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 | `toggle` | Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e. before the `shown.coreui.popover` or `hidden.coreui.popover` event occurs). This is considered a "manual" triggering of the popover. |
 | `toggleEnabled` | Toggles the ability for an element's popover to be shown or hidden. |
 | `update` | Updates the position of an element's popover. |
-
-
 
 ```js
 // getOrCreateInstance example
@@ -243,7 +236,6 @@ The `setContent` method accepts an `object` argument, where each property-key is
 
 ### Events
 
-
 | Event | Description |
 | --- | --- |
 | `show.coreui.popover` | This event fires immediately when the `show` instance method is called. |
@@ -251,7 +243,6 @@ The `setContent` method accepts an `object` argument, where each property-key is
 | `hide.coreui.popover` | This event is fired immediately when the `hide` instance method has been called. |
 | `hidden.coreui.popover` | This event is fired when the popover has finished being hidden from the user (will wait for CSS transitions to complete). |
 | `inserted.coreui.popover` | This event is fired after the `show.coreui.popover` event when the popover template has been added to the DOM. |
-
 
 ```js
 const myPopoverTrigger = document.getElementById('myPopover')
@@ -271,15 +262,3 @@ Popovers use local CSS variables on `.popover` for enhanced real-time customizat
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="popover-variables" />
-
-
-
-
-
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-document
-  .querySelectorAll('[data-coreui-toggle="popover"]')
-  .forEach(popover => {
-    new coreui.Popover(popover)
-  })
-})`} />

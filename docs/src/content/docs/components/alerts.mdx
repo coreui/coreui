@@ -191,8 +191,6 @@ When the Bootstrap alert is dismissed, it is fully removed from the page structu
 
 ## JavaScript behavior
 
-
-
 ### Initialize
 
 Set up elements as Bootstrap alerts
@@ -228,14 +226,12 @@ const cAlert = new coreui.Alert('#myAlert')
 
 This sets up an alert to listen for click events on descendant elements that have the `data-coreui-dismiss="alert"` attribute. (Not necessary when using the data-api’s auto-initialization.)
 
-
 | Method | Description |
 | --- | --- |
 | `close` | Closes an alert by removing it from the DOM. If the `.fade` and `.show` classes are present on the element, the alert will fade out before being removed. |
 | `dispose` | Destroys an element's alert and removes any stored data associated with the DOM element. |
 | `getInstance` | A static method that allows you to retrieve the alert instance linked to a DOM element. For example: `coreui.Alert.getInstance(alert)`. |
 | `getOrCreateInstance` | A static method that returns the alert instance associated with a DOM element or creates a new one if it hasn't been initialized. You can use it as follows: `coreui.Alert.getOrCreateInstance(element)`. |
-
 
 Basic usage:
 
@@ -248,12 +244,10 @@ alert.close()
 
 CoreUI for Bootstrap's alert plugin exposes a few events for hooking into alert functionality.
 
-
 | Event | Description |
 | --- | --- |
 | `close.coreui.alert` | Triggers immediately when the `close` instance method is invoked. |
 | `closed.coreui.alert` | Triggered when the alert has been closed and CSS transitions have finished. |
-
 
 ```js
 const myAlert = document.getElementById('myAlert')
@@ -278,8 +272,6 @@ Our Bootstrap alerts utilize local CSS variables on `.alert` for improved real-t
 
 ### SASS mixin
 
-
-
 Used alongside `$alert-variants` to create contextual modifier classes for our alerts.
 
 <ScssDocs file="scss/mixins/_alert.scss" capture="alert-variant-mixin" />
@@ -289,29 +281,3 @@ Used alongside `$alert-variants` to create contextual modifier classes for our a
 Loop that creates the modifier classes with the `alert-variant()` mixin.
 
 <ScssDocs file="scss/_alert.scss" capture="alert-modifiers" />
-
-
-
-
-
-<script is:inline set:html={`document.addEventListener('DOMContentLoaded', function () {
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    \`<div class="alert alert-\${type} alert-dismissible" role="alert">\`,
-    \`   <div>\${message}</div>\`,
-    '   <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
-
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
-}
-})`} />
