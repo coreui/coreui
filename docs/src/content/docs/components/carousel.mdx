@@ -222,11 +222,7 @@ Carousels support swiping left/right on touchscreen devices to move between slid
 
 ## Dark variant
 
-
-
 Add `.carousel-dark` to the `.carousel` for darker controls, indicators, and captions. Controls have been inverted from their default white fill with the `filter` CSS property. Captions and controls have additional Sass variables that customize the `color` and `background-color`.
-
-
 
 <Example code={`<div id="carouselExampleDark" class="carousel carousel-dark slide">
     <div class="carousel-indicators">
@@ -273,8 +269,6 @@ The transition duration of `.carousel-item` can be changed with the `$carousel-t
 
 ## Usage
 
-
-
 ### Via data attributes
 
 Utilize data attributes to control the position of the carousel. `data-coreui-slide` allows the keywords `prev` or `next`, which changes the slide position corresponding to its current position. Alternatively, use `data-coreui-slide-to` to pass a raw slide index to the carousel `data-coreui-slide-to="2"`, which moves the slide position to a particular index beginning with `0`.
@@ -290,12 +284,9 @@ const carousel = new coreui.Carousel('#myCarousel')
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -305,7 +296,6 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `ride` | string, boolean | `false` | If set to `true`, autoplays the carousel after the user manually cycles the first item. If set to `"carousel"`, autoplays the carousel on load. |
 | `touch` | boolean | `true` | Whether the carousel should support left/right swipe interactions on touchscreen devices. |
 | `wrap` | boolean | `true` | Whether the carousel should cycle continuously or have hard stops. |
-
 
 ### Methods
 
@@ -327,7 +317,6 @@ const carousel = new coreui.Carousel(myCarouselElement, {
 })
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `cycle` | Cycles through the carousel items from left to right. |
@@ -340,7 +329,6 @@ const carousel = new coreui.Carousel(myCarouselElement, {
 | `prev` | Cycles to the previous item. **Returns to the caller before the previous item has been shown** (e.g., before the `slid.coreui.carousel` event occurs). |
 | `to` | Cycles the carousel to a particular frame (0 based, similar to an array). **Returns to the caller before the target item has been shown** (e.g., before the `slid.coreui.carousel` event occurs). |
 
-
 ### Events
 
 CoreUI for Bootstrap's carousel class exposes two events for hooking into carousel functionality. Both events have the following additional properties:
@@ -352,12 +340,10 @@ CoreUI for Bootstrap's carousel class exposes two events for hooking into carous
 
 All carousel events are fired at the carousel itself (i.e. at the `<div class="carousel">`).
 
-
 | Event type | Description |
 | --- | --- |
 | `slid.coreui.carousel` | Fired when the carousel has completed its slide transition. |
 | `slide.coreui.carousel` | Fires immediately when the `slide` instance method is invoked. |
-
 
 ```js
 const myCarousel = document.getElementById('myCarousel')
@@ -377,7 +363,3 @@ Variables for all carousels:
 Variables for the [dark carousel](#dark-variant):
 
 <ScssDocs file="scss/_variables.scss" capture="carousel-dark-variables" />
-
-
-
-

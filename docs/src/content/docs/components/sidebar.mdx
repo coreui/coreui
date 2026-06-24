@@ -533,18 +533,12 @@ By default placement for sidebar components is on the left of the viewport, but 
 
 ## JavaScript behavior
 
-
-
 ### Methods
 
 You can create a sidebar instance with the sidebar constructor, for example:
 
-
 var mySidebar = document.querySelector('#mySidebar')
 var sidebar = new coreui.Sidebar(mySidebar)
-
-
-
 
 | Method | Description |
 | --- | --- |
@@ -559,17 +553,13 @@ var sidebar = new coreui.Sidebar(mySidebar)
 | `getInstance()` | Static method that returns the sidebar instance associated with a DOM element. |
 | `getOrCreateInstance()` | Static method that returns the sidebar instance associated with a DOM element, or creates a new one. |
 
-
-
 var sidebarNode = document.querySelector('#mySidebar')
 var sidebar = coreui.Sidebar.getOrCreateInstance(sidebarNode)
 sidebar.toggle()
 
-
 ### Events
 
 CoreUI for Bootstrap's sidebar plugin exposes a few events for hooking into sidebar behavior.
-
 
 | Event | Description |
 | --- | --- |
@@ -578,13 +568,10 @@ CoreUI for Bootstrap's sidebar plugin exposes a few events for hooking into side
 | `hide.coreui.sidebar` | Fired immediately when the `hide()` instance method is called. |
 | `hidden.coreui.sidebar` | Fired when the sidebar has finished being hidden from the user and CSS transitions have completed. |
 
-
-
 var mySidebar = document.getElementById('mySidebar')
 mySidebar.addEventListener('hidden.coreui.sidebar', function () {
   // do something…
 })
-
 
 ## Customizing
 
@@ -613,4 +600,3 @@ Sidebars use local CSS variables on `.sidebar`, `.sidebar-backdrop`, `.sidebar-n
 <ScssDocs file="scss/_variables.scss" capture="sidebar-variables" />
 
 <ScssDocs file="scss/_variables.scss" capture="sidebar-toggler" />
-

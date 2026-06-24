@@ -163,7 +163,6 @@ Because the component dispatches a real `click()` when the configured shortcut m
 
 ### When the configured shortcut is pressed
 
-
 | Key | Action |
 | --- | --- |
 | `Enter` / `Space` on a focused search button | Trigger the same action as a pointer click |
@@ -171,9 +170,7 @@ Because the component dispatches a real `click()` when the configured shortcut m
 | Modifier key inside the visible shortcut | Add `.active` to the corresponding `.search-button-key` while pressed |
 | Final key inside the visible shortcut | Add `.active` to the corresponding `.search-button-key` while pressed |
 
-
 ### Keyboard state behavior
-
 
 | Interaction | Effect |
 | --- | --- |
@@ -182,7 +179,6 @@ Because the component dispatches a real `click()` when the configured shortcut m
 | `keyup` after a shortcut key press | Removes `.active` from the rendered shortcut keys |
 | Browser window `blur` | Clears all active shortcut key states |
 | Multiple configured shortcuts | The component listens to all configured shortcuts and renders the platform-preferred one in the UI |
-
 
 ## Accessibility
 
@@ -238,20 +234,16 @@ new coreui.SearchButton(searchButton, {
 
 ### Options
 
-
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `preventDefault` | `boolean` | `true` | Prevents the browser's default behavior when the configured shortcut matches. |
 | `shortcut` | `string` | `'meta+/,ctrl+/'` | Comma-separated shortcut list. The component matches all configured shortcuts and prefers the platform-appropriate one for rendering. Plain typing inside editable fields is ignored unless the shortcut also includes `meta` or `ctrl`. |
 
-
 ### Methods
-
 
 | Method | Description |
 | --- | --- |
 | `trigger()` | Triggers the `trigger.coreui.search-button` event manually. |
-
 
 ```js
 const element = document.querySelector('[data-coreui-search-button]')
@@ -262,11 +254,9 @@ searchButton.trigger()
 
 ### Events
 
-
 | Event | Description |
 | --- | --- |
 | `trigger.coreui.search-button` | Fired when the component is activated by click, API call, or keyboard shortcut. |
-
 
 ```js
 const element = document.querySelector('[data-coreui-search-button]')
@@ -287,8 +277,3 @@ Search buttons use local CSS variables on `.search-button` for enhanced real-tim
 ### SASS variables
 
 <ScssDocs file="scss/_search-button.scss" capture="search-button-variables" />
-
-
-
-
-

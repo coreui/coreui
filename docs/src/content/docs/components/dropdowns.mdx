@@ -153,11 +153,7 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 
 ## Dark dropdowns
 
-
-
 Opt into darker dropdowns to match a dark navbar or custom style by adding `.dropdown-menu-dark` onto an existing `.dropdown-menu`. No changes are required to the dropdown items.
-
-
 
 <Example code={`<div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
@@ -674,8 +670,6 @@ By default, the dropdown menu is closed when clicking inside or outside the drop
 
 ## Usage
 
-
-
 Via data attributes or JavaScript, the dropdown plugin toggles hidden content (dropdown menus) by toggling the `.show` class on the parent `.dropdown-menu`. The `data-coreui-toggle="dropdown"` attribute is relied on for closing dropdown menus at an application level, so it's a good idea to always use it.
 
 <Callout color="info">
@@ -714,12 +708,9 @@ Regardless of whether you call your dropdown via JavaScript or instead use the d
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -729,7 +720,6 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `offset` | array, string, function | `[0, 2]` |  Offset of the dropdown relative to its target. You can pass a string in data attributes with comma separated values like: `data-coreui-offset="10,20"`. When a function is used to determine the offset, it is called with an object containing the popper placement, the reference, and popper rects as its first argument. The triggering element DOM node is passed as the second argument. The function must return an array with two numbers: [skidding](https://popper.js.org/docs/v2/modifiers/offset/#skidding-1), [distance](https://popper.js.org/docs/v2/modifiers/offset/#distance-1). For more information refer to Popper's [offset docs](https://popper.js.org/docs/v2/modifiers/offset/#options). |
 | `popperConfig` | null, object, function | `null` | To change CoreUI for Bootstrap's default Popper config, see [Popper's configuration](https://popper.js.org/docs/v2/constructors/#options). When a function is used to create the Popper configuration, it's called with an object that contains the CoreUI for Bootstrap's default Popper configuration. It helps you use and merge the default with your own configuration. The function must return a configuration object for Popper. |
 | `reference` | string, element, object | `'toggle'` | Reference element of the dropdown menu. Accepts the values of `'toggle'`, `'parent'`, an HTMLElement reference or an object providing `getBoundingClientRect`. For more information refer to Popper's [constructor docs](https://popper.js.org/docs/v2/constructors/#createpopper) and [virtual element docs](https://popper.js.org/docs/v2/virtual-elements/). |
-
 
 #### Using function with `popperConfig`
 
@@ -745,7 +735,6 @@ const dropdown = new coreui.Dropdown(element, {
 
 ### Methods
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's dropdown. (Removes stored data on the DOM element) |
@@ -756,12 +745,10 @@ const dropdown = new coreui.Dropdown(element, {
 | `toggle` | Toggles the dropdown menu of a given navbar or tabbed navigation. |
 | `update` | Updates the position of an element's dropdown. |
 
-
 ### Events
 
 All dropdown events are fired at the `.dropdown-menu`'s parent element and have a `relatedTarget` property, whose value is the toggling anchor element.
 `hide.coreui.dropdown` and `hidden.coreui.dropdown` events have a `clickEvent` property (only when the original Event type is `click`) that contains an Event Object for the click event.
-
 
 | Event type | Description |
 | --- | --- |
@@ -769,7 +756,6 @@ All dropdown events are fired at the `.dropdown-menu`'s parent element and have 
 | `hidden.coreui.dropdown` | Fired when the dropdown has finished being hidden from the user and CSS transitions have completed. |
 | `show.coreui.dropdown` | Fires immediately when the `show` instance method is called. |
 | `shown.coreui.dropdown` | Fired when the dropdown has been made visible to the user and CSS transitions have completed. |
-
 
 ```js
 const myDropdown = document.getElementById('myDropdown')
@@ -809,7 +795,3 @@ Variables for the CSS-based carets that indicate a dropdown's interactivity:
 Mixins are used to generate the CSS-based carets and can be found in `scss/mixins/_caret.scss`.
 
 <ScssDocs file="scss/mixins/_caret.scss" capture="caret-mixins" />
-
-
-
-

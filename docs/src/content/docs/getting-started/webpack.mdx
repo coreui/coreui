@@ -190,7 +190,7 @@ Importing CoreUI into Webpack requires the loaders we installed in the first sec
    ```
 
    <Callout color="warning"><Fragment set:html={`<p> <strong>Sass <code>@import</code> are deprecated and will be removed in Dart Sass 3.0.0.!</strong> </p> <p>You can also use <code>@import</code> rules, but please be aware that they are deprecated and will be removed in Dart Sass 3.0.0, resulting in a compilation warning. You can learn more about this deprecation <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>.</p>`} /></Callout>
-  
+
    ```scss
    @import "~@coreui/coreui/scss/coreui";
    ```
@@ -199,7 +199,6 @@ Importing CoreUI into Webpack requires the loaders we installed in the first sec
 
 3. **Next we load the CSS and import CoreUI's JavaScript.** Add the following to `src/js/main.js` to load the CSS and import all of CoreUI's JS. Popper will be imported automatically through CoreUI.
 
-   
    ```js
    // Import our custom CSS
    import '../scss/styles.scss'
@@ -210,7 +209,6 @@ Importing CoreUI into Webpack requires the loaders we installed in the first sec
 
    You can also import JavaScript plugins individually as needed to keep bundle sizes down:
 
-   
    ```js
    import Alert from '@coreui/coreui/js/dist/alert'
 
@@ -221,7 +219,6 @@ Importing CoreUI into Webpack requires the loaders we installed in the first sec
    *[Read our JavaScript docs](/getting-started/javascript/) for more information on how to use CoreUI's plugins.*
 
 4. **And you're done! 🎉** With CoreUI's source Sass and JS fully loaded, your local development server should now look like this.
-
 
    Now you can start adding any CoreUI components you want to use.
 
@@ -311,4 +308,3 @@ Configure Webpack to extract inline SVG files like this:
 ```
 
 After running `npm run build` again, you'll find the SVG files extracted into `dist/icons` and properly referenced from CSS.
-

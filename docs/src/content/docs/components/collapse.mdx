@@ -95,8 +95,6 @@ If your control element is targeting a single collapsible element – i.e., the 
 Note that CoreUI for Bootstrap's current implementation does not cover the various *optional* keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
 ## Usage
 
-
-
 The collapse plugin utilizes a few classes to handle the heavy lifting:
 
 - `.collapse` hides the content
@@ -122,18 +120,14 @@ const collapseList = [...collapseElementList].map(collapseEl => new coreui.Colla
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 `parent` | selector, jQuery object, DOM element | `null` | If parent is provided, then all collapsible elements under the specified parent will be closed when this collapsible item is shown. (similar to traditional accordion behavior - this is dependent on the `card` class). The attribute has to be set on the target collapsible area. |
 `toggle` | boolean | `true` | Toggles the collapsible element on invocation |
-
 
 ### Methods
 
@@ -155,7 +149,6 @@ const bsCollapse = new coreui.Collapse('#myCollapse', {
 })
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's collapse. (Removes stored data on the DOM element) |
@@ -165,11 +158,9 @@ const bsCollapse = new coreui.Collapse('#myCollapse', {
 | `show` | Shows a collapsible element. **Returns to the caller before the collapsible element has actually been shown** (e.g., before the `shown.coreui.collapse` event occurs). |
 | `toggle` | Toggles a collapsible element to shown or hidden. **Returns to the caller before the collapsible element has actually been shown or hidden** (i.e. before the `shown.coreui.collapse` or `hidden.coreui.collapse` event occurs). |
 
-
 ### Events
 
 CoreUI for Bootstrap's collapse class exposes a few events for hooking into collapse functionality.
-
 
 | Event type | Description |
 | --- | --- |
@@ -178,14 +169,12 @@ CoreUI for Bootstrap's collapse class exposes a few events for hooking into coll
 | `show.coreui.collapse` | This event fires immediately when the `show` instance method is called. |
 | `shown.coreui.collapse` | This event is fired when a collapse element has been made visible to the user (will wait for CSS transitions to complete). |
 
-
 ```js
 const myCollapsible = document.getElementById('myCollapsible')
 myCollapsible.addEventListener('hidden.coreui.collapse', event => {
   // do something...
 })
 ```
-
 
 ## Customization
 
@@ -198,7 +187,3 @@ myCollapsible.addEventListener('hidden.coreui.collapse', event => {
 Collapse transition classes can be found in `scss/_transitions.scss` as these are shared across multiple components (collapse and accordion).
 
 <ScssDocs file="scss/_transitions.scss" capture="collapse-classes" />
-
-
-
-

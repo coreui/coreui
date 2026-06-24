@@ -211,7 +211,6 @@ Use the `.nav-enclosed` class to give your navigation items a subtle border and 
 
 Combine `.nav-enclosed` with `.nav-enclosed-pills` to achieve a pill-style appearance for each nav item, using pill-shaped borders and smoother outlines.
 
-
 <Example code={`<ul class="nav nav-enclosed nav-enclosed-pills">
     <li class="nav-item">
       <a class="nav-link active" aria-current="page" href="#">Active</a>
@@ -350,8 +349,6 @@ Add dropdown menus with a little extra HTML and the [dropdowns JavaScript plugin
   </ul>`} />
 
 ## JavaScript behavior
-
-
 
 Use the tab JavaScript plugin—include it individually or through the compiled `coreui.js` file—to extend our navigational tabs and pills to create tabbable panes of local content, even via dropdown menus.
 
@@ -551,14 +548,12 @@ You can create a tab instance with the constructor, for example:
 const cuiTab = new coreui.Tab('#myTab')
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's tab. |
 | `getInstance` | *Static* method which allows you to get the tab instance associated with a DOM element, you can use it like this: `coreui.Tab.getInstance(element)`. |
 | `getOrCreateInstance` | *Static* method which allows you to get the tab instance associated with a DOM element, or create a new one in case it wasn't initialized You can use it like this: `coreui.Tab.getOrCreateInstance(element)`. |
 | `show` | Selects the given tab and shows its associated pane. Any other tab that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (i.e. before the `shown.coreui.tab` event occurs). |
-
 
 ### Events
 
@@ -571,14 +566,12 @@ When showing a new tab, the events fire in the following order:
 
 If no tab was already active, then the `hide.coreui.tab` and `hidden.coreui.tab` events will not be fired.
 
-
 | Event type | Description |
 | --- | --- |
 | `hide.coreui.tab` | This event fires when a new tab is to be shown (and thus the previous active tab is to be hidden). Use `event.target` and `event.relatedTarget` to target the current active tab and the new soon-to-be-active tab, respectively. |
 | `hidden.coreui.tab` | This event fires after a new tab is shown (and thus the previous active tab is hidden). Use `event.target` and `event.relatedTarget` to target the previous active tab and the new active tab, respectively. |
 | `show.coreui.tab` | This event fires on tab show, but before the new tab has been shown. Use `event.target` and `event.relatedTarget` to target the active tab and the previous active tab (if available) respectively. |
 | `shown.coreui.tab` | This event fires on tab show after a tab has been shown. Use `event.target` and `event.relatedTarget` to target the active tab and the previous active tab (if available) respectively. |
-
 
 ```js
 const tabEl = document.querySelector('button[data-coreui-toggle="tab"]')
@@ -621,7 +614,3 @@ On the `.nav-underline-border` modifier class:
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="nav-variables" />
-
-
-
-

@@ -14,11 +14,9 @@ Scrollspy has a few requirements to function properly:
 
 When successfully implemented, your nav or list group will update accordingly, moving the `.active` class from one item to the next based on their associated targets.
 
-
 ### Scrollable containers and keyboard access
 
 If you're making a scrollable container (other than the `<body>`), be sure to have a `height` set and `overflow-y: scroll;` applied to it—alongside a `tabindex="0"` to ensure keyboard access.
-
 
 ## Example in navbar
 
@@ -130,8 +128,6 @@ Scrollspy also works with `.list-group`s. Scroll the area next to the list group
 
 ## Usage
 
-
-
 ### Via data attributes
 
 To easily add scrollspy behavior to your topbar navigation, add `data-coreui-spy="scroll"` to the element you want to spy on (most typically this would be the `<body>`). Then add the `data-coreui-target` attribute with the ID or class of the parent element of any Bootstrap `.nav` component.
@@ -166,19 +162,15 @@ const scrollSpy = new coreui.ScrollSpy(document.body, {
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `rootMargin` | string | `0px 0px -25%` | Intersection Observer [rootMargin](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/rootMargin) valid units, when calculating scroll position. |
 | `smoothScroll` | boolean | `false` | Enables smooth scrolling when a user clicks on a link that refers to ScrollSpy observables. |
 | `target` | string, DOM element | `null`  | Specifies element to apply Scrollspy plugin. |
-
 
 <Callout color="warning">
 **Deprecated Options**
@@ -189,14 +181,12 @@ To keep backwards compatibility, we will continue to parse a given `offset` to `
 
 ### Methods
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's scrollspy. (Removes stored data on the DOM element) |
 | `getInstance` | *Static* method to get the scrollspy instance associated with a DOM element |
 | `getOrCreateInstance` | *Static* method to get the scrollspy instance associated with a DOM element, or to create a new one in case it wasn't initialized. |
 | `refresh` | When adding or removing elements in the DOM, you'll need to call the refresh method. |
-
 
 Here's an example using the refresh method:
 
@@ -209,11 +199,9 @@ dataSpyList.forEach(dataSpyEl => {
 
 ### Events
 
-
 | Event | Description |
 | --- | --- |
 | `activate.coreui.scrollspy` | This event fires on the scroll element whenever an anchor is activated by the scrollspy. |
-
 
 ```js
 const firstScrollSpyEl = document.querySelector('[data-coreui-spy="scroll"]')
@@ -221,7 +209,3 @@ firstScrollSpyEl.addEventListener('activate.coreui.scrollspy', () => {
   // do something...
 })
 ```
-
-
-
-

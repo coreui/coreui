@@ -84,7 +84,6 @@ example-app/
 └── vite.config.js
 ```
 
-
 ## Configure Vite
 
 With dependencies installed and our project folder ready for us to start coding, we can now configure Vite.
@@ -146,7 +145,7 @@ With dependencies installed and our project folder ready for us to start coding,
    *You can also import our stylesheets individually if you want. [Read our Sass import docs](/customize/sass/#importing) for details.*
 
 2. **Next we import CoreUI’s JavaScript**. Add the following to resources/js/bootstrap.js to import all of CoreUI’s JS. Popper will be imported automatically through CoreUI.
-   
+
    ```js
    // Import all of CoreUI's JS
    import * as coreui from '@coreui/coreui'
@@ -155,7 +154,7 @@ With dependencies installed and our project folder ready for us to start coding,
    ```
 
    **For PRO users**
-   
+
    ```js
    // Import all of CoreUI's JS
    import * as coreui from '@coreui/coreui-pro'
@@ -164,7 +163,7 @@ With dependencies installed and our project folder ready for us to start coding,
    ```
 
    You can also import JavaScript plugins individually as needed to keep bundle sizes down:
-   
+
    ```js
    import { Tooltip, Toast, Popover } from '@coreui/coreui'
    ```

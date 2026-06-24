@@ -66,7 +66,6 @@ With dependencies installed and our project folder ready for us to start coding,
 
 1. **Open `vite.config.js` in your editor.** Since it's blank, we'll need to add some boilerplate config to it so we can start our server. This part of the config tells Vite where to look for our project's JavaScript and how the development server should behave (pulling from the `src` folder with hot reload).
 
-   
    ```js
    import { resolve } from 'path'
 
@@ -125,7 +124,6 @@ In the next and final section to this guide, we’ll import all of CoreUI’s CS
 
 1. **Set up CoreUI's Sass import in `vite.config.js`.** Your configuration file is now complete and should match the snippet below. The only new part here is the `resolve` section—we use this to add an alias to our source files inside `node_modules` to keep imports as simple as possible.
 
-   
    ```js
    import { resolve } from 'path'
 
@@ -153,7 +151,7 @@ In the next and final section to this guide, we’ll import all of CoreUI’s CS
    ```
 
    <Callout color="warning"><Fragment set:html={`<p> <strong>Sass <code>@import</code> are deprecated and will be removed in Dart Sass 3.0.0.!</strong> </p> <p>You can also use <code>@import</code> rules, but please be aware that they are deprecated and will be removed in Dart Sass 3.0.0, resulting in a compilation warning. You can learn more about this deprecation <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>.</p>`} /></Callout>
-  
+
    ```scss
    @import "~@coreui/coreui/scss/coreui";
    ```
@@ -162,7 +160,6 @@ In the next and final section to this guide, we’ll import all of CoreUI’s CS
 
 3. **Next we load the CSS and import CoreUI's JavaScript.** Add the following to `src/js/main.js` to load the CSS and import all of CoreUI's JS. Popper will be imported automatically through CoreUI.
 
-   
    ```js
    // Import our custom CSS
    import '../scss/styles.scss'
@@ -173,7 +170,6 @@ In the next and final section to this guide, we’ll import all of CoreUI’s CS
 
    You can also import JavaScript plugins individually as needed to keep bundle sizes down:
 
-   
    ```js
    import Alert from '@coreui/coreui/js/dist/alert';
 
@@ -186,4 +182,3 @@ In the next and final section to this guide, we’ll import all of CoreUI’s CS
 4. **And you're done! 🎉** With CoreUI's source Sass and JS fully loaded, your local development server should now look like this.
 
    Now you can start adding any CoreUI components you want to use.
-

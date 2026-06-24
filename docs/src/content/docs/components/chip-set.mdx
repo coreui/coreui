@@ -72,8 +72,6 @@ Set `data-coreui-removable="true"` to add a remove button to every chip. When a 
 
 ## JavaScript plugin
 
-
-
 ### Data attributes
 
 Add `data-coreui-chip-set` to enable the plugin and configure behavior with `data-coreui-*` options. The options are forwarded to every chip in the set.
@@ -97,12 +95,9 @@ coreui.ChipSet.getOrCreateInstance(chipSet, {
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -118,9 +113,7 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `selectionMode` | string | `'multiple'` | Selection behavior: `'multiple'` allows several active chips, `'single'` keeps at most one. |
 | `unique` | boolean | `false` | Prevents adding a chip whose value already exists in the set. |
 
-
 ### Methods
-
 
 | Method | Description |
 | --- | --- |
@@ -139,11 +132,9 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `getInstance` | Static method to get the chip set instance: `coreui.ChipSet.getInstance(element)`. |
 | `getOrCreateInstance` | Static method to get or create a chip set instance: `coreui.ChipSet.getOrCreateInstance(element)`. |
 
-
 ### Events
 
 Chip set events are fired from the chip set element. Individual `*.coreui.chip` events still fire from each chip and bubble up.
-
 
 | Event type | Description |
 | --- | --- |
@@ -151,7 +142,6 @@ Chip set events are fired from the chip set element. Individual `*.coreui.chip` 
 | `remove.coreui.chip-set` | Fires immediately before a chip is removed through `remove`. Cancelable. Carries the `value` and `chip` element. |
 | `change.coreui.chip-set` | Fired when the set's membership changes (a chip is added or removed). Carries the current `values` array. |
 | `select.coreui.chip-set` | Fired when the selection changes. Carries the `selected` array of chip values. |
-
 
 ```js
 const myChipSet = document.getElementById('myChipSet')
@@ -164,7 +154,6 @@ myChipSet.addEventListener('change.coreui.chip-set', event => {
 
 When a chip inside a chip set is focused:
 
-
 | Key | Action |
 | --- | --- |
 | `Enter` / `Space` | Toggle selection of the focused chip (when `selectable` is enabled) |
@@ -173,7 +162,6 @@ When a chip inside a chip set is focused:
 | `→` | Move focus to the next chip |
 | `Home` | Move focus to the first chip |
 | `End` | Move focus to the last chip |
-
 
 Disabled chips (`.chip.disabled`) are skipped while navigating.
 
@@ -192,4 +180,3 @@ Disabled chips (`.chip.disabled`) are skipped while navigating.
 ### SASS variables
 
 <ScssDocs file="scss/_chip-set.scss" capture="chip-set-variables" />
-

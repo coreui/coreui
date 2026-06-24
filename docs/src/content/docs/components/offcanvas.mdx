@@ -229,8 +229,6 @@ Since the offcanvas panel is conceptually a modal dialog, be sure to add `aria-l
 
 ## Usage
 
-
-
 The offcanvas plugin leverages several classes and attributes to perform its functions:
 
 - `.offcanvas` hides the content
@@ -269,19 +267,15 @@ const offcanvasList = [...offcanvasElementList].map(offcanvasEl => new coreui.Of
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `backdrop` | boolean or the string `static` | `true` | Applies a backdrop to the body while the Bootstrap offcanvas is open. Alternatively, specify `static` for a backdrop that doesn't close the offcanvas component when clicked. |
 | `keyboard` | boolean | `true` | Closes the offcanvas when the escape key is pressed. |
 | `scroll` | boolean | `false` | Allows body scrolling while the offcanvas is open.
-
 
 ### Methods
 
@@ -301,7 +295,6 @@ You can create an offcanvas instance using the constructor; for example:
 const cuiOffcanvas = new coreui.Offcanvas('#myOffcanvas')
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `getInstance` | *Static* method that allows you to obtain the offcanvas instance associated with a DOM element |
@@ -310,11 +303,9 @@ const cuiOffcanvas = new coreui.Offcanvas('#myOffcanvas')
 | `show` | Displays an offcanvas element. **Returns to the caller before the offcanvas element is actually shown** (i.e. before the `shown.coreui.offcanvas` event occurs).|
 | `toggle` | Switches an offcanvas element between shown and hidden. **Returns to the caller before the offcanvas element is actually shown or hidden** (i.e. before the `shown.coreui.offcanvas` or `hidden.coreui.offcanvas` event occurs).
 
-
 ### Events
 
 CoreUI for Bootstrap's offcanvas class exposes a few events for hooking into offcanvas functionality.
-
 
 | Event Type | Description |
 | --- | --- |
@@ -323,7 +314,6 @@ CoreUI for Bootstrap's offcanvas class exposes a few events for hooking into off
 | `hidePrevented.coreui.offcanvas` | This event is triggered when the offcanvas is shown, its backdrop is `static`, and a click outside of the offcanvas occurs. The event is also triggered when the escape key is pressed and the `keyboard` option is set to `false`. |
 | `show.coreui.offcanvas` | This event fires immediately when the `show` instance method is invoked. |
 | `shown.coreui.offcanvas` | This event is fired when an offcanvas element becomes visible to the user (it will wait for CSS transitions to complete).
-
 
 ```js
 const myOffcanvas = document.getElementById('myOffcanvas')
@@ -343,7 +333,3 @@ Offcanvas utilizes local CSS variables on `.offcanvas` for improved real-time cu
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="offcanvas-variables" />
-
-
-
-

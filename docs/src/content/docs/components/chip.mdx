@@ -217,10 +217,7 @@ Use `.chip-sm` or `.chip-lg` for different sizes.
     </span>
   </div>`} />
 
-
 ## JavaScript plugin
-
-
 
 Use the Bootstrap Chip component JavaScript plugin for selection and dismissal. You can initialize chip components via data attributes or JavaScript. To navigate between several chips with the arrow keys, group them in a [Chip set](/components/chip-set/).
 
@@ -278,12 +275,9 @@ The chips above work independently. To get roving focus and arrow-key navigation
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
-
-
 
 | Option | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -296,9 +290,7 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `selected` | boolean | `false` | Sets the initial selected state when `selectable` is enabled. |
 | `selectedIcon` | string | SVG | HTML string used as the check icon when `filter` is enabled. |
 
-
 ### Methods
-
 
 | Method | Description |
 | --- | --- |
@@ -310,11 +302,9 @@ Starting with CoreUI 4.2.6, all components support an **experimental** reserved 
 | `select` | Selects a selectable chip. |
 | `toggle` | Toggles selection for a selectable chip. |
 
-
 ### Events
 
 All CoreUI chip events are fired from the chip element and bubble.
-
 
 | Event type | Description |
 | --- | --- |
@@ -324,7 +314,6 @@ All CoreUI chip events are fired from the chip element and bubble.
 | `selected.coreui.chip` | Fired after a chip is selected. |
 | `deselect.coreui.chip` | Fires immediately before a chip is deselected. Cancelable. |
 | `deselected.coreui.chip` | Fired after a chip is deselected. |
-
 
 ```js
 const myChip = document.getElementById('myChip')
@@ -339,23 +328,19 @@ A standalone chip handles its own selection and removal from the keyboard when i
 
 ### When a chip is focused
 
-
 | Key | Action |
 | --- | --- |
 | `Enter` / `Space` | Toggle selection (only when `selectable` is enabled) |
 | `Backspace` / `Delete` | Close chip when `removable` is enabled |
 
-
 When chips are grouped in a [Chip set](/components/chip-set/), the arrow keys, <kbd>Home</kbd>, and <kbd>End</kbd> move focus between chips, and focus moves to a neighboring chip after one is removed.
 
 ### Mouse interaction
-
 
 | Action | Effect |
 | --- | --- |
 | Click chip | Toggle selection (only when `selectable` is enabled) |
 | Click remove | Close chip (only when `removable` is enabled) |
-
 
 ## Accessibility
 
@@ -378,8 +363,3 @@ Chips use local CSS variables on `.chip` for enhanced real-time customization. V
 ### SASS variables
 
 <ScssDocs file="scss/_chip.scss" capture="chip-variables" />
-
-
-
-
-

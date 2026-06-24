@@ -14,8 +14,6 @@ Due to the widespread use of `<table>` elements across third-party widgets like 
 
 Using the most basic table markup, here's how `.table`-based tables look in Bootstrap.
 
-
-
 ## Variants
 
 Use contextual classes to color tables, table rows or individual cells.
@@ -40,9 +38,6 @@ Use contextual classes to color tables, table rows or individual cells.
       </tr>`), `    </tbody>
   </table>`]} />
 
-
-
-
 <table class="table-primary">...</table>
 <table class="table-secondary">...</table>
 <table class="table-success">...</table>
@@ -50,15 +45,12 @@ Use contextual classes to color tables, table rows or individual cells.
 <table class="table-warning">...</table>
 <table class="table-info">...</table>
 
-
-
 <tr class="table-primary">...</tr>
 <tr class="table-secondary">...</tr>
 <tr class="table-success">...</tr>
 <tr class="table-danger">...</tr>
 <tr class="table-warning">...</tr>
 <tr class="table-info">...</tr>
-
 
 <tr>
 
@@ -69,7 +61,6 @@ Use contextual classes to color tables, table rows or individual cells.
   <td class="table-warning">...</td>
   <td class="table-info">...</td>
 </tr>
-
 
 <Callout color="info">
 ##### Conveying meaning to assistive technologies
@@ -83,35 +74,17 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Use `.table-striped` to add zebra-striping to any table row within the `<tbody>`.
 
-
-
 ### Striped columns
 
 Use `.table-striped-columns` to add zebra-striping to any table column.
 
-
-
 These classes can also be added to table variants:
-
-
-
-
-
-
-
-
 
 ### Hoverable rows
 
 Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
-
-
-
-
 These hoverable rows can also be combined with the striped rows variant:
-
-
 
 ### Active tables
 
@@ -183,27 +156,15 @@ Behind the scenes it looks like this:
 
 Add `.table-bordered` for borders on all sides of the table and cells.
 
-
-
 [Border color utilities](/utilities/borders/#border-color) can be added to change colors:
-
-
 
 ### Tables without borders
 
 Add `.table-borderless` for a table without borders.
 
-
-
-
-
 ## Small tables
 
 Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` in half.
-
-
-
-
 
 ## Table group dividers
 
@@ -434,9 +395,6 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 
 **These tables may appear broken until their responsive styles apply at specific viewport widths.**
 
-
-
-
 {getData('breakpoints').filter((b) => b.abbr).map((b) => (
   <Example html={`<div class="table-responsive${b.abbr}">
   <table class="table">
@@ -471,9 +429,6 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 </div>`} />
 ))}
 
-
-
-
 <div class="table-responsive-sm">
   <table class="table">
     ...
@@ -504,14 +459,11 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
   </table>
 </div>
 
-
-
 ## Customization
 
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="table-variables" />
-
 
 ### SASS loop
 
@@ -521,4 +473,3 @@ Use `.table-responsive{-sm|-md|-lg|-xl|-xxl}` as needed to create responsive tab
 
 - The factor variables (`$table-striped-bg-factor`, `$table-active-bg-factor` & `$table-hover-bg-factor`) are used to determine the contrast in table variants.
 - Apart from the light & dark table variants, theme colors are lightened by the `$table-bg-scale` variable.
-

@@ -106,8 +106,6 @@ Using Bootstrap Tooltips with SVGs is a great way to enhance accessibility and i
 
 ## Usage
 
-
-
 The tooltip plugin creates content and markup as needed, and by default places tooltips following their trigger elements.
 
 Trigger the tooltip via JavaScript:
@@ -162,17 +160,13 @@ Elements that have the `disabled` attribute are non-interactive, which prevents 
 
 ### Options
 
-
 Options can be passed using data attributes or JavaScript. To do this, append an option name to `data-coreui-`, such as `data-coreui-animation="{value}"`. Remember to convert the case of the option name from "_camelCase_" to "_kebab-case_" when using data attributes. For instance, you should write `data-coreui-custom-class="beautifier"` rather than `data-coreui-customClass="beautifier"`.
 
 Starting with CoreUI 4.2.6, all components support an **experimental** reserved data attribute named `data-coreui-config`, which can contain simple component configurations as a JSON string. If an element has attributes `data-coreui-config='{"delay":50, "title":689}'` and `data-coreui-title="Custom Title"`, then the final value for `title` will be `Custom Title`, as the standard data attributes will take precedence over values specified in `data-coreui-config`. Moreover, existing data attributes can also hold JSON values like `data-coreui-delay='{"show":50, "hide":250}'`.
 
-
 <Callout color="warning">
 Please note that for security reasons, the `sanitize`, `sanitizeFn`, and `allowList` options cannot be supplied via data attributes.
 </Callout>
-
-
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -194,8 +188,6 @@ Please note that for security reasons, the `sanitize`, `sanitizeFn`, and `allowL
 | `allowList` | object | \[Default value]\(/getting-started/javascript/#sanitizer) | A detailed whitelist of tags and attributes considered safe when sanitization is enabled. This fine-tunes what HTML will be kept or stripped from the tooltip. |
 | `sanitizeFn` | null, function | `null` | You can define your own custom sanitization logic by passing a function here. Ideal if you want to use a specialized HTML sanitizer or integrate with existing security tools. If activated `'template'`, `'content'` and `'title'` options will be sanitized. |
 | `popperConfig` | null, object, function | `null` | Allows you to override or extend the default Popper.js configuration used by Bootstrap Tooltip. Can be an object or a function that receives the default config and returns a modified one, giving you full control over tooltip behavior and positioning logic. See [Popper's configuration](https://popper.js.org/docs/v2/constructors/#options).|
-
-
 
 <Callout color="info">
 #### Data attributes for individual tooltips
@@ -225,7 +217,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 [Refer to our JavaScript documentation for further details](/getting-started/javascript/#asynchronous-functions-and-transitions).
 </Callout>
 
-
 | Method | Description |
 | --- | --- |
 | `show` | Manually displays the Bootstrap tooltip linked to an element. This method is non-blocking—it returns immediately, even though the tooltip will appear shortly after. If the tooltip’s title is empty, nothing will be shown. **Returns to the caller before the tooltip has actually been shown** (i.e. before the `shown.coreui.tooltip` event occurs) |
@@ -239,8 +230,6 @@ All our API methods are **asynchronous** and initiate a **transition**. They ret
 | `update` | Recalculates and repositions the tooltip, ensuring correct alignment if the DOM has changed (e.g., due to scroll, resize, or dynamic layout updates). |
 | `getInstance` | *Static* method that retrieves the current tooltip instance tied to a specific element. Returns `null` if the tooltip has not been initialized. |
 | `getOrCreateInstance` | *Static* method that either returns the existing tooltip instance or initializes a new one if none exists. Ensures consistent behavior in dynamic interfaces. |
-
-
 
 ```js
 const tooltip = coreui.Tooltip.getInstance('#example') // Returns a Bootstrap tooltip instance
@@ -256,7 +245,6 @@ The `setContent` method accepts an `object` argument, where each property-key is
 
 ### Events
 
-
 | Event | Description |
 | --- | --- |
 | `show.coreui.tooltip` | Triggered right after the `show()` method is invoked. The tooltip is about to become visible, but hasn't been inserted into the DOM yet. You can use this event to perform actions before the tooltip is rendered. |
@@ -264,8 +252,6 @@ The `setContent` method accepts an `object` argument, where each property-key is
 | `hide.coreui.tooltip` | Emitted immediately when the `hide()` method is called. At this point, the tooltip is still visible but is beginning the process of being hidden. |
 | `hidden.coreui.tooltip` | Dispatched once the tooltip has been fully removed from view and CSS transitions (if any) have finished. Ideal for cleanup logic or analytics. |
 | `inserted.coreui.tooltip` | Occurs after the tooltip has been injected into the DOM but before it becomes visible. This event gives you access to the generated tooltip element for advanced DOM manipulation. |
-
-
 
 ```js
 const myTooltipEl = document.getElementById('myTooltip')
@@ -289,7 +275,3 @@ Bootstrap tooltips utilize local CSS variables on `.tooltip` for improved real-t
 ### SASS variables
 
 <ScssDocs file="scss/_variables.scss" capture="tooltip-variables" />
-
-
-
-

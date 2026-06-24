@@ -38,7 +38,7 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 ### With icons
 
-You can combine button with our [CoreUI Icons](https://icons.coreui.io/).
+You can combine button with our [CoreUI Icons](https://coreui.io/icons/).
 
 <Example code={[...getData('theme-colors').map((c) => `<button type="button" class="btn btn-${c.name}"><span class="cil-contrast"></span> ${c.title}</button>`), ``, `<button type="button" class="btn btn-link">Link</button>`]} />
 
@@ -117,7 +117,6 @@ You can even roll your own custom sizing with CSS variables:
     Custom button
   </button>`} />
 
-
 ## Shapes
 
 ### Pill buttons
@@ -129,8 +128,6 @@ You can even roll your own custom sizing with CSS variables:
 ### Square buttons
 
 <Example code={getData('theme-colors').map((c) => `<button type="button" class="btn btn-${c.name} rounded-0">${c.title}</button>`)} />
-
-
 
 ## Disabled state
 
@@ -225,14 +222,12 @@ You can create a button instance with the button constructor, for example:
 const bsButton = new coreui.Button('#myButton')
 ```
 
-
 | Method | Description |
 | --- | --- |
 | `toggle` | Toggles push state. Gives the button the appearance that it has been activated. |
 | `dispose` | Destroys an element's button. (Removes stored data on the DOM element) |
 | `getInstance` | Static method which allows you to get the button instance associated to a DOM element, you can use it like this: `coreui.Button.getInstance(element)`|
 | `getOrCreateInstance` | Static method which returns a button instance associated to a DOM element or create a new one in case it wasn't initialized. You can use it like this: `coreui.Button.getOrCreateInstance(element)` |
-
 
 For example, to toggle all buttons
 
@@ -282,7 +277,3 @@ There are three mixins for buttons: button and button outline variant mixins, pl
 Button variants (for regular and outline buttons) use their respective mixins with our `$theme-colors` map to generate the modifier classes in `scss/_buttons.scss`.
 
 <ScssDocs file="scss/_buttons.scss" capture="btn-variant-loops" />
-
-
-
-

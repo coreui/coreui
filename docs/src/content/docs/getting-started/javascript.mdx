@@ -19,7 +19,6 @@ If you use a bundler (Webpack, Rollup...), you can use `/js/dist/*.js` files whi
 
 We provide a version of CoreUI for Bootstrap built as `ESM` (`coreui.esm.js` and `coreui.esm.min.js`) which allows you to use CoreUI for Bootstrap as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
 
-
 ```html
 <script type="module">
   import { Toast } from 'coreui.esm.min.js'
@@ -30,7 +29,6 @@ We provide a version of CoreUI for Bootstrap built as `ESM` (`coreui.esm.js` and
 ```
 
 Compared to JS bundlers, using ESM in the browser requires you to use the full path and filename instead of the module name. [Read more about JS modules in the browser.](https://v8.dev/features/modules#specifiers) That's why we use `'coreui.esm.min.js'` instead of `'coreui'` above. However, this is further complicated by our Popper dependency, which imports Popper into our JavaScript like so:
-
 
 ```js
 import * as Popper from "@popperjs/core"
@@ -43,7 +41,6 @@ Uncaught TypeError: Failed to resolve module specifier "@popperjs/core". Relativ
 ```
 
 To fix this, you can use an `importmap` to resolve the arbitrary module names to complete paths. If your [targeted browsers](https://caniuse.com/?search=importmap) do not support `importmap`, you'll need to use the [es-module-shims](https://github.com/guybedford/es-module-shims) project. Here's how it works for Bootstrap and Popper:
-
 
 ```html
 <!doctype html>
@@ -96,7 +93,6 @@ If you use special selectors, for example: `collapse:Example` be sure to escape 
 CoreUI for Bootstrap provides custom events for most plugins' unique actions. Generally, these come in an infinitive and past participle form - where the infinitive (ex. `show`) is triggered at the start of an event, and its past participle form (ex. `shown`) is triggered on the completion of an action.
 
 All infinitive events provide [`preventDefault()`](https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault) functionality. This provides the ability to stop the execution of an action before it starts. Returning false from an event handler will also automatically call `preventDefault()`.
-
 
 ```js
 const myModal = document.getElementById('myModal')
@@ -173,7 +169,6 @@ carousel.to('1') // Will start sliding to the slide 1 and returns to the caller
 carousel.to('2') // !! Will be ignored, as the transition to the slide 1 is not finished !!
 ```
 
-
 #### `dispose` method
 
 While it may seem correct to use the `dispose` method immediately after `hide()`, it will lead to incorrect results. Here's an example of the problem use:
@@ -200,20 +195,16 @@ coreui.Modal.Default.keyboard = false
 
 Every CoreUI for Bootstrap plugin exposes the following methods and static properties.
 
-
 | Method | Description |
 | --- | --- |
 | `dispose` | Destroys an element's modal. (Removes stored data on the DOM element) |
 | `getInstance` | *Static* method which allows you to get the modal instance associated with a DOM element. |
 | `getOrCreateInstance` | *Static* method which allows you to get the modal instance associated with a DOM element, or create a new one in case it wasn't initialized. |
 
-
-
 | Static property | Description |
 | --- | --- |
 | `NAME` | Returns the plugin name. (Example: `coreui.Tooltip.NAME`) |
 | `VERSION` | The version of each of CoreUI for Bootstrap's plugins can be accessed via the `VERSION` property of the plugin's constructor (Example: `coreui.Tooltip.VERSION`) |
-
 
 ## Sanitizer
 

@@ -153,13 +153,11 @@ In practice this allows for more complex and custom layouts when compared to our
 
 Customize the number of columns, the number of rows, and the width of the gaps with local CSS variables.
 
-
 | Variable | Fallback value | Description |
 | --- | --- | --- |
 | `--cui-rows` | `1` | The number of rows in your grid template |
 | `--cui-columns` | `12` | The number of columns in your grid template |
 | `--cui-gap` | `1.5rem` | The size of the gap between columns (vertical and horizontal) |
-
 
 These CSS variables have no default value; instead, they apply fallback values that are used _until_ a local instance is provided. For example, we use `var(--cui-rows, 1)` for our CSS Grid rows, which ignores `--cui-rows` because that hasn't been set anywhere yet. Once it is, the `.grid` instance will use that value instead of the fallback value of `1`.
 
@@ -232,4 +230,3 @@ For example, you can increase the column count and change the gap size, and then
     <div style="grid-column: span 14;">14 columns</div>
     <div class="g-col-4">.g-col-4</div>
   </div>`} />
-
