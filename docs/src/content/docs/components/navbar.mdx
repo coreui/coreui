@@ -382,7 +382,7 @@ Add `.navbar-nav-scroll` to a `.navbar-nav` (or other navbar sub-component) to e
 
 Please note that this behavior comes with a potential drawback of `overflow`—when setting `overflow-y: auto` (required to scroll the content here), `overflow-x` is the equivalent of `auto`, which will crop some horizontal content.
 
-Here's an example navbar using `.navbar-nav-scroll` with `style="scroll-height: 100px;"`, with some extra margin utilities for optimum spacing.
+Here's an example navbar using `.navbar-nav-scroll` with `style="--cui-scroll-height: 100px;"`, with some extra margin utilities for optimum spacing.
 
 <Example code={`<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -391,7 +391,7 @@ Here's an example navbar using `.navbar-nav-scroll` with `style="scroll-height: 
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="scroll-height: 100px;">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--cui-scroll-height: 100px;">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
@@ -541,7 +541,7 @@ Transform your expanding and collapsing navbar into an offcanvas drawer with the
 
 In the example below, to create an offcanvas navbar that is always collapsed across all breakpoints, omit the `.navbar-expand-*` class entirely.
 
-<Example code={`<nav class="navbar bg-body-tertiary" fixed-top">
+<Example code={`<nav class="navbar bg-body-tertiary fixed-top">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Offcanvas navbar</a>
       <button class="navbar-toggler" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -586,7 +586,7 @@ In the example below, to create an offcanvas navbar that is always collapsed acr
 To create an offcanvas navbar that expands into a normal navbar at a specific breakpoint like `lg`, use `.navbar-expand-lg`.
 
 ```html
-<nav class="navbar navbar-expand-lg bg-body-tertiary" fixed-top">
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <a class="navbar-brand" href="#">Offcanvas navbar</a>
   <button class="navbar-toggler" type="button" data-coreui-toggle="offcanvas" data-coreui-target="#navbarOffcanvasLg" aria-controls="navbarOffcanvasLg">
     <span class="navbar-toggler-icon"></span>

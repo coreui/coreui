@@ -6,12 +6,6 @@ otherFrameworks:
   - header
 ---
 
-<style set:html={`
-.cd-example .header:not(:last-child) {
-  margin-bottom: 20px;
-}
-`} />
-
 ## How it works
 
 Here's what you need to know before getting started with the header component:
@@ -41,7 +35,7 @@ Here's an example of all the sub-components included in a responsive header.
 
 <Example code={`<header class="header">
     <a class="header-brand" href="#">
-      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
+      <img src="/assets/brand/coreui-signet.svg" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
       CoreUI
     </a>
     <button class="header-toggler" type="button">
@@ -96,14 +90,14 @@ Adding images to the `.header-brand` will likely always require custom styles or
 <Example code={`<!-- Just an image -->
   <header class="header">
     <a class="header-brand" href="#">
-      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" alt="CoreUI Logo">
+      <img src="/assets/brand/coreui-signet.svg" width="22" height="24" alt="CoreUI Logo">
     </a>
   </header>`} />
 
 <Example code={`<!-- Image and text -->
   <header class="header">
     <a class="header-brand" href="#">
-      <img src="/assets/brand/coreui-signet.svg" alt="" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
+      <img src="/assets/brand/coreui-signet.svg" width="22" height="24" class="d-inline-block align-top" alt="CoreUI Logo">
       CoreUI
     </a>
   </header>`} />

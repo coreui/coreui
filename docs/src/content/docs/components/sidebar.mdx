@@ -148,7 +148,7 @@ Below is a more complete sidebar example shown by default on desktop devices. It
     </ul>
     <div class="sidebar-footer">
       <div class="dropdown dropend w-100">
-        <button class="btn btn-ghost w-100 d-flex gap-2 p-1 align-items-center" type="button" data-coreui-toggle="dropdown" aria-expanded="false">
+        <a class="btn btn-ghost w-100 d-flex gap-2 p-1 align-items-center" href="#" role="button" data-coreui-toggle="dropdown" aria-expanded="false">
           <div class="avatar avatar-md">
             <img class="avatar-img rounded" src="/assets/img/avatars/7.jpg" alt="user@email.com">
           </div>
@@ -157,8 +157,9 @@ Below is a more complete sidebar example shown by default on desktop devices. It
             <div>lena@acme.com</div>
           </div>
           <i class="nav-icon cil-options ms-auto d-sidebar-narrow-none"></i>
-        </button>
+        </a>
         <ul class="dropdown-menu w-100">
+          <li>
           <div class="d-flex gap-2 px-2">
             <div class="avatar avatar-md">
               <img class="avatar-img rounded" src="/assets/img/avatars/7.jpg" alt="user@email.com">
@@ -168,6 +169,7 @@ Below is a more complete sidebar example shown by default on desktop devices. It
               <div>lena@acme.com</div>
             </div>
           </div>
+          </li>
           <li><hr class="dropdown-divider"></li>
           <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="cil-user"></i>Account</a></li>
           <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i class="cil-credit-card"></i>Billing</a></li>
