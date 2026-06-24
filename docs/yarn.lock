@@ -132,10 +132,10 @@
     fast-wrap-ansi "^0.2.0"
     sisteransi "^1.0.5"
 
-"@coreui/astro-docs@0.1.0-beta.2":
-  version "0.1.0-beta.2"
-  resolved "https://registry.yarnpkg.com/@coreui/astro-docs/-/astro-docs-0.1.0-beta.2.tgz#6bc4405d4b5e7cfcbfc83f30bef5c462190025ba"
-  integrity sha512-d3uAYK/2PSh5ivmYNZHHLfWZQaEjOjvYa/z8aSh2NyGYBRlomWH3kjCrvV3MfBEM8kKuIQEU5NBEvli40LOJMg==
+"@coreui/astro-docs@0.1.0-beta.3":
+  version "0.1.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@coreui/astro-docs/-/astro-docs-0.1.0-beta.3.tgz#c197695891e20c0a1ca1bf2e43a34853a63ceeae"
+  integrity sha512-4ISsp7X6quMqXy9GTR4XhEaHSU3C2qEgsclpyi3vY5i5qu09Ewwyz0GxZwHd2rQEEPEqoWtMdmSHRyAcpdeClg==
   dependencies:
     "@astrojs/markdown-remark" "^7.2.0"
     "@coreui/icons" "^3.1.0"
