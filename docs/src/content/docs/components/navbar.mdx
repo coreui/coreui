@@ -315,7 +315,7 @@ Navbar themes are easier than ever thanks to CoreUI for Bootstrap's combination 
   <!-- Navbar content -->
 </nav>
 
-<nav class="navbar" style="background-color: #e3f2fd;">
+<nav class="navbar" style="background-color: #e3f2fd;" data-coreui-theme="light">
   <!-- Navbar content -->
 </nav>
 ```
@@ -519,7 +519,7 @@ With a toggler on the left and brand name on the right:
 
 Sometimes you want to use the collapse plugin to trigger a container element for content that structurally sits outside of the `.navbar` . Because our plugin works on the `id` and `data-coreui-target` matching, that's easily done!
 
-<Example code={`<div class="collapse" id="navbarToggleExternalContent">
+<Example code={`<div class="collapse" id="navbarToggleExternalContent" data-coreui-theme="dark">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Collapsed content</h5>
       <span class="text-body-secondary">Toggleable via the navbar brand.</span>
