@@ -19,8 +19,12 @@ export default [
       '**/dist/',
       '**/vendor/',
       '.babelrc.js',
+      '.cache/',
       '_site/',
-      'docs/',
+      'docs/.astro/',
+      'docs/scripts/',
+      'docs/astro.config.mjs',
+      'docs/**/*.ts',
       'js/coverage/'
     ]
   },
@@ -180,6 +184,25 @@ export default [
         ...globals.node
       },
       sourceType: 'commonjs'
+    }
+  },
+  {
+    // Docs demo snippets (`?raw` imports) and docs-site helper scripts: plain browser
+    // scripts that run against the global `coreui` bundle. Instantiating for side
+    // effects (`new coreui.X(...)`) and `console` are expected here.
+    files: ['docs/src/content/docs/**/snippets/**/*.js', 'docs/public/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        coreui: 'readonly',
+        dayjs: 'readonly'
+      }
+    },
+    rules: {
+      'no-console': 'off',
+      'no-new': 'off',
+      'unicorn/no-array-for-each': 'off',
+      'unicorn/prefer-top-level-await': 'off'
     }
   },
   {

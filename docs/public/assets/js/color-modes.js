@@ -5,8 +5,6 @@
  */
 
 (() => {
-  'use strict'
-
   const THEME = 'coreui-docs-theme'
 
   const getStoredTheme = () => localStorage.getItem(THEME)
