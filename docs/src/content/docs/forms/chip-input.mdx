@@ -6,6 +6,9 @@ otherFrameworks:
   - chip-input
 ---
 
+import chipVariants from './snippets/chip-variants.js?raw'
+import chipSelectable from './snippets/chip-selectable.js?raw'
+
 ## Overview
 
 The CoreUI **Bootstrap Chip Input component** lets users enter multiple values as chips inside a single field. Use it as a tag input, multi-value selector, or token field for skills, categories, email recipients, and more. The chip input component supports keyboard-friendly entry, chip removal, and optional selection for bulk actions.
@@ -64,29 +67,11 @@ Use contextual chip classes inside Bootstrap 5 Chip Input to represent categorie
 
 In the example below, the chip color is assigned dynamically based on the chip text using the `chipClassName` callback. Each value (e.g., `Feature` or `Blocking`) maps to a contextual class, so chips remain visually consistent even when added programmatically.
 
-<Example code={`<div id="chipVariants" class="chip-input"></div>`} sandboxJs={[`const chipInputElement = document.querySelector('#chipVariants')`, `const chipInput = new coreui.ChipInput(chipInputElement, {`, `  // Class is resolved dynamically from chip value.`, `  chipClassName(value) {`, `    const variants = {`, `      approved: 'chip-success',`, `      blocking: 'chip-danger',`, `      feature: 'chip-primary',`, `      'needs review': 'chip-warning'`, `    }`, ``, `    return variants[value.trim().toLowerCase()] || 'chip-secondary'`, `  },`, `  placeholder: 'Add a bug...'`, `})`, ``, `chipInput.add('Feature')`].join('\n')} />
+<Example code={`<div id="chipVariants" class="chip-input"></div>`} sandboxJs={chipVariants} />
 
 The JavaScript below initializes the example:
 
-```js
-const chipInputElement = document.querySelector('#chipVariants')
-const chipInput = new coreui.ChipInput(chipInputElement, {
-  // Class is resolved dynamically from chip value.
-  chipClassName(value) {
-    const variants = {
-      approved: 'chip-success',
-      blocking: 'chip-danger',
-      feature: 'chip-primary',
-      'needs review': 'chip-warning'
-    }
-
-    return variants[value.trim().toLowerCase()] || 'chip-secondary'
-  },
-  placeholder: 'Add a bug...'
-})
-
-chipInput.add('Feature')
-```
+<Code code={chipVariants} lang="js" />
 
 ## Sizes
 
@@ -158,7 +143,7 @@ In this example, `select.coreui.chip-input` updates a live list of selected valu
     <span class="chip active">QA</span>
     <span class="chip active">DevOps</span>
   </div>
-  <p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`} sandboxJs={[`const chipSelectableElement = document.querySelector('#chipSelectable')`, `const chipSelectableOutput = document.querySelector('#chipSelectableOutput')`, ``, `const chipSelectable = new coreui.ChipInput(chipSelectableElement, {`, `  placeholder: 'Add team role...',`, `  selectable: true`, `})`, ``, `const updateSelectedOutput = selected => {`, `  chipSelectableOutput.textContent = selected.length > 0 ? selected.join(', ') : 'None'`, `}`, ``, `chipSelectableElement.addEventListener('select.coreui.chip-input', event => {`, `  updateSelectedOutput(event.selected)`, `})`, ``, `chipSelectable.add('Frontend')`, `chipSelectable.add('Security')`, `updateSelectedOutput(chipSelectable.getSelectedValues())`].join('\n')} />
+  <p class="form-text mt-2 mb-0">Selected chips: <span id="chipSelectableOutput">None</span></p>`} sandboxJs={chipSelectable} />
 
 ## Usage
 

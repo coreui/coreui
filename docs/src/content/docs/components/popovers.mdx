@@ -6,6 +6,9 @@ otherFrameworks:
   - popover
 ---
 
+import popoverLive from './snippets/popover-live.js?raw'
+import popoverDirections from './snippets/popover-directions.js?raw'
+
 ## Overview
 
 Things to know when using the popover plugin:
@@ -57,7 +60,7 @@ We use JavaScript similar to the snippet above to render the following live popo
 You can choose to use either `title` or `data-coreui-title` in your HTML. If you opt for `title,` Popper will automatically change it to `data-coreui-title` upon rendering the element.
 </Callout>
 
-<Example code={`<button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>`} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
+<Example code={`<button type="button" class="btn btn-lg btn-danger" data-coreui-toggle="popover" title="Popover title" data-coreui-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>`} sandboxJs={popoverLive} />
 
 ### Four directions
 
@@ -74,7 +77,7 @@ Four options are available: top, right, bottom, and left aligned. Directions are
   </button>
   <button type="button" class="btn btn-secondary" data-coreui-container="body" data-coreui-toggle="popover" data-coreui-placement="left" data-coreui-content="Left popover">
     Popover on left
-  </button>`} sandboxJs={[`document`, `  .querySelectorAll('[data-coreui-toggle="popover"]')`, `  .forEach(popover => {`, `    new coreui.Popover(popover)`, `  })`].join('\n')} />
+  </button>`} sandboxJs={popoverDirections} />
 
 ### Using the `container` option
 

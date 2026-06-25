@@ -6,6 +6,8 @@ otherFrameworks:
   - modal
 ---
 
+import varyingModalContent from './snippets/varying-modal-content.js?raw'
+
 ## How it works
 
 Bootstrap modals are lightweight and multi-purpose popups. Modals are split into three primary sections: header, body, and footer. Each has its role and so should be used accordingly. Before getting started with CoreUI for Bootstrap's modal component, be sure to read the following as our menu options have recently changed.
@@ -424,28 +426,9 @@ Below is a live demo followed by example HTML and JavaScript. For more informati
         </div>
       </div>
     </div>
-  </div>`} sandboxJs={[`const exampleModal = document.getElementById('exampleModal')`, `if (exampleModal) {`, `  exampleModal.addEventListener('show.coreui.modal', event => {`, `    // Button that triggered the modal`, `    const button = event.relatedTarget`, `    // Extract info from data-coreui-* attributes`, `    const recipient = button.getAttribute('data-coreui-whatever')`, `    // If necessary, you could initiate an Ajax request here`, `    // and then do the updating in a callback.`, ``, `    // Update the modal's content.`, `    const modalTitle = exampleModal.querySelector('.modal-title')`, `    const modalBodyInput = exampleModal.querySelector('.modal-body input')`, ``, `    modalTitle.textContent = \`New message to \${recipient}\``, `    modalBodyInput.value = recipient`, `  })`, `}`].join('\n')} />
+  </div>`} sandboxJs={varyingModalContent} />
 
-```js
-const exampleModal = document.getElementById('exampleModal')
-if (exampleModal) {
-  exampleModal.addEventListener('show.coreui.modal', event => {
-    // Button that triggered the modal
-    const button = event.relatedTarget
-    // Extract info from data-coreui-* attributes
-    const recipient = button.getAttribute('data-coreui-whatever')
-    // If necessary, you could initiate an Ajax request here
-    // and then do the updating in a callback.
-
-    // Update the modal's content.
-    const modalTitle = exampleModal.querySelector('.modal-title')
-    const modalBodyInput = exampleModal.querySelector('.modal-body input')
-
-    modalTitle.textContent = `New message to ${recipient}`
-    modalBodyInput.value = recipient
-  })
-}
-```
+<Code code={varyingModalContent} lang="js" />
 
 ### Toggle between modals
 

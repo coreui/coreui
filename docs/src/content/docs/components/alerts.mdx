@@ -7,6 +7,7 @@ otherFrameworks:
 ---
 
 import { getData } from '@coreui/astro-docs/data'
+import alertLive from './snippets/alert-live.js?raw'
 
 ## Examples
 
@@ -42,30 +43,11 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 Click the button below to show an alert (initially hidden with inline styles), then dismiss (and destroy) it using the built-in close button.
 
 <Example code={`<div id="liveAlertPlaceholder"></div>
-  <button type="button" class="btn btn-primary" id="liveAlertBtn">Show alert with message</button>`} sandboxJs={[`const alertPlaceholder = document.getElementById('liveAlertPlaceholder')`, `const appendAlert = (message, type) => {`, `  const wrapper = document.createElement('div')`, `  wrapper.innerHTML = [`, `    \`<div class="alert alert-\${type} alert-dismissible" role="alert">\`,`, `    \`   <div>\${message}</div>\`,`, `    '   <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>',`, `    '</div>'`, `  ].join('')`, ``, `  alertPlaceholder.append(wrapper)`, `}`, ``, `const alertTrigger = document.getElementById('liveAlertBtn')`, `if (alertTrigger) {`, `  alertTrigger.addEventListener('click', () => {`, `    appendAlert('Nice, you triggered this alert message!', 'success')`, `  })`, `}`].join('\n')} />
+  <button type="button" class="btn btn-primary" id="liveAlertBtn">Show alert with message</button>`} sandboxJs={alertLive} />
 
 The JavaScript below initiates our live alert demo:
-```js
-const alertPlaceholder = document.getElementById('liveAlertPlaceholder')
-const appendAlert = (message, type) => {
-  const wrapper = document.createElement('div')
-  wrapper.innerHTML = [
-    `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-    `   <div>${message}</div>`,
-    '   <button type="button" class="btn-close" data-coreui-dismiss="alert" aria-label="Close"></button>',
-    '</div>'
-  ].join('')
 
-  alertPlaceholder.append(wrapper)
-}
-
-const alertTrigger = document.getElementById('liveAlertBtn')
-if (alertTrigger) {
-  alertTrigger.addEventListener('click', () => {
-    appendAlert('Nice, you triggered this alert message!', 'success')
-  })
-}
-```
+<Code code={alertLive} lang="js" />
 
 ### Link color
 

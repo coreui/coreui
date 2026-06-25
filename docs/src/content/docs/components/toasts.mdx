@@ -6,6 +6,8 @@ otherFrameworks:
   - toast
 ---
 
+import liveToast from './snippets/live-toast.js?raw'
+
 Bootstrap toasts are lightweight notifications that mimic the push notifications popularized by mobile and desktop operating systems. They utilize flexbox, making them simple to align and position.
 
 ## Overview
@@ -61,19 +63,11 @@ Click the button below to display a toast (positioned with our utilities in the 
     </div>
   </div>
 
-  <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>`} sandboxJs={[`const toastTrigger = document.getElementById('liveToastBtn')`, `const toastLiveExample = document.getElementById('liveToast')`, ``, `const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)`, `toastTrigger.addEventListener('click', () => {`, `  toastCoreUI.show()`, `})`].join('\n')} />
+  <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>`} sandboxJs={liveToast} />
 
 We use the following JavaScript to trigger our live toast demo:
 
-```js
-const toastTrigger = document.getElementById('liveToastBtn')
-const toastLiveExample = document.getElementById('liveToast')
-
-const toastCoreUI = coreui.Toast.getOrCreateInstance(toastLiveExample)
-toastTrigger.addEventListener('click', () => {
-  toastCoreUI.show()
-})
-```
+<Code code={liveToast} lang="js" />
 
 ### Translucent
 
