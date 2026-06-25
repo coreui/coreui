@@ -1,6 +1,7 @@
 # Ignore docs files
 /_site/
 /docs/dist/
+/docs/.astro/
 
 # Numerous always-ignore extensions
 *.diff

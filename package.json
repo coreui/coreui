@@ -56,10 +56,9 @@
     "js-test-jquery": "cross-env JQUERY=true npm run js-test-karma",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint lockfile-lint",
     "docs": "npm-run-all docs-build docs-lint",
-    "docs-build": "npm --prefix docs install && npm --prefix docs run build && rm -rf _site && cp -r docs/dist _site",
+    "docs-build": "astro build --root docs && rm -rf _site && cp -r docs/dist _site",
     "docs-compile": "npm run docs-build",
-    "docs-serve": "npm --prefix docs run dev -- --port 9001",
-    "docs-serve-only": "npx sirv-cli _site --port 9001",
+    "docs-serve": "astro dev --root docs --port 9001",
     "docs-vnu": "node build/vnu-jar.mjs",
     "docs-lint": "npm run docs-vnu",
     "lockfile-lint": "lockfile-lint --allowed-hosts npm --allowed-schemes https: --empty-hostname false --type npm --path package-lock.json",
@@ -72,10 +71,8 @@
     "test": "npm-run-all lint dist js-test docs-build docs-lint",
     "watch": "npm-run-all --parallel watch-*",
     "watch-css-main": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-lint css-compile css-prefix\"",
-    "watch-css-docs": "nodemon --watch docs/assets/scss/ --ext scss --exec \"npm run css-lint\"",
     "watch-css-test": "nodemon --watch scss/ --ext scss,js --exec \"npm run css-test\"",
-    "watch-js-main": "nodemon --watch js/src/ --ext js --exec \"npm-run-all js-lint js-compile\"",
-    "watch-js-docs": "nodemon --watch docs/assets/js/ --ext js --exec \"npm run js-lint\""
+    "watch-js-main": "nodemon --watch js/src/ --ext js --exec \"npm-run-all js-lint js-compile\""
   },
   "style": "dist/css/coreui.css",
   "sass": "scss/coreui.scss",
@@ -99,24 +96,21 @@
     "@popperjs/core": "^2.11.8"
   },
   "devDependencies": {
-    "@babel/cli": "^7.29.7",
+    "@astrojs/mdx": "^6.0.0",
     "@babel/core": "^7.29.7",
     "@babel/preset-env": "^7.29.7",
-    "@coreui/internal-links": "^5.2.0",
-    "@docsearch/css": "^4.6.3",
-    "@docsearch/js": "^4.6.3",
+    "@coreui/astro-docs": "0.1.0-beta.7",
     "@eslint/markdown": "^7.5.1",
     "@popperjs/core": "^2.11.8",
     "@rollup/plugin-babel": "^7.1.0",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-replace": "^6.0.3",
-    "@stackblitz/sdk": "^1.11.0",
+    "astro": "^6.4.0",
     "autoprefixer": "^10.5.0",
     "bootstrap": "^5.3.8",
     "bundlewatch": "^0.4.2",
     "clean-css-cli": "^5.6.3",
-    "clipboard": "^2.0.11",
     "cross-env": "^10.1.0",
     "eslint": "^9.39.4",
     "eslint-config-xo": "0.49.0",
@@ -127,7 +121,6 @@
     "globals": "^16.5.0",
     "globby": "^16.2.0",
     "hammer-simulator": "0.0.1",
-    "html-entities": "^2.6.0",
     "ip": "^2.0.1",
     "jasmine": "^5.13.0",
     "jquery": "^3.7.1",
@@ -155,6 +148,7 @@
     "stylelint": "^16.26.1",
     "stylelint-config-twbs-bootstrap": "^16.1.0",
     "terser": "5.48.0",
+    "typescript": "^5.4.0",
     "vnu-jar": "25.11.25"
   },
   "files": [
@@ -181,8 +175,5 @@
     "peerDependencies": {
       "@popperjs/core": "^2.11.8"
     }
-  },
-  "dependencies": {
-    "html-entities": "^2.6.0"
   }
 }

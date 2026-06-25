@@ -7,5 +7,12 @@ export default defineConfig({
   // src/data/config.yml and sets Astro's `site` + `base` from it.
   // Vanilla JS docs render the examples as static HTML (no framework island), so there's
   // no React/Vue integration — just the engine + MDX.
+  //
+  // Docs are the Astro root (docs/) but dependencies live at the repo root, so the
+  // library project has no docs/node_modules. Send Astro's and Vite's caches to the
+  // repo-root `.cache/` (where eslint/stylelint caches already live; gitignored), so
+  // the build never recreates docs/node_modules. Paths are relative to this root.
+  cacheDir: '../.cache/astro',
+  vite: { cacheDir: '../.cache/vite' },
   integrations: [...coreuiDocs(), mdx()],
 })
