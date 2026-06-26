@@ -28,10 +28,20 @@ export function buildProject(data: ExampleData, target: SandboxTarget = 'stackbl
   const cssHref = isNode ? `node_modules/${pkg}/dist/css/coreui.min.css` : `https://cdn.jsdelivr.net/npm/${pkg}/dist/css/coreui.min.css`
   const jsSrc = isNode ? `node_modules/${pkg}/dist/js/coreui.bundle.min.js` : `https://cdn.jsdelivr.net/npm/${pkg}/dist/js/coreui.bundle.min.js`
 
-  // CoreUI first, then the page deps (e.g. dayjs), then the demo snippet — so the
-  // snippet runs against the same globals as the docs page.
+  // Only the page deps this snippet actually uses (match the npm package name in the CDN
+  // URL against the snippet), so examples that don't touch them aren't bloated with e.g.
+  // dayjs. CoreUI first, then those deps, then the demo snippet.
+  const usedDeps = js
+    ? deps.filter((dep) => {
+        const pkg = dep.match(/\/npm\/(?:@[^/]+\/)?([^@/]+)/)?.[1]
+        if (!pkg) return false
+        const escaped = pkg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+        return new RegExp(`\\b${escaped}\\b`).test(js)
+      })
+    : []
+
   const scripts = [`<script src="${jsSrc}"></script>`]
-  for (const dep of deps) scripts.push(`<script src="${dep}"></script>`)
+  for (const dep of usedDeps) scripts.push(`<script src="${dep}"></script>`)
   if (js) scripts.push('<script src="index.js"></script>')
 
   const indexHtml = `<!doctype html>
