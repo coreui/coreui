@@ -13,6 +13,12 @@ export default defineConfig({
   // repo-root `.cache/` (where eslint/stylelint caches already live; gitignored), so
   // the build never recreates docs/node_modules. Paths are relative to this root.
   cacheDir: '../.cache/astro',
-  vite: { cacheDir: '../.cache/vite' },
+  vite: {
+    cacheDir: '../.cache/vite',
+    // lz-string (used by the engine's sandbox script) is a UMD/CJS package with no ESM
+    // entry, and Vite's dep scanner doesn't reach the lazily-loaded sandbox script, so it
+    // gets served raw and `import { compressToBase64 }` fails in dev. Force pre-bundling.
+    optimizeDeps: { include: ['lz-string'] }
+  },
   integrations: [...coreuiDocs(), mdx()],
 })
