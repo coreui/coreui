@@ -16,17 +16,22 @@ interface ExampleData {
   pro?: boolean
   /** Demo snippet (the example's `stackblitz_add_js`) shipped as index.js. */
   js?: string | null
+  /** Page-level `js:` deps (e.g. dayjs CDN URLs) the snippet relies on. */
+  deps?: string[]
 }
 
 export function buildProject(data: ExampleData, target: SandboxTarget = 'stackblitz') {
-  const { code, componentName = 'CoreUI Example', pro = false, js } = data
+  const { code, componentName = 'CoreUI Example', pro = false, js, deps = [] } = data
   const pkg = pro ? '@coreui/coreui-pro' : '@coreui/coreui'
   const isNode = Boolean(js) && target === 'stackblitz'
 
   const cssHref = isNode ? `node_modules/${pkg}/dist/css/coreui.min.css` : `https://cdn.jsdelivr.net/npm/${pkg}/dist/css/coreui.min.css`
   const jsSrc = isNode ? `node_modules/${pkg}/dist/js/coreui.bundle.min.js` : `https://cdn.jsdelivr.net/npm/${pkg}/dist/js/coreui.bundle.min.js`
 
+  // CoreUI first, then the page deps (e.g. dayjs), then the demo snippet — so the
+  // snippet runs against the same globals as the docs page.
   const scripts = [`<script src="${jsSrc}"></script>`]
+  for (const dep of deps) scripts.push(`<script src="${dep}"></script>`)
   if (js) scripts.push('<script src="index.js"></script>')
 
   const indexHtml = `<!doctype html>
