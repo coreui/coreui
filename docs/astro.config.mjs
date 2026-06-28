@@ -12,6 +12,9 @@ export default defineConfig({
   // library project has no docs/node_modules. Send Astro's and Vite's caches to the
   // repo-root `.cache/` (where eslint/stylelint caches already live; gitignored), so
   // the build never recreates docs/node_modules. Paths are relative to this root.
+  // Build straight to the repo-root `_site/` (the directory the deploy workflow
+  // publishes) so there's a single output — no separate `docs/dist` to keep in sync.
+  outDir: '../_site',
   cacheDir: '../.cache/astro',
   vite: {
     cacheDir: '../.cache/vite',

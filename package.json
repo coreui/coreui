@@ -56,7 +56,7 @@
     "js-test-jquery": "cross-env JQUERY=true npm run js-test-karma",
     "lint": "npm-run-all --aggregate-output --continue-on-error --parallel js-lint css-lint lockfile-lint",
     "docs": "npm-run-all docs-build docs-lint",
-    "docs-build": "astro build --root docs && rm -rf _site && cp -r docs/dist _site",
+    "docs-build": "astro build --root docs",
     "docs-compile": "npm run docs-build",
     "docs-serve": "astro dev --root docs --port 9001",
     "docs-vnu": "node build/vnu-jar.mjs",
