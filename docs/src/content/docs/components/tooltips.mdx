@@ -6,6 +6,8 @@ otherFrameworks:
   - tooltip
 ---
 
+import tooltip from './snippets/tooltip.js?raw'
+
 ## Overview
 
 Things to keep in mind when using the Bootstrap tooltip plugin:
@@ -38,16 +40,13 @@ Got all that? Great, let's see how they work with some examples.
 
 You can enable tooltips using JavaScript or data attributes. Here's how to initialize all tooltip elements on a page:
 
-```js
-const tooltipTriggerList = document.querySelectorAll('[data-coreui-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new coreui.Tooltip(tooltipTriggerEl))
-```
+<Code code={tooltip} id="enable-tooltips" lang="js" />
 
 ### Tooltips on links
 
 Hover your cursor over the links below to see tooltips:
 
-<Example class="tooltip-demo" html={[`<p class="muted">`, `    Sample text to illustrate <a href="#" data-coreui-toggle="tooltip" title="Default tooltip">inline links</a> accompanied by tooltips. This serves purely as filler, lacking substance. The content here merely simulates <a href="#" data-coreui-toggle="tooltip" title="Another tooltip">genuine text</a> presence. All of this is to demonstrate how <a href="#" data-coreui-toggle="tooltip" title="Another one here too">tooltips</a> would appear in actual scenarios. Hopefully, you have now observed how these link tooltips function effectively in practice, ready to be used on your own website or project.`, `  </p>`]} />
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" html={[`<p class="muted">`, `    Sample text to illustrate <a href="#" data-coreui-toggle="tooltip" title="Default tooltip">inline links</a> accompanied by tooltips. This serves purely as filler, lacking substance. The content here merely simulates <a href="#" data-coreui-toggle="tooltip" title="Another tooltip">genuine text</a> presence. All of this is to demonstrate how <a href="#" data-coreui-toggle="tooltip" title="Another one here too">tooltips</a> would appear in actual scenarios. Hopefully, you have now observed how these link tooltips function effectively in practice, ready to be used on your own website or project.`, `  </p>`]} />
 
 <Callout color="warning">
 You can choose to use either `title` or `data-coreui-title` in your HTML. If you opt for `title,` Popper will automatically change it to `data-coreui-title` upon rendering the element.
@@ -61,7 +60,7 @@ Feel free to personalize the look of your tooltips with [CSS variables](#variabl
 
 <ScssDocs file="@docs/_component-examples.scss" capture="custom-tooltip" />
 
-<Example class="tooltip-demo" code={`<button type="button" class="btn btn-outline"
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" code={`<button type="button" class="btn btn-outline"
           data-coreui-toggle="tooltip" data-coreui-placement="top"
           data-coreui-custom-class="custom-tooltip"
           data-coreui-title="This top tooltip is themed via CSS variables.">
@@ -72,7 +71,7 @@ Feel free to personalize the look of your tooltips with [CSS variables](#variabl
 
 Bootstrap Tooltips support multiple placements: top, right, bottom, and left. The default is top. Directions are mirrored when using CoreUI in RTL. To change placement, use the `data-coreui-placement` attribute:
 
-<Example class="tooltip-demo" code={`<button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="top" title="Tooltip on top">Tooltip on top</button>
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" code={`<button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="top" title="Tooltip on top">Tooltip on top</button>
   <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="right" title="Tooltip on right">Tooltip on right</button>
   <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
   <button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-placement="left" title="Tooltip on left">Tooltip on left</button>`} />
@@ -83,7 +82,7 @@ Bootstrap Tooltips support HTML content, allowing you to insert styled elements 
 
 To enable this, set the `data-coreui-html="true"` attribute and include valid HTML in the title attribute. Be mindful of security when injecting dynamic content.
 
-<Example class="tooltip-demo" code={`<button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" code={`<button type="button" class="btn btn-outline" data-coreui-toggle="tooltip" data-coreui-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
     Tooltip with HTML
   </button>`} />
 
@@ -95,7 +94,7 @@ Applying Bootstrap Tooltips to SVG elements requires a different approach, since
 
 It’s recommended to set the container option to `'body'` to avoid positioning issues, especially when SVGs are nested inside complex layouts.
 
-<Example class="tooltip-demo" code={`<a href="#" class="d-inline-block" data-coreui-toggle="tooltip" title="Default tooltip">
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" code={`<a href="#" class="d-inline-block" data-coreui-toggle="tooltip" title="Default tooltip">
     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 100 100">
       <rect width="100%" height="100%" fill="#563d7c"/>
       <circle cx="50" cy="50" r="30" fill="#007bff"/>
@@ -154,7 +153,7 @@ Only add tooltips to HTML elements that are inherently keyboard-focusable and in
 
 Elements that have the `disabled` attribute are non-interactive, which prevents users from focusing, hovering, or clicking on them to display a tooltip (or popover). To address this, consider triggering the tooltip from a surrounding `<div>` or `<span>`, preferably making it keyboard-focusable by using `tabindex="0"`.
 
-<Example class="tooltip-demo" code={`<span class="d-inline-block" tabindex="0" data-coreui-toggle="tooltip" title="Disabled tooltip">
+<Example class="tooltip-demo" sandboxJsId="enable-tooltips" code={`<span class="d-inline-block" tabindex="0" data-coreui-toggle="tooltip" title="Disabled tooltip">
     <button class="btn btn-primary" type="button" disabled>Disabled button</button>
   </span>`} />
 
