@@ -189,7 +189,8 @@ export default [
   {
     // Docs demo snippets (`?raw` imports) and docs-site helper scripts: plain browser
     // scripts that run against the global `coreui` bundle. Instantiating for side
-    // effects (`new coreui.X(...)`) and `console` are expected here.
+    // effects (`new coreui.X(...)`), keeping the mapped instance list, and `console`
+    // are expected here.
     files: ['docs/src/content/docs/**/snippets/**/*.js', 'docs/public/**/*.js'],
     languageOptions: {
       globals: {
@@ -201,6 +202,7 @@ export default [
     rules: {
       'no-console': 'off',
       'no-new': 'off',
+      'no-unused-vars': 'off',
       'unicorn/no-array-for-each': 'off',
       'unicorn/prefer-top-level-await': 'off'
     }
