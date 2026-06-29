@@ -1,0 +1,57 @@
+---
+title: "Bootstrap 5 Object Fit"
+name: "Object fit"
+description: "Use the object fit utilities to modify how the content of a [replaced element](https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element), such as an `<img>` or `<video>`, should be resized to fit its container."
+---
+
+## How it works
+
+Change the value of the [`object-fit` property](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit) with our responsive `object-fit` utility classes. This property tells the content to fill the parent container in a variety of ways, such as preserving the aspect ratio or stretching to take up as much space as possible.
+
+Classes for the value of `object-fit` are named using the format `.object-fit-{value}`. Choose from the following values:
+
+- `contain`
+- `cover`
+- `fill`
+- `scale` (for scale-down)
+- `none`
+
+## Examples
+
+Add the `object-fit-{value}` class to the [replaced element](https://developer.mozilla.org/en-US/docs/Web/CSS/Replaced_element):
+
+<Example class="d-flex overflow-auto" code={`<svg class="docs-placeholder-img object-fit-contain border rounded" width="140" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Object fit contain" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Object fit contain</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Object fit contain</text></svg>
+  <svg class="docs-placeholder-img object-fit-cover border rounded" width="140" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Object fit cover" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Object fit cover</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Object fit cover</text></svg>
+  <svg class="docs-placeholder-img object-fit-fill border rounded" width="140" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Object fit fill" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Object fit fill</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Object fit fill</text></svg>
+  <svg class="docs-placeholder-img object-fit-scale border rounded" width="140" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Object fit scale down" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Object fit scale down</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Object fit scale down</text></svg>
+  <svg class="docs-placeholder-img object-fit-none border rounded" width="140" height="120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Object fit none" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Object fit none</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Object fit none</text></svg>`} />
+
+## Responsive
+
+Responsive variations also exist for each `object-fit` value using the format `.object-fit-{breakpoint}-{value}`, for the following breakpoint abbreviations: `sm`, `md`, `lg`, `xl`, and `xxl`. Classes can be combined for various effects as you need.
+
+<Example class="d-flex overflow-auto" code={`<svg class="docs-placeholder-img object-fit-sm-contain border rounded" width="140" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contain on sm" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Contain on sm</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Contain on sm</text></svg>
+  <svg class="docs-placeholder-img object-fit-md-contain border rounded" width="140" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contain on md" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Contain on md</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Contain on md</text></svg>
+  <svg class="docs-placeholder-img object-fit-lg-contain border rounded" width="140" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contain on lg" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Contain on lg</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Contain on lg</text></svg>
+  <svg class="docs-placeholder-img object-fit-xl-contain border rounded" width="140" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contain on xl" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Contain on xl</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Contain on xl</text></svg>
+  <svg class="docs-placeholder-img object-fit-xxl-contain border rounded" width="140" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Contain on xxl" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Contain on xxl</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Contain on xxl</text></svg>`} />
+
+## Video
+
+The `.object-fit-{value}` and responsive `.object-fit-{breakpoint}-{value}` utilities also work on `<video>` elements.
+
+```html
+<video src="..." class="object-fit-contain" autoplay></video>
+<video src="..." class="object-fit-cover" autoplay></video>
+<video src="..." class="object-fit-fill" autoplay></video>
+<video src="..." class="object-fit-scale" autoplay></video>
+<video src="..." class="object-fit-none" autoplay></video>
+```
+
+## CSS
+
+### Sass utilities API
+
+Object fit utilities are declared in our utilities API in `scss/_utilities.scss`. [Learn how to use the utilities API.](/utilities/api/#using-the-api)
+
+<ScssDocs file="scss/_utilities.scss" capture="utils-object-fit" />

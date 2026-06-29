@@ -30,7 +30,24 @@ execFile('java', ['-version'], (error, stdout, stderr) => {
     // Per https://www.w3.org/TR/html-aria/#docconformance having "aria-disabled" on a link is
     // NOT RECOMMENDED, but it's still valid - we explain in the docs that it's not ideal,
     // and offer more robust alternatives, but also need to show a less-than-ideal example
-    'An “aria-disabled” attribute whose value is “true” should not be specified on an “a” element that has an “href” attribute.'
+    'An “aria-disabled” attribute whose value is “true” should not be specified on an “a” element that has an “href” attribute.',
+    // A `code` element with the `is:raw` attribute coming from remark-prismjs (Astro upstream possible bug)
+    'Attribute “is:raw” is not serializable as XML 1.0.',
+    'Attribute “is:raw” not allowed on element “code” at this point.',
+    // Astro's expecting trailing slashes on HTML tags such as <br />
+    'Trailing slash on void elements has no effect and interacts badly with unquoted attribute values.',
+    // Allow `switch` attribute.
+    'Attribute “switch” not allowed on element “input” at this point.',
+    // CoreUI custom controls (chip input, OTP) build their labelled <input> in JS on
+    // init, so the static markup the validator sees has a `for` with no target yet.
+    'The value of the “for” attribute of the “label” element must be the ID of a non-hidden form control.',
+    // Astro 6's `redirects` config emits the docs-root redirect as
+    // <meta http-equiv="refresh" content="0;url=..."> — valid HTML, but the validator
+    // wants a space after the semicolon, and Astro's output isn't configurable.
+    'Bad value .*0;url=.*Expected a space character.*',
+    // Same Astro-generated docs-root redirect stub: a bare <html> with no `lang`.
+    // Every real page sets `lang` via the Shell layout; only this stub lacks it.
+    'Consider adding a .lang. attribute to the .html. start tag.*'
   ].join('|')
 
   const args = [
@@ -40,7 +57,7 @@ execFile('java', ['-version'], (error, stdout, stderr) => {
     '--skip-non-html',
     '--Werror',
     `--filterpattern "${ignores}"`,
-    '_gh-pages/',
+    '_site/',
     'js/tests/'
   ]
 

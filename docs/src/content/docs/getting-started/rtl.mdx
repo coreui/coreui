@@ -1,0 +1,121 @@
+---
+title: "RTL"
+description: "Learn how to enable support for right-to-left text in CoreUI for Bootstrap across our layout, components, and utilities."
+---
+
+## Get familiar
+
+We recommend getting familiar with CoreUI for Bootstrap first by reading through our [Getting Started Introduction page](/getting-started/introduction/). Once you've run through it, continue reading here for how to enable RTL.
+
+## Required HTML
+
+There are two strict requirements for enabling RTL in Bootstrap-powered pages.
+
+1. Set `dir="rtl"` on the `<html>` element.
+2. Add an appropriate `lang` attribute, like `lang="ar"`, on the `<html>` element.
+
+From there, you'll need to include an RTL version of our CSS. For example, here's the stylesheet for our compiled and minified CSS with RTL enabled:
+
+```html
+<link rel="stylesheet" href="[[config:cdn.css_rtl]]" integrity="[[config:cdn.css_rtl_hash]]" crossorigin="anonymous">
+```
+
+### Starter template
+
+You can see the above requirements reflected in this modified RTL starter template.
+
+```html
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CoreUI for Bootstrap CSS -->
+    <link rel="stylesheet" href="[[config:cdn.css_rtl]]" integrity="[[config:cdn.css_rtl_hash]]" crossorigin="anonymous">
+
+    <title>مرحبا بالعالم!</title>
+  </head>
+  <body>
+    <h1>مرحبا بالعالم!</h1>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: CoreUI for Bootstrap Bundle with Popper -->
+    <script src="[[config:cdn.js_bundle]]" integrity="[[config:cdn.js_bundle_hash]]" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and CoreUI for Bootstrap JS -->
+    <!--
+    <script src="[[config:cdn.popper]]" integrity="[[config:cdn.popper_hash]]" crossorigin="anonymous"></script>
+    <script src="[[config:cdn.js]]" integrity="[[config:cdn.js_hash]]" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+```
+
+## Approach
+
+Our approach to building RTL support into CoreUI comes with two important decisions that impact how we write and use our CSS:
+
+1. **First, as in CoreUI 3 we decided to build it with our own mixins** This gives us full control and allows us to generate LTR and RTL separately, or if needed one stylesheet with both versions without any style's duplicates.
+
+2. **Second, in CoreUI 3 we introduced a handful of directional classes ex. `mfs-auto`,  but in CoreUI 4 we've simplified them ex. `ms-auto`, and renamed all directional classes to adopt a logical properties approach.** Most of you have already interacted with logical properties thanks to our flex utilities—they replace direction properties like `left` and `right` in favor `start` and `end`. That makes the class names and values appropriate for LTR and RTL without any overhead.
+
+  For example, instead of `.ml-3` for `margin-left`, use `.ms-3`.
+
+Working with RTL, through our source Sass or compiled CSS, shouldn't be much different from our default LTR though.
+
+## Customize from source
+
+When it comes to [customization](/customize/sass/), the preferred way is to take advantage of variables, maps, and mixins.
+
+### LTR and RTL at the same time
+
+Need both LTR and RTL on the same page? All you have to do is set following variables:
+
+<Callout color="info"><Fragment set:html={`<p> <strong>Heads up!</strong> Since <code>@coreui/coreui</code> v5.3.0 and <code>@coreui/coreui-pro</code> v5.10.0, we support Sass modules. </p> <p> You can now use the modern <code>@use</code> and <code>@forward</code> rules instead of <code>@import</code>, which is deprecated and will be removed in Dart Sass 3.0.0. Using <code>@import</code> will result in a compilation warning. You can learn more about this transition <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>. </p>`} /></Callout>
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: true,
+  $enable-rtl: true
+);
+```
+
+<Callout color="warning"><Fragment set:html={`<p> <strong>Sass <code>@import</code> are deprecated and will be removed in Dart Sass 3.0.0.!</strong> </p> <p>You can also use <code>@import</code> rules, but please be aware that they are deprecated and will be removed in Dart Sass 3.0.0, resulting in a compilation warning. You can learn more about this deprecation <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>.</p>`} /></Callout>
+
+```scss
+$enable-ltr: true;
+$enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
+```
+
+After running Sass, each selector in your CSS files will be prepended by `html:not([dir=rtl])`, and `*[dir=rtl]` for RTL files. Now you're able to use both files on the same page.
+
+### RTL only
+
+By default LTR is enable and RTL is disable, but you can easily change it and use only RTL.
+
+<Callout color="info"><Fragment set:html={`<p> <strong>Heads up!</strong> Since <code>@coreui/coreui</code> v5.3.0 and <code>@coreui/coreui-pro</code> v5.10.0, we support Sass modules. </p> <p> You can now use the modern <code>@use</code> and <code>@forward</code> rules instead of <code>@import</code>, which is deprecated and will be removed in Dart Sass 3.0.0. Using <code>@import</code> will result in a compilation warning. You can learn more about this transition <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>. </p>`} /></Callout>
+
+```scss
+@use "@coreui/coreui/scss/coreui" with (
+  $enable-ltr: false,
+  $enable-rtl: true
+);
+```
+
+<Callout color="warning"><Fragment set:html={`<p> <strong>Sass <code>@import</code> are deprecated and will be removed in Dart Sass 3.0.0.!</strong> </p> <p>You can also use <code>@import</code> rules, but please be aware that they are deprecated and will be removed in Dart Sass 3.0.0, resulting in a compilation warning. You can learn more about this deprecation <a href="https://sass-lang.com/documentation/breaking-changes/import/" target="_blank">here</a>.</p>`} /></Callout>
+
+```scss
+$enable-ltr: false;
+$enable-rtl: true;
+
+@import "../node_modules/@coreui/coreui/scss/coreui";
+```
+
+## Additional resources
+
+- [RTL Styling 101](https://rtlstyling.com/posts/rtl-styling)

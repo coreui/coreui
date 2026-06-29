@@ -1,0 +1,15 @@
+---
+title: "Bootstrap 5 Colored Links"
+name: "Colored links"
+description: "Colored links with hover states"
+---
+
+import { getData } from '@coreui/astro-docs/data'
+
+You can use the `.link-*` classes to colorize links. Unlike the [`.text-*` classes](/utilities/colors/), these classes have a `:hover` and `:focus` state.
+
+<Example code={getData('theme-colors').map((c) => `<a href="#" class="link-${c.name}">${c.title} link</a>`)} />
+
+<Callout color="info">
+Some of the link styles use a relatively light foreground color, and should only be used on a dark background in order to have sufficient contrast.
+</Callout>

@@ -1,0 +1,44 @@
+---
+title: "Bootstrap 5 Vertical Rule"
+name: "Vertical rule"
+description: "Use the custom vertical rule helper to create vertical dividers like the `<hr>` element."
+---
+
+## How it works
+
+Vertical rules are inspired by the `<hr />` element, allowing you to create vertical dividers in common layouts. They're styled just like `<hr />` elements:
+
+- They're `1px` wide
+- They have `min-height` of `1em`
+- Their color is set via `currentColor` and `opacity`
+
+Customize them with additional styles as needed.
+
+## Example
+
+<Example code={`<div class="vr"></div>`} />
+
+Vertical rules scale their height in flex layouts:
+
+<Example code={`<div class="d-flex" style="height: 200px;">
+    <div class="vr"></div>
+  </div>`} />
+
+## With stacks
+
+They can also be used in [stacks](/helpers/stacks/):
+
+<Example code={`<div class="hstack gap-3">
+    <div class="bg-light border">First item</div>
+    <div class="bg-light border ms-auto">Second item</div>
+    <div class="vr"></div>
+    <div class="bg-light border">Third item</div>
+  </div>`} />
+
+## Customizing
+
+### SASS variables
+
+Customize the vertical rule Sass variable to change its width.
+
+<ScssDocs file="scss/_variables.scss" capture="vr-variables" />

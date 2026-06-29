@@ -19,10 +19,13 @@ export default [
       '**/dist/',
       '**/vendor/',
       '.babelrc.js',
-      '_gh_pages/',
-      'js/coverage/',
-      'docs/static/sw.js',
-      'docs/layouts/partials/'
+      '.cache/',
+      '_site/',
+      'docs/.astro/',
+      'docs/scripts/',
+      'docs/astro.config.mjs',
+      'docs/**/*.ts',
+      'js/coverage/'
     ]
   },
   {
@@ -184,38 +187,24 @@ export default [
     }
   },
   {
-    files: ['docs/**'],
+    // Docs demo snippets (`?raw` imports) and docs-site helper scripts: plain browser
+    // scripts that run against the global `coreui` bundle. Instantiating for side
+    // effects (`new coreui.X(...)`), keeping the mapped instance list, and `console`
+    // are expected here.
+    files: ['docs/src/content/docs/**/snippets/**/*.js', 'docs/public/**/*.js'],
     languageOptions: {
       globals: {
         ...globals.browser,
-        ...Object.fromEntries(
-          Object.entries(globals.node).map(([key]) => [key, 'off'])
-        )
-      },
-      ecmaVersion: 2019,
-      sourceType: 'script'
+        coreui: 'readonly',
+        dayjs: 'readonly'
+      }
     },
     rules: {
+      'no-console': 'off',
       'no-new': 'off',
-      'unicorn/no-array-for-each': 'off'
-    }
-  },
-  {
-    files: ['docs/assets/js/**'],
-    languageOptions: {
-      globals: {
-        ...globals.browser
-      },
-      ecmaVersion: 2020,
-      sourceType: 'module'
-    }
-  },
-  {
-    files: ['docs/static/assets/js/**'],
-    languageOptions: {
-      globals: {
-        ...globals.browser
-      }
+      'no-unused-vars': 'off',
+      'unicorn/no-array-for-each': 'off',
+      'unicorn/prefer-top-level-await': 'off'
     }
   },
   {
