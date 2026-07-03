@@ -19,6 +19,8 @@
       to: /getting-started/vite/
     - title: Accessibility
       to: /getting-started/accessibility/
+    - title: LLMs.txt
+      to: /getting-started/llms-txt/
     - title: AI Tools (MCP)
       to: /getting-started/ai-tools/
     - title: RFS
