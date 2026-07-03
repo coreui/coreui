@@ -19,12 +19,17 @@
       to: /getting-started/vite/
     - title: Accessibility
       to: /getting-started/accessibility/
-    - title: AI Tools (MCP)
-      to: /getting-started/ai-tools/
     - title: RFS
       to: /getting-started/rfs/
     - title: RTL
       to: /getting-started/rtl/
+- title: AI Tools
+  icon: <path fill="var(--ci-primary-color, currentColor)" d="M472 40H40a24.03 24.03 0 0 0-24 24v392a24.03 24.03 0 0 0 24 24h432a24.03 24.03 0 0 0 24-24V64a24.03 24.03 0 0 0-24-24m-8 408H48V72h416Z" class="ci-primary"></path><path fill="var(--ci-primary-color, currentColor)" d="m115.962 282.627 73.445-82.672-73.451-82.588-23.912 21.266 54.549 61.333-54.555 61.407zM216 240h128v32H216z" class="ci-primary"></path>
+  pages:
+    - title: LLMs.txt
+      to: /ai-tools/llms-txt/
+    - title: MCP Server
+      to: /ai-tools/mcp/
 - title: Integration guides
   icon: <path fill="var(--ci-primary-color, currentColor)" d="M152,16V120H88V311.005l104,96v89H320V407.005l104-96V120H360V16H328V120H184V16ZM392,152V297L288,393V464H224V393L120,297V152Z" class="ci-primary"/>
   pages:
