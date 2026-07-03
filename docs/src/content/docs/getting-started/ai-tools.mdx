@@ -1,0 +1,59 @@
+---
+title: "AI Tools (MCP)"
+name: "AI Tools (MCP)"
+description: "Bring the CoreUI documentation into your AI coding assistant with the @coreui/docs-mcp Model Context Protocol server."
+---
+
+## What is the CoreUI Docs MCP server?
+
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open standard that lets AI assistants connect to external tools and data sources. The **`@coreui/docs-mcp`** server exposes the official CoreUI documentation — components, props, events, slots, and examples — so your assistant answers from the current docs instead of relying on stale training data.
+
+It covers Bootstrap, React, and Vue, and reads the live documentation from `coreui.io` on demand, so it always reflects the latest release.
+
+## Installation
+
+The server runs over stdio via `npx` — no global install required.
+
+### Claude Code
+
+```bash
+claude mcp add coreui-docs -- npx -y @coreui/docs-mcp --framework bootstrap
+```
+
+### Cursor, Windsurf, VS Code, and Claude Desktop
+
+Add the server to your MCP configuration (`.cursor/mcp.json`, `.vscode/mcp.json`, `claude_desktop_config.json`, and similar):
+
+```json
+{
+  "mcpServers": {
+    "coreui-docs": {
+      "command": "npx",
+      "args": ["-y", "@coreui/docs-mcp", "--framework", "bootstrap"]
+    }
+  }
+}
+```
+
+## Tools
+
+Once connected, your assistant can call the following tools:
+
+| Tool | Description |
+| --- | --- |
+| `list_components` | List documentation pages, optionally filtered by section or a substring. |
+| `search_docs` | Search the documentation and return the best matching pages. |
+| `get_doc_page` | Fetch the full Markdown of a page by slug, component name, or URL. |
+| `get_component_api` | Get the structured API (props, events, slots) for a component. |
+| `get_cross_framework_links` | Get documentation URLs for a component across every CoreUI framework. |
+
+## Configuration
+
+| Flag | Environment variable | Default | Description |
+| --- | --- | --- | --- |
+| `--framework <list>` | `COREUI_DOCS_FRAMEWORKS` | `bootstrap,react,vue` | Enabled editions (comma-separated). The first is the default for tools. |
+| `--base-url <url>` | `COREUI_DOCS_BASE_URL` | `https://coreui.io` | Origin of the CoreUI site. The `/<framework>/docs` path is appended automatically — override only for a staging or self-hosted mirror. |
+| `--ttl <minutes>` | `COREUI_DOCS_TTL_MINUTES` | `360` | Cache freshness window. |
+| — | `COREUI_DOCS_CACHE_DIR` | OS cache directory | On-disk cache location. |
+
+The package is open source and published as [`@coreui/docs-mcp`](https://www.npmjs.com/package/@coreui/docs-mcp).
