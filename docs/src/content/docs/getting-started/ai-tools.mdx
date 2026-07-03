@@ -4,25 +4,32 @@ name: "AI Tools (MCP)"
 description: "Bring the CoreUI documentation into your AI coding assistant with the @coreui/docs-mcp Model Context Protocol server."
 ---
 
-## What is the CoreUI Docs MCP server?
+## Introduction
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open standard that lets AI assistants connect to external tools and data sources. The **`@coreui/docs-mcp`** server exposes the official CoreUI documentation — components, props, events, slots, and examples — so your assistant answers from the current docs instead of relying on stale training data.
+[Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open standard that lets AI assistants connect to external tools and data sources. The **`@coreui/docs-mcp`** server gives your assistant direct access to the official CoreUI documentation, so it answers from the current docs instead of relying on stale training data.
 
-It covers Bootstrap, React, and Vue, and reads the live documentation from `coreui.io` on demand, so it always reflects the latest release.
+It provides:
+
+- **Component documentation** — pages, props, events, and slots.
+- **Live content** — read on demand from `coreui.io`, always matching the latest release.
+- **Cross-framework links** — where each component is documented for Angular, Bootstrap, React, and Vue.
+- **Coverage of Bootstrap, React, and Vue** from a single server.
+
+The server runs locally over stdio via `npx` — no global install required.
 
 ## Installation
 
-The server runs over stdio via `npx` — no global install required.
-
 ### Claude Code
 
+Add the server with the CLI, then start a new session and run `/mcp` to verify the connection:
+
 ```bash
-claude mcp add coreui-docs -- npx -y @coreui/docs-mcp --framework bootstrap
+claude mcp add coreui-docs -s user -- npx -y @coreui/docs-mcp --framework bootstrap
 ```
 
-### Cursor, Windsurf, VS Code, and Claude Desktop
+### Cursor
 
-Add the server to your MCP configuration (`.cursor/mcp.json`, `.vscode/mcp.json`, `claude_desktop_config.json`, and similar):
+Create `.cursor/mcp.json` in your project (or `~/.cursor/mcp.json` for global configuration):
 
 ```json
 {
@@ -33,6 +40,66 @@ Add the server to your MCP configuration (`.cursor/mcp.json`, `.vscode/mcp.json`
     }
   }
 }
+```
+
+### VS Code
+
+Create `.vscode/mcp.json` in your project. Note that VS Code uses the `servers` key:
+
+```json
+{
+  "servers": {
+    "coreui-docs": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@coreui/docs-mcp", "--framework", "bootstrap"]
+    }
+  }
+}
+```
+
+### Windsurf
+
+Edit `~/.codeium/windsurf/mcp_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "coreui-docs": {
+      "command": "npx",
+      "args": ["-y", "@coreui/docs-mcp", "--framework", "bootstrap"]
+    }
+  }
+}
+```
+
+### Claude Desktop
+
+Edit `claude_desktop_config.json` (Settings → Developer → Edit Config):
+
+```json
+{
+  "mcpServers": {
+    "coreui-docs": {
+      "command": "npx",
+      "args": ["-y", "@coreui/docs-mcp", "--framework", "bootstrap"]
+    }
+  }
+}
+```
+
+### OpenAI Codex
+
+Add it with the CLI, or edit `~/.codex/config.toml` directly:
+
+```bash
+codex mcp add coreui-docs -- npx -y @coreui/docs-mcp --framework bootstrap
+```
+
+```toml
+[mcp_servers.coreui-docs]
+command = "npx"
+args = ["-y", "@coreui/docs-mcp", "--framework", "bootstrap"]
 ```
 
 ## Tools
@@ -55,5 +122,14 @@ Once connected, your assistant can call the following tools:
 | `--base-url <url>` | `COREUI_DOCS_BASE_URL` | `https://coreui.io` | Origin of the CoreUI site. The `/<framework>/docs` path is appended automatically — override only for a staging or self-hosted mirror. |
 | `--ttl <minutes>` | `COREUI_DOCS_TTL_MINUTES` | `360` | Cache freshness window. |
 | — | `COREUI_DOCS_CACHE_DIR` | OS cache directory | On-disk cache location. |
+
+## Example prompts
+
+Once installed, try asking your AI assistant:
+
+- "How do I use the CoreUI Multi Select component?"
+- "What props does the CoreUI Date Picker accept?"
+- "Show me the CoreUI Modal documentation."
+- "Where is the Accordion documented across CoreUI frameworks?"
 
 The package is open source and published as [`@coreui/docs-mcp`](https://www.npmjs.com/package/@coreui/docs-mcp).
