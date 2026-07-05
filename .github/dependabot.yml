@@ -12,9 +12,56 @@ updates:
       - mrholek
     labels:
       - dependencies
-      - v4
+    cooldown:
+      default-days: 7
     versioning-strategy: increase
     rebase-strategy: disabled
+    ignore:
+      # docs engine — Astro majors are coordinated migrations, bumped by hand
+      - dependency-name: "astro"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "@astrojs/*"
+        update-types:
+          - "version-update:semver-major"
+      # build toolchain — majors bumped deliberately
+      - dependency-name: "@babel/core"
+        update-types:
+          - "version-update:semver-major"
+      - dependency-name: "@babel/preset-env"
+        update-types:
+          - "version-update:semver-major"
+      # eslint core is held on 9.x — eslint-plugin-import's peer maxes at eslint ^9,
+      # so block the 10.x major until the plugin supports it (other plugins still update).
+      - dependency-name: "eslint"
+        update-types:
+          - "version-update:semver-major"
+      # eslint-config-xo is pinned exactly (0.49.0) — block all updates
+      - dependency-name: "eslint-config-xo"
+      # legacy / test infra pinned to avoid churn
+      - dependency-name: "jquery"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      - dependency-name: "hammer-simulator"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      - dependency-name: "karma*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+      # HTML validator — pinned to a specific version, even patches
+      - dependency-name: "vnu-jar"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
+          - "version-update:semver-patch"
+    groups:
+      production-dependencies:
+        dependency-type: "production"
+      development-dependencies:
+        dependency-type: "development"
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -22,3 +69,11 @@ updates:
       day: tuesday
       time: "12:00"
       timezone: Europe/Athens
+    cooldown:
+      default-days: 7
+    labels:
+      - dependencies
+    groups:
+      github-actions:
+        patterns:
+          - "*"
