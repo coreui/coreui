@@ -1,6 +1,28 @@
-import { DefaultAllowlist, sanitizeHtml } from '../../../src/util/sanitizer.js'
+import {
+  DefaultAllowlist, escapeHtml, sanitizeHtml, SVGAllowlist
+} from '../../../src/util/sanitizer.js'
 
 describe('Sanitizer', () => {
+  describe('escapeHtml', () => {
+    it('should escape HTML-significant characters', () => {
+      expect(escapeHtml('<img src="x" onerror=\'alert(1)\'> & more'))
+        .toEqual('&lt;img src=&quot;x&quot; onerror=&#x27;alert(1)&#x27;&gt; &amp; more')
+    })
+
+    it('should leave plain text untouched', () => {
+      expect(escapeHtml('Water and Fire')).toEqual('Water and Fire')
+    })
+  })
+
+  describe('SVGAllowlist', () => {
+    it('should extend the default allow list with SVG elements', () => {
+      expect(SVGAllowlist.div).toEqual(DefaultAllowlist.div)
+      expect(SVGAllowlist.svg).toContain('viewbox')
+      expect(SVGAllowlist.path).toContain('d')
+      expect(SVGAllowlist.line).toContain('x1')
+    })
+  })
+
   describe('sanitizeHtml', () => {
     it('should return the same on empty string', () => {
       const empty = ''
