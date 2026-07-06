@@ -341,6 +341,62 @@ describe('Chip', () => {
     })
   })
 
+  describe('sanitize', () => {
+    it('should strip event-handler attributes from a custom removeIcon', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { removable: true, removeIcon: '<img src=x onerror="window.xss = true"> x' })
+
+      const btn = chipEl.querySelector('.chip-remove')
+      expect(btn.querySelector('img').hasAttribute('onerror')).toBeFalse()
+      expect(btn.textContent).toContain('x')
+    })
+
+    it('should strip disallowed markup from a custom selectedIcon', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { selectable: true, filter: true, selectedIcon: '<svg><script>window.xss = true</script></svg>' })
+
+      const check = chipEl.querySelector('.chip-check')
+      expect(check.querySelector('script')).toBeNull()
+    })
+
+    it('should keep the raw icon when sanitize is false', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { removable: true, sanitize: false, removeIcon: '<span class="raw-icon"></span>' })
+
+      expect(chipEl.querySelector('.chip-remove .raw-icon')).not.toBeNull()
+    })
+
+    it('should render the default icons after sanitization', () => {
+      fixtureEl.innerHTML = '<span class="chip active">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      // eslint-disable-next-line no-new
+      new Chip(chipEl, { removable: true, selectable: true, filter: true })
+
+      expect(chipEl.querySelector('.chip-remove svg line')).not.toBeNull()
+      expect(chipEl.querySelector('.chip-check svg path')).not.toBeNull()
+    })
+
+    it('should not disable sanitization via a data attribute', () => {
+      fixtureEl.innerHTML = '<span class="chip" data-coreui-sanitize="false" data-coreui-removable="true" data-coreui-remove-icon="<img src=x onerror=alert(1)>">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl)
+
+      expect(chip._config.sanitize).toBeTrue()
+      expect(chipEl.querySelector('.chip-remove img').hasAttribute('onerror')).toBeFalse()
+    })
+  })
+
   describe('select', () => {
     it('should add active class and set aria-selected when selected', () => {
       fixtureEl.innerHTML = '<span class="chip">Tag</span>'

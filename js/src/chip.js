@@ -7,7 +7,9 @@
 
 import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
+import Manipulator from './dom/manipulator.js'
 import SelectorEngine from './dom/selector-engine.js'
+import { sanitizeHtml, SVGAllowlist } from './util/sanitizer.js'
 import { defineJQueryPlugin } from './util/index.js'
 
 /**
@@ -39,23 +41,31 @@ const CLASS_NAME_DISABLED = 'disabled'
 const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>'
 const DEFAULT_SELECTED_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>'
 
+const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn'])
+
 const Default = {
+  allowList: SVGAllowlist,
   ariaRemoveLabel: 'Remove',
   disabled: false,
   filter: false,
   removable: false,
   removeIcon: DEFAULT_REMOVE_ICON,
+  sanitize: true,
+  sanitizeFn: null,
   selectable: false,
   selected: false,
   selectedIcon: DEFAULT_SELECTED_ICON
 }
 
 const DefaultType = {
+  allowList: 'object',
   ariaRemoveLabel: 'string',
   disabled: 'boolean',
   filter: 'boolean',
   removable: 'boolean',
   removeIcon: 'string',
+  sanitize: 'boolean',
+  sanitizeFn: '(null|function)',
   selectable: 'boolean',
   selected: 'boolean',
   selectedIcon: 'string'
@@ -232,7 +242,7 @@ class Chip extends BaseComponent {
     const check = document.createElement('span')
     check.className = CLASS_NAME_CHIP_CHECK
     check.setAttribute('aria-hidden', 'true')
-    check.innerHTML = this._config.selectedIcon
+    check.innerHTML = this._sanitizeIcon(this._config.selectedIcon)
     this._element.prepend(check)
   }
 
@@ -242,7 +252,7 @@ class Chip extends BaseComponent {
     button.className = CLASS_NAME_CHIP_REMOVE
     button.setAttribute('aria-label', this._config.ariaRemoveLabel)
     button.setAttribute('tabindex', '-1') // Not in tab order, chips handle keyboard
-    button.innerHTML = this._config.removeIcon
+    button.innerHTML = this._sanitizeIcon(this._config.removeIcon)
     return button
   }
 
@@ -304,6 +314,30 @@ class Chip extends BaseComponent {
     EventHandler.trigger(this._element, EVENT_REMOVED)
     this._element.remove()
     this.dispose()
+  }
+
+  _sanitizeIcon(icon) {
+    return this._config.sanitize ? sanitizeHtml(icon, this._config.allowList, this._config.sanitizeFn) : icon
+  }
+
+  _getConfig(config) {
+    const dataAttributes = Manipulator.getDataAttributes(this._element)
+
+    for (const dataAttribute of Object.keys(dataAttributes)) {
+      if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
+        delete dataAttributes[dataAttribute]
+      }
+    }
+
+    config = {
+      ...dataAttributes,
+      ...(typeof config === 'object' && config ? config : {})
+    }
+    config = this._mergeConfigObj(config)
+    config = this._configAfterMerge(config)
+    this._typeCheckConfig(config)
+
+    return config
   }
 
   // Static
