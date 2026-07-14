@@ -166,7 +166,7 @@ class ChipInput extends ChipSet {
       // direction is mirrored in RTL.
       if (event.key === (isRTL() ? 'ArrowLeft' : 'ArrowRight')) {
         const chips = this._getFocusableChips()
-        if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+        if (chips.length > 0 && chips[chips.length - 1].contains(event.target)) {
           event.preventDefault()
           this._input.focus()
           return
@@ -271,7 +271,7 @@ class ChipInput extends ChipSet {
           const chips = this._getChipElements()
 
           if (chips.length > 0) {
-            chips.at(-1).focus()
+            chips[chips.length - 1].focus()
           }
         }
 
@@ -292,7 +292,7 @@ class ChipInput extends ChipSet {
           const chips = this._getChipElements()
 
           if (chips.length > 0) {
-            chips.at(-1).focus()
+            chips[chips.length - 1].focus()
           }
         }
 
@@ -323,7 +323,7 @@ class ChipInput extends ChipSet {
         this.add(part.trim())
       }
 
-      this._input.value = parts.at(-1)
+      this._input.value = parts[parts.length - 1]
     }
 
     this._setInputSize()

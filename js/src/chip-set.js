@@ -428,7 +428,7 @@ class ChipSet extends BaseComponent {
 
   _navigateToEdge(targetIndex) {
     const chips = this._getFocusableChips()
-    chips.at(targetIndex)?.focus()
+    chips[targetIndex < 0 ? chips.length + targetIndex : targetIndex]?.focus()
   }
 
   _handleSelectionChange(event) {
