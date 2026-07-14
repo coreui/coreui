@@ -90,6 +90,13 @@ export default [
       ],
       'no-console': 'error',
       'no-negated-condition': 'off',
+      'no-restricted-properties': [
+        'error',
+        {
+          property: 'at',
+          message: 'Avoid Array/String.prototype.at(): it is unsupported in the browsers declared in .browserslistrc (Chrome < 92, Safari < 15.4) and the build does not polyfill. Use index access, e.g. arr[arr.length - 1].'
+        }
+      ],
       'object-curly-spacing': ['error', 'always'],
       'operator-linebreak': ['error', 'after'],
       'prefer-object-has-own': 'off',
