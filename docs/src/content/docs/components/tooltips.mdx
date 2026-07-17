@@ -136,6 +136,8 @@ The markup needed for a tooltip consists solely of a `data` attribute and a `tit
 Only add tooltips to HTML elements that are inherently keyboard-focusable and interactive, like links or form controls. While it is possible to make arbitrary HTML elements like `<span>`s focusable by using the `tabindex="0"` attribute, doing so may create confusing tab stops on non-interactive elements for keyboard users. Moreover, most assistive technologies typically do not announce tooltips in these cases. Additionally, avoid depending solely on `hover` to trigger your tooltips, as this approach renders them inaccessible for keyboard users.
 </Callout>
 
+A shown tooltip can be dismissed by pressing the <kbd>Escape</kbd> key, helping satisfy the [WCAG 1.4.13 "Content on Hover or Focus"](https://www.w3.org/WAI/WCAG21/Understanding/content-on-hover-or-focus.html) success criterion.
+
 ```html
 <!-- HTML to write -->
 <a href="#" data-coreui-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
