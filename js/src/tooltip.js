@@ -25,6 +25,8 @@ import TemplateFactory from './util/template-factory.js'
 const NAME = 'tooltip'
 const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn'])
 
+const ESCAPE_KEY = 'Escape'
+
 const CLASS_NAME_FADE = 'fade'
 const CLASS_NAME_MODAL = 'modal'
 const CLASS_NAME_SHOW = 'show'
@@ -33,6 +35,7 @@ const SELECTOR_TOOLTIP_INNER = '.tooltip-inner'
 const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`
 
 const EVENT_MODAL_HIDE = 'hide.coreui.modal'
+const EVENT_KEYDOWN = 'keydown'
 
 const TRIGGER_HOVER = 'hover'
 const TRIGGER_FOCUS = 'focus'
@@ -125,6 +128,9 @@ class Tooltip extends BaseComponent {
     // Protected
     this.tip = null
 
+    // Private
+    this._keydownHandler = null
+
     this._setListeners()
 
     if (!this._config.selector) {
@@ -174,6 +180,8 @@ class Tooltip extends BaseComponent {
   dispose() {
     clearTimeout(this._timeout)
 
+    this._removeEscapeListener()
+
     EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler)
 
     if (this._element.getAttribute('data-coreui-original-title')) {
@@ -219,6 +227,8 @@ class Tooltip extends BaseComponent {
 
     tip.classList.add(CLASS_NAME_SHOW)
 
+    this._setEscapeListener()
+
     // If this is a touch-enabled device we add extra
     // empty mouseover listeners to the body's immediate children;
     // only needed because of broken event delegation on iOS
@@ -254,6 +264,8 @@ class Tooltip extends BaseComponent {
 
     const tip = this._getTipElement()
     tip.classList.remove(CLASS_NAME_SHOW)
+
+    this._removeEscapeListener()
 
     // If this is a touch-enabled device we remove the extra
     // empty mouseover listeners we added for iOS support
@@ -371,6 +383,33 @@ class Tooltip extends BaseComponent {
 
   _isShown() {
     return this.tip && this.tip.classList.contains(CLASS_NAME_SHOW)
+  }
+
+  _setEscapeListener() {
+    if (this._keydownHandler) {
+      return
+    }
+
+    this._keydownHandler = event => {
+      if (event.key !== ESCAPE_KEY || !this._isShown() || !this.tip.isConnected) {
+        return
+      }
+
+      event.preventDefault()
+      event.stopPropagation()
+      this.hide()
+    }
+
+    this._element.ownerDocument.addEventListener(EVENT_KEYDOWN, this._keydownHandler, true)
+  }
+
+  _removeEscapeListener() {
+    if (!this._keydownHandler) {
+      return
+    }
+
+    this._element.ownerDocument.removeEventListener(EVENT_KEYDOWN, this._keydownHandler, true)
+    this._keydownHandler = null
   }
 
   _createPopper(tip) {
