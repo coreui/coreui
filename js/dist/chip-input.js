@@ -1,5 +1,5 @@
 /*!
-  * CoreUI chip-input.js v5.8.0 (https://coreui.io)
+  * CoreUI chip-input.js v5.9.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -161,7 +161,7 @@
         // direction is mirrored in RTL.
         if (event.key === (index_js.isRTL() ? 'ArrowLeft' : 'ArrowRight')) {
           const chips = this._getFocusableChips();
-          if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+          if (chips.length > 0 && chips[chips.length - 1].contains(event.target)) {
             event.preventDefault();
             this._input.focus();
             return;
@@ -259,7 +259,7 @@
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                chips.at(-1).focus();
+                chips[chips.length - 1].focus();
               }
             }
             break;
@@ -274,7 +274,7 @@
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                chips.at(-1).focus();
+                chips[chips.length - 1].focus();
               }
             }
             break;
@@ -304,7 +304,7 @@
         for (const part of parts.slice(0, -1)) {
           this.add(part.trim());
         }
-        this._input.value = parts.at(-1);
+        this._input.value = parts[parts.length - 1];
       }
       this._setInputSize();
       EventHandler.trigger(this._element, EVENT_INPUT, {

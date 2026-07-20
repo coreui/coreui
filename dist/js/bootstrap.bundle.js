@@ -1,5 +1,5 @@
 /*!
-  * CoreUI v5.8.0 (https://coreui.io)
+  * CoreUI v5.9.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -665,7 +665,7 @@
    * Constants
    */
 
-  const VERSION = '5.8.0';
+  const VERSION = '5.9.0';
 
   /**
    * Class definition
@@ -1141,7 +1141,7 @@
   const DIRECTION_RIGHT = 'right';
   const EVENT_SLIDE = `slide${EVENT_KEY$e}`;
   const EVENT_SLID = `slid${EVENT_KEY$e}`;
-  const EVENT_KEYDOWN$2 = `keydown${EVENT_KEY$e}`;
+  const EVENT_KEYDOWN$3 = `keydown${EVENT_KEY$e}`;
   const EVENT_MOUSEENTER$1 = `mouseenter${EVENT_KEY$e}`;
   const EVENT_MOUSELEAVE$1 = `mouseleave${EVENT_KEY$e}`;
   const EVENT_DRAG_START = `dragstart${EVENT_KEY$e}`;
@@ -1279,7 +1279,7 @@
     }
     _addEventListeners() {
       if (this._config.keyboard) {
-        EventHandler.on(this._element, EVENT_KEYDOWN$2, event => this._keydown(event));
+        EventHandler.on(this._element, EVENT_KEYDOWN$3, event => this._keydown(event));
       }
       if (this._config.pause === 'hover') {
         EventHandler.on(this._element, EVENT_MOUSEENTER$1, () => this.pause());
@@ -1490,6 +1490,131 @@
 
   /**
    * --------------------------------------------------------------------------
+   * CoreUI util/sanitizer.js
+   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
+   *
+   * This is a modified version of the Bootstrap's util/sanitizer.js
+   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+   * --------------------------------------------------------------------------
+   */
+
+  // js-docs-start allow-list
+  const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
+  const DefaultAllowlist = {
+    // Global attributes allowed on any supplied element below.
+    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
+    a: ['target', 'href', 'title', 'rel'],
+    area: [],
+    b: [],
+    br: [],
+    col: [],
+    code: [],
+    dd: [],
+    div: [],
+    dl: [],
+    dt: [],
+    em: [],
+    hr: [],
+    h1: [],
+    h2: [],
+    h3: [],
+    h4: [],
+    h5: [],
+    h6: [],
+    i: [],
+    img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
+    li: [],
+    ol: [],
+    p: [],
+    pre: [],
+    s: [],
+    small: [],
+    span: [],
+    sub: [],
+    sup: [],
+    strong: [],
+    u: [],
+    ul: []
+  };
+  // js-docs-end allow-list
+
+  // js-docs-start svg-allow-list
+  const SVGAllowlist = {
+    ...DefaultAllowlist,
+    svg: ['xmlns', 'version', 'baseprofile', 'width', 'height', 'viewbox', 'preserveaspectratio', 'aria-hidden', 'role', 'focusable', 'fill', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin'],
+    g: ['id', 'class', 'transform', 'style'],
+    path: ['id', 'class', 'd', 'fill', 'fill-opacity', 'fill-rule', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-linejoin', 'stroke-miterlimit', 'stroke-dasharray', 'stroke-dashoffset', 'stroke-opacity'],
+    circle: ['id', 'class', 'cx', 'cy', 'r', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    rect: ['id', 'class', 'x', 'y', 'width', 'height', 'rx', 'ry', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    ellipse: ['id', 'class', 'cx', 'cy', 'rx', 'ry', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    line: ['id', 'class', 'x1', 'y1', 'x2', 'y2', 'stroke', 'stroke-width', 'stroke-linecap', 'stroke-opacity'],
+    polygon: ['id', 'class', 'points', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    polyline: ['id', 'class', 'points', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    text: ['id', 'class', 'x', 'y', 'dx', 'dy', 'text-anchor', 'font-family', 'font-size', 'font-weight', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    tspan: ['id', 'class', 'x', 'y', 'dx', 'dy', 'text-anchor', 'font-family', 'font-size', 'font-weight', 'fill', 'fill-opacity', 'stroke', 'stroke-width', 'stroke-opacity'],
+    defs: [],
+    symbol: ['id', 'class', 'viewbox', 'preserveaspectratio'],
+    use: ['id', 'class', 'x', 'y', 'width', 'height', 'href'],
+    image: ['id', 'class', 'x', 'y', 'width', 'height', 'href', 'preserveaspectratio', 'xlink:href'],
+    pattern: ['id', 'class', 'x', 'y', 'width', 'height', 'patternunits', 'patterncontentunits', 'patterntransform', 'preserveaspectratio'],
+    lineargradient: ['id', 'class', 'gradientunits', 'x1', 'y1', 'x2', 'y2', 'spreadmethod', 'gradienttransform'],
+    radialgradient: ['id', 'class', 'gradientunits', 'cx', 'cy', 'r', 'fx', 'fy', 'spreadmethod', 'gradienttransform'],
+    mask: ['id', 'class', 'x', 'y', 'width', 'height', 'maskunits', 'maskcontentunits', 'masktransform'],
+    clippath: ['id', 'class', 'clippathunits'],
+    marker: ['id', 'class', 'markerunits', 'markerwidth', 'markerheight', 'orient', 'preserveaspectratio', 'viewbox', 'refx', 'refy'],
+    title: [],
+    desc: []
+  };
+  const uriAttributes = new Set(['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href']);
+
+  /**
+   * A pattern that recognizes URLs that are safe wrt. XSS in URL navigation
+   * contexts.
+   *
+   * Shout-out to Angular https://github.com/angular/angular/blob/15.2.8/packages/core/src/sanitization/url_sanitizer.ts#L38
+   */
+  const SAFE_URL_PATTERN = /^(?!javascript:)(?:[a-z0-9+.-]+:|[^&:/?#]*(?:[/?#]|$))/i;
+  const allowedAttribute = (attribute, allowedAttributeList) => {
+    const attributeName = attribute.nodeName.toLowerCase();
+    if (allowedAttributeList.includes(attributeName)) {
+      if (uriAttributes.has(attributeName)) {
+        return Boolean(SAFE_URL_PATTERN.test(attribute.nodeValue));
+      }
+      return true;
+    }
+
+    // Check if a regular expression validates the attribute.
+    return allowedAttributeList.filter(attributeRegex => attributeRegex instanceof RegExp).some(regex => regex.test(attributeName));
+  };
+  function sanitizeHtml(unsafeHtml, allowList, sanitizeFunction) {
+    if (!unsafeHtml.length) {
+      return unsafeHtml;
+    }
+    if (sanitizeFunction && typeof sanitizeFunction === 'function') {
+      return sanitizeFunction(unsafeHtml);
+    }
+    const domParser = new window.DOMParser();
+    const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
+    const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
+    for (const element of elements) {
+      const elementName = element.nodeName.toLowerCase();
+      if (!Object.keys(allowList).includes(elementName)) {
+        element.remove();
+        continue;
+      }
+      const attributeList = [].concat(...element.attributes);
+      const allowedAttributes = [].concat(allowList['*'] || [], allowList[elementName] || []);
+      for (const attribute of attributeList) {
+        if (!allowedAttribute(attribute, allowedAttributes)) {
+          element.removeAttribute(attribute.nodeName);
+        }
+      }
+    }
+    return createdDocument.body.innerHTML;
+  }
+
+  /**
+   * --------------------------------------------------------------------------
    * CoreUI chip.js
    * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
    * --------------------------------------------------------------------------
@@ -1520,22 +1645,29 @@
   const CLASS_NAME_DISABLED$2 = 'disabled';
   const DEFAULT_REMOVE_ICON$1 = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const DEFAULT_SELECTED_ICON$1 = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>';
+  const DISALLOWED_ATTRIBUTES$1 = new Set(['sanitize', 'allowList', 'sanitizeFn']);
   const Default$g = {
+    allowList: SVGAllowlist,
     ariaRemoveLabel: 'Remove',
     disabled: false,
     filter: false,
     removable: false,
     removeIcon: DEFAULT_REMOVE_ICON$1,
+    sanitize: true,
+    sanitizeFn: null,
     selectable: false,
     selected: false,
     selectedIcon: DEFAULT_SELECTED_ICON$1
   };
   const DefaultType$g = {
+    allowList: 'object',
     ariaRemoveLabel: 'string',
     disabled: 'boolean',
     filter: 'boolean',
     removable: 'boolean',
     removeIcon: 'string',
+    sanitize: 'boolean',
+    sanitizeFn: '(null|function)',
     selectable: 'boolean',
     selected: 'boolean',
     selectedIcon: 'string'
@@ -1680,7 +1812,7 @@
       const check = document.createElement('span');
       check.className = CLASS_NAME_CHIP_CHECK;
       check.setAttribute('aria-hidden', 'true');
-      check.innerHTML = this._config.selectedIcon;
+      check.innerHTML = this._sanitizeIcon(this._config.selectedIcon);
       this._element.prepend(check);
     }
     _createRemoveButton() {
@@ -1689,7 +1821,7 @@
       button.className = CLASS_NAME_CHIP_REMOVE;
       button.setAttribute('aria-label', this._config.ariaRemoveLabel);
       button.setAttribute('tabindex', '-1'); // Not in tab order, chips handle keyboard
-      button.innerHTML = this._config.removeIcon;
+      button.innerHTML = this._sanitizeIcon(this._config.removeIcon);
       return button;
     }
     _ensureRemoveButton() {
@@ -1744,6 +1876,25 @@
       EventHandler.trigger(this._element, EVENT_REMOVED);
       this._element.remove();
       this.dispose();
+    }
+    _sanitizeIcon(icon) {
+      return this._config.sanitize ? sanitizeHtml(icon, this._config.allowList, this._config.sanitizeFn) : icon;
+    }
+    _getConfig(config) {
+      const dataAttributes = Manipulator.getDataAttributes(this._element);
+      for (const dataAttribute of Object.keys(dataAttributes)) {
+        if (DISALLOWED_ATTRIBUTES$1.has(dataAttribute)) {
+          delete dataAttributes[dataAttribute];
+        }
+      }
+      config = {
+        ...dataAttributes,
+        ...(typeof config === 'object' && config ? config : {})
+      };
+      config = this._mergeConfigObj(config);
+      config = this._configAfterMerge(config);
+      this._typeCheckConfig(config);
+      return config;
     }
 
     // Static
@@ -1806,7 +1957,7 @@
   const EVENT_REMOVE = 'remove';
   const EVENT_CHANGE = 'change';
   const EVENT_SELECT = 'select';
-  const EVENT_KEYDOWN$1 = 'keydown';
+  const EVENT_KEYDOWN$2 = 'keydown';
   const EVENT_CHIP_SELECTED = 'selected.bs.chip';
   const EVENT_CHIP_DESELECTED = 'deselected.bs.chip';
   const EVENT_CHIP_REMOVE = 'remove.bs.chip';
@@ -2082,7 +2233,7 @@
       return typeof chipClassName === 'string' ? chipClassName : '';
     }
     _addEventListeners() {
-      EventHandler.on(this._element, this.constructor.eventName(EVENT_KEYDOWN$1), SELECTOR_CHIP$1, event => this._handleKeydown(event));
+      EventHandler.on(this._element, this.constructor.eventName(EVENT_KEYDOWN$2), SELECTOR_CHIP$1, event => this._handleKeydown(event));
       EventHandler.on(this._element, EVENT_CHIP_SELECTED, SELECTOR_CHIP$1, event => this._handleSelectionChange(event));
       EventHandler.on(this._element, EVENT_CHIP_DESELECTED, SELECTOR_CHIP$1, event => this._handleSelectionChange(event));
       EventHandler.on(this._element, EVENT_CHIP_REMOVE, SELECTOR_CHIP$1, event => this._handleChipRemove(event));
@@ -2150,9 +2301,9 @@
       return previous && previous !== chip ? previous : null;
     }
     _navigateToEdge(targetIndex) {
-      var _chips$at;
+      var _chips;
       const chips = this._getFocusableChips();
-      (_chips$at = chips.at(targetIndex)) == null || _chips$at.focus();
+      (_chips = chips[targetIndex < 0 ? chips.length + targetIndex : targetIndex]) == null || _chips.focus();
     }
     _handleSelectionChange(event) {
       const chip = event.target.closest(SELECTOR_CHIP$1);
@@ -2387,7 +2538,7 @@
         // direction is mirrored in RTL.
         if (event.key === (isRTL() ? 'ArrowLeft' : 'ArrowRight')) {
           const chips = this._getFocusableChips();
-          if (chips.length > 0 && chips.at(-1).contains(event.target)) {
+          if (chips.length > 0 && chips[chips.length - 1].contains(event.target)) {
             event.preventDefault();
             this._input.focus();
             return;
@@ -2485,7 +2636,7 @@
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                chips.at(-1).focus();
+                chips[chips.length - 1].focus();
               }
             }
             break;
@@ -2500,7 +2651,7 @@
               event.preventDefault();
               const chips = this._getChipElements();
               if (chips.length > 0) {
-                chips.at(-1).focus();
+                chips[chips.length - 1].focus();
               }
             }
             break;
@@ -2530,7 +2681,7 @@
         for (const part of parts.slice(0, -1)) {
           this.add(part.trim());
         }
-        this._input.value = parts.at(-1);
+        this._input.value = parts[parts.length - 1];
       }
       this._setInputSize();
       EventHandler.trigger(this._element, EVENT_INPUT, {
@@ -4660,7 +4811,7 @@
   const DATA_KEY$9 = 'bs.dropdown';
   const EVENT_KEY$9 = `.${DATA_KEY$9}`;
   const DATA_API_KEY$6 = '.data-api';
-  const ESCAPE_KEY$2 = 'Escape';
+  const ESCAPE_KEY$3 = 'Escape';
   const TAB_KEY$1 = 'Tab';
   const ARROW_UP_KEY$1 = 'ArrowUp';
   const ARROW_DOWN_KEY$1 = 'ArrowDown';
@@ -4965,7 +5116,7 @@
       // If input/textarea && if key is other than ESCAPE => not a dropdown command
 
       const isInput = /input|textarea/i.test(event.target.tagName);
-      const isEscapeEvent = event.key === ESCAPE_KEY$2;
+      const isEscapeEvent = event.key === ESCAPE_KEY$3;
       const isUpOrDownEvent = [ARROW_UP_KEY$1, ARROW_DOWN_KEY$1].includes(event.key);
       if (!isUpOrDownEvent && !isEscapeEvent) {
         return;
@@ -5360,7 +5511,7 @@
   const DATA_KEY$7 = 'bs.modal';
   const EVENT_KEY$7 = `.${DATA_KEY$7}`;
   const DATA_API_KEY$5 = '.data-api';
-  const ESCAPE_KEY$1 = 'Escape';
+  const ESCAPE_KEY$2 = 'Escape';
   const EVENT_HIDE$5 = `hide${EVENT_KEY$7}`;
   const EVENT_HIDE_PREVENTED$1 = `hidePrevented${EVENT_KEY$7}`;
   const EVENT_HIDDEN$5 = `hidden${EVENT_KEY$7}`;
@@ -5505,7 +5656,7 @@
     }
     _addEventListeners() {
       EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS$1, event => {
-        if (event.key !== ESCAPE_KEY$1) {
+        if (event.key !== ESCAPE_KEY$2) {
           return;
         }
         if (this._config.keyboard) {
@@ -5914,7 +6065,7 @@
   const EVENT_KEY$5 = `.${DATA_KEY$5}`;
   const DATA_API_KEY$3 = '.data-api';
   const EVENT_LOAD_DATA_API$3 = `load${EVENT_KEY$5}${DATA_API_KEY$3}`;
-  const ESCAPE_KEY = 'Escape';
+  const ESCAPE_KEY$1 = 'Escape';
   const CLASS_NAME_SHOW$4 = 'show';
   const CLASS_NAME_SHOWING$1 = 'showing';
   const CLASS_NAME_HIDING = 'hiding';
@@ -6055,7 +6206,7 @@
     }
     _addEventListeners() {
       EventHandler.on(this._element, EVENT_KEYDOWN_DISMISS, event => {
-        if (event.key !== ESCAPE_KEY) {
+        if (event.key !== ESCAPE_KEY$1) {
           return;
         }
         if (this._config.keyboard) {
@@ -6127,104 +6278,6 @@
    */
 
   defineJQueryPlugin(Offcanvas);
-
-  /**
-   * --------------------------------------------------------------------------
-   * CoreUI util/sanitizer.js
-   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
-   *
-   * This is a modified version of the Bootstrap's util/sanitizer.js
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   * --------------------------------------------------------------------------
-   */
-
-  // js-docs-start allow-list
-  const ARIA_ATTRIBUTE_PATTERN = /^aria-[\w-]*$/i;
-  const DefaultAllowlist = {
-    // Global attributes allowed on any supplied element below.
-    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
-    a: ['target', 'href', 'title', 'rel'],
-    area: [],
-    b: [],
-    br: [],
-    col: [],
-    code: [],
-    dd: [],
-    div: [],
-    dl: [],
-    dt: [],
-    em: [],
-    hr: [],
-    h1: [],
-    h2: [],
-    h3: [],
-    h4: [],
-    h5: [],
-    h6: [],
-    i: [],
-    img: ['src', 'srcset', 'alt', 'title', 'width', 'height'],
-    li: [],
-    ol: [],
-    p: [],
-    pre: [],
-    s: [],
-    small: [],
-    span: [],
-    sub: [],
-    sup: [],
-    strong: [],
-    u: [],
-    ul: []
-  };
-  // js-docs-end allow-list
-
-  const uriAttributes = new Set(['background', 'cite', 'href', 'itemtype', 'longdesc', 'poster', 'src', 'xlink:href']);
-
-  /**
-   * A pattern that recognizes URLs that are safe wrt. XSS in URL navigation
-   * contexts.
-   *
-   * Shout-out to Angular https://github.com/angular/angular/blob/15.2.8/packages/core/src/sanitization/url_sanitizer.ts#L38
-   */
-  const SAFE_URL_PATTERN = /^(?!javascript:)(?:[a-z0-9+.-]+:|[^&:/?#]*(?:[/?#]|$))/i;
-  const allowedAttribute = (attribute, allowedAttributeList) => {
-    const attributeName = attribute.nodeName.toLowerCase();
-    if (allowedAttributeList.includes(attributeName)) {
-      if (uriAttributes.has(attributeName)) {
-        return Boolean(SAFE_URL_PATTERN.test(attribute.nodeValue));
-      }
-      return true;
-    }
-
-    // Check if a regular expression validates the attribute.
-    return allowedAttributeList.filter(attributeRegex => attributeRegex instanceof RegExp).some(regex => regex.test(attributeName));
-  };
-  function sanitizeHtml(unsafeHtml, allowList, sanitizeFunction) {
-    if (!unsafeHtml.length) {
-      return unsafeHtml;
-    }
-    if (sanitizeFunction && typeof sanitizeFunction === 'function') {
-      return sanitizeFunction(unsafeHtml);
-    }
-    const domParser = new window.DOMParser();
-    const createdDocument = domParser.parseFromString(unsafeHtml, 'text/html');
-    const elements = [].concat(...createdDocument.body.querySelectorAll('*'));
-    for (const element of elements) {
-      const elementName = element.nodeName.toLowerCase();
-      if (!Object.keys(allowList).includes(elementName)) {
-        element.remove();
-        continue;
-      }
-      const attributeList = [].concat(...element.attributes);
-      const allowedAttributes = [].concat(allowList['*'] || [], allowList[elementName] || []);
-      for (const attribute of attributeList) {
-        if (!allowedAttribute(attribute, allowedAttributes)) {
-          element.removeAttribute(attribute.nodeName);
-        }
-      }
-    }
-    return createdDocument.body.innerHTML;
-  }
 
   /**
    * --------------------------------------------------------------------------
@@ -6382,12 +6435,14 @@
 
   const NAME$6 = 'tooltip';
   const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
+  const ESCAPE_KEY = 'Escape';
   const CLASS_NAME_FADE$2 = 'fade';
   const CLASS_NAME_MODAL = 'modal';
   const CLASS_NAME_SHOW$3 = 'show';
   const SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
   const SELECTOR_MODAL = `.${CLASS_NAME_MODAL}`;
   const EVENT_MODAL_HIDE = 'hide.bs.modal';
+  const EVENT_KEYDOWN$1 = 'keydown';
   const TRIGGER_HOVER = 'hover';
   const TRIGGER_FOCUS = 'focus';
   const TRIGGER_CLICK = 'click';
@@ -6470,6 +6525,9 @@
 
       // Protected
       this.tip = null;
+
+      // Private
+      this._keydownHandler = null;
       this._setListeners();
       if (!this._config.selector) {
         this._fixTitle();
@@ -6509,6 +6567,7 @@
     }
     dispose() {
       clearTimeout(this._timeout);
+      this._removeEscapeListener();
       EventHandler.off(this._element.closest(SELECTOR_MODAL), EVENT_MODAL_HIDE, this._hideModalHandler);
       if (this._element.getAttribute('data-bs-original-title')) {
         this._element.setAttribute('title', this._element.getAttribute('data-bs-original-title'));
@@ -6543,6 +6602,7 @@
       }
       this._popper = this._createPopper(tip);
       tip.classList.add(CLASS_NAME_SHOW$3);
+      this._setEscapeListener();
 
       // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
@@ -6572,6 +6632,7 @@
       }
       const tip = this._getTipElement();
       tip.classList.remove(CLASS_NAME_SHOW$3);
+      this._removeEscapeListener();
 
       // If this is a touch-enabled device we remove the extra
       // empty mouseover listeners we added for iOS support
@@ -6669,6 +6730,27 @@
     }
     _isShown() {
       return this.tip && this.tip.classList.contains(CLASS_NAME_SHOW$3);
+    }
+    _setEscapeListener() {
+      if (this._keydownHandler) {
+        return;
+      }
+      this._keydownHandler = event => {
+        if (event.key !== ESCAPE_KEY || !this._isShown() || !this.tip.isConnected) {
+          return;
+        }
+        event.preventDefault();
+        event.stopPropagation();
+        this.hide();
+      };
+      this._element.ownerDocument.addEventListener(EVENT_KEYDOWN$1, this._keydownHandler, true);
+    }
+    _removeEscapeListener() {
+      if (!this._keydownHandler) {
+        return;
+      }
+      this._element.ownerDocument.removeEventListener(EVENT_KEYDOWN$1, this._keydownHandler, true);
+      this._keydownHandler = null;
     }
     _createPopper(tip) {
       const placement = execute(this._config.placement, [this, tip, this._element]);

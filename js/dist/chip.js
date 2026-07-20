@@ -1,13 +1,13 @@
 /*!
-  * CoreUI chip.js v5.8.0 (https://coreui.io)
+  * CoreUI chip.js v5.9.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Chip = factory(global.BaseComponent, global.EventHandler, global.SelectorEngine, global.Index));
-})(this, (function (BaseComponent, EventHandler, SelectorEngine, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./util/sanitizer.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './util/sanitizer', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Chip = factory(global.BaseComponent, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Sanitizer, global.Index));
+})(this, (function (BaseComponent, EventHandler, Manipulator, SelectorEngine, sanitizer_js, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -41,22 +41,29 @@
   const CLASS_NAME_DISABLED = 'disabled';
   const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const DEFAULT_SELECTED_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>';
+  const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
   const Default = {
+    allowList: sanitizer_js.SVGAllowlist,
     ariaRemoveLabel: 'Remove',
     disabled: false,
     filter: false,
     removable: false,
     removeIcon: DEFAULT_REMOVE_ICON,
+    sanitize: true,
+    sanitizeFn: null,
     selectable: false,
     selected: false,
     selectedIcon: DEFAULT_SELECTED_ICON
   };
   const DefaultType = {
+    allowList: 'object',
     ariaRemoveLabel: 'string',
     disabled: 'boolean',
     filter: 'boolean',
     removable: 'boolean',
     removeIcon: 'string',
+    sanitize: 'boolean',
+    sanitizeFn: '(null|function)',
     selectable: 'boolean',
     selected: 'boolean',
     selectedIcon: 'string'
@@ -201,7 +208,7 @@
       const check = document.createElement('span');
       check.className = CLASS_NAME_CHIP_CHECK;
       check.setAttribute('aria-hidden', 'true');
-      check.innerHTML = this._config.selectedIcon;
+      check.innerHTML = this._sanitizeIcon(this._config.selectedIcon);
       this._element.prepend(check);
     }
     _createRemoveButton() {
@@ -210,7 +217,7 @@
       button.className = CLASS_NAME_CHIP_REMOVE;
       button.setAttribute('aria-label', this._config.ariaRemoveLabel);
       button.setAttribute('tabindex', '-1'); // Not in tab order, chips handle keyboard
-      button.innerHTML = this._config.removeIcon;
+      button.innerHTML = this._sanitizeIcon(this._config.removeIcon);
       return button;
     }
     _ensureRemoveButton() {
@@ -265,6 +272,25 @@
       EventHandler.trigger(this._element, EVENT_REMOVED);
       this._element.remove();
       this.dispose();
+    }
+    _sanitizeIcon(icon) {
+      return this._config.sanitize ? sanitizer_js.sanitizeHtml(icon, this._config.allowList, this._config.sanitizeFn) : icon;
+    }
+    _getConfig(config) {
+      const dataAttributes = Manipulator.getDataAttributes(this._element);
+      for (const dataAttribute of Object.keys(dataAttributes)) {
+        if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
+          delete dataAttributes[dataAttribute];
+        }
+      }
+      config = {
+        ...dataAttributes,
+        ...(typeof config === 'object' && config ? config : {})
+      };
+      config = this._mergeConfigObj(config);
+      config = this._configAfterMerge(config);
+      this._typeCheckConfig(config);
+      return config;
     }
 
     // Static

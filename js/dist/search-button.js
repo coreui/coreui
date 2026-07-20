@@ -1,5 +1,5 @@
 /*!
-  * CoreUI search-button.js v5.8.0 (https://coreui.io)
+  * CoreUI search-button.js v5.9.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
