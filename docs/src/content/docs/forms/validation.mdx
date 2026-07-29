@@ -4,6 +4,8 @@ name: "Validation"
 description: "Provide valuable, actionable feedback to your users with HTML5 form validation, via browser default behaviors or custom styles and JavaScript."
 ---
 
+import validateForms from './snippets/validate-forms.js?raw'
+
 <Callout color="warning">
 We are aware that currently the client-side custom validation styles and tooltips are not accessible, since they are not exposed to assistive technologies. While we work on a solution, we'd recommend either using the server-side option or the default browser validation method.
 </Callout>
@@ -92,30 +94,9 @@ Custom feedback styles apply custom colors, borders, focus styles, and backgroun
     <div class="col-12">
       <button class="btn btn-primary" type="submit">Submit form</button>
     </div>
-  </form>`} />
+  </form>`} sandboxJs={validateForms} />
 
-```js
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-  'use strict'
-
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
-
-  // Loop over them and prevent submission
-  Array.prototype.slice.call(forms)
-    .forEach(form => {
-      form.addEventListener('submit', event => {
-        if (!form.checkValidity()) {
-          event.preventDefault()
-          event.stopPropagation()
-        }
-
-        form.classList.add('was-validated')
-      }, false)
-    })
-})()
-```
+<Code code={validateForms} lang="js" />
 
 ## Browser defaults
 
@@ -349,7 +330,7 @@ If your form layout allows it, you can swap the `.{valid|invalid}-feedback` clas
     <div class="col-12">
       <button class="btn btn-primary" type="submit">Submit form</button>
     </div>
-  </form>`} />
+  </form>`} sandboxJs={validateForms} />
 
 ## Sass
 
