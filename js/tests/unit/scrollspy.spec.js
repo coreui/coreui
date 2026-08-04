@@ -918,63 +918,67 @@ describe('ScrollSpy', () => {
       expect(clickSpy).toHaveBeenCalled()
     })
 
-    it('should smoothScroll to the proper observable element on anchor click', done => {
-      fixtureEl.innerHTML = getDummyFixture()
+    it('should smoothScroll to the proper observable element on anchor click', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = getDummyFixture()
 
-      const div = fixtureEl.querySelector('.content')
-      const link = fixtureEl.querySelector('[href="#div-jsm-1"]')
-      const observable = fixtureEl.querySelector('#div-jsm-1')
-      const clickSpy = getElementScrollSpy(div)
-      // eslint-disable-next-line no-new
-      new ScrollSpy(div, {
-        offset: 1,
-        smoothScroll: true
+        const div = fixtureEl.querySelector('.content')
+        const link = fixtureEl.querySelector('[href="#div-jsm-1"]')
+        const observable = fixtureEl.querySelector('#div-jsm-1')
+        const clickSpy = getElementScrollSpy(div)
+        // eslint-disable-next-line no-new
+        new ScrollSpy(div, {
+          offset: 1,
+          smoothScroll: true
+        })
+
+        setTimeout(() => {
+          if (div.scrollTo) {
+            expect(clickSpy).toHaveBeenCalledWith({ top: observable.offsetTop - div.offsetTop, behavior: 'smooth' })
+          } else {
+            expect(clickSpy).toHaveBeenCalledWith(observable.offsetTop - div.offsetTop)
+          }
+
+          resolve()
+        }, 100)
+        link.click()
       })
-
-      setTimeout(() => {
-        if (div.scrollTo) {
-          expect(clickSpy).toHaveBeenCalledWith({ top: observable.offsetTop - div.offsetTop, behavior: 'smooth' })
-        } else {
-          expect(clickSpy).toHaveBeenCalledWith(observable.offsetTop - div.offsetTop)
-        }
-
-        done()
-      }, 100)
-      link.click()
     })
 
-    it('should smoothscroll to observable with anchor link that contains a french word as id', done => {
-      fixtureEl.innerHTML = [
-        '<nav id="navBar" class="navbar">',
-        '  <ul class="nav">',
-        '    <li class="nav-item"><a id="li-jsm-1" class="nav-link" href="#présentation">div 1</a></li>',
-        '  </ul>',
-        '</nav>',
-        '<div class="content" data-coreui-target="#navBar" style="overflow-y: auto">',
-        '  <div id="présentation">div 1</div>',
-        '</div>'
-      ].join('')
+    it('should smoothscroll to observable with anchor link that contains a french word as id', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = [
+          '<nav id="navBar" class="navbar">',
+          '  <ul class="nav">',
+          '    <li class="nav-item"><a id="li-jsm-1" class="nav-link" href="#présentation">div 1</a></li>',
+          '  </ul>',
+          '</nav>',
+          '<div class="content" data-coreui-target="#navBar" style="overflow-y: auto">',
+          '  <div id="présentation">div 1</div>',
+          '</div>'
+        ].join('')
 
-      const div = fixtureEl.querySelector('.content')
-      const link = fixtureEl.querySelector('[href="#présentation"]')
-      const observable = fixtureEl.querySelector('#présentation')
-      const clickSpy = getElementScrollSpy(div)
-      // eslint-disable-next-line no-new
-      new ScrollSpy(div, {
-        offset: 1,
-        smoothScroll: true
+        const div = fixtureEl.querySelector('.content')
+        const link = fixtureEl.querySelector('[href="#présentation"]')
+        const observable = fixtureEl.querySelector('#présentation')
+        const clickSpy = getElementScrollSpy(div)
+        // eslint-disable-next-line no-new
+        new ScrollSpy(div, {
+          offset: 1,
+          smoothScroll: true
+        })
+
+        setTimeout(() => {
+          if (div.scrollTo) {
+            expect(clickSpy).toHaveBeenCalledWith({ top: observable.offsetTop - div.offsetTop, behavior: 'smooth' })
+          } else {
+            expect(clickSpy).toHaveBeenCalledWith(observable.offsetTop - div.offsetTop)
+          }
+
+          resolve()
+        }, 100)
+        link.click()
       })
-
-      setTimeout(() => {
-        if (div.scrollTo) {
-          expect(clickSpy).toHaveBeenCalledWith({ top: observable.offsetTop - div.offsetTop, behavior: 'smooth' })
-        } else {
-          expect(clickSpy).toHaveBeenCalledWith(observable.offsetTop - div.offsetTop)
-        }
-
-        done()
-      }, 100)
-      link.click()
     })
   })
 })

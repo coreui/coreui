@@ -134,20 +134,22 @@ describe('Sidebar', () => {
       expect(spyBackdropShow).toHaveBeenCalled()
     })
 
-    it('should trigger shown event and add click out listener when completed', done => {
-      fixtureEl.innerHTML = '<div class="sidebar"></div>'
-      const sidebar = new Sidebar('.sidebar')
-      spyOn(sidebar, '_isVisible').and.returnValue(true)
-      spyOn(sidebar, '_isMobile').and.returnValue(true)
-      const spyAddClickOutListener = spyOn(sidebar, '_addClickOutListener')
+    it('should trigger shown event and add click out listener when completed', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = '<div class="sidebar"></div>'
+        const sidebar = new Sidebar('.sidebar')
+        spyOn(sidebar, '_isVisible').and.returnValue(true)
+        spyOn(sidebar, '_isMobile').and.returnValue(true)
+        const spyAddClickOutListener = spyOn(sidebar, '_addClickOutListener')
 
-      sidebar._element.addEventListener('shown.coreui.sidebar', () => {
-        expect(sidebar._show).toBe(true)
-        expect(spyAddClickOutListener).toHaveBeenCalled()
-        done()
+        sidebar._element.addEventListener('shown.coreui.sidebar', () => {
+          expect(sidebar._show).toBe(true)
+          expect(spyAddClickOutListener).toHaveBeenCalled()
+          resolve()
+        })
+
+        sidebar.show()
       })
-
-      sidebar.show()
     })
   })
 
@@ -197,20 +199,22 @@ describe('Sidebar', () => {
       expect(sidebar._element.classList.contains('hide')).toBe(true)
     })
 
-    it('should trigger hidden event and remove click out listener when completed', done => {
-      fixtureEl.innerHTML = '<div class="sidebar"></div>'
-      const sidebar = new Sidebar('.sidebar')
-      spyOn(sidebar, '_isVisible').and.returnValue(false)
-      spyOn(sidebar, '_isMobile').and.returnValue(true)
-      const spyRemoveClickOutListener = spyOn(sidebar, '_removeClickOutListener')
+    it('should trigger hidden event and remove click out listener when completed', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = '<div class="sidebar"></div>'
+        const sidebar = new Sidebar('.sidebar')
+        spyOn(sidebar, '_isVisible').and.returnValue(false)
+        spyOn(sidebar, '_isMobile').and.returnValue(true)
+        const spyRemoveClickOutListener = spyOn(sidebar, '_removeClickOutListener')
 
-      sidebar._element.addEventListener('hidden.coreui.sidebar', () => {
-        expect(sidebar._show).toBe(false)
-        expect(spyRemoveClickOutListener).toHaveBeenCalled()
-        done()
+        sidebar._element.addEventListener('hidden.coreui.sidebar', () => {
+          expect(sidebar._show).toBe(false)
+          expect(spyRemoveClickOutListener).toHaveBeenCalled()
+          resolve()
+        })
+
+        sidebar.hide()
       })
-
-      sidebar.hide()
     })
   })
 

@@ -145,13 +145,30 @@ export default [
     }
   },
   {
-    files: ['js/tests/*.js', 'js/tests/integration/rollup*.js'],
+    files: ['js/tests/integration/rollup*.js'],
     languageOptions: {
       globals: {
         ...globals.jquery,
         ...globals.node
       },
       sourceType: 'commonjs' // change to 'commonjs' to avoid the error: 'Use the function form of 'use strict''
+    }
+  },
+  {
+    // The Vitest config and setup files are ES modules that run under Node/Vite,
+    // not in the spec sandbox
+    files: ['js/tests/*.js', 'js/tests/*.mjs'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.jquery,
+        ...globals.node
+      }
+    },
+    rules: {
+      // the resolver does not read the package's `exports` map, so it reports
+      // the `vitest/config` subpath as unresolved
+      'import/no-unresolved': 'off'
     }
   },
   {

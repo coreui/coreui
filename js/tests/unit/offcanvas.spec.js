@@ -222,7 +222,14 @@ describe('Offcanvas', () => {
   })
 
   describe('options', () => {
-    it('if scroll is enabled, should allow body to scroll while offcanvas is open', () => {
+    it('if scroll is enabled, should allow body to scroll while offcanvas is open', async () => {
+      // Hide transitions leaked by earlier specs settle during this pause —
+      // their completeCallback calls ScrollBarHelper#reset, which would land
+      // in the prototype-wide spies below and fail the assertion.
+      await new Promise(resolve => {
+        setTimeout(resolve, 60)
+      })
+
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<div class="offcanvas"></div>'
 
@@ -243,7 +250,14 @@ describe('Offcanvas', () => {
       })
     })
 
-    it('if scroll is disabled, should call ScrollBarHelper to handle scrollBar on body', () => {
+    it('if scroll is disabled, should call ScrollBarHelper to handle scrollBar on body', async () => {
+      // Hide transitions leaked by earlier specs settle during this pause —
+      // their completeCallback calls ScrollBarHelper#reset, which would land
+      // in the prototype-wide spies below and fail the assertion.
+      await new Promise(resolve => {
+        setTimeout(resolve, 60)
+      })
+
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<div class="offcanvas"></div>'
 
