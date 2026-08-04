@@ -64,6 +64,14 @@ class Sidebar extends BaseComponent {
     this._narrow = this._isNarrow()
     this._unfoldable = this._isUnfoldable()
     this._backdrop = this._initializeBackDrop()
+    this._clickOutHandler = event => this._clickOutListener(event)
+    this._resizeHandler = () => {
+      if (this._isMobile() && this._isVisible()) {
+        this.hide()
+        this._backdrop = this._initializeBackDrop()
+      }
+    }
+
     this._addEventListeners()
   }
 
@@ -199,6 +207,13 @@ class Sidebar extends BaseComponent {
     this.unfoldable()
   }
 
+  dispose() {
+    this._removeClickOutListener()
+    EventHandler.off(window, EVENT_RESIZE, this._resizeHandler)
+
+    super.dispose()
+  }
+
   // Private
 
   _initializeBackDrop() {
@@ -243,13 +258,11 @@ class Sidebar extends BaseComponent {
   }
 
   _addClickOutListener() {
-    EventHandler.on(document, EVENT_CLICK_DATA_API, event => {
-      this._clickOutListener(event)
-    })
+    EventHandler.on(document, EVENT_CLICK_DATA_API, this._clickOutHandler)
   }
 
   _removeClickOutListener() {
-    EventHandler.off(document, EVENT_CLICK_DATA_API)
+    EventHandler.off(document, EVENT_CLICK_DATA_API, this._clickOutHandler)
   }
 
   // Sidebar navigation
@@ -280,12 +293,7 @@ class Sidebar extends BaseComponent {
       this.hide()
     })
 
-    EventHandler.on(window, EVENT_RESIZE, () => {
-      if (this._isMobile() && this._isVisible()) {
-        this.hide()
-        this._backdrop = this._initializeBackDrop()
-      }
-    })
+    EventHandler.on(window, EVENT_RESIZE, this._resizeHandler)
   }
 
   // Static

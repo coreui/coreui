@@ -376,6 +376,63 @@ describe('Sidebar', () => {
     })
   })
 
+  describe('dispose', () => {
+    it('should drop its window resize listener', () => {
+      fixtureEl.innerHTML = '<div class="sidebar"></div>'
+
+      const el = fixtureEl.querySelector('.sidebar')
+      const sidebar = new Sidebar(el)
+
+      // Watch the prototype and match on the receiver: `dispose()` nulls the
+      // instance's own properties (an instance spy would be wiped), and other
+      // sidebars in this file may still hold their own resize listeners.
+      const original = Sidebar.prototype._isMobile
+      let calledOnDisposedInstance = false
+      Sidebar.prototype._isMobile = function (...args) {
+        if (this === sidebar) {
+          calledOnDisposedInstance = true
+        }
+
+        return original.apply(this, args)
+      }
+
+      try {
+        sidebar.dispose()
+        window.dispatchEvent(new Event('resize'))
+      } finally {
+        Sidebar.prototype._isMobile = original
+      }
+
+      expect(calledOnDisposedInstance).toBeFalse()
+    })
+
+    it('should remove the click out listener', () => {
+      fixtureEl.innerHTML = '<div class="sidebar"></div><input type="checkbox" class="outside">'
+      const sidebar = new Sidebar('.sidebar')
+      const outsideEl = fixtureEl.querySelector('.outside')
+      const spyHide = spyOn(sidebar, 'hide')
+
+      sidebar._addClickOutListener()
+      sidebar.dispose()
+      outsideEl.click()
+
+      expect(spyHide).not.toHaveBeenCalled()
+      expect(outsideEl.checked).toBeTrue()
+    })
+
+    it('should keep the window load data api handler', () => {
+      fixtureEl.innerHTML = '<div class="sidebar"></div>'
+      const sidebarEl = fixtureEl.querySelector('.sidebar')
+      const sidebar = new Sidebar(sidebarEl)
+      const spySidebarInterface = spyOn(Sidebar, 'sidebarInterface')
+
+      sidebar.dispose()
+      window.dispatchEvent(new Event('load'))
+
+      expect(spySidebarInterface).toHaveBeenCalledWith(sidebarEl)
+    })
+  })
+
   describe('Private Methods', () => {
     describe('_initializeBackDrop', () => {
       it('should create backdrop with correct configuration', () => {
@@ -523,6 +580,41 @@ describe('Sidebar', () => {
         expect(mockEvent.preventDefault).not.toHaveBeenCalled()
         expect(mockEvent.stopPropagation).not.toHaveBeenCalled()
         expect(spyHide).not.toHaveBeenCalled()
+      })
+    })
+
+    describe('_removeClickOutListener', () => {
+      it('should keep the click out listener of another instance', () => {
+        fixtureEl.innerHTML = [
+          '<div class="sidebar first"></div>',
+          '<div class="sidebar second"></div>',
+          '<div class="outside"></div>'
+        ].join('')
+        const first = new Sidebar('.first')
+        const second = new Sidebar('.second')
+        const outsideEl = fixtureEl.querySelector('.outside')
+        const spyFirstHide = spyOn(first, 'hide')
+        const spySecondHide = spyOn(second, 'hide')
+
+        first._addClickOutListener()
+        second._addClickOutListener()
+        second._removeClickOutListener()
+        outsideEl.click()
+
+        expect(spyFirstHide).toHaveBeenCalled()
+        expect(spySecondHide).not.toHaveBeenCalled()
+      })
+
+      it('should not prevent a click outside once every listener is removed', () => {
+        fixtureEl.innerHTML = '<div class="sidebar"></div><input type="checkbox" class="outside">'
+        const sidebar = new Sidebar('.sidebar')
+        const outsideEl = fixtureEl.querySelector('.outside')
+
+        sidebar._addClickOutListener()
+        sidebar._removeClickOutListener()
+        outsideEl.click()
+
+        expect(outsideEl.checked).toBeTrue()
       })
     })
 
