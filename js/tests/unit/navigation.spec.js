@@ -159,21 +159,31 @@ describe('Navigation', () => {
     })
 
     it('should add active class to partial matching links when activeLinksExact is false', () => {
-      const currentUrlBase = `${window.location.origin}/context`
-      fixtureEl.innerHTML = `
-        <nav data-coreui-navigation>
-          <a class="nav-link" href="${currentUrlBase}">Partial Match</a>
-          <a class="nav-link" href="http://localhost:9876/other">No Match</a>
-        </nav>
-      `
-      const navEl = fixtureEl.querySelector('nav')
-      const partialLink = navEl.querySelector(`a[href="${currentUrlBase}"]`)
-      const noMatchLink = navEl.querySelector('a[href="http://localhost:9876/other"]')
+      // Give the page a real path for the duration of the test, so the link
+      // can be a genuine prefix of it — the runner's own URL is just the bare
+      // origin, which an anchor would normalise away.
+      const originalUrl = window.location.href
+      window.history.replaceState({}, '', '/context/child')
 
-      const navigation = new Navigation(navEl, { activeLinksExact: false }) // eslint-disable-line no-unused-vars
+      try {
+        const currentUrlBase = `${window.location.origin}/context`
+        fixtureEl.innerHTML = `
+          <nav data-coreui-navigation>
+            <a class="nav-link" href="${currentUrlBase}">Partial Match</a>
+            <a class="nav-link" href="${window.location.origin}/definitely-no-match">No Match</a>
+          </nav>
+        `
+        const navEl = fixtureEl.querySelector('nav')
+        const partialLink = navEl.querySelector(`a[href="${currentUrlBase}"]`)
+        const noMatchLink = navEl.querySelector(`a[href="${window.location.origin}/definitely-no-match"]`)
 
-      expect(partialLink.classList.contains('active')).toBe(true)
-      expect(noMatchLink.classList.contains('active')).toBe(false)
+        const navigation = new Navigation(navEl, { activeLinksExact: false }) // eslint-disable-line no-unused-vars
+
+        expect(partialLink.classList.contains('active')).toBe(true)
+        expect(noMatchLink.classList.contains('active')).toBe(false)
+      } finally {
+        window.history.replaceState({}, '', originalUrl)
+      }
     })
 
     it('should skip nav-group-toggle elements', () => {
