@@ -46,6 +46,7 @@ Whether you're starting a new project or migrating from Bootstrap, CoreUI gives 
 - [Frameworks](#frameworks)
 - [Templates](#templates)
 - [Templates](#boilerplates)
+- [Data Grid](#data-grid)
 - [Contributing](#contributing)
 - [Community](#community)
 - [Versioning](#versioning)
@@ -231,6 +232,19 @@ Fully featured, out-of-the-box, templates for your application based on CoreUI.
 ## Boilerplates
 
 - [AI-Native Next.js Boilerplate for Internal Tools](https://coreui.io/product/next-js-boilerplate/)
+
+## Data Grid
+
+CoreUI JavaScript Data Grid handles 100,000+ rows with sorting, filtering, virtualization, column pinning, inline editing and CSV export — using the same markup and stylesheet you already use.
+
+```bash
+npm install @coreui/data-grid
+```
+
+One license also covers React, Vue and Angular. It's a separate add-on, not part of CoreUI PRO.
+
+- [JavaScript Data Grid](https://coreui.io/data-grid/javascript/?src=readme-coreui)
+- [Documentation](https://coreui.io/data-grid/docs/getting-started/introduction/?src=readme-coreui)
 
 ## Contributing
 
