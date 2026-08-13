@@ -47,6 +47,7 @@ Whether you're starting a new project or migrating from Bootstrap, CoreUI gives 
 - [Templates](#templates)
 - [Templates](#boilerplates)
 - [Data Grid](#data-grid)
+- [Scheduler](#scheduler)
 - [Contributing](#contributing)
 - [Community](#community)
 - [Versioning](#versioning)
@@ -245,6 +246,19 @@ One license also covers React, Vue and Angular. It's a separate add-on, not part
 
 - [JavaScript Data Grid](https://coreui.io/data-grid/javascript/?src=readme-coreui)
 - [Documentation](https://coreui.io/data-grid/docs/getting-started/introduction/?src=readme-coreui)
+
+## Scheduler
+
+CoreUI JavaScript Scheduler ships six views — day, week, month, agenda, resources, and timeline — with drag & drop, RFC 5545 recurrence, and DST-safe time handling, using the same markup and stylesheet you already use.
+
+```bash
+npm install @coreui/scheduler
+```
+
+One license also covers React, Vue and Angular. It's a separate add-on, not part of CoreUI PRO.
+
+- [JavaScript Scheduler](https://coreui.io/scheduler/javascript/?src=readme-coreui)
+- [Documentation](https://coreui.io/scheduler/docs/getting-started/introduction/?src=readme-coreui)
 
 ## Contributing
 
