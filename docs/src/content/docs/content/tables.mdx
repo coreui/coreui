@@ -8,11 +8,45 @@ otherFrameworks:
 
 import { getData } from '@coreui/astro-docs/data'
 
+export const rows = `  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td colspan="2">Larry the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>`
+
+export const demo = (classes) => `<table class="${classes}">\n${rows}\n</table>`
+
+export const snippet = (classes) => `<table class="${classes}">\n  ...\n</table>`
+
 ## Overview
 
 Due to the widespread use of `<table>` elements across third-party widgets like calendars and date pickers, CoreUI for Bootstrap's tables are **opt-in**. Add the base class `.table` to any `<table>`, then extend with our optional modifier classes or custom styles. All table styles are not inherited in Bootstrap, meaning any nested tables can be styled independent from the parent.
 
 Using the most basic table markup, here's how `.table`-based tables look in Bootstrap.
+
+<Example code={demo('table')} />
 
 ## Variants
 
@@ -79,17 +113,35 @@ Relying on color to convey meaning creates a visual cue that assistive technolog
 
 Use `.table-striped` to add zebra-striping to any table row within the `<tbody>`.
 
+<Example html={demo('table table-striped')} code={snippet('table table-striped')} />
+
 ### Striped columns
 
 Use `.table-striped-columns` to add zebra-striping to any table column.
 
+<Example html={demo('table table-striped-columns')} code={snippet('table table-striped-columns')} />
+
 These classes can also be added to table variants:
+
+<Example html={demo('table table-dark table-striped')} code={snippet('table table-dark table-striped')} />
+
+<Example html={demo('table table-dark table-striped-columns')} code={snippet('table table-dark table-striped-columns')} />
+
+<Example html={demo('table table-success table-striped')} code={snippet('table table-success table-striped')} />
+
+<Example html={demo('table table-success table-striped-columns')} code={snippet('table table-success table-striped-columns')} />
 
 ### Hoverable rows
 
 Add `.table-hover` to enable a hover state on table rows within a `<tbody>`.
 
+<Example html={demo('table table-hover')} code={snippet('table table-hover')} />
+
+<Example html={demo('table table-dark table-hover')} code={snippet('table table-dark table-hover')} />
+
 These hoverable rows can also be combined with the striped rows variant:
+
+<Example html={demo('table table-striped table-hover')} code={snippet('table table-striped table-hover')} />
 
 ### Active tables
 
@@ -161,15 +213,27 @@ Behind the scenes it looks like this:
 
 Add `.table-bordered` for borders on all sides of the table and cells.
 
+<Example html={demo('table table-bordered')} code={snippet('table table-bordered')} />
+
 [Border color utilities](/utilities/borders/#border-color) can be added to change colors:
+
+<Example html={demo('table table-bordered border-primary')} code={snippet('table table-bordered border-primary')} />
 
 ### Tables without borders
 
 Add `.table-borderless` for a table without borders.
 
+<Example html={demo('table table-borderless')} code={snippet('table table-borderless')} />
+
+<Example html={demo('table table-dark table-borderless')} code={snippet('table table-dark table-borderless')} />
+
 ## Small tables
 
 Add `.table-sm` to make any `.table` more compact by cutting all cell `padding` in half.
+
+<Example html={demo('table table-sm')} code={snippet('table table-sm')} />
+
+<Example html={demo('table table-dark table-sm')} code={snippet('table table-dark table-sm')} />
 
 ## Table group dividers
 
