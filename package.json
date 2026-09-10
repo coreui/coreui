@@ -105,7 +105,7 @@
     "@vitest/browser": "^4.1.10",
     "@vitest/browser-playwright": "^4.1.10",
     "@vitest/coverage-istanbul": "^4.1.10",
-    "astro": "^7.1.2",
+    "astro": "^7.3.2",
     "autoprefixer": "^10.5.4",
     "bootstrap": "^5.3.8",
     "bundlewatch": "^0.4.2",
