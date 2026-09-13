@@ -1,4 +1,5 @@
 import Navigation from '../../src/navigation.js'
+import Data from '../../src/dom/data.js'
 import { clearFixture, getFixture, jQueryMock } from '../helpers/fixture.js'
 
 describe('Navigation', () => {
@@ -265,6 +266,18 @@ describe('Navigation', () => {
         activeLinksExact: 'boolean',
         groupsAutoCollapse: '(string|boolean)'
       })
+    })
+  })
+
+  describe('dispose', () => {
+    it('should leave no instance behind for an element passed as a selector', () => {
+      fixtureEl.innerHTML = '<nav id="nav" data-coreui-navigation></nav>'
+      const navigation = new Navigation('#nav')
+
+      navigation.dispose()
+
+      expect(Navigation.getInstance('#nav')).toBeNull()
+      expect(Data.get('#nav', 'coreui.navigation')).toBeNull()
     })
   })
 })

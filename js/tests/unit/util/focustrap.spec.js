@@ -214,5 +214,97 @@ describe('FocusTrap', () => {
 
       expect(spy).not.toHaveBeenCalled()
     })
+
+    it('should keep the other trap listening when one is deactivated', () => {
+      fixtureEl.innerHTML = [
+        '<a href="#" id="outside">outside</a>',
+        '<div id="first" tabindex="-1"><a href="#" id="inside-first">first</a></div>',
+        '<div id="second" tabindex="-1"><a href="#" id="inside-second">second</a></div>'
+      ].join('')
+
+      const first = new FocusTrap({ trapElement: fixtureEl.querySelector('#first'), autofocus: false })
+      const second = new FocusTrap({ trapElement: fixtureEl.querySelector('#second'), autofocus: false })
+      first.activate()
+      second.activate()
+      first.deactivate()
+
+      const focusinSpy = spyOn(second, '_handleFocusin').and.callThrough()
+      const keydownSpy = spyOn(second, '_handleKeydown').and.callThrough()
+
+      fixtureEl.querySelector('#outside').focus()
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }))
+
+      expect(focusinSpy).toHaveBeenCalled()
+      expect(keydownSpy).toHaveBeenCalled()
+      expect(document.activeElement).toEqual(fixtureEl.querySelector('#inside-second'))
+
+      second.deactivate()
+    })
+
+    it('should hand control back to the trap underneath when the top one is deactivated', () => {
+      fixtureEl.innerHTML = [
+        '<a href="#" id="outside">outside</a>',
+        '<div id="first" tabindex="-1"><a href="#" id="inside-first">first</a></div>',
+        '<div id="second" tabindex="-1"><a href="#" id="inside-second">second</a></div>'
+      ].join('')
+
+      const first = new FocusTrap({ trapElement: fixtureEl.querySelector('#first'), autofocus: false })
+      const second = new FocusTrap({ trapElement: fixtureEl.querySelector('#second'), autofocus: false })
+      first.activate()
+      second.activate()
+
+      fixtureEl.querySelector('#outside').focus()
+
+      expect(document.activeElement).toEqual(fixtureEl.querySelector('#inside-second'))
+
+      second.deactivate()
+      fixtureEl.querySelector('#outside').focus()
+
+      expect(document.activeElement).toEqual(fixtureEl.querySelector('#inside-first'))
+
+      first.deactivate()
+    })
+  })
+
+  describe('two active traps', () => {
+    it('should not throw focus back and forth between disjoint trap elements', () => {
+      fixtureEl.innerHTML = [
+        '<a href="#" id="outside">outside</a>',
+        '<div id="first" tabindex="-1"><a href="#" id="inside-first">first</a></div>',
+        '<div id="second" tabindex="-1"><a href="#" id="inside-second">second</a></div>'
+      ].join('')
+
+      const first = new FocusTrap({ trapElement: fixtureEl.querySelector('#first'), autofocus: false })
+      const second = new FocusTrap({ trapElement: fixtureEl.querySelector('#second'), autofocus: false })
+
+      // Cap the recursion: without the topmost check the two handlers hand
+      // focus to each other until the stack gives out.
+      let calls = 0
+      const firstFocusin = first._handleFocusin.bind(first)
+      const secondFocusin = second._handleFocusin.bind(second)
+      first._handleFocusin = event => {
+        calls++
+        if (calls < 50) {
+          firstFocusin(event)
+        }
+      }
+
+      second._handleFocusin = event => {
+        calls++
+        if (calls < 50) {
+          secondFocusin(event)
+        }
+      }
+
+      first.activate()
+      second.activate()
+      fixtureEl.querySelector('#outside').focus()
+
+      expect(calls).toBeLessThan(10)
+      expect(document.activeElement).toEqual(fixtureEl.querySelector('#inside-second'))
+
+      second.deactivate()
+      first.deactivate()
+    })
   })
 })
