@@ -19,9 +19,9 @@ describe('ChipInput', () => {
 
     const el = fixtureEl.querySelector('.chip-input')
     const bySelector = new ChipInput('.chip-input')
-    const byElement = new ChipInput(el)
-
     expect(bySelector._element).toEqual(el)
+
+    const byElement = new ChipInput(el)
     expect(byElement._element).toEqual(el)
   })
 

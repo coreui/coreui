@@ -17,9 +17,9 @@ describe('Navigation', () => {
 
     const navEl = fixtureEl.querySelector('nav')
     const navigationBySelector = new Navigation('nav')
-    const navigationByElement = new Navigation(navEl)
-
     expect(navigationBySelector._element).toEqual(navEl)
+
+    const navigationByElement = new Navigation(navEl)
     expect(navigationByElement._element).toEqual(navEl)
   })
 

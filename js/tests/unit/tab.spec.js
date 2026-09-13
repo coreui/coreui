@@ -33,9 +33,9 @@ describe('Tab', () => {
 
       const tabEl = fixtureEl.querySelector('[href="#home"]')
       const tabBySelector = new Tab('[href="#home"]')
-      const tabByElement = new Tab(tabEl)
-
       expect(tabBySelector._element).toEqual(tabEl)
+
+      const tabByElement = new Tab(tabEl)
       expect(tabByElement._element).toEqual(tabEl)
     })
 
@@ -596,6 +596,35 @@ describe('Tab', () => {
       expect(spyPrevent).toHaveBeenCalledTimes(3)
     })
 
+    it('if keydown event carries a modifier key, do not handle it', () => {
+      fixtureEl.innerHTML = [
+        '<div class="nav">',
+        '  <span id="tab1" class="nav-link" data-coreui-toggle="tab"></span>',
+        '  <span id="tab2" class="nav-link" data-coreui-toggle="tab"></span>',
+        '</div>'
+      ].join('')
+
+      const tabEl1 = fixtureEl.querySelector('#tab1')
+      const tabEl2 = fixtureEl.querySelector('#tab2')
+      const tab1 = new Tab(tabEl1)
+      const tab2 = new Tab(tabEl2)
+      const spyShow1 = spyOn(tab1, 'show').and.callThrough()
+      const spyShow2 = spyOn(tab2, 'show').and.callThrough()
+      const spyPrevent = spyOn(Event.prototype, 'preventDefault').and.callThrough()
+
+      for (const modifier of ['altKey', 'ctrlKey', 'metaKey']) {
+        const keydown = createEvent('keydown')
+        keydown.key = 'ArrowRight'
+        keydown[modifier] = true
+
+        tabEl1.dispatchEvent(keydown)
+      }
+
+      expect(spyShow1).not.toHaveBeenCalled()
+      expect(spyShow2).not.toHaveBeenCalled()
+      expect(spyPrevent).not.toHaveBeenCalled()
+    })
+
     it('if keydown event is left arrow, handle it', () => {
       fixtureEl.innerHTML = [
         '<div class="nav">',
@@ -974,6 +1003,32 @@ describe('Tab', () => {
       expect(firstLiLinkEl).toHaveClass('active')
       expect(fixtureEl.querySelector('li:last-child a')).not.toHaveClass('active')
       expect(fixtureEl.querySelector('li:last-child .dropdown-menu a:first-child')).not.toHaveClass('active')
+    })
+
+    it('should set aria-expanded on the dropdown toggle, not on the nav item', () => {
+      fixtureEl.innerHTML = [
+        '<ul class="nav nav-tabs">',
+        '  <li class="nav-item"><a class="nav-link" href="#home" data-coreui-toggle="tab">Home</a></li>',
+        '  <li class="nav-item dropdown">',
+        '    <a class="nav-link dropdown-toggle" data-coreui-toggle="dropdown" href="#">Dropdown</a>',
+        '    <div class="dropdown-menu">',
+        '      <a class="dropdown-item" href="#dropdown1" id="dropdown1-tab" data-coreui-toggle="tab">@fat</a>',
+        '    </div>',
+        '  </li>',
+        '</ul>'
+      ].join('')
+
+      const dropdownItem = fixtureEl.querySelector('.dropdown-item')
+      const dropdownToggle = fixtureEl.querySelector('.dropdown-toggle')
+      const navItem = fixtureEl.querySelector('li.dropdown')
+
+      dropdownItem.click()
+      expect(dropdownToggle.getAttribute('aria-expanded')).toEqual('true')
+      expect(navItem.hasAttribute('aria-expanded')).toBeFalse()
+
+      fixtureEl.querySelector('li:first-child a').click()
+      expect(dropdownToggle.getAttribute('aria-expanded')).toEqual('false')
+      expect(navItem.hasAttribute('aria-expanded')).toBeFalse()
     })
 
     it('selecting a dropdown tab does not activate another', () => {

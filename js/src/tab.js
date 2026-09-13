@@ -39,7 +39,6 @@ const END_KEY = 'End'
 const CLASS_NAME_ACTIVE = 'active'
 const CLASS_NAME_FADE = 'fade'
 const CLASS_NAME_SHOW = 'show'
-const CLASS_DROPDOWN = 'dropdown'
 
 const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle'
 const SELECTOR_DROPDOWN_MENU = '.dropdown-menu'
@@ -160,6 +159,12 @@ class Tab extends BaseComponent {
       return
     }
 
+    // Don't hijack modifier+arrow shortcuts (e.g. Alt+Left/Right for browser
+    // history navigation); only the bare keys drive tablist navigation.
+    if (event.altKey || event.ctrlKey || event.metaKey) {
+      return
+    }
+
     event.stopPropagation()// stopPropagation/preventDefault both added to support up/down keys without scrolling the page
     event.preventDefault()
 
@@ -231,20 +236,19 @@ class Tab extends BaseComponent {
 
   _toggleDropDown(element, open) {
     const outerElem = this._getOuterElement(element)
-    if (!outerElem.classList.contains(CLASS_DROPDOWN)) {
+    const dropdownToggle = SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE, outerElem)
+    if (!dropdownToggle) {
       return
     }
 
-    const toggle = (selector, className) => {
-      const element = SelectorEngine.findOne(selector, outerElem)
-      if (element) {
-        element.classList.toggle(className, open)
-      }
+    const dropdownMenu = SelectorEngine.findOne(SELECTOR_DROPDOWN_MENU, outerElem)
+
+    dropdownToggle.classList.toggle(CLASS_NAME_ACTIVE, open)
+    if (dropdownMenu) {
+      dropdownMenu.classList.toggle(CLASS_NAME_SHOW, open)
     }
 
-    toggle(SELECTOR_DROPDOWN_TOGGLE, CLASS_NAME_ACTIVE)
-    toggle(SELECTOR_DROPDOWN_MENU, CLASS_NAME_SHOW)
-    outerElem.setAttribute('aria-expanded', open)
+    dropdownToggle.setAttribute('aria-expanded', open)
   }
 
   _setAttributeIfNotExists(element, attribute, value) {
