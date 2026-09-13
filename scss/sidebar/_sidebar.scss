@@ -18,6 +18,7 @@
   --#{$prefix}sidebar-color: #{$sidebar-color};
   --#{$prefix}sidebar-brand-color: #{$sidebar-brand-color};
   --#{$prefix}sidebar-brand-bg: #{$sidebar-brand-bg};
+  --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
   // scss-docs-end sidebar-css-vars
 
   position: relative;
@@ -182,7 +183,6 @@
 .sidebar-toggler {
   // scss-docs-start sidebar-toggler-css-vars
   --#{$prefix}sidebar-toggler-width: #{$sidebar-toggler-width};
-  --#{$prefix}sidebar-toggler-height: #{$sidebar-toggler-height};
   --#{$prefix}sidebar-toggler-bg: #{$sidebar-toggler-bg};
   --#{$prefix}sidebar-toggler-color: #{$sidebar-toggler-color};
   --#{$prefix}sidebar-toggler-icon: #{escape-svg($sidebar-toggler-icon)};
@@ -266,8 +266,4 @@
   --#{$prefix}tertiary-bg: #{$body-tertiary-bg-dark};
 
   --#{$prefix}border-color: #{$border-color-dark};
-
-  .sidebar-toggler {
-    filter: var(--#{$prefix}sidebar-toggler-white-filter);
-  }
 }
