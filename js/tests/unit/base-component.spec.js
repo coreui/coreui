@@ -93,6 +93,19 @@ describe('Base Component', () => {
         expect(elInstance._element).not.toBeDefined()
         expect(selectorInstance._element).not.toBeDefined()
       })
+
+      it('should dispose an existing instance when re-instantiated on the same element', () => {
+        fixtureEl.innerHTML = '<div id="foo"></div>'
+
+        const el = fixtureEl.querySelector('#foo')
+        const firstInstance = new DummyClass(el)
+        const disposeSpy = spyOn(firstInstance, 'dispose').and.callThrough()
+        const secondInstance = new DummyClass(el)
+
+        expect(disposeSpy).toHaveBeenCalled()
+        expect(DummyClass.getInstance(el)).toEqual(secondInstance)
+        expect(DummyClass.getInstance(el)).not.toEqual(firstInstance)
+      })
     })
 
     describe('dispose', () => {

@@ -26,9 +26,9 @@ describe('ChipSet', () => {
   it('should take care of element either passed as a CSS selector or DOM element', () => {
     const el = setMarkup()
     const bySelector = new ChipSet('.chip-set')
-    const byElement = new ChipSet(el)
-
     expect(bySelector._element).toEqual(el)
+
+    const byElement = new ChipSet(el)
     expect(byElement._element).toEqual(el)
   })
 

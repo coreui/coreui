@@ -17,9 +17,9 @@ describe('Chip', () => {
 
     const chipEl = fixtureEl.querySelector('.chip')
     const chipBySelector = new Chip('.chip')
-    const chipByElement = new Chip(chipEl)
-
     expect(chipBySelector._element).toEqual(chipEl)
+
+    const chipByElement = new Chip(chipEl)
     expect(chipByElement._element).toEqual(chipEl)
   })
 

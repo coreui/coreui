@@ -35,9 +35,9 @@ describe('SearchButton', () => {
 
     const buttonEl = fixtureEl.querySelector('button')
     const buttonBySelector = new SearchButton('[data-coreui-search-button]')
-    const buttonByElement = new SearchButton(buttonEl)
-
     expect(buttonBySelector._element).toEqual(buttonEl)
+
+    const buttonByElement = new SearchButton(buttonEl)
     expect(buttonByElement._element).toEqual(buttonEl)
   })
 

@@ -53,9 +53,9 @@ describe('Dropdown', () => {
 
       const btnDropdown = fixtureEl.querySelector('[data-coreui-toggle="dropdown"]')
       const dropdownBySelector = new Dropdown('[data-coreui-toggle="dropdown"]')
-      const dropdownByElement = new Dropdown(btnDropdown)
-
       expect(dropdownBySelector._element).toEqual(btnDropdown)
+
+      const dropdownByElement = new Dropdown(btnDropdown)
       expect(dropdownByElement._element).toEqual(btnDropdown)
     })
 
