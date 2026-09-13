@@ -11,7 +11,6 @@
 import * as Popper from '@popperjs/core'
 import BaseComponent from './base-component.js'
 import EventHandler from './dom/event-handler.js'
-import Manipulator from './dom/manipulator.js'
 import {
   defineJQueryPlugin, execute, findShadowRoot, getElement, getUID, isRTL, noop
 } from './util/index.js'
@@ -23,7 +22,6 @@ import TemplateFactory from './util/template-factory.js'
  */
 
 const NAME = 'tooltip'
-const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn'])
 
 const ESCAPE_KEY = 'Escape'
 
@@ -576,25 +574,6 @@ class Tooltip extends BaseComponent {
 
   _isWithActiveTrigger() {
     return Object.values(this._activeTrigger).includes(true)
-  }
-
-  _getConfig(config) {
-    const dataAttributes = Manipulator.getDataAttributes(this._element)
-
-    for (const dataAttribute of Object.keys(dataAttributes)) {
-      if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
-        delete dataAttributes[dataAttribute]
-      }
-    }
-
-    config = {
-      ...dataAttributes,
-      ...(typeof config === 'object' && config ? config : {})
-    }
-    config = this._mergeConfigObj(config)
-    config = this._configAfterMerge(config)
-    this._typeCheckConfig(config)
-    return config
   }
 
   _configAfterMerge(config) {

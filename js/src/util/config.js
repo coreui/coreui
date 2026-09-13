@@ -12,6 +12,12 @@ import Manipulator from '../dom/manipulator.js'
 import { isElement, toType } from './index.js'
 
 /**
+ * Constants
+ */
+
+const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn'])
+
+/**
  * Class definition
  */
 
@@ -42,11 +48,18 @@ class Config {
 
   _mergeConfigObj(config, element) {
     const jsonConfig = isElement(element) ? Manipulator.getDataAttribute(element, 'config') : {} // try to parse
+    const markupConfig = {
+      ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
+      ...(isElement(element) ? Manipulator.getDataAttributes(element) : {})
+    }
+
+    for (const key of DISALLOWED_ATTRIBUTES) {
+      delete markupConfig[key]
+    }
 
     return {
       ...this.constructor.Default,
-      ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
-      ...(isElement(element) ? Manipulator.getDataAttributes(element) : {}),
+      ...markupConfig,
       ...(typeof config === 'object' ? config : {})
     }
   }
