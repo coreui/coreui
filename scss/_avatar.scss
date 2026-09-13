@@ -59,6 +59,10 @@
   .avatar {
     margin-inline-end: calc(-.4 * var(--#{$prefix}avatar-width)); // stylelint-disable-line function-disallowed-list
 
+    &:last-child {
+      margin-inline-end: 0;
+    }
+
     &:hover {
       margin-inline-end: 0;
     }
