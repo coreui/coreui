@@ -1359,7 +1359,6 @@ $dropdown-bg:                       var(--#{$prefix}body-bg) !default;
 $dropdown-border-color:             var(--#{$prefix}border-color-translucent) !default;
 $dropdown-border-radius:            var(--#{$prefix}border-radius) !default;
 $dropdown-border-width:             var(--#{$prefix}border-width) !default;
-$dropdown-inner-border-radius:      calc(#{$dropdown-border-radius} - #{$dropdown-border-width}) !default; // stylelint-disable-line function-disallowed-list
 $dropdown-divider-bg:               $dropdown-border-color !default;
 $dropdown-divider-margin-y:         $spacer * .5 !default;
 $dropdown-box-shadow:               var(--#{$prefix}box-shadow) !default;
@@ -1462,7 +1461,7 @@ $card-border-width:                 var(--#{$prefix}border-width) !default;
 $card-border-color:                 var(--#{$prefix}border-color-translucent) !default;
 $card-border-radius:                var(--#{$prefix}border-radius) !default;
 $card-box-shadow:                   null !default;
-$card-inner-border-radius:          subtract($card-border-radius, $card-border-width) !default;
+$card-inner-border-radius:          calc(var(--#{$prefix}card-border-radius) - var(--#{$prefix}card-border-width)) !default; // stylelint-disable-line function-disallowed-list
 $card-cap-padding-y:                $card-spacer-y * .5 !default;
 $card-cap-padding-x:                $card-spacer-x !default;
 $card-cap-bg:                       rgba(var(--#{$prefix}body-color-rgb), .03) !default;
@@ -1484,7 +1483,7 @@ $accordion-bg:                            var(--#{$prefix}body-bg) !default;
 $accordion-border-width:                  var(--#{$prefix}border-width) !default;
 $accordion-border-color:                  var(--#{$prefix}border-color) !default;
 $accordion-border-radius:                 var(--#{$prefix}border-radius) !default;
-$accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
+$accordion-inner-border-radius:           calc(var(--#{$prefix}accordion-border-radius) - var(--#{$prefix}accordion-border-width)) !default; // stylelint-disable-line function-disallowed-list
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
 $accordion-body-padding-x:                $accordion-padding-x !default;
@@ -1552,7 +1551,7 @@ $popover-max-width:                 276px !default;
 $popover-border-width:              var(--#{$prefix}border-width) !default;
 $popover-border-color:              var(--#{$prefix}border-color-translucent) !default;
 $popover-border-radius:             var(--#{$prefix}border-radius-lg) !default;
-$popover-inner-border-radius:       calc(#{$popover-border-radius} - #{$popover-border-width}) !default; // stylelint-disable-line function-disallowed-list
+$popover-inner-border-radius:       calc(var(--#{$prefix}popover-border-radius) - var(--#{$prefix}popover-border-width)) !default; // stylelint-disable-line function-disallowed-list
 $popover-box-shadow:                var(--#{$prefix}box-shadow) !default;
 
 $popover-header-font-size:          $font-size-base !default;
@@ -1630,7 +1629,7 @@ $modal-content-bg:                  var(--#{$prefix}body-bg) !default;
 $modal-content-border-color:        var(--#{$prefix}border-color-translucent) !default;
 $modal-content-border-width:        var(--#{$prefix}border-width) !default;
 $modal-content-border-radius:       var(--#{$prefix}border-radius-lg) !default;
-$modal-content-inner-border-radius: subtract($modal-content-border-radius, $modal-content-border-width) !default;
+$modal-content-inner-border-radius: calc(var(--#{$prefix}modal-border-radius) - var(--#{$prefix}modal-border-width)) !default; // stylelint-disable-line function-disallowed-list
 $modal-content-box-shadow-xs:       var(--#{$prefix}box-shadow-sm) !default;
 $modal-content-box-shadow-sm-up:    var(--#{$prefix}box-shadow) !default;
 
