@@ -814,6 +814,28 @@ describe('Chip', () => {
 
       expect(Chip.getInstance(chipEl)).toBeNull()
     })
+
+    it('should remove its listeners on dispose', () => {
+      fixtureEl.innerHTML = '<span class="chip">Tag</span>'
+
+      const chipEl = fixtureEl.querySelector('.chip')
+      const chip = new Chip(chipEl, { removable: true, selectable: true })
+
+      chip.dispose()
+
+      const toggleSpy = spyOn(chip, 'toggle')
+      const removeSpy = spyOn(chip, 'remove')
+      const keydownSpy = spyOn(chip, '_handleKeydown')
+
+      chipEl.click()
+      chipEl.querySelector('.chip-remove').click()
+      chipEl.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Delete' }))
+
+      expect(toggleSpy).not.toHaveBeenCalled()
+      expect(removeSpy).not.toHaveBeenCalled()
+      expect(keydownSpy).not.toHaveBeenCalled()
+      expect(chipEl.isConnected).toBeTrue()
+    })
   })
 
   describe('jQueryInterface', () => {

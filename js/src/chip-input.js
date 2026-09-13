@@ -22,7 +22,12 @@ const DATA_KEY = 'coreui.chip-input'
 const EVENT_KEY = `.${DATA_KEY}`
 const DATA_API_KEY = '.data-api'
 
+const EVENT_BLUR = `blur${EVENT_KEY}`
+const EVENT_CLICK = `click${EVENT_KEY}`
+const EVENT_FOCUS = `focus${EVENT_KEY}`
 const EVENT_INPUT = `input${EVENT_KEY}`
+const EVENT_KEYDOWN = `keydown${EVENT_KEY}`
+const EVENT_PASTE = `paste${EVENT_KEY}`
 
 const SELECTOR_DATA_CHIP_INPUT = '[data-coreui-chip-input]'
 const SELECTOR_CHIP = '.chip'
@@ -110,6 +115,12 @@ class ChipInput extends ChipSet {
     this._input?.focus()
   }
 
+  dispose() {
+    EventHandler.off(this._input, EVENT_KEY)
+
+    super.dispose()
+  }
+
   // Private
   _canModify() {
     return !this._disabled && !this._config.readonly
@@ -156,7 +167,7 @@ class ChipInput extends ChipSet {
   }
 
   _addInputEventListeners() {
-    EventHandler.on(this._element, 'keydown', event => {
+    EventHandler.on(this._element, EVENT_KEYDOWN, event => {
       if (event.target === this._input) {
         return
       }
@@ -177,13 +188,13 @@ class ChipInput extends ChipSet {
         this._input.focus()
       }
     })
-    EventHandler.on(this._input, 'keydown', event => this._handleInputKeydown(event))
-    EventHandler.on(this._input, 'input', event => this._handleInput(event))
-    EventHandler.on(this._input, 'paste', event => this._handlePaste(event))
-    EventHandler.on(this._input, 'focus', () => this.clearSelection())
+    EventHandler.on(this._input, EVENT_KEYDOWN, event => this._handleInputKeydown(event))
+    EventHandler.on(this._input, EVENT_INPUT, event => this._handleInput(event))
+    EventHandler.on(this._input, EVENT_PASTE, event => this._handlePaste(event))
+    EventHandler.on(this._input, EVENT_FOCUS, () => this.clearSelection())
 
     if (this._config.createOnBlur) {
-      EventHandler.on(this._input, 'blur', event => {
+      EventHandler.on(this._input, EVENT_BLUR, event => {
         // Don't create chip if clicking on a chip
         if (!event.relatedTarget?.closest(SELECTOR_CHIP)) {
           this._createChipFromInput()
@@ -192,7 +203,7 @@ class ChipInput extends ChipSet {
     }
 
     // Focus input when clicking container background
-    EventHandler.on(this._element, 'click', event => {
+    EventHandler.on(this._element, EVENT_CLICK, event => {
       if (event.target === this._element) {
         this._input?.focus()
       }
