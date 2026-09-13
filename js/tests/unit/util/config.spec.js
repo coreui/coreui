@@ -99,6 +99,39 @@ describe('Config', () => {
       expect(configResult.testInt2).toEqual(100)
     })
 
+    it('should ignore sanitize, allowList and sanitizeFn coming from the markup', () => {
+      fixtureEl.innerHTML = '<div id="test" data-coreui-sanitize="false" data-coreui-allow-list="{}" data-coreui-config=\'{"sanitize": false, "sanitizeFn": "x"}\'></div>'
+
+      spyOnProperty(DummyConfigClass, 'Default', 'get').and.returnValue({
+        allowList: { b: [] },
+        sanitize: true,
+        sanitizeFn: null
+      })
+      const instance = new DummyConfigClass()
+      const configResult = instance._mergeConfigObj({}, fixtureEl.querySelector('#test'))
+
+      expect(configResult.sanitize).toBeTrue()
+      expect(configResult.allowList).toEqual({ b: [] })
+      expect(configResult.sanitizeFn).toBeNull()
+    })
+
+    it('should let a programmatic config set sanitize, allowList and sanitizeFn', () => {
+      fixtureEl.innerHTML = '<div id="test" data-coreui-sanitize="true"></div>'
+
+      spyOnProperty(DummyConfigClass, 'Default', 'get').and.returnValue({
+        allowList: { b: [] },
+        sanitize: true,
+        sanitizeFn: null
+      })
+      const sanitizeFn = () => ''
+      const instance = new DummyConfigClass()
+      const configResult = instance._mergeConfigObj({ allowList: { i: [] }, sanitize: false, sanitizeFn }, fixtureEl.querySelector('#test'))
+
+      expect(configResult.sanitize).toBeFalse()
+      expect(configResult.allowList).toEqual({ i: [] })
+      expect(configResult.sanitizeFn).toBe(sanitizeFn)
+    })
+
     it('should omit element\'s data attribute `config` if is not an object', () => {
       fixtureEl.innerHTML = '<div id="test" data-coreui-config="foo" data-coreui-test-int="8"></div>'
 
