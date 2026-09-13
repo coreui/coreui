@@ -144,6 +144,12 @@ class Modal extends BaseComponent {
   }
 
   dispose() {
+    if (this._isShown) {
+      document.body.classList.remove(CLASS_NAME_OPEN)
+      this._resetAdjustments()
+      this._scrollBar.reset()
+    }
+
     EventHandler.off(window, EVENT_KEY)
     EventHandler.off(this._dialog, EVENT_KEY)
 
@@ -354,7 +360,8 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
 
     EventHandler.one(target, EVENT_HIDDEN, () => {
       if (isVisible(this)) {
-        this.focus()
+        // Returning focus must not scroll the page back to the trigger.
+        this.focus({ preventScroll: true })
       }
     })
   })

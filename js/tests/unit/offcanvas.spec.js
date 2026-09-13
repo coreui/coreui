@@ -615,6 +615,26 @@ describe('Offcanvas', () => {
   })
 
   describe('dispose', () => {
+    it('should restore body scroll when disposed while shown', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = '<div class="offcanvas"></div>'
+
+        const offCanvasEl = fixtureEl.querySelector('.offcanvas')
+        const offCanvas = new Offcanvas(offCanvasEl)
+
+        offCanvasEl.addEventListener('shown.coreui.offcanvas', () => {
+          expect(document.body.style.overflow).toEqual('hidden')
+
+          offCanvas.dispose()
+
+          expect(document.body.style.overflow).toEqual('')
+          resolve()
+        })
+
+        offCanvas.show()
+      })
+    })
+
     it('should dispose an offcanvas', () => {
       fixtureEl.innerHTML = '<div class="offcanvas"></div>'
 
@@ -714,7 +734,7 @@ describe('Offcanvas', () => {
         })
         offcanvasEl.addEventListener('hidden.coreui.offcanvas', () => {
           setTimeout(() => {
-            expect(spy).toHaveBeenCalled()
+            expect(spy).toHaveBeenCalledWith({ preventScroll: true })
             resolve()
           }, 5)
         })

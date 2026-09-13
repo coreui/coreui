@@ -161,6 +161,10 @@ class Offcanvas extends BaseComponent {
   }
 
   dispose() {
+    if (this._isShown && !this._config.scroll) {
+      new ScrollBarHelper().reset()
+    }
+
     this._backdrop.dispose()
     this._focustrap.deactivate()
     super.dispose()
@@ -246,7 +250,8 @@ EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (
   EventHandler.one(target, EVENT_HIDDEN, () => {
     // focus on trigger when it is closed
     if (isVisible(this)) {
-      this.focus()
+      // Returning focus must not scroll the page back to the trigger.
+      this.focus({ preventScroll: true })
     }
   })
 
