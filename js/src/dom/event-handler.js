@@ -90,19 +90,37 @@ function getElementEvents(element) {
   return eventRegistry[uid]
 }
 
-function bootstrapHandler(element, fn) {
-  return function handler(event) {
-    hydrateObj(event, { delegateTarget: element })
+// `mouseenter` and `mouseleave` ride on `mouseover` and `mouseout`, which also fire when
+// the pointer moves between descendants of the listening element. Drop those events, so the
+// handler only sees the pointer entering or leaving `delegateTarget` itself.
+// `Node.contains()` is inclusive, so this also covers `relatedTarget === delegateTarget`.
+function isMouseEventWithinTarget(event) {
+  const { delegateTarget, relatedTarget } = event
 
-    if (handler.oneOff) {
-      EventHandler.off(element, event.type, fn)
+  return Boolean(relatedTarget && delegateTarget.contains(relatedTarget))
+}
+
+function bootstrapHandler(element, fn, handlerTypeEvent) {
+  const isCustomMouseEvent = handlerTypeEvent in customEvents
+
+  return function handler(event) {
+    const coreuiEvent = hydrateObj(event, { delegateTarget: element })
+
+    if (isCustomMouseEvent && isMouseEventWithinTarget(coreuiEvent)) {
+      return
     }
 
-    return fn.apply(element, [event])
+    if (handler.oneOff) {
+      EventHandler.off(element, handlerTypeEvent, fn)
+    }
+
+    return fn.apply(element, [coreuiEvent])
   }
 }
 
-function bootstrapDelegationHandler(element, selector, fn) {
+function bootstrapDelegationHandler(element, selector, fn, handlerTypeEvent) {
+  const isCustomMouseEvent = handlerTypeEvent in customEvents
+
   return function handler(event) {
     const domElements = element.querySelectorAll(selector)
 
@@ -112,34 +130,47 @@ function bootstrapDelegationHandler(element, selector, fn) {
           continue
         }
 
-        hydrateObj(event, { delegateTarget: target })
+        const coreuiEvent = hydrateObj(event, { delegateTarget: target })
 
-        if (handler.oneOff) {
-          EventHandler.off(element, event.type, selector, fn)
+        if (isCustomMouseEvent && isMouseEventWithinTarget(coreuiEvent)) {
+          return
         }
 
-        return fn.apply(target, [event])
+        if (handler.oneOff) {
+          EventHandler.off(element, handlerTypeEvent, selector, fn)
+        }
+
+        return fn.apply(target, [coreuiEvent])
       }
     }
   }
 }
 
-function findHandler(events, callable, delegationSelector = null) {
+function findHandler(events, callable, handlerTypeEvent, delegationSelector = null) {
   return Object.values(events)
-    .find(event => event.callable === callable && event.delegationSelector === delegationSelector)
+    .find(event => event.callable === callable && event.handlerTypeEvent === handlerTypeEvent && event.delegationSelector === delegationSelector)
 }
 
+// `typeEvent` is the DOM event type the listener is registered under. `handlerTypeEvent` is
+// the type the caller asked for. The two differ only for `mouseenter` and `mouseleave`, which
+// the registry must keep apart from the `mouseover` and `mouseout` listeners they share.
 function normalizeParameters(originalTypeEvent, handler, delegationFunction) {
   const isDelegated = typeof handler === 'string'
   // TODO: tooltip passes `false` instead of selector, so we need to check
   const callable = isDelegated ? delegationFunction : (handler || delegationFunction)
-  let typeEvent = getTypeEvent(originalTypeEvent)
+  // Strip the namespace to get the plain event ('click.coreui.button' --> 'click')
+  const baseTypeEvent = originalTypeEvent.replace(stripNameRegex, '')
+  let typeEvent = customEvents[baseTypeEvent] || baseTypeEvent
 
   if (!nativeEvents.has(typeEvent)) {
     typeEvent = originalTypeEvent
   }
 
-  return [isDelegated, callable, typeEvent]
+  const handlerTypeEvent = baseTypeEvent in customEvents ? baseTypeEvent : typeEvent
+
+  return {
+    isDelegated, callable, typeEvent, handlerTypeEvent
+  }
 }
 
 function addHandler(element, originalTypeEvent, handler, delegationFunction, oneOff) {
@@ -147,25 +178,10 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
     return
   }
 
-  let [isDelegated, callable, typeEvent] = normalizeParameters(originalTypeEvent, handler, delegationFunction)
-
-  // in case of mouseenter or mouseleave wrap the handler within a function that checks for its DOM position
-  // this prevents the handler from being dispatched the same way as mouseover or mouseout does
-  if (originalTypeEvent in customEvents) {
-    const wrapFunction = fn => {
-      return function (event) {
-        if (!event.relatedTarget || (event.relatedTarget !== event.delegateTarget && !event.delegateTarget.contains(event.relatedTarget))) {
-          return fn.call(this, event)
-        }
-      }
-    }
-
-    callable = wrapFunction(callable)
-  }
-
+  const { isDelegated, callable, typeEvent, handlerTypeEvent } = normalizeParameters(originalTypeEvent, handler, delegationFunction)
   const events = getElementEvents(element)
   const handlers = events[typeEvent] || (events[typeEvent] = {})
-  const previousFunction = findHandler(handlers, callable, isDelegated ? handler : null)
+  const previousFunction = findHandler(handlers, callable, handlerTypeEvent, isDelegated ? handler : null)
 
   if (previousFunction) {
     previousFunction.oneOff = previousFunction.oneOff && oneOff
@@ -175,11 +191,12 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
 
   const uid = makeEventUid(callable, originalTypeEvent.replace(namespaceRegex, ''))
   const fn = isDelegated ?
-    bootstrapDelegationHandler(element, handler, callable) :
-    bootstrapHandler(element, callable)
+    bootstrapDelegationHandler(element, handler, callable, handlerTypeEvent) :
+    bootstrapHandler(element, callable, handlerTypeEvent)
 
   fn.delegationSelector = isDelegated ? handler : null
   fn.callable = callable
+  fn.handlerTypeEvent = handlerTypeEvent
   fn.oneOff = oneOff
   fn.uidEvent = uid
   handlers[uid] = fn
@@ -187,15 +204,9 @@ function addHandler(element, originalTypeEvent, handler, delegationFunction, one
   element.addEventListener(typeEvent, fn, isDelegated)
 }
 
-function removeHandler(element, events, typeEvent, handler, delegationSelector) {
-  const fn = findHandler(events[typeEvent], handler, delegationSelector)
-
-  if (!fn) {
-    return
-  }
-
-  element.removeEventListener(typeEvent, fn, Boolean(delegationSelector))
-  delete events[typeEvent][fn.uidEvent]
+function removeHandler(element, events, typeEvent, handler) {
+  element.removeEventListener(typeEvent, handler, Boolean(handler.delegationSelector))
+  delete events[typeEvent][handler.uidEvent]
 }
 
 function removeNamespacedHandlers(element, events, typeEvent, namespace) {
@@ -203,7 +214,7 @@ function removeNamespacedHandlers(element, events, typeEvent, namespace) {
 
   for (const [handlerKey, event] of Object.entries(storeElementEvent)) {
     if (handlerKey.includes(namespace)) {
-      removeHandler(element, events, typeEvent, event.callable, event.delegationSelector)
+      removeHandler(element, events, typeEvent, event)
     }
   }
 }
@@ -228,8 +239,10 @@ const EventHandler = {
       return
     }
 
-    const [isDelegated, callable, typeEvent] = normalizeParameters(originalTypeEvent, handler, delegationFunction)
-    const inNamespace = typeEvent !== originalTypeEvent
+    const { isDelegated, callable, typeEvent, handlerTypeEvent } = normalizeParameters(originalTypeEvent, handler, delegationFunction)
+    // The caller gave a namespace when neither event type matches what they passed in.
+    // `handlerTypeEvent` must take part, or plain `mouseenter` looks namespaced next to `mouseover`.
+    const inNamespace = typeEvent !== originalTypeEvent && handlerTypeEvent !== originalTypeEvent
     const events = getElementEvents(element)
     const storeElementEvent = events[typeEvent] || {}
     const isNamespace = originalTypeEvent.startsWith('.')
@@ -240,7 +253,12 @@ const EventHandler = {
         return
       }
 
-      removeHandler(element, events, typeEvent, callable, isDelegated ? handler : null)
+      const fn = findHandler(storeElementEvent, callable, handlerTypeEvent, isDelegated ? handler : null)
+
+      if (fn) {
+        removeHandler(element, events, typeEvent, fn)
+      }
+
       return
     }
 
@@ -253,8 +271,8 @@ const EventHandler = {
     for (const [keyHandlers, event] of Object.entries(storeElementEvent)) {
       const handlerKey = keyHandlers.replace(stripUidRegex, '')
 
-      if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
-        removeHandler(element, events, typeEvent, event.callable, event.delegationSelector)
+      if (event.handlerTypeEvent === handlerTypeEvent && (!inNamespace || originalTypeEvent.includes(handlerKey))) {
+        removeHandler(element, events, typeEvent, event)
       }
     }
   },
