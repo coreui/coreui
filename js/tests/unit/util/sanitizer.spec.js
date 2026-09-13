@@ -86,7 +86,12 @@ describe('Sanitizer', () => {
         '&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058',
         '&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A;',
         'jav&#x09;ascript:alert();',
-        'jav\u0000ascript:alert();'
+        'jav\u0000ascript:alert();',
+        'data:text/html;base64,PHNjcmlwdD5hbGVydCg3KTwvc2NyaXB0Pg==',
+        'DATA:text/html;base64,PHNjcmlwdD5hbGVydCg3KTwvc2NyaXB0Pg==',
+        'data:image/svg+xml;base64,PHN2ZyBvbmxvYWQ9ImFsZXJ0KDcpIi8+',
+        'vbscript:msgbox(7)',
+        'VBScript:msgbox(7)'
       ]
 
       for (const url of invalidUrls) {
