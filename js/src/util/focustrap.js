@@ -46,6 +46,8 @@ class FocusTrap extends Config {
     this._config = this._getConfig(config)
     this._isActive = false
     this._lastTabNavDirection = null
+    this._focusinHandler = event => this._handleFocusin(event)
+    this._keydownHandler = event => this._handleKeydown(event)
   }
 
   // Getters
@@ -71,9 +73,8 @@ class FocusTrap extends Config {
       this._config.trapElement.focus()
     }
 
-    EventHandler.off(document, EVENT_KEY) // guard against infinite focus loop
-    EventHandler.on(document, EVENT_FOCUSIN, event => this._handleFocusin(event))
-    EventHandler.on(document, EVENT_KEYDOWN_TAB, event => this._handleKeydown(event))
+    EventHandler.on(document, EVENT_FOCUSIN, this._focusinHandler)
+    EventHandler.on(document, EVENT_KEYDOWN_TAB, this._keydownHandler)
 
     this._isActive = true
   }
@@ -84,7 +85,8 @@ class FocusTrap extends Config {
     }
 
     this._isActive = false
-    EventHandler.off(document, EVENT_KEY)
+    EventHandler.off(document, EVENT_FOCUSIN, this._focusinHandler)
+    EventHandler.off(document, EVENT_KEYDOWN_TAB, this._keydownHandler)
   }
 
   // Private

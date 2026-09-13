@@ -214,5 +214,31 @@ describe('FocusTrap', () => {
 
       expect(spy).not.toHaveBeenCalled()
     })
+
+    it('should keep the other trap listening when one is deactivated', () => {
+      fixtureEl.innerHTML = [
+        '<a href="#" id="outside">outside</a>',
+        '<div id="first" tabindex="-1"><a href="#" id="inside-first">first</a></div>',
+        '<div id="second" tabindex="-1"><a href="#" id="inside-second">second</a></div>'
+      ].join('')
+
+      const first = new FocusTrap({ trapElement: fixtureEl.querySelector('#first'), autofocus: false })
+      const second = new FocusTrap({ trapElement: fixtureEl.querySelector('#second'), autofocus: false })
+      first.activate()
+      second.activate()
+      first.deactivate()
+
+      const focusinSpy = spyOn(second, '_handleFocusin').and.callThrough()
+      const keydownSpy = spyOn(second, '_handleKeydown').and.callThrough()
+
+      fixtureEl.querySelector('#outside').focus()
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Tab', bubbles: true }))
+
+      expect(focusinSpy).toHaveBeenCalled()
+      expect(keydownSpy).toHaveBeenCalled()
+      expect(document.activeElement).toEqual(fixtureEl.querySelector('#inside-second'))
+
+      second.deactivate()
+    })
   })
 })

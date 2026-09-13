@@ -208,6 +208,11 @@ class Sidebar extends BaseComponent {
   }
 
   dispose() {
+    if (this._isMobile() && this._isVisible()) {
+      new ScrollBarHelper().reset()
+    }
+
+    this._backdrop.dispose()
     this._removeClickOutListener()
     EventHandler.off(window, EVENT_RESIZE, this._resizeHandler)
 
