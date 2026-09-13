@@ -26,6 +26,8 @@ const EVENT_SELECT = `select${EVENT_KEY}`
 const EVENT_SELECTED = `selected${EVENT_KEY}`
 const EVENT_DESELECT = `deselect${EVENT_KEY}`
 const EVENT_DESELECTED = `deselected${EVENT_KEY}`
+const EVENT_CLICK = `click${EVENT_KEY}`
+const EVENT_KEYDOWN = `keydown${EVENT_KEY}`
 
 const SELECTOR_CHIP_CHECK = '.chip-check'
 const SELECTOR_CHIP_REMOVE = '.chip-remove'
@@ -177,9 +179,9 @@ class Chip extends BaseComponent {
   }
 
   _addEventListeners() {
-    EventHandler.on(this._element, 'keydown', event => this._handleKeydown(event))
+    EventHandler.on(this._element, EVENT_KEYDOWN, event => this._handleKeydown(event))
 
-    EventHandler.on(this._element, 'click', event => {
+    EventHandler.on(this._element, EVENT_CLICK, event => {
       if (this._disabled) {
         return
       }
@@ -191,7 +193,7 @@ class Chip extends BaseComponent {
       this.toggle()
     })
 
-    EventHandler.on(this._element, 'click', SELECTOR_CHIP_REMOVE, event => {
+    EventHandler.on(this._element, EVENT_CLICK, SELECTOR_CHIP_REMOVE, event => {
       event.stopPropagation()
       this.remove()
     })

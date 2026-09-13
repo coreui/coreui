@@ -958,6 +958,35 @@ describe('ChipInput', () => {
       expect(ChipInput.getInstance(el)).toBeNull()
     })
 
+    it('should stop reacting to the text input after dispose', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      const chipInput = new ChipInput(el)
+      const input = el.querySelector('input.chip-input-field')
+
+      chipInput.dispose()
+
+      const inputSpy = spyOn(chipInput, '_handleInput')
+      const keydownSpy = spyOn(chipInput, '_handleInputKeydown')
+      const pasteSpy = spyOn(chipInput, '_handlePaste')
+      const createSpy = spyOn(chipInput, '_createChipFromInput')
+
+      input.value = 'foo,'
+      input.dispatchEvent(new Event('input', { bubbles: true }))
+      input.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'Enter' }))
+      input.dispatchEvent(new Event('paste', { bubbles: true }))
+      input.dispatchEvent(new Event('blur'))
+      el.dispatchEvent(new KeyboardEvent('keydown', { bubbles: true, key: 'a' }))
+      el.click()
+
+      expect(inputSpy).not.toHaveBeenCalled()
+      expect(keydownSpy).not.toHaveBeenCalled()
+      expect(pasteSpy).not.toHaveBeenCalled()
+      expect(createSpy).not.toHaveBeenCalled()
+      expect(el.querySelectorAll('.chip')).toHaveSize(0)
+    })
+
     it('should be an instance of ChipSet', () => {
       fixtureEl.innerHTML = '<div class="chip-input"></div>'
 
