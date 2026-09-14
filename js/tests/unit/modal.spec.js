@@ -843,6 +843,27 @@ describe('Modal', () => {
   })
 
   describe('dispose', () => {
+    it('should restore body scroll when disposed while shown', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
+
+        const modalEl = fixtureEl.querySelector('.modal')
+        const modal = new Modal(modalEl)
+
+        modalEl.addEventListener('shown.coreui.modal', () => {
+          expect(document.body.classList.contains('modal-open')).toBeTrue()
+
+          modal.dispose()
+
+          expect(document.body.classList.contains('modal-open')).toBeFalse()
+          expect(document.body.style.overflow).toEqual('')
+          resolve()
+        })
+
+        modal.show()
+      })
+    })
+
     it('should dispose a modal', () => {
       fixtureEl.innerHTML = '<div id="exampleModal" class="modal"><div class="modal-dialog"></div></div>'
 
@@ -979,7 +1000,7 @@ describe('Modal', () => {
 
         const hideListener = () => {
           setTimeout(() => {
-            expect(spy).toHaveBeenCalled()
+            expect(spy).toHaveBeenCalledWith({ preventScroll: true })
             resolve()
           }, 20)
         }
