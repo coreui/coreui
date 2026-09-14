@@ -70,6 +70,21 @@ describe('EventHandler', () => {
       })
     })
 
+    it('should add a namespaced beforeinput listener', () => {
+      return new Promise(resolve => {
+        fixtureEl.innerHTML = '<input type="text">'
+
+        const input = fixtureEl.querySelector('input')
+
+        EventHandler.on(input, 'beforeinput.namespace', () => {
+          expect().nothing()
+          resolve()
+        })
+
+        input.dispatchEvent(new InputEvent('beforeinput', { bubbles: true, cancelable: true }))
+      })
+    })
+
     it('should handle event delegation', () => {
       return new Promise(resolve => {
         EventHandler.on(document, 'click', '.test', () => {
