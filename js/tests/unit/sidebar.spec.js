@@ -666,10 +666,12 @@ describe('Sidebar', () => {
         const sidebar = new Sidebar('.sidebar')
         const toggleBtn = fixtureEl.querySelector('button')
         const spyToggleNarrow = spyOn(sidebar, 'toggleNarrow')
+        const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
 
-        toggleBtn.click()
+        toggleBtn.dispatchEvent(clickEvent)
 
         expect(spyToggleNarrow).toHaveBeenCalled()
+        expect(clickEvent.defaultPrevented).toBeTrue()
       })
 
       it('should handle toggle unfoldable event', () => {
@@ -677,10 +679,27 @@ describe('Sidebar', () => {
         const sidebar = new Sidebar('.sidebar')
         const toggleBtn = fixtureEl.querySelector('button')
         const spyToggleUnfoldable = spyOn(sidebar, 'toggleUnfoldable')
+        const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
 
-        toggleBtn.click()
+        toggleBtn.dispatchEvent(clickEvent)
 
         expect(spyToggleUnfoldable).toHaveBeenCalled()
+        expect(clickEvent.defaultPrevented).toBeTrue()
+      })
+
+      it('should leave the default of other togglers inside the sidebar alone', () => {
+        fixtureEl.innerHTML = '<div class="sidebar"><a href="#" data-coreui-toggle="tooltip">Link</a></div>'
+        const sidebar = new Sidebar('.sidebar')
+        const link = fixtureEl.querySelector('a')
+        const spyToggleNarrow = spyOn(sidebar, 'toggleNarrow')
+        const spyToggleUnfoldable = spyOn(sidebar, 'toggleUnfoldable')
+        const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
+
+        link.dispatchEvent(clickEvent)
+
+        expect(clickEvent.defaultPrevented).toBeFalse()
+        expect(spyToggleNarrow).not.toHaveBeenCalled()
+        expect(spyToggleUnfoldable).not.toHaveBeenCalled()
       })
 
       it('should handle close event', () => {

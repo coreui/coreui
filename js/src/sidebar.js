@@ -43,7 +43,7 @@ const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`
 const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`
 
 const SELECTOR_DATA_CLOSE = '[data-coreui-close="sidebar"]'
-const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle]'
+const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="narrow"], [data-coreui-toggle="unfoldable"]'
 
 const SELECTOR_SIDEBAR = '.sidebar'
 
