@@ -261,8 +261,6 @@ class ChipInput extends ChipSet {
     this._element.classList.toggle(CLASS_NAME_DISABLED, this._disabled)
     this._input.disabled = this._disabled
     this._input.readOnly = !this._disabled && readonly
-    this._element.setAttribute('aria-disabled', this._disabled ? 'true' : 'false')
-    this._element.setAttribute('aria-readonly', readonly ? 'true' : 'false')
   }
 
   _handleInputKeydown(event) {

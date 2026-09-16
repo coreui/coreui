@@ -170,15 +170,26 @@ describe('ChipInput', () => {
       expect(chipInput.getValues()).toEqual(['First', 'Second'])
     })
 
-    it('should set aria attributes on element', () => {
+    it('should leave the readonly semantics to the input', () => {
       fixtureEl.innerHTML = '<div class="chip-input"></div>'
 
       const el = fixtureEl.querySelector('.chip-input')
       // eslint-disable-next-line no-new
-      new ChipInput(el)
+      new ChipInput(el, { readonly: true })
 
-      expect(el.getAttribute('aria-disabled')).toEqual('false')
-      expect(el.getAttribute('aria-readonly')).toEqual('false')
+      expect(el.hasAttribute('aria-readonly')).toBeFalse()
+      expect(el.querySelector('input[type="text"]').readOnly).toBeTrue()
+    })
+
+    it('should leave the disabled semantics to the input', () => {
+      fixtureEl.innerHTML = '<div class="chip-input"></div>'
+
+      const el = fixtureEl.querySelector('.chip-input')
+      // eslint-disable-next-line no-new
+      new ChipInput(el, { disabled: true })
+
+      expect(el.hasAttribute('aria-disabled')).toBeFalse()
+      expect(el.querySelector('input[type="text"]').disabled).toBeTrue()
     })
 
     it('should set label for attribute when label has no for', () => {
