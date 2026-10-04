@@ -2067,6 +2067,33 @@ describe('Dropdown', () => {
       })
     })
 
+    it('should ignore keyboard events in a dropdown-menu without a toggle', () => {
+      fixtureEl.innerHTML = [
+        '<div class="dropdown">',
+        '  <button class="btn dropdown-toggle">Dropdown</button>',
+        '  <div class="dropdown-menu show">',
+        '    <a class="dropdown-item" href="#">Some Item</a>',
+        '  </div>',
+        '</div>'
+      ].join('')
+
+      const item = fixtureEl.querySelector('.dropdown-item')
+      const errorSpy = jasmine.createSpy('errorSpy').and.callFake(event => event.preventDefault())
+
+      window.addEventListener('error', errorSpy)
+
+      for (const key of ['ArrowDown', 'ArrowUp', 'Escape']) {
+        const keydown = createEvent('keydown', { bubbles: true, cancelable: true })
+        keydown.key = key
+
+        item.dispatchEvent(keydown)
+        expect(keydown.defaultPrevented).toBeFalse()
+      }
+
+      window.removeEventListener('error', errorSpy)
+      expect(errorSpy).not.toHaveBeenCalled()
+    })
+
     it('should close dropdown using `escape` button, and return focus to its trigger', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = [

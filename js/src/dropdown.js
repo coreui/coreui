@@ -410,14 +410,18 @@ class Dropdown extends BaseComponent {
       return
     }
 
-    event.preventDefault()
-
     // TODO: v6 revert #37011 & change markup https://getbootstrap.com/docs/5.3/forms/input-group/
     const getToggleButton = this.matches(SELECTOR_DATA_TOGGLE) ?
       this :
       (SelectorEngine.prev(this, SELECTOR_DATA_TOGGLE)[0] ||
         SelectorEngine.next(this, SELECTOR_DATA_TOGGLE)[0] ||
         SelectorEngine.findOne(SELECTOR_DATA_TOGGLE, event.delegateTarget.parentNode))
+
+    if (!getToggleButton) {
+      return
+    }
+
+    event.preventDefault()
 
     const instance = Dropdown.getOrCreateInstance(getToggleButton)
 
