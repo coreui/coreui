@@ -1,5 +1,5 @@
 /*!
-  * CoreUI sidebar.js v5.9.0 (https://coreui.io)
+  * CoreUI sidebar.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -43,7 +43,7 @@
   const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
   const EVENT_LOAD_DATA_API = `load${EVENT_KEY}${DATA_API_KEY}`;
   const SELECTOR_DATA_CLOSE = '[data-coreui-close="sidebar"]';
-  const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle]';
+  const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="narrow"], [data-coreui-toggle="unfoldable"]';
   const SELECTOR_SIDEBAR = '.sidebar';
 
   /**
@@ -62,6 +62,13 @@
       this._narrow = this._isNarrow();
       this._unfoldable = this._isUnfoldable();
       this._backdrop = this._initializeBackDrop();
+      this._clickOutHandler = event => this._clickOutListener(event);
+      this._resizeHandler = () => {
+        if (this._isMobile() && this._isVisible()) {
+          this.hide();
+          this._backdrop = this._initializeBackDrop();
+        }
+      };
       this._addEventListeners();
     }
 
@@ -171,6 +178,15 @@
       }
       this.unfoldable();
     }
+    dispose() {
+      if (this._isMobile() && this._isVisible()) {
+        new ScrollBarHelper().reset();
+      }
+      this._backdrop.dispose();
+      this._removeClickOutListener();
+      EventHandler.off(window, EVENT_RESIZE, this._resizeHandler);
+      super.dispose();
+    }
 
     // Private
 
@@ -207,12 +223,10 @@
       }
     }
     _addClickOutListener() {
-      EventHandler.on(document, EVENT_CLICK_DATA_API, event => {
-        this._clickOutListener(event);
-      });
+      EventHandler.on(document, EVENT_CLICK_DATA_API, this._clickOutHandler);
     }
     _removeClickOutListener() {
-      EventHandler.off(document, EVENT_CLICK_DATA_API);
+      EventHandler.off(document, EVENT_CLICK_DATA_API, this._clickOutHandler);
     }
 
     // Sidebar navigation
@@ -237,12 +251,7 @@
         event.preventDefault();
         this.hide();
       });
-      EventHandler.on(window, EVENT_RESIZE, () => {
-        if (this._isMobile() && this._isVisible()) {
-          this.hide();
-          this._backdrop = this._initializeBackDrop();
-        }
-      });
+      EventHandler.on(window, EVENT_RESIZE, this._resizeHandler);
     }
 
     // Static

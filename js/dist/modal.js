@@ -1,5 +1,5 @@
 /*!
-  * CoreUI modal.js v5.9.0 (https://coreui.io)
+  * CoreUI modal.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -121,6 +121,11 @@
       this._queueCallback(() => this._hideModal(), this._element, this._isAnimated());
     }
     dispose() {
+      if (this._isShown) {
+        document.body.classList.remove(CLASS_NAME_OPEN);
+        this._resetAdjustments();
+        this._scrollBar.reset();
+      }
       EventHandler.off(window, EVENT_KEY);
       EventHandler.off(this._dialog, EVENT_KEY);
       this._backdrop.dispose();
@@ -296,7 +301,10 @@
       }
       EventHandler.one(target, EVENT_HIDDEN, () => {
         if (index_js.isVisible(this)) {
-          this.focus();
+          // Returning focus must not scroll the page back to the trigger.
+          this.focus({
+            preventScroll: true
+          });
         }
       });
     });

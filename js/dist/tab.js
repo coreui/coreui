@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tab.js v5.9.0 (https://coreui.io)
+  * CoreUI tab.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -43,7 +43,6 @@
   const CLASS_NAME_ACTIVE = 'active';
   const CLASS_NAME_FADE = 'fade';
   const CLASS_NAME_SHOW = 'show';
-  const CLASS_DROPDOWN = 'dropdown';
   const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
   const SELECTOR_DROPDOWN_MENU = '.dropdown-menu';
   const NOT_SELECTOR_DROPDOWN_TOGGLE = `:not(${SELECTOR_DROPDOWN_TOGGLE})`;
@@ -149,6 +148,12 @@
       if (![ARROW_LEFT_KEY, ARROW_RIGHT_KEY, ARROW_UP_KEY, ARROW_DOWN_KEY, HOME_KEY, END_KEY].includes(event.key)) {
         return;
       }
+
+      // Don't hijack modifier+arrow shortcuts (e.g. Alt+Left/Right for browser
+      // history navigation); only the bare keys drive tablist navigation.
+      if (event.altKey || event.ctrlKey || event.metaKey) {
+        return;
+      }
       event.stopPropagation(); // stopPropagation/preventDefault both added to support up/down keys without scrolling the page
       event.preventDefault();
       const children = this._getChildren().filter(element => !index_js.isDisabled(element));
@@ -207,18 +212,16 @@
     }
     _toggleDropDown(element, open) {
       const outerElem = this._getOuterElement(element);
-      if (!outerElem.classList.contains(CLASS_DROPDOWN)) {
+      const dropdownToggle = SelectorEngine.findOne(SELECTOR_DROPDOWN_TOGGLE, outerElem);
+      if (!dropdownToggle) {
         return;
       }
-      const toggle = (selector, className) => {
-        const element = SelectorEngine.findOne(selector, outerElem);
-        if (element) {
-          element.classList.toggle(className, open);
-        }
-      };
-      toggle(SELECTOR_DROPDOWN_TOGGLE, CLASS_NAME_ACTIVE);
-      toggle(SELECTOR_DROPDOWN_MENU, CLASS_NAME_SHOW);
-      outerElem.setAttribute('aria-expanded', open);
+      const dropdownMenu = SelectorEngine.findOne(SELECTOR_DROPDOWN_MENU, outerElem);
+      dropdownToggle.classList.toggle(CLASS_NAME_ACTIVE, open);
+      if (dropdownMenu) {
+        dropdownMenu.classList.toggle(CLASS_NAME_SHOW, open);
+      }
+      dropdownToggle.setAttribute('aria-expanded', open);
     }
     _setAttributeIfNotExists(element, attribute, value) {
       if (!element.hasAttribute(attribute)) {

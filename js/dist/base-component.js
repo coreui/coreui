@@ -1,5 +1,5 @@
 /*!
-  * CoreUI base-component.js v5.9.0 (https://coreui.io)
+  * CoreUI base-component.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -24,7 +24,7 @@
    * Constants
    */
 
-  const VERSION = '5.9.0';
+  const VERSION = '5.9.1';
 
   /**
    * Class definition
@@ -39,6 +39,13 @@
       }
       this._element = element;
       this._config = this._getConfig(config);
+
+      // Dispose any existing instance bound to this element before registering the new one,
+      // so its event listeners and timers are cleaned up instead of leaking
+      const existingInstance = Data.get(this._element, this.constructor.DATA_KEY);
+      if (existingInstance) {
+        existingInstance.dispose();
+      }
       Data.set(this._element, this.constructor.DATA_KEY, this);
     }
 
@@ -53,7 +60,12 @@
 
     // Private
     _queueCallback(callback, element, isAnimated = true) {
-      index_js.executeAfterTransition(callback, element, isAnimated);
+      index_js.executeAfterTransition(() => {
+        // Don't run the completion callback if the instance was disposed mid-transition
+        if (this._element) {
+          callback();
+        }
+      }, element, isAnimated);
     }
     _getConfig(config) {
       config = this._mergeConfigObj(config, this._element);

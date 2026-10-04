@@ -1,13 +1,13 @@
 /*!
-  * CoreUI navigation.js v5.9.0 (https://coreui.io)
+  * CoreUI navigation.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './dom/data', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.BaseComponent, global.Data, global.EventHandler, global.SelectorEngine, global.Index));
-})(this, (function (BaseComponent, Data, EventHandler, SelectorEngine, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Navigation = factory(global.BaseComponent, global.EventHandler, global.SelectorEngine, global.Index));
+})(this, (function (BaseComponent, EventHandler, SelectorEngine, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -59,15 +59,11 @@
       this._config = this._getConfig(config);
       this._setActiveLink();
       this._addEventListeners();
-      Data.set(element, DATA_KEY, this);
     }
     // Getters
 
     static get Default() {
       return Default;
-    }
-    static get DATA_KEY() {
-      return DATA_KEY;
     }
     static get DefaultType() {
       return DefaultType;

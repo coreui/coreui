@@ -1,13 +1,13 @@
 /*!
-  * CoreUI tooltip.js v5.9.0 (https://coreui.io)
+  * CoreUI tooltip.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./util/index.js'), require('./util/sanitizer.js'), require('./util/template-factory.js')) :
-  typeof define === 'function' && define.amd ? define(['@popperjs/core', './base-component', './dom/event-handler', './dom/manipulator', './util/index', './util/sanitizer', './util/template-factory'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Tooltip = factory(global["@popperjs/core"], global.BaseComponent, global.EventHandler, global.Manipulator, global.Index, global.Sanitizer, global.TemplateFactory));
-})(this, (function (Popper, BaseComponent, EventHandler, Manipulator, index_js, sanitizer_js, TemplateFactory) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./base-component.js'), require('./dom/event-handler.js'), require('./util/index.js'), require('./util/sanitizer.js'), require('./util/template-factory.js')) :
+  typeof define === 'function' && define.amd ? define(['@popperjs/core', './base-component', './dom/event-handler', './util/index', './util/sanitizer', './util/template-factory'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Tooltip = factory(global["@popperjs/core"], global.BaseComponent, global.EventHandler, global.Index, global.Sanitizer, global.TemplateFactory));
+})(this, (function (Popper, BaseComponent, EventHandler, index_js, sanitizer_js, TemplateFactory) { 'use strict';
 
   function _interopNamespaceDefault(e) {
     const n = Object.create(null, { [Symbol.toStringTag]: { value: 'Module' } });
@@ -44,7 +44,6 @@
    */
 
   const NAME = 'tooltip';
-  const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
   const ESCAPE_KEY = 'Escape';
   const CLASS_NAME_FADE = 'fade';
   const CLASS_NAME_MODAL = 'modal';
@@ -492,22 +491,6 @@
     }
     _isWithActiveTrigger() {
       return Object.values(this._activeTrigger).includes(true);
-    }
-    _getConfig(config) {
-      const dataAttributes = Manipulator.getDataAttributes(this._element);
-      for (const dataAttribute of Object.keys(dataAttributes)) {
-        if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
-          delete dataAttributes[dataAttribute];
-        }
-      }
-      config = {
-        ...dataAttributes,
-        ...(typeof config === 'object' && config ? config : {})
-      };
-      config = this._mergeConfigObj(config);
-      config = this._configAfterMerge(config);
-      this._typeCheckConfig(config);
-      return config;
     }
     _configAfterMerge(config) {
       config.container = config.container === false ? document.body : index_js.getElement(config.container);

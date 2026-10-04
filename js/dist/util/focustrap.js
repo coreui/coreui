@@ -1,5 +1,5 @@
 /*!
-  * CoreUI focustrap.js v5.9.0 (https://coreui.io)
+  * CoreUI focustrap.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -41,6 +41,10 @@
     trapElement: 'element'
   };
 
+  // Only the most recently activated trap reacts. Two traps over disjoint
+  // elements would otherwise throw focus at each other without end.
+  const activeTraps = [];
+
   /**
    * Class definition
    */
@@ -51,6 +55,8 @@
       this._config = this._getConfig(config);
       this._isActive = false;
       this._lastTabNavDirection = null;
+      this._focusinHandler = event => this._handleFocusin(event);
+      this._keydownHandler = event => this._handleKeydown(event);
     }
 
     // Getters
@@ -72,9 +78,9 @@
       if (this._config.autofocus) {
         this._config.trapElement.focus();
       }
-      EventHandler.off(document, EVENT_KEY); // guard against infinite focus loop
-      EventHandler.on(document, EVENT_FOCUSIN, event => this._handleFocusin(event));
-      EventHandler.on(document, EVENT_KEYDOWN_TAB, event => this._handleKeydown(event));
+      EventHandler.on(document, EVENT_FOCUSIN, this._focusinHandler);
+      EventHandler.on(document, EVENT_KEYDOWN_TAB, this._keydownHandler);
+      activeTraps.push(this);
       this._isActive = true;
     }
     deactivate() {
@@ -82,7 +88,9 @@
         return;
       }
       this._isActive = false;
-      EventHandler.off(document, EVENT_KEY);
+      activeTraps.splice(activeTraps.indexOf(this), 1);
+      EventHandler.off(document, EVENT_FOCUSIN, this._focusinHandler);
+      EventHandler.off(document, EVENT_KEYDOWN_TAB, this._keydownHandler);
     }
 
     // Private
@@ -90,7 +98,7 @@
       const {
         trapElement
       } = this._config;
-      if (event.target === document || event.target === trapElement || trapElement.contains(event.target)) {
+      if (!this._isTopmost() || event.target === document || event.target === trapElement || trapElement.contains(event.target)) {
         return;
       }
       const elements = SelectorEngine.focusableChildren(trapElement);
@@ -103,10 +111,13 @@
       }
     }
     _handleKeydown(event) {
-      if (event.key !== TAB_KEY) {
+      if (!this._isTopmost() || event.key !== TAB_KEY) {
         return;
       }
       this._lastTabNavDirection = event.shiftKey ? TAB_NAV_BACKWARD : TAB_NAV_FORWARD;
+    }
+    _isTopmost() {
+      return activeTraps[activeTraps.length - 1] === this;
     }
   }
 

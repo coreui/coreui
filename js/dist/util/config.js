@@ -1,5 +1,5 @@
 /*!
-  * CoreUI config.js v5.9.0 (https://coreui.io)
+  * CoreUI config.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -19,6 +19,12 @@
    * --------------------------------------------------------------------------
    */
 
+
+  /**
+   * Constants
+   */
+
+  const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
 
   /**
    * Class definition
@@ -46,11 +52,16 @@
     }
     _mergeConfigObj(config, element) {
       const jsonConfig = index_js.isElement(element) ? Manipulator.getDataAttribute(element, 'config') : {}; // try to parse
-
+      const markupConfig = {
+        ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
+        ...(index_js.isElement(element) ? Manipulator.getDataAttributes(element) : {})
+      };
+      for (const key of DISALLOWED_ATTRIBUTES) {
+        delete markupConfig[key];
+      }
       return {
         ...this.constructor.Default,
-        ...(typeof jsonConfig === 'object' ? jsonConfig : {}),
-        ...(index_js.isElement(element) ? Manipulator.getDataAttributes(element) : {}),
+        ...markupConfig,
         ...(typeof config === 'object' ? config : {})
       };
     }

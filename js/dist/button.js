@@ -1,13 +1,13 @@
 /*!
-  * CoreUI button.js v5.9.0 (https://coreui.io)
+  * CoreUI button.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.BaseComponent, global.EventHandler, global.Index));
-})(this, (function (BaseComponent, EventHandler, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/selector-engine', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Button = factory(global.BaseComponent, global.EventHandler, global.SelectorEngine, global.Index));
+})(this, (function (BaseComponent, EventHandler, SelectorEngine, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -30,7 +30,9 @@
   const DATA_API_KEY = '.data-api';
   const CLASS_NAME_ACTIVE = 'active';
   const SELECTOR_DATA_TOGGLE = '[data-coreui-toggle="button"]';
+  const SELECTOR_PRESSABLE = 'button, [role="button"], input[type="button"], input[type="reset"], input[type="submit"]';
   const EVENT_CLICK_DATA_API = `click${EVENT_KEY}${DATA_API_KEY}`;
+  const EVENT_DOM_CONTENT_LOADED = `DOMContentLoaded${EVENT_KEY}${DATA_API_KEY}`;
 
   /**
    * Class definition
@@ -63,6 +65,16 @@
    * Data API implementation
    */
 
+  // A toggle button must always expose `aria-pressed`. Without it, assistive technology
+  // reads the control as a plain button and never announces the pressed state.
+  // See https://www.w3.org/WAI/ARIA/apg/patterns/button/
+  EventHandler.on(document, EVENT_DOM_CONTENT_LOADED, () => {
+    for (const element of SelectorEngine.find(SELECTOR_DATA_TOGGLE)) {
+      if (element.matches(SELECTOR_PRESSABLE) && !element.hasAttribute('aria-pressed')) {
+        element.setAttribute('aria-pressed', element.classList.contains(CLASS_NAME_ACTIVE));
+      }
+    }
+  });
   EventHandler.on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, event => {
     event.preventDefault();
     const button = event.target.closest(SELECTOR_DATA_TOGGLE);

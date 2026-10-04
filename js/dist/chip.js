@@ -1,13 +1,13 @@
 /*!
-  * CoreUI chip.js v5.9.0 (https://coreui.io)
+  * CoreUI chip.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js'), require('./util/sanitizer.js'), require('./util/index.js')) :
-  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/manipulator', './dom/selector-engine', './util/sanitizer', './util/index'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Chip = factory(global.BaseComponent, global.EventHandler, global.Manipulator, global.SelectorEngine, global.Sanitizer, global.Index));
-})(this, (function (BaseComponent, EventHandler, Manipulator, SelectorEngine, sanitizer_js, index_js) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('./base-component.js'), require('./dom/event-handler.js'), require('./dom/selector-engine.js'), require('./util/sanitizer.js'), require('./util/index.js')) :
+  typeof define === 'function' && define.amd ? define(['./base-component', './dom/event-handler', './dom/selector-engine', './util/sanitizer', './util/index'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Chip = factory(global.BaseComponent, global.EventHandler, global.SelectorEngine, global.Sanitizer, global.Index));
+})(this, (function (BaseComponent, EventHandler, SelectorEngine, sanitizer_js, index_js) { 'use strict';
 
   /**
    * --------------------------------------------------------------------------
@@ -31,6 +31,8 @@
   const EVENT_SELECTED = `selected${EVENT_KEY}`;
   const EVENT_DESELECT = `deselect${EVENT_KEY}`;
   const EVENT_DESELECTED = `deselected${EVENT_KEY}`;
+  const EVENT_CLICK = `click${EVENT_KEY}`;
+  const EVENT_KEYDOWN = `keydown${EVENT_KEY}`;
   const SELECTOR_CHIP_CHECK = '.chip-check';
   const SELECTOR_CHIP_REMOVE = '.chip-remove';
   const SELECTOR_DATA_CHIP = '[data-coreui-chip]';
@@ -41,7 +43,6 @@
   const CLASS_NAME_DISABLED = 'disabled';
   const DEFAULT_REMOVE_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="4" x2="12" y2="12"/><line x1="12" y1="4" x2="4" y2="12"/></svg>';
   const DEFAULT_SELECTED_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 512 512" fill="currentColor"><path d="M425.373 89.373 196 318.745 86.627 209.373l-45.254 45.254L196 409.255l274.627-274.628z"/></svg>';
-  const DISALLOWED_ATTRIBUTES = new Set(['sanitize', 'allowList', 'sanitizeFn']);
   const Default = {
     allowList: sanitizer_js.SVGAllowlist,
     ariaRemoveLabel: 'Remove',
@@ -155,8 +156,8 @@
       return config;
     }
     _addEventListeners() {
-      EventHandler.on(this._element, 'keydown', event => this._handleKeydown(event));
-      EventHandler.on(this._element, 'click', event => {
+      EventHandler.on(this._element, EVENT_KEYDOWN, event => this._handleKeydown(event));
+      EventHandler.on(this._element, EVENT_CLICK, event => {
         if (this._disabled) {
           return;
         }
@@ -165,7 +166,7 @@
         }
         this.toggle();
       });
-      EventHandler.on(this._element, 'click', SELECTOR_CHIP_REMOVE, event => {
+      EventHandler.on(this._element, EVENT_CLICK, SELECTOR_CHIP_REMOVE, event => {
         event.stopPropagation();
         this.remove();
       });
@@ -275,22 +276,6 @@
     }
     _sanitizeIcon(icon) {
       return this._config.sanitize ? sanitizer_js.sanitizeHtml(icon, this._config.allowList, this._config.sanitizeFn) : icon;
-    }
-    _getConfig(config) {
-      const dataAttributes = Manipulator.getDataAttributes(this._element);
-      for (const dataAttribute of Object.keys(dataAttributes)) {
-        if (DISALLOWED_ATTRIBUTES.has(dataAttribute)) {
-          delete dataAttributes[dataAttribute];
-        }
-      }
-      config = {
-        ...dataAttributes,
-        ...(typeof config === 'object' && config ? config : {})
-      };
-      config = this._mergeConfigObj(config);
-      config = this._configAfterMerge(config);
-      this._typeCheckConfig(config);
-      return config;
     }
 
     // Static

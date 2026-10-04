@@ -1,5 +1,5 @@
 /*!
-  * CoreUI offcanvas.js v5.9.0 (https://coreui.io)
+  * CoreUI offcanvas.js v5.9.1 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -138,6 +138,9 @@
       this._queueCallback(completeCallback, this._element, true);
     }
     dispose() {
+      if (this._isShown && !this._config.scroll) {
+        new ScrollBarHelper().reset();
+      }
       this._backdrop.dispose();
       this._focustrap.deactivate();
       super.dispose();
@@ -211,7 +214,10 @@
     EventHandler.one(target, EVENT_HIDDEN, () => {
       // focus on trigger when it is closed
       if (index_js.isVisible(this)) {
-        this.focus();
+        // Returning focus must not scroll the page back to the trigger.
+        this.focus({
+          preventScroll: true
+        });
       }
     });
 
