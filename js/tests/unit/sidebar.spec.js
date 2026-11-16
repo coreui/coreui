@@ -87,6 +87,30 @@ describe('Sidebar', () => {
       expect(spyInitializeBackDrop).toHaveBeenCalled()
       expect(spyAddEventListeners).toHaveBeenCalled()
     })
+
+    it('should not block clicks outside a mobile sidebar hidden by an ancestor', () => {
+      fixtureEl.innerHTML = [
+        '<div style="display: none">',
+        '  <div class="sidebar" style="--cui-is-mobile: true"></div>',
+        '</div>',
+        '<input type="checkbox" class="outside">'
+      ].join('')
+      const sidebar = new Sidebar('.sidebar')
+      const outsideEl = fixtureEl.querySelector('.outside')
+      const spyHide = spyOn(sidebar, 'hide')
+      let windowClickHandled = false
+      const windowClickListener = () => {
+        windowClickHandled = true
+      }
+
+      window.addEventListener('click', windowClickListener)
+      outsideEl.click()
+      window.removeEventListener('click', windowClickListener)
+
+      expect(spyHide).not.toHaveBeenCalled()
+      expect(outsideEl.checked).toBeTrue()
+      expect(windowClickHandled).toBeTrue()
+    })
   })
 
   describe('show', () => {
@@ -558,6 +582,13 @@ describe('Sidebar', () => {
           bottom: -50,
           right: -50
         })
+
+        expect(sidebar._isVisible()).toBe(false)
+      })
+
+      it('should return false when an ancestor hides the sidebar', () => {
+        fixtureEl.innerHTML = '<div style="display: none"><div class="sidebar"></div></div>'
+        const sidebar = new Sidebar('.sidebar')
 
         expect(sidebar._isVisible()).toBe(false)
       })
