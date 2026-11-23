@@ -6,7 +6,7 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 ## Dependencies
 
 - Upgraded from Popper v1.x to Popper v2.x.
-- Replaced Libsass with Dart Sass as our Sass compiler given Libsass was deprecated.
+- Replaced LibSass with Dart Sass as our Sass compiler given Libsass was deprecated.
 ## Browser support
 
 - Dropped Internet Explorer 10 and 11
@@ -238,7 +238,7 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 
 - Dropdown menus now have a `data-coreui-popper="static"` attribute set when the positioning of the dropdown is static and `data-coreui-popper="none"` when dropdown is in the navbar. This is added by our JavaScript and helps us use custom position styles without interfering with Popper's positioning.
 
-- <span class="badge bg-danger">Breaking</span> Dropped `flip` option for dropdown plugin in favor of native Popper configuration. You can now disable the flipping behavior by passing an empty array for [`fallbackPlacements`](https://popper.js.org/docs/v2/modifiers/flip/#fallbackplacements) option in [flip](https://popper.js.org/docs/v2/modifiers/flip/) modifier.
+- <span class="badge bg-danger">Breaking</span> Dropped `flip` option for dropdown plugin in favor of native Popper configuration. You can now disable the flipping behavior by passing an empty array for [`fallbackPlacements`](https://github.com/floating-ui/popper-docs/blob/main/docs/v2/modifiers/flip.md#fallbackplacements) option in [flip](https://github.com/floating-ui/popper-docs/blob/main/docs/v2/modifiers/flip.md) modifier.
 
 - Dropdown menus can now be clickable with a new `autoClose` option to handle the [auto close behavior](/components/dropdowns/#auto-close-behavior). You can use this option to accept the click inside or outside the dropdown menu to make it interactive.
 
@@ -357,7 +357,7 @@ description: "Track and review changes to the CoreUI for Bootstrap source files,
 
 - Added `.d-grid` to display utilities and new `gap` utilities (`.gap`) for CSS Grid and flexbox layouts.
 
-- <span class="badge bg-danger">Breaking</span> Removed `.rounded-sm` and `rounded-lg`, and introduced a new scale of classes, `.rounded-0` to `.rounded-3`.
+- <span class="badge bg-danger">Breaking</span> Removed `.rounded-sm` and `.rounded-lg`, and introduced a new scale of classes, `.rounded-0` to `.rounded-3`.
 
 - Added new `line-height` utilities: `.lh-1`, `.lh-sm`, `.lh-base` and `.lh-lg`. See [here](/utilities/text/#line-height).
 
