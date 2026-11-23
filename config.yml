@@ -1,29 +1,29 @@
 # Library + CDN config consumed by the Astro docs through [[config:...]] placeholders
 # and refreshed on release by build/generate-sri.mjs. Kept Bootstrap-shaped (top-level
 # `cdn` / `current_version`) so upstream getting-started snippets stay copy-paste ready.
-current_version: "5.9.1"
+current_version: "5.10.0"
 docs_version: "5.8"
 
 cdn:
   # See https://www.srihash.org for info on how to generate the hashes
-  css: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/css/coreui.min.css"
-  css_hash: "sha384-hLBsN3gpx96kCbLUCbANpmr8cdCNM1sH85tJfeZT61uxTNIvelafstACefvdVnuP"
-  css_rtl: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/css/coreui.rtl.min.css"
-  css_rtl_hash: "sha384-C4caVLlVfJWhlQjURwZ3BXTeybMvADXPbfafrJsjloVCp39FRoX9p6saPvcEzup8"
-  js: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/js/coreui.min.js"
-  js_hash: "sha384-nOgOcmr6AaR5Orx9+zgs9tbEI1xyppug0IOWcpUnVqYrFDDXvIQTvl3iubQE4AhR"
-  js_bundle: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/js/coreui.bundle.min.js"
-  js_bundle_hash: "sha384-yW+X2pqDqevsUW8M2p1APhb8cm2i5jneCZe2pkEvKVATzd6517WyXz6ElE46++OE"
+  css: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/css/coreui.min.css"
+  css_hash: "sha384-T2aZb1KxDvb+j1XpcTQcRpMVH184YP2qF/GrBMH/sHeq5J7tQbiceyl1t5j1/t+R"
+  css_rtl: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/css/coreui.rtl.min.css"
+  css_rtl_hash: "sha384-j0FyKFGWVNqbA4DATEGfal9X2tEqFFmsrm6DVrrqIceKLXJXzchl3NAjGxRF6hCJ"
+  js: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/js/coreui.min.js"
+  js_hash: "sha384-kTinH43BIIzDNscBYRR2T16aqs8CrQ8wxPYzTkuv1EHQMuuztwpsHF1Sf2qYvgWc"
+  js_bundle: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/js/coreui.bundle.min.js"
+  js_bundle_hash: "sha384-PK+bBi8l7EPDtLfLMhyYSiQxbyx0zP1Jtu7T/Q5CEHZmvyd6KofyMS7c/6pQX9nf"
   popper: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
   popper_hash: "sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
   popper_esm: "https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/esm/popper.min.js"
 
 cdn_themes:
-  css_bs: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/css/themes/bootstrap/bootstrap.min.css"
-  css_bs_hash: "sha384-fvLySNDGU1YHS+mRj38K6qAAWWRa+xhhitIGWNrUfyUIXC6wbthT7nrCtnYBuhpp"
-  css_bs_rtl: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/css/themes/bootstrap/bootstrap.rtl.min.css"
-  css_bs_rtl_hash: "sha384-d/Pe4Iv/zBzUvqNSDIG4FWQOGHI6Era9RCT0OU/GQKAPNBzh3R6anMDDe0HmTKqM"
-  js_bs: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/js/bootstrap.min.js"
-  js_bs_hash: "sha384-RuZjm3iU5R5YfbJ2bCnUFADA4i8VUTxBpZWd8XbNw5xIrwhvfDlOAQIuusOYNCsr"
-  js_bs_bundle: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.9.1/dist/js/bootstrap.bundle.min.js"
-  js_bs_bundle_hash: "sha384-Dj3chlOpTreSEcJrQ3tzbCBEy4hu3IpxZ7Yo4GSQ3Lh74uT9FdNQIvwlNJZLmPH/"
+  css_bs: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/css/themes/bootstrap/bootstrap.min.css"
+  css_bs_hash: "sha384-DFpCMAimR+sotyYaLI//r4uI1K3HSbGSzna6uikHuIZTqnt5sbnzF6oVhVzfjJGR"
+  css_bs_rtl: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/css/themes/bootstrap/bootstrap.rtl.min.css"
+  css_bs_rtl_hash: "sha384-cR2lDwUKnICLbuiiSyRd+J6db7kT6sOlhRC2D6T0wMAicToQekmt1ehR2vCGUi1N"
+  js_bs: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/js/bootstrap.min.js"
+  js_bs_hash: "sha384-5ECqKO6LcP90XMVAXf2a+iikfse0zSl5mrPLRgThzi/4TWE2zhHymnrOqDVFdOH2"
+  js_bs_bundle: "https://cdn.jsdelivr.net/npm/@coreui/coreui@5.10.0/dist/js/bootstrap.bundle.min.js"
+  js_bs_bundle_hash: "sha384-fcMF6pTv8wukPnJEgYoryT3UvWjLVBg1pyraNAViFU9PBYo3O3xMBqUJv2pRPWk7"

@@ -1,5 +1,5 @@
 /*!
-  * CoreUI tooltip.js v5.9.1 (https://coreui.io)
+  * CoreUI tooltip.js v5.10.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -119,7 +119,7 @@
   class Tooltip extends BaseComponent {
     constructor(element, config) {
       if (typeof Popper__namespace === 'undefined') {
-        throw new TypeError('CoreUI\'s dropdowns require Popper (https://popper.js.org/docs/v2/)');
+        throw new TypeError('CoreUI\'s tooltips require Popper');
       }
       super(element, config);
 
@@ -491,6 +491,19 @@
     }
     _isWithActiveTrigger() {
       return Object.values(this._activeTrigger).includes(true);
+    }
+    _getConfig(config) {
+      const dataAttributes = {};
+      if (this._element.getAttribute('data-coreui-title') !== null) {
+        dataAttributes.title = this._element.getAttribute('data-coreui-title');
+      }
+      if (this._element.getAttribute('data-coreui-content') !== null) {
+        dataAttributes.content = this._element.getAttribute('data-coreui-content');
+      }
+      return super._getConfig({
+        ...dataAttributes,
+        ...(typeof config === 'object' ? config : {})
+      });
     }
     _configAfterMerge(config) {
       config.container = config.container === false ? document.body : index_js.getElement(config.container);

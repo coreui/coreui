@@ -1,5 +1,5 @@
 /*!
-  * CoreUI dropdown.js v5.9.1 (https://coreui.io)
+  * CoreUI dropdown.js v5.10.0 (https://coreui.io)
   * Copyright 2026 The CoreUI Team (https://github.com/orgs/coreui/people)
   * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
   */
@@ -209,7 +209,7 @@
     }
     _createPopper() {
       if (typeof Popper__namespace === 'undefined') {
-        throw new TypeError('CoreUI\'s dropdowns require Popper (https://popper.js.org/docs/v2/)');
+        throw new TypeError('CoreUI\'s dropdowns require Popper');
       }
       let referenceElement = this._element;
       if (this._config.reference === 'parent') {

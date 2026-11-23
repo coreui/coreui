@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*!
- * CoreUI  v5.9.1 (https://coreui.io)
+ * CoreUI  v5.10.0 (https://coreui.io)
  * Copyright (c) 2026 creativeLabs Łukasz Holeczek
  * Licensed under MIT (https://github.com/coreui/coreui/blob/main/LICENSE)
  */
@@ -589,7 +589,7 @@ legend + * {
 
 ::-webkit-datetime-edit-fields-wrapper,
 ::-webkit-datetime-edit-text,
-::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-minute-field,
 ::-webkit-datetime-edit-hour-field,
 ::-webkit-datetime-edit-day-field,
 ::-webkit-datetime-edit-month-field,
@@ -6327,13 +6327,20 @@ textarea.form-control-lg {
 }
 @media (min-width: 992px) {
   .modal-lg,
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --cui-modal-width: 800px;
   }
 }
 @media (min-width: 1200px) {
-  .modal-xl {
+  .modal-xl,
+  .modal-xxl {
     --cui-modal-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .modal-xxl {
+    --cui-modal-width: 1320px;
   }
 }
 .modal-fullscreen {
