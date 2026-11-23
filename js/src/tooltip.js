@@ -109,7 +109,7 @@ const DefaultType = {
 class Tooltip extends BaseComponent {
   constructor(element, config) {
     if (typeof Popper === 'undefined') {
-      throw new TypeError('CoreUI\'s dropdowns require Popper (https://popper.js.org/docs/v2/)')
+      throw new TypeError('CoreUI\'s tooltips require Popper')
     }
 
     super(element, config)
