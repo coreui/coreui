@@ -576,6 +576,23 @@ class Tooltip extends BaseComponent {
     return Object.values(this._activeTrigger).includes(true)
   }
 
+  _getConfig(config) {
+    const dataAttributes = {}
+
+    if (this._element.getAttribute('data-coreui-title') !== null) {
+      dataAttributes.title = this._element.getAttribute('data-coreui-title')
+    }
+
+    if (this._element.getAttribute('data-coreui-content') !== null) {
+      dataAttributes.content = this._element.getAttribute('data-coreui-content')
+    }
+
+    return super._getConfig({
+      ...dataAttributes,
+      ...(typeof config === 'object' ? config : {})
+    })
+  }
+
   _configAfterMerge(config) {
     config.container = config.container === false ? document.body : getElement(config.container)
 

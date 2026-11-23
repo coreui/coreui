@@ -58,6 +58,42 @@ describe('Popover', () => {
   })
 
   describe('show', () => {
+    it('should show literal content when the data title is empty', () => {
+      fixtureEl.innerHTML = '<button data-coreui-title="" data-coreui-content="9.90"></button>'
+      const element = fixtureEl.querySelector('button')
+      const popover = new Popover(element, { animation: false, trigger: 'manual' })
+
+      popover.show()
+
+      expect(document.querySelector('.popover-header')).toBeNull()
+      expect(document.querySelector('.popover-body').textContent).toEqual('9.90')
+      popover.dispose()
+    })
+
+    it('should prefer explicit text options over data attributes', () => {
+      fixtureEl.innerHTML = '<button data-coreui-title="9.90" data-coreui-content="null"></button>'
+      const element = fixtureEl.querySelector('button')
+      const popover = new Popover(element, { title: 'Explicit title', content: 'Explicit content' })
+
+      expect(popover._config.title).toEqual('Explicit title')
+      expect(popover._config.content).toEqual('Explicit content')
+      popover.dispose()
+    })
+
+    it('should sanitize HTML from the raw content attribute', () => {
+      const element = document.createElement('button')
+      element.setAttribute('data-coreui-content', '<b onclick="alert(1)">Help</b><script>alert(1)</script>')
+      element.setAttribute('data-coreui-sanitize', 'false')
+      fixtureEl.append(element)
+      const popover = new Popover(element, { animation: false, html: true, trigger: 'manual' })
+
+      popover.show()
+
+      const body = document.querySelector('.popover-body')
+      expect(body.innerHTML).toEqual('<b>Help</b>')
+      popover.dispose()
+    })
+
     it('should toggle a popover after show', () => {
       return new Promise(resolve => {
         fixtureEl.innerHTML = '<a href="#" title="Popover" data-coreui-content="https://x.com/getbootstrap">BS X</a>'
